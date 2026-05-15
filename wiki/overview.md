@@ -1,17 +1,108 @@
 ---
 title: "Overview"
 type: synthesis
-tags: []
-sources: []
-last_updated: ""
+tags: [synthesis]
+sources: [all]
+last_updated: 2026-05-10
 ---
 
 # Overview
 
-*This page is maintained by the LLM. It is updated on every ingest to reflect the current synthesis across all sources.*
+*Living synthesis across all sources. Updated on every ingest.*
 
-No sources ingested yet. Add your first source with:
+This wiki holds three distinct corpora as of **2026-05-10**: a structured math knowledge base from algebrica.org (80 pages), a fast-moving cluster of 2026 LLM/AI research papers (14+ arxiv PDFs) anchored by the foundational sequence-modeling and pretraining papers [[1409.3215-seq2seq]] (2014), [[1706.03762-attention-is-all-you-need]] (2017) and [[1810.04805-bert]] (2018), and Christoph Molnar's *Interpretable Machine Learning* book (35 chapters). They exemplify three complementary uses for the wiki: a reference graph for stable foundational knowledge, a research log, and a textbook-grade canonical reference for a single domain.
 
-```bash
-python tools/ingest.py raw/your-source.md
-```
+---
+
+## I. Mathematics corpus (80 pages, algebrica.org)
+
+The math sources span eleven domains, organized roughly from foundations upward:
+
+| Domain | Sources | Anchors |
+|---|---|---|
+| Sets & numbers | 12 | [[sets]], [[types-of-numbers]], [[natural-numbers]], [[integers]], [[real-numbers]], [[supremum-and-infimum]], [[intervals]], [[absolute-value]], [[modulo-operator]], [[factorial]], [[binomial-coefficient]], [[properties-of-real-numbers]] |
+| Algebraic structures | 5 | [[groups]], [[rings]], [[fields]], [[vector-spaces]], [[modules]] |
+| Powers / radicals / logs | 3 | [[powers]], [[radicals]], [[logarithms]] |
+| Polynomials | 13 | [[polynomials]], [[monomials]], [[binomials]], [[trinomials]], [[adding-and-subtracting-polynomials]], [[polynomial-division]], [[synthetic-division-method]], [[partial-fraction-decomposition]], [[notable-products]], [[completing-the-square]], [[factoring-polynomials-ac-method]], [[binomial-theorem]], [[roots-of-a-polynomial]], [[vieta-formulas]] |
+| Equations | 8 | [[equations]], [[linear-equations]], [[linear-equations-with-parameters]], [[quadratic-equations]], [[incomplete-quadratic-equations]], [[factoring-quadratic-equations]], [[quadratic-formula]], [[polynomial-equations]] |
+| Linear systems | 1 | [[rouche-capelli-theorem]] |
+| Vectors & matrices | 8 | [[vectors]], [[matrices]], [[determinant-of-a-square-matrix]], [[rank-of-a-matrix]], [[inverse-matrix]], [[linear-combinations]], [[eigenvalues-and-eigenvectors]], [[matrix-diagonalization]] |
+| Trigonometry | 15 | [[unit-circle]], [[sine-and-cosine]], [[tangent-and-cotangent]], [[secant-and-cosecant]], [[arcsine-and-arccosine]], [[arctangent-and-arccotangent]], [[hyperbolic-sine-and-cosine]], [[hyperbolic-tangent-and-cotangent]], [[trigonometric-identities]], [[pythagorean-identity]], [[pythagorean-theorem]], [[reduction-formulas-and-reference-angles]], [[right-triangle-trigonometry]], [[the-law-of-sines]], [[the-law-of-cosines]] |
+| Complex numbers | 7 | [[complex-numbers]], [[operations-with-complex-numbers]], [[complex-numbers-in-trigonometric-form]], [[complex-numbers-in-exponential-form]], [[de-moivre-theorem]], [[roots-of-unity]], [[fundamental-inequalities-for-complex-numbers]] |
+| Limits | 1 | [[remarkable-limits]] |
+| Integrals | 6 | [[indefinite-integrals]], [[definite-integrals]], [[integration-by-parts]], [[integration-by-substitution]], [[finding-areas-by-integration]], [[riemann-integrability-criteria]] |
+
+**Spine of the graph.** Number systems extend in nested layers ([[types-of-numbers]] → [[natural-numbers]] → [[integers]] → [[real-numbers]] → [[complex-numbers]]) and feed every other branch. Algebraic structures ([[groups]] → [[rings]] → [[fields]]) generalize the operations on those number systems and ground the linear algebra block. Polynomials sit at the junction: as ring elements (algebraic structure side) and as solution objects for [[equations]] / [[polynomial-equations]] / [[roots-of-a-polynomial]]. Trigonometry connects geometry with [[complex-numbers-in-exponential-form]] and the [[unit-circle]] feeds back into [[eigenvalues-and-eigenvectors]] and rotation matrices. Calculus appears via [[remarkable-limits]] and the integral suite ([[definite-integrals]] / [[indefinite-integrals]] / [[integration-by-parts]] / [[integration-by-substitution]]).
+
+**Forward references.** Source pages reference ~150 concepts that have no source in `raw/` — e.g. [[functions]], [[continuousfunctions]], [[derivatives]], [[exponentialfunction]], [[lines]], [[limits]], [[principleofmathematicalinduction]]. These are recorded as **stub concept pages** under `wiki/concepts/`. Future ingests should target these high-incoming-link stubs first.
+
+---
+
+## II. AI / LLM research corpus (20 papers; 4 foundational + 1 scaling + 1 systems + 1 frontier-template + 1 position + 12 from 2026)
+
+The 2026 cluster orbits a shared question: *given strong base LLMs, where should the next axis of capability come from — better RL signals, better orchestration, better memory, better tooling, or better security boundaries?* That question presupposes both a base architecture — the **[[Transformer]]**, introduced in [[1706.03762-attention-is-all-you-need]] (Vaswani et al., 2017) — and a training recipe: **unsupervised pretraining followed by supervised fine-tuning**, established for NLP by [[1810.04805-bert]] (Devlin et al., 2018) and ablated end-to-end at scale by **[[t5]]** in [[1910.10683-t5]] (Raffel et al., 2020). The Transformer paper in turn inherits the **encoder-decoder seq2seq framing** of [[1409.3215-seq2seq]] (Sutskever, Vinyals & Le, 2014) — the first pure neural system to beat a phrase-based SMT baseline at scale, and the moment recurrent encoder-decoders displaced classical SMT. T5 closes that loop by demonstrating empirically (vs decoder-only and prefix-LM at matched compute) that the *encoder-decoder* structure of the original Transformer was the right call all along, and by introducing the [[c4]] corpus and the [[texttotextframework]] unifying interface that prompt-based LLMs would later generalize. The progression `SMT → recurrent seq2seq → attention-only Transformer → BERT pretrain-then-finetune → T5 unified text-to-text + C4` plays out across WMT translation and GLUE/SQuAD benchmarks; all four foundational papers now anchor this corpus, and their core ideas — [[SeqToSeq]], [[LSTM]], [[BeamSearch]], [[EncoderDecoder]], [[SelfAttention]], [[MultiHeadAttention]], [[ScaledDotProductAttention]], [[PositionalEncoding]], [[BERT]], [[MaskedLanguageModel]], [[NextSentencePrediction]], [[WordPiece]], [[SpanCorruption]], [[c4]], [[texttotextframework]], [[SentencePiece]] — appear (often unstated) inside every later result.
+
+A **scaling** layer sits between the architecture papers and everything later: [[2001.08361-scaling-laws]] (Kaplan, McCandlish et al., OpenAI + [[JohnsHopkinsUniversity]], 2020) supplies the empirical **[[PowerLaw]] argument** that pretraining loss falls as a clean power law in non-embedding parameter count $N$, dataset size $D$, and compute $C$ over 7+ orders of magnitude. The paper's prescription — *very large models, modest data, stop short of convergence* — is the [[ComputeEfficientTraining]] regime ($N \propto C^{0.73}$, $S \propto C^{0.03}$) that justifies the GPT-3-and-beyond scale-up. Every later paper in this corpus implicitly assumes a base model trained inside this envelope; [[2312.11805-gemini]]'s three-size family, the agentic-model training budgets in [[2604.21590-agenticqwen]], and the pretraining-stage interventions of [[2601.21343-self-improving-pretraining]] all take [[ScalingLaws]] as background. Notably, the paper's same data-vs-params exponent is *not* what later "Chinchilla" work would land on — a known live tension between this 2020 result and subsequent revisions.
+
+A **systems** layer sits below the scaling argument and above the 2026 application papers: [[2205.14135-flashattention]] (Dao et al., 2022) makes the standard attention operation **IO-aware** — a single fused CUDA kernel using tiling and recomputation that runs many times faster than the naive implementation without changing what the model computes. [[FlashAttention]] is now the default attention kernel behind essentially every modern Transformer; the long-context behavior assumed by the 2026 papers' agentic harnesses, productivity simulations, and long-horizon RL training (see [[2604.28181-synthetic-computers-at-scale]], [[2605.02572-long-horizon-llm-training]]) is what FlashAttention's [[IOComplexity]] reduction made affordable. It is the load-bearing exception to the rule that subsequent results "just inherit" the 2017 Transformer: the kernel is genuinely different even though the math is the same.
+
+[[2312.11805-gemini]] (Gemini Team, [[GoogleDeepMind]], 2023) sits a layer above: it doesn't define new architectural primitives but instead establishes the **frontier-multimodal-deployment template** that the 2026 papers tacitly assume — a three-size model family (Ultra / Pro / Nano), [[NativeMultimodality|native multimodality]] across text/image/audio/video, an [[RLHF]] data flywheel, structured responsible-deployment review, and a [[DangerousCapabilities]] evaluation suite. Where the 2017 paper supplies the *substrate*, the 2023 Gemini report supplies the *production target*: when subsequent work on agentic harnesses, memory, or skill verification mentions a "frontier base model", they mean a Gemini- or Claude- or GPT-4-class system trained along these lines.
+
+A **position-paper** layer sits orthogonal to the architecture/scaling/systems stack and supplies the field's most explicit *capability-claim audit*: [[2402.01817-llm-modulo]] (Kambhampati et al., [[ArizonaStateUniversity]], ICML 2024) argues that autoregressive LLMs — being constant-time-per-token approximate retrievers, i.e. a pseudo-[[System1And2|System 1]] — **cannot plan or self-verify autonomously**. The empirical case is [[PlanBench]]: across GPT-4o/4-Turbo/4/Claude-3-Opus/Gemini-Pro/LLaMA-3 70B, only ~12% of [[Blocksworld]] plans execute on average, and renaming actions/objects (the "Mystery BW" obfuscation) collapses every model to near-zero — proof of approximate retrieval rather than planning. The constructive proposal is the [[LLMModuloFramework]]: a Generate-Test-Critique loop where the LLM proposes candidate plans (and helps acquire domain models, reformulate between syntaxes, refine specs, enumerate critics) while a bank of *external* sound critics — hard model-based verifiers like [[PDDL|VAL]] plus soft style critics — judge and back-prompt. Soundness is inherited from the hard critics; LLMs are never ascribed [[SelfVerification|verification]] competence. This is the wiki's reference counter-claim against any 2026-corpus reading that ascribes autonomous planning competence to LLMs (see in particular the agentic-harness, RSI, and coordination papers below); it also reframes [[TreeOfThoughts]], [[Reflexion]], [[react]] and [[ChainOfThought]] as *prompt-diversification* on top of problem-specific external verifiers, and the simulator-in-the-loop RL line ([[Voyager]], AlfWorld) as *LLM-Modulo instances* where the simulator plays the verifier role. [[PolanyisRevenge]] is the supporting framing: LLMs deliver tacit knowledge cheaply, paying only the price of forfeiting correctness — which the external-critic bank then restores.
+
+| Paper | Lab | Position |
+|---|---|---|
+| [[1409.3215-seq2seq]] | [[Google]] (Brain) | **Seq2seq learning** with deep [[LSTM]] encoder-decoders; first pure neural system to beat phrase-based SMT (WMT'14 EN→FR, BLEU 34.81 vs 33.30). Direct architectural predecessor of the Transformer. |
+| [[1706.03762-attention-is-all-you-need]] | [[Google]] (Brain + Research) + U Toronto | The **Transformer**: attention-only sequence transduction; SOTA WMT 2014 EN-DE/EN-FR; foundation of every later LLM. |
+| [[1810.04805-bert]] | [[Google]] (AI Language) | **BERT**: deep bidirectional Transformer encoder pre-trained with [[MaskedLanguageModel]] + [[NextSentencePrediction]]; SOTA on 11 NLP tasks; defines the pretrain-then-finetune NLP paradigm. |
+| [[1910.10683-t5]] | [[Google]] | **T5** + [[c4]] + [[texttotextframework]]: encoder-decoder Transformer pre-trained with [[spancorruption]] on the 745 GB C4 corpus, every task cast as string→string with a prefix prompt. Definitive 2020-era controlled ablation of NLP transfer learning; T5-11B reaches SOTA on 18/24 tasks (GLUE 90.3, SuperGLUE 88.9). |
+| [[2001.08361-scaling-laws]] | [[OpenAI]] + [[JohnsHopkinsUniversity]] | **Scaling Laws**: empirical power-law scaling of Transformer LM cross-entropy loss in $N$, $D$, $C$ over 7+ orders of magnitude; architecture is second-order. Derives the compute-efficient training regime ($N \propto C^{0.73}$, $S \propto C^{0.03}$) — the quantitative basis for scaling LLMs up rather than training them longer. |
+| [[2205.14135-flashattention]] | [[StanfordUniversity]] / [[HazyResearch]] | **FlashAttention**: IO-aware exact attention via tiling + recomputation. 7.6× over standard PyTorch on GPT-2; first Transformer to beat chance on Path-X (16K). Default attention kernel for every modern Transformer; what makes long context affordable. |
+| [[2312.11805-gemini]] | [[GoogleDeepMind]] | **Gemini 1.0** (Ultra/Pro/Nano): natively-multimodal Transformer decoders; first model to exceed human-expert MMLU (90.04%); SOTA on 30/32 reported benchmarks; defines the frontier-multimodal-deployment template. |
+| [[2402.01817-llm-modulo]] | [[ArizonaStateUniversity]] | **Position paper** (ICML 2024): LLMs are pseudo-[[System1And2|System 1]] and cannot plan or self-verify ([[PlanBench]]: ~12% [[Blocksworld]], ~0% Mystery BW), but in an **[[LLMModuloFramework]]** (Generate-Test-Critique with external sound critics like [[PDDL|VAL]]) they reach 82% Blocksworld and 6× over CoT/ReAct on TravelPlanner. Soundness inherited from critics, not the LLM. |
+| [[2512.04388-conductor]] | [[sakanaai]] | Coordination should be **learned end-to-end** by a small RL'd Conductor. |
+| [[2601.21343-self-improving-pretraining]] | [[fair]] / [[meta]] | Push safety / factuality / quality into **pretraining itself** via judge+rewriter teacher. |
+| [[2604.21590-agenticqwen]] | [[alibaba]] | Small (8B/30B) agentic models are viable via **dual data flywheels** (reasoning errors + behavior-tree expansion). |
+| [[2604.22748-agentic-world-modeling]] | HKUST + NUS + Oxford et al. | A **levels × laws** taxonomy (L1 Predictor / L2 Simulator / L3 Evolver × physical/digital/social/scientific) unifies world-modeling research. |
+| [[2604.25067-frontier-coding-agents-c4]] | [[universityofchicago]] | Replicating past AI breakthroughs is an **early-warning signal for RSI**; Opus 4.7 dominates. |
+| [[2604.27707-agentic-memory-is-a-memo]] | [[chineseuniversityofhongkong]] / [[zhejianguniversity]] | "Agentic memory" is **lookup, not memory**; provable Ω(k²) generalization gap; persistent prompt-injection compromise. |
+| [[2604.28181-synthetic-computers-at-scale]] | [[microsoft]] | **Synthesize the context, not the task**: persona → user profile → populated computer → 8h / 2,000-turn productivity simulations. |
+| [[2605.00424-skills-as-verifiable-artifacts]] | [[metereconsulting]] | Skills are **untrusted code until verified**; biconditional correctness criterion + fixed verification-level enum. |
+| [[2605.02396-heavyskill]] | [[meituan]] / [[pekinguniversity]] | Apparent harness gains come from an **internalizable inner skill** (parallel-reason → deliberate). |
+| [[2605.02572-long-horizon-llm-training]] | [[yonseiuniversity]] / [[microsoftresearch]] | **Horizon length** is an independent training bottleneck; horizon reduction stabilizes RL. |
+| [[2605.03310-coordination-architectural-layer]] | [[devnullfzco]] | Coordination should be a **declarative architectural layer** with information-controlled evaluation. |
+| [[2605.03808-agentic-imodels]] | [[microsoftresearch]] / [[nationaluniversityofsingapore]] | Build **agent-interpretable** tools, optimized via autoresearch loops. |
+
+**Six live tensions.**
+
+1. **Where does coordination live?** [[2512.04388-conductor]] argues *learn it inside one RL model*. [[2605.03310-coordination-architectural-layer]] argues *expose it as a separately specifiable layer*. [[2605.02396-heavyskill]] takes a third position: *collapse it into a single model's inner skill*.
+
+2. **When should training-stage interventions happen?** [[2601.21343-self-improving-pretraining]] pushes RL + judge upstream into pretraining. [[2605.02572-long-horizon-llm-training]] pushes for a structural simplification (horizon reduction) at the RL stage. [[2605.02396-heavyskill]] uses RLVR to scale an inference-time pattern. [[2604.21590-agenticqwen]] continually generates harder data via dual flywheels.
+
+3. **What counts as RSI early warning?** [[2604.25067-frontier-coding-agents-c4]] proposes replication of past AI breakthroughs as a leading indicator, distinct from METR's time-horizon trendline and the broader Epoch Capabilities Index.
+
+4. **Where does *memory* live?** [[2604.27707-agentic-memory-is-a-memo]] proves retrieval-based memory has an Ω(k²) ceiling on compositional novelty no context size can fix; only weight consolidation crosses the gap. The synthetic-data papers ([[2604.21590-agenticqwen]], [[2604.28181-synthetic-computers-at-scale]]) are training-data plays that can in principle move signal into θ; the harness/orchestration papers do not.
+
+5. **Where does *trust* live?** [[2605.00424-skills-as-verifiable-artifacts]] argues skills are persistent prompt-injection vectors and demands biconditional-checked verification before relaxing HITL. The memory paper supplies the underlying security argument: persistent stores convert one-time injections into structurally permanent compromise.
+
+6. **Can LLMs plan / self-verify at all?** [[2402.01817-llm-modulo]] gives the sharpest *no*: PlanBench / Mystery BW evidence that LLMs do approximate plan retrieval rather than planning, and that iterative self-critique makes things *worse*. The remedy is to keep the LLM as candidate generator and route correctness through external sound critics ([[LLMModuloFramework]]). This is the wiki's standing counter-claim against any 2026 paper that frames agentic harnesses, recursive self-improvement, or "self-improvement via self-critique" as evidence of native LLM planning competence — read those results as **LLM-Modulo instances** where the simulator/test-suite/verifier supplies the soundness, not as evidence that the LLM itself plans.
+
+**Shared methodological substrate.** GRPO and its variants (DAPO, GSPO, CISPO) appear across multiple papers as the default RL backbone (see [[grpo]]). LLM-as-Judge appears at both pretraining ([[2601.21343-self-improving-pretraining]]) and evaluation ([[2605.03808-agentic-imodels]]) (see [[llmasjudge]]). Synthetic data / persona-driven environments span [[2604.21590-agenticqwen]] and [[2604.28181-synthetic-computers-at-scale]]; the world-modeling survey ([[2604.22748-agentic-world-modeling]]) provides the conceptual scaffold against which these training environments can be classified (L1/L2/L3 × physical/digital/social/scientific).
+
+---
+
+## III. Interpretable Machine Learning (Molnar, 35 chapters)
+
+Christoph Molnar's textbook is ingested chapter-by-chapter under the `imlbook-` slug prefix. The book provides the canonical vocabulary for the interpretability question that runs through several papers in Corpus II ([[2605.03808-agentic-imodels]]'s simulatability metric, the trust-and-verification framing of [[2605.00424-skills-as-verifiable-artifacts]], the supply-chain critique of [[2605.03310-coordination-architectural-layer]]).
+
+**Structure.** The chapters cluster along three axes:
+- **Foundations:** [[imlbook-intro]], [[imlbook-interpretability]], [[imlbook-goals]], [[imlbook-evaluation]], [[imlbook-overview]], [[imlbook-data]], [[imlbook-storytime]], [[imlbook-what-is-machine-learning]], [[imlbook-future]].
+- **Inherently interpretable models:** [[imlbook-limo]] (linear models), [[imlbook-extend-lm]], [[imlbook-logistic]], [[imlbook-tree]], [[imlbook-rules]], [[imlbook-rulefit]].
+- **Model-agnostic methods.** Global attribution: [[imlbook-pdp]] (partial dependence), [[imlbook-ale]] (accumulated local effects), [[imlbook-feature-importance]], [[imlbook-lofo]], [[imlbook-interaction]], [[imlbook-decomposition]], [[imlbook-global]]. Local attribution: [[imlbook-ice]], [[imlbook-ceteris-paribus]], [[imlbook-lime]], [[imlbook-shapley]], [[imlbook-shap]], [[imlbook-anchors]], [[imlbook-counterfactual]], [[imlbook-influential]], [[imlbook-proto]]. Image / NN-specific: [[imlbook-cnn-features]], [[imlbook-pixel-attribution]], [[imlbook-detecting-concepts]], [[imlbook-adversarial]].
+
+**Why this corpus matters now.** The 2026 LLM-agent papers in Corpus II repeatedly invoke notions the book formalizes — *simulatability*, *feature attribution*, *counterfactual reasoning*, *evaluation of explanations*. [[imlbook-shap]] / [[imlbook-shapley]] supply the game-theoretic substrate that downstream agent-interpretability work in [[2605.03808-agentic-imodels]] re-purposes for LLM-readable models. [[imlbook-counterfactual]] and [[imlbook-anchors]] are referenced implicitly when modern papers talk about counterfactual explanations or scoped rules. Treat this corpus as a vocabulary bank: when a 2026 paper uses an interpretability term, the matching `imlbook-*` chapter is the canonical reference.
+
+- Run `python tools/health.py` first every session — structural integrity is cheap to check.
+- `python tools/lint.py` finds orphans, contradictions, stub-promotion candidates.
+- `python tools/build_graph.py` rebuilds `graph/graph.html` from the current `[[wikilinks]]`.
+- For new sources: drop into `raw/` (any of 20+ formats — see [[2605.03808-agentic-imodels]]'s autoresearch ethos for inspiration) and ask Claude to ingest.

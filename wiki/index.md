@@ -1,14 +1,504 @@
 # Wiki Index
 
-This file is maintained by the LLM. Updated on every ingest.
+Maintained by Claude Code. Updated on every ingest.
 
 ## Overview
 - [Overview](overview.md) — living synthesis across all sources
 
 ## Sources
+*153 entries.*
+
+- [Sequence to Sequence Learning with Neural Networks](sources/1409.3215-seq2seq.md) — Sutskever, Vinyals & Le (Google) introduce **sequence-to-sequence (seq2seq) learning**: an end-to-end neural approach…
+- [Attention Is All You Need](sources/1706.03762-attention-is-all-you-need.md) — Vaswani et al. (Google Brain + Google Research + University of Toronto) propose the **Transformer**, a sequence…
+- [BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](sources/1810.04805-bert.md) — Devlin, Chang, Lee & Toutanova (Google AI Language) introduce **BERT** — Bidirectional Encoder Representations from…
+- [Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer](sources/1910.10683-t5.md) — Raffel, Shazeer, Roberts et al. (Google) introduce **T5** — the Text-to-Text Transfer Transformer — along with the **C4** corpus and a unified text-to-text framework. Definitive 2020-era controlled ablation of every axis of NLP transfer learning; T5-11B reaches SOTA on 18 of 24 benchmarks (GLUE 90.3, SuperGLUE 88.9 — within 0.9 of human).
+- [Scaling Laws for Neural Language Models](sources/2001.08361-scaling-laws.md) — Kaplan, McCandlish et al. (OpenAI + Johns Hopkins) establish empirical **power-law scaling** of Transformer LM cross-entropy loss in $N$ (params), $D$ (tokens), $C$ (compute) across 7+ orders of magnitude; architecture shape is second-order. Derives the **compute-efficient training** regime — very large models, modest data, stop short of convergence — that anchored the GPT-3 era and successor scale-up.
+- [Position: LLMs Can't Plan, But Can Help Planning in LLM-Modulo Frameworks](sources/2402.01817-llm-modulo.md) — Kambhampati et al. ([[ArizonaStateUniversity]]) argue autoregressive LLMs cannot plan or self-verify autonomously (PlanBench: ~12% on Blocksworld, ~0% on Mystery BW) but can be enormously useful in an **LLM-Modulo Framework** — a Generate-Test-Critique loop where the LLM proposes candidates and external sound critics (e.g. VAL) supply correctness. 82% on Blocksworld via 15 backprompt rounds; 6× over CoT/ReAct on TravelPlanner.
+- [FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness](sources/2205.14135-flashattention.md) — Dao, Fu, Ermon, Rudra & Ré (Stanford + Buffalo SUNY) introduce **FlashAttention** — IO-aware, exact, fused-kernel attention. 7.6× speedup on GPT-2, first Transformer to beat chance on Path-X (16K); now the default attention implementation for modern Transformers.
+- [Gemini: A Family of Highly Capable Multimodal Models](sources/2312.11805-gemini.md) — Gemini Team, [[GoogleDeepMind]] introduce **Gemini 1.0** (Ultra / Pro / Nano) — natively-multimodal Transformer-decoder foundation models. First to exceed human-expert MMLU (90.04%); SOTA on 30/32 reported benchmarks; defines the frontier-multimodal-deployment template (three-size family, native multimodality, RLHF flywheel, dangerous-capabilities evaluation) adopted across the field.
+- [Learning to Orchestrate Agents in Natural Language with the Conductor](sources/2512.04388-conductor.md) — Sakana AI introduces the **Conductor**, a 7B reasoning model trained end-to-end with reinforcement learning to design…
+- [Self-Improving Pretraining: using post-trained models to pretrain better models](sources/2601.21343-self-improving-pretraining.md) — FAIR at Meta proposes **Self-Improving Pretraining**: replace next-token prediction with prefix-conditioned suffix…
+- [Co-Evolving LLM Decision and Skill Bank Agents for Long-Horizon Tasks](sources/2604.20987-cos-play.md) — Wu, Li, Shi et al. (Univ. of Maryland + USC + Good Start Labs + MBZUAI) introduce **COS-PLAY**, a multi-agent…
+- [AgenticQwen: Training Small Agentic Language Models with Dual Data Flywheels for Industrial-Scale Tool Use](sources/2604.21590-agenticqwen.md) — Lyu, Wang et al. (Alibaba) train **AgenticQwen** — a family of 8B / 30B Qwen-based agentic models — primarily on…
+- [From Skills to Talent: Organising Heterogeneous Agents as a Real-World Company](sources/2604.22446-onemancompany.md) — Yu, Fu, He et al. (Huawei Noah's Ark Lab + UCL + U Liverpool) introduce **OneManCompany (OMC)**, a framework that adds…
+- [Agentic World Modeling: Foundations, Capabilities, Laws, and Beyond](sources/2604.22748-agentic-world-modeling.md) — Chu, Zhang, Lin et al. (HKUST + NUS + Oxford + NTU + CUHK + HKU + UW + UTSD + SMU + HKUST-Guangzhou) survey **agentic…
+- [From Skill Text to Skill Structure: The Scheduling-Structural-Logical Representation for Agent Skills](sources/2604.24026-ssl-skill-representation.md) — Liang, Wang, Liang & Liu (Peking University) argue that the dominant SKILL.md text-heavy format collapses semantically…
+- [Frontier Coding Agents Can Now Implement an AlphaZero Self-Play ML Pipeline For Connect Four](sources/2604.25067-frontier-coding-agents-c4.md) — Sherwood, Aybar & Kaplan (U Chicago + independent) propose a benchmark for **recursive self-improvement (RSI)**…
+- [Agentic Harness Engineering: Observability-Driven Automatic Evolution of Coding-Agent Harnesses](sources/2604.25850-agentic-harness-engineering.md) — Lin, Liu, Pan et al. (Fudan + Peking U + Shanghai Qiji Zhifeng) introduce **Agentic Harness Engineering (AHE)** — a…
+- [Contextual Agentic Memory is a Memo, Not True Memory](sources/2604.27707-agentic-memory-is-a-memo.md) — Xu, Dai & Zhang (CUHK + Zhejiang U) argue that everything the field currently calls **agentic memory** — vector stores,…
+- [Synthetic Computers at Scale for Long-Horizon Productivity Simulation](sources/2604.28181-synthetic-computers-at-scale.md) — Ge, Peng, Cheng & Gao (Microsoft) introduce **Synthetic Computers at Scale**: a persona-driven methodology that…
+- [Skills as Verifiable Artifacts: A Trust Schema and a Biconditional Correctness Criterion for Human-in-the-Loop Agent Runtimes](sources/2605.00424-skills-as-verifiable-artifacts.md) — Alfredo Metere (Metere Consulting) argues a SKILL.md package is **untrusted code until verified**. Signature +…
+- [HEAVYSKILL: Heavy Thinking as the Inner Skill in Agentic Harness](sources/2605.02396-heavyskill.md) — Wang et al. (Meituan LongCat Team + Peking U) argue that the apparent gains of orchestrated agentic harnesses come not…
+- [On Training Large Language Models for Long-Horizon Tasks: An Empirical Study of Horizon Length](sources/2605.02572-long-horizon-llm-training.md) — Kim et al. (Yonsei + Microsoft Research) construct controlled tasks where reasoning complexity is held constant but…
+- [Coordination as an Architectural Layer for LLM-Based Multi-Agent Systems](sources/2605.03310-coordination-architectural-layer.md) — Nechepurenko & Shuvalov (Devnull FZCO) reframe coordination in LLM multi-agent systems as a **configurable…
+- [AGENTIC-IMODELS: Evolving agentic interpretability tools via autoresearch](sources/2605.03808-agentic-imodels.md) — Singh et al. (Microsoft Research + NUS) argue that interpretability tools used by Agentic Data Science (ADS) systems…
+- [Absolute value](sources/absolute-value.md) — The absolute value of a number represents its distance from zero on the number line, without considering its sign. It…
+- [Adding and Subtracting Polynomials](sources/adding-and-subtracting-polynomials.md) — Let ( R ) be a commutative ring and ( R[x] ) the ring of polynomials in one indeterminate over ( R ). Consider two…
+- [Arcsine and Arccosine](sources/arcsine-and-arccosine.md) — The arcsine is the inverse of the sine function. Given a number (x \in [-1, 1]) (i.e., the range of values the sine…
+- [Arctangent and Arccotangent](sources/arctangent-and-arccotangent.md) — In the unit circle, the tangent of an angle ( \theta ) can be visualized as the length of the segment tangent to the…
+- [Binomial Coefficient](sources/binomial-coefficient.md) — Given two non-negative natural numbers (k) and (n), the binomial coefficient denotes the number of ways to combine a…
+- [Binomial Theorem](sources/binomial-theorem.md) — The binomial theorem asserts that for any positive integer (n), the expression ((a+b)^n) can be expanded as a finite…
+- [Binomials](sources/binomials.md) — A binomial refers to a polynomial that contains exactly two non-zero terms. Its general form is expressed as ( (a + b))…
+- [Completing The Square](sources/completing-the-square.md) — Completing the square is a technique used to rewrite a quadratic polynomial in a form that reveals its structural…
+- [Complex Numbers in Exponential Form](sources/complex-numbers-in-exponential-form.md) — While the algebraic form ( z = a + bi ) is the most familiar representation of complex numbers, an alternative and…
+- [Complex Numbers in Trigonometric Form](sources/complex-numbers-in-trigonometric-form.md) — The algebraic form ( z = a + bi ) represents a complex number through its real and imaginary components directly. Every…
+- [Complex Numbers](sources/complex-numbers.md) — Complex numbers arise to overcome the limitations of the set of real numbers (\mathbb{R}), particularly the…
+- [De Moivre’s Theorem](sources/de-moivre-theorem.md) — Suppose we want to compute the power of a complex number ( z \in \mathbb{C} ). The most straightforward approach is to…
+- [Definite integrals](sources/definite-integrals.md) — Consider a function ( f(x) ) defined on a closed interval ( [a, b] ). The definite integral of ( f(x) ) over this…
+- [Determinant of a Square Matrix](sources/determinant-of-a-square-matrix.md) — To every square matrix of order ( n ) one can associate a real number called the determinant of the matrix, denoted (…
+- [Eigenvalues and Eigenvectors](sources/eigenvalues-and-eigenvectors.md) — A linear transformation, represented by a square matrix (A), acts on vectors by moving them in space. It can stretch,…
+- [Equations](sources/equations.md) — An equation is a mathematical statement asserting that two expressions take the same value, typically written in the…
+- [Factorial](sources/factorial.md) — The factorial of a non-negative integer (n), written (n!), is the product of all positive integers from (1) to (n):
+- [Factoring Polynomials: AC Method](sources/factoring-polynomials-ac-method.md) — A trinomial of the form ( ax^2 + bx + c ), where ( a, b, c \in \mathbb{Z} ) and ( a \neq 0 ), is considered factorable…
+- [Factoring Quadratic Equations](sources/factoring-quadratic-equations.md) — A quadratic equation in standard form is written as:
+- [Fields](sources/fields.md) — A field is an algebraic structure in which the operations of addition and multiplication are both fully invertible,…
+- [Finding Areas by Integration](sources/finding-areas-by-integration.md) — Building on the concept of definite integrals, which measure the area between a curve and the x-axis, we can extend the…
+- [Fundamental Inequalities for Complex Numbers](sources/fundamental-inequalities-for-complex-numbers.md) — A defining feature of the field ( \mathbb{C} ) is the absence of a total order compatible with its arithmetic…
+- [Groups](sources/groups.md) — A group is one of the most fundamental structures in abstract algebra. The concept arises when one isolates the…
+- [Hyperbolic Sine and Cosine](sources/hyperbolic-sine-and-cosine.md) — We have seen that the sine of an angle can be introduced geometrically by looking at how a point moves along the unit…
+- [Hyperbolic Tangent and Cotangent](sources/hyperbolic-tangent-and-cotangent.md) — The hyperbolic tangent and cotangent arise from the hyperbolic sine and cosine in exactly the same way that the…
+- [Adversarial Examples](sources/imlbook-adversarial.md) — An adversarial example is an instance with small, intentional feature perturbations that cause a machine learning model…
+- [Accumulated Local Effects (ALE)](sources/imlbook-ale.md) — Accumulated local effects [@apley2020visualizingeffects] describe how features influence the prediction of a machine…
+- [Scoped Rules (Anchors)](sources/imlbook-anchors.md) — *Authors: Tobias Goerke & Magdalena Lang (with later edits from Christoph Molnar)*
+- [Ceteris Paribus Plots](sources/imlbook-ceteris-paribus.md) — Ceteris paribus (CP) plots [@kuzba2019pyceterisparibus] visualize how changes in a single feature change the prediction…
+- [Learned Features](sources/imlbook-cnn-features.md) — Convolutional neural networks learn abstract features and concepts from raw image pixels. [Feature…
+- [Counterfactual Explanations](sources/imlbook-counterfactual.md) — *Authors: Susanne Dandl & Christoph Molnar*
+- [Data and Models](sources/imlbook-data.md) — freedman_diaconis <- function(x) {   iqr <- IQR(x)   n <- length(x)   bin_width <- 2 * iqr * n^(-1/3)   num_bins <-…
+- [Functional Decomposition](sources/imlbook-decomposition.md) — A supervised machine learning model can be viewed as a function that takes a high-dimensional feature vector as input…
+- [Detecting Concepts](sources/imlbook-detecting-concepts.md) — *Author: Fangzhou Li @ University of California, Davis*
+- [Evaluation of Interpretability Methods](sources/imlbook-evaluation.md) — This chapter is about the more advanced topic of how to evaluate interpretability methods. Evaluation is targeted at…
+- [GLM, GAM and more](sources/imlbook-extend-lm.md) — The biggest strength, but also the biggest weakness, of the [linear regression model](#limo) is that the prediction is…
+- [Permutation Feature Importance](sources/imlbook-feature-importance.md) — Permutation feature importance (PFI) measures the increase in the prediction error of the model after we permute the…
+- [The Future of Interpretability](sources/imlbook-future.md) — What's the future of interpretable machine learning? This chapter is a speculative mental exercise and a subjective…
+- [Surrogate Models](sources/imlbook-global.md) — A global surrogate model is an interpretable model that is trained to approximate the predictions of a black box model.…
+- [Goals of Interpretability](sources/imlbook-goals.md) — Interpretability is not an end in itself, but a means to an end. It depends on your specific goals which…
+- [Individual Conditional Expectation (ICE)](sources/imlbook-ice.md) — Individual Conditional Expectation (ICE) plots display one line per instance that shows how the instance's prediction…
+- [Influential Instances](sources/imlbook-influential.md) — Machine learning models are ultimately a product of training data, and deleting one of the training instances can…
+- [Feature Interaction](sources/imlbook-interaction.md) — When features interact with each other in a prediction model, the prediction cannot be expressed as the sum of the…
+- [Interpretability](sources/imlbook-interpretability.md) — This chapter introduces the concepts of interpretability. While it's difficult to define interpretability…
+- [Introduction](sources/imlbook-intro.md) — "What's 2 + 5?" asked teacher Wilhelm van Osten. The answer, of course, was 7. The crowd that had gathered to witness…
+- [LIME](sources/imlbook-lime.md) — get.ycomments.classifier = function(ycomments){   labeledTerms = prepare_data(ycomments$CONTENT)   labeledTerms$class =…
+- [Linear Regression](sources/imlbook-limo.md) — get_reference_dataset = function(dat){   df = lapply(dat, function(feature){     if(class(feature) == 'factor'){      …
+- [Leave One Feature Out (LOFO) Importance](sources/imlbook-lofo.md) — Leave One Feature Out (LOFO) Importance measures a feature's importance by retraining the model without the feature and…
+- [Logistic Regression](sources/imlbook-logistic.md) — Logistic regression models the probabilities for classification problems with two possible outcomes. It's an extension…
+- [Methods Overview](sources/imlbook-overview.md) — This chapter provides an overview of interpretability approaches. The goal is to give you a map so that when you dive…
+- [Partial Dependence Plot (PDP)](sources/imlbook-pdp.md) — The partial dependence plot (short PDP or PD plot) shows the marginal effect one or two features have on the predicted…
+- [Saliency Maps](sources/imlbook-pixel-attribution.md) — Pixel attribution methods highlight the pixels that were relevant for a certain image classification by a neural…
+- [Prototypes and Criticisms](sources/imlbook-proto.md) — A **prototype** is a data instance that is representative of all the data. A **criticism** is a data instance that is…
+- [RuleFit](sources/imlbook-rulefit.md) — The RuleFit algorithm [@friedman2008predictive] learns sparse linear models that include automatically detected…
+- [Decision Rules](sources/imlbook-rules.md) — A decision rule is a simple IF-THEN statement consisting of a condition (also called antecedent) and a prediction. For…
+- [SHAP](sources/imlbook-shap.md) — SHAP (SHapley Additive exPlanations) by @lundberg2017unified is a method to explain individual predictions. SHAP is…
+- [Shapley Values](sources/imlbook-shapley.md) — A prediction can be explained by assuming that each feature value of the instance is a "player" in a game where the…
+- [Storytime](sources/imlbook-storytime.md) — Each of the following short stories is an exaggerated call for interpretable machine learning. The format is inspired…
+- [Decision Tree](sources/imlbook-tree.md) — Plain linear regression and logistic regression models fail in situations where the relationship between features and…
+- [Machine Learning Terms](sources/imlbook-what-is-machine-learning.md) — To avoid confusion due to ambiguity, here are some definitions of terms used in this book:
+- [Incomplete Quadratic Equations](sources/incomplete-quadratic-equations.md) — A quadratic equation is considered incomplete when one or both of the terms (bx) and (c) are absent from the standard…
+- [Intefinite integrals](sources/indefinite-integrals.md) — Differentiation assigns to each function a unique derivative by definition. The inverse process asks whether, for a…
+- [Integers](sources/integers.md) — Among the different types of numbers, the integers emerge when we extend the natural numbers to include the additive…
+- [Integration by Parts](sources/integration-by-parts.md) — The method of integration by parts allows us to rewrite the integral of the product of two functions in a more…
+- [Integration by Substitution](sources/integration-by-substitution.md) — Integration by substitution is a technique used to simplify an integral by introducing a suitable substitution. When…
+- [Intervals](sources/intervals.md) — An interval is a subset of the real line with the property that, whenever two points belong to it, every point lying…
+- [Inverse Matrix](sources/inverse-matrix.md) — Given a square matrix of order ( n ), the inverse of ( A ), denoted ( A^{-1} ), is the matrix such that:
+- [Linear Combinations](sources/linear-combinations.md) — In linear algebra, a linear combination is the fundamental operation that relates vectors to one another within a given…
+- [Linear Equations with Parameters](sources/linear-equations-with-parameters.md) — A first-degree linear equation involving parameters is an equation in which the unknown variable appears only to the…
+- [Linear Equations](sources/linear-equations.md) — A linear equation in the unknowns (x_1, x_2, \ldots, x_n) is an algebraic equation of degree one, in which each…
+- [Logarithms](sources/logarithms.md) — If (a) and (b) are positive [real numbers](../../properties-of-real-numbers/), where (a \neq 1), the logarithm of (b)…
+- [Matrices](sources/matrices.md) — A matrix is a rectangular array of real numbers arranged in rows and columns. A matrix with ( m ) rows and ( n )…
+- [Matrix Diagonalization](sources/matrix-diagonalization.md) — A square matrix is said to be diagonalizable when it is possible to find a basis of the underlying vector space…
+- [Modules](sources/modules.md) — A module is the algebraic structure obtained by replacing the field of scalars in the definition of a vector space with…
+- [Modulo Operator](sources/modulo-operator.md) — The modulo operator is one of the most frequently used operations in integer arithmetic. Given two integers, it returns…
+- [Monomials](sources/monomials.md) — A monomial is an algebraic expression consisting of a single term. It is written as the product of a numerical…
+- [Natural Numbers](sources/natural-numbers.md) — Builds (\mathbb{N}) from two angles: axiomatically via the Peano axioms (P1–P5 with successor function and induction),…
+- [Notable Products](sources/notable-products.md) — Notable products are identities describing the expansion or factorisation of polynomials such as binomials or…
+- [ODS Ch.1: Introduction](sources/ods-01-introduction.md) — Motivates the need for efficient data structures: a million-item dataset queried a million times naïvely takes ~1000s…
+- [ODS Ch.2: Array-Based Lists](sources/ods-02-array-based-lists.md) — Implementations of the List and Queue interfaces backed by a single contiguous array. The fundamental tension: arrays…
+- [ODS Ch.3: Linked Lists](sources/ods-03-linked-lists.md) — Pointer-based implementations of the List interface. The trade-off vs. array-based: get(i)/set(i) become…
+- [ODS Ch.4: Skiplists](sources/ods-04-skiplists.md) — The skiplist is a beautiful randomized data structure that gives O(log n) expected time for all List and SSet…
+- [ODS Ch.5: Hash Tables](sources/ods-05-hash-tables.md) — Two hash-table implementations of the USet interface, plus a treatment of hash-code design. **ChainedHashTable** uses…
+- [ODS Ch.6: Binary Trees](sources/ods-06-binary-trees.md) — Foundational treatment of binary trees: a connected, undirected, finite graph with no cycles where no vertex has degree…
+- [ODS Ch.7: Random Binary Search Trees](sources/ods-07-random-binary-search-trees.md) — Two ways to use randomization to keep an unbalanced BinarySearchTree balanced in expectation. **Random Binary Search…
+- [ODS Ch.8: Scapegoat Trees](sources/ods-08-scapegoat-trees.md) — ScapegoatTree is a binary search tree balanced via **partial rebuilding**: when an insert causes a node to exceed the…
+- [ODS Ch.9: Red-Black Trees](sources/ods-09-red-black-trees.md) — Red-black trees are simulated 2-4 trees: BSTs in which each node is colored red or black, with two invariants — every…
+- [ODS Ch.10: Heaps](sources/ods-10-heaps.md) — Two implementations of the priority Queue. **BinaryHeap** uses an implicit complete binary tree stored as an array via…
+- [ODS Ch.11: Sorting Algorithms](sources/ods-11-sorting-algorithms.md) — Two parts. **Comparison-based sorting**: merge-sort, quicksort, heap-sort — three asymptotically-optimal Θ(n log n)…
+- [ODS Ch.12: Graphs](sources/ods-12-graphs.md) — Two graph representations and the two foundational traversal algorithms. **AdjacencyMatrix**: an n×n boolean matrix…
+- [ODS Ch.13: Data Structures for Integers](sources/ods-13-data-structures-for-integers.md) — SSet implementations specialized to w-bit integer keys. Three structures of strictly increasing sophistication.…
+- [ODS Ch.14: External Memory Searching](sources/ods-14-external-memory-searching.md) — Final chapter shifts the cost model. The **external memory model** (introduced in §14) charges only for block transfers…
+- [Operations with Complex Numbers](sources/operations-with-complex-numbers.md) — A complex number ( z ) is an expression of the form ( z = a + bi ), where ( a ) and ( b ) are real numbers and ( i ) is…
+- [Partial Fraction Decomposition](sources/partial-fraction-decomposition.md) — Partial fraction decomposition is a method that allows rewriting a rational function as a sum of fractions, based on…
+- [Polynomial Division](sources/polynomial-division.md) — Let (P(x)) and (D(x)) be polynomials in (\mathbb{R}[x]) with (D(x) \neq 0). The division algorithm asserts the…
+- [Polynomial equations](sources/polynomial-equations.md) — A polynomial equation is an equation in which one side consists of a polynomial expression and the other is zero. The…
+- [Polynomials](sources/polynomials.md) — Let (\mathbb{R}) represent the field of real numbers. A polynomial in one variable (x) with coefficients in…
+- [Powers](sources/powers.md) — Powers are mathematical operations that show how many times a number is to be multiplied by itself. The standard way of…
+- [Properties of Real Numbers](sources/properties-of-real-numbers.md) — Before discussing the algebraic properties of real numbers, it is essential to clarify how operations are performed in…
+- [Pythagorean Identity](sources/pythagorean-identity.md) — The Pythagorean identity is an equation that connects trigonometry and geometry, and it derives directly from the…
+- [Pythagorean Theorem](sources/pythagorean-theorem.md) — The Pythagorean theorem states that in every right triangle, the square of the hypotenuse is equal to the sum of the…
+- [Quadratic Equations](sources/quadratic-equations.md) — A quadratic equation is a second-degree polynomial equation in one variable. Its standard form is the following:
+- [Quadratic Formula](sources/quadratic-formula.md) — Given a quadratic equation in standard form (ax^2 + bx + c = 0), the quadratic formula provides an explicit expression…
+- [Radicals](sources/radicals.md) — Radicals emerge from the problem of solving equations of the form ( x^n = a ), where ( n \in \mathbb{N} ), ( n \ge 2 ),…
+- [Rank of a Matrix](sources/rank-of-a-matrix.md) — The rank of a matrix ( A ), denoted ( r(A) ) or ( mathrm{rank}(A) ), is the maximum number of linearly independent rows…
+- [Real Numbers](sources/real-numbers.md) — The real numbers are introduced as a structure characterised by a combination of algebraic and order properties. These…
+- [Reduction Formulas and Reference Angles](sources/reduction-formulas-and-reference-angles.md) — Given an angle ( \theta ) in standard position on the unit circle, the acute angle formed between its terminal side and…
+- [Remarkable Limits](sources/remarkable-limits.md) — Notable limits play a central role in mathematical analysis. They are used in calculations and help describe both the…
+- [Riemann Integrability Criteria](sources/riemann-integrability-criteria.md) — The Riemann integral is built to measure the net area under a bounded function on a closed interval by approximating it…
+- [Right Triangle Trigonometry](sources/right-triangle-trigonometry.md) — Trigonometry studies the relationships between angles and sides of triangles, and the right triangle is where the basic…
+- [Rings](sources/rings.md) — A ring is an algebraic structure that extends the notion of a group by introducing a second binary operation. The…
+- [Roots of a Polynomial](sources/roots-of-a-polynomial.md) — Let (p(x)) be a polynomial with coefficients in a field (\mathbb{F}), typically (\mathbb{R}) or (\mathbb{C}). A root,…
+- [Roots of Unity](sources/roots-of-unity.md) — Given a positive integer (n), a root of unity of order (n) is a complex number  (z) satisfying the equation \
+- [Rouché-Capelli Theorem](sources/rouche-capelli-theorem.md) — The Rouché-Capelli theorem characterizes the solvability of a linear system in terms of two matrix invariants: the rank…
+- [Secant and Cosecant](sources/secant-and-cosecant.md) — Consider the unit circle centered at the origin (\text{O} = (0,0)) with radius (1). Let (\theta) be an angle in…
+- [Sets](sources/sets.md) — Foundational treatment of sets: definitions (enumeration vs set-builder), cardinality, subsets, power sets, partitions,…
+- [Sine and Cosine](sources/sine-and-cosine.md) — Sine and cosine are the two primary trigonometric functions. Given an oriented angle ( \theta ), represented on the…
+- [Supremum and Infimum](sources/supremum-and-infimum.md) — Although real numbers are frequently introduced via their algebraic properties, the essential distinction between (…
+- [The Synthetic Division Method](sources/synthetic-division-method.md) — The synthetic division (or Ruffini's rule) is a method for dividing a polynomial by a binomial of the form ((x - a)).…
+- [Tangent and Cotangent](sources/tangent-and-cotangent.md) — Tangent and cotangent are two trigonometric ratios derived from sine and cosine. Given an oriented angle (\theta), the…
+- [The Law of Cosines](sources/the-law-of-cosines.md) — The law of cosines relates the sides of any triangle through the angle opposite to one of them. It can be viewed as a…
+- [The Law of Sines](sources/the-law-of-sines.md) — The law of sines states that in any triangle, the ratio between the length of a side and the sine of its opposite angle…
+- [Trigonometric Identities](sources/trigonometric-identities.md) — A trigonometric identity is an equation involving trigonometric functions that holds for every admissible value of the…
+- [Trinomials](sources/trinomials.md) — A trinomial is defined as a polynomial consisting of exactly three non-zero, pairwise distinct terms. More generally,…
+- [Types of Numbers](sources/types-of-numbers.md) — Survey of the nested numerical systems (\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R} \subset…
+- [Unit Circle](sources/unit-circle.md) — The unit circle (or the trigonometric circle) is a circle of radius one centered at the origin of the Cartesian plane.…
+- [Vector Spaces](sources/vector-spaces.md) — A vector space is an algebraic structure that formalises the idea of quantities that can be scaled and combined…
+- [Vectors](sources/vectors.md) — A vector is a quantity characterised by both a magnitude and a direction, in contrast to a scalar, which is described…
+- [Vieta's Formulas](sources/vieta-formulas.md) — Given a polynomial equation with assigned roots, the coefficients are not free parameters and are determined, up to a…
 
 ## Entities
+*29 fleshed, 23 stubs.*
+
+- [Anthropic](entities/anthropic.md) — 
+- [Arizona State University](entities/ArizonaStateUniversity.md) — Kambhampati's Yochan automated-planning lab; home of the LLM-can't-plan critique and the LLM-Modulo Framework.
+- [Chinese University of Hong Kong](entities/chineseuniversityofhongkong.md) — 
+- [Claude Code](entities/claudecode.md) — 
+- [Claude Cowork](entities/claudecowork.md) — 
+- [Claude Opus 4.7](entities/claudeopus47.md) — 
+- [Cursor](entities/cursor.md) — 
+- [Devnull FZCO](entities/devnullfzco.md) — 
+- [Enclawed](entities/enclawed.md) — 
+- [FAIR](entities/fair.md) — 
+- [Gemini](entities/gemini.md) — 
+- [Google](entities/google.md) — 
+- [Google DeepMind](entities/googledeepmind.md) — 
+- [Hazy Research](entities/hazyresearch.md) — Christopher Ré's lab at Stanford; home of FlashAttention and the Mamba/SSM line.
+- [Johns Hopkins University](entities/johnshopkinsuniversity.md) — Jared Kaplan's home institution; co-author of the foundational scaling-laws paper.
+- [Meituan](entities/meituan.md) — 
+- [Meta](entities/meta.md) — 
+- [Metere Consulting](entities/metereconsulting.md) — 
+- [Microsoft](entities/microsoft.md) — 
+- [Microsoft Research](entities/microsoftresearch.md) — 
+- [National University of Singapore](entities/nationaluniversityofsingapore.md) — 
+- [OpenAI](entities/openai.md) — 
+- [Peking University](entities/pekinguniversity.md) — 
+- [Sakana AI](entities/sakanaai.md) — 
+- [Stanford University](entities/stanforduniversity.md) — Origin of FlashAttention (Dao et al. 2022) and the Hazy Research efficient-sequence-modeling line.
+- [Subbarao Kambhampati](entities/SubbaraoKambhampati.md) — ASU planning researcher; leading skeptic of LLM autonomous planning; proposer of the LLM-Modulo Framework.
+- [University of Chicago](entities/universityofchicago.md) — 
+- [Yonsei University](entities/yonseiuniversity.md) — 
+- [Zhejiang University](entities/zhejianguniversity.md) — 
+
+### Entity stubs
+- [Alpha Evolve](entities/alphaevolve.md)
+- [Alpha Zero](entities/alphazero.md)
+- [AWSStrands](entities/awsstrands.md)
+- [BLADE](entities/blade.md)
+- [Claude Opus46](entities/claudeopus46.md)
+- [Codex](entities/codex.md)
+- [Copilot CLI](entities/copilotcli.md)
+- [Cybench](entities/cybench.md)
+- [Deep Seek R1](entities/deepseekr1.md)
+- [Epoch Capabilities Index](entities/epochcapabilitiesindex.md)
+- [Foresight Arena](entities/foresightarena.md)
+- [GPQA](entities/gpqa.md)
+- [GPT54](entities/gpt54.md)
+- [ICML2026](entities/icml2026.md)
+- [Imodels Library](entities/imodelslibrary.md)
+- [Kimi K2](entities/kimik2.md)
+- [Live Code Bench](entities/livecodebench.md)
+- [MAST](entities/mast.md)
+- [METR](entities/metr.md)
+- [Microsoft Foundry Agent Service](entities/microsoftfoundryagentservice.md)
+- [Pa Co Re](entities/pacore.md)
+- [Polymarket](entities/polymarket.md)
+- [Scikit Learn](entities/scikitlearn.md)
 
 ## Concepts
+*90 fleshed, 182 stubs.*
+
+- [Adapter Layers](concepts/adapterlayers.md) — Parameter-efficient fine-tuning via small bottleneck blocks inserted into Transformer FFN sub-layers; ablated against full fine-tuning in T5.
+- [Adversarial Ensemble](concepts/adversarialensemble.md) — 
+- [Agentic Harness](concepts/agenticharness.md) — 
+- [Agentic Reinforcement Learning](concepts/agenticreinforcementlearning.md) — 
+- [AlphaZero](concepts/alphazero.md) — 
+- [Autoresearch](concepts/autoresearch.md) — 
+- [Beam Search](concepts/beamsearch.md) — 
+- [Bell-La Padula](concepts/belllapadula.md) — 
+- [BERT](concepts/bert.md) — 
+- [Biconditional Correctness](concepts/biconditionalcorrectness.md) — 
+- [BLEU](concepts/bleu.md) — 
+- [Blocksworld](concepts/Blocksworld.md) — Canonical classical-planning domain; PlanBench shows LLMs solve 11–59% zero-shot and 0–4% on the obfuscated *Mystery BW* variant — the smoking-gun retrieval-not-planning result.
+- [C4](concepts/c4.md) — 745 GB heuristically-filtered Common Crawl corpus released with T5; the canonical large diverse web-text pre-training data set.
+- [Capability Gate](concepts/capabilitygate.md) — 
+- [Chain-of-Thought](concepts/chainofthought.md) — 
+- [COGS](concepts/cogs.md) — 
+- [Complementary Learning Systems](concepts/complementarylearningsystems.md) — 
+- [Continual Learning](concepts/continuallearning.md) — 
+- [Coordination Layer](concepts/coordinationlayer.md) — 
+- [Compute-Efficient Training](concepts/computeefficienttraining.md) — The fixed-compute training regime derived from scaling laws: very large models, modest data, stop short of convergence.
+- [Encoder-Decoder](concepts/encoderdecoder.md) — 
+- [Experiential Learning](concepts/experientiallearning.md) — 
+- [Fano's Inequality](concepts/fanosinequality.md) — 
+- [FlashAttention](concepts/flashattention.md) — IO-aware exact attention via tiling + recomputation; the default attention kernel for modern Transformers.
+- [Generative Agents](concepts/generativeagents.md) — 
+- [GPU Memory Hierarchy](concepts/gpumemoryhierarchy.md) — SRAM vs HBM vs DRAM tiers; the asymmetry that makes IO-awareness pay off on modern accelerators.
+- [Gradual Unfreezing](concepts/gradualunfreezing.md) — Top-down layer-by-layer fine-tuning schedule (Howard & Ruder, 2018); evaluated against full fine-tuning in T5.
+- [GRPO](concepts/grpo.md) — 
+- [Hash-Chained Audit](concepts/hashchainedaudit.md) — 
+- [Human-in-the-Loop](concepts/humanintheloop.md) — 
+- [Injec Agent](concepts/injecagent.md) — 
+- [IO Complexity](concepts/iocomplexity.md) — Cost model counting HBM bytes moved rather than FLOPs; the framework behind FlashAttention's lower bound.
+- [Kernel Fusion](concepts/kernelfusion.md) — Combining a chain of ops into one CUDA kernel so intermediates stay in SRAM; the implementation discipline behind FlashAttention.
+- [LLM-as-Judge](concepts/llmasjudge.md) — 
+- [LLM-Modulo Framework](concepts/LLMModuloFramework.md) — Generate-Test-Critique loop where LLM proposes candidate plans and a bank of external sound critics (e.g. VAL) supplies correctness; soundness inherited from hard critics, not the LLM.
+- [Long-Horizon Tasks](concepts/longhorizontasks.md) — 
+- [Lost in the Middle](concepts/lostinthemiddle.md) — 
+- [Long Short-Term Memory (LSTM)](concepts/lstm.md) — 
+- [Machine Translation](concepts/machinetranslation.md) — 
+- [Masked Language Model](concepts/maskedlanguagemodel.md) — 
+- [Mem GPT](concepts/memgpt.md) — 
+- [MEMIT](concepts/memit.md) — 
+- [MINJA](concepts/minja.md) — 
+- [Multi-Agent Systems](concepts/multiagentsystems.md) — 
+- [Multi-Head Attention](concepts/multiheadattention.md) — 
+- [Multi-Query Attention](concepts/multiqueryattention.md) — 
+- [Murphy Decomposition](concepts/murphydecomposition.md) — 
+- [Neuro-Symbolic AI](concepts/NeuroSymbolicAI.md) — Umbrella for neural+symbolic hybrids; LLM-Modulo argues for tight bi-directional integration over LLM-as-translator pipelines.
+- [Next Sentence Prediction](concepts/nextsentenceprediction.md) — 
+- [Parallel Reasoning](concepts/parallelreasoning.md) — 
+- [Param Mem](concepts/parammem.md) — 
+- [PDDL](concepts/PDDL.md) — Planning Domain Definition Language (McDermott et al. 1998); VAL plan validator is the canonical hard critic in LLM-Modulo's Blocksworld case study.
+- [Persona-Driven Synthesis](concepts/personadrivensynthesis.md) — 
+- [PlanBench](concepts/PlanBench.md) — Extensible LLM planning benchmark (Valmeekam et al. NeurIPS 2023); the empirical backbone of the "LLMs can't plan" position.
+- [Planning](concepts/Planning.md) — Automated/AI planning (Ghallab/Nau/Traverso 2004): synthesize an action sequence achieving a goal from a domain model; distinct from *acting*.
+- [Poisoned RAG](concepts/poisonedrag.md) — 
+- [Polanyi's Revenge](concepts/PolanyisRevenge.md) — Kambhampati's framing (CACM 2021): LLMs make tacit knowledge cheaply accessible without explicit articulation; the bridge that makes LLM-Modulo's cheap-approximate-knowledge story viable.
+- [Positional Encoding](concepts/positionalencoding.md) — 
+- [Power Law](concepts/powerlaw.md) — Functional form $y = A x^{-\alpha}$ — straight line on a log-log plot; the universal substrate of neural scaling laws.
+- [Prefix LM](concepts/prefixlm.md) — Single-stack Transformer with fully-visible attention over the prefix and causal attention over the target; ablated and beaten by encoder-decoder in T5.
+- [Pretraining](concepts/pretraining.md) — Self-supervised first-stage training (next-token, masked-token, or denoising); governed quantitatively by scaling laws.
+- [Prompt Injection](concepts/promptinjection.md) — 
+- [RAG](concepts/rag.md) — 
+- [Recomputation](concepts/recomputation.md) — Drop activations in forward, recompute in backward; trades FLOPs for HBM bandwidth in FlashAttention's backward pass.
+- [Recursive Self-Improvement](concepts/recursiveselfimprovement.md) — 
+- [Reflexion](concepts/reflexion.md) — 
+- [Reinforcement Learning](concepts/reinforcementlearning.md) — 
+- [RLVR](concepts/rlvr.md) — 
+- [ROME](concepts/rome.md) — 
+- [Scaled Dot-Product Attention](concepts/scaleddotproductattention.md) — 
+- [Scaling Laws](concepts/scalinglaws.md) — Empirical power-law scaling of Transformer LM loss in $N$, $D$, $C$ (Kaplan et al., 2020); the quantitative basis for scaling-up LLMs.
+- [SCAN](concepts/scan.md) — 
+- [Self-Attention](concepts/selfattention.md) — 
+- [Self-Verification](concepts/SelfVerification.md) — Hypothesis (Reflexion / Self-Refine) that LLMs can check their own outputs; falsified empirically on graph coloring + PlanBench in [[2402.01817-llm-modulo]] — external sound critics required.
+- [SentencePiece](concepts/sentencepiece.md) — Language-agnostic subword tokenizer treating whitespace as a regular symbol; the tokenizer used by T5.
+- [Sequence-to-Sequence Learning](concepts/seqtoseq.md) — 
+- [Sequential Deliberation](concepts/sequentialdeliberation.md) — 
+- [SKILL.md](concepts/skillmd.md) — 
+- [Span Corruption](concepts/spancorruption.md) — Denoising objective that replaces contiguous token spans with sentinels and predicts only the corrupted spans; pre-training objective for T5.
+- [Supply-Chain Security](concepts/supplychainsecurity.md) — 
+- [Synthetic Data](concepts/syntheticdata.md) — 
+- [System 1 vs System 2](concepts/System1And2.md) — Kahneman's dual-process taxonomy; the framing on which Kambhampati hangs the LLM-as-pseudo-System-1 / external-critic-as-System-2 composition.
+- [T5](concepts/t5.md) — Text-to-Text Transfer Transformer (Raffel et al., 2020); encoder-decoder + span-corruption + C4 + text-to-text framework; T5-11B reaches SOTA on 18/24 tasks.
+- [Test-Time Scaling](concepts/testtimescaling.md) — 
+- [Text-to-Text Framework](concepts/texttotextframework.md) — Unified NLP interface casting every task as string→string with a task-prefix prompt; introduced for T5.
+- [Transformer](concepts/transformer.md) — 
+- [Tree of Thoughts (ToT)](concepts/TreeOfThoughts.md) — Yao et al. NeurIPS 2023 prompting framework; recast in [[2402.01817-llm-modulo]] as "prompt diversification" — any soundness comes from external problem-specific verifiers, not the tree.
+- [Trust Root](concepts/trustroot.md) — 
+- [Verification Levels](concepts/verificationlevels.md) — 
+- [Voyager](concepts/voyager.md) — 
+- [WordPiece](concepts/wordpiece.md) — 
+
+### Concept stubs
+- [Absolute Value Equations](concepts/absolutevalueequations.md)
+- [Absolute Value Function](concepts/absolutevaluefunction.md)
+- [ace](concepts/ace.md)
+- [Agentic Data Science](concepts/agenticdatascience.md)
+- [ahe](concepts/ahe.md)
+- [ai4science](concepts/ai4science.md)
+- [alibaba](concepts/alibaba.md)
+- [Alpha Code2](concepts/alphacode2.md)
+- [Analyzing Graphs Of Functions](concepts/analyzinggraphsoffunctions.md)
+- [Arithmetic Mean](concepts/arithmeticmean.md)
+- [Asymptotes](concepts/asymptotes.md)
+- [autogen](concepts/autogen.md)
+- [balrog](concepts/balrog.md)
+- [Bard](concepts/bard.md)
+- [behaviortrees](concepts/behaviortrees.md)
+- [Best Of N](concepts/bestofn.md)
+- [Beta Distribution](concepts/betadistribution.md)
+- [Big ONotation](concepts/bigonotation.md)
+- [binary-coefficient](concepts/binary-coefficient.md)
+- [Binomial](concepts/binomial.md)
+- [Binomial Distribution](concepts/binomialdistribution.md)
+- [Binomial Equations](concepts/binomialequations.md)
+- [Boolean Algebra](concepts/booleanalgebra.md)
+- [cascade](concepts/cascade.md)
+- [Cauchy Sequence](concepts/cauchysequence.md)
+- [codexcli](concepts/codexcli.md)
+- [codingagents](concepts/codingagents.md)
+- [Complex Number Operations](concepts/complexnumberoperations.md)
+- [Composite Functions](concepts/compositefunctions.md)
+- [conceptualdependency](concepts/conceptualdependency.md)
+- [Constitutional AI](concepts/constitutionalai.md)
+- [container](concepts/container.md)
+- [Continuous Functions](concepts/continuousfunctions.md)
+- [Cosecant Function](concepts/cosecantfunction.md)
+- [Cosine Function](concepts/cosinefunction.md)
+- [cosplay](concepts/cosplay.md)
+- [Cotangent Function](concepts/cotangentfunction.md)
+- [Cramers Rule](concepts/cramersrule.md)
+- [crewai](concepts/crewai.md)
+- [Cubic Equations](concepts/cubicequations.md)
+- [Dangerous Capabilities](concepts/dangerouscapabilities.md)
+- [decisioncentricevaluation](concepts/decisioncentricevaluation.md)
+- [Derivative Of AComposite Function](concepts/derivativeofacompositefunction.md)
+- [Derivatives](concepts/derivatives.md)
+- [Determining Domain Of AFunction](concepts/determiningdomainofafunction.md)
+- [Dirichlet Function](concepts/dirichletfunction.md)
+- [Discontinuities Of Real Functions](concepts/discontinuitiesofrealfunctions.md)
+- [e2rtreesearch](concepts/e2rtreesearch.md)
+- [easydistill](concepts/easydistill.md)
+- [Ellipse](concepts/ellipse.md)
+- [Equations With Parameters](concepts/equationswithparameters.md)
+- [Euler Number Limit Sequence](concepts/eulernumberlimitsequence.md)
+- [Even And Odd Functions](concepts/evenandoddfunctions.md)
+- [Exponential Equations](concepts/exponentialequations.md)
+- [Exponential Function](concepts/exponentialfunction.md)
+- [Factoring Ac Method](concepts/factoringacmethod.md)
+- [Factoring Completing Square](concepts/factoringcompletingsquare.md)
+- [Factuality](concepts/factuality.md)
+- [Fourier Series](concepts/fourierseries.md)
+- [framesemantics](concepts/framesemantics.md)
+- [frametheory](concepts/frametheory.md)
+- [fudanuniversity](concepts/fudanuniversity.md)
+- [Functions](concepts/functions.md)
+- [Fundamental Theorem Of Calculus](concepts/fundamentaltheoremofcalculus.md)
+- [Geometric Mean](concepts/geometricmean.md)
+- [Geometric Series](concepts/geometricseries.md)
+- [goodstartlabs](concepts/goodstartlabs.md)
+- [guiagents](concepts/guiagents.md)
+- [hkust](concepts/hkust.md)
+- [huaweinoahsarklab](concepts/huaweinoahsarklab.md)
+- [Hyperbola](concepts/hyperbola.md)
+- [Identities Using Reference Angles](concepts/identitiesusingreferenceangles.md)
+- [Importance Sampling](concepts/importancesampling.md)
+- [Improper Integrals](concepts/improperintegrals.md)
+- [Increasing And Decreasing Functions](concepts/increasinganddecreasingfunctions.md)
+- [Indeterminate Forms](concepts/indeterminateforms.md)
+- [Inequalities With Absolute Value](concepts/inequalitieswithabsolutevalue.md)
+- [Integral Of Exponential Function](concepts/integralofexponentialfunction.md)
+- [Integral Of Rational Functions](concepts/integralofrationalfunctions.md)
+- [Integral Of Trigonometric Functions](concepts/integraloftrigonometricfunctions.md)
+- [Interpretable Machine Learning](concepts/interpretablemachinelearning.md)
+- [Inverse Function](concepts/inversefunction.md)
+- [Irrational Equations](concepts/irrationalequations.md)
+- [knowledgedistillation](concepts/knowledgedistillation.md)
+- [Lagrange Theorem](concepts/lagrangetheorem.md)
+- [langgraph](concepts/langgraph.md)
+- [Limits](concepts/limits.md)
+- [Linear Equation](concepts/linearequation.md)
+- [Lines](concepts/lines.md)
+- [Little ONotation](concepts/littleonotation.md)
+- [LLMAgents](concepts/llmagents.md)
+- [Logarithmic Equations](concepts/logarithmicequations.md)
+- [Logarithmic Function](concepts/logarithmicfunction.md)
+- [Loss Of Roots](concepts/lossofroots.md)
+- [manus](concepts/manus.md)
+- [Maximum Minimum And Inflection Points](concepts/maximumminimumandinflectionpoints.md)
+- [mbzuai](concepts/mbzuai.md)
+- [MCTS](concepts/mcts.md)
+- [memoryorganizationpackets](concepts/memoryorganizationpackets.md)
+- [memrl](concepts/memrl.md)
+- [memskill](concepts/memskill.md)
+- [memweaver](concepts/memweaver.md)
+- [MMLU](concepts/mmlu.md)
+- [MMMU](concepts/mmmu.md)
+- [modelbasedrl](concepts/modelbasedrl.md)
+- [multiagentsocialsimulation](concepts/multiagentsocialsimulation.md)
+- [nanyangtechnologicaluniversity](concepts/nanyangtechnologicaluniversity.md)
+- [Native Multimodality](concepts/nativemultimodality.md)
+- [nexau](concepts/nexau.md)
+- [observability](concepts/observability.md)
+- [onemancompany](concepts/onemancompany.md)
+- [Pa LM2](concepts/palm2.md)
+- [paperclip](concepts/paperclip.md)
+- [Parabola](concepts/parabola.md)
+- [personahub](concepts/personahub.md)
+- [Poisson Distribution](concepts/poissondistribution.md)
+- [Polynomial Function](concepts/polynomialfunction.md)
+- [polyskill](concepts/polyskill.md)
+- [Post Training](concepts/posttraining.md)
+- [prdbench](concepts/prdbench.md)
+- [Principle Of Mathematical Induction](concepts/principleofmathematicalinduction.md)
+- [probability](concepts/probability.md)
+- [procmem](concepts/procmem.md)
+- [Proper Scoring Rules](concepts/properscoringrules.md)
+- [Propositional Logic](concepts/propositionallogic.md)
+- [Quadratic Equations With Complex Solutions](concepts/quadraticequationswithcomplexsolutions.md)
+- [Quadratic Equations With Parameters](concepts/quadraticequationswithparameters.md)
+- [qwen](concepts/qwen.md)
+- [Rational Equations](concepts/rationalequations.md)
+- [Rational Functions](concepts/rationalfunctions.md)
+- [react](concepts/react.md)
+- [REINFORCE](concepts/reinforce.md)
+- [riskassessment](concepts/riskassessment.md)
+- [RLHF](concepts/rlhf.md)
+- [Ruffinis Rule](concepts/ruffinisrule.md)
+- [Safety](concepts/safety.md)
+- [sage](concepts/sage.md)
+- [Sandbagging](concepts/sandbagging.md)
+- [scalar](concepts/scalar.md)
+- [scripttheory](concepts/scripttheory.md)
+- [Secant Function](concepts/secantfunction.md)
+- [selfinstruct](concepts/selfinstruct.md)
+- [Sequences](concepts/sequences.md)
+- [shanghaiqijizhifeng](concepts/shanghaiqijizhifeng.md)
+- [Sign Analysis In Inequalities](concepts/signanalysisininequalities.md)
+- [Sign Function](concepts/signfunction.md)
+- [Simulatability](concepts/simulatability.md)
+- [Sine Function](concepts/sinefunction.md)
+- [skillbank](concepts/skillbank.md)
+- [skilldiscovery](concepts/skilldiscovery.md)
+- [skillrl](concepts/skillrl.md)
+- [Solving Linear Systems Using Gaussian Elimination](concepts/solvinglinearsystemsusinggaussianelimination.md)
+- [Spaces](concepts/spaces.md)
+- [swebench](concepts/swebench.md)
+- [Syntetic Division](concepts/synteticdivision.md)
+- [Synthetic Division](concepts/syntheticdivision.md)
+- [Systems Of Linear Equations](concepts/systemsoflinearequations.md)
+- [talent](concepts/talent.md)
+- [talentmarket](concepts/talentmarket.md)
+- [Tangent Function](concepts/tangentfunction.md)
+- [Taylor Series](concepts/taylorseries.md)
+- [terminalbench](concepts/terminalbench.md)
+- [tfgrpo](concepts/tfgrpo.md)
+- [Thinking Mid Training](concepts/thinkingmidtraining.md)
+- [Trigonometric Equations](concepts/trigonometricequations.md)
+- [Trigonometric Substitution For Integrals](concepts/trigonometricsubstitutionforintegrals.md)
+- [Trinomial](concepts/trinomial.md)
+- [Trinomial Equations](concepts/trinomialequations.md)
+- [Types Of Number](concepts/typesofnumber.md)
+- [uimem](concepts/uimem.md)
+- [universitycollegelondon](concepts/universitycollegelondon.md)
+- [universityofliverpool](concepts/universityofliverpool.md)
+- [universityofmaryland](concepts/universityofmaryland.md)
+- [universityofoxford](concepts/universityofoxford.md)
+- [universityofsoutherncalifornia](concepts/universityofsoutherncalifornia.md)
+- [Velocity](concepts/velocity.md)
+- [videogamebench](concepts/videogamebench.md)
+- [videogeneration](concepts/videogeneration.md)
+- [visgym](concepts/visgym.md)
+- [vsbench](concepts/vsbench.md)
+- [Weierstrass Theorem](concepts/weierstrasstheorem.md)
+- [worldmodels](concepts/worldmodels.md)
+- [xskill](concepts/xskill.md)
 
 ## Syntheses
+*(none yet)*
