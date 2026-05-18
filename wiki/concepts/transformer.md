@@ -2,8 +2,8 @@
 title: "Transformer"
 type: concept
 tags: [architecture, attention, foundational]
-sources: [1706.03762-attention-is-all-you-need, 1810.04805-bert, 1910.10683-t5, 2001.08361-scaling-laws]
-last_updated: 2026-05-10
+sources: [1706.03762-attention-is-all-you-need, 1810.04805-bert, 1910.10683-t5, 2001.08361-scaling-laws, d2l-attention-and-transformers]
+last_updated: 2026-05-16
 ---
 
 # Transformer

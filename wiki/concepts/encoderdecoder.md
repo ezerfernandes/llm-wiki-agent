@@ -2,15 +2,15 @@
 title: "Encoder-Decoder"
 type: concept
 tags: [architecture, sequence-transduction]
-sources: [1409.3215-seq2seq, 1706.03762-attention-is-all-you-need, 1910.10683-t5]
-last_updated: 2026-05-10
+sources: [1409.3215-seq2seq, 1706.03762-attention-is-all-you-need, 1910.10683-t5, d2l-recurrent-modern]
+last_updated: 2026-05-16
 ---
 
 # Encoder-Decoder
 
 A high-level pattern for sequence transduction in which one network component (the encoder) maps an input sequence (x_1, …, x_n) to a continuous representation z = (z_1, …, z_n), and a second component (the decoder) generates an output sequence (y_1, …, y_m) one element at a time, conditioning on z and on previously generated outputs.
 
-The pattern was established for end-to-end neural machine translation by [[1409.3215-seq2seq]] (Sutskever, Vinyals & Le, 2014), where both the encoder and the decoder are deep [[LSTM]]s and `z` collapses to a single fixed-dimensional vector (the encoder's final hidden state). [[1706.03762-attention-is-all-you-need]] retains the same encoder-decoder framing but removes recurrence entirely: the encoder is a stack of self-attention + FFN blocks, and the decoder is the same with an extra encoder-decoder attention sub-layer per block. The fixed-vector bottleneck of [[1409.3215-seq2seq]] (mitigated there by source-sentence reversal) is structurally resolved by encoder-decoder attention.
+The pattern was established for end-to-end neural machine translation by [[KyunghyunCho|Cho]] et al. 2014 and [[1409.3215-seq2seq]] (Sutskever, Vinyals & Le, 2014), where both the encoder and the decoder are deep [[LSTM]]s ([[1409.3215-seq2seq]]) or [[GRU|GRUs]] ([[d2l-recurrent-modern]] §encoder-decoder, §seq2seq), and `z` collapses to a single fixed-dimensional vector (the encoder's final hidden state). [[1706.03762-attention-is-all-you-need]] retains the same encoder-decoder framing but removes recurrence entirely: the encoder is a stack of self-attention + FFN blocks, and the decoder is the same with an extra encoder-decoder attention sub-layer per block. The fixed-vector bottleneck of [[1409.3215-seq2seq]] (mitigated there by source-sentence reversal) is structurally resolved by encoder-decoder attention.
 
 ## Auto-regressive decoding
 
@@ -40,7 +40,8 @@ Modern LLMs split into three families that reuse pieces of this pattern:
 
 ## See also
 - [[SeqToSeq]]
-- [[LSTM]]
+- [[LSTM]] / [[GRU]]
 - [[Transformer]]
 - [[SelfAttention]]
 - [[MultiHeadAttention]]
+- [[d2l-recurrent-modern]] — D2L's textbook abstraction (`EncoderDecoder` base class with `init_state`).

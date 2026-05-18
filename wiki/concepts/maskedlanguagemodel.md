@@ -2,8 +2,8 @@
 title: "Masked Language Model"
 type: concept
 tags: [concept, pretraining, objective]
-sources: [1810.04805-bert]
-last_updated: 2026-05-10
+sources: [1810.04805-bert, d2l-nlp-pretraining]
+last_updated: 2026-05-16
 ---
 
 # Masked Language Model

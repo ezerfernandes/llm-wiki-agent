@@ -1,11 +1,11 @@
 ---
-title: "nanyangtechnologicaluniversity"
-type: concept
-tags: [stub]
-sources: []
-last_updated: 2026-05-10
+title: "Nanyang Technological University (NTU)"
+type: entity
+tags: [entity, university, singapore]
+sources: [2605.12357-delta-mem]
+last_updated: 2026-05-15
 ---
 
-# nanyangtechnologicaluniversity
+# Nanyang Technological University (NTU)
 
-*Stub — referenced by other wiki pages but not yet ingested as a primary source.*
+Public research university in Singapore. Primary affiliation listed on [[2605.12357-delta-mem|δ-mem]] (Lei, Zhang et al. 2026) — co-author institution alongside [[MindLab|Mind Lab]], [[fudanuniversity|Fudan]], Shanghai Jiao Tong, [[chineseuniversityofhongkong|CUHK]], and HKUST-Guangzhou.

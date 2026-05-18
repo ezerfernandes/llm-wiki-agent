@@ -2,8 +2,8 @@
 title: "Machine Translation"
 type: concept
 tags: [task, nlp, foundational]
-sources: [1409.3215-seq2seq, 1706.03762-attention-is-all-you-need]
-last_updated: 2026-05-10
+sources: [1409.3215-seq2seq, 1706.03762-attention-is-all-you-need, d2l-recurrent-modern]
+last_updated: 2026-05-16
 ---
 
 # Machine Translation
@@ -23,8 +23,13 @@ The progression `SMT → recurrent seq2seq → attention → Transformer` plays 
 - **WMT (Workshop on Machine Translation)** — annual shared task. EN↔FR and EN↔DE are the canonical pairs.
 - Evaluation: [[BLEU]] (cased, on tokenized output, via `multi-bleu.pl` for results in this wiki).
 
+## D2L's pedagogical dataset
+
+[[d2l-recurrent-modern]] §machine-translation-and-dataset uses the **English↔French Tatoeba** bilingual corpus as the textbook example. Preprocessing: lowercasing, separating punctuation, word-level tokenization, `<eos>` termination, `<pad>` padding to a fixed `num_steps`, separate `valid_len` tracking to mask padded positions from the loss. The chapter trains a GRU encoder-decoder seq2seq on this corpus, decoding with both greedy and (later) beam search, evaluating with BLEU.
+
 ## See also
 - [[SeqToSeq]]
 - [[EncoderDecoder]]
 - [[Transformer]]
 - [[BLEU]]
+- [[d2l-recurrent-modern]] — textbook seq2seq MT exposition with English-French Tatoeba.

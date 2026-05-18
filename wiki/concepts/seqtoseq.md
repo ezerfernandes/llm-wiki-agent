@@ -2,8 +2,8 @@
 title: "Sequence-to-Sequence Learning"
 type: concept
 tags: [architecture, foundational, machine-translation]
-sources: [1409.3215-seq2seq]
-last_updated: 2026-05-10
+sources: [1409.3215-seq2seq, d2l-recurrent-modern]
+last_updated: 2026-05-16
 ---
 
 # Sequence-to-Sequence Learning (seq2seq)
@@ -28,8 +28,19 @@ The end-of-sequence token `<EOS>` lets the model define a distribution over outp
 
 Compressing the entire input into a single fixed-dimensional vector becomes harder as sentences grow. [[1409.3215-seq2seq]] mitigates this with the **source-reversal trick** (reverse input word order to introduce short-term dependencies). Bahdanau et al. 2014 introduced attention as a structural fix: instead of one summary vector, the decoder learns to attend over the full sequence of encoder hidden states. The Transformer ([[1706.03762-attention-is-all-you-need]]) generalizes this to pure attention with no recurrence.
 
+## Two flavors of context plumbing
+
+D2L's [[d2l-recurrent-modern]] §seq2seq distinguishes two designs for how the encoder's final hidden state $\mathbf{c}$ reaches the decoder:
+
+- **[[KyunghyunCho|Cho]]-style (Cho et al. 2014; D2L's implementation):** broadcast $\mathbf{c}$ as additional input at *every* decoder time step (concatenate with each input embedding).
+- **[[IlyaSutskever|Sutskever]]-style ([[1409.3215-seq2seq]]):** use $\mathbf{c}$ only to initialize the decoder's hidden state at step 1; subsequent steps see only the previous token + decoder state.
+
+Both work; the Cho-style design tends to be more robust to long sequences but doubles the decoder's input dimensionality. Both are structurally bottlenecked by $\mathbf{c}$'s fixed shape — the bottleneck attention was invented to remove.
+
 ## See also
 - [[EncoderDecoder]]
-- [[LSTM]]
-- [[BeamSearch]]
+- [[LSTM]] / [[GRU]]
+- [[BeamSearch]] / [[GreedyDecoding]]
+- [[TeacherForcing]] — the training-time recipe.
 - [[Transformer]]
+- [[d2l-recurrent-modern]] — textbook GRU-based implementation.

@@ -2,13 +2,21 @@
 title: "BLEU"
 type: concept
 tags: [evaluation, machine-translation, metric]
-sources: [1409.3215-seq2seq, 1706.03762-attention-is-all-you-need]
-last_updated: 2026-05-10
+sources: [1409.3215-seq2seq, 1706.03762-attention-is-all-you-need, d2l-recurrent-modern]
+last_updated: 2026-05-16
 ---
 
 # BLEU
 
-**Bilingual Evaluation Understudy** — an automatic metric for machine translation introduced by Papineni et al. (ACL 2002). BLEU measures the modified n-gram precision of a candidate translation against one or more reference translations, multiplied by a brevity penalty to discourage short outputs. Scores range 0–100; higher is better.
+**Bilingual Evaluation Understudy** — an automatic metric for machine translation introduced by [[KishorePapineni|Papineni]] et al. (ACL 2002). BLEU measures the modified n-gram precision of a candidate translation against one or more reference translations, multiplied by a brevity penalty to discourage short outputs. Scores range 0–100; higher is better.
+
+## D2L formulation
+
+[[d2l-recurrent-modern]] §seq2seq gives the explicit form
+
+$$\textrm{BLEU} = \exp\left(\min\left(0, 1 - \frac{\textrm{len}_\textrm{label}}{\textrm{len}_\textrm{pred}}\right)\right) \prod_{n=1}^k p_n^{1/2^n},$$
+
+where $p_n$ = ratio of matched $n$-grams to total $n$-grams in the prediction, and $k$ = longest $n$-gram for matching. Two pedagogical observations from D2L: (i) the score is 1 iff prediction equals target; (ii) the exponent $1/2^n$ gives **higher weight to longer $n$-gram matches** (since $p_n^{1/2^n}$ increases in $n$ when $p_n$ is fixed near 1); (iii) the leading exponential factor is the **brevity penalty** — for target length 6 and prediction length 2 with $p_1 = p_2 = 1$, the penalty is $\exp(1 - 3) \approx 0.14$, collapsing BLEU.
 
 ```
 BLEU = BP · exp( Σ_{n=1..N} w_n · log p_n )
@@ -38,3 +46,5 @@ BLEU correlates with human judgment well enough to drive a decade of MT progress
 - [[MachineTranslation]]
 - [[SeqToSeq]]
 - [[Transformer]]
+- [[KishorePapineni]] — BLEU author.
+- [[d2l-recurrent-modern]] — textbook exposition + reference Python implementation.

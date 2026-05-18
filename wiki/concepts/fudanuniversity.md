@@ -1,11 +1,11 @@
 ---
-title: "fudanuniversity"
-type: concept
-tags: [stub]
-sources: []
-last_updated: 2026-05-10
+title: "Fudan University"
+type: entity
+tags: [entity, university, china]
+sources: [2605.12357-delta-mem]
+last_updated: 2026-05-15
 ---
 
-# fudanuniversity
+# Fudan University
 
-*Stub — referenced by other wiki pages but not yet ingested as a primary source.*
+Public research university in Shanghai, China. Co-author affiliation on [[2605.12357-delta-mem|δ-mem]] (Lei, Zhang et al. 2026).

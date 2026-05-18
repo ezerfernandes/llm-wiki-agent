@@ -2,8 +2,8 @@
 title: "BERT"
 type: concept
 tags: [concept, model, transformer, pretraining]
-sources: [1810.04805-bert]
-last_updated: 2026-05-10
+sources: [1810.04805-bert, d2l-nlp-pretraining, d2l-nlp-applications]
+last_updated: 2026-05-16
 ---
 
 # BERT
@@ -16,3 +16,4 @@ Introduced in [[1810.04805-bert]]. Along with [[1706.03762-attention-is-all-you-
 - Multi-layer bidirectional Transformer **encoder** — unlike GPT (left-only decoder) and ELMo (shallow concat of independent L-R / R-L LSTMs), every layer of BERT jointly conditions on left and right context.
 - Input representation = token + segment + positional embeddings, summed; `[CLS]` at position 0 serves as the aggregate sequence vector; `[SEP]` separates segment A from segment B.
 - Same pre-trained weights transfer to sentence-pair classification, single-sentence classification, span prediction (SQuAD), and sequence tagging (NER) — only the output head changes.
+- [[d2l-nlp-applications]] §`finetuning-bert` operationalizes this template into four worked categories — single-text classification ([[SentimentAnalysis]] / [[CoLA]]), text-pair classification ([[NaturalLanguageInference|NLI]] on [[SNLI]]), text-pair regression ([[SemanticTextualSimilarity|STS-B]]), text tagging (POS), and span prediction ([[QuestionAnswering]] on [[SQuAD]]). See [[FineTuningBert]].

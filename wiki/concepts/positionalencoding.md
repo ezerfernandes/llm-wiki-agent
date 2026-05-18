@@ -2,8 +2,8 @@
 title: "Positional Encoding"
 type: concept
 tags: [transformer, embeddings]
-sources: [1706.03762-attention-is-all-you-need]
-last_updated: 2026-05-10
+sources: [1706.03762-attention-is-all-you-need, d2l-attention-and-transformers]
+last_updated: 2026-05-16
 ---
 
 # Positional Encoding

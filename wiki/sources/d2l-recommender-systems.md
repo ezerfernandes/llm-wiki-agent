@@ -1,0 +1,68 @@
+---
+title: "Dive into Deep Learning — Recommender Systems"
+type: source
+tags: [textbook, d2l, recommender-systems, matrix-factorization, collaborative-filtering, neural-cf, factorization-machines]
+date: 2026-05-16
+source_file: raw/d2l-en/chapter_recommender-systems/
+---
+
+## Summary
+
+[[ShuaiZhang]] ([[Amazon]]), [[AstonZhang]] ([[Amazon]]) & [[YiTay]] ([[google|Google]])'s ten-section *Recommender Systems* chapter — D2L's only chapter on **personalized retrieval / ranking** as a learning problem distinct from classification or regression. Builds the [[RecommenderSystems|recommender]] stack from first principles on [[MovieLens]] 100K: [[CollaborativeFiltering|collaborative filtering]] (CF) taxonomy ([[MemoryBasedCF|memory-based]] / [[ModelBasedCF|model-based]] / hybrid; [[ImplicitFeedback|implicit]] vs [[ExplicitFeedback|explicit]] feedback per [[YifanHu|Hu]], [[YehudaKoren|Koren]] & Volinsky 2008) → rating-prediction with [[MatrixFactorization]] ([[YehudaKoren|Koren]], Bell & Volinsky 2009; Simon Funk 2006, [[NetflixPrize|Netflix Prize]]) and [[AutoRec]] ([[SuvashSedhain|Sedhain]] et al. 2015) → personalized ranking with [[BPR|Bayesian Personalized Ranking loss]] ([[SteffenRendle|Rendle]] et al. 2009) + [[HingeLossRanking|Hinge loss]] → [[NeuMF|Neural Matrix Factorization]] ([[XiangnanHe|He]] et al. 2017) fusing [[GMF|GMF]] + MLP subnetworks → [[CaserModel|Caser]] sequence-aware CNN ([[JiaxiTang|Tang]] & [[KeWang|Wang]] 2018) capturing union-level and point-level temporal patterns → and the **feature-rich CTR** pivot to [[FactorizationMachines]] ([[SteffenRendle|Rendle]] 2010) with its $\mathcal{O}(kd)$ reformulation of pairwise interactions and [[DeepFM]] ([[HuifengGuo|Guo]], [[RuimingTang|Tang]], Ye, He 2017) parallelizing FM with a deep MLP component to model both low- and high-order interactions. The textbook foundation under every modern personalization / advertising / e-commerce ranking system.
+
+## Key Claims
+
+- **Recommender systems are an information-filtering paradigm distinct from classification/regression** — three task families (rating prediction = regression on explicit feedback, top-$n$ ranking = retrieval on implicit feedback, click-through-rate prediction = binary classification with categorical side features), each requiring different model structures and objectives.
+- **[[CollaborativeFiltering|Collaborative filtering]] (term coined by Tapestry 1992; [[DavidGoldberg|Goldberg]], Nichols, Oki et al.) is the central abstraction** — splits into [[MemoryBasedCF|memory-based]] (user-based / item-based nearest-neighbor — Sarwar, Karypis, Konstan 2001) and [[ModelBasedCF|model-based]] (latent-factor) families, with **model-based methods dominating because they handle sparsity and scale better**; deep neural networks extend model-based CF.
+- **[[ExplicitFeedback]] (star ratings, thumbs up/down) is high-quality but scarce; [[ImplicitFeedback]] (clicks, purchases, watches, dwell time) is noisy but abundant** ([[YifanHu|Hu]], [[YehudaKoren|Koren]] & Volinsky 2008) — most production recommenders are implicit-feedback-driven; the non-observed entries are a mixture of true negatives and missing values, which models *must* distinguish for personalized ranking.
+- **[[MovieLens]] 100K dataset** (943 users × 1682 movies × 100,000 ratings, 1–5 stars, run by [[GroupLens]] @ University of Minnesota since 1997) is the chapter's running benchmark; sparsity = 93.695% reflects the *long-standing challenge* of [[InteractionMatrix|interaction matrix]] sparsity in real recommenders.
+- **[[MatrixFactorization]] is the model-based CF baseline** — proposed by [[SimonFunk]] in his 2006 [[NetflixPrize]] blog post and formalized by [[YehudaKoren|Koren]], Bell & Volinsky 2009 as part of the winning BellKor's Pragmatic Chaos ensemble (final ensemble took the \$1M prize): factor $\mathbf{R}\in\mathbb{R}^{m\times n}$ into $\mathbf{P}\in\mathbb{R}^{m\times k}$ and $\mathbf{Q}\in\mathbb{R}^{n\times k}$ with $k\ll m,n$; prediction $\hat{R}_{ui}=\mathbf{p}_u\mathbf{q}_i^\top + b_u + b_i$ adds user/item bias terms; trained by minimizing regularized [[MeanSquaredError|MSE]] over observed $(u,i)$ pairs; evaluated by [[RMSE]].
+- **[[AutoRec]] ([[SuvashSedhain|Sedhain]] et al. 2015) is matrix factorization reframed as an [[Autoencoder]]** — single-hidden-layer autoencoder $h(\mathbf{R}_{*i})=f(\mathbf{W}\cdot g(\mathbf{V}\mathbf{R}_{*i}+\mu)+b)$ that reconstructs columns/rows of the rating matrix; **non-linear activations + dropout** outperform linear MF on MovieLens 100K; loss only backpropagates through observed-entry coordinates (gradient masking via `np.sign(input)`).
+- **Personalized ranking objectives come in pointwise / pairwise / listwise flavors** — MF and AutoRec are *pointwise* (predict each rating in isolation) and therefore unsuited to ranking; *pairwise* methods (BPR, Hinge) optimize relative order of (positive, negative) pairs and are the practical sweet spot; *listwise* methods (e.g. direct [[NDCG]] optimization) are most principled but compute-prohibitive.
+- **[[BPR|Bayesian Personalized Ranking loss]] ([[SteffenRendle|Rendle]], Freudenthaler, Gantner & Schmidt-Thieme 2009)** — pairwise log-sigmoid objective $\textrm{BPR-OPT} = \sum_{(u,i,j)\in D} \ln\sigma(\hat{y}_{ui}-\hat{y}_{uj}) - \lambda_\Theta\|\Theta\|^2$ derived from MAP estimation; trains on triples $(u, i^+, j^-)$ via [[NegativeSampling]]; the canonical pairwise loss in implicit-feedback recommenders.
+- **[[NeuMF|NeuMF / Neural Matrix Factorization]] ([[XiangnanHe|He]], Liao, Zhang, Nie, Hu, Chua 2017) fuses two parallel subnetworks**: a [[GMF|Generalized Matrix Factorization]] branch ($\hat{y}_{ui}=\alpha(\mathbf{h}^\top(\mathbf{p}_u\odot\mathbf{q}_i))$ — neural MF via Hadamard product + a single output layer) and an MLP branch on $[\mathbf{u}_u, \mathbf{v}_i]$ concatenation with separate (non-shared) embeddings; outputs are concatenated and projected through a sigmoid prediction layer; trained with BPR on implicit feedback; evaluated by [[HitRate|Hit@k]] and [[AUC]] not RMSE.
+- **[[SequenceAwareRecommendation|Sequence-aware recommendation]] ([[Quadrana]], [[Cremonesi]] & [[DietmarJannach|Jannach]] 2018) models temporal user-interest drift** — input is ordered/timestamped action history, not a static $(u,i,r)$ tuple. [[CaserModel|Caser]] ([[JiaxiTang|Tang]] & [[KeWang|Wang]] 2018) treats the last $L$ items' embedding matrix $\mathbf{E}^{(u,t)}\in\mathbb{R}^{L\times k}$ as an "image" and runs **horizontal convolutions** (union-level patterns: "milk + butter → flour") + **vertical convolutions** (point-level patterns: single-item influence on the target) over it, concatenating with a user-general-taste embedding; trained with BPR or Hinge loss.
+- **[[CTRPrediction|Click-through-rate prediction]] is the categorical-features-dominated cousin of ranking** — $\textrm{CTR} = \#\textrm{clicks} / \#\textrm{impressions}$; framed as binary classification with 30+ sparse categorical fields (ad id / site id / device / time / user profile, etc.). The chapter's online-advertising dataset has 34 categorical fields + 1 label; production analogues are the [[CriteoDataset|Criteo display advertising dataset]] and the [[AvazuDataset|Avazu CTR prediction dataset]].
+- **[[FactorizationMachines]] ([[SteffenRendle|Rendle]] 2010) generalize linear regression + matrix factorization** — model $\hat{y}(x)=w_0 + \sum_i w_i x_i + \sum_{i<j}\langle\mathbf{v}_i,\mathbf{v}_j\rangle x_i x_j$ captures all pairwise feature interactions through learned latent factors $\mathbf{v}\in\mathbb{R}^{d\times k}$; **the key efficiency trick reorganizes the pairwise sum into $\frac{1}{2}\sum_l((\sum_i v_{i,l}x_i)^2 - \sum_i v_{i,l}^2 x_i^2)$**, reducing the complexity from $\mathcal{O}(kd^2)$ to $\mathcal{O}(kd)$ — linear in non-zero features for sparse inputs; supports regression / classification / ranking via MSE / cross-entropy / BPR.
+- **[[DeepFM]] ([[HuifengGuo|Guo]], [[RuimingTang|Tang]], Ye, He 2017) parallelizes FM with a deep MLP component sharing the same embedding table** — $\hat{y}=\sigma(\hat{y}^{(FM)}+\hat{y}^{(DNN)})$ where the FM part captures low-order interactions and the MLP captures high-order interactions; reduces the hand-crafted feature-engineering effort of [[WideAndDeep|Wide & Deep]] (which requires the wide-side features to be manually crossed) by learning feature combinations automatically; outperforms FM and converges faster on the chapter's CTR dataset.
+- **The chapter's chosen architectural pivot** is from **low-rank latent-factor models on $(u,i,r)$ tuples** (MF / AutoRec / NeuMF) → **sequence-aware CNNs over timestamped action logs** (Caser) → **feature-rich models over sparse categorical inputs** (FM / DeepFM) — each step incorporating more side information when the interaction signal alone is insufficient.
+
+## Key Quotes
+
+> "Memory-based CF has limitations in dealing with sparse and large-scale data since it computes the similarity values based on common items. Model-based methods become more popular with its better capability in dealing with sparsity and scalability. Many model-based CF approaches can be extended with neural networks, leading to more flexible and scalable models with the computation acceleration in deep learning."
+
+> "Although the final score was the result of an ensemble solution (i.e., a combination of many algorithms), the matrix factorization algorithm played a critical role in the final blend." — context: Netflix Prize \$1M grand-prize-winning BellKor's Pragmatic Chaos team.
+
+> "Pairwise approaches consider a pair of items for each user and aim to approximate the optimal ordering for that pair. Usually, pairwise approaches are more suitable for the ranking task because predicting relative order is reminiscent to the nature of ranking." — context: justifying BPR / Hinge over pointwise MSE for implicit-feedback ranking.
+
+> "Some feature interactions can be easily understood so they can be designed by experts. However, most other feature interactions are hidden in data and difficult to identify. So modeling feature interactions automatically can greatly reduce the efforts in feature engineering." — context: the Factorization Machines argument for learning bilinear feature crosses end-to-end.
+
+> "Click-through rate is an important metric that is used to measure the effectiveness of advertising systems and recommender systems. Click-through rate prediction is usually converted to a binary classification problem." — context: framing CTR prediction as the categorical-feature-rich cousin of standard recommendation.
+
+## Connections
+
+- [[AstonZhang]] — D2L lead author + second author on this chapter, [[Amazon|AWS]] at time of writing.
+- [[ShuaiZhang]] — first author on this chapter ([[Amazon]]); recommender-systems specialist (Zhang, Yao, Sun et al. 2019 deep-learning recommender survey).
+- [[YiTay]] — third author on this chapter ([[google|Google]]); efficient-Transformer / scaling researcher.
+- [[YehudaKoren]] — [[NetflixPrize]] grand-prize winner (BellKor's Pragmatic Chaos); seminal MF paper (Koren, Bell & Volinsky 2009); implicit-feedback paper (Hu, Koren & Volinsky 2008).
+- [[SteffenRendle]] — author of [[FactorizationMachines]] (2010) and [[BPR]] (2009); two of the most cited recommender-systems papers.
+- [[XiangnanHe]] — first author of [[NeuMF]] (2017); recommender-systems researcher at NUS / USTC.
+- [[Amazon]], [[google|Google]] — author affiliations.
+- [[GroupLens]] — University of Minnesota research lab maintaining [[MovieLens]].
+- [[MovieLens]] — canonical academic recommender-systems dataset, used throughout the chapter.
+- [[NetflixPrize]] — \$1M competition (2006–2009) that put matrix factorization on the recommender-systems map.
+- [[RecommenderSystems]] — parent concept page (previously sourced from [[d2l-introduction]], now substantially expanded).
+- [[CollaborativeFiltering]], [[MatrixFactorization]], [[AutoRec]], [[BPR]], [[NeuMF]], [[CaserModel]], [[FactorizationMachines]], [[DeepFM]], [[CTRPrediction]], [[ImplicitFeedback]], [[ExplicitFeedback]], [[SequenceAwareRecommendation]], [[InteractionMatrix]], [[HingeLossRanking]], [[GMF]] — concept-page anchors.
+- [[d2l-preface]], [[d2l-introduction]] — D2L corpus anchors; the intro chapter previously flagged recommenders + their feedback-loop pathologies.
+- [[d2l-convolutional-neural-networks]], [[d2l-convolutional-modern]] — Caser's CNN architecture builds on these.
+- [[d2l-recurrent-neural-networks]] — alternative sequence-aware approach via [[GRU4Rec|GRU4Rec]] ([[Hidasi]] et al. 2015), flagged as an exercise.
+- [[Autoencoder]] — AutoRec's structural primitive.
+- [[NegativeSampling]] — used in BPR/NeuMF training (also encountered in [[d2l-nlp-pretraining]]).
+- [[Adam]] — default optimizer in all sub-chapters.
+- [[Dropout]] — regularizer in AutoRec / DeepFM.
+- [[BatchNormalization]] — not used in this chapter (notable absence given Caser's CNNs).
+- [[Embedding]] — `nn.Embedding` is the central primitive for all user/item latent factors.
+
+## Contradictions
+
+- None direct. The chapter's framing of recommenders as `(user, item, feedback)` triples is consistent with [[d2l-introduction]]'s earlier introduction of recommenders as a [[SupervisedLearning|supervised-learning]] sub-task. The intro chapter's flagged pathologies (censored feedback, feedback loops, exposure bias) are *not* re-engaged here — the chapter is methodology-first and operational; the "important open research questions" framing remains accurate. Caser's training code is flagged in the source as "running takes > 1h (pending fix from MXNet)" — an operational caveat, not a substantive contradiction.

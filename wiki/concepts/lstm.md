@@ -2,15 +2,32 @@
 title: "Long Short-Term Memory (LSTM)"
 type: concept
 tags: [rnn, architecture, foundational]
-sources: [1409.3215-seq2seq]
-last_updated: 2026-05-10
+sources: [1409.3215-seq2seq, d2l-recurrent-modern]
+last_updated: 2026-05-16
 ---
 
 # Long Short-Term Memory (LSTM)
 
-A recurrent neural network architecture introduced by Hochreiter & Schmidhuber (1997) designed to learn long-range temporal dependencies that standard RNNs cannot, by replacing the simple sigmoid update with a gated memory cell.
+A recurrent neural network architecture introduced by [[SeppHochreiter|Hochreiter]] & [[JurgenSchmidhuber|Schmidhuber]] (1997) designed to learn long-range temporal dependencies that standard [[RNN|RNNs]] cannot, by replacing the simple sigmoid update with a **gated [[MemoryCell|memory cell]]** whose self-connected recurrent edge has fixed weight 1 — so gradients can pass through many time steps without [[VanishingGradient|vanishing]] ([[d2l-recurrent-modern]] §lstm).
 
-A plain RNN computes `h_t = sigm(W_hx · x_t + W_hh · h_{t-1})`, which suffers from vanishing gradients across long sequences. The LSTM adds an internal cell state regulated by input, forget, and output gates, letting gradients flow over many timesteps.
+## Architecture (D2L formulation)
+
+For input $\mathbf{X}_t\in\mathbb{R}^{n\times d}$ and previous hidden state $\mathbf{H}_{t-1}\in\mathbb{R}^{n\times h}$, the cell computes four pre-activations of the same form $\mathbf{X}_t\mathbf{W}_\textrm{x\cdot} + \mathbf{H}_{t-1}\mathbf{W}_\textrm{h\cdot} + \mathbf{b}_\cdot$:
+
+- **[[InputGate|Input gate]]** $\mathbf{I}_t = \sigma(\cdot)\in(0,1)^{n\times h}$ — how much new content enters the cell.
+- **[[ForgetGate|Forget gate]]** $\mathbf{F}_t = \sigma(\cdot)\in(0,1)^{n\times h}$ — how much old cell state persists.
+- **[[OutputGate|Output gate]]** $\mathbf{O}_t = \sigma(\cdot)\in(0,1)^{n\times h}$ — how much of the cell is exposed as the hidden state.
+- **Input node (candidate)** $\tilde{\mathbf{C}}_t = \tanh(\cdot)\in(-1,1)^{n\times h}$.
+
+Then:
+
+$$\mathbf{C}_t = \mathbf{F}_t\odot \mathbf{C}_{t-1} + \mathbf{I}_t\odot \tilde{\mathbf{C}}_t, \quad \mathbf{H}_t = \mathbf{O}_t\odot \tanh(\mathbf{C}_t).$$
+
+If $\mathbf{F}_t\!\to\!1$ and $\mathbf{I}_t\!\to\!0$, the cell carries state unchanged indefinitely — the structural mechanism that defeats vanishing gradients. Only $\mathbf{H}_t$ feeds the output layer; $\mathbf{C}_t$ is entirely internal.
+
+## Why "long short-term memory"
+
+[[d2l-recurrent-modern]]'s pedagogical framing: weights are *long-term memory* (slow gradient updates encode general knowledge), activations are *short-term memory* (ephemeral). The cell adds an *intermediate* tier — controllable memory that lasts longer than activations but updates faster than weights.
 
 ## Role in this wiki
 
@@ -23,11 +40,15 @@ A plain RNN computes `h_t = sigm(W_hx · x_t + W_hh · h_{t-1})`, which suffers 
 
 ## Successor
 
-LSTMs were the default sequence-modeling backbone until [[1706.03762-attention-is-all-you-need]] showed that pure attention is faster to train (O(1) sequential ops per layer vs. O(n) for RNNs) and reaches higher BLEU. Modern LLMs do not use LSTMs.
+LSTMs were the default sequence-modeling backbone from 2011 until the rise of [[transformer|Transformer]] models in 2017 ([[d2l-recurrent-modern]] §lstm summary). [[1706.03762-attention-is-all-you-need]] showed that pure attention is faster to train (O(1) sequential ops per layer vs. O(n) for RNNs) and reaches higher BLEU. Per D2L: "Even Transformers owe some of their key ideas to architecture design innovations introduced by the LSTM."
 
-[[2001.08361-scaling-laws]] (Kaplan et al., 2020) supplies the empirical scaling argument for the displacement: with matched non-embedding parameter counts, LSTMs and Transformers tie on the first ~100 tokens of a 1024-token context, but **LSTMs plateau** while Transformers keep improving across the full context. The per-token loss obeys a power law in context position with a larger exponent for larger Transformers — bigger Transformers exploit long context more effectively, an advantage LSTMs structurally cannot match.
+[[2001.08361-scaling-laws]] (Kaplan et al., 2020) supplies the empirical scaling argument for the displacement: with matched non-embedding parameter counts, LSTMs and Transformers tie on the first ~100 tokens of a 1024-token context, but **LSTMs plateau** while Transformers keep improving across the full context.
 
 ## See also
 - [[SeqToSeq]]
 - [[EncoderDecoder]]
 - [[Transformer]]
+- [[GRU]] — the streamlined variant
+- [[MemoryCell]] / [[InputGate]] / [[ForgetGate]] / [[OutputGate]] — internal components
+- [[BidirectionalRNN]] — composable with LSTM (Graves & Schmidhuber 2005)
+- [[DeepRNN]] — multi-layer LSTM is the canonical deep-RNN instance
