@@ -1,9 +1,9 @@
 ---
 title: "Barrier (synchronization)"
 type: concept
-tags: [parallel-computing, concurrency, synchronization]
-sources: [parproc-ch01-intro-parallel-processing, parproc-ch03-shared-memory-parallelism]
-last_updated: 2026-05-17
+tags: [parallel-computing, concurrency, synchronization, pthreads]
+sources: [parproc-ch01-intro-parallel-processing, parproc-ch03-shared-memory-parallelism, dis-14-3-3-other-syncs]
+last_updated: 2026-05-18
 ---
 
 # Barrier
@@ -44,3 +44,7 @@ Parallelization of the barrier itself (§3.12.4.2):
 - [[JIAJIA]] — `jia_barrier()` is the SDSM API.
 - [[CriticalSection]] — the other dominant shared-memory synchronization primitive.
 - [[Thread]] — the entity barriers coordinate.
+- [[dis-14-3-3-other-syncs]] — DIS Ch 14.3.3; *"forces all threads to reach a common execution point before proceeding concurrently."* Three-function Pthreads API: [[PthreadBarrierInit|`pthread_barrier_init(&barr, NULL, N)`]] (where `N` is the thread count required to release), [[PthreadBarrierWait|`pthread_barrier_wait(&barr)`]] (the rendezvous — first `N-1` callers block, the `N`-th releases all), [[PthreadBarrierDestroy|`pthread_barrier_destroy(&barr)`]]. Worked example: a barrier prevents array processing until every thread prints its startup message — the canonical phase-separator use case.
+- [[PthreadBarrierInit]] / [[PthreadBarrierWait]] / [[PthreadBarrierDestroy]] — per-call concept pages.
+- [[ConditionVariable]] — alternative primitive for blocking until a predicate; barriers are syntactic sugar for a count-based predicate.
+- [[Synchronization]] — umbrella.

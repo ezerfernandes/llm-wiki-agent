@@ -1,9 +1,9 @@
 ---
 title: "Critical Section"
 type: concept
-tags: [embedded, concurrency, rust, cortex-m, parallel-computing]
-sources: [rust-embedded-book-concurrency-index, parproc-ch01-intro-parallel-processing]
-last_updated: 2026-05-17
+tags: [embedded, concurrency, rust, cortex-m, parallel-computing, pthreads]
+sources: [rust-embedded-book-concurrency-index, parproc-ch01-intro-parallel-processing, dis-14-3-synchronization]
+last_updated: 2026-05-18
 ---
 
 # Critical Section
@@ -63,3 +63,7 @@ cortex_m::interrupt::free(|cs| {
 - [[DataRace]] — the failure mode critical sections prevent.
 - [[ARMCortexM]] — the single-core-or-multi-core distinction at the architectural level.
 - [[ZeroCostAbstraction]] — the `CriticalSection` token is a textbook zero-cost compile-time-proof pattern.
+- [[dis-14-3-synchronization]] — DIS Ch 14.3 reaffirms the critical-section definition: *"The portion of code that must execute atomically (in isolation) to maintain correctness when accessing shared resources."* The default-unsafe principle — *"all operations should be assumed to be nonatomic unless mutual exclusion is explicitly enforced"* — anchors the entire synchronization arc.
+- [[Synchronization]] — umbrella.
+- [[RaceCondition]] — broader failure-mode sibling of [[DataRace]] that critical sections also prevent.
+- [[AtomicOperation]] — atomicity is the property a critical section achieves collectively over a sequence of non-atomic machine instructions.

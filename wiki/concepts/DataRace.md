@@ -1,9 +1,9 @@
 ---
 title: "Data Race"
 type: concept
-tags: [concurrency, embedded, undefined-behavior]
-sources: [rust-embedded-book-concurrency-index]
-last_updated: 2026-05-16
+tags: [concurrency, embedded, undefined-behavior, pthreads]
+sources: [rust-embedded-book-concurrency-index, dis-14-3-synchronization]
+last_updated: 2026-05-18
 ---
 
 # Data Race
@@ -57,3 +57,7 @@ The Rust language treats every `static mut` read/write as `unsafe` precisely bec
 - [[Deadlock]] — sibling failure mode; *not* a data race, but a common false-cure for one.
 - [[RustLanguage]] — the language whose type system criminalizes races (mostly) at compile time.
 - [[ARMCortexM]] — the single-core-vs-multi-core distinction determines which mitigation is necessary.
+- [[dis-14-3-synchronization]] — DIS Ch 14.3 defines the data race in the **multi-thread / CPU-side** framing: *"a scenario where two or more threads simultaneously write to the same memory location, producing incorrect results."* Complement to the Embedded Rust main↔interrupt framing above. Also names the broader [[RaceCondition|race condition]] sibling.
+- [[RaceCondition]] — strictly broader sibling; every data race is a race condition, but race conditions also include ordering bugs without concurrent writes.
+- [[Synchronization]] — the family of primitives that prevents data races.
+- [[ReadModifyWrite]] — the canonical pattern that exposes data races (`COUNTER += 1` = load + add + store).

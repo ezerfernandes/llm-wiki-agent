@@ -1,9 +1,9 @@
 ---
 title: "Deadlock"
 type: concept
-tags: [concurrency, embedded, failure-mode]
-sources: [rust-embedded-book-concurrency-index]
-last_updated: 2026-05-16
+tags: [concurrency, embedded, failure-mode, pthreads]
+sources: [rust-embedded-book-concurrency-index, dis-14-3-1-mutex]
+last_updated: 2026-05-18
 ---
 
 # Deadlock
@@ -38,3 +38,5 @@ The chapter's `cortex_m::interrupt::Mutex` sidesteps deadlock by design — the 
 - [[DataRace]] — sibling failure mode; UB rather than liveness failure.
 - [[RTIC]] — named as deadlock-free by construction.
 - [[RustLanguage]] — `unsafe` catches data races, not deadlocks.
+- [[dis-14-3-1-mutex]] — DIS Ch 14.3.1 surfaces deadlock in the **CPU-side / Pthreads** context: *"Multiple interdependent locks can cause mutual blocking."* The banking-scenario worked example: thread A holds lock X while waiting for lock Y, thread B holds Y waiting for X — both freeze indefinitely. Complement to the embedded `main`↔interrupt deadlock above.
+- [[Synchronization]] — umbrella; deadlock is synchronization's principal new failure mode.

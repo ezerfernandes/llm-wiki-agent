@@ -6,6 +6,165 @@ Format: `## [YYYY-MM-DD] <operation> | <title>`
 
 Parse recent entries: `grep "^## \[" wiki/log.md | tail -10`
 
+## [2026-05-18] ingest | Dive into Systems — Ch 15.3 To Exascale and Beyond
+- **Source**: `https://diveintosystems.org/book/C15-Parallel/cloud.html` → `wiki/sources/dis-15-3-exascale.md`.
+- **Summary**: **Third and final leaf of Ch 15** *Looking Ahead: Other Parallel Systems* — **closes Ch 15 and the entire [[DiveIntoSystems]] textbook**. Pivots from [[dis-15-2-distributed-memory|15.2's]] [[MPI]] / [[Cluster|cluster]] intro into the **largest-scale parallel systems**: **HPC** (scientific supercomputers — [[ExascaleComputing|exascale]] Frontier / Aurora / El Capitan) vs **HDA** (cloud-scale data centers, [[MapReduce]] / [[HadoopStreaming|Hadoop]] / Spark). Both build on [[MulticoreProcessor|multicore]] + [[GPU|GPU]] clusters; differ in software stacks. *"90% of all online data was produced in the past two years, and that society produces 30 terabytes of user data per second."* 1,000-node centers see **>99.99%** node-failure probability — fault tolerance is mandatory. Energy as binding constraint: *"maintaining one megawatt of supercomputer power costs approximately $1 million annually."* **143rd and final ingested DIS chapter — closes Ch 15 and the entire textbook.**
+- **New concept pages**: [[ExascaleComputing]] (1 new — the 10^18-FLOPS frontier).
+- **Updated**: [[DiveIntoSystems]] frontmatter (142 → 143, sources, Connections), `wiki/index.md` Sources + Concepts (footer 341 → 342).
+- **Overview**: skipped (per instruction).
+- **Contradictions**: none.
+- **Validation**: all `[[wikilinks]]` resolve; index updated; source file written. **DIS now at 143 chapters — Ch 15 fully complete, textbook ingest complete.**
+
+## [2026-05-18] ingest | Dive into Systems — Ch 15.2 Distributed Memory Systems
+- **Source**: `https://diveintosystems.org/book/C15-Parallel/distrmem.html` → `wiki/sources/dis-15-2-distributed-memory.md`.
+- **Summary**: **Second leaf of Ch 15** — pivots from [[dis-15-1-gpu|15.1's]] heterogeneous-CPU+GPU framing into the **[[Cluster|cluster]] / distributed-memory** parallelism arc. *"A collection of computers working together is known as a **distributed memory system**"* — scale **out** rather than **up**. Each node has its own [[ProcessAddressSpace|address space]]; coordination requires **explicit [[MessagePassing|message passing]]**. [[MPI]] is the standardized library — each process gets **rank** 0..N−1 within an [[MPICommunicator|communicator]]; point-to-point [[MPISend]] / [[MPIRecv]] plus collectives [[MPIBcast]] / [[MPIScatter]] / [[MPIGather]] / [[MPIReduce]] / [[MPIAllreduce]] / [[MPIBarrier]] / [[MPIAllgather]]. **Boss/worker** worked example; [[MPIRecv|`MPI_Recv`]] blocking creates implicit synchronization. **Fault independence** vs shared-memory; **network clock skew** as structural challenge. **142nd ingested DIS chapter.**
+- **New concept pages**: none — pure reuse of the [[ParallelProcessorsAlgorithms|ParProc Ch 4]] MPI corpus.
+- **Updated**: [[DiveIntoSystems]] frontmatter (141 → 142, sources, Connections), `wiki/index.md` Sources.
+- **Overview**: skipped.
+- **Contradictions**: none.
+- **Validation**: all `[[wikilinks]]` resolve; index updated; source file written.
+
+## [2026-05-18] ingest | Dive into Systems — Ch 15.1 Hardware Acceleration and CUDA
+- **Source**: `https://diveintosystems.org/book/C15-Parallel/gpu.html` → `wiki/sources/dis-15-1-gpu.md`.
+- **Summary**: **Opening leaf of Ch 15** *Looking Ahead: Other Parallel Systems* — pivots from Ch 14's shared-memory [[Pthreads]] / [[OpenMP]] CPU-thread world into the **heterogeneous-computing** chapter. *"Heterogeneous computing is computing using multiple, different processing units found in a computer ... support for parallel computing using the computer's CPU cores and one or more of its accelerator units such as graphics processing units (GPUs)."* The [[GPU]] is a massively-parallel co-processor of [[StreamingMultiprocessor|SMs]]; [[CUDA]] is the programming model: `__global__` kernels launched with `<<<grid, block>>>` syntax, **separate host/device memory** managed via [[CudaMalloc|`cudaMalloc`]] / [[CudaMemcpy|`cudaMemcpy`]] / [[CudaFree|`cudaFree`]]. [[SIMT]] execution: 32-thread [[Warp|warps]] in lockstep. Three-level thread hierarchy ([[Grid|grid]] → [[Block|blocks]] → threads/warps); intra-block sync via [[CudaThreadSynchronize|`__syncthreads()`]], **no native inter-block barrier**. GPGPU sweet spot: **embarrassingly parallel** workloads — struggles when CPU↔GPU transfer dominates. **141st ingested DIS chapter — opens Ch 15.**
+- **New concept pages**: [[CudaThreadIndex]] (1 new — the `threadIdx` / `blockIdx` / `blockDim` indexing scheme); reuses extensively from [[ParallelProcessorsAlgorithms|ParProc Ch 5]] CUDA corpus ([[CUDA]] / [[GPU]] / [[SIMT]] / [[Warp]] / [[Block]] / [[Grid]] / [[StreamingMultiprocessor]] / [[KernelLaunch]] / [[gpumemoryhierarchy]] / [[CudaThreadSynchronize]]).
+- **Updated**: [[DiveIntoSystems]] frontmatter (140 → 141, sources, Connections), `wiki/index.md` Sources + Concepts.
+- **Overview**: skipped.
+- **Contradictions**: none.
+- **Validation**: all `[[wikilinks]]` resolve; index updated; source file written.
+
+## [2026-05-18] ingest | Dive into Systems — Ch 14.4.2 Advanced Performance Considerations
+- **Source**: `https://diveintosystems.org/book/C14-SharedMemory/performance_advanced.html` → `wiki/sources/dis-14-4-2-performance-advanced.md`.
+- **Summary**: Second sub-leaf of [[dis-14-4-performance|Ch 14.4]]; extends 14.4.1's [[AmdahlsLaw|Amdahl]] pessimism with the **[[GustafsonsLaw|Gustafson-Barsis Law]]** problem-scaling alternative — *"the amount of work that can be done in parallel varies linearly with the number of processors"* — and codifies the two scalability regimes: **[[StrongScaling|strong scaling]]** (fixed problem, grow cores; Amdahl-bounded; linear means $\text{Speedup}(c)=c$) and **[[WeakScaling|weak scaling]]** (grow problem and cores together; Gustafson-bounded; linear means flat runtime). [[Hyperthreading|Hyperthreaded]] cores produce nonlinear speedup curves due to shared execution-resource contention. Closes with a benchmarking-discipline checklist (multiple trials, measure only the relevant section, account for HT, monitor system contention). **135th ingested DIS chapter — closes Ch 14.4.**
+- **New concept pages**: [[StrongScaling]], [[WeakScaling]] (2 new).
+- **Updated**: [[DiveIntoSystems]] frontmatter (134 → 135, sources list), Connections; `wiki/index.md` Sources + Concepts.
+- **Overview**: skipped.
+- **Contradictions**: none — Gustafson **softens** Amdahl by inverting the fixed-problem-size assumption, but the two laws are complementary lenses, not contradictions.
+- **Validation**: all `[[wikilinks]]` resolve; index updated; source file written. **DIS now at 135 chapters — Ch 14.4 fully complete.**
+
+## [2026-05-18] ingest | Dive into Systems — Ch 14.4.1 Parallel Performance Basics
+- **Source**: `https://diveintosystems.org/book/C14-SharedMemory/performance_basics.html` → `wiki/sources/dis-14-4-1-performance-basics.md`.
+- **Summary**: First sub-leaf of [[dis-14-4-performance|Ch 14.4]]; formalizes the two foundational metrics — **[[ParallelSpeedup|speedup]]** ($\text{Speedup} = T_1/T_c$ — promotes the informal 1/c rule from [[dis-14-1-multicore|Ch 14.1.2]]'s [[Speedup]] into the precise ratio) and **[[ParallelEfficiency|efficiency]]** ($= \text{Speedup}/c$, per-core utilization) — then introduces **[[AmdahlsLaw|Amdahl's Law]]** as the theoretical ceiling $\text{Speedup}(c) = 1/(S + P/c)$, asymptote $1/S$ as $c \to \infty$. **Worked example: 90% parallelizable code caps at 10× speedup regardless of core count.** Names the critical-path / dependency-chain concept as Amdahl's structural cause; Fibonacci generation as the canonical no-parallel-fraction foil. Real-world efficiency degrades with cores due to [[Synchronization|synchronization]] overhead, contention, and load imbalance. **134th ingested DIS chapter.**
+- **New concept pages**: [[ParallelSpeedup]], [[ParallelEfficiency]], [[AmdahlsLaw]] (3 new). [[AmdahlsLaw|Amdahl]] **promoted** from a forward reference on [[Speedup]] / [[dis-14-1-multicore|Ch 14.1]] into a full page.
+- **Updated**: [[DiveIntoSystems]] frontmatter (133 → 134, sources list), Connections; `wiki/index.md` Sources + Concepts.
+- **Overview**: skipped.
+- **Contradictions**: none — strictly extends [[Speedup]] from the informal 1/c rule to the formal ratio plus the Amdahl ceiling that page deferred.
+- **Validation**: all `[[wikilinks]]` resolve; index updated; source file written.
+
+## [2026-05-18] ingest | Dive into Systems — Ch 14.4 Measuring Parallel Performance
+- **Source**: `https://diveintosystems.org/book/C14-SharedMemory/performance.html` → `wiki/sources/dis-14-4-performance.md`.
+- **Summary**: Hub leaf + fourth leaf of Ch 14 *Leveraging Shared Memory in the Multicore Era*; pivots from [[dis-14-3-synchronization|Ch 14.3]]'s synchronization primitives into the **performance-measurement** arc. Two-tier organization: **14.4.1 *Performance Basics*** ([[ParallelSpeedup|speedup]], [[ParallelEfficiency|efficiency]], [[AmdahlsLaw|Amdahl's Law]]) and **14.4.2 *Advanced Performance Considerations*** ([[GustafsonsLaw|Gustafson-Barsis Law]], [[StrongScaling|strong]] / [[WeakScaling|weak]] scaling, benchmarking discipline). Hub framing: *"having a good understanding of the following topics will round out a reader's understanding of performance"* — basics suffice for an introductory course, advanced material rounds it out. **133rd ingested DIS chapter — opens Ch 14.4.**
+- **New concept pages**: none directly; sub-leaves mint **6 new concept pages** total ([[ParallelSpeedup]], [[ParallelEfficiency]], [[AmdahlsLaw]], [[GustafsonsLaw]], [[StrongScaling]], [[WeakScaling]]).
+- **Updated**: [[DiveIntoSystems]] frontmatter (132 → 133, sources list), Connections; `wiki/index.md` Sources.
+- **Overview**: skipped.
+- **Contradictions**: none — opens a new sub-arc on top of [[dis-14-3-3-other-syncs|Ch 14.3.3]]'s synchronization close.
+- **Validation**: all `[[wikilinks]]` resolve; index updated; source file written.
+
+## [2026-05-18] ingest | Dive into Systems — Ch 14.3.3 Other Synchronization Constructs
+
+- Source: `https://diveintosystems.org/book/C14-SharedMemory/other_syncs.html` → `wiki/sources/dis-14-3-3-other-syncs.md`. **Third and final sub-leaf of [[dis-14-3-synchronization|Ch 14.3]] — closes the *Synchronizing Threads* arc.** **132nd ingested DIS chapter.**
+- Summary: surveys [[Barrier|barriers]] (Pthreads three-function API [[PthreadBarrierInit|`pthread_barrier_init(&barr, NULL, N)`]] / [[PthreadBarrierWait|`pthread_barrier_wait(&barr)`]] / [[PthreadBarrierDestroy|`pthread_barrier_destroy(&barr)`]] — first `N-1` callers block, the `N`-th releases all), [[ConditionVariable|condition variables]] (blocking-wait + signaling primitive paired with a mutex; five-function API [[PthreadCondInit]] / [[PthreadCondWait|`pthread_cond_wait(&cond, &mutex)`]] (atomically releases mutex while blocking, re-acquires before returning) / [[PthreadCondSignal]] (wake one) / [[PthreadCondBroadcast]] (wake all) / [[PthreadCondDestroy]]; egg-laying [[ProducerConsumer|producer/consumer]] worked example), and [[ReadersWriterLock|readers-writer locks]] at the catalogue level. **Critical pattern — predicate-loop discipline**: *"use a predicate loop (while, not if) around `pthread_cond_wait()` to handle spurious wakeups and condition changes."*
+- New concept pages: **9 + 1** — [[ConditionVariable]], [[PthreadBarrierInit]], [[PthreadBarrierWait]], [[PthreadBarrierDestroy]], [[PthreadCondInit]], [[PthreadCondWait]], [[PthreadCondSignal]], [[PthreadCondBroadcast]], [[PthreadCondDestroy]], plus [[ReadersWriterLock]]. **Extends [[Barrier]] in place** with the Pthreads three-function barrier API.
+- Updated: [[DiveIntoSystems]] frontmatter (131→132, sources list), Connections, Corpus status (Ch 14.3 closed); `wiki/index.md` Sources + Concepts (+10 entries).
+- Overview: skipped per ingest spec.
+
+## [2026-05-18] ingest | Dive into Systems — Ch 14.3.2 Semaphores
+
+- Source: `https://diveintosystems.org/book/C14-SharedMemory/semaphores.html` → `wiki/sources/dis-14-3-2-semaphores.md`. **Second sub-leaf of [[dis-14-3-synchronization|Ch 14.3]].** **131st ingested DIS chapter.**
+- Summary: introduces [[Semaphore|semaphores]] as the resource-count synchronization primitive that complements the [[Mutex|mutex]]'s ownership model — *"semaphores manage concurrent access to resource pools by tracking availability count rather than ownership."* Counting (0 to *r*) vs binary (0/1) distinction. Core POSIX API: [[SemInit|`sem_init(&sem, pshared, value)`]] / [[SemWait|`sem_wait(&sem)`]] (decrement-and-block) / [[SemPost|`sem_post(&sem)`]] (increment-and-wake) / [[SemDestroy|`sem_destroy(&sem)`]]. **Critical asymmetry from mutex**: *"any thread can unlock the semaphore (in contrast to a mutex, where the calling thread must unlock it)"* — semaphores have no ownership, making them the natural [[ProducerConsumer|producer/consumer]] primitive. macOS portability gotcha: `sem_init` deprecated → `sem_open` / `sem_close` / `sem_unlink`.
+- New concept pages: **5** — [[Semaphore]], [[SemInit]], [[SemWait]], [[SemPost]], [[SemDestroy]].
+- Updated: [[DiveIntoSystems]] frontmatter (130→131, sources list), Connections; `wiki/index.md` Sources + Concepts (+5 entries).
+- Overview: skipped per ingest spec.
+
+## [2026-05-18] ingest | Dive into Systems — Ch 14.3.1 Mutex
+
+- Source: `https://diveintosystems.org/book/C14-SharedMemory/mutex.html` → `wiki/sources/dis-14-3-1-mutex.md`. **First sub-leaf of [[dis-14-3-synchronization|Ch 14.3]].** **130th ingested DIS chapter.**
+- Summary: operationalizes the [[CriticalSection|critical-section]] concept from the parent hub into the canonical [[Pthreads]] primitive — the [[Mutex|mutex]] (mutual exclusion lock) — *"a synchronization primitive that ensures only one thread executes code within a critical section at any given time, preventing data races on shared variables."* Four-function API: [[PthreadMutexInit]] / [[PthreadMutexLock]] / [[PthreadMutexUnlock]] (same thread that locked must unlock — the ownership rule distinguishing mutex from [[Semaphore|semaphore]]) / [[PthreadMutexDestroy]]. **Lock-placement performance lesson**: *"Simply wrapping entire loops with locks produces correct results but serializes execution, eliminating parallelism benefits. Conversely, locking on every iteration creates expensive overhead. Optimal strategy: use local thread-private variables to accumulate intermediate results without contention, then acquire the lock only once to update shared state."* DIS's measured payoff — **1.92 s → 0.13 s** on the accumulator example with 4 threads. **[[Deadlock]] risk** surfaced via the banking-scenario worked example.
+- New concept pages: **4** — [[PthreadMutexInit]], [[PthreadMutexLock]], [[PthreadMutexUnlock]], [[PthreadMutexDestroy]]. **Extends [[Mutex]] / [[Deadlock]] in place** with the CPU-side Pthreads framing (prior Mutex coverage was Embedded-Rust `cortex_m::interrupt::Mutex` only).
+- Updated: [[DiveIntoSystems]] frontmatter (129→130, sources list), Connections; `wiki/index.md` Sources + Concepts (+4 entries).
+- Overview: skipped per ingest spec.
+
+## [2026-05-18] ingest | Dive into Systems — Ch 14.3 Synchronizing Threads
+
+- Source: `https://diveintosystems.org/book/C14-SharedMemory/synchronization.html` → `wiki/sources/dis-14-3-synchronization.md`. **Hub leaf of Ch 14.3 *Synchronizing Threads* — third leaf of Ch 14.** **129th ingested DIS chapter.**
+- Summary: pivots from [[dis-14-2-posix|Ch 14.2]]'s thread-creation mechanics into the **why and what** of [[Synchronization|thread synchronization]] — *"enforcing a particular execution order among threads to ensure program correctness, even though it may increase runtime."* CountSort motivating example shows parallelizing work is necessary but not sufficient. Names the core taxonomy: [[CriticalSection]] (atomic-execution region), [[DataRace]] (two threads simultaneously write same location), [[RaceCondition]] (broader — any ordering-dependent incorrect outcome), [[AtomicOperation]] ("all or nothing"). **Headline rule** — the default-unsafe assumption: *"all operations should be assumed to be nonatomic unless mutual exclusion is explicitly enforced"* — [[ReadModifyWrite|read-modify-write]] is the canonical danger. **Heisenbug property**: races occur only under specific timing conditions, hard to detect / reproduce. Three sub-leaves drill each primitive.
+- New concept pages: **3** — [[Synchronization]], [[RaceCondition]], [[AtomicOperation]] (extends the existing CUDA-side [[AtomicOperation]] in place with the general CPU-side framing). **Extends [[CriticalSection]] / [[DataRace]] in place** with DIS framings.
+- Updated: [[DiveIntoSystems]] frontmatter (128→129, sources list), Connections; `wiki/index.md` Sources + Concepts (+3 entries).
+- Overview: skipped per ingest spec.
+
+## [2026-05-18] ingest | Dive into Systems — Ch 14.1 Programming Multicore Systems
+
+- Source: `https://diveintosystems.org/book/C14-SharedMemory/multicore.html` → `wiki/sources/dis-14-1-multicore.md`. **Opening leaf of Ch 14 *Leveraging Shared Memory in the Multicore Era*.** **127th ingested DIS chapter.**
+- Summary: motivates explicit parallel programming as the mandatory post-[[PowerWall|power-wall]] response — *"most major programming languages were created prior to the multicore era and were not designed with multicore systems in mind."* **14.1.1** codifies the [[ConcurrencyVsParallelism|concurrency vs parallelism]] distinction (*"the simultaneous execution of instructions from processes running on multiple cores is referred to as parallel execution"*) and the [[CPUTime|CPU-time]] vs [[WallClockTime|wall-clock-time]] split — multicore raises [[Throughput|throughput]] of many concurrent processes but not any one process's CPU time. **14.1.2** introduces [[Thread|threads]] as *"lightweight, independent execution flows"* sharing process data/heap/code with separate stacks, and supplies the **1/c [[Speedup|speedup]] approximation rule**: *"if the number of threads matches the number of cores (c) and the operating system schedules each thread to run on a separate core in parallel, then the multithreaded process should run in approximately 1/c of the time."* Scope note: **[[AmdahlsLaw|Amdahl's Law]] explicitly NOT covered** — only the informal 1/c rule with *"resource contention prevents ideal speedup in practice"* as the realism qualifier; formal serial-fraction analysis deferred. [[Mutex|Mutexes]] / [[Semaphore|semaphores]] / [[Barrier|barriers]] not introduced.
+- New concept pages: **3** — [[SharedMemoryParallelism]] (chapter-level paradigm), [[ConcurrencyVsParallelism]] (the conceptual split), [[Speedup]] (the metric + 1/c rule).
+- Updated: [[DiveIntoSystems]] frontmatter (126→127, sources list), Connections, Corpus status (Ch 14 opened); `wiki/index.md` Sources + Concepts (+3 entries) + concept count (1125→1128).
+- Overview: skipped per ingest spec.
+
+## [2026-05-18] ingest | Dive into Systems — Ch 13.6 Exercises
+
+- Source: `https://diveintosystems.org/book/C13-OS/exercises.html` → `wiki/sources/dis-13-6-exercises.md`. **Closing leaf of Ch 13 — Ch 13 *The Operating System* now fully complete.** **126th ingested DIS chapter.**
+- Summary: exercise-set page drilling [[dis-13-2-processes|Ch 13.2]] via an inline three-nested-[[Fork|`fork()`]] tree-trace problem (diagram the parent-child hierarchy + enumerate per-process output sequences — *"parent process outputs A, E, F, G while child processes have different execution paths"*) and [[dis-13-3-virtual-memory|Ch 13.3]] via the external *Early Access Interactive Virtual Memory Questions* platform. Structural sibling of [[dis-1-8-exercises]] / [[dis-2-11-exercises]] / [[dis-4-10-exercises]] / [[dis-5-11-exercises]] / [[dis-7-11-x86-64-exercises]] / [[dis-8-11-ia32-exercises]] / [[dis-9-11-arm64-exercises]] / [[dis-11-8-exercises]] — the *exercise-set closes chapter* pattern.
+- New concept pages: **none** — pure problem-set redirect.
+- Updated: [[DiveIntoSystems]] frontmatter (125→126, sources list), Connections, Corpus status (Ch 13 marked fully complete); `wiki/index.md` Sources.
+- Overview: skipped per ingest spec.
+
+## [2026-05-18] ingest | Dive into Systems — Ch 13.5 Summary and Other OS Functionality
+
+- Source: `https://diveintosystems.org/book/C13-OS/advanced.html` → `wiki/sources/dis-13-5-summary-advanced.md`. **Second-to-last leaf of Ch 13 — prose-close.** **125th ingested DIS chapter.**
+- Summary: recaps Ch 13's [[Process|processes]] + [[Multiprogramming|multiprogramming]] + [[VirtualMemory|virtual memory]] + [[ContextSwitch|context switching]] + [[InterprocessCommunication|IPC]] arc and **names the OS subsystems Ch 13 deliberately deferred**: [[FileSystem|filesystems]], protection / security, [[SchedulingPolicy|scheduling policies]] (the policy half of the mechanism/policy split), [[Networking]], [[Virtualization]] / [[Hypervisor|hypervisors]] (*"a hypervisor virtualizes the system hardware and allows the host OS to run multiple virtual guest operating systems"*), [[LoadableKernelModule|loadable kernel modules]] (*"executable code that can be loaded into the kernel and run in kernel mode"*), and OS runtime tuning. Recommends [[OperatingSystemsThreeEasyPieces|*Operating Systems: Three Easy Pieces*]] (Arpaci-Dusseau & Arpaci-Dusseau, 2018) as the canonical follow-on textbook.
+- New concept pages: [[Hypervisor]], [[Virtualization]], [[LoadableKernelModule]].
+- Updated: [[DiveIntoSystems]] frontmatter (124→125, sources list), Connections; `wiki/index.md` Sources.
+- Overview: skipped per ingest spec.
+
+## [2026-05-18] ingest | Dive into Systems — Ch 13.4.3 Shared Memory
+
+- Source: `https://diveintosystems.org/book/C13-OS/ipc_shm.html` → `wiki/sources/dis-13-4-3-shared-memory.md`. **Third sub-leaf of Ch 13.4 — closes the IPC sub-arc.** **124th ingested DIS chapter.**
+- Summary: **shared-memory** [[InterprocessCommunication|IPC]] family rides directly on [[dis-13-3-virtual-memory|13.3]]'s [[PageTable|page-table]] machinery — *"the OS can support sharing pages of virtual address space by setting entries in the page tables of sharing processes to the same physical frame number."* After aliasing, both sides load/store directly with **no per-access syscall** — fastest IPC family. Names `shmget`; defers `shmat`/`shmdt`/`shmctl` / POSIX `shm_open`+`mmap` / synchronization ([[Mutex]] / [[Semaphore]]) to Ch 14. [[Thread|Threads]] briefly noted as in-process analog.
+- New concept page: [[SharedMemoryIPC]] (disambiguated from the existing [[SharedMemory|CUDA on-chip cache]] page of the same short name).
+- Updated: [[DiveIntoSystems]] frontmatter (123→124, sources list), Connections; `wiki/index.md` Sources.
+- Overview: skipped per ingest spec.
+- Contradictions: none — naming collision with [[SharedMemory]] resolved by minting [[SharedMemoryIPC]].
+- Validation: all `[[wikilinks]]` resolve; index updated. **DIS at 124 chapters — Ch 13.4 IPC sub-arc complete.**
+
+## [2026-05-18] ingest | Dive into Systems — Ch 13.4.2 Message Passing
+
+- Source: `https://diveintosystems.org/book/C13-OS/ipc_msging.html` → `wiki/sources/dis-13-4-2-message-passing.md`. **Second sub-leaf of Ch 13.4.** **123rd ingested DIS chapter.**
+- Summary: **message-passing** [[InterprocessCommunication|IPC]] family as an OS-managed channel — *"processes with private virtual address spaces can communicate ... by sending and receiving messages to one another."* Two concrete channels: **[[Pipe|pipes]]** (*"a one-way communication channel for two processes running on the same machine"* — canonical example `cat foo.c \| grep factorial` via the `pipe(2)` syscall + [[Fork]] + [[Dup2]] + [[Exec]]) and **[[Socket|sockets]]** (*"a two-way communication channel"* spanning same-machine + network via [[TCP|TCP/IP]]). Arbitrary byte-stream payload overcomes [[dis-13-4-1-signals|13.4.1]]'s fixed namespace; per-message OS copy is the cost vs [[SharedMemoryIPC|shared memory]].
+- New concept pages: [[MessagePassing]], [[Pipe]], [[NamedPipe]] (FIFO forward reference — 13.4.2 confines coverage to anonymous pipes).
+- Updated: [[DiveIntoSystems]] frontmatter (122→123, sources list), Connections; `wiki/index.md` Sources.
+- Overview: skipped per ingest spec.
+- Contradictions: none.
+- Validation: all `[[wikilinks]]` resolve; index updated; source file written.
+
+## [2026-05-18] ingest | Dive into Systems — Ch 13.4.1 Signals
+
+- Source: `https://diveintosystems.org/book/C13-OS/ipc_signals.html` → `wiki/sources/dis-13-4-1-signals.md`. **First sub-leaf of Ch 13.4.** **122nd ingested DIS chapter.**
+- Summary: **[[Signal|signal]]** IPC family as asynchronous software interrupts kernel-delivered between processes. [[Kill|`kill(pid, sig)`]] sends *any* signal (not just termination). Two registration syscalls — *"Linux supports two different system calls that can be used to change the default behavior of a signal or to register a signal handler on a particular signal: `sigaction` and `signal`"* (`sigaction` POSIX-preferred). Four default actions; `SIGKILL` + `SIGSTOP` **uncatchable**. **`SIGCHLD` reaping idiom** — `waitpid(-1, &status, WNOHANG)` in a loop, *because the OS records signal occurrence not count*. **Headline limit**: *"Systems define a fixed number of signals (e.g., Linux defines 32 different signals)"* — predefined events only.
+- New concept page: [[SignalHandler]] (with the standard `void handler(int signum)` prototype, async-signal-safety, and the canonical `SIGCHLD` reaping pattern).
+- Extended in place: [[Signal]] / [[Kill]] / [[SIGBUS]] — promoted from [[dis-3-4-gdb-advanced|Ch 3.4]] GDB-context introduction into the OS-IPC context.
+- Updated: [[DiveIntoSystems]] frontmatter (121→122, sources list), Connections; `wiki/index.md` Sources.
+- Overview: skipped per ingest spec.
+- Contradictions: none — consistent with and extends Ch 3.4 forward references.
+- Validation: all `[[wikilinks]]` resolve; index updated; source file written.
+
+## [2026-05-18] ingest | Dive into Systems — Ch 13.4 Interprocess Communication (hub)
+
+- Source: `https://diveintosystems.org/book/C13-OS/ipc.html` → `wiki/sources/dis-13-4-ipc.md`. **Fourth leaf of Ch 13 *The Operating System*** — **opening hub of the IPC sub-arc** (13.4.1 Signals + 13.4.2 Message Passing + 13.4.3 Shared Memory). **121st ingested DIS chapter.**
+- Summary: pivot from [[dis-13-3-virtual-memory|13.3]]'s per-process [[VirtualMemory|virtual-memory]] isolation into the inverse problem — applications that need to coordinate. Codifies [[InterprocessCommunication|IPC]] as *"mechanisms by which operating systems enable processes to exchange information or coordinate their execution"* and introduces the **three canonical families**: [[Signal|signals]] (event notification, no payload), [[MessagePassing|message passing]] (OS-managed byte-stream channel — [[Pipe|pipes]] + [[Socket|sockets]]), [[SharedMemoryIPC|shared memory]] (overlap virtual address spaces directly via [[PageTable|page-table]] aliasing).
+- New concept page: [[InterprocessCommunication]] (umbrella anchor with the three-family trade-off table).
+- Updated: [[DiveIntoSystems]] frontmatter (120→121, sources list), Connections; `wiki/index.md` Sources.
+- Overview: skipped per ingest spec.
+- Contradictions: none.
+- Validation: all `[[wikilinks]]` resolve; index updated; source file written. **Opens Ch 13.4.**
+
+## [2026-05-17] ingest | Dive into Systems — Ch 13.3 Virtual Memory
+
+- Source: `wiki/sources/dis-13-3-virtual-memory.md` — third leaf of Ch 13 *The Operating System*.
+- 10 new concept pages: [[VirtualMemory]], [[VirtualAddress]], [[PhysicalAddress]], [[PageTable]], [[Page]], [[Paging]], [[PageFault]], [[TLB]] (promoted from forward-ref), [[SwapFile]], [[DemandPaging]].
+- Updated: [[DiveIntoSystems]] (sources frontmatter, chapters_ingested 119→120, Connections), `wiki/index.md` (source row + entries-count bump).
+- Headline: address-translation mechanism under Ch 2.1's program-memory cartoon; per-process page tables; TLB caches translations; demand paging decouples virtual address space size from physical RAM.
+- Note: log entry added retroactively after the original agent hit a usage cap; source/concepts/index/entity completed.
+
 ## [2026-05-17] ingest | Dive into Systems — Ch 13.2 Processes
 
 - Source: web URL `https://diveintosystems.org/book/C13-OS/processes.html` → fetched via WebFetch. **Second leaf of Ch 13 *The Operating System*** of *[[DiveIntoSystems]]* — **119th ingested DIS chapter**.
@@ -2773,3 +2932,253 @@ Second leaf of Ch 8; 32-bit structural twin of Ch 7.2. Reuses [[X86MovInstructio
 - **Overview**: skipped.
 - **Contradictions**: none — pure recap.
 - **Validation**: all `[[wikilinks]]` resolve; index updated; source file written. **DIS now at 117 chapters — Ch 12 fully complete, Part IV (Memory Hierarchy + Code Optimization) complete.**
+
+## [2026-05-18] ingest | Dive into Systems — Ch 14.2 POSIX Threads
+- **Source**: `https://diveintosystems.org/book/C14-SharedMemory/posix.html` → `wiki/sources/dis-14-2-posix.md`.
+- **Summary**: Second leaf of Ch 14; pivots from [[dis-14-1-multicore|Ch 14.1]]'s motivation to the concrete [[Pthreads]] API. Codifies the **four-step thread lifecycle** (declare `pthread_t` → [[PthreadCreate|`pthread_create`]] → [[ThreadFunction|thread function]] with private stack + registers → [[PthreadJoin|`pthread_join`]]); the two anchor signatures `pthread_create(pthread_t *, const pthread_attr_t *, void *(*)(void *), void *)` and `pthread_join(pthread_t, void **)`; the [[ThreadFunction|thread-function]] prototype `void *func(void *)` ([[VoidStar|`void *`]] argument **and** return for generic typing); the **[[ThreadID|TID]]** user-supplied per-thread identifier convention; the **[[GccPthreadFlag|`-pthread`]]** link flag. Closes with *"never make any assumptions about the order in which threads will execute"* — synchronization ([[Mutex|mutex]] / [[Barrier|barrier]]) deferred to later Ch 14 sections.
+- **New concept pages**: [[PthreadCreate]], [[PthreadJoin]], [[ThreadFunction]], [[ThreadID]], [[GccPthreadFlag]] (5 new).
+- **Promoted in-place**: [[Pthreads]] entity — from [[dis-3-6-gdb-pthreads|Ch 3.6]] forward-reference stub to full API coverage (added Core API section codifying `pthread_create` / `pthread_join` / [[ThreadFunction|thread function]] / per-thread execution state / [[ThreadID|TID]] convention / four-step lifecycle / compile flag / no-ordering principle).
+- **Updated**: [[DiveIntoSystems]] frontmatter (127 → 128, sources list), Corpus status (added Ch 14.2 entry); `wiki/index.md` Sources (one new entry near top) + Concepts (5 new entries near [[Thread]]).
+- **Overview**: skipped.
+- **Contradictions**: none — strictly extends [[Pthreads]] from the prior [[dis-3-6-gdb-pthreads|Ch 3.6]] stub; no signature or prototype conflicts with existing pages.
+- **Validation**: all `[[wikilinks]]` resolve; index updated; source file written. **DIS now at 128 chapters — Ch 14.2 of Ch 14 *Leveraging Shared Memory in the Multicore Era*.**
+
+## [2026-05-18] ingest | Dive into Systems — Ch 14.5 Cache Coherence and False Sharing
+- **Source**: `https://diveintosystems.org/book/C14-SharedMemory/cache_coherence.html` → `wiki/sources/dis-14-5-cache-coherence.md`.
+- **Summary**: Fifth leaf of Ch 14; pivots from [[dis-14-4-performance|Ch 14.4]]'s performance theory into hardware-level subtlety. Codifies [[SnoopingProtocol|snoopy caches]] monitoring the [[MemoryBus|memory bus]] + write-invalidate [[MESI|MESI]]-family protocols — *"every write to counts invalidates the entire line in every other L1 cache"*. **Headline failure mode**: [[FalseSharing|false sharing]] — writes to different array elements on the same [[CacheLine|cache line]] trigger invalidations even without true sharing. **Measured pathology**: per-thread counter array slows **0.34 s → 0.80 s → 0.77 s** going 1→2→4 threads — opposite of [[ParallelSpeedup|speedup]]. Mitigations: thread-local accumulators + cache-line padding.
+- **New concept pages**: none — fully reuses [[CacheCoherency]] / [[FalseSharing]] / [[MESI]] / [[CacheLine]] / [[SnoopingProtocol]] from [[ParallelProcessorsAlgorithms|ParProc]] corpus.
+- **Updated**: [[DiveIntoSystems]] frontmatter (135 → 136, sources list), Corpus status; `wiki/index.md` Sources (1 new entry near top).
+- **Overview**: skipped.
+- **Contradictions**: none.
+- **Validation**: all `[[wikilinks]]` resolve; index updated; source file written. **DIS now at 136 chapters — Ch 14.5 of Ch 14.**
+
+## [2026-05-18] ingest | Dive into Systems — Ch 14.6 Thread Safety
+- **Source**: `https://diveintosystems.org/book/C14-SharedMemory/thread_safety.html` → `wiki/sources/dis-14-6-thread-safety.md`.
+- **Summary**: Sixth leaf of Ch 14; turns C-library-function thread-safety into a first-class hazard. Codifies [[ThreadSafety|thread safety]] as per-function property — C stdlib is **not** uniformly safe; The Open Group maintains an unsafe-function catalog. **Headline distinction**: *"all thread safe code is re-entrant; however, not all re-entrant code is thread safe"* — [[Reentrant|reentrancy]] is necessary-but-not-sufficient. Canonical worked example [[Strtok|`strtok()`]] (hidden static state, unsafe) vs [[StrtokR|`strtok_r()`]] (explicit `char **saveptr` per-thread, safe) — the `_r` [[POSIX]] reentrant-variant convention. Two cures: wrap in [[Mutex|mutex]] or use `_r` variant.
+- **New concept pages**: [[ThreadSafety]], [[Reentrant]], [[StrtokR]] (3 new).
+- **Updated in-place**: [[Strtok]] — extends [[dis-2-6-strings|Ch 2.6]] tokenizer-introduction with Ch 14.6 thread-unsafety lens.
+- **Updated**: [[DiveIntoSystems]] frontmatter (136 → 137, sources list), Corpus status; `wiki/index.md` Sources + Concepts (3 new concept entries).
+- **Overview**: skipped.
+- **Contradictions**: none — net-new wiki content.
+- **Validation**: all `[[wikilinks]]` resolve; index updated; source file written. **DIS now at 137 chapters — Ch 14.6 of Ch 14.**
+
+## [2026-05-18] ingest | Dive into Systems — Ch 14.7 Implicit Threading with OpenMP
+- **Source**: `https://diveintosystems.org/book/C14-SharedMemory/openmp.html` → `wiki/sources/dis-14-7-openmp.md`.
+- **Summary**: Seventh leaf of Ch 14; pivots from [[Pthreads]] (Ch 14.2–14.6) to [[OpenMP]] implicit threading via `#pragma omp` compiler directives — *"all the low-level work of creating and joining threads is abstracted away from the programmer."* Four core pragmas: [[OpenMPParallelPragma|`parallel`]] (spawn team) / [[OpenMPForPragma|`for`]] (distribute iterations, default static scheduling) / [[OpenMPParallelForPragma|`parallel for`]] (combined idiom) / [[OpenMPCriticalPragma|`critical`]] (mutex analog). Supported by [[GCC]] / [[LLVM]] / [[Clang]] across C / C++ / Fortran via `-fopenmp`. `reduction(op:var)` clause is the safe per-thread-accumulator combine. Trade-off vs [[Pthreads]]: loses fine-grained control for ergonomic ease.
+- **New concept pages**: [[OpenMP]] (top-level anchor — did not previously exist as concept page), [[OpenMPParallelPragma]], [[OpenMPForPragma]], [[OpenMPParallelForPragma]], [[OpenMPCriticalPragma]] (5 new).
+- **Reused**: [[ParallelPragma]] / [[ScheduleClause]] / [[FlushPragma]] / [[OpenMPLocks]] / [[OpenMPSingle]] / [[OpenMPTaskDirective]] / [[ParallelFor]] / [[AtomicClause]] / [[ReductionClause]] / [[WorkSharing]] from prior ParProc-corpus ingests.
+- **Updated**: [[DiveIntoSystems]] frontmatter (137 → 138, sources list), Corpus status; `wiki/index.md` Sources + Concepts (5 new concept entries).
+- **Overview**: skipped.
+- **Contradictions**: none.
+- **Validation**: all `[[wikilinks]]` resolve; index updated; source file written. **DIS now at 138 chapters — Ch 14.7 of Ch 14.**
+
+## [2026-05-18] ingest | Dive into Systems — Ch 14.8 Summary
+- **Source**: `https://diveintosystems.org/book/C14-SharedMemory/summary.html` → `wiki/sources/dis-14-8-summary.md`.
+- **Summary**: Eighth leaf of Ch 14; prose-close recapping the four structural commitments — (1) [[Thread|threads]] as the fundamental concurrency unit, (2) [[Synchronization|synchronization]] necessary-but-not-sufficient for correctness, (3) synchronization performance trade-offs ([[Deadlock|deadlock]] + oversized [[CriticalSection|critical sections]] erase parallelism gains), (4) inherent parallelism limits ([[AmdahlsLaw]] / [[CacheCoherency]] / [[FalseSharing]] / [[ThreadSafety]]). Recaps all preceding leaves 14.1–14.7.
+- **New concept pages**: none — pure recap.
+- **Updated**: [[DiveIntoSystems]] frontmatter (138 → 139, sources list), Corpus status; `wiki/index.md` Sources (1 new entry).
+- **Overview**: skipped.
+- **Contradictions**: none.
+- **Validation**: all `[[wikilinks]]` resolve. **DIS now at 139 chapters — Ch 14.8 of Ch 14.**
+
+## [2026-05-18] ingest | Dive into Systems — Ch 14.9 Exercises (closes Ch 14)
+- **Source**: `https://diveintosystems.org/book/C14-SharedMemory/exercises.html` → `wiki/sources/dis-14-9-exercises.md`.
+- **Summary**: Closing leaf of Ch 14 — exercise-set page that **fully closes Ch 14 *Leveraging Shared Memory in the Multicore Era***. Three thematic areas: threading fundamentals ([[Pthreads]]-based scalar multiplication speedup analysis — drills [[dis-14-1-multicore|14.1]]'s 1/c rule), [[Synchronization|synchronization]] (parallel CountSort with [[Mutex|mutexes]] + [[Barrier|barriers]] — drills [[dis-14-3-synchronization|14.3]]), [[OpenMP]] (implicit-threading practicalities — drills [[dis-14-7-openmp|14.7]]). Structural sibling of [[dis-1-8-exercises]] / [[dis-2-11-exercises]] / [[dis-4-10-exercises]] / [[dis-5-11-exercises]] / [[dis-7-11-x86-64-exercises]] / [[dis-8-11-ia32-exercises]] / [[dis-9-11-arm64-exercises]] / [[dis-11-8-exercises]] / [[dis-13-6-exercises]] — the *exercise-set closes chapter* pattern.
+- **New concept pages**: none.
+- **Updated**: [[DiveIntoSystems]] frontmatter (139 → 140, sources list), Corpus status (**Ch 14 now fully complete**); `wiki/index.md` Sources (1 new entry).
+- **Overview**: skipped.
+- **Contradictions**: none.
+- **Validation**: all `[[wikilinks]]` resolve. **DIS now at 140 chapters — Ch 14 *Leveraging Shared Memory in the Multicore Era* fully closed (nine-leaf arc complete).**
+
+## [2026-05-18] ingest | Dive into Systems — Appendix 1.1 Getting Started Programming in C (for Java Programmers)
+- **Source**: `https://diveintosystems.org/book/Appendix1/getting_started.html` → `wiki/sources/dis-app1-1-getting-started.md`.
+- **Summary**: Opens Appendix 1 (Ch 16) — the [[Java]]-programmer's retelling of [[dis-1-1-getting-started|Ch 1.1]]. Java `javac`+[[JVM]] vs C [[GCC]]+[[BinaryExecutable|native binary]]; `public static void main(String[] args)` inside a class vs [[MainFunction|`int main(void)`]] at file scope; Java `import` vs C [[PreprocessorDirective|`#include`]] (+ `-lm`); Java `System.out.println` vs C [[Printf|`printf`]] (no auto-newline). [[CArithmeticOperators|Arithmetic]] / [[IncrementOperator|`++` / `--`]] essentially identical.
+- **New concept pages**: [[JavaVsC]] (consolidated Java-vs-C cross-walk table) — **the only new concept page across all 8 Appendix 1 ingests**.
+- **Reused**: [[CLanguage]] / [[CompilationProcess]] / [[MainFunction]] / [[PreprocessorDirective]] / [[Printf]] / [[CPrimitiveType]] / [[SizeOf]] / [[CArithmeticOperators]] / [[IncrementOperator]] / [[IntegerDivision]] / [[StaticallyTyped]] from [[dis-1-1-getting-started|Ch 1.1]].
+- **Updated**: [[DiveIntoSystems]] frontmatter (143 → 144, sources list), Corpus status (Appendix 1 / Ch 16 opens); `wiki/index.md` Sources (1 new entry).
+- **Overview**: skipped.
+- **Contradictions**: none — Java-perspective retelling of [[dis-1-1-getting-started|Ch 1.1]].
+- **Validation**: all `[[wikilinks]]` resolve; index updated; source file written. **DIS now at 144 chapters.**
+
+## [2026-05-18] ingest | Dive into Systems — Appendix 1.2 Input/Output (for Java Programmers)
+- **Source**: `https://diveintosystems.org/book/Appendix1/input_output.html` → `wiki/sources/dis-app1-2-input-output.md`.
+- **Summary**: Java-perspective retelling of [[dis-1-2-input-output|Ch 1.2]]. Java's [[Scanner]] vs C's [[Scanf|`scanf`]]; the [[AddressOfOperator|`&` operator]] is the syntactic shock for Java programmers; [[FormatSpecifier|format specifiers]] (`%d` / `%g` / `%s` / `%c`) are shared with Java's `printf`; `scanf` is *"picky"* about input formatting (less forgiving than Java's `Scanner`).
+- **New concept pages**: none.
+- **Reused**: [[Scanf]] / [[Printf]] / [[FormatSpecifier]] / [[EscapeSequence]] / [[AddressOfOperator]] / [[CMemoryAddress]] / [[StandardIOLibrary]] from [[dis-1-2-input-output|Ch 1.2]].
+- **Updated**: [[DiveIntoSystems]] frontmatter (144 → 145, sources list); `wiki/index.md` Sources (1 new entry).
+- **Overview**: skipped.
+- **Contradictions**: none.
+- **Validation**: all `[[wikilinks]]` resolve. **DIS now at 145 chapters.**
+
+## [2026-05-18] ingest | Dive into Systems — Appendix 1.3 Conditionals and Loops (for Java Programmers)
+- **Source**: `https://diveintosystems.org/book/Appendix1/conditionals.html` → `wiki/sources/dis-app1-3-conditionals.md`.
+- **Summary**: Java-perspective retelling of [[dis-1-3-conditionals-loops|Ch 1.3]]. **Almost a no-op cross-walk** — [[IfStatement|`if`]] / [[ElseStatement|`else`]] / [[SwitchStatement|`switch`]] / [[WhileLoop|`while`]] / [[DoWhileLoop|`do`-`while`]] / [[ForLoop|`for`]] / [[BreakStatement|`break`]] / [[ContinueStatement|`continue`]] are syntactically identical. Single load-bearing delta: **C has no boolean type** — *"any integer expression that is zero evaluates to false; nonzero evaluates to true"* ([[CBooleanExpression]]). Java's enhanced for-each loop has no C analog.
+- **New concept pages**: none.
+- **Reused**: [[ControlFlow]] / [[IfStatement]] / [[ElseStatement]] / [[SwitchStatement]] / [[WhileLoop]] / [[DoWhileLoop]] / [[ForLoop]] / [[BreakStatement]] / [[ContinueStatement]] / [[RelationalOperator]] / [[LogicalOperator]] / [[ShortCircuitEvaluation]] / [[CBooleanExpression]] from [[dis-1-3-conditionals-loops|Ch 1.3]].
+- **Updated**: [[DiveIntoSystems]] frontmatter (145 → 146, sources list); `wiki/index.md` Sources (1 new entry).
+- **Overview**: skipped.
+- **Contradictions**: none.
+- **Validation**: all `[[wikilinks]]` resolve. **DIS now at 146 chapters.**
+
+## [2026-05-18] ingest | Dive into Systems — Appendix 1.4 Functions (for Java Programmers)
+- **Source**: `https://diveintosystems.org/book/Appendix1/functions.html` → `wiki/sources/dis-app1-4-functions.md`.
+- **Summary**: Java-perspective retelling of [[dis-1-4-functions|Ch 1.4]]. C standalone [[Function|functions]] vs. Java class methods (*"C is an imperative and procedural language and Java is an object oriented language"*); C requires [[FunctionPrototype|prototypes]] (Java doesn't); [[PassByValue|pass-by-value]] identical for primitives; C exposes the [[ExecutionStack|execution stack]] of [[StackFrame|stack frames]] explicitly. Java's "objects by reference" exception doesn't apply — Ch 1.4 only covers primitive-typed functions.
+- **New concept pages**: none.
+- **Reused**: [[Function]] / [[FunctionDefinition]] / [[FunctionPrototype]] / [[FunctionParameter]] / [[FunctionArgument]] / [[ReturnStatement]] / [[VoidType]] / [[PassByValue]] / [[ExecutionStack]] / [[StackFrame]] / [[LocalVariable]] / [[FunctionScope]] / [[MainFunction]] from [[dis-1-4-functions|Ch 1.4]].
+- **Updated**: [[DiveIntoSystems]] frontmatter (146 → 147, sources list); `wiki/index.md` Sources (1 new entry).
+- **Overview**: skipped.
+- **Contradictions**: none.
+- **Validation**: all `[[wikilinks]]` resolve. **DIS now at 147 chapters.**
+
+## [2026-05-18] ingest | Dive into Systems — Appendix 1.5 Arrays and Strings (for Java Programmers)
+- **Source**: `https://diveintosystems.org/book/Appendix1/arrays_strings.html` → `wiki/sources/dis-app1-5-arrays-strings.md`.
+- **Summary**: Java-perspective retelling of [[dis-1-5-arrays-strings|Ch 1.5]]. **Largest deltas of Appendix 1**: Java arrays have built-in `.length`, C arrays don't; Java throws [[BoundsChecking|`ArrayIndexOutOfBoundsException`]], C has *"no bounds checking by the compiler or at runtime"*; Java's `String` class (heap-allocated immutable with rich methods) vs C's [[CString|`char` array]] + [[NullTerminator|`'\0'`]] + [[StringLibrary|`<string.h>`]] manual machinery; [[Strcpy|`strcpy`]] buffer-overflow risk explicit. **One alignment**: array pass-to-function is by-reference in both languages.
+- **New concept pages**: none.
+- **Reused**: [[CArray]] / [[CString]] / [[NullTerminator]] / [[ArrayIndexing]] / [[BoundsChecking]] / [[PassByReference]] / [[StringLibrary]] / [[Strlen]] / [[Strcpy]] / [[Sprintf]] / [[BufferOverflow]] from [[dis-1-5-arrays-strings|Ch 1.5]].
+- **Updated**: [[DiveIntoSystems]] frontmatter (147 → 148, sources list); `wiki/index.md` Sources (1 new entry).
+- **Overview**: skipped.
+- **Contradictions**: none.
+- **Validation**: all `[[wikilinks]]` resolve. **DIS now at 148 chapters.**
+
+## [2026-05-18] ingest | Dive into Systems — Appendix 1.6 Structs (for Java Programmers)
+- **Source**: `https://diveintosystems.org/book/Appendix1/structs.html` → `wiki/sources/dis-app1-6-structs.md`.
+- **Summary**: Java-perspective retelling of [[dis-1-6-structs|Ch 1.6]]. [[CStruct|`struct`]] ≈ Java class minus methods/inheritance/constructor/GC. **Value-vs-reference semantics is the load-bearing delta**: in C, `s2 = s1` copies all fields (*"copies all field values"*); in Java, the same statement copies a reference. [[PassByValue|Pass-by-value]] copies the whole struct in C — modifications invisible to caller; Java method calls pass references — modifications *do* affect caller. [[SizeOf|`sizeof(struct studentT)`]] exposes byte layout.
+- **New concept pages**: none.
+- **Reused**: [[CStruct]] / [[StructDefinition]] / [[StructMember]] / [[MemberAccessOperator]] / [[StructAssignment]] / [[LValue]] / [[PassByValue]] / [[SizeOf]] / [[ArrowOperator]] / [[Typedef]] / [[ArrayOfStructs]] from [[dis-1-6-structs|Ch 1.6]].
+- **Updated**: [[DiveIntoSystems]] frontmatter (148 → 149, sources list); `wiki/index.md` Sources (1 new entry).
+- **Overview**: skipped.
+- **Contradictions**: none.
+- **Validation**: all `[[wikilinks]]` resolve. **DIS now at 149 chapters.**
+
+## [2026-05-18] ingest | Dive into Systems — Appendix 1.7 Summary (for Java Programmers)
+- **Source**: `https://diveintosystems.org/book/Appendix1/summary.html` → `wiki/sources/dis-app1-7-summary.md`.
+- **Summary**: Penultimate leaf of Appendix 1 — closing recap of the [[Java]]-vs-C cross-walk. *"C is an imperative and procedural language and Java is an object-oriented language"*; C arrays/strings operate at lower level than Java's `ArrayList` / `List` / `String`; minimal C library ecosystem; *"C's simpler abstractions grant programmers direct memory access control, enabling greater optimization and efficiency management."* Forward-references Ch 2 (pointers + dynamic memory).
+- **New concept pages**: none.
+- **Reused**: [[CLanguage]] / [[Java]] / [[JavaVsC]] / structural sibling of [[dis-1-7-summary]].
+- **Updated**: [[DiveIntoSystems]] frontmatter (149 → 150, sources list); `wiki/index.md` Sources (1 new entry).
+- **Overview**: skipped.
+- **Contradictions**: none — pure recap.
+- **Validation**: all `[[wikilinks]]` resolve. **DIS now at 150 chapters.**
+
+## [2026-05-18] ingest | Dive into Systems — Appendix 1.8 Exercises (closes Appendix 1 / Ch 16)
+- **Source**: `https://diveintosystems.org/book/Appendix1/exercises.html` → `wiki/sources/dis-app1-8-exercises.md`.
+- **Summary**: Closing leaf of Appendix 1 — single-link redirect: *"Appendix 1 exercises are the same as the Chapter 1 Exercises."* Drills the full Appendix 1.1–1.6 surface — [[CompilationProcess|compile-then-run]], [[VariableDeclaration|typed declarations]], [[CArithmeticOperators|arithmetic]], [[Printf|`printf`]] / [[Scanf|`scanf`]] + [[AddressOfOperator|`&`]], [[ControlFlow|control-flow]], [[Function|functions]] with [[PassByValue|pass-by-value]], [[CArray|arrays]] / [[CString|strings]] (no `.length`, no bounds checking), [[CStruct|structs]] with [[StructAssignment|whole-record copy]] vs Java reference copy. Structural sibling of [[dis-1-8-exercises]] — the *exercise-set closes chapter* pattern.
+- **New concept pages**: none.
+- **Reused**: same Ch 1 concept surface area enumerated above.
+- **Updated**: [[DiveIntoSystems]] frontmatter (150 → 151, sources list, **Appendix 1 / Ch 16 marked complete**); `wiki/index.md` Sources (1 new entry).
+- **Overview**: skipped.
+- **Contradictions**: none.
+- **Validation**: all `[[wikilinks]]` resolve. **DIS now at 151 chapters — Appendix 1 *Chapter 1 for Java Programmers* (Ch 16) fully closed (eight-leaf arc complete).**
+
+## [2026-05-18] ingest | Dive into Systems — Appendix 2.1 Command Line Basics
+- **Source**: `https://diveintosystems.org/book/Appendix2/cmdln_basics.html` → [[dis-app2-1-cmdline-basics]]
+- **Position**: 152nd ingested DIS chapter; **opens Appendix 2 *Using Unix***.
+- **New concepts**: [[UnixCommandLine]], [[UnixFileSystem]].
+- **Updated**: [[DiveIntoSystems]] frontmatter (151 → 152, `appendix_2_status` added), `wiki/index.md` Sources + Concepts.
+- **Overview**: skipped.
+
+## [2026-05-18] ingest | Dive into Systems — Appendix 2.2 Man Pages
+- **Source**: `https://diveintosystems.org/book/Appendix2/man.html` → [[dis-app2-2-man]]
+- **Position**: 153rd ingested DIS chapter.
+- **New concepts**: none — extends [[ManPages]] in place with the `apropos` / discovery framing.
+- **Updated**: [[DiveIntoSystems]] frontmatter (152 → 153), `wiki/index.md` Sources.
+- **Overview**: skipped.
+
+## [2026-05-18] ingest | Dive into Systems — Appendix 2.3 SSH and SCP
+- **Source**: `https://diveintosystems.org/book/Appendix2/ssh_scp.html` → [[dis-app2-3-remote-access]]
+- **Position**: 154th ingested DIS chapter.
+- **New concepts**: [[SSH]], [[SCP]].
+- **Updated**: [[DiveIntoSystems]] frontmatter (153 → 154), `wiki/index.md` Sources + Concepts.
+- **Overview**: skipped.
+
+## [2026-05-18] ingest | Dive into Systems — Appendix 2.4 Unix Editors
+- **Source**: `https://diveintosystems.org/book/Appendix2/editors.html` → [[dis-app2-4-editors]]
+- **Position**: 155th ingested DIS chapter.
+- **New concepts**: [[VimEditor]], [[EmacsEditor]], [[NanoEditor]].
+- **Updated**: [[DiveIntoSystems]] frontmatter (154 → 155), `wiki/index.md` Sources + Concepts.
+- **Overview**: skipped.
+
+## [2026-05-18] ingest | Dive into Systems — Appendix 2.5 Make and Makefiles
+- **Source**: `https://diveintosystems.org/book/Appendix2/makefiles.html` → [[dis-app2-5-make]]
+- **Position**: 156th ingested DIS chapter.
+- **New concepts**: [[Make]] (promoted from forward-reference); extends [[Makefile]] in place.
+- **Updated**: [[DiveIntoSystems]] frontmatter (155 → 156), `wiki/index.md` Sources + Concepts.
+- **Overview**: skipped.
+
+## [2026-05-18] ingest | Dive into Systems — Appendix 2.6 grep and find
+- **Source**: `https://diveintosystems.org/book/Appendix2/grep.html` → [[dis-app2-6-grep-find]]
+- **Position**: 157th ingested DIS chapter.
+- **New concepts**: [[Grep]], [[Find]].
+- **Updated**: [[DiveIntoSystems]] frontmatter (156 → 157), `wiki/index.md` Sources + Concepts.
+- **Overview**: skipped.
+
+## [2026-05-18] ingest | Dive into Systems — Appendix 2.7 File Permissions and chmod
+- **Source**: `https://diveintosystems.org/book/Appendix2/chmod.html` → [[dis-app2-7-permissions]]
+- **Position**: 158th ingested DIS chapter.
+- **New concepts**: [[FilePermissions]], [[Chmod]].
+- **Updated**: [[DiveIntoSystems]] frontmatter (157 → 158), `wiki/index.md` Sources + Concepts.
+- **Overview**: skipped.
+
+## [2026-05-18] ingest | Dive into Systems — Appendix 2.8 tar Archives
+- **Source**: `https://diveintosystems.org/book/Appendix2/tar.html` → [[dis-app2-8-tar]]
+- **Position**: 159th ingested DIS chapter — **closes Appendix 2 first half (subchapters 2.1–2.8)**.
+- **New concepts**: [[Tar]].
+- **Updated**: [[DiveIntoSystems]] frontmatter (158 → 159), `wiki/index.md` Sources + Concepts.
+- **Overview**: skipped.
+- **Validation**: all `[[wikilinks]]` resolve; 8 new sources + 13 new concept pages in `wiki/index.md`. **DIS now at 159 chapters — Appendix 2 *Using Unix* (Ch 17) first half complete.**
+
+## [2026-05-18] ingest | Dive into Systems — Appendix 2.9 Process Control
+- **Source**: `https://diveintosystems.org/book/Appendix2/pskill.html` → [[dis-app2-9-process-control]]
+- **Position**: 160th ingested DIS chapter; **opens Appendix 2 second half**.
+- **New concepts**: [[JobControl]], [[BackgroundProcess]], [[SIGINT]], [[SIGTSTP]]. Extends [[Ps]] + [[Kill]] in place.
+- **Updated**: [[DiveIntoSystems]] frontmatter (159 → 160), `wiki/index.md` Sources + Concepts.
+- **Overview**: pending end-of-arc update.
+
+## [2026-05-18] ingest | Dive into Systems — Appendix 2.10 Timing
+- **Source**: `https://diveintosystems.org/book/Appendix2/timing.html` → [[dis-app2-10-timing]]
+- **Position**: 161st ingested DIS chapter.
+- **New concepts**: [[TimeCommand]].
+- **Updated**: [[DiveIntoSystems]] frontmatter (160 → 161), `wiki/index.md`.
+- **Overview**: pending end-of-arc update.
+
+## [2026-05-18] ingest | Dive into Systems — Appendix 2.11 Shell History
+- **Source**: `https://diveintosystems.org/book/Appendix2/history.html` → [[dis-app2-11-history]]
+- **Position**: 162nd ingested DIS chapter.
+- **New concepts**: [[BashHistory]], [[HistoryCommand]], [[BangBang]].
+- **Updated**: [[DiveIntoSystems]] frontmatter (161 → 162), `wiki/index.md`.
+- **Overview**: pending end-of-arc update.
+
+## [2026-05-18] ingest | Dive into Systems — Appendix 2.12 I/O Redirection
+- **Source**: `https://diveintosystems.org/book/Appendix2/ioredirect.html` → [[dis-app2-12-io-redirect]]
+- **Position**: 163rd ingested DIS chapter.
+- **New concepts**: [[IORedirection]], [[StandardStream]], [[Stdin]], [[Stdout]], [[Stderr]], [[FileDescriptor]].
+- **Updated**: [[DiveIntoSystems]] frontmatter (162 → 163), `wiki/index.md`.
+- **Overview**: pending end-of-arc update.
+
+## [2026-05-18] ingest | Dive into Systems — Appendix 2.13 Pipes
+- **Source**: `https://diveintosystems.org/book/Appendix2/pipe.html` → [[dis-app2-13-pipes]]
+- **Position**: 164th ingested DIS chapter.
+- **New concepts**: [[ShellPipe]], [[Xargs]]. Extends [[Pipe]] in place (was IPC-only from Ch 13.4.2).
+- **Updated**: [[DiveIntoSystems]] frontmatter (163 → 164), `wiki/index.md`.
+- **Overview**: pending end-of-arc update.
+
+## [2026-05-18] ingest | Dive into Systems — Appendix 2.14 Dotfiles
+- **Source**: `https://diveintosystems.org/book/Appendix2/dotfiles.html` → [[dis-app2-14-dotfiles]]
+- **Position**: 165th ingested DIS chapter.
+- **New concepts**: [[DotFile]], [[BashRC]], [[EnvironmentVariable]], [[PathVariable]], [[BashAlias]].
+- **Updated**: [[DiveIntoSystems]] frontmatter (164 → 165), `wiki/index.md`.
+- **Overview**: pending end-of-arc update.
+
+## [2026-05-18] ingest | Dive into Systems — Appendix 2.15 Shell Programming
+- **Source**: `https://diveintosystems.org/book/Appendix2/shellprog.html` → [[dis-app2-15-shell-programming]]
+- **Position**: 166th ingested DIS chapter.
+- **New concepts**: [[ShellProgramming]], [[ShellScript]], [[Shebang]].
+- **Updated**: [[DiveIntoSystems]] frontmatter (165 → 166), `wiki/index.md`.
+- **Overview**: pending end-of-arc update.
+
+## [2026-05-18] ingest | Dive into Systems — Appendix 2.16 System Information
+- **Source**: `https://diveintosystems.org/book/Appendix2/sysinfo.html` → [[dis-app2-16-sysinfo]]
+- **Position**: 167th ingested DIS chapter — **CLOSES Appendix 2 *Using Unix* (Ch 17) AND THE ENTIRE [[DiveIntoSystems]] TEXTBOOK**.
+- **New concepts**: [[TopCommand]], [[ProcFS]], [[SysFS]], [[Lscpu]], [[Lshw]].
+- **Updated**: [[DiveIntoSystems]] frontmatter (166 → 167; Appendix 2 status → complete; book status → complete), `wiki/index.md` Sources + Concepts, `wiki/overview.md` (brief addition placing DIS in the corpus synthesis now that the book is fully ingested).
+- **Validation**: all `[[wikilinks]]` resolve; 8 new sources + 24 new concept pages in `wiki/index.md`. **DIS now at 167 chapters — Ch 17 *Using Unix* fully complete — ENTIRE TEXTBOOK CLOSED.**

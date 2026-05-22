@@ -2,8 +2,8 @@
 title: "Pthreads"
 type: entity
 tags: [library, threading, posix, c, parallel-computing]
-sources: [parproc-ch01-intro-parallel-processing, dis-3-6-gdb-pthreads]
-last_updated: 2026-05-17
+sources: [parproc-ch01-intro-parallel-processing, dis-3-6-gdb-pthreads, dis-14-2-posix]
+last_updated: 2026-05-18
 ---
 
 # Pthreads
@@ -31,9 +31,79 @@ Practical debugging recommendations from Ch 3.6: **minimize active thread count*
 
 Full Pthreads coverage in *Dive into Systems* is deferred to Ch 14; Ch 3.6 introduces the library only insofar as needed for [[GDB]]'s thread-debugging commands.
 
+## Core API ([[dis-14-2-posix|DIS Ch 14.2]])
+
+DIS Ch 14.2 delivers the full API codification (the forward reference from Ch 3.6 closes here). Pthreads is *"available on almost all UNIX-like operating systems"* — the IEEE [[POSIX]] standardized threading layer.
+
+### [[PthreadCreate|`pthread_create`]] — spawn a worker
+
+```c
+pthread_create(pthread_t *thread,
+               const pthread_attr_t *attr,
+               void *(*thread_function)(void *),
+               void *thread_args)
+```
+
+Writes the new thread's `pthread_t` to `*thread`; the worker immediately starts running `thread_function(thread_args)` concurrently with the caller. `attr` is typically `NULL` for defaults.
+
+### [[PthreadJoin|`pthread_join`]] — wait + reclaim
+
+```c
+pthread_join(pthread_t thread, void **return_val)
+```
+
+> *"The `pthread_join` function suspends the execution of its caller until the thread it references terminates."*
+
+Blocks if the target is still running; reclaims its execution-context resources once it terminates. `return_val` (or `NULL`) captures the thread function's return pointer.
+
+### [[ThreadFunction|Thread function]] prototype
+
+```c
+void *thread_function(void *arg) { ... return NULL; }
+```
+
+> *"A thread function is analogous to a `main` function for a worker (created) thread — a thread begins execution at the start of its thread function and terminates when it reaches the end."*
+
+Both argument and return are [[VoidStar|`void *`]] — the generic typing that lets one API surface handle any data shape.
+
+### Per-thread execution state
+
+> *"Each thread executes the thread function using its private execution state (i.e., its own stack memory and register values)."*
+
+Locals inside the [[ThreadFunction|thread function]] are per-thread (separate stack frames); globals and heap are shared.
+
+### [[ThreadID|Thread ID (TID)]] convention
+
+User-supplied per-thread identifier, typically a `long` passed via `thread_args`, used to distinguish workers for work distribution / debug output. Distinct from the library-level `pthread_t`, the kernel **LWP ID**, and [[GDB]]'s thread number (the [[dis-3-6-gdb-pthreads|Ch 3.6]] triple).
+
+### Four-step lifecycle
+
+1. Declare `pthread_t threads[N]` storage.
+2. Spawn workers in a [[PthreadCreate|`pthread_create`]] loop.
+3. Each worker runs its [[ThreadFunction|thread function]] with private state.
+4. [[PthreadJoin|`pthread_join`]] each worker before `main` exits.
+
+### Compile flag
+
+```bash
+gcc -o program program.c -pthread
+```
+
+The [[GccPthreadFlag|`-pthread`]] flag links the Pthreads library and predefines threading macros.
+
+### No ordering guarantees
+
+> *"You should never make any assumptions about the order in which threads will execute."*
+
+Correctness-by-ordering requires explicit synchronization ([[Mutex|mutex]] / [[Barrier|barrier]]) introduced in later Ch 14 sections.
+
 ## Connections
 - [[parproc-ch01-intro-parallel-processing]] — introduces Pthreads with the prime-sieve example.
 - [[dis-3-6-gdb-pthreads]] — *Dive into Systems* Ch 3.6: Pthreads' first sighting in DIS, in the context of [[GDB]] thread-aware debugging. Full Pthreads coverage deferred to DIS Ch 14.
+- [[dis-14-2-posix]] — *Dive into Systems* Ch 14.2: full API codification ([[PthreadCreate|`pthread_create`]] / [[PthreadJoin|`pthread_join`]] / [[ThreadFunction|thread function]] / [[ThreadID|TID]] / [[GccPthreadFlag|`-pthread`]]).
+- [[PthreadCreate]] / [[PthreadJoin]] / [[ThreadFunction]] / [[ThreadID]] / [[GccPthreadFlag]] — the per-primitive concept pages.
+- [[POSIX]] — the IEEE standard family.
+- [[VoidStar]] — the generic-pointer convention Pthreads' API rests on.
 - [[OpenMP]] — higher-level pragma-based alternative built on the same threading substrate.
 - [[CriticalSection]] — the lock pattern Pthreads makes explicit via `pthread_mutex_*`.
 - [[Mutex]] — `pthread_mutex_t` is the canonical mutex implementation.

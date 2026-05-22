@@ -1,14 +1,57 @@
 ---
 title: "Mutex"
 type: concept
-tags: [concurrency, synchronization, rust, embedded]
-sources: [rust-embedded-book-concurrency-index]
-last_updated: 2026-05-16
+tags: [concurrency, synchronization, rust, embedded, pthreads]
+sources: [rust-embedded-book-concurrency-index, dis-14-3-1-mutex]
+last_updated: 2026-05-18
 ---
 
 # Mutex
 
-Short for **mut**ual **ex**clusion. A *"synchronisation primitive"* that grants exclusive access to a wrapped variable. *"A thread can attempt to **lock** (or **acquire**) the mutex, and either succeeds immediately, or blocks waiting for the lock to be acquired, or returns an error that the mutex could not be locked. While that thread holds the lock, it is granted access to the protected data. When the thread is done, it **unlocks** (or **releases**) the mutex, allowing another thread to lock it"* ([[rust-embedded-book-concurrency-index]]).
+Short for **mut**ual **ex**clusion. A *"synchronisation primitive"* that grants exclusive access to a wrapped variable. Two complementary wiki coverages: this page combines the **Pthreads / CPU-side** treatment from [[dis-14-3-1-mutex|DIS Ch 14.3.1]] (canonical four-function API) with the **embedded Rust** treatment from [[rust-embedded-book-concurrency-index|The Embedded Rust Book]] (critical-section-gated `cortex_m::interrupt::Mutex`).
+
+## Pthreads / CPU-side (DIS Ch 14.3.1)
+
+[[dis-14-3-1-mutex|DIS Ch 14.3.1]] defines a mutex as *"a synchronization primitive that ensures only one thread executes code within a critical section at any given time, preventing data races on shared variables."* Four-function API:
+
+```c
+pthread_mutex_t mutex;
+pthread_mutex_init(&mutex, NULL);   // before pthread_create
+/* in each thread: */
+pthread_mutex_lock(&mutex);
+/* critical section */
+pthread_mutex_unlock(&mutex);
+/* after pthread_join: */
+pthread_mutex_destroy(&mutex);
+```
+
+- [[PthreadMutexInit|`pthread_mutex_init(&m, NULL)`]] — initialize (typically global; in `main` before spawning).
+- [[PthreadMutexLock|`pthread_mutex_lock(&m)`]] — acquire; blocks if already held.
+- [[PthreadMutexUnlock|`pthread_mutex_unlock(&m)`]] — release; **same thread that locked must unlock** (the ownership rule distinguishing mutex from [[Semaphore|semaphore]]).
+- [[PthreadMutexDestroy|`pthread_mutex_destroy(&m)`]] — teardown after all workers joined.
+
+### Lock-placement performance lesson
+
+[[dis-14-3-1-mutex|DIS Ch 14.3.1]]'s headline empirical result on an accumulator: **1.92 s (1 thread) → 0.13 s (4 threads)**. Three placement strategies:
+
+1. **Wrap entire loop** → correct, serial, no speedup.
+2. **Lock every iteration** → correct, contention-bound, slow.
+3. **Thread-local accumulator + one final lock** → correct **and** fast.
+
+The canonical pattern:
+
+```c
+void *worker(void *id) {
+    long local_sum = 0;
+    for (...) local_sum += compute(...);   // no lock
+    pthread_mutex_lock(&mutex);
+    global_sum += local_sum;               // one lock per thread, not per iteration
+    pthread_mutex_unlock(&mutex);
+}
+```
+
+## Embedded Rust / critical-section-gated (`cortex_m::interrupt::Mutex`)
+ *"A thread can attempt to **lock** (or **acquire**) the mutex, and either succeeds immediately, or blocks waiting for the lock to be acquired, or returns an error that the mutex could not be locked. While that thread holds the lock, it is granted access to the protected data. When the thread is done, it **unlocks** (or **releases**) the mutex, allowing another thread to lock it"* ([[rust-embedded-book-concurrency-index]]).
 
 In [[RustLanguage|Rust]], unlock is conventionally implemented via the `Drop` trait so the mutex is *always* released when the lock guard goes out of scope.
 
@@ -74,3 +117,9 @@ interrupt::free(|cs| {
 - [[Peripheral]] / [[Singleton]] — the canonical non-`Copy` cargo for `Mutex<RefCell<Option<T>>>`.
 - [[Atomic]] — the lighter-weight alternative for `Copy` numeric state on platforms with CAS.
 - [[RTIC]] — higher-level framework that eliminates the need for explicit `Mutex<RefCell<…>>` boilerplate via static priority + compile-time resource tracking.
+- [[dis-14-3-1-mutex]] — DIS Ch 14.3.1; canonical Pthreads four-function API.
+- [[PthreadMutexInit]] / [[PthreadMutexLock]] / [[PthreadMutexUnlock]] / [[PthreadMutexDestroy]] — per-call concept pages.
+- [[Semaphore]] — sibling primitive; ownership-based mutex vs count-based semaphore — *"any thread can unlock the semaphore (in contrast to a mutex, where the calling thread must unlock it)"*.
+- [[ConditionVariable]] — the mandatory partner for predicate-based waiting; built on top of a mutex.
+- [[Synchronization]] — umbrella.
+- [[RaceCondition]] — the failure mode mutex prevents.
