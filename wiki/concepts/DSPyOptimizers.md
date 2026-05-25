@@ -1,9 +1,9 @@
 ---
 title: "DSPy Optimizers"
 type: concept
-tags: [dspy, llm-programming, optimization, optimizers, bootstrap, mipro, gepa, bootstrap-finetune, copro, simba, knnfewshot, labeledfewshot, ensemble, bettertogether, teleprompters, catalog]
-sources: [dspy-optimizers, dspy-optimization-overview, dspy-learn-index]
-last_updated: 2026-05-17
+tags: [dspy, llm-programming, optimization, optimizers, bootstrap, mipro, gepa, bootstrap-finetune, copro, simba, knnfewshot, labeledfewshot, ensemble, bettertogether, arbor-grpo, dspy-grpo, online-rl, teleprompters, catalog]
+sources: [dspy-optimizers, dspy-saving-tutorial, dspy-optimization-overview, dspy-learn-index, dspy-optimizer-tracking-tutorial, dspy-tutorial-rl-papillon]
+last_updated: 2026-05-24
 ---
 
 # DSPy Optimizers
@@ -20,7 +20,7 @@ The canonical source is [[dspy-optimizers|the Optimizers page]] (page 13 of 13 o
 |---|---|---|
 | **Demonstrations** (few-shot examples in each prompt) | Bootstrap traces of program behavior; filter by metric; install passing traces as `demos` on each [[DSPyPredict\|`dspy.Predict`]] | [[BootstrapFewShot]], [[BootstrapFewShotWithRandomSearch]], `KNNFewShot`, `LabeledFewShot`, [[MIPROv2]] (also tunes instructions) |
 | **Instructions** (natural-language task description in each prompt) | Propose candidate instructions; explore via coordinate ascent / [[BayesianOptimization\|Bayesian Optimization]] / LM-reflection over program trajectories | `COPRO`, [[MIPROv2]], `SIMBA`, [[GEPA]] |
-| **LM weights** (the underlying model's parameters) | Distill a prompt-based program into a fine-tuned model via metric-validated bootstrapped traces | [[BootstrapFinetune]] |
+| **LM weights** (the underlying model's parameters) | Distill a prompt-based program into a fine-tuned model via metric-validated bootstrapped traces, or run online RL on rollouts | [[BootstrapFinetune]], [[ArborGRPO|`dspy.GRPO` / ArborGRPO]] |
 
 The page's canonical summary: *"Different optimizers in DSPy will tune your program's quality by synthesizing good few-shot examples for every module, like `dspy.BootstrapRS`, proposing and intelligently exploring better natural-language instructions for every prompt, like `dspy.MIPROv2` and `dspy.GEPA`, and building datasets for your modules and using them to finetune the LM weights in your system, like `dspy.BootstrapFinetune`."* Three axes; eleven optimizers; only [[MIPROv2]] tunes more than one axis in the same run (instructions **and** demonstrations); only [[BootstrapFinetune]] tunes weights.
 
@@ -33,6 +33,7 @@ The page groups the eleven optimizers into five families. The grouping is taxono
 | **Automatic Few-Shot Learning** | `LabeledFewShot`, [[BootstrapFewShot]], [[BootstrapFewShotWithRandomSearch]], `KNNFewShot` |
 | **Automatic Instruction Optimization** | `COPRO`, [[MIPROv2]], `SIMBA`, [[GEPA]] |
 | **Automatic Finetuning** | [[BootstrapFinetune]] |
+| **Online Reinforcement Learning** *(experimental)* | [[ArborGRPO|`dspy.GRPO` / ArborGRPO]] |
 | **Program Transformations** | `Ensemble` |
 | **Meta-Optimizers** | `BetterTogether` |
 
@@ -49,6 +50,7 @@ The page groups the eleven optimizers into five families. The grouping is taxono
 | 7 | `SIMBA` | Instruction | Instructions (self-reflective) | Stochastic mini-batch sampling on high-variability examples; LM introspectively analyzes failures and generates self-reflective improvement rules or adds successful demos | (not detailed on page) |
 | 8 | [[GEPA\|`GEPA`]] | Instruction | Instructions (reflection-based) | LM reflects on program trajectory (*"what worked, what didn't"*) and proposes prompts addressing the gaps; can leverage domain-specific textual feedback | (not detailed on page; tutorials linked) |
 | 9 | [[BootstrapFinetune\|`BootstrapFinetune`]] | Finetuning | LM weights | Distills a prompt-based DSPy program into weight updates; output is a program with the same steps, each conducted by a fine-tuned model | `metric`, `num_threads` |
+| 9b | [[ArborGRPO\|`dspy.GRPO` / ArborGRPO]] *(experimental)* | Online RL | LM weights ([[lora\|LoRA]] adapters) | Multi-module [[grpo\|GRPO]] / [[DAPO]] online RL via [[Arbor\|`arbor-ai`]]; one scalar reward (often an [[LLMJudge]]) propagates to all modules sharing a local LM | `metric`, `multitask`, `num_dspy_examples_per_grpo_step`, `num_samples_per_input`, `exclude_demos`, `num_train_steps`, `train_kwargs` (loss/lr/lora_config/…) |
 | 10 | `Ensemble` | Program Transformation | Composition | Wraps a set of DSPy programs (full set or random subset) into one | (not detailed on page) |
 | 11 | `BetterTogether` | Meta-Optimizer | Sequence of optimizers | Configurable prompt-and-weight optimization sequence (e.g. prompt → weight → prompt) | (not detailed on page) |
 
@@ -80,6 +82,7 @@ The variable name `teleprompter` is a legacy holdover from the pre-rename era an
 | **Want 0-shot prompts** | [[MIPROv2]] configured for 0-shot | Instruction optimization without demonstrations in the final prompt. |
 | **40+ trials + 200+ examples** | [[MIPROv2]] (full) | Bayesian search benefits from larger trial budget; 200+ examples avoid overfitting. |
 | **Used 7B+ LM, want a small efficient model** | [[BootstrapFinetune]] | Distill prompt-based behavior into a smaller fine-tuned model. |
+| **Tiny LM (≤2B) where prompt optimization saturates** *(experimental)* | [[ArborGRPO\|`dspy.GRPO` / ArborGRPO]] | Online RL on [[lora\|LoRA]] adapters; per the [[dspy-tutorial-rl-papillon\|`rl_papillon` tutorial]], reach for this only when [[MIPROv2]] / [[GEPA]] can't move the needle because the underlying LM is too small to follow the optimized instruction. Authors openly disclaim it as *"typically worse on cost/quality basis than"* prompt optimization. |
 
 The rubric **operationalizes** [[DSPyOptimization|the workflow-level page's]] *"are you using the most sophisticated optimizer that fits your needs?"* diagnostic question into a concrete (data, compute) → optimizer map. **Five named optimizers are absent** from the rubric — [[GEPA]], `SIMBA`, `COPRO`, `KNNFewShot`, `Ensemble`, `BetterTogether`, `LabeledFewShot` — those are *expert paths* left for the user to discover via the catalog.
 
@@ -152,6 +155,8 @@ loaded_program.load(path=YOUR_SAVE_PATH)
 
 The saved file is **plain-text JSON** containing all parameters and steps. A developer can `cat` it and see exactly which instructions and demonstrations the optimizer chose. This is consistent with DSPy's *"writing code instead of strings"* discipline ([[DSPyProgrammingModel|the Programming Model]]) — the optimizer's output is not a separate artifact (a `*.pt` weight file, a fine-tuned model handle) but a **refined version of the same program** the developer wrote. [[BootstrapFinetune|`BootstrapFinetune`]] is the exception — it produces a fine-tuned model handle, which is the LM provider's artifact, but the surrounding DSPy program is still serialized as JSON.
 
+The full persistence surface — the **JSON default** anchored above, the **pickle fallback** for non-JSON-serializable types ([[DSPyImage|`dspy.Image`]], `datetime`), the **whole-program mode** (`save_program=True`, `dspy>=2.6.0`) that bypasses architecture-reconstruction at load time, the **`modules_to_serialize=[...]`** custom-module by-value-serialization opt-in, the **`allow_pickle=True`** load-side acknowledgement gate against arbitrary-code-execution from tampered pickle files, and the **pre-3.0.0 backward-compatibility non-guarantee** — is documented on [[DSPySaving]] and canonicalized by [[dspy-saving-tutorial]].
+
 ## Position in the wiki's optimization landscape
 
 - **vs. [[DSPyOptimization]] (the workflow-level sibling).** The two pages are **complementary** — [[DSPyOptimization]] captures the *three-input contract* (program + metric + training set → optimized program), the *30/300 training-set regime*, the *inverted 20/80 train/val split*, the *[[GEPA]] carve-out*, and the *four iteration axes*. **This page** is the catalog of concrete algorithms that operationalize the workflow. The split mirrors [[DSPyEvaluation]] / [[DSPyMetrics]] — one anchors the discipline, the sibling anchors the per-algorithm machinery.
@@ -180,6 +185,21 @@ From [[DSPyOptimization|the workflow page]]:
 | **Optimized program** (output) | Same [[DSPyModules\|`dspy.Module`]] subclass; refined parameters | This catalog's optimizers |
 
 Every optimizer in this catalog consumes this contract identically. The differences are in the **search strategy** over the program's parameters, not in the interface.
+
+## Tutorials
+
+Tutorials that exercise this concept (roughly increasing depth; one tutorial per major optimizer family so a learner sees the whole space):
+
+- [[dspy-rag-tutorial]] — `dspy.MIPROv2` canonical worked example: baseline `dspy.ChainOfThought` (42% [[SemanticF1]]) → architectural revision → MIPROv2-medium optimization (~$1.50 / 20-30 min) closing the three-stage ladder.
+- [[dspy-tutorial-rag-as-agent]] — `dspy.MIPROv2` driving a `dspy.ReAct` multi-hop agent over [[HoVer]] with GPT-4o teacher and [[Llama|Llama-3.1-8B-Instruct]] student; the **BootstrapFewShot demo-bootstrap** path running under MIPROv2's hood is visible end-to-end.
+- [[dspy-tutorial-gepa-aime]] — wiki's first runnable `dspy.GEPA` receipt over AIME contest math; the canonical reflection-driven instruction optimizer; teacher = GPT-4o, student = small-LM.
+- [[dspy-tutorial-gepa-facility-support-analyzer]] — second `dspy.GEPA` receipt; first GEPA receipt on a structured-extraction task with explicit per-field domain feedback driving the reflection loop.
+- [[dspy-tutorial-classification-finetuning]] — wiki's first runnable `dspy.BootstrapFinetune` receipt on Banking77 with local Llama-3.2-1B; the only weight-tuning optimizer in the catalog, demonstrated end-to-end.
+- [[dspy-tutorial-games]] — `dspy.BootstrapFinetune` applied to an **agentic** program (AlfWorld) with `dspy.MIPROv2` as teacher; the canonical *prompt-then-finetune* composition that `dspy.BetterTogether` formalizes.
+- [[dspy-tool-use-tutorial]] — only benign-task `dspy.SIMBA` receipt in the wiki corpus (`compile(...)` on ToolHop); exercises stochastic mini-batch sampling + LM-introspective self-reflection on high-variability examples.
+- [[dspy-tutorial-rl-papillon]] — wiki's first multi-module `dspy.GRPO` / `ArborGRPO` receipt; online [[grpo|GRPO]] [[lora|LoRA]] training over a compound PAPILLON program; the canonical *"experimental"* tier of the catalog.
+- [[dspy-optimizer-tracking-tutorial]] — cross-optimizer instrumentation surface; `mlflow.dspy.autolog(log_compiles=True, log_evals=True, log_traces_from_compile=True)` produces a uniform parent/child run tree against any `compile()`-loop optimizer in the catalog.
+- [[dspy-saving-tutorial]] — the persistence sibling-surface every optimizer's output round-trips through; documents the two-mode (state-only / whole-program) save/load discipline that closes the catalog's *inspectability commitment*.
 
 ## Connections
 
@@ -215,3 +235,7 @@ Every optimizer in this catalog consumes this contract identically. The differen
 - [[llmasjudge]] — the AI-feedback metric pattern; `dspy.SemanticF1()` in the RAG worked receipt is an LLM-as-judge metric optimizing an optimization run.
 - [[LLMModuloFramework]] — every optimizer in this catalog is a different *search procedure* in Kambhampati et al.'s generate-test-critique loop.
 - [[OverFitting]] — the failure mode the [[DSPyOptimization|workflow page's]] inverted 20/80 train/val split defends against; relevant to every prompt optimizer in this catalog except [[GEPA]] (carved out).
+
+## Observability — cross-optimizer tracking via [[MLflow]]
+
+The [[dspy-optimizer-tracking-tutorial|DSPy Optimizer Tracking tutorial]] supplies a **cross-optimizer instrumentation surface** that applies to every optimizer in this catalog with a `compile()` loop. Three `mlflow.dspy.autolog(...)` kwargs — `log_compiles=True` / `log_evals=True` / `log_traces_from_compile=True` — produce a uniform two-level [[MLflow]] run tree (parent run = overall `compile()`; child runs = intermediate program versions during search). The structure is **optimizer-agnostic** in shape but **optimizer-specific** in semantics: for [[MIPROv2]] each child run corresponds to one `(instruction, demo-set)` candidate the Bayesian surrogate sampled; for [[BootstrapFewShot]] / [[BootstrapFewShotWithRandomSearch]] each child run corresponds to one bootstrap trace's metric evaluation; for [[GEPA]] (separate trajectory shape — LM-reflection rather than Bayesian search) the child-run mapping is undocumented in the tutorial and is a wiki-corpus open question. The artifact path `mlflow.artifacts.download_artifacts("mlflow-artifacts:/path/to/best_model.json")` then `program.load(model_path)` provides a **provenance-bearing alternative** to the catalog's default plain-JSON `optimized_program.save(path)` round-trip — the MLflow path anchors the artifact to a parent run carrying the optimizer config + metric-progression curve that produced it, at the cost of running a tracking server (`mlflow server --backend-store-uri sqlite:///mydb.sqlite`). Memory caveat: `log_traces_from_compile=True` storage cost grows linearly in (trials × demos × dataset size); recommended disabled for large datasets.

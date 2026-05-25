@@ -2,8 +2,8 @@
 title: "Language Model"
 type: concept
 tags: [nlp, sequence-models, language-models]
-sources: [d2l-recurrent-neural-networks]
-last_updated: 2026-05-16
+sources: [d2l-recurrent-neural-networks, ai-engineering-ch01-intro, ai-engineering-ch02-foundation-models, hands-on-llm-ch01-introduction-to-llms]
+last_updated: 2026-05-23
 ---
 
 # Language Model
@@ -43,3 +43,13 @@ Per [[d2l-recurrent-neural-networks]]: "Language models can be scaled up with in
 - [[2001.08361-scaling-laws]] — LM scaling laws.
 - [[maskedlanguagemodel]] — masked-LM variant ([[1810.04805-bert|BERT]]).
 - [[1706.03762-attention-is-all-you-need]] — Transformer LM.
+
+## From [[ai-engineering-ch01-intro|AI Engineering Ch 1]]
+
+[[ChipHuyen|Chip Huyen]]'s *AI Engineering* Ch 1 supplies the **historical narrative** complementing this page's technical definition:
+
+- **Statistical-language-modeling is centuries old**: Sherlock Holmes's "Dancing Men" cipher (1905) used letter-frequency statistics; [[ClaudeShannon|Claude Shannon's]] 1951 paper *"Prediction and Entropy of Printed English"* (introducing entropy) is still foundational. Both predate any computational LM by half a century.
+- **Token, not word, as the basic unit.** Ch 1 supplies the practical reason language models use tokens rather than words or characters: tokens (a) carry meaningful sub-components ("cook"+"ing"), (b) keep vocabulary small enough to be efficient, (c) handle unknown words gracefully ("chatgpting" → "chatgpt"+"ing"). GPT-4 vocab = 100,256; Mixtral 8x7B vocab = 32,000; 100 tokens ≈ 75 words.
+- **Two LM types**: [[maskedlanguagemodel|masked]] (bidirectional, BERT-style, for non-generative tasks like sentiment analysis and code debugging) vs. [[AutoregressiveLanguageModel|autoregressive]] (left-to-right, GPT-style, for text generation). Modern usage of "language model" almost always means autoregressive.
+- **The completion-machine framing**: an LM is a completion machine — given a prompt, it tries to complete that text. Many tasks (translation, summarization, classification, coding, math) can be **framed as completion**. This is what allowed a single LM to displace many task-specific models.
+- **Path to [[LargeLanguageModel|LLMs]]**: scale enabled by [[SelfSupervision|self-supervision]], which extracts labels from the input itself, freeing LMs from the data-labeling bottleneck. Once modalities expand beyond text, the umbrella term becomes [[FoundationModel|foundation model]].

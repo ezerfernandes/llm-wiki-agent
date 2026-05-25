@@ -2,8 +2,8 @@
 title: "SNLI (Stanford Natural Language Inference Corpus)"
 type: concept
 tags: [dataset, nlp, nli, benchmark]
-sources: [d2l-nlp-applications]
-last_updated: 2026-05-16
+sources: [d2l-nlp-applications, hands-on-llm-ch10-creating-text-embedding-models]
+last_updated: 2026-05-23
 ---
 
 # SNLI
@@ -29,3 +29,4 @@ last_updated: 2026-05-16
 - [[SamuelBowman]] — first author.
 - [[DecomposableAttention]] / [[BERT]] / [[FineTuningBert]] — models trained on it.
 - [[d2l-nlp-applications]] — canonical D2L source.
+- [[hands-on-llm-ch10-creating-text-embedding-models]] — Ch 10 cites SNLI alongside [[MNLI]] as the standard pretraining-data sources for sentence-embedding contrastive learning. The original Sentence-BERT paper (Reimers & Gurevych 2019) trained on **SNLI + MNLI combined** (~900k pairs); Ch 10's worked example uses **MNLI only** for pedagogical simplicity (50k subset).

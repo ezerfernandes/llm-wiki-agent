@@ -2,8 +2,8 @@
 title: "Patch Embedding"
 type: concept
 tags: [transformer, computer-vision]
-sources: [d2l-attention-and-transformers]
-last_updated: 2026-05-16
+sources: [d2l-attention-and-transformers, hands-on-llm-ch09-multimodal-llms]
+last_updated: 2026-05-23
 ---
 
 # Patch Embedding
@@ -30,6 +30,14 @@ A stride-$p$ kernel-$p$ convolution is mathematically equivalent to "non-overlap
 - Typical ViT-Base: $p = 16$, $d = 768$, on $224 \times 224$ images → 196 patches + 1 `<cls>` = 197 tokens.
 - D2L Fashion-MNIST toy: $p = 16$, $d = 512$, on $96 \times 96$ → 36 patches.
 
+## From [[hands-on-llm-ch09-multimodal-llms|*Hands-On LLMs* Ch 9]]
+
+Ch 9 frames patch embedding as **the image-tokenizer** — the structural analog of text tokenization that lets the Transformer encoder operate on images at all:
+
+> *"Just like we are converting text into tokens of text, we are converting an image into patches of images. The flattened input of image patches can be thought of as the tokens in a piece of text. However, unlike tokens, we cannot just assign each patch with an ID since these patches will rarely be found in other images, unlike the vocabulary of a text. Instead, the patches are linearly embedded to create numerical representations, namely embeddings."*
+
+The chapter is explicit that the linear projection is what makes the image tokens behave like text tokens. After the projection, *"the embeddings are passed to the encoder, they are treated as if they were textual tokens. From that point forward, there is no difference in how a text or image trains."* This is the structural justification for using [[VisionTransformer|ViT]] as the image encoder inside [[CLIP]] / [[BLIP2|BLIP-2]] / [[LLaVA15|LLaVA]].
+
 ## See also
 
-- [[VisionTransformer]] · [[ClsToken]] · [[Transformer]] · [[CNN]] · [[OneByOneConvolution]]
+- [[VisionTransformer]] · [[ClsToken]] · [[Transformer]] · [[CNN]] · [[OneByOneConvolution]] · [[Tokenization]] · [[CLIP]] · [[BLIP2]] · [[ImageEncoder]]

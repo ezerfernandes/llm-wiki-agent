@@ -2,8 +2,8 @@
 title: "Transfer Learning"
 type: concept
 tags: [training, pretrained-models]
-sources: [madewithml-transformers, d2l-computer-vision]
-last_updated: 2026-05-16
+sources: [madewithml-transformers, d2l-computer-vision, ai-engineering-ch07-finetuning]
+last_updated: 2026-05-23
 ---
 
 # Transfer Learning
@@ -43,3 +43,18 @@ The pretrained model's lower layers learn **generic features** (edges, textures,
 - [[FineTuning]] / [[Pretraining]] / [[NegativeTransfer]] / [[LLMFineTuning]] / [[LoRA]] / [[AdapterLayers]] / [[BERT]] / [[GPT]] / [[T5]] / [[CLIP]] / [[ImageNet]] / [[ResNet]] / [[CNN]].
 - [[d2l-computer-vision]] §`fine-tuning` — D2L's canonical CV example.
 - [[madewithml-transformers]] — Made With ML's NLP framing.
+
+## From [[ai-engineering-ch07-finetuning|AI Engineering Ch 7]]
+
+Ch 7 opens with the **transfer-learning framing of finetuning**: "transfer learning improves sample efficiency, allowing a model to learn the same behavior with fewer examples. A sample-efficient model learns effectively from fewer samples." [[ChipHuyen|Huyen]] uses the [[InstructGPT|InstructGPT]] (2022) framing — finetuning is *unlocking capabilities a model already has but that are difficult for users to access via prompting alone*.
+
+### Two transfer-learning modes Ch 7 distinguishes
+
+- **[[FineTuning|Finetuning]]** — continue training the model itself (the chapter's main subject).
+- **[[FeatureBasedTransfer|Feature-based transfer]]** — train a model to extract feature embeddings, then use those features in *another* model (e.g., add a classifier head). Common in computer vision (ImageNet-pretrained backbones → object detection / segmentation). The 2010s-CV default; less common in LLM applications.
+
+### Sample-efficiency comparison
+
+> "While training a model from scratch for legal question answering may need millions of examples, finetuning a good base model might only require a few hundred." — Ch 7
+
+This is the empirical claim that anchors the chapter's pro-finetuning argument — though [[ChipHuyen|Huyen]] immediately tempers it with the "earn it via prompting first" rule.

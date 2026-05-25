@@ -2,8 +2,8 @@
 title: "DSPy MCP Integration"
 type: concept
 tags: [dspy, mcp, model-context-protocol, tools, function-calling, agents, async, framework]
-sources: [dspy-mcp, dspy-tools, dspy-learn-index]
-last_updated: 2026-05-17
+sources: [dspy-mcp, dspy-mcp-tutorial, dspy-tools, dspy-learn-index]
+last_updated: 2026-05-24
 ---
 
 # DSPy MCP Integration
@@ -216,10 +216,21 @@ This is the first concrete demonstration in the [[dspy-learn-index|Learn corpus]
 
 - **Lighter-weight than the protocol page.** This concept treats `dspy.Tool.from_mcp_tool(...)` as the first-class abstraction; [[ModelContextProtocol]] treats the protocol itself as first-class. Splitting them follows the [[LiteLLM]] / [[DSPyLM]] precedent — protocol/library page upstream, framework binding page downstream.
 
+## Tutorials
+
+Tutorials that exercise this concept (roughly increasing depth):
+
+- [[dspy-custom-module]] — names **MCP tools** as one of four example integration surfaces (Langchain / Agno / MCP / database handlers) the *unconstrained `forward()`* contract supports; positions `dspy.Tool.from_mcp_tool(...)` as a drop-in inside a custom `class MyProgram(dspy.Module)`.
+- [[dspy-async-tutorial]] — documents the async-tool surface (`tool.acall(...)`, `allow_tool_async_sync_conversion=True`) the MCP binding **requires** end-to-end; vindicates the async-tool design as load-bearing rather than corner-case.
+- [[dspy-yahoo-finance-react-tutorial]] — sibling **third-construction-path** receipt (`Tool.from_langchain(...)`) that confirms `dspy.Tool` is the single integration point across plain-Python / MCP / LangChain tool origins; useful contrast for the MCP-specific binding.
+- [[dspy-mcp-tutorial]] — **canonical end-to-end MCP receipt**: stands up a [[FastMCP]] server with a seven-tool airline domain, drives it from `dspy.ReAct(...).acall(...)` through `dspy.Tool.from_mcp_tool(session, tool)` inside nested `async with stdio_client(...)` / `ClientSession(...)` blocks; confirms the three rules (`.acall(...)` only, agent invocation inside the session, toolset fixed per session).
+
 ## Connections
 
 - [[ModelContextProtocol]] — the protocol-level concept this binding consumes; framework-agnostic anchor.
 - [[dspy-mcp]] — canonical source for the DSPy integration (DSPy *Learn* page 8 of 13).
+- [[dspy-mcp-tutorial]] — **applied whole-program receipt** for the binding. Stands up a [[FastMCP]] server with seven airline-domain tools, drives it from `dspy.ReAct(...).acall(...)` through `dspy.Tool.from_mcp_tool(session, tool)`. Confirms the API-surface claims from [[dspy-mcp]] with a runnable end-to-end script. **MCP variant** of [[dspy-customer-service-agent]] — same airline domain, MCP packaging.
+- [[FastMCP]] — the canonical Python MCP-server author surface paired with this DSPy-side client binding.
 - [[DSPy]] — the framework whose MCP binding this page documents.
 - [[DSPyTools]] — the typed-tool abstraction `from_mcp_tool` constructs into; `dspy.Tool` gains a second construction path here.
 - [[react|ReAct]] — the canonical [[DSPyModules|Module]] consuming MCP-converted tools; the [[dspy-mcp]] page's two examples both use `dspy.ReAct(...).acall(...)`.

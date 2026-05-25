@@ -2,8 +2,8 @@
 title: "DSPy Signatures"
 type: concept
 tags: [dspy, llm-programming, signatures, typed-io, declarative-spec, framework]
-sources: [dspy-signatures, dspy-programming-overview, dspy-language-models, dspy-learn-index]
-last_updated: 2026-05-17
+sources: [dspy-signatures, dspy-programming-overview, dspy-language-models, dspy-learn-index, dspy-ai-text-game-tutorial, dspy-sample-code-generation-tutorial, dspy-email-extraction-tutorial]
+last_updated: 2026-05-24
 ---
 
 # DSPy Signatures
@@ -164,6 +164,19 @@ Each step below the Signature is **swappable without touching the Signature**. T
 - **`Literal[...]` as the classification primitive.** A small but important detail: closed-set classification in DSPy is *just a `typing.Literal` annotation* — no separate vocabulary. This collapses an entire category of "prompt engineering for classification" into a Python type annotation.
 - **Multi-modal via `dspy.Image`.** The page demonstrates that the same Signature/Module/Predict stack scales to multi-modal input without a separate API. This generalizes the *swap the LM* portability claim to *swap the modality*.
 - **Modules *expand* signatures.** The `dspy.ChainOfThought`-adds-`reasoning` pattern is the page's most consequential implementation detail. It's the mechanism by which a Module can be *strategically richer* than its Signature suggests — and it's why a swap from `dspy.ChainOfThought` to `dspy.ProgramOfThought` doesn't require declaring intermediate fields the user shouldn't have to know about.
+
+## Tutorials
+
+Tutorials that exercise this concept (roughly increasing depth):
+
+- [[dspy-ai-text-game-tutorial]] — three inline Signatures (`'state -> options'`, etc.) under `dspy.ChainOfThought`; the smallest receipt of the inline form composing into a multi-stage program.
+- [[dspy-conversation-history]] — `'question, history: dspy.History -> answer'` is the canonical receipt of the `dspy.History` DSPy-special type as a Signature input field.
+- [[dspy-entity-extraction-tutorial]] — class-form Signature with `list[dict[str, str]]` output for `CoNLL-2003` token classification; receipt of `typing` composites as the optimization target.
+- [[dspy-email-extraction-tutorial]] — four class-form Signatures with `desc=` hints and `Literal[...]` closed-set classifications composed in one pipeline; the densest *class-form-when-justified* worked instance.
+- [[dspy-audio-tutorial]] — `dspy.Audio` as a Signature input field; extends the `dspy.Image` multi-modal pattern to spoken QA and exposes the *swap-the-modality-by-changing-the-type* property.
+- [[dspy-customer-service-agent]] — a single class-form Signature scopes the whole `dspy.ReAct` agent regardless of tool count; receipt of *Signature is the stable interface* against module-strategy swaps.
+- [[dspy-tutorial-program-of-thought]] — same `'question -> answer'` Signature drives both `dspy.ChainOfThought` and `dspy.ProgramOfThought`; the canonical receipt of *modules expand signatures under the hood* applied across two strategies.
+- [[dspy-multihop-search-tutorial]] — Signature is the optimization target `MIPROv2` tunes against without touching the user-declared fields; receipt of *Signature is what the compiler tunes against*.
 
 ## Connections
 

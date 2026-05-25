@@ -2,8 +2,8 @@
 title: "NumPy"
 type: concept
 tags: [library, python, arrays, numerical-computing]
-sources: [pydata-preliminaries, pydata-numpy-basics, pydata-advanced-numpy, d2l-preliminaries]
-last_updated: 2026-05-16
+sources: [pydata-preliminaries, pydata-numpy-basics, pydata-advanced-numpy, d2l-preliminaries, hands-on-llm-ch05-text-clustering-topic-modeling]
+last_updated: 2026-05-23
 ---
 
 # NumPy

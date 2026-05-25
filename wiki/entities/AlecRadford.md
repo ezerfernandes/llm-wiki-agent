@@ -2,8 +2,8 @@
 title: "Alec Radford"
 type: entity
 tags: [person, researcher, generative-models, deep-learning, llm]
-sources: [d2l-generative-adversarial-networks]
-last_updated: 2026-05-16
+sources: [d2l-generative-adversarial-networks, hands-on-llm-ch01-introduction-to-llms]
+last_updated: 2026-05-23
 ---
 
 # Alec Radford

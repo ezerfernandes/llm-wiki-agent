@@ -3,7 +3,7 @@ title: "DSPy Metrics"
 type: concept
 tags: [dspy, llm-programming, evaluation, metrics, llm-as-judge, ai-feedback, bootstrap]
 sources: [dspy-metrics, dspy-evaluation-overview, dspy-data, dspy-learn-index]
-last_updated: 2026-05-17
+last_updated: 2026-05-24
 ---
 
 # DSPy Metrics
@@ -156,6 +156,19 @@ DSPy Metrics is the wiki's first **framework-level operationalization of the LLM
 | `answer_passage_match` | `dspy.evaluate.metrics.answer_passage_match` | `bool` | Check `pred.answer` appears in one of the retrieved passages (RAG) |
 
 A third utility named only in the bootstrap-trace example: `dspy.evaluate.answer_exact_match_str(s, [s_list], frac=0.8)` — fuzzy-string match used as the anti-degenerate-trajectory test in `validate_hops`.
+
+## Tutorials
+
+Tutorials that exercise this concept (roughly increasing depth):
+
+- [[dspy-tutorial-math]] — Regime-1 scalar metric: `dataset.metric` is the built-in [[MATH-benchmark|MATH]] exact-match `int(prediction.answer) == int(example.answer)` over the algebra subset.
+- [[dspy-tutorial-classification-finetuning]] — Regime-1 accuracy: `metric` is plain label-equality `x.label == y.label` over Banking77; the same callable drives [[DSPyEvaluate|`dspy.Evaluate`]] and [[BootstrapFinetune|`dspy.BootstrapFinetune`]].
+- [[dspy-entity-extraction-tutorial]] — Regime-1 **custom** metric: `extraction_correctness_metric(example, pred, trace=None)` compares `set(pred.entities)` against `set(example.entities)` for exact-list match over CoNLL-2003 PER spans.
+- [[dspy-tool-use-tutorial]] — task-aware normalization metric (`rstrip(".0").replace(",", "").lower()`) for the [[ToolHop]] benchmark; first wiki receipt where the metric's normalization rules become the optimizer's primary lift target.
+- [[dspy-rag-tutorial]] — Regime-2 LLM-as-judge: [[SemanticF1]] is a `dspy.Module` (multi-property judgment over claim coverage) — the canonical *"metric is itself a DSPy program"* receipt the page commits to.
+- [[dspy-multihop-search-tutorial]] — dual-mode `top5_recall(example, pred, trace=None)` — returns continuous recall during evaluation, strict `recall >= 1.0` boolean during bootstrapping; the canonical worked example of the `trace`-aware idiom.
+- [[dspy-tutorial-gepa-aime]] — first wiki receipt of the **`Prediction(score, feedback)` metric shape**: `metric_with_feedback` returns a [[DSPyPrediction|`dspy.Prediction`]] carrying both the scalar score and textual feedback for [[GEPA|`dspy.GEPA`]]'s reflective proposer.
+- [[dspy-tutorial-gepa-facility-support-analyzer]] — extends the GEPA metric shape to **multi-property weighted-average** (urgency / sentiment / categories sub-scores) with **per-predictor feedback strings**; the most structurally complex DSPy metric in the corpus.
 
 ## Connections
 

@@ -2,8 +2,8 @@
 title: "Pooling"
 type: concept
 tags: [deep-learning, cnn, architecture]
-sources: [d2l-convolutional-neural-networks, madewithml-baselines]
-last_updated: 2026-05-16
+sources: [d2l-convolutional-neural-networks, madewithml-baselines, hands-on-llm-ch10-creating-text-embedding-models]
+last_updated: 2026-05-23
 ---
 
 # Pooling
@@ -72,3 +72,17 @@ nn.avg_pool(x, window_shape=(2,2), strides=(2,2))
 - [[TranslationInvariance]] — what pooling provides locally.
 - [[d2l-convolutional-neural-networks]] — canonical reference.
 - [[Attention]] — modern attention can be viewed as "learned soft pooling."
+
+## Pooling in sentence-embedding models (from [[hands-on-llm-ch10-creating-text-embedding-models|*Hands-On LLMs* Ch 10]])
+
+Beyond CNN downsampling, pooling has a distinct role in [[SentenceTransformers|sentence-transformers]]-style [[BiEncoder|bi-encoder]] embedding models: **collapse a variable-length sequence of token embeddings into a single fixed-size sentence vector**. The two production-relevant strategies:
+
+| Strategy | Operation | Default in |
+|---|---|---|
+| **[[MeanPooling\|Mean pooling]]** | Average across token positions | [[SBERTArchitecture\|SBERT]] — the default Ch 10 walks |
+| **[[CLSPooling\|[CLS]-token pooling]]** | Take the final hidden state of the `[CLS]` token | [[TSDAE]] (the **only** Ch-10 regime that prefers [CLS]) |
+| Max pooling | Element-wise max across positions | Less common in modern sentence-transformers |
+
+Per Ch 10 (citing the Sentence-BERT paper): for the **supervised contrastive** regime, **mean-pooling beats [CLS]-pooling and max-pooling**. For the **unsupervised denoising auto-encoder** regime (TSDAE), **[CLS]-pooling beats mean-pooling** because *"mean pooling loses the position information, which is not the case when using the [CLS] token."* The two recommendations are regime-specific, not contradictory.
+
+This sentence-level pooling is structurally distinct from CNN's spatial pooling — no spatial neighborhood, no stride, no padding — but the same underlying idea: aggregate a variable-size collection into a fixed-size summary statistic. See [[MeanPooling]] and [[CLSPooling]] for the specifics.

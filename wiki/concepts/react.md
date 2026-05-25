@@ -2,8 +2,8 @@
 title: "ReAct"
 type: concept
 tags: [ml-method, prompting, agent, tool-use]
-sources: [dspy-modules, dspy-programming-overview, dspy-tools]
-last_updated: 2026-05-17
+sources: [dspy-modules, dspy-programming-overview, dspy-tools, dspy-customer-service-agent, dspy-tutorial-rag-as-agent, dspy-yahoo-finance-react-tutorial, dspy-mem0-react-tutorial, ai-engineering-ch06-rag-agents, hands-on-llm-ch07-advanced-text-generation, dspy-tool-use-tutorial]
+last_updated: 2026-05-24
 ---
 
 # ReAct
@@ -66,6 +66,50 @@ The **void-return-tool** case is the most informative — `dspy.ReAct`'s think-a
 
 `dspy.ReAct`'s return [[DSPyPrediction|`Prediction`]] carries an extra `trajectory` field — *"complete reasoning trajectory tracking"* — recording every reasoning step and every tool call made during the loop. This is the **introspection hook** that distinguishes managed handling from manual: the manual path has access to `response.outputs.tool_calls` directly (it owns the loop), but `dspy.ReAct`'s loop is internal — `trajectory` is how the user reconstructs what happened.
 
+The [[dspy-customer-service-agent|Customer Service Agent tutorial]] confirms that the [[DSPyPrediction|`Prediction`]] returned by `dspy.ReAct` actually carries **three** fields when invoked: `trajectory` (the full think-act-observe log), `reasoning` (the final-decision explanation, the same field [[ChainOfThought|`dspy.ChainOfThought`]] adds), and whatever output field the user declared on the Signature (`process_result` in the tutorial). Both `trajectory` and `reasoning` are added by `dspy.ReAct`'s under-the-hood signature expansion — the user never declares them.
+
+## Reference receipt: the seven-tool customer-service agent
+
+The [[dspy-customer-service-agent|Customer Service Agent tutorial]] is the wiki's canonical **end-to-end production-shaped receipt** for `dspy.ReAct` — a multi-tool agent over a typed [[Pydantic]] domain. Where the [[dspy-modules|Modules page]]'s two-tool calculator-plus-Wikipedia example demonstrates the *mechanism*, this tutorial demonstrates the *application shape* — seven tools (lookup / mutation / escalation), a five-class Pydantic domain (`Date`, `UserProfile`, `Flight`, `Itinerary`, `Ticket`), and a two-field user-facing Signature whose docstring scopes the agent's role:
+
+```python
+class DSPyAirlineCustomerService(dspy.Signature):
+    """You are an airline customer service agent that helps user
+    book and manage flights. You are given a list of tools to handle
+    user request, and you should decide the right tool to use."""
+    user_request: str = dspy.InputField()
+    process_result: str = dspy.OutputField(desc="...")
+
+agent = dspy.ReAct(DSPyAirlineCustomerService, tools=[
+    fetch_flight_info, fetch_itinerary, pick_flight,
+    book_flight, cancel_itinerary, get_user_info, file_ticket,
+])
+
+result = agent(user_request="please help me book a flight from SFO to JFK ...")
+# result has .trajectory, .reasoning, .process_result
+```
+
+Three structural properties this receipt makes explicit, beyond what the Modules-page calculator example showed:
+
+- **The Signature is independent of the tool list.** Two fields scope the user-facing interface; seven tools scope the action surface. The same Signature could host a different tool list (different agent over the same task framing); the same tools could host a different Signature (different task framing over the same actions).
+- **[[Pydantic]] models compose at any depth in tool arguments and returns.** The `Itinerary` type contains a `UserProfile` and a `Flight`; the `Flight` contains a `Date`. The LM generates structured arguments matching the schema, and observations are returned as the same structured objects.
+- **Escalation is a tool.** The `file_ticket` tool is the agent's safety valve when no other tool can resolve the request — the [[react|ReAct]]-pattern realization of the [[LLMModuloFramework|LLM-Modulo]] external-critic principle. Every production customer-service ReAct agent needs at least one such escalation surface.
+
+See [[CustomerServiceAgent]] for the general application pattern this receipt instantiates.
+
+## Hand-rolled alternative — when to escape `dspy.ReAct`
+
+The [[dspy-tool-use-tutorial|DSPy tool-use tutorial]] is the wiki's **first receipt of a [[HandRolledReAct|hand-rolled ReAct]]** in a DSPy program — a manual `for` loop over a single `dspy.ChainOfThought` Signature, with the agent's `forward()` method managing trajectory state and tool selection directly. The pattern bypasses `dspy.ReAct` and instead emits `(next_selected_fn, args: dict[str, Any])` per step from one ChainOfThought, calls the chosen tool via the agent's own dispatch logic, appends to `trajectory`, and breaks when the model selects a synthetic `finish(answer)` terminal tool.
+
+Four conditions under which the hand-rolled pattern is preferable to `dspy.ReAct`:
+
+1. **Tool sets vary per example.** [[ToolHop]] ships a different `functions` dict per datapoint; tools are a runtime input, not a constructor kwarg. `dspy.ReAct(signature, tools=[...])` binds tools at construction.
+2. **Termination needs custom logic.** A synthetic `finish(answer: str)` tool gives the model explicit control over when to stop, distinct from `dspy.ReAct`'s built-in termination.
+3. **Tool metadata schema needs author control.** The hand-rolled pattern exposes tools to the LM as a `dict[str, Any]` Signature field; the author decides what metadata to include. `dspy.ReAct` uses `dspy.Tool`'s internal format.
+4. **Untrusted tool code requires sandbox-aware invocation.** [[func_timeout|`func_timeout`]] wrapping, exception-to-`{return_value, errors}` dict mapping, side-effect tracking are easier at the loop level.
+
+The hand-rolled pattern composes with any DSPy optimizer because the agent is still a regular `dspy.Module`. The tool-use tutorial achieves **35.0% → 60.7%** dev accuracy lift on [[ToolHop]] by composing hand-rolled ReAct with [[SIMBA|`dspy.SIMBA(max_steps=12, max_demos=10)`]] — confirming that the manual pattern is **not** a downgrade from framework convenience but a flexibility trade.
+
 ## Connections
 
 - [[ChainOfThought|Chain-of-Thought]] — the closest sibling prompting pattern; ReAct extends CoT with action steps.
@@ -80,3 +124,61 @@ The **void-return-tool** case is the most informative — `dspy.ReAct`'s think-a
 - [[DSPyProgrammingModel]] — the *swap-modules-without-touching-signature* portability claim that lets `dspy.Predict` ↔ `dspy.ChainOfThought` ↔ `dspy.ReAct` be a constructor-name change.
 - [[DSPyPrediction]] — the return object after the think-act-observe loop terminates.
 - [[ColBERTv2]] — the retriever used in the page's ReAct example. Forward reference; named only.
+- [[dspy-customer-service-agent]] — canonical end-to-end production-shaped `dspy.ReAct` receipt: seven-tool airline customer-service agent over a five-class Pydantic domain. Confirms the three-field [[DSPyPrediction|`Prediction`]] return shape (`trajectory` + `reasoning` + user-declared output) and demonstrates the Signature-vs-tool-list decoupling at scale.
+- [[HandRolledReAct]] — manual `dspy.ChainOfThought` + trajectory-loop alternative; canonical receipt: [[dspy-tool-use-tutorial]] on [[ToolHop]] with [[SIMBA]] (35.0% → 60.7%).
+- [[dspy-tool-use-tutorial]] — first wiki hand-rolled ReAct + [[SIMBA]] receipt; bypasses `dspy.ReAct` for runtime-varying per-example tool sets and synthetic `finish(answer)` terminal-tool control.
+- [[dspy-tutorial-rag-as-agent]] — canonical end-to-end **optimized** `dspy.ReAct` receipt: two-tool Wikipedia multi-hop retrieval agent over [[HoVer]] (three-hop subset). **First wiki receipt with `max_iters=20`** (long loops for three-hop reasoning) and **first wiki receipt that pairs `dspy.ReAct` with [[MIPROv2]] under teacher/student model decoupling** ([[OpenAI|GPT-4o]] teacher + [[Llama|Llama-3.2-3B]] student). Headline result: **8% → 41.67% top5_recall (5×)** from prompt optimization alone, no weight tuning.
+- [[dspy-yahoo-finance-react-tutorial]] — **third agent-shaped DSPy tutorial** and the **first wiki receipt of `dspy.Tool.from_langchain(...)`** — a three-tool `dspy.ReAct` financial-analysis agent mixing a [[LangChain]] community tool (`YahooFinanceNewsTool`) with two plain-callable [[yfinance]] wrappers. `max_iters=6`, one-line string Signature (`"financial_query -> analysis_response"`), no optimizer, no metric. Documents `allow_tool_async_sync_conversion=True` set process-wide via `dspy.configure(...)` rather than per-block `dspy.context(...)`. Also the **first DSPy tutorial whose sample output reveals partial tool failure** (news fetch fails; agent reasons from price data alone) — a concrete *error-as-observation* receipt.
+- [[CustomerServiceAgent]] — the general application pattern the tutorial receipt instantiates.
+- [[Pydantic]] — first-class type provider for ReAct tool arguments and returns (forward reference).
+
+## From [[ai-engineering-ch06-rag-agents|AI Engineering Ch 6]]
+
+[[ChipHuyen|Huyen]] cites ReAct (Yao et al. 2022) as the canonical **interleaving-of-reasoning-and-action** pattern that *"has become a common pattern for agents."* The Ch 6 framing is broader than the DSPy-specific framing already in this page — Yao et al. used *"reasoning"* to encompass both **planning** and **reflection**:
+
+> *"At each step, the agent is asked to explain its thinking (planning), take actions, then analyze observations (reflection), until the task is considered finished by the agent."*
+
+The canonical output format (which DSPy abstracts away as `trajectory`):
+
+```
+Thought 1: …
+Act 1: …
+Observation 1: …
+… [continue until reflection determines the task is finished] …
+Thought N: …
+Act N: Finish [Response to query]
+```
+
+**Worked benchmark example**: Ch 6's ReAct illustration runs on [[hotpotqa|HotpotQA]] (Yang et al. 2018) — the multi-hop QA benchmark that anchors most of the wiki's DSPy retrieval receipts.
+
+**Cost / latency trade-off** Huyen flags:
+
+> *"Compared to plan generation, reflection is relatively easy to implement and can bring surprisingly good performance improvement. The downside of this approach is latency and cost. Thoughts, observations, and sometimes actions can take a lot of tokens to generate, which increases cost and user-perceived latency, especially for tasks with many intermediate steps. To nudge their agents to follow the format, both ReAct and Reflexion authors used plenty of examples in their prompts. This increases the cost of computing input tokens and reduces the context space available for other information."*
+
+The chapter pairs ReAct with [[reflexion|Reflexion]] (Shinn et al. 2023) as the two canonical reflection mechanisms, and notes the [[ActorCriticAgent|actor-critic]] (Konda & Tsitsiklis 1999) RL ancestry in a footnote.
+
+## From [[hands-on-llm-ch07-advanced-text-generation|Hands-On LLMs Ch 7]]
+
+Ch 7 of *Hands-On LLMs* is the **wiki's first runnable LangChain-native ReAct receipt**, complementing the existing [[DSPy]]-native receipts on this page. Ch 7's framing of ReAct:
+
+> *"The driving force of many agent-based systems is the use of a framework called Reasoning and Acting (ReAct). ReAct merges these two concepts and allows reasoning to affect acting and actions to affect reasoning. ... the LLM is asked to create a 'thought' about the input prompt. Then, based on the thought, an 'action' is triggered. ... Finally, after the results of the 'action' are returned to the LLM it 'observes' the output."* — Ch 7
+
+### The LangChain-native ReAct receipt
+
+```python
+from langchain.agents import AgentExecutor, create_react_agent
+agent = create_react_agent(openai_llm, tools, prompt)
+agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True, handle_parsing_errors=True)
+agent_executor.invoke({"input": "What is the current price of a MacBook Pro in USD? ..."})
+```
+
+Tools: a [[DuckDuckGoSearchResults|DuckDuckGo search]] wrapper + [[LLMMathTool|llm-math]] calculator. The agent runs two ReAct cycles (search → calculate) and produces *"$2,249.00 ... approximately 1911.65 EUR"* via [[ChatGPT|GPT-3.5-turbo]] (Phi-3-mini is **insufficient** for the agent role — the chapter's honest acknowledgment of the [[CompoundErrorAccumulation|capability cliff]]).
+
+### DSPy-native vs LangChain-native ReAct
+
+| Framework | Constructor | Trajectory access | I/O typing |
+|---|---|---|---|
+| **[[DSPy]]** | `dspy.ReAct(Signature, tools=[...])` | `pred.trajectory` field | Signature-typed |
+| **[[LangChain]]** | `create_react_agent(llm, tools, prompt) + AgentExecutor` | `verbose=True` prints inline | Free-form text |
+
+Same underlying Yao et al. 2022 scaffold; different ergonomics. The wiki now has both. See [[LangChainAgent]] for the LangChain-side receipt details and [[ShunyuYao]] for the paper author.

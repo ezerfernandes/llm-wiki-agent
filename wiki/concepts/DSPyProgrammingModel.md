@@ -3,7 +3,7 @@ title: "DSPy Programming Model"
 type: concept
 tags: [dspy, llm-programming, framework, separation-of-concerns]
 sources: [dspy-programming-overview, dspy-learn-index]
-last_updated: 2026-05-17
+last_updated: 2026-05-24
 ---
 
 # DSPy Programming Model
@@ -55,6 +55,20 @@ This is the **opposite** of starting from a maximalist prompt and trimming back.
 - **In tension with [[2604.25850-agentic-harness-engineering|harness engineering]].** Lee et al.'s critique of "DSPy-style instruction tuning" lands at the Programming Model level: they argue the load-bearing axes are *not* the four prompt-level concerns DSPy names, but the surrounding tools / middleware / memory. The two positions are orthogonal in principle — DSPy decouples prompt-level concerns; AHE decouples harness-level concerns — and could be composed in the same system.
 - **As candidate-generator substrate for [[LLMModuloFramework|LLM-Modulo]].** Each of DSPy's four artifacts maps cleanly onto Kambhampati et al.'s generate-test loop: [[DSPyModules|Modules]] are candidate generators; [[DSPyMetrics|Metrics]] are critics; [[DSPyOptimizers|Optimizers]] are the search procedure over the generator. The Programming Model is therefore a natural substrate on which an LLM-Modulo pipeline can be expressed.
 - **Inside the [[AgenticAI]] DAG framework.** A DSPy program **is** an instance of the [[AgenticAI]] DAG (Modules are nodes; inter-Module dataflow is edges); the Programming Model is the *coding interface* over the [[CompositionalCapacity|compositional substrate]] that framework formalizes.
+
+## Tutorials
+
+Tutorials that exercise this concept (roughly increasing depth):
+
+- [[dspy-rag-tutorial]] — canonical end-to-end "start simple, then grow" receipt: baseline `dspy.ChainOfThought('question -> response')` → RAG with retrieval → optimized program, holding the Signature stable across all three stages.
+- [[dspy-ai-text-game-tutorial]] — minimal-surface composition: three Signatures under `dspy.ChainOfThought` modules inside one `dspy.Module` subclass; the smallest worked program that exercises all four concerns at once.
+- [[dspy-email-extraction-tutorial]] — composes four Signatures into a single sequential `dspy.Module` pipeline; the canonical multi-stage worked instance of *"writing code, not strings"*.
+- [[dspy-customer-service-agent]] — module-swap receipt: lifts a typed-Signature pipeline to a `dspy.ReAct` agent with the Signature unchanged — the *"swap one module for another without modifying the signature"* portability claim made concrete.
+- [[dspy-saving-tutorial]] — surfaces the program-as-object stance: state-only save vs whole-program `cloudpickle` save, both of which require the program *be* a typed `dspy.Module` rather than a string template.
+- [[dspy-streaming-tutorial]] — orthogonal-composition receipt: token-streaming layer composes over every Module without changing the four-concern interface, proving the layering is more than naming.
+- [[dspy-tutorial-program-of-thought]] — drop-in module swap (`dspy.ChainOfThought` → `dspy.ProgramOfThought`) on a fixed Signature; the receipt of the third portability claim.
+- [[dspy-tutorial-gepa-aime]] — both-axes optimizer receipt: same program is later compiled by `dspy.GEPA` against a metric, exercising the "run prompt-optimization against the same program" portability claim.
+- [[dspy-tutorial-classification-finetuning]] — the *weight-finetune* lever on the same Programming Model: `dspy.BootstrapFinetune` updates LM weights against the program with no architectural change.
 
 ## Connections
 

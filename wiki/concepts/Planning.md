@@ -2,8 +2,8 @@
 title: "Planning (Automated / AI)"
 type: concept
 tags: [planning, agents, reasoning, neuro-symbolic]
-sources: [2402.01817-llm-modulo]
-last_updated: 2026-05-10
+sources: [2402.01817-llm-modulo, ai-engineering-ch06-rag-agents]
+last_updated: 2024-12-04
 ---
 
 # Planning
@@ -45,3 +45,30 @@ Conflating (1) and (2) is, per the paper, the source of much over-optimism about
 - [[NeuroSymbolicAI]] — broader lineage
 - [[ReinforcementLearning]] — adjacent paradigm; simulator-in-the-loop RL is an LLM-Modulo instance
 - [[2402.01817-llm-modulo]] — source
+
+## From [[ai-engineering-ch06-rag-agents|AI Engineering Ch 6]]
+
+[[ChipHuyen|Huyen]] devotes the majority of Ch 6's agent section to planning. Her contribution is the **decouple-planning-from-execution** pattern:
+
+> *"You ask the agent to first generate a plan, and only after this plan is validated is it executed."*
+
+Validation can be heuristic (eliminate plans with invalid actions or with too many steps) or AI-judge-based. The system now has **three components**: plan-generator, plan-validator, plan-executor — which Huyen frames as a [[multiagentsystems|multi-agent system]].
+
+**Full four-step process**:
+
+1. **Plan generation** — come up with a plan; *"a sequence of manageable actions, so this process is also called task decomposition."*
+2. **Reflection and error correction** — evaluate the generated plan; if bad, generate a new one.
+3. **Execution** — take the planned actions.
+4. **Reflection and error correction** — evaluate outcomes; if goal not met, generate a new plan.
+
+**Foundation Model vs RL planners** (sidebar): RL agents *train* their planner; FM agents *are* the planner. Huyen predicts long-run convergence — *"FM agents and RL agents will merge."*
+
+**Planning-vs-acting distinction** the existing page already records (per [[2402.01817-llm-modulo|LLM-Modulo]]) is *complementary*, not contradictory, to Huyen's framing. Huyen records both [[YannLeCun|LeCun]]'s and [[SubbaraoKambhampati|Kambhampati]]'s *"LLMs can't plan"* positions and counters them with [[ReasoningWithLanguageModelIsPlanningWithWorldModel|Hao et al. 2023]] — without adjudicating. The chapter's agnostic stance reflects the empirical state of 2024: *"it's unclear whether it's because we don't know how to use LLMs the right way or because LLMs, fundamentally, can't plan."*
+
+**Approaches to improve planning** (a practical checklist Huyen names):
+
+- Write better system prompts with more examples.
+- Give better tool descriptions and parameter documentation.
+- Refactor complex functions into simpler ones.
+- Use a stronger model.
+- Finetune a model for plan generation.

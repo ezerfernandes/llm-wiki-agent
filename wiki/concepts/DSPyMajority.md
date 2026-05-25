@@ -3,7 +3,7 @@ title: "DSPy Majority"
 type: concept
 tags: [dspy, llm-programming, modules, voting, function-style, ensembling]
 sources: [dspy-modules]
-last_updated: 2026-05-17
+last_updated: 2026-05-24
 ---
 
 # DSPy Majority
@@ -45,6 +45,12 @@ The `dspy.majority` / `dspy.MultiChainComparison` split is the page's clearest e
 - **Free ensembling.** When the output is a closed-set classification or a structured value with stable serialization, `dspy.majority` over N samples is a strictly-positive reliability lever at zero LM cost. The classic *self-consistency* recipe in research papers maps to `dspy.majority` over N `dspy.ChainOfThought(...)` calls.
 - **The page's only non-`dspy.Module` building block.** `dspy.majority` is a useful **anomaly** in the taxonomy — it breaks the *Signature → Module → Prediction* shape every other building block honors. Flagged as such on [[dspy-modules]].
 - **Composes inside `forward()`.** Use inside a `class MyProgram(dspy.Module)` is straightforward: run a Module N times in a loop, collect the predictions, call `dspy.majority(...)`, return.
+
+## Tutorials
+
+Tutorials that exercise this concept (roughly increasing depth):
+
+- [[dspy-rag-tutorial]] — names `dspy.majority` in the *further-improvements menu* closing the 61.1% [[SemanticF1]] receipt as the **inference-time-scaling ensembling axis**: sample N reasoning paths from the optimized [[chainofthought|`dspy.ChainOfThought`]] RAG program, vote with `dspy.majority`, no extra LM call.
 
 ## Connections
 

@@ -2,8 +2,8 @@
 title: "FlashAttention"
 type: concept
 tags: [attention, gpu, systems, kernel, optimization]
-sources: [2205.14135-flashattention]
-last_updated: 2026-05-10
+sources: [2205.14135-flashattention, hands-on-llm-ch03-looking-inside-llms, ai-engineering-ch09-inference-optimization]
+last_updated: 2024-12-04
 ---
 
 # FlashAttention
@@ -43,3 +43,31 @@ See [[IOComplexity]] for the cost model.
 - [[Recomputation]]
 - [[Transformer]]
 - [[SelfAttention]]
+
+## From [[hands-on-llm-ch03-looking-inside-llms|*Hands-On LLMs* Ch 3]]
+
+Ch 3's intuition-level framing of the same kernel:
+
+> "Flash Attention is a popular method and implementation that provides significant speedups for both training and inference of Transformer LLMs on GPUs. It speeds up the attention calculation by optimizing what values are loaded and moved between a GPU's shared memory (SRAM) and high bandwidth memory (HBM)." — Ch 3
+
+The chapter cites both *"FlashAttention: Fast and memory-efficient exact attention with IO-awareness"* and the follow-up *"FlashAttention-2: Faster attention with better parallelism and work partitioning"* — the same papers this page treats formally above. *Hands-On LLMs* Ch 3 is the **pedagogical pointer** for readers approaching FlashAttention from an LLM-internals direction rather than the systems / IO-complexity direction.
+
+## From [[ai-engineering-ch09-inference-optimization|AI Engineering Ch 9]]
+
+Ch 9 places FlashAttention as **the canonical attention-kernel optimization** — one of three buckets in attention-mechanism optimization (alongside "redesign the mechanism" and "optimize the KV cache"):
+
+> *"One of the most well-known kernels optimized for attention computation is FlashAttention (Dao et al., 2022). This kernel fused together many operations commonly used in a transformer-based model to make them run faster."*
+
+Figure 9-13 in Ch 9 shows FlashAttention as the operator-fusion exemplar.
+
+### Hardware specificity
+
+Ch 9 makes the hardware-specificity explicit:
+
+> *"Kernels are optimized for a hardware architecture. This means that whenever a new hardware architecture is introduced, new kernels need to be developed. For example, FlashAttention (Dao et al., 2022) was originally developed primarily for NVIDIA A100 GPUs. Later on, FlashAttention-3 was introduced for H100 GPUs (Shah et al., 2024)."*
+
+This is one of the load-bearing points of the kernel-writing section: **new hardware → new kernels**.
+
+### FlashAttention and operator fusion
+
+Ch 9 names four kernel-writing techniques ([[Vectorization|vectorization]], parallelization, [[LoopTiling|loop tiling]], [[OperatorFusion|operator fusion]]). FlashAttention is the **operator-fusion exemplar** — it fuses Q-K-multiply, softmax, attention-V-multiply (and during backward, the recomputation steps) into a single CUDA kernel.

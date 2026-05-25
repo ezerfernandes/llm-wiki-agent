@@ -2,8 +2,8 @@
 title: "DSPy Tools"
 type: concept
 tags: [dspy, llm-programming, tools, function-calling, agents, async, framework]
-sources: [dspy-tools, dspy-modules, dspy-adapters, dspy-learn-index, dspy-mcp]
-last_updated: 2026-05-17
+sources: [dspy-tools, dspy-modules, dspy-adapters, dspy-learn-index, dspy-mcp, dspy-yahoo-finance-react-tutorial, dspy-async-tutorial, dspy-tool-use-tutorial]
+last_updated: 2026-05-24
 ---
 
 # DSPy Tools
@@ -198,6 +198,56 @@ The `dspy.Tool` wrapper is **not** locked to local Python functions. A second co
 
 This vindicates the page-7 async-tool surface (`tool.acall(...)`, `dspy.context(allow_tool_async_sync_conversion=True)`) as **load-bearing infrastructure**, not a corner-case feature — MCP integration *requires* it.
 
+## Third construction path — `Tool.from_langchain(...)` ([[LangChain]] bridge)
+
+Added by [[dspy-yahoo-finance-react-tutorial|the Yahoo Finance ReAct tutorial]]: a third documented construction path that converts a [[LangChain]] tool instance into a `dspy.Tool`:
+
+```python
+from langchain_community.tools.yahoo_finance_news import YahooFinanceNewsTool
+from dspy.adapters.types.tool import Tool
+
+yahoo_finance_tool = YahooFinanceNewsTool()
+finance_news_tool = Tool.from_langchain(yahoo_finance_tool)
+```
+
+The resulting `Tool` instance is **indistinguishable** in downstream composition from an auto-wrapped plain-callable tool or an MCP-derived one — [[react|`dspy.ReAct`]] consumes it in the same `tools=[...]` list, [[DSPyAdapters|Adapters]] serialize it the same way, manual [[DSPyPredict|`dspy.Predict`]] with `tools: list[dspy.Tool]` input accepts it. **`dspy.Tool` is therefore the single integration point between DSPy and the external tool ecosystem** — plain Python, [[ModelContextProtocol|MCP]] servers, and [[LangChain]] community tools all collapse to the same downstream type.
+
+Construction paths after this tutorial:
+
+| Path | Source | First-receipt wiki page |
+|---|---|---|
+| Auto-wrap plain Python callable (`dspy.ReAct(tools=[fn])` / `dspy.Tool(fn)`) | function + docstring + type hints | [[dspy-tools]] / [[react]] |
+| `Tool.from_mcp_tool(session, mcp_tool)` | [[ModelContextProtocol\|MCP]] server descriptor | [[dspy-mcp]] / [[DSPyMCP]] |
+| `Tool.from_langchain(langchain_tool)` | [[LangChain]] tool instance | [[dspy-yahoo-finance-react-tutorial]] |
+| **Raw-callable dict via Signature input field** (no `dspy.Tool` wrapper) | `inspect.signature` + `inspect.getdoc` + author-controlled `dict[str, Any]` schema | [[dspy-tool-use-tutorial]] / [[HandRolledReAct]] |
+
+## Fourth construction path — per-question raw-callable dict (no `dspy.Tool`)
+
+The [[dspy-tool-use-tutorial|DSPy tool-use tutorial]] introduces a **fourth tool-construction path** that **bypasses `dspy.Tool` entirely**: the agent receives a per-question Python `dict[str, callable]` as an input field, the author computes tool metadata via stdlib `inspect.signature(...)` + `inspect.getdoc(...)`, and the metadata is presented to the LM as a `dict[str, Any]` Signature field. This is the **runtime-varying tool-set** path — appropriate when:
+
+1. Tool sets vary per example (e.g. [[ToolHop]] ships a different `functions` list per datapoint).
+2. The tool metadata schema needs author control (e.g. you want to omit certain fields or add custom annotations).
+3. Tool runtimes need sandbox wrapping (e.g. [[func_timeout|`@func_set_timeout(10)`]] for untrusted code) — easier to bolt on at the loop level than inside `dspy.Tool`.
+
+The tutorial's recipe:
+
+```python
+def fn_metadata(func):
+    signature = inspect.signature(func)
+    docstring = inspect.getdoc(func) or "No docstring."
+    return dict(function_name=func.__name__, arguments=str(signature), docstring=docstring)
+
+# Then in the agent:
+tools = {fn_name: fn_metadata(fn) for fn_name, fn in functions.items()}
+pred = self.react(question=question, trajectory=trajectory, functions=tools)
+```
+
+The Signature output emits `next_selected_fn: str` (the tool name) and `args: dict[str, Any]` (the tool arguments); the agent's `forward()` method dispatches into the real callable dict by name. **`dspy.Tool` is not in the loop** — the manual pattern preserves all of DSPy's optimizer composability (the program is still a `dspy.Module`) while losing the framework's native-function-calling Adapter hook. Trade is explicit: more author control for less framework support.
+
+See [[HandRolledReAct]] for the broader pattern, and [[dspy-tool-use-tutorial]] for the canonical [[SIMBA]]-optimized receipt.
+
+The tutorial also documents that `allow_tool_async_sync_conversion=True` can be set **process-wide** via `dspy.configure(...)` — not only inside a `with dspy.context(...)` block as the page-7 example shows. The configure-time form is appropriate when most tools in a program are async-backed (LangChain community tools commonly are).
+
 ## How Tools compose through the four-concerns decomposition
 
 The Tools sub-system is **not** a parallel pipeline next to the rest of [[DSPy]] — it threads through [[DSPyProgrammingModel|the Programming Model's]] four orthogonal artifacts:
@@ -219,6 +269,20 @@ This composability is what makes the Tools sub-system a **first-class citizen** 
 - **Adds the second model-capability scoping to the Learn corpus.** [[DSPyAdapters|`JSONAdapter`]]'s `response_format` requirement was the first; native function calling is the second. In both cases, the framework absorbs the gap behind an automatic fallback to text-based parsing — the *"swap the LM"* portability claim from [[dspy-language-models]] is upheld by the framework's recovery discipline, not by every LM uniformly implementing the same capabilities.
 - **`dspy.Tool` is the fifth DSPy-special type.** Together with [[DSPySignatures|`dspy.Image`]] (multi-modal input), `dspy.History` (conversational context), `dspy.ToolCalls` (model-output container), and `dspy.Prediction` (the universal return type), `dspy.Tool` is one of the typed primitives the framework provides on top of Python's `typing` / [[Pydantic]] / dataclasses surface. The DSPy type system is therefore **larger than the Signatures page documented** — the Tools page adds two more types (`Tool` and `ToolCalls`) the wiki should record.
 - **Async tools are first-class, not retro-fitted.** The `tool.acall(...)` method and the `dspy.context(allow_tool_async_sync_conversion=True)` opt-in show async tool use is a deliberate framework feature, not an extension. This matters for production deployments where I/O-bound tools (retrieval, web requests, database calls) benefit from async dispatch.
+
+## Tutorials
+
+Tutorials that exercise this concept (roughly increasing depth):
+
+- [[dspy-custom-module]] — names tool integration (Langchain / Agno / **MCP** / database handlers) as one of four example surfaces the *unconstrained `forward()`* contract supports; entry-point for the *tools-are-just-Python-callables* claim.
+- [[dspy-yahoo-finance-react-tutorial]] — simplest multi-tool [[react|`dspy.ReAct`]] starter; mixes two plain Python callables (`get_stock_price`, `compare_stocks`) with a [[LangChain]]-bridged tool (`YahooFinanceNewsTool`) via the **third construction path** `Tool.from_langchain(...)`.
+- [[dspy-customer-service-agent]] — multi-tool [[react|`dspy.ReAct`]] over a typed airline domain; canonical receipt for **`tools=[...]` of plain Python callables** auto-wrapped into `dspy.Tool` instances by [[react|`dspy.ReAct`]].
+- [[dspy-mcp-tutorial]] — **second construction path** `dspy.Tool.from_mcp_tool(session, tool)` over a seven-tool [[FastMCP]] server; confirms `dspy.Tool` is open under tool origin and `tool.acall(...)` is load-bearing infrastructure.
+- [[dspy-mem0-react-tutorial]] — wraps memory CRUD (`store_memory`, `search_memories`, `get_all_memories`) plus personalization helpers as `dspy.ReAct` tools; **memory-is-a-tool** pattern — Mem0 persistence exposed entirely through the `tools=[...]` axis with `user_id` arguments for multi-tenancy.
+- [[dspy-async-tutorial]] — canonical source for the async-tool surface (`tool.acall(...)`, the `allow_tool_async_sync_conversion=True` context flag) and async [[react|`dspy.ReAct`]].
+- [[dspy-streaming-tutorial]] — `StatusMessageProvider.tool_start_status_message` / `tool_end_status_message` hooks surface `dspy.Tool` invocation boundaries through the status-streaming generator; composes the tool axis with the token axis.
+- [[dspy-observability-tutorial]] — `BaseCallback.on_tool_start` / `on_tool_end` capture every `dspy.Tool` invocation in the tier-3 custom-instrumentation tier; tutorial diagnoses a stale-retrieval bug via [[MLflow]] traces and fixes it by swapping the [[ColBERTv2]] retriever for a [[Tavily]]-wrapped `dspy.Tool`.
+- [[dspy-tool-use-tutorial]] — **fourth construction path** that bypasses `dspy.Tool` entirely: per-question raw `dict[str, callable]` Signature field with `inspect.signature` / `inspect.getdoc` metadata, optimized end-to-end on [[ToolHop]] via [[SIMBA|`dspy.SIMBA`]]; canonical [[HandRolledReAct|hand-rolled ReAct]] receipt.
 
 ## Connections
 
@@ -242,3 +306,5 @@ This composability is what makes the Tools sub-system a **first-class citizen** 
 - [[2604.25850-agentic-harness-engineering|Agentic Harness Engineering]] — the contemporary critique of *"DSPy-style instruction tuning"*; the harness paper's argument is that tools / middleware / long-term memory are load-bearing. DSPy's Tools sub-system is the framework-level treatment of that layer.
 - [[2604.21590-agenticqwen|AgenticQwen]] — names CoT and [[react|ReAct]] as baseline tool-use foundations; `dspy.Tool` + [[react|`dspy.ReAct`]] is the DSPy operationalization of the ReAct baseline.
 - [[FunctionCall]] — the wiki's pre-existing C-language *function-call* concept (stack-frame + jump runtime semantics); the LM-side tool call is the **prompt-level analog** — same `function_name(arg=value)` syntactic shape, different execution substrate. Cross-disambiguation link only; the two concepts are not interchangeable.
+- [[DSPyAsync]] — `tool.acall(...)` and `allow_tool_async_sync_conversion=True` (both per-block `dspy.context(...)` and process-wide `dspy.configure(...)` forms) are special cases of the framework-wide async pattern; the Tools-side async surface is documented here, the framework-wide pattern at [[DSPyAsync]].
+- [[dspy-async-tutorial]] — canonical source positioning `tool.acall` and the conversion flag inside the broader async-programming surface.

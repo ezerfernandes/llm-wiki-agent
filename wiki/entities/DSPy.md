@@ -2,8 +2,8 @@
 title: "DSPy"
 type: entity
 tags: [framework, llm, llm-programming, optimization, stanford]
-sources: [dspy-learn-index, dspy-programming-overview, dspy-language-models, dspy-signatures, dspy-modules, dspy-adapters, dspy-tools, dspy-mcp, dspy-evaluation-overview, dspy-data, dspy-metrics, dspy-optimization-overview, dspy-optimizers]
-last_updated: 2026-05-17
+sources: [dspy-learn-index, dspy-programming-overview, dspy-language-models, dspy-signatures, dspy-modules, dspy-adapters, dspy-tools, dspy-mcp, dspy-evaluation-overview, dspy-data, dspy-metrics, dspy-optimization-overview, dspy-optimizers, 2312.13382-dspy-assertions, 2507.03152-medval, dspy-conversation-history, dspy-customer-service-agent, dspy-custom-module, 2603.19247-prompt-optimization-jailbreaking, dspy-rag-tutorial, hands-on-llm-ch07-advanced-text-generation, dbreunig-pipelines-prompt-optimization-dspy, dspy-entity-extraction-tutorial, dspy-sample-code-generation-tutorial, dspy-mem0-react-tutorial, dspy-email-extraction-tutorial]
+last_updated: 2026-05-24
 ---
 
 # DSPy
@@ -218,7 +218,152 @@ Custom adapters are supported via `Adapter`-subclass + `format()`/`parse()` over
 
 - **[[dspy-optimizers]]** (2026-05-17) — **page 13 of 13, the closing page of the *Learn* corpus**. Ships the **catalog** of specific optimizers deferred from [[dspy-optimization-overview|page 12]] — eleven optimizers grouped into five families: *Automatic Few-Shot Learning* (`LabeledFewShot`, [[BootstrapFewShot]], [[BootstrapFewShotWithRandomSearch]], `KNNFewShot`), *Automatic Instruction Optimization* (`COPRO`, [[MIPROv2]], `SIMBA`, [[GEPA]]), *Automatic Finetuning* ([[BootstrapFinetune]]), *Program Transformations* (`Ensemble`), *Meta-Optimizers* (`BetterTogether`). Names the historical rename — *"Formerly called teleprompters"* — and commits the framework to three orthogonal *what-it-tunes* axes (**demonstrations** / **instructions** / **LM weights**); only [[MIPROv2]] tunes more than one axis in the same run; only [[BootstrapFinetune]] tunes weights. Uses [[MIPROv2]] as the **reference example** of a non-trivial DSPy optimizer with a three-stage decomposition — bootstrapping → grounded proposal → discrete search via [[BayesianOptimization|Bayesian Optimization]] — which becomes the **structural template** for non-trivial optimizers (every algorithm in the catalog is some combination of *(a) collect traces, (b) propose candidates, (c) search the candidate space against the metric*). Records the **composability** claim — *"You can run `dspy.MIPROv2` and use the produced program as an input to `dspy.MIPROv2` again or, say, to `dspy.BootstrapFinetune` ... This is partly the essence of `dspy.BetterTogether`"* — and the ensemble-composition pattern (top-k extraction → `dspy.Ensemble`) that scales DSPy's *unique* **pre-inference-time compute** axis on top of conventional **inference-time compute**. Ships the **five-rule getting-started rubric**: 10 examples → [[BootstrapFewShot]] / 50+ → [[BootstrapFewShotWithRandomSearch]] / 0-shot prompts → [[MIPROv2]] (0-shot mode) / 40+ trials + 200+ examples → [[MIPROv2]] (full) / post-success efficiency → [[BootstrapFinetune]]. Records DSPy's first explicit **operating-cost ballpark** ($2 typical / cents-to-tens-of-dollars range). Three worked end-to-end optimization receipts — ReAct + MIPROv2(light) on HotPotQA (24%→51%), RAG + MIPROv2(medium) with `dspy.SemanticF1()` (an [[llmasjudge|LLM-as-judge]] DSPy module) on StackExchange (53%→61%), Banking77 classification + BootstrapFinetune on `gpt-4o-mini-2024-07-18` (66%→87%; the **only** weight-tuning receipt; **only** `set_lm(...)` exercise in the corpus). Plain-text-JSON save/load inspectability: *"The resulting file is in plain-text JSON format. ... You can always read it and see what the optimizer generated."* Mints **6 concept pages** — [[DSPyOptimizers]] (the canonical catalog-level page; **resolves the long-standing forward reference [[DSPyOptimizers]]** carried by every prior DSPy ingest since the corpus opened on 2026-05-17 — the **catalog-level sibling** of [[DSPyOptimization]] in the workflow-vs-catalog split that mirrors [[DSPyEvaluation]] / [[DSPyMetrics]]), [[BootstrapFewShot]], [[BootstrapFewShotWithRandomSearch]], [[MIPROv2]], [[GEPA]] (the only optimizer named on [[dspy-optimization-overview|page 12]] — the named carve-out from the inverted 20/80 train/val split), [[BootstrapFinetune]] (the bridge into [[FineTuning]]). Minor variants (`KNNFewShot` / `COPRO` / `SIMBA` / `Ensemble` / `BetterTogether` / `LabeledFewShot`) folded into the catalog table on [[DSPyOptimizers]] rather than minted as separate pages. **Resolves every long-standing DSPy-internal forward reference** the prior twelve pages carried — [[DSPyOptimizers]] / [[BootstrapFewShot]] / [[BootstrapFewShotWithRandomSearch]] / [[MIPROv2]] / [[BootstrapFinetune]] / [[GEPA]]. **Page 13 of 13** in the Learn section.
 
-The wiki **expects 0 further sibling ingests** — the *Learn* corpus closes at **13/13**. Every concern named on [[DSPyProgrammingModel|the Programming Model]] now has source pages and concept anchors at **both the workflow and catalog levels**: Signatures ([[dspy-signatures]] / [[DSPySignatures]]), Adapters ([[dspy-adapters]] / [[DSPyAdapters]]), Modules ([[dspy-modules]] / [[DSPyModules]] + 6 module-specific pages), Optimizers ([[dspy-optimization-overview]] / [[DSPyOptimization]] for workflow + [[dspy-optimizers]] / [[DSPyOptimizers]] for catalog). The Evaluation stage as the connective tissue between Programming and Optimization is similarly complete ([[DSPyEvaluation]] workflow + [[DSPyMetrics]] / [[DSPyData]] / [[DSPyExample]] / [[DSPyEvaluate]] catalog). The only remaining DSPy-related forward references in the wiki are [[DSPyAssertions]] (no scheduled ingest; the advanced-features escape hatch named on [[dspy-optimization-overview|page 12]]'s diagnostic-questions list) and [[PromptOptimization]] (a general-concept forward reference not specific to DSPy).
+The wiki **expects 0 further sibling ingests** — the *Learn* corpus closes at **13/13**. Every concern named on [[DSPyProgrammingModel|the Programming Model]] now has source pages and concept anchors at **both the workflow and catalog levels**: Signatures ([[dspy-signatures]] / [[DSPySignatures]]), Adapters ([[dspy-adapters]] / [[DSPyAdapters]]), Modules ([[dspy-modules]] / [[DSPyModules]] + 6 module-specific pages), Optimizers ([[dspy-optimization-overview]] / [[DSPyOptimization]] for workflow + [[dspy-optimizers]] / [[DSPyOptimizers]] for catalog). The Evaluation stage as the connective tissue between Programming and Optimization is similarly complete ([[DSPyEvaluation]] workflow + [[DSPyMetrics]] / [[DSPyData]] / [[DSPyExample]] / [[DSPyEvaluate]] catalog). The only remaining DSPy-related forward reference in the wiki is [[PromptOptimization]] (a general-concept forward reference not specific to DSPy) — the [[DSPyAssertions]] escape hatch named on [[dspy-optimization-overview|page 12]]'s diagnostic-questions list is now resolved by **[[LMAssertions]]** below (paper-anchored from [[2312.13382-dspy-assertions]]).
+
+## MedVAL: clinical text validation via `dspy.BootstrapFinetune` + QLoRA
+
+**[[2507.03152-medval|MedVAL (Aali et al., arXiv 2026)]]** is the **first wiki-corpus paper to apply [[BootstrapFinetune|`dspy.BootstrapFinetune`]] to a clinical-safety task** and the source of the **[[QLoRA]] integration** added to DSPy's local PEFT pipeline. The paper extends DSPy in two directions:
+
+1. **A QLoRA-enabled local PEFT path** — 4-bit weight quantization via `BitsAndBytesConfig` + LoRA adapters, lets < 8B-parameter students fine-tune on a single NVIDIA A6000. Lands in `stanfordnlp/dspy` via the paper's GitHub PR.
+2. **A domain-specific bootstrap filter** — replaces the metric-pass-fail filter with **[[GeneratorValidatorConsistency|$\mathcal{M}_\mathrm{MedVAL}$]]**, a continuous absolute-+-relative-consistency metric over synthetic perturbations. Filtering at $\tau = 0.9$ retains 57% of synthetic data and outperforms unfiltered 100% on every tested student.
+
+The output is **[[MedVAL4B|MedVAL-4B]]** (Qwen3-4B base, F1 = 0.527 on [[MedVALBench]]) — the best open-source clinical validator in the benchmark. Together with the GPT-4o-MedVAL non-inferiority-to-a-physician result ($p < 0.001$), this establishes DSPy as the canonical framework for distilling deployable clinical safety models, alongside the optimizer-line uses of [[MIPROv2|MIPRO]] / [[BetterTogether]] / [[GEPA|GEPA]] in compound-AI systems and the [[DSPyGuardrails|guardrails-line]] uses for safety pipelines.
+
+## LM Assertions: runtime self-refinement as a programming-language construct
+
+**[[2312.13382-dspy-assertions|DSPy Assertions (Singhvi, Shetty, Tan, Potts, Sen, Zaharia, Khattab — arXiv 2023/2024)]]** adds a *runtime self-refinement* layer that sits **orthogonal** to the four Programming-Model artifacts. Rather than tuning prompts ([[DSPyOptimizers]]), tuning weights ([[BootstrapFinetune]]), or expanding a [[DSPySignatures|Signature]], LM Assertions intercept the **module-execution layer** with retry-with-feedback semantics:
+
+| Construct | Severity | On persistent failure after $R$ retries |
+|---|---|---|
+| **[[DSPyAssert\|`dspy.Assert`]]** | Hard — non-negotiable | Raises `AssertionError`; halts pipeline |
+| **[[DSPySuggest\|`dspy.Suggest`]]** | Soft — heuristic guidance | Logs `SuggestionError`; continues to next module |
+
+The paper introduces three assertion-driven optimizations:
+
+- **[[AssertionDrivenBacktracking|Assertion-driven backtracking]]** (inference-time) — failing module is re-invoked with its prior erring output + the user error message injected into the prompt; the LM sees its own failure and the rule it broke.
+- **[[AssertionDrivenExampleBootstrapping|Assertion-driven example bootstrapping]]** (compile-time) — wraps backtracking around the **teacher** in [[BootstrapFewShotWithRandomSearch]] so bootstrapped few-shots satisfy every assertion at every intermediate module, not only the final-answer metric.
+- **[[CounterexampleBootstrapping|Counterexample bootstrapping]]** (compile-time) — captures the failure → fix traces from backtracking and uses them as negative few-shot demonstrations.
+
+The five-strategy comparison matrix (Table 1 of the paper) shows `C+Infer w/ Assert` (compile-time + inference-time) dominating on intrinsic metrics across four [[hotpotqa|HotPotQA]]-derived tasks ([[MultiHopQA]], [[LongFormQA]], [[QuizGen]], [[TweetGen]]); headline result: [[QuizGen]] valid-JSON output rises from **37.6% → 100%**, and the composite Validity metric from **30.5% → 87.2%**.
+
+Position in the DSPy-adjacent research arc:
+
+- **Predates** [[2406.11695-mipro|MIPRO]] / [[2407.10930-better-together|BetterTogether]] / [[2507.19457-gepa|GEPA]] (arXiv Dec 2023 v1, Feb 2024 v2).
+- **Supplies the *self-refinement primitive*** the later optimization papers' demonstration-quality assumptions tacitly rely on.
+- **Compatible with [[GEPA]]'s reflective prompt mutation** — different layers ($\Pi$-update vs runtime control-flow); LM Assertions could host a GEPA-optimized prompt and vice versa. The paper's `msg: Optional[str]` argument is the textual-feedback ancestor of GEPA's [[FeedbackFunction|feedback function $\mu_f$]].
+- **Sidesteps the [[2402.01817-llm-modulo|LLM-Modulo]] self-verification critique** — the constraint check is external Python (possibly invoking a sub-DSPy program); the LM is only the *generator* + *refiner*, never the *verifier*.
+
+## Conversation history: the chatbot-shaped application slice
+
+**[[dspy-conversation-history|Managing Conversation History (DSPy tutorial)]]** scopes [[DSPy]] at the **multi-turn chatbot** application layer — the first wiki-corpus DSPy page anchored to a *tutorial* rather than a *Learn* reference or paper. Two load-bearing disclosures:
+
+1. **[[DSPy]] does not automate conversation-history management.** [[DSPyModules|`dspy.Module`]] has no built-in inter-turn state capture. Per the tutorial: *"DSPy does not provide such functionality out of the box, meaning users are required to manage the conversation history on their own."* The developer owns the [[DSPyHistory|`dspy.History`]] instance lifecycle — construction, per-turn append, re-injection.
+2. **[[DSPyHistory|`dspy.History`]] is the [[DSPySignatures|Signature]] field type** — a DSPy-special type (tier five, alongside [[DSPyImage|`dspy.Image`]]) with a `messages: list[dict[str, Any]]` attribute. Each entry carries all input + output field values for one prior turn. Declared as `history: dspy.History = dspy.InputField()` on the Signature; instantiated as `dspy.History(messages=[])` at session start; appended via `history.messages.append({"question": question, **outputs})` after each turn.
+
+The tutorial also discloses a structural property of [[DSPyHistory|`dspy.History`]] under [[BootstrapFewShot|few-shot]] demonstration: **history-bearing [[DSPyExample|`dspy.Example`]] demos render as a single turn with the messages serialized as JSON** rather than expanded into multiple conversational turns — *"DSPy renders the history as a single message in the few-shot examples to maintain compatibility with the OpenAI standard format."* The rendering choice keeps prompt envelopes bounded under [[BootstrapFewShot]] / [[BootstrapFewShotWithRandomSearch]] / [[MIPROv2]] demo budgets and preserves the OpenAI `messages=[...]` shape the [[LiteLLM]] layer beneath [[DSPyLM|`dspy.LM`]] expects.
+
+Position in the DSPy application stack:
+
+| Rung | State shape | Wiki anchor |
+|---|---|---|
+| 1. Single LM call | Stateless | [[DSPyPredict]] |
+| 2. Single LM-program call | Module-local | [[DSPyModules]] |
+| 3. **Multi-turn conversation** | Flat append-only `dspy.History` | **[[dspy-conversation-history]] / [[DSPyHistory]]** |
+| 4. Tool-using agent | Intra-call `trajectory` | [[react]] |
+| 5. Multi-agent collaborative discourse | Graph (mind map) | [[CoSTORM]] |
+| 6. Long-horizon compound system | $\langle \Pi, \Theta \rangle$ | [[2407.10930-better-together]] / [[2507.19457-gepa]] |
+
+Rung 3 fills the missing **single-agent multi-turn** rung between the [[DSPyPredict|single-call]] rung and the [[CoSTORM|multi-agent]] rung — completing the DSPy application-stack ladder from one LM call up to a collaborative-discourse mind-map system. The flat-list shape inherits the [[2604.27707-agentic-memory-is-a-memo|*"agentic memory is lookup, not memory"*]] critique (Ω(k²) generalization gap + persistent prompt-injection vulnerability); compression / summarization / selective retrieval policies are application-level around the primitive, not framework-provided.
+
+## Customer service agent: the multi-tool ReAct application receipt
+
+**[[dspy-customer-service-agent|Building AI Agents — Customer Service Agent (DSPy tutorial)]]** is the wiki's canonical **end-to-end production-shaped [[react|`dspy.ReAct`]] receipt** — a seven-tool airline customer-service agent over a five-class [[Pydantic]] domain (`Date`, `UserProfile`, `Flight`, `Itinerary`, `Ticket`), driven by a two-field [[DSPySignatures|Signature]] (`user_request: str` → `process_result: str`). The tool list is split into the three production-agent categories:
+
+| Category | Tools | Discipline |
+|---|---|---|
+| **Lookup** | `fetch_flight_info`, `fetch_itinerary`, `get_user_info`, `pick_flight` | Read-only; safe to retry |
+| **Mutation** | `book_flight`, `cancel_itinerary` | State-changing; should be gated with [[DSPyAssert|`dspy.Assert`]] preconditions |
+| **Escalation** | `file_ticket` | Hand off to human when no other tool resolves the request |
+
+Three structural properties the tutorial makes explicit beyond the [[dspy-modules|Modules page]]'s two-tool calculator-plus-Wikipedia example:
+
+1. **Tools are plain Python functions with docstrings + type hints** — no `dspy.Tool(...)` wrapping required when passed directly into `dspy.ReAct(..., tools=[...])`. The framework auto-wraps each callable.
+2. **The user-facing Signature is independent of the tool list.** Two fields scope the user-facing interface; seven tools scope the action surface. The same Signature could host a different tool list, and vice versa.
+3. **[[Pydantic]] models compose at any depth.** Tools take and return nested Pydantic objects; the [[DSPyAdapters|Adapter]] handles the serialization-and-parsing translation between LM-emitted JSON and typed Python objects. Tier three (*pydantic models*) of [[DSPySignatures|the Signatures type system]] is the central mechanism for typed agent domains.
+
+The returned [[DSPyPrediction|`Prediction`]] carries **three fields**: `trajectory` (full think-act-observe log), `reasoning` (final-decision explanation, the same field [[ChainOfThought|`dspy.ChainOfThought`]] adds), and the user-declared `process_result`. Only the last was declared on the Signature; the first two are added by [[react|`dspy.ReAct`]]'s under-the-hood signature expansion. `dspy.inspect_history()` is the canonical debugging surface — same as the [[dspy-conversation-history]] tutorial. **Scope-limit gap**: the tutorial does **not** add [[DSPyAssertions|LM Assertions]] / hard-constraint checks inside mutation tools — a production deployment needs the [[LLMModuloFramework|LLM-Modulo]] sound-critic layer (e.g., `dspy.Assert(flight.date_time > now())` inside `book_flight`) to prevent the agent from silently creating invalid records.
+
+Position update to the DSPy application stack (rung 4 added):
+
+| Rung | State shape | Wiki anchor |
+|---|---|---|
+| 1. Single LM call | Stateless | [[DSPyPredict]] |
+| 2. Single LM-program call | Module-local | [[DSPyModules]] |
+| 3. Multi-turn conversation | Flat append-only `dspy.History` | [[dspy-conversation-history]] / [[DSPyHistory]] |
+| 4. **Single-agent multi-tool task** | **`dspy.ReAct` + typed tool list** | **[[dspy-customer-service-agent]] / [[CustomerServiceAgent]]** |
+| 5. Multi-agent collaborative discourse | Graph (mind map) | [[CoSTORM]] |
+| 6. Long-horizon compound system | $\langle \Pi, \Theta \rangle$ | [[2407.10930-better-together]] / [[2507.19457-gepa]] |
+
+Rung 4 is the **natural composition** of rungs 1–3 — a [[DSPyModules|Module]] with [[DSPyTools|tools]] (action surface) and optionally [[DSPyHistory|history]] (rung 3 composition) — and the **building block** for rung 5: a Co-STORM expert agent is internally a rung-4 single-agent multi-tool system before contributing to the cross-agent mind map.
+
+## Custom modules: the canonical starting template
+
+**[[dspy-custom-module|Building AI Applications by Customizing DSPy Modules (DSPy tutorial)]]** is the wiki's canonical **how-to** for the minimum-viable `class MyProgram(dspy.Module)` shape — the same composition pattern [[dspy-modules|the Modules *Learn* page]] showcases via the multi-hop `Hop` example, restated here for the non-iterative case (three sub-modules called once each). Four positions:
+
+1. **Subclass `dspy.Module` and implement `__init__` + `forward`** — the two-method contract that mirrors PyTorch's `nn.Module`. `__init__` declares sub-modules as `self.*` attributes; `forward` runs them.
+2. **`forward()` is unconstrained Python** — *"you are not limited to calling only other DSPy modules; you can also integrate any standard Python functions, such as those for interacting with Langchain/Agno agents, MCP tools, database handlers, and more."* Arbitrary Python (loops, conditionals, recursion, external API calls, retrieval, side effects) is supported.
+3. **Call the module instance directly, not `forward()` explicitly** — *"the `__call__` method handles necessary internal processing before executing the `forward` logic."* The internal processing is the **trace point** for [[DSPyOptimizers|optimizer]] replay, [[MLflow]] auto-logging, [[DSPyHistory|history]] threading, and the LM-usage accounting `dspy.Prediction.get_lm_usage()` exposes.
+4. **Custom modules unlock framework features** — *"putting your logic with a custom module so that you can use other DSPy features, like DSPy optimizer or MLflow DSPy tracing."* Plain-function pipelines (or inline sub-module use outside any `dspy.Module`) get **neither** — they are invisible to `named_predictors()` / `named_parameters()` introspection and to the `mlflow.dspy.autolog()` trace hook.
+
+The worked receipt is a **three-stage [[rag|RAG]] program** — `dspy.Predict(QueryGenerator)` → `dspy.ColBERTv2(...)` Wikipedia retrieval → [[chainofthought|`dspy.ChainOfThought("question,context->answer")`]]:
+
+```python
+class RAG(dspy.Module):
+    def __init__(self):
+        self.query_generator = dspy.Predict(QueryGenerator)
+        self.answer_generator = dspy.ChainOfThought("question,context->answer")
+
+    def forward(self, question, **kwargs):
+        query = self.query_generator(question=question).query
+        context = search_wikipedia(query)[0]
+        return self.answer_generator(question=question, context=context).answer
+```
+
+Five load-bearing details: (i) one sub-module uses a **class-based** [[DSPySignatures|Signature]] (`QueryGenerator`), the other an **inline string** signature — confirming both styles compose freely in the same `dspy.Module`; (ii) retrieval is a **plain Python function** wrapping `dspy.ColBERTv2(url=...)(query, k=1)`, not a sub-module — so [[DSPyOptimizers|optimizers]] do not see retrieval as a tunable parameter; (iii) the canonical public [[ColBERTv2]] endpoint is `http://20.102.90.50:2017/wiki17_abstracts` (Wikipedia 2017 abstracts, same corpus as [[hotpotqa|HotPotQA]]); (iv) `forward` **unwraps** sub-module outputs by attribute access (`.query`, `.answer`); (v) `**kwargs` in `forward(self, question, **kwargs)` is the defensive default that absorbs any metadata kwargs `dspy.Module` may inject. **First wiki-corpus DSPy tutorial to spell out the `wiki17_abstracts` endpoint URL** — every prior DSPy retrieval example assumed it.
+
+The tutorial closes with the **string-in-string-out → structured-input-to-structured-output** operational summary of [[dspy-programming-overview|the Programming Overview's]] *writing code instead of strings* thesis, and the **bidirectional portability** claim — *"DSPy is easy to migrate to from other frameworks or vanilla SDK usage, and easy to migrate off because essentially it's just python code."* The framework boundary is unusually thin precisely because there is no DSL, no DAG, no orchestration layer.
+
+**Position in the application stack**: this is the **template-level** anchor for **rung 2** of the stack — the canonical worked starting receipt every other rung composes from. The [[dspy-conversation-history]] tutorial adds [[DSPyHistory|history]] (rung 3); the [[dspy-customer-service-agent]] tutorial adds [[react|ReAct]] + typed [[Pydantic]] tools (rung 4); both extend rung 2's `__init__` + `forward` template.
+
+| Tutorial | Stack rung | What it adds beyond rung 2 |
+|---|---|---|
+| [[dspy-custom-module]] | **2 (template)** | The minimum-viable `__init__` + `forward` shape; the canonical [[ColBERTv2]] endpoint; the [[MLflow]] tracing recipe |
+| [[dspy-rag-tutorial]] | **2 (measurable)** | Embedding retrieval ([[openai|OpenAI]] `text-embedding-3-small`) + a measurable benchmark ([[RAGQAArenaTech]]) + end-to-end [[MIPROv2|MIPROv2]] optimization (42→55.5→**61.1%** [[SemanticF1]]) — the wiki's first DSPy receipt combining all four [[DSPyProgrammingModel|Programming-Model artifacts]] |
+| [[dspy-conversation-history]] | 3 | [[DSPyHistory|`dspy.History`]] field + per-turn append discipline |
+| [[dspy-customer-service-agent]] | 4 | [[react|`dspy.ReAct`]] + typed [[Pydantic]] tool list (lookup / mutation / escalation) |
+| [[dspy-tutorial-math]] | **2 (measurable)** | Single-signature [[chainofthought|`dspy.ChainOfThought("question -> answer")`]] over the [[MATH-benchmark|MATH]] algebra subset (350+350) + [[MIPROv2|MIPROv2]] `auto="medium"` with GPT-4o teacher (74.0% → **88.57%**, +14.6 pts) — **first wiki receipt where CoT is the entire program** (no retrieval, no tools, no history); **first DSPy receipt benchmarked on math reasoning** |
+
+The five DSPy tutorials together cover the application stack from `dspy.Module` template (rung 2; shape-anchored, measurement-anchored RAG, and measurement-anchored single-step reasoning) through `dspy.History` (rung 3) and `dspy.ReAct` (rung 4) — the **multi-agent collaborative discourse** (rung 5) anchor remains [[CoSTORM]] (research paper, not tutorial) and the **long-horizon compound system** (rung 6) anchor remains the [[2407.10930-better-together|BetterTogether]] / [[2507.19457-gepa|GEPA]] optimizer line.
+
+## RAG: the canonical end-to-end measurable receipt
+
+**[[dspy-rag-tutorial|DSPy Tutorial — Retrieval-Augmented Generation]]** is the **fourth wiki-corpus DSPy tutorial** and the **first to combine all four [[DSPyProgrammingModel|Programming-Model artifacts]]** ([[DSPySignatures|Signatures]] / [[DSPyModules|Modules]] / [[DSPyMetrics|Metrics]] / [[DSPyOptimizers|Optimizers]]) on a single task with measurable per-stage gains. The tutorial walks a three-stage performance ladder on [[RAGQAArenaTech|RAG-QA Arena Tech]] (~1K technical QA pairs, 200/300/500 train/dev/test):
+
+| Program | [[SemanticF1]] | Gain |
+|---|---|---|
+| Baseline [[chainofthought|`dspy.ChainOfThought`]] (no retrieval) | ~42% | — |
+| [[rag|RAG]] module wrapping [[chainofthought|CoT]] over `k=5` embedding-retrieved docs | ~55.5% | **+13.5** |
+| [[MIPROv2|`dspy.MIPROv2`]] `auto="medium"` over the RAG module | **~61.1%** | **+5.6** (cumulative **+19**) |
+
+Three load-bearing details: (i) **the metric is [[SemanticF1]]** — a reference-based [[llmasjudge|LLM-as-judge]] DSPy program that decomposes both gold and predicted answers into atomic claims and grades coverage, instantiating the [[dspy-metrics|AI-feedback metric pattern]] from page 11; (ii) **retrieval uses [[openai|OpenAI]] `text-embedding-3-small`** over a 28K-document downsampled technical corpus, each doc truncated to 6K characters — the **first wiki-corpus DSPy RAG receipt to use dense embeddings** (the [[dspy-custom-module|Custom Module tutorial]] used [[ColBERTv2]] late interaction); (iii) **`auto="medium"` costs ~$1.50 and runs in ~20–30 min** on this dataset — the first concrete instance of [[dspy-optimizers|the Optimizers page's]] *$2 typical / cents-to-tens-of-dollars range* operating envelope on a multi-stage RAG program.
+
+**Cross-receipt convergence**: this is the **second worked instance** of the [[MIPROv2|MIPROv2 Receipt 2 pattern]] (the first was the [[dspy-optimizers|Optimizers page's]] StackExchange subset, 53→61%). **Two independent benchmarks now converge on ~61% [[SemanticF1]] as the post-optimization ceiling** for a single-hop CoT-based RAG on gpt-4o-mini with `auto="medium"` — strong evidence that the operating envelope is a property of the optimizer × model × architecture × metric combination, not idiosyncratic to either dataset.
+
+The tutorial's **further-improvement menu** names five axes for going beyond 61.1%: alternative system architectures ([[hotpotqa|multi-hop]] retrieval), different optimizer families ([[GEPA]] / [[BetterTogether]]), **inference-time scaling through ensembling** ([[DSPyMajority|`dspy.majority`]]), **model distillation** to reduce serving cost ([[BootstrapFinetune|`dspy.BootstrapFinetune`]]), and **iterative metric refinement** based on actual system outputs (the [[DSPyEvaluation|recursive-self-improvement claim]] at the metric layer). Each of these has a paper-anchored or tutorial-anchored sibling already in the wiki.
+
+**Mints 2 concept pages** — [[SemanticF1]] (promoted from inline mention on [[MIPROv2]] / [[dspy-optimizers]] to a dedicated concept page) and [[RAGQAArenaTech]] (the dataset). Updates [[rag]] / [[MIPROv2]] / [[MLflow]] in place.
+
+**[[MLflow]] integration**: the tutorial supplies the **first wiki-corpus DSPy-specific MLflow tracing recipe** — a four-step opt-in (`pip install mlflow>=3.0.0` → launch UI → `mlflow.set_tracking_uri(...)` + `set_experiment("DSPy")` → `mlflow.dspy.autolog()`). The fourth step is the bridge: every `__call__` on a [[DSPyModules|`dspy.Module`]] subclass after this point produces a trace span in the MLflow backend. [[Databricks]] owns [[MLflow]] — the tutorial is the second [[Databricks]]-touchpoint in the DSPy line, after [[MateiZaharia]]'s Databricks affiliation as senior author on [[2406.11695-mipro|MIPRO]] / [[2507.19457-gepa|GEPA]].
 
 ## Connections
 
@@ -266,3 +411,15 @@ The wiki **expects 0 further sibling ingests** — the *Learn* corpus closes at 
 - [[ChainOfThought]] — `dspy.ChainOfThought` is the Programming Overview's recommended *start simple* module.
 - [[2604.25850-agentic-harness-engineering]] — counter-positioning paper that already mentions DSPy by name.
 - [[LLMModuloFramework]] — complementary framework; DSPy supplies candidates and metrics, LLM-Modulo supplies external sound critics.
+- [[dspy-conversation-history]] — canonical source for the multi-turn-chatbot application slice; `dspy.History` + the two essential procedures + the single-turn JSON-rendering-in-demos disclosure.
+- [[DSPyHistory]] — the `dspy.History` [[DSPySignatures|Signature]] field type; DSPy-special type tier-five alongside [[DSPyImage|`dspy.Image`]]; flat append-only `messages: list[dict[str, Any]]`.
+- [[ConversationHistory]] — the general LM-application concept the [[DSPyHistory|DSPy primitive]] operationalizes.
+- [[dspy-customer-service-agent]] — canonical end-to-end production-shaped [[react|`dspy.ReAct`]] receipt; seven-tool airline customer-service agent over a five-class Pydantic domain; demonstrates the lookup / mutation / escalation tool-category split and the three-field `Prediction` return shape (`trajectory` + `reasoning` + user-declared output).
+- [[CustomerServiceAgent]] — the general application pattern the tutorial receipt instantiates; the production-application shape for single-agent multi-tool ReAct systems.
+- [[dspy-email-extraction-tutorial]] — canonical receipt for the **multi-Signature single-Module pipeline** pattern. Four [[DSPySignatures|Signatures]] (`ClassifyEmail` / `ExtractEntities` / `SummarizeEmail` / `GenerateActionItems`) composed inside one [[DSPyModules|`dspy.Module`]] subclass (`EmailProcessor`), all wrapped in [[chainofthought|`dspy.ChainOfThought`]], sequential diamond-shaped pipeline with typed inter-Signature handoffs, 12-kwarg [[DSPyPrediction|`dspy.Prediction`]] fan-in aggregator. First wiki-corpus DSPy receipt that uses an `Enum` type as both `OutputField` (on `ClassifyEmail`) and `InputField` (on `ExtractEntities` / `GenerateActionItems`); first DSPy receipt with `Optional[T]` `OutputFields`; first DSPy receipt embedding LM-self-reported confidence scores in a structured Pydantic output (`ExtractedEntity.confidence: float`); first DSPy receipt where a user-declared OutputField name (`reasoning`) collides with a [[chainofthought|`dspy.ChainOfThought`]]-injected field name. Programming-stage-only — no Optimizer, no metric, no eval set. Eleventh wiki-corpus DSPy tutorial.
+
+## From [[hands-on-llm-ch07-advanced-text-generation|*Hands-On LLMs* Ch 7]]
+
+Ch 7 of *Hands-On LLMs* names DSPy explicitly as one of the *"newer frameworks of note"* alongside Haystack — *"LangChain is one of the earlier frameworks that simplify working with LLMs through useful abstractions. Newer frameworks of note are DSPy and Haystack."* The chapter does **not** compare them in depth — Ch 7 commits to [[LangChain]] for pedagogical continuity — but DSPy is named as the canonical alternative.
+
+The Ch 7 [[LangChainAgent|`create_react_agent` + `AgentExecutor`]] receipt is the **LangChain-native counterpart** to DSPy's `dspy.ReAct`. Both operationalize Yao et al. 2022's [[react|ReAct]] framework, but with different ergonomics: `dspy.ReAct(Signature, tools=[...])` is **signature-parameterized** (typed I/O at the Signature level, `Prediction.trajectory` introspection); LangChain's `create_react_agent(llm, tools, prompt) + AgentExecutor` is **template-parameterized** (free-form text + a canonical ReAct prompt template, `verbose=True` prints the trajectory inline). See [[react]] for the detailed comparison and [[LangChainAgent]] for the LangChain-side receipt.

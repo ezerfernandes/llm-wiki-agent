@@ -2,8 +2,8 @@
 title: "Data Augmentation"
 type: concept
 tags: [training, regularization, computer-vision]
-sources: [d2l-computer-vision]
-last_updated: 2026-05-16
+sources: [d2l-computer-vision, ai-engineering-ch08-dataset-engineering]
+last_updated: 2024-12-04
 ---
 
 # Data Augmentation
@@ -30,3 +30,29 @@ Object-detection augmentation is non-trivial: cropping may exclude or partially 
 - [[AlexNet]] — first ImageNet-winning CNN to credit augmentation for its success.
 - [[DataAugmentation]] is one of the regularizers in the [[d2l-multilayer-perceptrons]] / [[d2l-linear-regression]] regularization toolkit (alongside [[WeightDecay]], [[Dropout]], [[EarlyStopping]]).
 - For NLP analogues: back-translation, span masking ([[MaskedLanguageModeling|MLM]]), token deletion / swap.
+
+## From [[ai-engineering-ch08-dataset-engineering|AI Engineering Ch 8]]
+
+[[ChipHuyen|Huyen]] in Ch 8 distinguishes **augmentation** (derives from real data — flips, rotations, word swaps, [[Perturbation|perturbation]]) from **[[DataSynthesis|synthesis]]** (mimics real-data properties — templates, simulations, AI generation):
+
+> "Data augmentation creates new data from existing data (which is real). … Data synthesis generates data to mimic the properties of real data."
+
+In practice, the terms are often used interchangeably "since the goal of both augmentation and synthesis is to automate data creation."
+
+### Text augmentation forms named in Ch 8
+
+- **Synonym replacement** — "She's a fantastic nurse" → "She's a great nurse" via dictionary or embedding-space neighbors.
+- **Bias-mitigation rewriting** — token-level gender / race / family-role swap (table in Ch 8: "Mr. Alex Wang" → "Ms. Alexa Wang"; "Emily" → "Mohammed").
+- **AI-driven paraphrasing / translation** — extends manual word swap with model-based rewrites.
+- **[[Perturbation|Perturbation]]** — [[bert|BERT]] training replaced 1.5% of tokens with random words and reported a small performance boost.
+
+### Vision augmentation specifics (Ch 8 references)
+
+- Krizhevsky et al. (2012) — [[AlexNet]] credit augmentation for the ImageNet win.
+- [[OnePixelAttack|One-pixel attacks]] (Su et al. 2017) — single-pixel changes fool 67.97% of CIFAR-10.
+- [[ImageNetC]] / [[ImageNetP]] (Hendrycks & Dietterich 2019) — 15 corruption types as benchmarks.
+- [[Snap|Snap's]] 2022 case study — synthesizing diverse characters (skin color, body type, hairstyle, clothing, facial expression) to mitigate implicit biases.
+
+### Augmentation as bias mitigation
+
+The chapter's most operational claim: if your training data has gender bias (e.g., "nurse" → female; "doctor" → male), augmentation by replacing gendered tokens with their opposites can rebalance the distribution before training. This is one of the most accessible bias-mitigation techniques in the [[DatasetEngineering]] toolkit.

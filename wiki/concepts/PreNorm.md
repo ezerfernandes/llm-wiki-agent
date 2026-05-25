@@ -2,8 +2,8 @@
 title: "Pre-Normalization"
 type: concept
 tags: [transformer, architecture, training]
-sources: [d2l-attention-and-transformers]
-last_updated: 2026-05-16
+sources: [d2l-attention-and-transformers, hands-on-llm-ch03-looking-inside-llms]
+last_updated: 2026-05-23
 ---
 
 # Pre-Normalization
@@ -32,3 +32,12 @@ Post-norm sometimes yields slightly better final performance at moderate depth; 
 ## See also
 
 - [[Transformer]] · [[VisionTransformer]] · [[LayerNormalization]] · [[ResidualConnection]]
+- [[RMSNorm]] — the modern normalization typically combined with pre-norm.
+
+## From [[hands-on-llm-ch03-looking-inside-llms|*Hands-On LLMs* Ch 3]]
+
+Ch 3 records pre-norm as one of the **modern Transformer block tweaks** vs. the 2017 original:
+
+> "One of the differences we see in this version of the Transformer block is that normalization happens prior to attention and the feedforward layers. This has been reported to reduce the required training time." — Ch 3
+
+The chapter cites *"On layer normalization in the Transformer architecture"* (Xiong et al. 2020) — the same paper the wiki's prior pre-norm coverage uses. In [[Phi3Mini|Phi-3-mini]]'s PyTorch print-out from Ch 3, pre-norm is visible as `input_layernorm` (before attention) and `post_attention_layernorm` (before MLP) — both [[RMSNorm|RMSNorm]] — applied **before** their respective sublayers inside the residual path.

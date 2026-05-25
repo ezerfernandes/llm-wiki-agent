@@ -2,8 +2,8 @@
 title: "Scaled Dot-Product Attention"
 type: concept
 tags: [attention, mechanism]
-sources: [1706.03762-attention-is-all-you-need, d2l-attention-and-transformers]
-last_updated: 2026-05-16
+sources: [1706.03762-attention-is-all-you-need, d2l-attention-and-transformers, hands-on-llm-ch03-looking-inside-llms]
+last_updated: 2026-05-23
 ---
 
 # Scaled Dot-Product Attention
@@ -41,3 +41,14 @@ When used in the decoder, illegal connections (queries attending to future posit
 - [[Transformer]]
 - [[MultiHeadAttention]]
 - [[SelfAttention]]
+
+## From [[hands-on-llm-ch03-looking-inside-llms|*Hands-On LLMs* Ch 3]]
+
+Ch 3 introduces the same `softmax(QKᵀ / √d_k) · V` mechanism in two intuition-named steps without the formula:
+
+1. **Relevance scoring** — multiply the current position's [[QueryProjection|query]] vector with the [[KeyProjection|keys]] matrix; softmax the result to a probability distribution over previous tokens. (This is the `softmax(QKᵀ / √d_k)` half of the formula above.)
+2. **Combining information** — multiply each previous token's [[ValueProjection|value]] vector by its score; sum the weighted value vectors. (This is the final `... · V` of the formula.)
+
+The chapter does not name the `1/√d_k` scaling factor explicitly, treating it as an implementation detail of the relevance-scoring softmax. The page above carries the formal scaling motivation.
+
+Ch 3's pedagogical contribution is the **two-step framing** — making clear that attention is *(weight by relevance) then (sum the weighted values)* — without invoking the matrix algebra. This is the most accessible mental model for the operation this page formalizes.

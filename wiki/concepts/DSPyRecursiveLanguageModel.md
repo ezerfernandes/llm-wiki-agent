@@ -3,7 +3,7 @@ title: "DSPy Recursive Language Model"
 type: concept
 tags: [dspy, llm-programming, modules, recursion, context-overflow, sandbox]
 sources: [dspy-modules]
-last_updated: 2026-05-17
+last_updated: 2026-05-24
 ---
 
 # DSPy Recursive Language Model
@@ -53,6 +53,12 @@ This is structurally different from the [[DSPyModules|other built-in Modules]] i
 - **Carries recursion as a built-in.** Most LLM frameworks treat context-overflow as a model-side problem (bigger windows, retrieval, hierarchical summarization); DSPy makes recursion a first-class Module. The user writes `dspy.RLM('massive_context, question -> answer')`; the framework handles the recursive decomposition.
 - **Sandbox as a sound critic.** The Python REPL is a deterministic execution boundary in the same [[LLMModuloFramework|LLM-Modulo]] sense `dspy.ProgramOfThought` exploits — but applied to **context exploration** rather than to **answer adjudication**.
 - **Composes with the other Modules.** `dspy.RLM` returns a `dspy.Prediction(...)` honoring the user-declared Signature, so it slots into any `class MyProgram(dspy.Module)` `forward()` body that another Module would.
+
+## Tutorials
+
+Tutorials that exercise this concept (roughly increasing depth):
+
+- [[dspy-async-tutorial]] — names `dspy.RLM` in the async-surface taxonomy as one of the built-in Modules whose `acall()` form follows the universal `forward → aforward` mirror; no standalone end-to-end RLM receipt yet in the wiki corpus.
 
 ## Connections
 

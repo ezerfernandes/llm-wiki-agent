@@ -2,8 +2,8 @@
 title: "Vision Transformer (ViT)"
 type: concept
 tags: [transformer, computer-vision, architecture]
-sources: [d2l-attention-and-transformers]
-last_updated: 2026-05-16
+sources: [d2l-attention-and-transformers, hands-on-llm-ch09-multimodal-llms]
+last_updated: 2026-05-23
 ---
 
 # Vision Transformer (ViT)
@@ -37,6 +37,16 @@ For an $h \times w \times c$ input image with patch size $p$:
 
 ViT is the visual backbone of [[CLIP]], [[DALLE2|DALL-E 2]], multimodal LLMs, and modern image-generation systems. [[SwinTransformer|Swin Transformers]] address the quadratic complexity for general-purpose computer vision.
 
+## From [[hands-on-llm-ch09-multimodal-llms|*Hands-On LLMs* Ch 9]]
+
+Ch 9 uses ViT as **the gateway concept** that makes adapter-style multimodal LLMs possible. The chapter walks the patch-tokenization construction (image → 16×16 patches → linear projection → patch embeddings → encoder), then lands on the structural punchline:
+
+> *"What is so interesting about this approach is that the moment the embeddings are passed to the encoder, they are treated as if they were textual tokens. From that point forward, there is no difference in how a text or image trains."*
+
+This **token-after-projection sameness** is the reason ViT generalizes the Transformer from language to vision and the reason the adapter-on-frozen-encoder pattern works at all — [[CLIP]] / [[BLIP2|BLIP-2]] / [[LLaVA15|LLaVA]] / [[Idefics2|Idefics-2]] all use a ViT as the [[ImageEncoder|image encoder]] that produces sequences of vectors a downstream Transformer or LLM consumes the same way it consumes text tokens. *"Due to these similarities, the ViT is often used to make all kinds of language models multimodal."*
+
+Ch 9 also names ViT as the **frozen vision backbone** inside [[BLIP2|BLIP-2]]: *"the Querying Transformer is the bridge between vision (ViT) and text (LLM) that is the only trainable component of the pipeline."*
+
 ## See also
 
-- [[Transformer]] · [[SelfAttention]] · [[MultiHeadAttention]] · [[PatchEmbedding]] · [[ClsToken]] · [[PreNorm]] · [[GELU]] · [[CNN]] · [[ResNet]] · [[Dosovitskiy]]
+- [[Transformer]] · [[SelfAttention]] · [[MultiHeadAttention]] · [[PatchEmbedding]] · [[ClsToken]] · [[PreNorm]] · [[GELU]] · [[CNN]] · [[ResNet]] · [[Dosovitskiy]] · [[CLIP]] · [[BLIP2]] · [[LLaVA15]] · [[QFormer]] · [[MultimodalLLM]] · [[ImageEncoder]]

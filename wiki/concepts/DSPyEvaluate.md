@@ -3,7 +3,7 @@ title: "DSPy Evaluate"
 type: concept
 tags: [dspy, llm-programming, evaluation, metrics, parallel-evaluation, utility]
 sources: [dspy-metrics]
-last_updated: 2026-05-17
+last_updated: 2026-05-24
 ---
 
 # DSPy Evaluate
@@ -94,6 +94,19 @@ This is the **dev-set-as-fixed-reference** discipline `Evaluate`'s reuse pattern
 - **Optimizer-internal evaluation** — *"is this candidate program better than the previous candidate?"* — runs once per candidate inside the search loop.
 
 Both **always call metrics with `trace=None`** — the `trace is not None` regime is reserved for the Optimizer's **bootstrap phase**, which is a different sub-routine from its evaluation pass.
+
+## Tutorials
+
+Tutorials that exercise this concept (roughly increasing depth):
+
+- [[dspy-tutorial-math]] — simplest end-to-end receipt: `dspy.Evaluate(devset=dataset.dev, metric=dataset.metric, num_threads=24, display_progress=True, display_table=5)` against the [[MATH-benchmark|MATH]] algebra subset; same evaluator instance scores baseline and post-MIPROv2 program.
+- [[dspy-rag-tutorial]] — canonical multi-stage `dspy.Evaluate(devset=..., metric=SemanticF1(), num_threads=24, ...)` walk from 42% [[SemanticF1]] baseline to optimized RAG; the [[SemanticF1]] metric is itself a [[DSPyModules|`dspy.Module`]].
+- [[dspy-entity-extraction-tutorial]] — `evaluate_correctness = dspy.Evaluate(devset=..., metric=extraction_correctness_metric, ...)` with a custom exact-list-match metric over CoNLL-2003 PER spans; demonstrates the *"baseline → optimize → re-evaluate"* reuse pattern.
+- [[dspy-multihop-search-tutorial]] — `dspy.Evaluate(devset=devset, metric=top5_recall, num_threads=16, ...)` over [[HoVer]] 3-hop; shows `Evaluate` running the same dual-mode metric the [[MIPROv2|MIPROv2]] optimizer climbs internally.
+- [[dspy-tool-use-tutorial]] — `dspy.Evaluate(devset=devset, metric=metric, num_threads=24, display_progress=True, display_table=0)` paired with [[SIMBA|`dspy.SIMBA`]] over [[ToolHop]]; `display_table=0` because trajectories are too wide to render.
+- [[dspy-tutorial-classification-finetuning]] — `dspy.Evaluate(devset=devset, metric=metric, display_progress=True, display_table=5, num_threads=16)` brackets a [[BootstrapFinetune|`dspy.BootstrapFinetune`]] run on Banking77 (66% → 87%); evaluator is reused before and after weight-tuning.
+- [[dspy-tutorial-games]] — `dspy.Evaluate(devset=devset, metric=metric, display_progress=True, ...)` with `metric = lambda x, y, trace=None: y.success` over [[AlfWorld]]; the simplest possible metric callable feeding `Evaluate`.
+- [[dspy-observability-tutorial]] — meta-receipt: documents the `on_evaluate_start` / `on_evaluate_end` [[MLflow]] callback hooks that attach to `dspy.Evaluate` runs for tracing and lifecycle observability.
 
 ## Connections
 

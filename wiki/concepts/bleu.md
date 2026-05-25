@@ -2,8 +2,8 @@
 title: "BLEU"
 type: concept
 tags: [evaluation, machine-translation, metric]
-sources: [1409.3215-seq2seq, 1706.03762-attention-is-all-you-need, d2l-recurrent-modern]
-last_updated: 2026-05-16
+sources: [1409.3215-seq2seq, 1706.03762-attention-is-all-you-need, d2l-recurrent-modern, hands-on-llm-ch12-fine-tuning-generation-models]
+last_updated: 2026-05-24
 ---
 
 # BLEU
@@ -42,9 +42,21 @@ There are many script-defined variants of BLEU; results are only comparable when
 
 BLEU correlates with human judgment well enough to drive a decade of MT progress but is known to under-rate fluent paraphrases that diverge lexically from references and to over-rate literal token-matching translations. Modern MT evaluation supplements it with COMET, chrF, and human evaluation.
 
+## Beyond MT — generation evaluation
+
+BLEU is reused outside MT as one component of generation-evaluation reward composites, often alongside semantically-richer metrics that cover its blind spots:
+
+- **[[2025-bionlp-archehr-qa-neural|ArchEHR-QA 2025 (Neural)]]** uses BLEU + [[ROUGE]] + [[SARI]] + [[BERTScore]] + [[AlignScore]] + [[MEDCON]] (six-metric mean) as the Stage-2 [[MIPROv2]]-optimized [[EvidenceGroundedQA|clinical-QA]] reward.
+
+## From [[hands-on-llm-ch12-fine-tuning-generation-models|Hands-On LLMs Ch 12]]
+
+Ch 12 of *Hands-On LLMs* names BLEU (Papineni et al. 2002) as one of **four canonical word-level metrics** for generative-LLM evaluation — alongside [[Perplexity]], [[ROUGE]], and [[BERTScore]]. The chapter's caveat applies in full: *"They do not account for consistency, fluency, creativity, or even correctness of the generated text."* Ch 12's evaluation discipline pivots from word-level metrics to **public benchmarks** ([[MMLU]] / [[GSM8K]] / [[HellaSwag]] / [[TruthfulQA]] / [[HumanEval]]), then [[LLMAsAJudge|LLM-as-a-judge]], then human evaluation via [[ChatbotArena|Chatbot Arena]].
+
 ## See also
 - [[MachineTranslation]]
 - [[SeqToSeq]]
 - [[Transformer]]
 - [[KishorePapineni]] — BLEU author.
 - [[d2l-recurrent-modern]] — textbook exposition + reference Python implementation.
+- [[ROUGE]] / [[SARI]] / [[BERTScore]] / [[AlignScore]] / [[MEDCON]] — sibling generation metrics often co-reported with BLEU.
+- [[2025-bionlp-archehr-qa-neural]] — clinical-QA reward-composite application.

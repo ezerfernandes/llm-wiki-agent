@@ -2,8 +2,8 @@
 title: "DSPy Adapters"
 type: concept
 tags: [dspy, llm-programming, adapters, formatting, parsing, structured-output, framework]
-sources: [dspy-adapters, dspy-programming-overview, dspy-learn-index]
-last_updated: 2026-05-17
+sources: [dspy-adapters, dspy-programming-overview, dspy-learn-index, dspy-email-extraction-tutorial, dspy-streaming-tutorial]
+last_updated: 2026-05-24
 ---
 
 # DSPy Adapters
@@ -159,6 +159,19 @@ Each step below the [[DSPySignatures|Signature]] is **swappable without touching
 - **`Tool` / `Image` / `History` conversion lives here, not in the Module.** A small but consequential implementation detail: the page lists *"Converting DSPy types (`Tool`, `Image`, etc.) into prompt messages"* as an Adapter responsibility. This means the [[DSPyTools|Tools]] artifact (page 7) and the multi-modal `dspy.Image` primitive (introduced on [[dspy-signatures]]) **compose through the Adapter** — not through a separate sub-system inside `dspy.ReAct` or `dspy.Predict`. The Adapter is the single funnel through which every DSPy-typed value crosses into the LM's wire format.
 - **`ChatAdapter`'s `JSONAdapter` fallback is a hidden recovery mechanism.** The default-adapter's *"universal compatibility"* claim is partly upheld by an automatic retry path — not purely by the delimiter encoding. This sharpens the wiki's reading of DSPy's robustness story: failures at the Adapter layer are partly *fungible across formats*.
 - **Adapter swaps are syntactically minimal.** The page's `NewsQA` example shows that swapping from `ChatAdapter` to `JSONAdapter` is a **one-kwarg edit** to `dspy.configure(...)`; the Signature, the Module, the LM, and the call site are unchanged. This is the third concrete *"swap N, leave M unchanged"* receipt in the wiki (after [[DSPyLM|`dspy.LM`]]'s LM-swap and [[DSPyModules|`dspy.Module`]]'s strategy-swap).
+
+## Tutorials
+
+Tutorials that exercise this concept (roughly increasing depth):
+
+- [[dspy-observability-tutorial]] — `dspy.inspect_history()` surfaces the exact messages the Adapter produced; the entry-level way to *see* what `ChatAdapter` is emitting on the wire.
+- [[dspy-conversation-history]] — `dspy.History` is one of the DSPy-special types the Adapter knows how to fold into multi-turn messages; receipt of the Adapter's *special-type conversion* responsibility.
+- [[dspy-image-generation-prompting-tutorial]] — `dspy.Image` inputs / outputs flow through the Adapter's `format()` path; receipt of *multi-modal types convert through the Adapter, not the Module*.
+- [[dspy-customer-service-agent]] — `dspy.Tool` objects from a `dspy.ReAct` are serialized into the prompt by the Adapter; canonical *Tool conversion lives in the Adapter* receipt.
+- [[dspy-streaming-tutorial]] — `StreamListener`s key on Adapter-emitted field delimiters (`[[ ## field_name ## ]]`); the streaming layer is *only* possible because the Adapter framing is deterministic.
+- [[dspy-mcp-tutorial]] — MCP `dspy.Tool` wrappers cross into the LM's wire format through the same Adapter funnel; extends the Tool-conversion property to externally-defined tools.
+- [[dspy-async-tutorial]] — receipt that `Adapter.format()` / `Adapter.parse()` are async-aware; the four-concerns decomposition survives the async surface unchanged.
+- [[dspy-deployment-tutorial]] — production-serving regime where `dspy.JSONAdapter`'s `response_format`-native path becomes the latency-sensitive choice; receipt of the *Adapter swap as a one-kwarg edit* in a deployed program.
 
 ## Connections
 

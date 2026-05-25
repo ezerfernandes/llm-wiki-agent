@@ -2,8 +2,8 @@
 title: "Model Context Protocol (MCP)"
 type: concept
 tags: [mcp, model-context-protocol, protocol, anthropic, tools, function-calling, agents, interoperability, open-standard]
-sources: [dspy-mcp, dspy-tools, dspy-learn-index]
-last_updated: 2026-05-17
+sources: [dspy-mcp, dspy-mcp-tutorial, dspy-tools, dspy-learn-index]
+last_updated: 2026-05-24
 ---
 
 # Model Context Protocol (MCP)
@@ -133,6 +133,8 @@ The MCP page does **not** modify any of these abstractions — it adds a **new c
 - [[anthropic|Anthropic]] — the originating organization; MCP is one of Anthropic's open-standard contributions to the agent ecosystem.
 - [[DSPyMCP]] — the DSPy-specific binding; lighter-weight concept page focused on `dspy.Tool.from_mcp_tool(...)` and the `async with` usage pattern.
 - [[dspy-mcp]] — canonical source for the DSPy integration (DSPy *Learn* page 8 of 13).
+- [[dspy-mcp-tutorial]] — **first whole-program MCP server in the wiki**: an airline-domain [[FastMCP]] server (~150 lines, seven `@mcp.tool()` functions over five [[Pydantic]] models) driven from a [[react|`dspy.ReAct`]] agent. Worked-example complement to [[dspy-mcp]]'s API-surface reference.
+- [[FastMCP]] — the Python decorator-style helper for authoring MCP servers in the official SDK; first wiki-corpus appearance via [[dspy-mcp-tutorial]].
 - [[DSPy]] — one of several MCP-aware client frameworks.
 - [[DSPyTools]] — the typed-tool abstraction MCP-converted tools land in.
 - [[react|ReAct]] — the canonical [[DSPyModules|Module]] consuming MCP tools in both DSPy code examples.

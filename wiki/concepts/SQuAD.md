@@ -2,8 +2,8 @@
 title: "SQuAD (Stanford Question Answering Dataset)"
 type: concept
 tags: [dataset, nlp, qa, benchmark]
-sources: [d2l-nlp-applications]
-last_updated: 2026-05-16
+sources: [d2l-nlp-applications, dspy-audio-tutorial]
+last_updated: 2026-05-24
 ---
 
 # SQuAD
@@ -25,3 +25,4 @@ See [[QuestionAnswering]] / [[FineTuningBert]] — pack `[CLS] Q [SEP] P [SEP]`,
 - [[QuestionAnswering]] / [[BERT]] / [[FineTuningBert]].
 - [[StanfordUniversity]] — origin (Rajpurkar et al.).
 - [[d2l-nlp-applications]] §`finetuning-bert`.
+- [[SpokenSQuAD]] — audio-input variant (passage delivered as speech); wiki receipt: [[dspy-audio-tutorial]].

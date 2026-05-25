@@ -2,8 +2,8 @@
 title: "Kaggle"
 type: entity
 tags: [platform, competition, ml-community]
-sources: [d2l-multilayer-perceptrons]
-last_updated: 2026-05-16
+sources: [d2l-multilayer-perceptrons, ai-engineering-ch08-dataset-engineering]
+last_updated: 2024-12-04
 ---
 
 # Kaggle
@@ -24,3 +24,13 @@ Online platform hosting machine-learning competitions; founded 2010, acquired by
 - [[d2l-multilayer-perceptrons]] — uses Kaggle as the chapter capstone.
 - [[Google]] — current owner (2017 acquisition).
 - [[FashionMNIST]] / [[MNIST]] — adjacent canonical benchmarks within the wiki.
+
+## From [[ai-engineering-ch08-dataset-engineering|AI Engineering Ch 8]]
+
+Ch 8 names Kaggle as one of the top public-dataset sources for AI engineering:
+
+> "Hugging Face and Kaggle each host hundreds of thousands of datasets."
+
+Within Ch 8's [[DataAcquisition|data-acquisition]] discussion, Kaggle sits alongside [[HuggingFace|Hugging Face]], Google Dataset Search, Data.gov, ICPSR, UCI ML Repository, OpenML, Open Data Network, AWS Open Data, [[EleutherAI|Eleuther]] lm-evaluation-harness, and the [[SNAP|Stanford Network Dataset Collection]] as primary resources for sourcing training data — with the standing caveat that **you should never fully trust available data without inspection**.
+
+The chapter also references the Kaggle CIFAR-10 test dataset in the [[OnePixelAttack|one-pixel attack]] discussion (Su et al. 2017) — single-pixel perturbations misclassified 67.97% of natural Kaggle CIFAR-10 test images.

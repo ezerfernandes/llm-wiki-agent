@@ -2,8 +2,8 @@
 title: "Tomáš Mikolov"
 type: entity
 tags: [person, researcher, nlp, word-embeddings]
-sources: [d2l-nlp-pretraining]
-last_updated: 2026-05-16
+sources: [d2l-nlp-pretraining, hands-on-llm-ch01-introduction-to-llms]
+last_updated: 2026-05-23
 ---
 
 # Tomáš Mikolov

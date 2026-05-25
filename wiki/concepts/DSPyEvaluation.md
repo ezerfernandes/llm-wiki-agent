@@ -3,7 +3,7 @@ title: "DSPy Evaluation"
 type: concept
 tags: [dspy, llm-programming, evaluation, metrics, development-set, iteration, framework]
 sources: [dspy-evaluation-overview, dspy-learn-index]
-last_updated: 2026-05-17
+last_updated: 2026-05-24
 ---
 
 # DSPy Evaluation
@@ -110,6 +110,14 @@ DSPy Evaluation is the wiki's first **framework-level operationalization** of ev
 - **[[DSPyMetrics]]** (page 11 of 13, owned by a sibling ingest) will expand Step 2 — *"define a DSPy metric"* — into the `(example, prediction) -> score` contract, the sub-types of metric (scalar, multi-property, judge-program), and the metric-debugging surface.
 
 Both pages are forward references this concept commits to. When they land, the four-step loop above gains concrete-API anchors and the recursive-optimization claim (Step 4) gets a worked example.
+
+## Tutorials
+
+Tutorials that exercise this concept (roughly increasing depth):
+
+- [[dspy-conversation-history]] — names the Evaluation stage's open scope-limit for conversational applications: *"the metric for a conversational application is typically [[llmasjudge|LLM-as-judge]]"* — turn-level rubric judgments over a `history`-bearing [[DSPyExample|`dspy.Example`]].
+- [[dspy-mem0-react-tutorial]] — Programming-stage-only **counter-example**: tutorial **stops before** the Evaluation stage (no metric, no dev set, no [[DSPyEvaluate|`dspy.Evaluate`]] call), making the stage-boundary explicit by its absence.
+- [[dspy-rag-tutorial]] — canonical end-to-end Evaluation-stage receipt: 20–200-example dev set + [[SemanticF1]] metric ([[DSPyModules|`dspy.Module`]] [[llmasjudge|LLM-as-judge]]) + baseline (42%) → all three artifacts of the stage produced and consumed by [[MIPROv2]].
 
 ## Connections
 

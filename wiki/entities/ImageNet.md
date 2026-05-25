@@ -2,8 +2,8 @@
 title: "ImageNet"
 type: entity
 tags: [dataset, computer-vision, benchmark]
-sources: [d2l-introduction]
-last_updated: 2026-05-16
+sources: [d2l-introduction, ai-engineering-ch01-intro]
+last_updated: 2024-12-04
 ---
 
 # ImageNet
@@ -29,3 +29,16 @@ ImageNet is also a recurring training-time benchmark — [[d2l-introduction]] ci
 - [[CNN]] — the model class that broke through on ImageNet (AlexNet 2012; ResNet, etc.).
 - [[d2l-introduction]] — corpus anchor for the 28%→2.25% chronicle.
 - [[DistributedTraining]] — large-batch ImageNet training as the canonical demo.
+
+## From [[ai-engineering-ch01-intro|AI Engineering Ch 1]]
+
+[[ChipHuyen|Chip Huyen]] in *AI Engineering* Ch 1 uses ImageNet as the **canonical illustration of the data-labeling-cost bottleneck** that motivated [[SelfSupervision|self-supervised learning]]:
+
+- 1M images × 1,000 categories = the original ImageNet labeling target.
+- 5¢ per image × 1M images = **$50,000** for one labeling pass.
+- $50M to scale labels to 1M categories (real-world coverage).
+- Specialized labeling (e.g., CT-scan cancer annotation) is *"astronomical."*
+
+Ch 1's contrast: [[CLIP]] (2021) bypassed this entire cost curve via **[[NaturalLanguageSupervision|natural language supervision]]** — 400M (image, text) pairs from the internet, *400× larger than ImageNet, with zero labeling cost.* CLIP enabled the first zero-shot generalization across image classification tasks.
+
+ImageNet is thus the **structural anchor** that lets Huyen explain *why* foundation models exist: they exist because the ImageNet labeling-cost regime would never have scaled to multimodal frontier capability.

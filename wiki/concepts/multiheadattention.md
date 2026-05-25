@@ -2,8 +2,8 @@
 title: "Multi-Head Attention"
 type: concept
 tags: [attention, mechanism]
-sources: [1706.03762-attention-is-all-you-need, d2l-attention-and-transformers]
-last_updated: 2026-05-16
+sources: [1706.03762-attention-is-all-you-need, d2l-attention-and-transformers, hands-on-llm-ch03-looking-inside-llms]
+last_updated: 2026-05-23
 ---
 
 # Multi-Head Attention
@@ -39,3 +39,18 @@ The appendix visualizations show different heads specializing — some track lon
 - [[Transformer]]
 - [[SelfAttention]]
 - [[ScaledDotProductAttention]]
+- [[AttentionHead]]
+- [[multiqueryattention]] / [[GroupedQueryAttention]] — head-side sharing variants.
+
+## From [[hands-on-llm-ch03-looking-inside-llms|*Hands-On LLMs* Ch 3]]
+
+Ch 3's intuition-first framing complements the formal definition above:
+
+> "To give the Transformer more extensive attention capability, the attention mechanism is duplicated and executed multiple times in parallel. Each of these parallel applications of attention is conducted into an attention head. This increases the model's capacity to model complex patterns in the input sequence that require paying attention to different patterns at once." — Ch 3
+
+The chapter introduces the **head-side efficiency variants** that have become the modern default:
+
+- **[[multiqueryattention|Multi-query attention (MQA)]]** — *"share the keys and values matrices between all the heads. So the only unique matrices for each head would be the queries matrices."*
+- **[[GroupedQueryAttention|Grouped-query attention (GQA)]]** — heads partitioned into groups; within each group, K and V are shared. *"Used by models like Llama 2 and 3."*
+
+The chapter's worked head-by-head breakdown of Q/K/V matrices is the most accessible mental model for these variants — each head conceptually computes the original-paper's `Concat(head_1, …, head_h) Wᴼ`, but with K and V matrices either per-head (multi-head), shared per-group (GQA), or shared across all heads (MQA).

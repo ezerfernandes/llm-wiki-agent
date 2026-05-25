@@ -3,7 +3,7 @@ title: "DSPy Data Handling"
 type: concept
 tags: [dspy, llm-programming, data, dataset, evaluation, training-set, development-set, test-set]
 sources: [dspy-data, dspy-evaluation-overview, dspy-learn-index]
-last_updated: 2026-05-17
+last_updated: 2026-05-24
 ---
 
 # DSPy Data Handling
@@ -151,6 +151,13 @@ DSPy Data Handling sits between two adjacent wiki notions:
 
 - **vs. [[ModelEvaluation]] (the general concept).** Model Evaluation is *"measuring model quality on a held-out set"* — a general ML notion. DSPyData specializes it to the DSPy-specific operational discipline (20–200-example dev set, `list[dspy.Example]` shape, `with_inputs(...)` tagging, inputs-only sufficiency).
 - **vs. [[DSPyExample]] (the primitive).** DSPyData is the dataset-collection-and-splitting layer; [[DSPyExample]] is the per-datapoint layer. The two are paired the way [[DSPyModules]] (composition) is paired with [[DSPyPredict]] (the unit Module).
+
+## Tutorials
+
+Tutorials that exercise this concept (roughly increasing depth):
+
+- [[dspy-conversation-history]] — minimal conversational-task dataset shape: a `list[dspy.Example]` where each `Example` carries a `history` field plus the current-turn input; no train/dev/test split (Programming-stage-only tutorial).
+- [[dspy-tutorial-classification-finetuning]] — full three-set discipline over Banking77: `DataLoader.from_huggingface(...)` → `[dspy.Example(x, label=CLASSES[x.label]).with_inputs("text") for x in ...]` + an **unlabeled** trainset variant for [[BootstrapFinetune|`dspy.BootstrapFinetune`]]; vindicates the *inputs-only sufficiency* commitment.
 
 ## Connections
 

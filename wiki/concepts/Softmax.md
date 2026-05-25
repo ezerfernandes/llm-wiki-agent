@@ -2,8 +2,8 @@
 title: "Softmax"
 type: concept
 tags: [activation-function, classification, foundational]
-sources: [madewithml-baselines, d2l-linear-classification]
-last_updated: 2026-05-16
+sources: [madewithml-baselines, d2l-linear-classification, ai-engineering-ch02-foundation-models]
+last_updated: 2024-12-04
 ---
 
 # Softmax
@@ -40,3 +40,22 @@ Naive softmax overflows in FP32 when any logit exceeds ~90 and underflows when a
 - [[ExponentialFamily]] — softmax is the categorical-family log-partition gradient.
 - [[Attention]] / [[Transformer]] — attention weights are a softmax over scaled dot-product logits.
 - [[d2l-linear-classification]] — corpus anchor for the historical origin, derivation, and gradient.
+
+## From [[ai-engineering-ch02-foundation-models|AI Engineering Ch 2]]
+
+Ch 2 treats softmax as the **logit-to-probability conversion at the heart of LLM sampling**:
+
+> "Logits don't sum up to one. Logits can even be negative, while probabilities have to be non-negative. To convert logits to probabilities, a softmax layer is often used."
+
+For a vocab of N tokens with logit vector $(x_1, \ldots, x_N)$, $p_i = \exp(x_i) / \sum_j \exp(x_j)$.
+
+### Modifications used by sampling controls
+
+- **[[Temperature|Temperature]] T** rescales logits to $x_i / T$ before applying softmax. The same T from statistical physics that underlies the Boltzmann distribution.
+- **[[Topk|Top-k]]** restricts softmax to the top k logits — reduces compute on large vocabularies.
+- **[[Topp|Top-p]] / nucleus sampling** runs softmax fully then keeps only the smallest set of tokens whose cumulative probability exceeds p.
+- **[[ConstrainedSampling|Constrained sampling]]** masks logits to −∞ for tokens that don't satisfy a grammar before softmax.
+
+### [[Logprobs|Logprobs]] vs probabilities
+
+Probabilities for a 100K-vocab LM are often too small to represent without **underflow**. Log-scale probabilities (logprobs) avoid this — and log of a product = sum of logs makes sequence-level scoring numerically clean.

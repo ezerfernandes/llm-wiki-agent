@@ -2,8 +2,8 @@
 title: "Agentic AI"
 type: concept
 tags: [paradigm, multi-agent, ml-architecture, agi]
-sources: [2605.12966-agentic-ai-to-agi]
-last_updated: 2026-05-15
+sources: [2605.12966-agentic-ai-to-agi, hands-on-llm-ch07-advanced-text-generation]
+last_updated: 2026-05-23
 ---
 
 # Agentic AI
@@ -66,3 +66,9 @@ Per Lemma 4.4 and the [[TopologicalEdgeWeight]] decomposition, edges in a well-d
 - [[MultiAgentSystems]]
 - [[llmagents|LLMAgents]]
 - [[agenticharness|AgenticHarness]]
+
+## From [[hands-on-llm-ch07-advanced-text-generation|Hands-On LLMs Ch 7]]
+
+[[hands-on-llm-ch07-advanced-text-generation|*Hands-On LLMs* Ch 7]] uses *"agents"* in the **everyday-LLM-engineering sense** rather than the formal DAG-of-mappings sense of Liao et al. 2026 (the parent paper this page anchors to). Ch 7's framing — *"systems that leverage a language model to determine which actions they should take and in what order"* — fits as a **special case** of Def. 4.1: a 2-node DAG (LLM planner → tool inventory) operating in the [[react|ReAct]] regime.
+
+The Ch 7 [[LangChainAgent|`create_react_agent` + `AgentExecutor`]] receipt is the **operational shape** that makes this paper's formalism legible at code level — the *"composition operator $\Lambda$"* is `AgentExecutor`'s scratchpad accumulation, and the *"learnable local mappings"* are the LLM (planner) + tools (deterministic external functions). Ch 7 stays at the simplest topology; the paper's exponential-sample-efficiency arguments require richer DAGs.

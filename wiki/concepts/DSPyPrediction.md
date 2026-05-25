@@ -2,8 +2,8 @@
 title: "DSPy Prediction"
 type: concept
 tags: [dspy, llm-programming, modules, typed-output, telemetry]
-sources: [dspy-modules, dspy-signatures]
-last_updated: 2026-05-17
+sources: [dspy-modules, dspy-signatures, dspy-email-extraction-tutorial]
+last_updated: 2026-05-24
 ---
 
 # DSPy Prediction
@@ -79,6 +79,21 @@ The dict's full schema (per the page's example): `{prompt_tokens, completion_tok
 - **The visible surface of the *modules-expand-signatures* mechanism.** A user-declared `'document -> summary'` Signature passed to [[ChainOfThought|`dspy.ChainOfThought`]] gives a Prediction with **both** `.summary` and `.reasoning`. The Prediction is where the framework's behind-the-scenes signature expansion **becomes user-visible**.
 - **Cost accounting is per-call, not per-program.** A Prediction's `get_lm_usage()` returns the costs of *this particular call's* LM activity, with cache-aware semantics. This is what makes [[DSPyOptimizers|Optimizer]] runs (which call thousands of Predictions across the search) cost-trackable — the Optimizer accumulates per-call totals from per-Prediction reads.
 - **The contract user Modules must honor.** A `class MyProgram(dspy.Module)` whose `forward()` returns anything other than a `dspy.Prediction(...)` breaks composition — outer Modules and `dspy.majority` callers cannot read it. This is an implicit contract the framework enforces by convention.
+
+## Tutorials
+
+Tutorials that exercise this concept (roughly increasing depth):
+
+- [[dspy-conversation-history]] — minimal `response.answer` access on a `dspy.Predict` return; the smallest receipt of *output field as attribute*.
+- [[dspy-customer-service-agent]] — surfaces `dspy.ReAct`'s expanded Prediction with `.trajectory`, `.reasoning`, and the user-declared output fields side-by-side; canonical *module-injected fields* example.
+- [[dspy-tutorial-program-of-thought]] — `dspy.ProgramOfThought`'s Prediction exposes `.reasoning` and the user-declared answer after sandboxed code execution; the wider expansion case beyond `reasoning`.
+- [[dspy-email-extraction-tutorial]] — Prediction is the inter-stage carrier in a four-stage sequential pipeline; each intermediate `.field` becomes the next stage's input.
+- [[dspy-output-refinement-tutorial]] — `dspy.BestOfN` / `dspy.Refine` consume and re-emit `dspy.Prediction` instances; receipt of the *uniform return type makes wrapping orthogonal* property.
+- [[dspy-streaming-tutorial]] — the final yielded value of a streamified module is the same `dspy.Prediction`; the streaming sidecar preserves the typed-return contract.
+- [[dspy-llms-txt-generation-tutorial]] — composite `dspy.Module.forward()` constructs and returns a `dspy.Prediction(...)` aggregating outputs of multiple inner Predicts; receipt of the *user-Module honors the Prediction contract* convention.
+- [[dspy-custom-module]] — explicit `return dspy.Prediction(notes=notes, titles=titles)` in a multi-hop `forward()`; the canonical *construct-a-Prediction-yourself* receipt for class-form `dspy.Module` subclasses.
+- [[dspy-mcp-tutorial]] — Prediction holds a multi-step `dspy.ReAct` trajectory after MCP tool calls; surfaces the `trajectory` injected field on a Prediction whose schema spans an entire tool-augmented session.
+- [[dspy-audio-tutorial]] — Prediction carries `dspy.Audio` outputs through the same typed-return interface, demonstrating multi-modal output composes through the same Prediction abstraction as text.
 
 ## Connections
 

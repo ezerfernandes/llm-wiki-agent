@@ -2,8 +2,8 @@
 title: "BootstrapFewShotWithRandomSearch"
 type: concept
 tags: [dspy, optimizer, bootstrap, few-shot, demonstrations, random-search, teleprompter]
-sources: [dspy-optimizers, dspy-optimization-overview]
-last_updated: 2026-05-17
+sources: [dspy-optimizers, dspy-optimization-overview, 2407.10930-better-together, dspy-audio-tutorial]
+last_updated: 2026-05-24
 ---
 
 # BootstrapFewShotWithRandomSearch
@@ -72,3 +72,6 @@ The 50-example threshold aligns with the [[DSPyOptimization|workflow page's]] 30
 - [[DSPyEvaluate]] — the thread-parallel evaluation harness the `num_threads` kwarg parallels.
 - [[MIPROv2]] — the next step up the data ladder (200+ examples; Bayesian search instead of random search).
 - [[BootstrapFinetune]] — the weight-tuning sibling.
+- [[BetterTogether]] — the meta-optimizer that uses BFRS as the canonical `OptimizePrompts` step.
+- [[2407.10930-better-together]] — the paper using BFRS as the prompt-side optimizer in the BetterTogether benchmark.
+- [[dspy-audio-tutorial]] — first wiki receipt of BFRS on an audio-input task ([[SpokenSQuAD]] with [[GPT4oMiniAudio|`gpt-4o-mini-audio-preview-2024-12-17`]]); tutorial recommends conservative budgets (`max_bootstrapped_demos=2, max_labeled_demos=2, num_candidate_programs=5`) due to audio-token cost.

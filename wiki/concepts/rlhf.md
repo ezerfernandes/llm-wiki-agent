@@ -2,8 +2,8 @@
 title: "RLHF"
 type: concept
 tags: [post-training, alignment, reward-model]
-sources: [2312.11805-gemini]
-last_updated: 2026-05-10
+sources: [2312.11805-gemini, ai-engineering-ch02-foundation-models, hands-on-llm-ch12-fine-tuning-generation-models]
+last_updated: 2026-05-24
 ---
 
 # RLHF — Reinforcement Learning from Human Feedback
@@ -38,3 +38,29 @@ The four stages run **iteratively**: RL pushes the policy past the RM's coverage
 - [[Reinforcement Learning]]
 - [[LLM-as-Judge]] — an automated proxy for the human-preference step.
 - [[2601.21343-self-improving-pretraining]] — pushes a complementary judge-rewriter loop *upstream* into pretraining.
+
+## From [[ai-engineering-ch02-foundation-models|AI Engineering Ch 2]]
+
+[[ChipHuyen|Chip Huyen]]'s Ch 2 is the wiki's **most concrete RLHF walkthrough** — supplies the loss formula, the comparison-data format, the labeling-cost figures, and the production-skip-RL pattern that other wiki pages cross-reference:
+
+- **Two-step workflow.** (1) Train a [[RewardModel|reward model]] on [[ComparisonData|comparison data]] (prompt, winning_response, losing_response); (2) optimize the SFT model with [[PPO|PPO]] to maximize RM scores.
+- **Why comparison, not pointwise scoring.** Labelers can't give consistent absolute 1–10 scores — InstructGPT inter-labeler agreement ≈73%. Relative comparisons are stable.
+- **Comparison cost.** [[ThomasScialom]] (Llama 2 author): ≈$3.50/comparison vs ≈$25/written response. LMSYS: 3–5 minutes per comparison.
+- **Loss formula** (Ch 2): $\mathcal{L} = -\mathbb{E}_{(x, y_w, y_l)} \log \sigma(r_\theta(x, y_w) - r_\theta(x, y_l))$.
+- **Reward-model choice.** Best results from finetuning RM on top of the strongest available FM. *"A weak model can judge a stronger model"* — judging is believed to be easier than generation.
+- **The "skip RL" pattern.** [[StitchFix]], [[Grab]], [[Nextdoor]] use only the reward model — [[bestofn|best-of-N]] selection without PPO. This is how Ch 2 motivates the [[TestTimeCompute|test-time compute]] section that follows.
+- **Empirical contradiction on hallucination.** Schulman (UC Berkeley 2023) said RLHF *reduces* hallucinations; InstructGPT paper showed RLHF *worsened* hallucination vs SFT alone — but labelers preferred RLHF overall. See [[Hallucination]] and [[InternalKnowledgeMismatch]] for the unresolved debate.
+- **Llama 2's RLHF claim:** *"the superior writing abilities of LLMs, as manifested in surpassing human annotators in certain tasks, are fundamentally driven by RLHF"* (Touvron et al. 2023, quoted in Ch 2).
+- **Meta migrated to [[DPO]] in Llama 3** to reduce complexity vs Llama 2's RLHF.
+
+## From [[hands-on-llm-ch12-fine-tuning-generation-models|Hands-On LLMs Ch 12]]
+
+Ch 12 of *Hands-On LLMs* frames RLHF as the **"third step" of the three-step LLM training pipeline** (language modeling → SFT → preference tuning) and names the [[PPO|Proximal Policy Optimization]]-based variant as the algorithm *"used to train the original [[chatgpt|ChatGPT]] (November 2022)."* The chapter walks the RLHF stack with diagrams:
+
+1. **Preference evaluator** (human, or model-based proxy) → scores generations on a quality scale.
+2. **[[RewardModel|Reward model]]** as the **scalable** preference evaluator — a copy of the SFT model with its language-modeling head replaced by a single-scalar quality head; trained on `(prompt, chosen, rejected)` triples to satisfy `score(chosen) > score(rejected)`.
+3. **PPO step** *"optimizes the instruction-tuned LLM by making sure that the LLM does not deviate too much from the expected rewards."*
+
+The chapter then **pivots to [[DPO]] as RLHF's preferred replacement** in its worked recipe: *"Compared to PPO, the authors found DPO to be more stable during training and more accurate. Due to its stability, we will be using it as our primary model for preference tuning."* — eliminating both the reward model and the RL loop. Forward-references [[ORPO]] (Hong, Lee & Thorne 2024) as the further collapse of SFT + DPO into a single training pass.
+
+**Llama 2 two-reward-model receipt**: Ch 12 surfaces the empirical Llama 2 design choice of training **two separate reward models** — one for **helpfulness** and one for **safety** — and combining them at the RL step, consistent with the chapter's framing of preference tuning as a **multi-objective alignment** problem.

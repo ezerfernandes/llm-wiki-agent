@@ -1,9 +1,9 @@
 ---
 title: "DSPy Modules"
 type: concept
-tags: [dspy, llm-programming, modules, composition, prompting-technique, framework]
-sources: [dspy-modules, dspy-programming-overview, dspy-signatures, dspy-language-models, dspy-learn-index]
-last_updated: 2026-05-17
+tags: [dspy, llm-programming, modules, composition, prompting-technique, framework, async]
+sources: [dspy-modules, dspy-programming-overview, dspy-signatures, dspy-language-models, dspy-learn-index, dspy-custom-module, dspy-ai-text-game-tutorial, dspy-sample-code-generation-tutorial, dspy-email-extraction-tutorial, dspy-async-tutorial, dspy-streaming-tutorial, dspy-saving-tutorial]
+last_updated: 2026-05-24
 ---
 
 # DSPy Modules
@@ -100,6 +100,30 @@ Three structural commitments:
 2. **`forward()` is the entry point.** Calling `hop(...)` routes through `__call__` which routes through `forward(...)`. The control flow inside `forward` is arbitrary Python — loops, conditionals, recursion, retrieval calls, anything.
 3. **Return is a `dspy.Prediction(...)`.** Wrapping the result this way preserves the *Module returns a typed Prediction object* contract that every built-in module honors, so the bigger module composes the same way its sub-modules do.
 
+## Custom-module starting template
+
+The [[dspy-custom-module|Custom Module tutorial]] supplies the **minimum-viable starting template** the [[dspy-modules|Modules *Learn* page]]'s `Hop` example generalizes:
+
+```python
+class MyProgram(dspy.Module):
+    def __init__(self, ...):
+        # Define attributes and sub-modules here
+        ...
+
+    def forward(self, input_name1, input_name2, ...):
+        # Implement your program's logic here
+        ...
+```
+
+Four positions the tutorial commits to beyond what [[dspy-modules|the Modules page]] explicitly states:
+
+1. ***"`forward()` is unconstrained Python."*** *"You are not limited to calling only other DSPy modules; you can also integrate any standard Python functions, such as those for interacting with Langchain/Agno agents, MCP tools, database handlers, and more."*
+2. ***"Call the module instance directly, not `forward()` explicitly."*** *"The `__call__` method handles necessary internal processing before executing the `forward` logic"* — `__call__` is the **trace point** for [[DSPyOptimizers|optimizer]] replay, [[MLflow]] auto-logging, [[DSPyHistory|history]] threading, and [[DSPyPrediction|`Prediction.get_lm_usage()`]] accounting.
+3. ***"Custom modules unlock framework features."*** Code outside a `dspy.Module` subclass is invisible to `named_predictors()` / `named_parameters()` introspection — [[DSPyOptimizers|optimizers]] cannot tune sub-modules that are not declared as `self.*` attributes.
+4. ***"DSPy is easy to migrate to and easy to migrate off."*** The framework boundary is unusually thin precisely because `forward` is plain Python.
+
+The tutorial's worked receipt is a **non-iterative three-stage [[rag|RAG]] program** (`dspy.Predict(QueryGenerator)` → `dspy.ColBERTv2(...)` → [[chainofthought|`dspy.ChainOfThought("question,context->answer")`]]). It complements [[dspy-modules|the Modules page's]] iterative `Hop` example by covering the simpler **single-pass** composition shape; together they bracket the typical complexity range of a `dspy.Module.forward()` body.
+
 ## Parameter introspection
 
 The page does not explicitly enumerate the introspection API, but composition makes it observable. Every `dspy.Module` subclass walks its `self.*` attributes to expose two iterables that [[DSPyOptimizers|Optimizers]] read against:
@@ -127,6 +151,23 @@ Three load-bearing details:
 1. **Per-model aggregation.** The return is `{provider/model: {token-counts}}` — naturally handles multi-LM programs (a `dspy.context(lm=...)` block-local swap shows up under its own key).
 2. **Sub-module calls roll up.** A `MyProgram` whose `forward()` calls `self.predict1` and `self.predict2` produces **one** `get_lm_usage()` dict covering both LM calls.
 3. **Cached responses don't count.** *"When using DSPy's caching features (either in-memory or on-disk via litellm), cached responses won't count toward usage statistics."* The second call to the same question with `cache=True` returns `{}`. This is the cost-accounting contract [[DSPyOptimizers|Optimizers]] read against.
+
+## Async entry — `acall()` and `aforward()`
+
+[[dspy-async-tutorial|The Async tutorial]] makes explicit that **every built-in Module exposes `acall()`** — the async counterpart to `__call__` — and that **custom `dspy.Module` subclasses define async logic by overriding `aforward(self, ...)`** instead of (or in addition to) `forward(self, ...)`:
+
+```python
+class MyModule(dspy.Module):
+    def __init__(self):
+        self.predict1 = dspy.ChainOfThought("question->answer")
+        self.predict2 = dspy.ChainOfThought("answer->simplified_answer")
+
+    async def aforward(self, question, **kwargs):
+        answer = await self.predict1.acall(question=question)
+        return await self.predict2.acall(answer=answer)
+```
+
+The `forward → aforward` mirror is a further lift from the [[PyTorch]] *override-the-entry-method* idiom — same `__init__` + `self.*` sub-module registration, async-suffixed verb. The `named_predictors()` / `named_parameters()` walks see `aforward`-routed programs identically to `forward`-routed ones; [[DSPyOptimizers|Optimizers]] tune both. **Async DSPy ≠ concurrent DSPy by default** — chained `await predict.acall(...)` calls run **sequentially**; users must reach for `asyncio.gather(...)` to get parallel sub-predictions. See [[DSPyAsync]] for the framework-wide pattern.
 
 ## Position in the DSPy stack
 
@@ -164,6 +205,19 @@ The Module is what **expands the Signature under the hood** — adds `reasoning`
 
 - **`dspy.RLM` is the framework's context-overflow primitive.** Most LLM frameworks treat long contexts as a model-side problem (longer context windows, retrieval, summarization). DSPy carries **recursion** as a first-class module — sandboxed Python REPL plus recursive sub-LLM calls — for the case where the prompt itself is too large. This complements rather than replaces retrieval (which still appears as a `search(...)` call inside `forward()`).
 
+## Tutorials
+
+Tutorials that exercise this concept (roughly increasing depth):
+
+- [[dspy-custom-module]] — **entry-point template**: canonical *"`class MyProgram(dspy.Module)` with `__init__` + `forward`"* how-to with a three-stage RAG worked receipt ([[DSPyPredict|`dspy.Predict(QueryGenerator)`]] → [[ColBERTv2|`dspy.ColBERTv2`]] → [[chainofthought|`dspy.ChainOfThought("question,context->answer")`]]); commits to the *unconstrained `forward()`* and *call-the-instance-not-`forward()`* positions.
+- [[dspy-ai-text-game-tutorial]] — minimal multi-sub-module composition: three [[chainofthought|`dspy.ChainOfThought`]] sub-modules (`generate_scene`, `evaluate_action`, `generate_outcome`) under one `GameAI(dspy.Module)` with `forward()` orchestrating the interactive loop.
+- [[dspy-email-extraction-tutorial]] — **diamond-shaped** four-Signature pipeline inside `EmailProcessor(dspy.Module)` (classifier → entity-extractor + action-generator; entity-extractor → summarizer + action-generator); first wiki receipt of a `dspy.Prediction(...)` constructor-style fan-in with >10 kwargs.
+- [[dspy-rag-tutorial]] — three-stage RAG walk built around module *swap-without-touching-Signature*: baseline [[chainofthought|`dspy.ChainOfThought`]] → optimized → composed; lifts [[SemanticF1]] from 42% to 61.1%.
+- [[dspy-customer-service-agent]] — canonical [[react|`dspy.ReAct`]] receipt: multi-tool agent over a typed airline domain; `tools=[...]` of plain Python callables auto-wrapped into `dspy.Tool` by the Module.
+- [[dspy-tutorial-program-of-thought]] — [[DSPyProgramOfThought|`dspy.ProgramOfThought`]] strategy module swap from [[chainofthought|`dspy.ChainOfThought`]] (one-character constructor change) and a `MultiHopSearchWithPoT(dspy.Module)` composition mixing both.
+- [[dspy-multihop-search-tutorial]] — the canonical `Hop(dspy.Module)` multi-hop retrieval example from [[dspy-modules|the Modules page]], optimized end-to-end by [[MIPROv2|`dspy.MIPROv2`]] on [[HoVer]].
+- [[dspy-async-tutorial]] — `aforward(self, ...)` as the async dual of `forward`; every built-in Module exposes `acall()`; `named_predictors()` / `named_parameters()` walks see async-routed programs identically to sync.
+
 ## Connections
 
 - [[DSPy]] — the framework whose **third** orthogonal artifact this concept *is*.
@@ -190,3 +244,5 @@ The Module is what **expands the Signature under the hood** — adds `reasoning`
 - [[CompositionalCapacity]] — the [[AgenticAI]] DAG framework's bounded-$C(\mathcal{G})$ regime; a `class MyProgram(dspy.Module)` is a concrete instance of the bounded compositional substrate.
 - [[LLMModuloFramework]] — Modules are the *candidate-generator* layer of an LLM-Modulo system; [[DSPyMetrics|Metrics]] are the *critic* layer.
 - [[2604.25850-agentic-harness-engineering]] — counter-positioning paper; its critique of "DSPy-style instruction tuning" lands at this Module / [[DSPySignatures|Signature]] / [[DSPyAdapters|Adapter]] / [[DSPyOptimizers|Optimizer]] level. Lee et al. argue the load-bearing axis is the *harness* (tools, middleware, memory), not the four prompt-level concerns DSPy names.
+- [[DSPyAsync]] — `acall` / `aforward` are the async-axis duals of `__call__` / `forward`; the four-concerns decomposition is unchanged under async dispatch.
+- [[dspy-async-tutorial]] — canonical source for `aforward()` as the async `forward()` and for `acall()` universality across built-in Modules.

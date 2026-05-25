@@ -2,11 +2,15 @@
 title: "BootstrapFinetune"
 type: concept
 tags: [dspy, optimizer, bootstrap, finetune, weights, distillation, teleprompter]
-sources: [dspy-optimizers, dspy-optimization-overview]
-last_updated: 2026-05-17
+sources: [dspy-optimizers, dspy-optimization-overview, 2407.10930-better-together, 2507.03152-medval, dspy-tutorial-classification-finetuning]
+last_updated: 2026-05-24
 ---
 
 # BootstrapFinetune
+
+> **Anchor paper:** [[2407.10930-better-together|Soylu, Potts & Khattab (2024)]] uses BFT as the `FinetuneWeights` step of the [[BetterTogether]] algorithm (Algorithm 2). The paper's worked instantiation — bootstrap traces → filter by metric → replace optimized prompts with vanilla prompts → train LM via [[lora|LoRA]] (rank 32, alpha 64, lr 1e-5, 5 epochs) — is the canonical implementation reference for `BootstrapFinetune` in compound LM programs.
+
+> **Cross-domain extension paper:** [[2507.03152-medval|Aali et al. (MedVAL, 2026)]] is the **first published clinical-NLP application of `dspy.BootstrapFinetune`** and the source of the **[[QLoRA]] integration** added to DSPy's local PEFT pipeline. Replaces the prompt-bootstrap filter with the [[GeneratorValidatorConsistency|$\mathcal{M}_\mathrm{MedVAL}$ filter]] (a problem-domain-specific consistency metric over synthetic perturbations) and demonstrates that **57% of the data outperforms unfiltered 100%** for distilled clinical validators. The output is [[MedVAL4B|MedVAL-4B]], the best open-source validator on the [[MedVALBench]] benchmark.
 
 **`dspy.BootstrapFinetune`** is the **only weight-tuning optimizer** in [[DSPy]]'s [[DSPyOptimizers|catalog]] — the bridge between DSPy's prompt-tuning regime (every other optimizer) and the underlying LM's [[FineTuning|fine-tuning]] regime. It **distills a prompt-based DSPy program into weight updates**, producing a program whose steps are the same but whose per-step LM is now a fine-tuned model instead of a prompted one.
 
@@ -61,6 +65,33 @@ Setup: PolyAI Banking77 dataset (2000 examples, 77 classes); [[ChainOfThought|`d
 > *"An informal run similar to this on DSPy 2.5.29 raises GPT-4o-mini's score 66% to 87%."*
 
 A **21-point absolute improvement** — the largest of the three worked receipts on the page, and a concrete demonstration that weight-tuning the LM can outperform prompt-tuning when sufficient data (2000 examples) is available.
+
+## The second Banking77 receipt: cross-model open-weights distillation ([[dspy-tutorial-classification-finetuning]])
+
+The [[dspy-tutorial-classification-finetuning|Classification Fine-tuning tutorial]] is the wiki's **first end-to-end runnable receipt of `BootstrapFinetune`** (the [[dspy-optimizers|page 13]] receipt above is narrative). Same dataset ([[Banking77]]), but a **different architecture**:
+
+| Axis | [[dspy-optimizers]] receipt | [[dspy-tutorial-classification-finetuning]] receipt |
+|---|---|---|
+| Student LM | `openai/gpt-4o-mini-2024-07-18` (API) | `meta-llama/Llama-3.2-1B-Instruct` (local) |
+| Teacher LM | (same student fine-tuned on its own traces) | `openai/gpt-4o-mini` (separate API teacher) |
+| Distillation regime | **Self-distillation** | **Cross-model distillation** |
+| Signature | `"text, hint -> label"` with `Literal[tuple(CLASSES)]` typed-output | `f"text -> label: Literal{CLASSES}"` inline string-form |
+| Training-at-runtime trick | **Yes** — `hint=CLASSES[x.label]` as input field at training | **No** — no hint mechanism; metric filter only |
+| Trainset size | 2000 examples | 500 examples per stage |
+| Baseline → optimized | 66% → 87% (+21 pts) | 51.5% no-metric / 55% teacher → 86.7% (+31.7 pts vs teacher) |
+| Inference substrate | OpenAI fine-tuning API | [[SGLang]] local server (`LocalProvider`) |
+| Fine-tuning substrate | OpenAI fine-tuning API | [[HuggingFaceTRL|TRL SFTTrainer]] + [[HuggingFacePEFT|PEFT]] |
+| `metric` form | `lambda x, y, trace=None: x.label == y.label` | `lambda x, y, trace=None: x.label == y.label` (identical) |
+| `dspy.settings.experimental` | not surfaced | **explicitly required** |
+| LM lifecycle | (none — API) | `.launch()` / `.kill()` on fine-tuned LM |
+| `DSPY_FINETUNEDIR` | not surfaced | **explicit environment knob** for checkpoint/data storage |
+| `train_kwargs` surface | not enumerated | full list: `device`, `use_peft`, `num_train_epochs`, `per_device_train_batch_size`, `gradient_accumulation_steps`, `learning_rate`, `max_seq_length`, `packing`, `bf16`, `output_dir` |
+
+**Both receipts converge on ~87% post-BFT within 0.3 points** despite radically different inference and fine-tuning substrates (API vs local 1B). The closeness suggests **BFT's metric-filter mechanism dominates the substrate choice** on closed-set classification: the same `lambda` metric carries enough signal that whether the underlying SFT runs on OpenAI's fine-tuning API or on TRL+PEFT against a 1B Llama, the program-level accuracy ends up nearly identical.
+
+The tutorial also surfaces a **two-stage ablation** the [[dspy-optimizers|page 13]] receipt does not: Stage A (500 *unlabeled* examples, no `metric=` filter) → 51.5%; Stage B (500 *labeled* examples, with `metric=` filter) → 86.7%. The same student LM, same teacher LM, same program, same dataset size — only the metric filter and presence of labels differ. The 35-point lift is the cost of the metric filter alone, isolated.
+
+**Inverted distillation result**: the fine-tuned 1B Llama student (86.7%) beats the GPT-4o-mini teacher (55%) by **+31.7 absolute / +57.6% relative** on the same 100-item devset. First wiki receipt where the student strictly outperforms the teacher rather than compressing the teacher's behavior — the teacher's *traces* (reasoning + answer) plus a metric filter exceed the teacher's *direct accuracy*. This is what the [[dspy-optimizers|page 13]] receipt's *"output may be stronger than the teacher"* claim looks like quantified end-to-end.
 
 ## The training-at-runtime trick
 
@@ -122,7 +153,9 @@ This is the **composability** claim ([[DSPyOptimizers|operationalized via]] `dsp
 - [[ChainOfThought]] — the Module used in the Banking77 worked receipt.
 - [[BootstrapFewShot]] — the prompt-tuning sibling using the same bootstrap-and-filter mechanism.
 - [[MIPROv2]] — the recommended prompt optimizer to run **before** BootstrapFinetune (the prompt → weight composition pattern).
-- [[BootstrapFewShotWithRandomSearch]] — alternative prompt-tuning predecessor.
+- [[BootstrapFewShotWithRandomSearch]] — alternative prompt-tuning predecessor; the canonical `OptimizePrompts` partner inside [[BetterTogether]].
+- [[BetterTogether]] — the meta-optimizer that schedules BFT between two prompt-opt steps.
+- [[2407.10930-better-together]] — the paper that establishes BFT-with-prompt-opt as the dominant strategy for compound LM programs.
 - [[LiteLLM]] — the upstream provider-abstraction; BootstrapFinetune reaches provider-specific fine-tuning APIs through [[DSPyLM]] which routes through LiteLLM.
 - [[openai|OpenAI]] — the fine-tuning provider in the worked Banking77 receipt (`gpt-4o-mini-2024-07-18`).
 - [[KnowledgeDistillation]] — the structural pattern BootstrapFinetune realizes (prompt-based behavior → weight-internalized behavior).

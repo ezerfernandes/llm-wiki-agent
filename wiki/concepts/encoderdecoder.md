@@ -2,8 +2,8 @@
 title: "Encoder-Decoder"
 type: concept
 tags: [architecture, sequence-transduction]
-sources: [1409.3215-seq2seq, 1706.03762-attention-is-all-you-need, 1910.10683-t5, d2l-recurrent-modern]
-last_updated: 2026-05-16
+sources: [1409.3215-seq2seq, 1706.03762-attention-is-all-you-need, 1910.10683-t5, d2l-recurrent-modern, hands-on-llm-ch01-introduction-to-llms]
+last_updated: 2026-05-23
 ---
 
 # Encoder-Decoder
@@ -45,3 +45,13 @@ Modern LLMs split into three families that reuse pieces of this pattern:
 - [[SelfAttention]]
 - [[MultiHeadAttention]]
 - [[d2l-recurrent-modern]] — D2L's textbook abstraction (`EncoderDecoder` base class with `init_state`).
+
+## From [[hands-on-llm-ch01-introduction-to-llms|*Hands-On LLMs* Ch 1]]
+
+Ch 1 introduces the encoder-decoder pattern via the **RNN-encoder + RNN-decoder neural-machine-translation** worked example *before* the Transformer:
+
+> "These RNNs are used for two tasks, encoding or representing an input sentence and decoding or generating an output sentence. ... a sentence like 'I love llamas' gets translated to the Dutch 'Ik hou van lama's.'" — Ch 1
+
+The chapter narrates the limitation: *"This context embedding, however, makes it difficult to deal with longer sentences since it is merely a single embedding representing the entire input."* — the fixed-context-vector bottleneck that motivated **[[Attention|attention]]** ([[DzmitryBahdanau|Bahdanau]], [[KyunghyunCho|Cho]] & [[YoshuaBengio|Bengio]], 2014), which lets the decoder *"focus on parts of the input sequence that are relevant to one another"* rather than rely on a single summary vector.
+
+This framing is the chapter's pedagogical bridge: RNN encoder-decoder → RNN encoder-decoder + attention → pure-attention Transformer → encoder-only ([[bert|BERT]]) vs decoder-only ([[GPT]]) descendants.

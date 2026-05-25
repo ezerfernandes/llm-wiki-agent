@@ -2,8 +2,8 @@
 title: "pandas"
 type: concept
 tags: [library, python, data-analysis, dataframe]
-sources: [pydata-preface, pydata-preliminaries, pydata-pandas-basics, pydata-accessing-data, pydata-data-cleaning, pydata-data-wrangling, pydata-data-aggregation, pydata-time-series, pydata-modeling, pydata-data-analysis-examples, d2l-preliminaries]
-last_updated: 2026-05-16
+sources: [pydata-preface, pydata-preliminaries, pydata-pandas-basics, pydata-accessing-data, pydata-data-cleaning, pydata-data-wrangling, pydata-data-aggregation, pydata-time-series, pydata-modeling, pydata-data-analysis-examples, d2l-preliminaries, hands-on-llm-ch05-text-clustering-topic-modeling]
+last_updated: 2026-05-23
 ---
 
 # pandas

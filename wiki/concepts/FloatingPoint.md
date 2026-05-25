@@ -2,8 +2,8 @@
 title: "Floating Point"
 type: concept
 tags: [binary-representation, numerics, floating-point, real-numbers]
-sources: [dis-4-8-floating-point]
-last_updated: 2026-05-17
+sources: [dis-4-8-floating-point, ai-engineering-ch07-finetuning]
+last_updated: 2026-05-23
 ---
 
 # Floating Point
@@ -49,3 +49,24 @@ The dominant standard. See [[IEEE754]] for the full spec.
 - [[FloatingPointPrecision]] — rounding-error consequences.
 - [[BinaryRepresentation]] — umbrella encoding family.
 - [[dis-4-8-floating-point]] — DIS Ch 4.8 source.
+
+## From [[ai-engineering-ch07-finetuning|AI Engineering Ch 7]]
+
+[[ChipHuyen|Huyen]] surveys the **AI-specific extensions of the IEEE-754 float family** that have emerged since the 2010s — driven by neural-network workloads' tolerance for low precision and their need for high range:
+
+| Format | Bits | Sign / Range / Precision | Designed by | Notes |
+|---|---|---|---|---|
+| [[FP64]] | 64 | 1 / 11 / 52 | IEEE | Default in [[NumPy]] / [[pandas]]; "double precision"; rarely used in neural networks |
+| [[FP32]] | 32 | 1 / 8 / 23 | IEEE | "Single precision"; the historical NN default |
+| [[FP16]] | 16 | 1 / 5 / 10 | IEEE | "Half precision"; smaller range than FP32, ~3.5 decimal digits precision |
+| [[BF16]] | 16 | 1 / 8 / 7 | [[google\|Google]] | "Brain float"; *same range as FP32, less precision than FP16*; designed for TPUs; Llama 2's release format |
+| [[TF32]] | **19** | 1 / 8 / 10 | [[NVIDIA]] | Actually 19 bits despite the "32" name (Huyen's footnote: "why it's called TF32 and not TF19 keeps me up at night"); compatible with FP32 inputs |
+| [[FP8]] | 8 | 1 / variable | various | NVIDIA Hopper-supported |
+| [[FP4]] | 4 | 1 / variable | various | The smallest IEEE-compliant float; NVIDIA Blackwell inference target |
+| [[NormalFloat4\|NF4]] | 4 | non-uniform bins | [[TimDettmers\|Dettmers]] et al. | QLoRA's format; bins distributed by quantiles of $\mathcal{N}(0, \sigma^2)$, not uniformly |
+
+### Range vs precision trade-off
+
+Ch 7's clearest framing — every float format splits bits between **range** (exponent bits, called *exponents*) and **precision** (mantissa bits, called *significands*), beyond the always-needed sign bit. **More range bits → can represent larger / smaller magnitudes. More precision bits → can represent values more accurately.**
+
+The BF16 vs FP16 confusion (Llama 2 was released in BF16, many teams loaded it in FP16 and got worse-than-advertised quality) is Ch 7's canonical example that **format ≠ bit count** — you must match the format the model was trained with.

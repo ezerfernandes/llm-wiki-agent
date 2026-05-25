@@ -2,8 +2,8 @@
 title: "Layer normalization"
 type: concept
 tags: [deep-learning, regularization, normalization]
-sources: [d2l-convolutional-modern]
-last_updated: 2026-05-16
+sources: [d2l-convolutional-modern, hands-on-llm-ch03-looking-inside-llms]
+last_updated: 2026-05-23
 ---
 
 # Layer normalization
@@ -57,3 +57,17 @@ Both statistics are computed **within a single observation** (no batch dimension
 - [[transformer]] — heavy user.
 - [[Attention]] — every attention block is wrapped in LN.
 - [[CNN]] — context where LN is sometimes a BN alternative for small batches.
+- [[RMSNorm]] — the simpler successor used by modern LLMs.
+- [[PreNorm]] — the placement scheme modern LLMs favor over post-norm.
+
+## From [[hands-on-llm-ch03-looking-inside-llms|*Hands-On LLMs* Ch 3]]
+
+Ch 3 records that modern 2024-era LLMs have moved off LayerNorm to **[[RMSNorm|RMSNorm]]**:
+
+> "Another improvement in normalization here is using RMSNorm, which is simpler and more efficient than the LayerNorm used in the original Transformer (read: 'Root mean square layer normalization')." — Ch 3
+
+Plus the **placement** change from post-norm to **[[PreNorm|pre-norm]]**:
+
+> "One of the differences we see in this version of the Transformer block is that normalization happens prior to attention and the feedforward layers. This has been reported to reduce the required training time." — Ch 3
+
+The chapter cites *"On layer normalization in the Transformer architecture"* for the pre-norm finding. Together, **RMSNorm + pre-norm** is the modern replacement for the original Transformer's **LayerNorm + post-norm** — see the [[transformer|Transformer page]]'s "2024-era block recipe" table for the full bundle.

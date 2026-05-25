@@ -1,9 +1,9 @@
 ---
 title: "Explicit Feedback"
 type: concept
-tags: [recommender-systems, data]
-sources: [d2l-recommender-systems, d2l-introduction]
-last_updated: 2026-05-16
+tags: [recommender-systems, data, user-feedback, llm-app]
+sources: [d2l-recommender-systems, d2l-introduction, ai-engineering-ch10-architecture-feedback]
+last_updated: 2024-12-04
 ---
 
 # Explicit Feedback
@@ -36,3 +36,30 @@ User preference signals **proactively provided by the user** — star ratings, t
 - [[MovieLens]] — canonical dataset.
 - [[RecommenderSystems]] — parent application.
 - [[d2l-recommender-systems]], [[d2l-introduction]] — sources.
+
+## From [[ai-engineering-ch10-architecture-feedback|AI Engineering Ch 10]]
+
+Ch 10 carries the recommender-systems definition into the **LLM application** setting and reports the same defining traits: high-quality but sparse, suffering from response biases, and standardized across applications (*"there are only so many ways you can ask a person if they like something"*).
+
+### LLM-app forms of explicit feedback
+
+- Thumbs up / down on a response.
+- Upvote / downvote.
+- Star rating.
+- Yes/no answers to *"Did we solve your problem?"*
+
+### Why explicit feedback is sparse
+
+> *"Explicit feedback is easier to interpret, but it demands extra effort from users. Since many users may not be willing to put in this additional work, explicit feedback can be sparse, especially in applications with smaller user bases."* — Ch 10
+
+### Response biases Ch 10 names
+
+- **Self-selection** — *"unhappy users might be more likely to complain, causing the feedback to appear more negative than it is."*
+- **[[LeniencyBias|Leniency bias]]** — overly-positive ratings to avoid conflict (the Uber 4.8-average example).
+- **Randomness** — users click the easiest option to dispatch the prompt.
+- **[[PositionBias|Position bias]]** — first option clicked more often regardless of quality.
+- **[[PreferenceBias|Preference bias]]** — length, recency, familiarity proxies.
+
+### Conversational interface implication
+
+Ch 10 makes explicit that the conversational interface enables **a richer explicit-feedback vocabulary** — users can encode preferences directly in their natural-language follow-ups (*"shorter please"*, *"can you make it more formal"*). This blurs the explicit/implicit line that the recommender-systems framing kept sharp.

@@ -2,8 +2,8 @@
 title: "DSPy Optimization"
 type: concept
 tags: [dspy, llm-programming, optimization, training-set, validation-set, gepa, iteration, workflow]
-sources: [dspy-optimization-overview, dspy-optimizers, dspy-learn-index, dspy-evaluation-overview, dspy-metrics, dspy-data]
-last_updated: 2026-05-17
+sources: [dspy-optimization-overview, dspy-optimizers, dspy-learn-index, dspy-evaluation-overview, dspy-metrics, dspy-data, dspy-optimizer-tracking-tutorial, dspy-saving-tutorial]
+last_updated: 2026-05-24
 ---
 
 # DSPy Optimization
@@ -140,6 +140,20 @@ DSPy explicitly resists the framing of optimization as a one-shot improvement pr
 
 The only remaining DSPy-related forward reference is **[[DSPyAssertions]]** (no scheduled ingest yet) — the advanced feature this page's diagnostic-questions list mentions as an escape hatch when optimization alone doesn't suffice; the wiki carries it as a forward reference for a possible later ingest.
 
+## Tutorials
+
+Tutorials that exercise this concept (roughly increasing depth):
+
+- [[dspy-image-generation-prompting-tutorial]] — entry-level optimization-loop receipt: `dspy.MIPROv2(auto="light")` over a single `dspy.Predict` prompt-rewriter, with a `dspy.Image`-typed [[llmasjudge|LLM-as-judge]] metric closing the loop.
+- [[dspy-entity-extraction-tutorial]] — frames a token-classification task as an LM-program optimized end-to-end against a custom metric; the canonical *"the metric is itself iterable"* receipt for the workflow's Step-4 recursive-metric loop.
+- [[dspy-tutorial-gepa-aime]] — canonical `dspy.GEPA` receipt over AIME math; the **named carve-out** from the 20/80 train/val split (GEPA follows standard ML practice, large train / small val).
+- [[dspy-tutorial-gepa-facility-support-analyzer]] — second GEPA receipt; structured-extraction task showing the reflection-driven instruction optimizer on a non-math domain with explicit textual feedback driving the search.
+- [[dspy-multihop-search-tutorial]] — `dspy.MIPROv2` over a 3-hop [[HoVer]] retrieval program with Llama-3.1-8B; the canonical *three-stage* (bootstrap → grounded proposal → Bayesian search) prompt-space receipt referenced by the workflow contract.
+- [[dspy-tutorial-classification-finetuning]] — `dspy.BootstrapFinetune` on Banking77 with local Llama-3.2-1B; the *"or weights"* half of the *"tune the prompts or weights"* contract — the only weight-tuning iteration receipt.
+- [[dspy-rl-multihop-tutorial]] — experimental `dspy.ArborGRPO` online RL on the HoVer 2-hop program; the most aggressive case of the workflow's *"return to prior stages"* claim — the tutorial labels it *"pure proof of concept"* and recommends MIPROv2 first.
+- [[dspy-saving-tutorial]] — persistence of the optimized-program artifact across the two-mode save/load surface; closes the iteration loop by giving the output a durable life beyond the Python process.
+- [[dspy-optimizer-tracking-tutorial]] — instruments the optimization stage itself via `mlflow.dspy.autolog(log_compiles=True, log_evals=True, log_traces_from_compile=True)`; makes the four iteration axes (data / program / metric / optimizer) directly inspectable as parent/child MLflow runs.
+
 ## Connections
 
 - [[DSPy]] — the framework whose third stage this concept operationalizes.
@@ -174,3 +188,7 @@ The only remaining DSPy-related forward reference is **[[DSPyAssertions]]** (no 
 - [[llmasjudge|LLM-as-judge]] — when the metric is an AI-feedback program ([[dspy-metrics|page 11]]), the optimizer's recursive *"metric of the metric"* loop ([[DSPyEvaluation|Step 4]] of the four-step Evaluation loop) is what makes the judge itself optimizable.
 - [[LLMModuloFramework]] — DSPy's [[DSPyOptimizers|Optimizer]] is the **search procedure** layer of Kambhampati et al.'s generate-test-critique loop; the [[DSPyMetrics|metric]] is the *critic*, the [[DSPyModules|program]] is the *generator*, the Optimizer is what does the search.
 - [[2604.25850-agentic-harness-engineering]] — the harness-engineering counter-position; this concept's emphasis on *iterating across four axes* (data / program / metric / optimizer) is **partial common ground**, but DSPy does not iterate over the harness layer (tools / middleware / memory) the way AHE does.
+
+## Observability — instrumenting the optimization stage via [[MLflow]]
+
+The [[dspy-optimizer-tracking-tutorial|DSPy Optimizer Tracking tutorial]] supplies the wiki's canonical recipe for **instrumenting the Optimization stage itself** with an external experiment-tracking system. Three optimization-aware kwargs on `mlflow.dspy.autolog(...)` — `log_compiles=True` (workflow), `log_evals=True` (evaluation values), `log_traces_from_compile=True` (per-LM-call traces during compile()) — turn any compile-based optimizer into a two-level [[MLflow]] run tree: a **parent run** for the overall `compile(...)` call (config + final program + metric-progression curve + training data) and **child runs** for each intermediate program version the optimizer produces during search (instructions + demos + per-attempt evaluation values + LM-call traces). The structure makes the four iteration axes (data / program / metric / optimizer) directly inspectable — the metric-progression curve answers *"is the metric strong enough to drive improvement?"*; per-child-run instructions / demos answer *"what is the optimizer actually proposing?"*; the Traces tab answers *"what is the program doing at each candidate point?"*. For large datasets, `log_traces_from_compile=True` storage cost grows linearly in (trials × demos × dataset size); the tutorial recommends `log_traces_from_compile=False` for runs that approach memory limits. Round-tripping an optimized program back from the artifact store via `mlflow.artifacts.download_artifacts(...)` then `program.load(model_path)` is the **second documented load path** alongside plain-JSON `program.save/load`; the MLflow path adds parent-run-anchored provenance at the cost of a running tracking server.

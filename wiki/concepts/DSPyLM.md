@@ -2,8 +2,8 @@
 title: "DSPy LM"
 type: concept
 tags: [dspy, llm-programming, lm-client, framework]
-sources: [dspy-language-models]
-last_updated: 2026-05-17
+sources: [dspy-language-models, dspy-streaming-tutorial, dspy-saving-tutorial]
+last_updated: 2026-05-24
 ---
 
 # DSPy LM
@@ -98,6 +98,19 @@ The `config={...}` channel is how generation parameters flow from a [[DSPyModule
 - **Decouples the program from the SDK.** The same DSPy program runs unchanged across a managed API, a self-hosted GPU, and a local laptop. No `if provider == 'anthropic': ...` branches; no `try: openai.... except ...:` fallbacks. The branching has been pushed down into [[LiteLLM]].
 - **Caching / history are framework-level, not provider-level.** Provider SDKs do not generally offer transparent caching or unified per-call history; DSPy adds them at the `dspy.LM` layer so they survive provider swaps. This is what [[DSPyOptimizers|Optimizers]] later depend on for replay / cost-tracked search.
 - **`rollout_id` is the deterministic sampling handle.** Reconciles the *reproducibility-by-default* policy with *I-do-actually-want-variance* — a problem every LM-app framework has to solve. DSPy's answer is: **make non-determinism part of the cache key**, so it stays reproducible.
+
+## Tutorials
+
+Tutorials that exercise this concept (roughly increasing depth):
+
+- [[dspy-cache-tutorial]] — canonical receipt of `dspy.LM`'s three-layer caching architecture (in-memory `LRUCache`, on-disk `FanoutCache`, provider prompt cache) and `dspy.configure_cache(...)`; the smallest entry point for the caching property recorded above.
+- [[dspy-observability-tutorial]] — uses `dspy.inspect_history()` and `lm.history[-1]` to surface per-call audit data; receipt of the *History / telemetry* capability the abstraction wraps.
+- [[dspy-conversation-history]] — single `dspy.LM` threaded through a multi-turn `dspy.Predict` loop; minimal *one LM, repeated calls* receipt.
+- [[dspy-image-generation-prompting-tutorial]] — `dspy.LM` configured with a vision model plus a separate Flux image-generation client; receipt of *multi-LM / multi-modality program with one LM client per modality*.
+- [[dspy-deployment-tutorial]] — `dspy.LM` survives serialization into a FastAPI / MLflow deployment artifact; receipt of *LM-as-swappable-config in production*.
+- [[dspy-tutorial-games]] — uses `dspy.LM('openai/gpt-4o')` as MIPROv2 teacher and a local SGLang-served Llama as student; canonical *multi-LM teacher/student* receipt and the SGLang `api_base` escape-hatch demonstration.
+- [[dspy-tutorial-gepa-aime]] — separate `dspy.LM` instances for the task model and the GEPA reflection model, swapped via `dspy.context(lm=...)`; receipt of the *block-local bind mode* in a real optimizer run.
+- [[dspy-tutorial-classification-finetuning]] — `dspy.BootstrapFinetune` updates the bound LM's weights and returns a new `dspy.LM` over the finetuned checkpoint; receipt of *LM is the artifact weight-tuning produces*, paired with the Ollama / SGLang local-serving paths.
 
 ## Connections
 

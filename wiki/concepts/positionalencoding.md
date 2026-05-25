@@ -2,8 +2,8 @@
 title: "Positional Encoding"
 type: concept
 tags: [transformer, embeddings]
-sources: [1706.03762-attention-is-all-you-need, d2l-attention-and-transformers]
-last_updated: 2026-05-16
+sources: [1706.03762-attention-is-all-you-need, d2l-attention-and-transformers, hands-on-llm-ch03-looking-inside-llms]
+last_updated: 2026-05-23
 ---
 
 # Positional Encoding
@@ -32,3 +32,14 @@ This finding has aged: many later models use learned positional embeddings or ro
 ## See also
 - [[Transformer]]
 - [[SelfAttention]]
+- [[RoPE]] — the modern relative-aware rotary scheme.
+- [[SequencePacking]] — the training-time pressure that motivated RoPE.
+
+## From [[hands-on-llm-ch03-looking-inside-llms|*Hands-On LLMs* Ch 3]]
+
+Ch 3 frames the move from **absolute** to **relative-aware** positional encodings as a response to two scaling pressures:
+
+1. **[[SequencePacking|Sequence packing]]** during training. Packing multiple short documents into one fixed-length context makes absolute position labels misleading at document boundaries: *"if Document 50 ... starts at position 50, then we'd be misinforming the model if we tell it that that first token is number 50 ... it would assume there's previous context while in reality the earlier tokens belong to a different and unrelated document."*
+2. **Model-scale efficiency**. *"Some challenges arise from such methods when we scale up models, which requires us to find ways to improve their efficiency."*
+
+The chapter's named alternative is **[[RoPE|rotary positional embeddings (RoPE)]]** — *"a method to encode positional information in a way that captures absolute and relative token position information. It is based on the idea of rotating vectors in their embeddings space."* RoPE is **applied at the attention step** (mixed into [[QueryProjection|queries]] and [[KeyProjection|keys]] just before relevance scoring) rather than added once at the input — a structural change from this page's "additive at the bottom of the stack" framing. The wiki's dedicated [[RoPE]] page covers the mechanism in depth.

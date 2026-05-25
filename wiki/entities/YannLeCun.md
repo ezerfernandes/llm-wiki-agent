@@ -2,8 +2,8 @@
 title: "Yann LeCun"
 type: entity
 tags: [person, researcher, cnn, deep-learning]
-sources: [d2l-convolutional-neural-networks]
-last_updated: 2026-05-16
+sources: [d2l-convolutional-neural-networks, ai-engineering-ch06-rag-agents]
+last_updated: 2024-12-04
 ---
 
 # Yann LeCun
@@ -31,3 +31,13 @@ French-American computer scientist; chief AI scientist at Meta (formerly Faceboo
 - [[LeonBottou]] — long-running collaborator; co-author on the deployed LeNet code.
 - [[MNIST]] — the dataset LeCun curated and on which LeNet established CNN credibility.
 - [[madewithml-foundations-cnn]] — Mohandas' applied take; LeCun's foundational work is the historical anchor.
+
+## From [[ai-engineering-ch06-rag-agents|AI Engineering Ch 6]]
+
+[[ChipHuyen|Huyen]] cites LeCun (as Meta's Chief AI Scientist) for his **unequivocal 2023 position that autoregressive LLMs cannot plan**. In Ch 6's planning section:
+
+> *"Meta's Chief AI Scientist Yann LeCun states unequivocally that autoregressive LLMs can't plan (2023)."*
+
+This is one of the two skeptic positions Huyen records (the other is [[SubbaraoKambhampati|Kambhampati]]'s); both are countered with [[ReasoningWithLanguageModelIsPlanningWithWorldModel|Hao et al. 2023]]'s *"LLMs contain a world model"* argument. Huyen does not adjudicate — the chapter's agnostic position is that *"it's unclear whether it's because we don't know how to use LLMs the right way or because LLMs, fundamentally, can't plan."*
+
+LeCun's broader research agenda — energy-based models, world models, JEPA (Joint Embedding Predictive Architecture) — is the AI-architectural alternative he proposes to autoregressive LLMs. His Ch 6 citation is the most-prominent wiki anchor for this position.

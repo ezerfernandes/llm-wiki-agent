@@ -1,9 +1,9 @@
 ---
 title: "Model Selection"
 type: concept
-tags: [learning-theory, methodology, foundational]
-sources: [mml-book, d2l-linear-regression]
-last_updated: 2026-05-16
+tags: [learning-theory, methodology, foundational, ai-engineering]
+sources: [mml-book, d2l-linear-regression, ai-engineering-ch04-evaluate-ai-systems]
+last_updated: 2024-12-04
 ---
 
 # Model Selection
@@ -44,3 +44,17 @@ Model selection is **not** parameter estimation. Parameter estimation (MLE / MAP
 - [[NoFreeLunchTheorem]] — why model selection requires a prior over model classes.
 - [[Overfitting]] — what model selection guards against.
 - [[BayesianLinearRegression]] — marginal-likelihood route to model selection.
+
+## From [[ai-engineering-ch04-evaluate-ai-systems|AI Engineering Ch 4]]
+
+Chip Huyen's *AI Engineering* repurposes "model selection" for the **foundation-model engineering** setting — where the question is not "what polynomial degree?" but "what foundation model for my application?" The classical ML-theory framing on this page is the parent concept; the AI-engineering specialization adds three structural ideas:
+
+1. **[[ModelSelectionWorkflow|Four-step workflow]]** — filter on [[HardModelAttribute|hard attributes]] → narrow with [[Leaderboard|leaderboards]] → run private experiments via [[EvaluationPipeline|your evaluation pipeline]] → monitor in production. Iterative.
+2. **[[HardModelAttribute|Hard]] vs [[SoftModelAttribute|soft]] attributes** — license, training data, model size, your privacy policy → hard (filter); accuracy, toxicity, factual consistency → soft (optimize within filter).
+3. **[[ModelBuildVsBuy|Build-vs-buy]] as the first filter** — seven axes: data privacy, data lineage, performance, functionality, cost, control, on-device. This single decision can cut your candidate pool by an order of magnitude.
+
+> "At the end of the day, you don't really care about which model is the best. You care about which model is the best for your applications."
+
+Huyen also distinguishes **per-technique re-application**: model selection runs many times during development, with different priorities depending on whether you're prompt-engineering (start with the strongest model overall) vs finetuning (start small, grow within hardware limits).
+
+The classical-ML and AI-engineering treatments of model selection share the *abductive* structure — both are inference-to-the-best-explanation given evidence. The AI-engineering treatment adds [[ParetoOptimization|Pareto optimization]] across multiple cost/quality axes that classical model selection often collapses into a single validation score.

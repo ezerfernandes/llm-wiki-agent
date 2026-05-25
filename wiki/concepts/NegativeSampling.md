@@ -2,8 +2,8 @@
 title: "Negative Sampling"
 type: concept
 tags: [nlp, embeddings, word2vec, approximate-training]
-sources: [d2l-nlp-pretraining]
-last_updated: 2026-05-16
+sources: [d2l-nlp-pretraining, hands-on-llm-ch02-tokens-and-embeddings]
+last_updated: 2026-05-23
 ---
 
 # Negative Sampling
@@ -17,3 +17,21 @@ $$-\log\sigma(\mathbf{u}_o^\top\mathbf{v}_c)-\sum_{k=1}^K\log\sigma(-\mathbf{u}_
 Without the negative samples the objective trivially blows up to all-vectors-infinite — they are essential to make the problem well-posed.
 
 The default training scheme for [[SkipGram]] / [[CBOW]] in the original word2vec code release, and for [[FastText]]. Counterpart: [[HierarchicalSoftmax]] ($\mathcal{O}(\log_2|\mathcal{V}|)$ per step). See [[d2l-nlp-pretraining]] §approx-training.
+
+## From [[hands-on-llm-ch02-tokens-and-embeddings|*Hands-On LLMs* Ch 2]]
+
+Ch 2 introduces negative sampling **without the math**, via the pedagogical motivation:
+
+> "If, however, we have a dataset of only a target value of 1, then a model can cheat and ace it by outputting 1 all the time. To get around this, we need to enrich our training dataset with examples of words that are not typically neighbors. These are called negative examples." — Ch 2
+
+The chapter's punchline on *how* to choose negative examples:
+
+> "It turns out that we don't have to be too scientific in how we choose the negative examples. A lot of useful models result from the simple ability to detect positive examples from randomly generated examples (inspired by an important idea called noise-contrastive estimation)." — Ch 2
+
+The pragmatic implementation is **random sampling from the vocabulary** (or, in the chapter's [[Word2VecRecommender|song-embedding example]], `negative=50` random songs per positive playlist co-occurrence in the [[Gensim]] `Word2Vec` constructor).
+
+Ch 2 also names skip-gram + negative sampling as the **prototype of contrastive training** more broadly:
+
+> "This idea of a model that takes two vectors and predicts if they have a certain relation is one of the most powerful ideas in machine learning, and time after time has proven to work very well with language models." — Ch 2
+
+— forward-referencing Ch 10 (sentence-embedding contrastive training) and Ch 9 (image-caption contrastive alignment).

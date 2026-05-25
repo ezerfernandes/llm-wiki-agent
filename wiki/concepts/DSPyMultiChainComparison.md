@@ -3,7 +3,7 @@ title: "DSPy MultiChainComparison"
 type: concept
 tags: [dspy, llm-programming, modules, ensembling, self-consistency]
 sources: [dspy-modules]
-last_updated: 2026-05-17
+last_updated: 2026-05-24
 ---
 
 # DSPy MultiChainComparison
@@ -43,6 +43,12 @@ The comparison-rather-than-vote distinction matters when the N candidate outputs
 - **First-class ensembling.** Self-consistency / majority-of-CoT is a well-known reliability boost for reasoning tasks; DSPy carries it as a built-in Module rather than leaving it as a user-implemented loop.
 - **Comparison strictly more expressive than voting.** A vote requires syntactic equality; a comparison can adjudicate on semantic equivalence — at the cost of an extra LM call.
 - **Signature-preserving.** Despite calling N+1 LMs internally, `dspy.MultiChainComparison` returns a `Prediction(...)` matching the user's declared Signature — the user-facing API is identical to `dspy.ChainOfThought`. This is another instance of the *swap-one-module-for-another-without-modifying-the-signature* portability claim.
+
+## Tutorials
+
+Tutorials that exercise this concept (roughly increasing depth):
+
+- [[dspy-async-tutorial]] — names `dspy.MultiChainComparison` in the async-surface taxonomy as one of the built-in Modules whose `acall()` form follows the same `forward → aforward` mirror as the other strategy modules; no standalone receipt.
 
 ## Connections
 

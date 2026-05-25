@@ -3,7 +3,7 @@ title: "DSPy Example"
 type: concept
 tags: [dspy, llm-programming, data, dataset, evaluation, example, primitive]
 sources: [dspy-data, dspy-modules, dspy-evaluation-overview]
-last_updated: 2026-05-17
+last_updated: 2026-05-24
 ---
 
 # DSPy Example
@@ -127,6 +127,16 @@ Three structural consequences flow from `Prediction(Example)`:
 | **Search** | [[DSPyOptimizers|Optimizer]] | [[dspy-optimizers]] (page 13, forward ref) |
 
 `Example` is the *data-input* primitive at the bottom-left of the framework's call stack — every [[DSPyModules|Module]] consumes one (or many) `Example`s via `.inputs()`-view kwargs, every [[DSPyMetrics|metric]] consumes one as ground truth, every [[DSPyOptimizers|Optimizer]] consumes a `list[dspy.Example]` as its training data.
+
+## Tutorials
+
+Tutorials that exercise this concept (roughly increasing depth):
+
+- [[dspy-conversation-history]] — `dspy.Example(..., history=dspy.History(messages=[...]))`: the canonical multi-turn shape; receipt demonstrates that `Example` accepts **any** typed field (here a structured [[DSPyHistory|`dspy.History`]] object), not just strings.
+- [[dspy-entity-extraction-tutorial]] — canonical HuggingFace → DSPy idiom: `[dspy.Example(tokens=row["tokens"], expected_extracted_people=extract_people(row)).with_inputs("tokens") for row in conll_dataset]`.
+- [[dspy-tool-use-tutorial]] — multi-field training-set shape: `dspy.Example(question=..., answer=..., functions=...).with_inputs("question", "functions")` over [[ToolHop]]; tags **two** fields as inputs.
+- [[dspy-tutorial-rag-as-agent]] — `dspy.Example(claim=..., titles=[...]).with_inputs("claim")` over [[HoVer]]; demonstrates list-valued label fields (a list of gold titles) consumed by a custom dual-mode `top5_recall` metric.
+- [[dspy-saving-tutorial]] — edge-case receipt for the `Prediction(Example)` inheritance: state-only `program.load(path)` materializes saved demos as plain Python `dict`s rather than typed `dspy.Example` instances — the only wiki tutorial that surfaces this serialization-side asymmetry.
 
 ## Connections
 

@@ -2,8 +2,8 @@
 title: "Sentiment Analysis"
 type: concept
 tags: [nlp, text-classification, application]
-sources: [d2l-nlp-applications]
-last_updated: 2026-05-16
+sources: [d2l-nlp-applications, hands-on-llm-ch04-text-classification]
+last_updated: 2026-05-23
 ---
 
 # Sentiment Analysis
@@ -30,3 +30,17 @@ Politics (public sentiment toward policies), finance (market sentiment), marketi
 - [[TextCNN]] / [[BidirectionalRNN]] / [[BERT]] / [[GloVe]] / [[LSTM]] — architectural ingredients.
 - [[IMDb]] — the canonical dataset.
 - [[d2l-nlp-applications]] §`sentiment-analysis-*` — the four worked-example sections.
+
+## From [[hands-on-llm-ch04-text-classification|*Hands-On LLMs* Ch 4]]
+
+Ch 4 uses **[[BinarySentimentClassification|binary sentiment classification]]** on the [[RottenTomatoes|Rotten Tomatoes]] dataset (5,331 positive + 5,331 negative movie reviews from Pang & Lee 2005, split 8,530 train / 1,066 validation / 1,066 test) as its **single benchmark task** across four pretrained-LLM classification regimes:
+
+| Regime | Model | F1 |
+|---|---|---|
+| [[TaskSpecificModel|Task-specific]] [[RoBERTa]] | [[TwitterRoBERTa]] | 0.80 |
+| [[EmbeddingModel|Embeddings]] + [[LogisticRegression]] | [[AllMPNetBaseV2]] + sklearn | 0.85 |
+| [[ZeroShotClassification|Zero-shot]] embeddings | [[AllMPNetBaseV2]] + [[CosineSimilarity]] | 0.78 |
+| [[GenerativeClassification|Generative]] encoder-decoder | [[FLANT5]]-small | 0.84 |
+| [[GenerativeClassification|Generative]] decoder-only | [[ChatGPT]] (gpt-3.5-turbo-0125) | 0.91 |
+
+The chapter is the wiki's **canonical practitioner-comparison table** for pretrained-LLM sentiment classification — complementing [[d2l-nlp-applications|D2L's]] architecture-level treatment (RNN / textCNN / BERT fine-tuning) with the *frozen-model* and *generative-model* regimes D2L predates.

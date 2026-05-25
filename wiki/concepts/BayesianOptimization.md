@@ -2,8 +2,8 @@
 title: "Bayesian Optimization"
 type: concept
 tags: [hyperparameter-tuning, optimization, hpo, bayesian]
-sources: [d2l-hyperparameter-optimization]
-last_updated: 2026-05-16
+sources: [d2l-hyperparameter-optimization, 2406.11695-mipro]
+last_updated: 2026-05-22
 ---
 
 # Bayesian Optimization
@@ -32,9 +32,24 @@ A sample-efficient global-optimization technique for expensive, noisy, derivativ
 
 Hybrid approaches like BOHB (Falkner et al. 2018) combine BO's sample efficiency with [[Hyperband]]'s multi-fidelity scheduling.
 
+## Bayesian Optimization in LM-program prompt search
+
+The [[2406.11695-mipro|MIPRO paper (Opsahl-Ong et al. 2024)]] uses BO **outside the classical HPO setting** — to search over discrete (instruction, demo-set) categorical parameters per module in a multi-stage [[LMProgram|LM program]]. Specifically:
+
+- **Search space**: categorical, $m \times 2$ dimensions (instruction-index × demo-set-index per module), tens to hundreds of candidate values per dimension.
+- **Surrogate**: multivariate [[TreeStructuredParzenEstimator|TPE]] via [[Optuna]] (Akiba et al. 2019, Falkner et al. 2018).
+- **Objective**: noisy mini-batch program score — *"Bayesian optimization is known for its robustness to noise, as it effectively incorporates uncertainty into the optimization process"* — which justifies mini-batch evaluation over the full trainset for amortized LM-call budget.
+- **Why surrogate-based not GP-based**: TPE handles categorical / hierarchical search spaces naturally; categorical inputs are the norm for prompt choice across modules.
+
+The paper's [[CreditAssignment|credit-assignment]] problem (no per-module labels) is what BO is structurally suited for: it learns the joint distribution of program score across per-module parameter choices, attributing credit *implicitly* via the surrogate's posterior over input dimensions.
+
 ## Connections
 
 - [[d2l-hyperparameter-optimization]] — the canonical D2L reference comparing BO to random search.
+- [[2406.11695-mipro]] — uses BO outside HPO, for LM-program prompt search.
+- [[MIPROv2|MIPRO]] — the LM-program optimizer with BO at its core.
+- [[TreeStructuredParzenEstimator]] — the specific surrogate MIPRO uses.
+- [[Optuna]] — MIPRO's BO implementation.
 - [[GaussianProcess]] — the most common BO surrogate; D2L's *Gaussian Processes* chapter ([[d2l-gaussian-processes]]) establishes the relevant math.
 - [[RandomSearch]] — the baseline BO outperforms after enough trials.
 - [[ASHA]] / [[SuccessiveHalving]] — orthogonal axes of HPO improvement (BO improves the *searcher*, ASHA improves the *scheduler*).

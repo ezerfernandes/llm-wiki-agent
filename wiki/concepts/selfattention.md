@@ -2,8 +2,8 @@
 title: "Self-Attention"
 type: concept
 tags: [attention, mechanism]
-sources: [1706.03762-attention-is-all-you-need, d2l-attention-and-transformers]
-last_updated: 2026-05-16
+sources: [1706.03762-attention-is-all-you-need, d2l-attention-and-transformers, hands-on-llm-ch01-introduction-to-llms, hands-on-llm-ch03-looking-inside-llms]
+last_updated: 2026-05-23
 ---
 
 # Self-Attention
@@ -43,3 +43,20 @@ A side benefit emphasized by the appendix of [[1706.03762-attention-is-all-you-n
 - [[Transformer]]
 - [[MultiHeadAttention]]
 - [[ScaledDotProductAttention]]
+
+## From [[hands-on-llm-ch01-introduction-to-llms|*Hands-On LLMs* Ch 1]]
+
+Ch 1's pedagogical framing: *"self-attention can attend to different positions within a single sequence, thereby more easily and accurately representing the input sequence. Instead of processing one token at a time, it can be used to look at the entire sequence in one go."* The chapter also contrasts encoder self-attention (bidirectional, sees forward + back) with decoder masked self-attention (causal — *"only attend to previous tokens to prevent 'looking into the future'"*) — the same distinction this page formalizes above, in the chapter's intuition-first style.
+
+## From [[hands-on-llm-ch03-looking-inside-llms|*Hands-On LLMs* Ch 3]]
+
+Ch 3 walks the self-attention mechanism in **two pedagogical steps**:
+
+1. **Relevance scoring**. *"The relevance scoring step of attention is conducted by multiplying the query vector of the current position with the keys matrix. This produces a score stating how relevant each previous token is. Passing that by a softmax operation normalizes these scores so they sum up to 1."*
+2. **Combining information**. *"Now that we have the relevance scores, we multiply the value vector associated with each token by that token's score. Summing up those resulting vectors produces the output of this attention step."*
+
+The chapter is explicit that **three projection matrices** ([[QueryProjection|query]] / [[KeyProjection|key]] / [[ValueProjection|value]]) are the learned attention parameters — each multiplied with the input to produce the per-position Q/K/V vectors that feed into the two-step computation above.
+
+Ch 3 also walks the **autoregressive / causal** framing in concrete pedagogical terms: *"this figure also shows the autoregressive nature of decoder Transformer blocks ... they can only pay attention to previous tokens. Contrast this to BERT, which can pay attention to both sides (hence the B in BERT stands for bidirectional)."* — the same masked-decoder distinction this page formalizes above.
+
+Ch 3's example — *"The dog chased the squirrel because it ___"* — illustrates attention's role: deciding whether *"it"* refers to *the dog* or *the squirrel* requires incorporating context, which is what self-attention does. *"In a trained Transformer LLM, the attention mechanism makes that determination. Attention adds information from the context into the representation of the 'it' token."*

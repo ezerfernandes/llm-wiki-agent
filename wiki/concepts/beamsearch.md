@@ -2,8 +2,8 @@
 title: "Beam Search"
 type: concept
 tags: [decoding, inference]
-sources: [1409.3215-seq2seq, d2l-recurrent-modern]
-last_updated: 2026-05-16
+sources: [1409.3215-seq2seq, d2l-recurrent-modern, ai-engineering-ch02-foundation-models]
+last_updated: 2024-12-04
 ---
 
 # Beam Search
@@ -48,3 +48,13 @@ For $|\mathcal{Y}|=10000$, $T'=10$: greedy $10^5$, exhaustive $10^{40}$. Beam se
 - [[EncoderDecoder]]
 - [[GreedyDecoding]] — beam search with $k=1$.
 - [[d2l-recurrent-modern]] — textbook exposition with length penalty + greedy/exhaustive comparison.
+
+## From [[ai-engineering-ch02-foundation-models|AI Engineering Ch 2]]
+
+[[ChipHuyen|Chip Huyen]] places beam search inside the [[TestTimeCompute|test-time compute]] family:
+
+> "Instead of generating all outputs independently, which might include many less promising candidates, you can use beam search to generate a fixed number of most promising candidates (the beam) at each step of sequence generation."
+
+In Ch 2's framing, beam search is **the structured alternative to [[bestofn|best-of-N]]** — instead of N independent draws and then picking, beam search prunes at every decode step to keep only the most-promising partial sequences. Trades exploration for exploitation along the sequence-generation axis.
+
+For modern LLMs Ch 2 notes that **sampling-based alternatives ([[Topk|top-k]], [[Topp|top-p]] / nucleus)** are now standard for open-ended generation, while beam search remains common for tasks with well-defined "correct" output (translation, summarization).

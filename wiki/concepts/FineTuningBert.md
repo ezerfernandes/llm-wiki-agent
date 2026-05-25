@@ -2,8 +2,8 @@
 title: "Fine-Tuning BERT"
 type: concept
 tags: [training, nlp, bert, transfer-learning, fine-tuning]
-sources: [d2l-nlp-applications]
-last_updated: 2026-05-16
+sources: [d2l-nlp-applications, hands-on-llm-ch11-fine-tuning-representation-models]
+last_updated: 2026-05-23
 ---
 
 # Fine-Tuning BERT
@@ -41,3 +41,22 @@ For the SNLI worked example, D2L provides a "bert.small" variant (256 hidden / 5
 - [[NaturalLanguageInference]] / [[SentimentAnalysis]] / [[QuestionAnswering]] / [[SemanticTextualSimilarity]] — downstream tasks.
 - [[SNLI]] / [[IMDb]] / [[SQuAD]] / [[CoLA]] — canonical datasets.
 - [[d2l-nlp-applications]] §`finetuning-bert` / §`natural-language-inference-bert` — D2L's canonical worked examples.
+
+## From [[hands-on-llm-ch11-fine-tuning-representation-models|*Hands-On LLMs* Ch 11]]
+
+Ch 11 is the **Hugging Face `Trainer` runnable instantiation** of this template, walking **four regimes** on the same `bert-base-cased` backbone:
+
+| Ch 11 regime | Implementation | Result on Rotten Tomatoes |
+|---|---|---|
+| Full supervised FT | `AutoModelForSequenceClassification` + [[Trainer]] + [[DataCollatorWithPadding]] | F1 = **0.85** |
+| [[LayerFreezing]] (head only) | Above + `param.requires_grad = False` on backbone | F1 = **0.63** |
+| [[LayerFreezing]] (blocks 10–11 + head) | Above + `param.requires_grad = False` for index `< 165` | F1 = **0.80** |
+| [[SetFit]] (few-shot) | [[ContrastiveLearning|Contrastive]] [[SentenceTransformers|SentenceTransformer]] FT + classifier head | F1 = **0.85** on 32 labels |
+| [[ContinuedPretraining]] + FT | [[MaskedLanguageModel|MLM]] adaptation via `AutoModelForMaskedLM` + [[DataCollatorForLanguageModeling]], then the supervised FT row | qualitative shift via [[FillMaskPipeline\|`fill-mask`]] |
+| [[NamedEntityRecognition]] (token-level) | `AutoModelForTokenClassification` + [[DataCollatorForTokenClassification]] + [[BIOTagging]] + [[LabelAlignment]] + [[seqeval]] | (the *"token-level tagging"* row of the D2L template above, instantiated end-to-end) |
+
+Ch 11's empirical contribution to the FineTuningBert page: full FT (all params trainable) reaches F1 = 0.85 in **one epoch** with `lr=2e-5`, `batch_size=16`, `weight_decay=0.01` — matching the D2L hyperparameter intuition (BERT fine-tuning works at `~1e-4` to `~2e-5` LRs for a few epochs). Layer-freezing experiments quantify the previously-loose claim that *"upper layers matter more"* — freezing blocks 0–9 leaves block 11 + head as the only trainable parameters and still reaches F1 = 0.80 in one epoch.
+
+> *"Compared to the embedding model approach, we will fine-tune both the representation model and the classification head as a single architecture."* — Ch 11. This is the **task-specific architecture** that differentiates Ch 11 from [[hands-on-llm-ch04-text-classification|Ch 4]]'s frozen approach.
+
+The chapter completes the D2L template's *"token-level tagging"* row with a runnable [[NamedEntityRecognition|NER]] pipeline on [[CoNLL2003|CoNLL-2003]] — using `AutoModelForTokenClassification` + the [[BIOTagging|BIO]] / [[LabelAlignment|subtoken-alignment]] machinery + [[seqeval|span-aware F1]].

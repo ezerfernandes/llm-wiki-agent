@@ -2,8 +2,8 @@
 title: "Learning Rate Warmup"
 type: concept
 tags: [optimization, training, deep-learning]
-sources: [d2l-optimization]
-last_updated: 2026-05-16
+sources: [d2l-optimization, hands-on-llm-ch12-fine-tuning-generation-models]
+last_updated: 2026-05-24
 ---
 
 # Learning Rate Warmup
@@ -44,3 +44,9 @@ Warmup composes with **any** decay schedule, not just cosine. The PyTorch idiom 
 - [[CosineLRSchedule]] — most common decay paired with warmup.
 - [[Adam]] — particularly benefits from warmup (bias-correction stability).
 - [[transformer|Transformer]] / [[BERT]] / [[T5]] / [[GPT]] — warmup is default in LLM pretraining.
+
+## From [[hands-on-llm-ch12-fine-tuning-generation-models|Hands-On LLMs Ch 12]]
+
+Ch 12 of *Hands-On LLMs* uses **`warmup_ratio=0.1`** in the DPO stage of its QLoRA recipe — a gentle ramp from 0 to the target LR (`1e-5`) over the first 10% of training steps. The chapter's pedagogical anchor: DPO updates are inherently **destabilizing if too large** (since they involve log-probability shifts relative to a frozen reference policy), and warmup gives the model a soft start before reaching the target rate.
+
+The Ch 12 DPO recipe is the wiki's first runnable case where the **`warmup_ratio`** parameter (as opposed to `warmup_steps`) is used — `warmup_ratio=0.1` automatically computes the warmup-step count from total steps, decoupling the warmup spec from the exact training-step count.

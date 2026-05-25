@@ -1,9 +1,9 @@
 ---
 title: "DSPy Predict"
 type: concept
-tags: [dspy, llm-programming, modules, primitive, framework]
-sources: [dspy-modules, dspy-signatures, dspy-language-models]
-last_updated: 2026-05-17
+tags: [dspy, llm-programming, modules, primitive, framework, async]
+sources: [dspy-modules, dspy-signatures, dspy-language-models, dspy-async-tutorial]
+last_updated: 2026-05-24
 ---
 
 # DSPy Predict
@@ -67,6 +67,17 @@ The taxonomic structure of [[DSPyModules|the Modules page]] is that every other 
 
 This is a **strong claim**: every prompting technique DSPy ships is decomposable to a Predict plus a signature-level expansion. The page asserts it but does not prove it; the wiki carries the claim as the page's headline structural commitment.
 
+## Async surface — `acall()`
+
+`dspy.Predict` exposes `acall()` as the async counterpart to `__call__`:
+
+```python
+predict = dspy.Predict("question -> answer")
+output  = await predict.acall(question="why did a chicken cross the kitchen?")
+```
+
+Because every other built-in [[DSPyModules|Module]] is built over `dspy.Predict`, **the async surface propagates automatically** — `dspy.ChainOfThought(...).acall(...)`, `dspy.ReAct(...).acall(...)`, etc. are all available without per-Module implementation. See [[DSPyAsync]] for the framework-wide pattern and [[dspy-async-tutorial]] for the canonical receipt.
+
 ## Position in the call stack
 
 `dspy.Predict` is the layer **above** the [[DSPyAdapters|Adapter]] and **below** every strategy-Module:
@@ -90,6 +101,19 @@ Calling `dspy.Predict(signature)(inputs)` skips the strategy expansion — it is
 - **The "no-op" Module is meaningful.** Unlike a no-op identity-function in NN-land, a no-op DSPy module is **already learnable** — its instructions, demonstrations, and LM-weight reference are state worth optimizing.
 - **The "start simple" recommendation lands here.** [[dspy-programming-overview|The Programming Overview's]] *start simple, then grow* discipline suggests starting with [[ChainOfThought|`dspy.ChainOfThought`]] (because it's almost always a quality upgrade over `dspy.Predict`), but `dspy.Predict` is the literal floor — when even CoT is too much, drop to Predict.
 
+## Tutorials
+
+Tutorials that exercise this concept (roughly increasing depth):
+
+- [[dspy-ai-text-game-tutorial]] — uses `dspy.Predict` (alongside `dspy.ChainOfThought`) as the entry-level primitive composed inside a `dspy.Module` subclass; smallest receipt of *signature → Predict → output*.
+- [[dspy-conversation-history]] — `dspy.Predict('question, history: dspy.History -> answer')` shows the `dspy.History` special-input plumbing through the bare Predict path with no strategy layer.
+- [[dspy-email-extraction-tutorial]] — four `dspy.Predict` instances composed sequentially inside one `dspy.Module`; each is the atomic optimization unit later tuned by `MIPROv2`.
+- [[dspy-streaming-tutorial]] — wraps `dspy.Predict` in `dspy.streamify(...)` and emits `StreamListener` events keyed by Predict output-field names, exercising the *Predict is the wire-format funnel* property.
+- [[dspy-saving-tutorial]] — saves and reloads a `dspy.Predict` instance: makes the *Predict carries instructions + demonstrations + LM-weight reference* claim concrete by persisting exactly those three things.
+- [[dspy-async-tutorial]] — canonical receipt of `predict.acall(...)`; demonstrates the async surface is rooted in `dspy.Predict` and propagates automatically to every higher-level Module.
+- [[dspy-tutorial-gepa-facility-support-analyzer]] — three-Predict-instance pipeline whose instructions are jointly optimized by `dspy.GEPA`; shows `named_predictors()` enumerating Predict instances as the unit of search.
+- [[dspy-tutorial-classification-finetuning]] — `dspy.BootstrapFinetune` mutates the LM-weight reference inside a `dspy.Predict`; the canonical receipt for *Predict as atomic unit of weight optimization*.
+
 ## Connections
 
 - [[DSPyModules]] — the parent abstraction; `dspy.Predict` is the minimal primitive Module.
@@ -103,3 +127,5 @@ Calling `dspy.Predict(signature)(inputs)` skips the strategy expansion — it is
 - [[DSPyPrediction]] — the return-object every `dspy.Predict` call produces.
 - [[BootstrapFinetune]] — the weight-tuning optimizer that updates `dspy.Predict`'s LM-weight reference.
 - [[DSPyProgrammingModel]] — `dspy.Predict` is the minimal embodiment of the *module-logic* concern.
+- [[DSPyAsync]] — `dspy.Predict.acall(...)` is the root async entry; every other Module's async surface inherits from this one. Cross-link.
+- [[dspy-async-tutorial]] — canonical source confirming `acall` is universal on built-in modules, rooted in `dspy.Predict`.

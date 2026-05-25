@@ -2,8 +2,8 @@
 title: "RNN"
 type: concept
 tags: [neural-networks, sequence-models, deep-learning]
-sources: [madewithml-baselines, madewithml-foundations-recurrent-neural-networks, d2l-recurrent-neural-networks, d2l-recurrent-modern]
-last_updated: 2026-05-16
+sources: [madewithml-baselines, madewithml-foundations-recurrent-neural-networks, d2l-recurrent-neural-networks, d2l-recurrent-modern, hands-on-llm-ch01-introduction-to-llms]
+last_updated: 2026-05-23
 ---
 
 # RNN

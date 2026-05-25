@@ -52,3 +52,21 @@ Every 2026 LLM paper in this wiki implicitly assumes a scaling-law regime: budge
 - [[ComputeEfficientTraining]]
 - [[Pretraining]]
 - [[Transformer]]
+- [[ChinchillaScalingLaw]] — the 2022 revision that updates the data-vs-params allocation toward 1:1.
+- [[ComputeOptimal]] — the goal Chinchilla operationalizes.
+- [[FLOPs]] — the budgeting unit.
+
+## From [[ai-engineering-ch02-foundation-models|AI Engineering Ch 2]]
+
+[[ChipHuyen|Chip Huyen]] in Ch 2 frames scaling laws as the **quantitative argument behind every modern foundation-model training run**:
+
+> "We've come a long way from when the training process was treated like alchemy."
+
+Ch 2 names two visible bottlenecks where the scaling-law extrapolation runs into the real world (see [[ScalingBottlenecks]]):
+1. **Training data** — Villalobos et al. project dataset-size growth outrunning new-data generation; 45% of [[c4|C4]] became restricted between 2023–2024 (Longpre et al.).
+2. **Electricity** — data centers go from 1–2% of global electricity to a projected 4–20% by 2030; at most ≈50× growth before a power shortage.
+
+Ch 2 also introduces:
+- **[[InverseScaling]]** — narrow but real exceptions where bigger models perform worse (Anthropic 2022 alignment finding; the NYU [[InverseScalingPrize]]).
+- **[[EmergentAbilities]]** (Wei et al. 2022) — capabilities discontinuously appearing at scale, making [[ScalingExtrapolation|scaling extrapolation]] from small models harder.
+- **The Llama inference-aware exception** — [[meta|Meta]] deliberately trained Llama models *smaller* than Chinchilla-optimal because smaller models are cheaper at inference time; Sardana et al. (2023) formalized this as **inference-aware scaling**.

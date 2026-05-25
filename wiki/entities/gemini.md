@@ -2,8 +2,8 @@
 title: "Gemini"
 type: entity
 tags: [model-family, multimodal, frontier, google, deepmind]
-sources: [2312.11805-gemini]
-last_updated: 2026-05-10
+sources: [2312.11805-gemini, 2603.19247-prompt-optimization-jailbreaking, ai-engineering-ch01-intro]
+last_updated: 2024-12-04
 ---
 
 # Gemini
@@ -26,3 +26,22 @@ Both variants share pre-training but diverge in post-training: instruction follo
 ## Place in the wiki
 
 Gemini is the second **substrate-defining** entry in the LLM corpus alongside [[1706.03762-attention-is-all-you-need]]. The 2017 paper defines the *architecture*; Gemini 1.0 defines the *frontier-multimodal-deployment template* — three-size family, native multimodality, [[RLHF]] flywheel, structured responsible-deployment review, [[DangerousCapabilities]] evaluation. Most 2026 agent papers in this wiki implicitly assume a Gemini-class base model when they discuss harnesses, memory, or skill verification.
+
+## From [[ai-engineering-ch01-intro|AI Engineering Ch 1]]
+
+[[ChipHuyen|Chip Huyen]] in *AI Engineering* Ch 1 uses Gemini as the **canonical case study for prompt-format-dependence in benchmark scores**. From the December 2023 Gemini technical report:
+
+| Model | Prompt format | MMLU |
+|---|---|---|
+| Gemini Ultra | CoT@32 | **90.04%** |
+| Gemini Pro | CoT@8 | 79.13% |
+| GPT-4 | 5-shot | 86.4% |
+| Gemini Ultra | 5-shot (matched) | 83.7% |
+
+Huyen's takeaway: *"Different prompts can cause models to perform very differently."* Google's claim that Gemini Ultra beats GPT-4 on MMLU only holds at CoT@32; at matched 5-shot, GPT-4 wins. This becomes Ch 1's anchor anecdote for the importance of **[[PromptEngineering|prompt engineering]] in [[Evaluation|evaluation]]**.
+
+Gemini is also Ch 1's primary example of a **natively multimodal [[FoundationModel|foundation model]]** that justifies the *"foundation model"* umbrella term over the narrower *"LLM"*.
+
+## In [[2603.19247-prompt-optimization-jailbreaking]]
+
+Gemini 2.5 Pro plays **two distinct roles in a single paper**: (i) one of four *target* LMs in the adaptive red-teaming grid — baseline danger **0.645** (the *highest* of the four targets; Gemini is the least safe-by-default at the seed prompts) → SIMBA 0.774; (ii) the [[GEPA]] *reflection model* generating prompt mutations against the other three targets. This dual role gives the paper a within-experiment robustness check: Gemini being both a reflection model and an attack target means any reflection-side bias would have to differentially help GEPA on non-Gemini targets and hurt on Gemini, which the table does not show.

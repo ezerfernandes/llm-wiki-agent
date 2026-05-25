@@ -2,8 +2,8 @@
 title: "AlexNet"
 type: concept
 tags: [deep-learning, cnn, architecture, computer-vision]
-sources: [d2l-convolutional-modern]
-last_updated: 2026-05-16
+sources: [d2l-convolutional-modern, ai-engineering-ch01-intro]
+last_updated: 2024-12-04
 ---
 
 # AlexNet
@@ -55,3 +55,12 @@ AlexNet's last two FC layers are matrices of size $6400\times4096$ and $4096\tim
 - [[ReLU]] / [[Dropout]] — the regularization/activation combo AlexNet popularized at scale.
 - [[VGG]] / [[NetworkInNetwork]] / [[GoogLeNet]] / [[ResNet]] — successors.
 - [[ConvolutionalLayer]] / [[MaxPooling]] / [[OneByOneConvolution]] — building blocks.
+
+## From [[ai-engineering-ch01-intro|AI Engineering Ch 1]]
+
+[[ChipHuyen|Chip Huyen]] in *AI Engineering* Ch 1 uses AlexNet as **the canonical supervised-learning anchor** — *"The model that started the deep learning revolution, AlexNet (Krizhevsky et al., 2012), was supervised."* Trained on [[ImageNet]] (1M images, 1000 categories), AlexNet exemplifies the **data-labeling-cost bottleneck** that [[SelfSupervision|self-supervision]] later dissolved:
+
+- 5¢ per image × 1M images = **$50,000** for ImageNet's labels.
+- $50M to scale to 1M categories (real-world coverage).
+
+This cost curve is exactly what made language models (which derive labels from the input itself) such a structural breakthrough: AlexNet's success required *manual* labels at every step; [[LargeLanguageModel|LLMs]] succeed by avoiding them. AlexNet thus sits as the **structural counterexample** that justifies the [[FoundationModel|foundation-model]] paradigm shift.

@@ -2,8 +2,8 @@
 title: "Backpropagation"
 type: concept
 tags: [deep-learning, optimization, vector-calculus, foundational]
-sources: [mml-book, d2l-preliminaries, d2l-multilayer-perceptrons, d2l-convolutional-neural-networks]
-last_updated: 2026-05-16
+sources: [mml-book, d2l-preliminaries, d2l-multilayer-perceptrons, d2l-convolutional-neural-networks, ai-engineering-ch07-finetuning]
+last_updated: 2026-05-23
 ---
 
 # Backpropagation
@@ -58,3 +58,29 @@ Backprop computes *gradients*; it does not update parameters. The downstream con
 - [[GradientDescent]] — what consumes backprop's output.
 - [[Autograd]] — the [[PyTorch]] implementation.
 - [[FlashAttention]] — recomputation strategy that saves backprop activations.
+
+## From [[ai-engineering-ch07-finetuning|AI Engineering Ch 7]]
+
+Ch 7 uses the **forward + backward pass decomposition** of backprop to motivate the [[MemoryBottleneck|memory bottleneck]] in finetuning — the chapter's central technical framing. [[ChipHuyen|Huyen]]'s simplified description:
+
+- **Forward pass**: compute output from input (the inference path).
+- **Backward pass**: compare prediction vs ground truth → compute [[Loss|loss]] → compute [[Gradient|gradient]] for each [[TrainableParameters|trainable parameter]] (derivative of loss w.r.t. each param) → use [[OptimizerState|optimizer]] (SGD / momentum / [[Adam]]) to convert gradient into a weight update.
+
+This decomposition is what derives the [[TrainingMemoryFormula|training-memory formula]]:
+
+> training memory = model weights + activations + gradients + optimizer states
+
+Each trainable parameter requires **1 gradient + 0–2 optimizer-state values** depending on optimizer: vanilla SGD = 0; momentum = 1; Adam = 2. For a 13B model in FP16 with Adam, gradients + optimizer states alone = 13B × 3 × 2 bytes = **78 GB** (typically dwarfing the 26 GB weight footprint).
+
+### Why training is harder than inference at low precision
+
+Ch 7's footnote on this point: *"During training, the model's weights are updated via multiple steps. Small rounding changes can compound during the training process, making it difficult for the model to achieve the desirable performance. On top of that, loss values require precise computation. Small changes in the loss value can point parameter updates in the wrong direction."*
+
+This is the **fundamental reason** [[QuantizationAwareTraining|QAT]] and [[MixedPrecisionTraining|mixed-precision]] training exist — you can't naively quantize during training the way you can for [[PostTrainingQuantization|PTQ]].
+
+### Alternatives Ch 7 mentions
+
+- **Evolutionary strategies** (Maheswaranathan et al.) — random search + surrogate gradients instead of real gradients.
+- **Direct feedback alignment** (Arild Nøkland, 2016) — alternative credit-assignment scheme.
+
+These remain experimental — backprop + variants of SGD remain "by far the most widely used" mechanism for transformer training.

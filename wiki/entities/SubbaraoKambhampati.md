@@ -2,8 +2,8 @@
 title: "Subbarao Kambhampati"
 type: entity
 tags: [person, researcher, planning, ai]
-sources: [2402.01817-llm-modulo]
-last_updated: 2026-05-10
+sources: [2402.01817-llm-modulo, ai-engineering-ch06-rag-agents]
+last_updated: 2024-12-04
 ---
 
 # Subbarao Kambhampati
@@ -21,3 +21,15 @@ Professor at the **School of Computing and AI, [[ArizonaStateUniversity]]** (Tem
 
 ## Sources in this wiki
 - [[2402.01817-llm-modulo]] — *Position: LLMs Can't Plan, But Can Help Planning in LLM-Modulo Frameworks* (ICML 2024)
+
+## From [[ai-engineering-ch06-rag-agents|AI Engineering Ch 6]]
+
+[[ChipHuyen|Huyen]] cites Kambhampati's *Can LLMs Really Reason and Plan?* (2023) article in Ch 6's planning section:
+
+> *"In the article 'Can LLMs Really Reason and Plan?' Kambhampati (2023) argues that LLMs are great at extracting knowledge but not planning. Kambhampati suggests that the papers claiming planning abilities of LLMs confuse general planning knowledge extracted from the LLMs with executable plans."*
+
+The Ch 6 quote that crystallizes Kambhampati's position:
+
+> *"The plans that come out of LLMs may look reasonable to the lay user, and yet lead to execution time interactions and errors."*
+
+This is the **plan-knowledge-vs-executable-plan** distinction at the heart of [[2402.01817-llm-modulo|LLM-Modulo]] — the wiki's existing primary entry for Kambhampati's position. Ch 6 records this skeptic position alongside [[YannLeCun|LeCun]]'s but doesn't adjudicate; Huyen counters with [[ReasoningWithLanguageModelIsPlanningWithWorldModel|Hao et al. 2023]] and notes empirical uncertainty.

@@ -2,8 +2,8 @@
 title: "Skip-Gram"
 type: concept
 tags: [nlp, embeddings, word2vec, self-supervised]
-sources: [d2l-nlp-pretraining]
-last_updated: 2026-05-16
+sources: [d2l-nlp-pretraining, hands-on-llm-ch02-tokens-and-embeddings]
+last_updated: 2026-05-23
 ---
 
 # Skip-Gram
@@ -15,3 +15,11 @@ $$P(w_o\mid w_c)=\frac{\exp(\mathbf{u}_o^\top\mathbf{v}_c)}{\sum_{i\in\mathcal{V
 The naive gradient sums over the full vocabulary $\mathcal{V}$, so practical training uses [[NegativeSampling]] or [[HierarchicalSoftmax]] to drop the cost from $\mathcal{O}(|\mathcal{V}|)$ to $\mathcal{O}(K)$ or $\mathcal{O}(\log|\mathcal{V}|)$ per step.
 
 In practice the **center-word vectors** $\mathbf{v}_i$ are taken as the final word representations. Skip-gram is the model [[GloVe]] reinterprets via global co-occurrence statistics, and the model [[FastText]] augments with character-$n$-gram [[SubwordEmbedding|subword embeddings]]. Counterpart: [[CBOW]] (the reverse — predict the center from the context). See [[d2l-nlp-pretraining]] §word2vec.
+
+## From [[hands-on-llm-ch02-tokens-and-embeddings|*Hands-On LLMs* Ch 2]]
+
+Ch 2 frames skip-gram as **the method of selecting neighboring words** that generates word2vec's training data: *"the central ideas are condensed here as we build on them when discussing one method for creating embeddings for recommendation engines in the following section."*
+
+The chapter's pedagogical simplification: instead of the full softmax-over-vocabulary formulation, **skip-gram + [[NegativeSampling|negative sampling]]** are presented as the canonical pair — *"With this, we've seen two of the main concepts of word2vec (Figure 2-14): skip-gram, the method of selecting neighboring words, and negative sampling, adding negative examples by random sampling from the dataset."*
+
+The chapter's [[Word2VecRecommender|song-embedding worked example]] uses the [[Gensim]] `Word2Vec` class with `window=20` (a much wider sliding window than the typical 2–5 used for natural-language text — playlists are short enough that any two co-occurring songs are reasonable similarity candidates).

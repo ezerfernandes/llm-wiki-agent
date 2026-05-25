@@ -2,8 +2,8 @@
 title: "Test-Time Scaling"
 type: concept
 tags: [ml-method, reasoning, inference]
-sources: [2512.04388-conductor, 2605.02396-heavyskill, 2605.08083-autotts]
-last_updated: 2026-05-15
+sources: [2512.04388-conductor, 2605.02396-heavyskill, 2605.08083-autotts, ai-engineering-ch02-foundation-models]
+last_updated: 2024-12-04
 ---
 
 # Test-Time Scaling
@@ -41,3 +41,14 @@ Improving inference-time performance by spending more compute per query — extr
 - [[bestofn|Best-of-N]] — width-only degenerate case.
 - [[selfconsistency|Self-Consistency]] — width + majority-vote degenerate case.
 - [[2402.01817-llm-modulo|LLM-Modulo]] — orthogonal lens: many TTS methods reduce to LLM-Modulo instances when the verifier is implicit (test suite, ground truth, soft critic).
+
+## From [[ai-engineering-ch02-foundation-models|AI Engineering Ch 2]]
+
+[[ChipHuyen|Chip Huyen]] uses the term **[[TestTimeCompute|test-time compute]]** (consistent with the research literature) for the same family. Two key Ch-2 data points:
+
+1. **OpenAI verifier result** (Cobbe et al. 2021): math-problem performance with a verifier ≈ **30× model-size increase**. A 100M-param model + verifier ≈ a 3B-param model without verifier.
+2. **DeepMind argument** (Snell et al. 2024): **scaling test-time compute can be more efficient than scaling parameters**.
+
+Ch 2 also flags the **saturation debate**: OpenAI's experiment peaks at ~400 samples (verifier gets fooled by adversarial outputs); Stanford's *Monkey Business* (Brown et al. 2024) reports log-linear improvement up to 10,000 samples. Both are recorded in the [[TestTimeCompute]] page.
+
+The Ch 2 production-engineering angle is the **latency-hedge use case**: TIFIN ([[KittipatKampa|Kittipat Kampa]]) generates multiple responses in parallel and shows the user the first one that completes and validates — leveraging test-time compute as a latency mitigation for slow chain-of-thought queries.
