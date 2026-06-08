@@ -2,8 +2,8 @@
 title: "Agentic RAG"
 type: concept
 tags: [rag, agents, advanced-rag, tool-use, autonomy]
-sources: [hands-on-llm-ch08-semantic-search-and-rag]
-last_updated: 2026-05-23
+sources: [hands-on-llm-ch08-semantic-search-and-rag, agentic-design-patterns-ch14-rag]
+last_updated: 2026-06-07
 ---
 
 # Agentic RAG
@@ -36,6 +36,21 @@ This is consistent with [[ai-engineering-ch06-rag-agents|Huyen Ch 6]]'s [[Compou
 | [[QueryRouting]] | High — multi-source selection | Read |
 | **Agentic RAG** | **Highest — full agent over tools** | **Read + write** |
 
+## From [[agentic-design-patterns-ch14-rag|Agentic Design Patterns (Gulli) Ch 14]]
+
+[[AntonioGulli|Gulli]] frames Agentic RAG as the evolution where an *"agent — a specialized AI component — acts as a critical **gatekeeper and refiner** of knowledge. Rather than passively accepting the initially retrieved data, this agent actively interrogates its quality, relevance, and completeness."* The contrast diagram (Fig.2) is stark: **Naive RAG** is a fixed pipeline (query → vectors → chunks → feed to model); **Agentic RAG** *"picks tools to call,"* fanning out to multiple sources before synthesizing.
+
+The chapter enumerates **four concrete scenarios** the agentic layer enables:
+
+| # | Capability | Worked example | Maps to pattern |
+|---|---|---|---|
+| 1 | **Reflection & source validation** | Discard a stale 2020 blog post in favor of the authoritative 2025 policy doc by analyzing metadata | [[Reflection]] |
+| 2 | **Reconcile knowledge conflicts** | Choose the finalized financial report (€65,000) over the initial proposal (€50,000) as the more reliable source | [[RAGEvaluation]] / [[EvaluationAndMonitoring]] |
+| 3 | **Multi-step reasoning** | Decompose "compare our product's features+pricing to Competitor X's" into distinct sub-queries, then synthesize a structured comparative context | [[Planning]] / [[MultiHopRAG]] |
+| 4 | **Identify knowledge gaps + use external tools** | Internal base (updated weekly) lacks yesterday's market reaction → activate a live web-search API | [[ToolUse]] / [[Routing]] |
+
+**Challenges Gulli names** (consistent with the wiki's [[CompoundErrorAccumulation|compound-error]] caveat): the agentic layer adds significant **complexity and cost** (decision logic + tool integrations = engineering effort + compute), increased **latency** from reflection/tool-use/multi-step cycles, and the agent itself as a **new error source** — *"a flawed reasoning process could cause it to get stuck in useless loops, misinterpret a task, or improperly discard relevant information."* This is the Gulli-book counterpart to Ch 8's *Hands-On LLMs* "agent capability cliff" — both warn that delegation buys reliability only when the underlying reasoning is strong enough.
+
 ## Connection to [[react|ReAct]]
 
 Agentic RAG is **structurally indistinguishable from a [[react|ReAct]] agent whose tool inventory includes retrieval**. The differences:
@@ -57,3 +72,5 @@ The distinction is operational rather than architectural — both are LLMs in a 
 - [[ai-engineering-ch06-rag-agents]] — Huyen Ch 6's *"RAG can be seen as a special case of agent where the retriever is a tool"* observation.
 - [[hands-on-llm-ch07-advanced-text-generation]] — Ch 7's prior agent-capability-cliff observation.
 - [[hands-on-llm-ch08-semantic-search-and-rag]] — primary source.
+- [[agentic-design-patterns-ch14-rag]] — [[AntonioGulli|Gulli's]] four-scenario "agent as knowledge gatekeeper" framing (reflection/source-validation, conflict reconciliation, multi-step decomposition, tool-augmented gap-filling).
+- [[Reflection]] / [[Planning]] / [[ToolUse]] / [[Routing]] / [[EvaluationAndMonitoring]] — the [[AgenticDesignPatterns|design patterns]] the four Agentic-RAG scenarios compose.

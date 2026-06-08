@@ -1,0 +1,1351 @@
+title	slug
+100 doors	rc-100-doors
+100 prisoners	rc-100-prisoners
+15 puzzle game	rc-15-puzzle-game
+21 game	rc-21-game
+24 game	rc-24-game
+24 game/Solve	rc-24-game-solve
+4-rings or 4-squares puzzle	rc-4-rings-or-4-squares-puzzle
+9 billion names of God the integer	rc-9-billion-names-of-god-the-integer
+99 bottles of beer	rc-99-bottles-of-beer
+A+B	rc-a-b
+Abbreviations, automatic	rc-abbreviations-automatic
+Abbreviations, easy	rc-abbreviations-easy
+Abbreviations, simple	rc-abbreviations-simple
+ABC correlation	rc-abc-correlation
+ABC problem	rc-abc-problem
+ABC words	rc-abc-words
+Abelian sandpile model	rc-abelian-sandpile-model
+Abelian sandpile model/Identity	rc-abelian-sandpile-model-identity
+Abundant odd numbers	rc-abundant-odd-numbers
+Accumulator factory	rc-accumulator-factory
+Achilles numbers	rc-achilles-numbers
+Aliquot sequence classifications	rc-aliquot-sequence-classifications
+Almkvist-Giullera formula for pi	rc-almkvist-giullera-formula-for-pi
+Amb	rc-amb
+Anadromes	rc-anadromes
+Anagram generator	rc-anagram-generator
+Anagrams/Deranged anagrams	rc-anagrams-deranged-anagrams
+Anaprimes	rc-anaprimes
+Angle difference between two bearings	rc-angle-difference-between-two-bearings
+Animated Spinners	rc-animated-spinners
+Anti-primes	rc-anti-primes
+Apply a digital filter (direct form II transposed)	rc-apply-a-digital-filter-direct-form-ii-transposed
+Approximate equality	rc-approximate-equality
+Apéry's constant	rc-ap-ry-s-constant
+Archimedean spiral	rc-archimedean-spiral
+Arena storage pool	rc-arena-storage-pool
+Arithmetic derivative	rc-arithmetic-derivative
+Arithmetic evaluation	rc-arithmetic-evaluation
+Arithmetic numbers	rc-arithmetic-numbers
+Arithmetic-geometric mean	rc-arithmetic-geometric-mean
+Arithmetic-geometric mean/Calculate Pi	rc-arithmetic-geometric-mean-calculate-pi
+Array length	rc-array-length
+Ascending primes	rc-ascending-primes
+ASCII art diagram converter	rc-ascii-art-diagram-converter
+Associative array/Merging	rc-associative-array-merging
+Attractive numbers	rc-attractive-numbers
+Autogram checker	rc-autogram-checker
+Average loop length	rc-average-loop-length
+Averages/Mean angle	rc-averages-mean-angle
+Averages/Pythagorean means	rc-averages-pythagorean-means
+Averages/Root mean square	rc-averages-root-mean-square
+AVL tree	rc-avl-tree
+Babbage problem	rc-babbage-problem
+Babylonian spiral	rc-babylonian-spiral
+Balanced brackets	rc-balanced-brackets
+Balanced ternary	rc-balanced-ternary
+Barnsley fern	rc-barnsley-fern
+Base64 decode data	rc-base64-decode-data
+Bell numbers	rc-bell-numbers
+Benford's law	rc-benford-s-law
+Berlekamp–Massey algorithm	rc-berlekamp-massey-algorithm
+Bernoulli's triangle	rc-bernoulli-s-triangle
+Bernstein basis polynomials	rc-bernstein-basis-polynomials
+Best shuffle	rc-best-shuffle
+Bifid cipher	rc-bifid-cipher
+Bin given limits	rc-bin-given-limits
+Binomial transform	rc-binomial-transform
+Bioinformatics/Base count	rc-bioinformatics-base-count
+Bioinformatics/Global alignment	rc-bioinformatics-global-alignment
+Bioinformatics/Sequence mutation	rc-bioinformatics-sequence-mutation
+Biorhythms	rc-biorhythms
+Bitcoin/address validation	rc-bitcoin-address-validation
+Bitcoin/public point to address	rc-bitcoin-public-point-to-address
+Bitwise IO	rc-bitwise-io
+Blossom algorithm	rc-blossom-algorithm
+Blum integer	rc-blum-integer
+Borůvka algorithm	rc-bor-vka-algorithm
+Boustrophedon transform	rc-boustrophedon-transform
+Box the compass	rc-box-the-compass
+Boyer-Moore string search	rc-boyer-moore-string-search
+Brazilian numbers	rc-brazilian-numbers
+Break OO privacy	rc-break-oo-privacy
+Brilliant numbers	rc-brilliant-numbers
+Bron–Kerbosch algorithm	rc-bron-kerbosch-algorithm
+Burrows–Wheeler transform	rc-burrows-wheeler-transform
+Calculating the value of e	rc-calculating-the-value-of-e
+Calkin-Wilf sequence	rc-calkin-wilf-sequence
+Call a function	rc-call-a-function
+Canonicalize CIDR	rc-canonicalize-cidr
+Cantor set	rc-cantor-set
+Cartesian product of two or more lists	rc-cartesian-product-of-two-or-more-lists
+Casting out nines	rc-casting-out-nines
+Catalan numbers/Pascal's triangle	rc-catalan-numbers-pascal-s-triangle
+Catamorphism	rc-catamorphism
+Centre and radius of a circle passing through 3 points in a plane	rc-centre-and-radius-of-a-circle-passing-through-3-points-in-a-plane
+Chaocipher	rc-chaocipher
+Chaos game	rc-chaos-game
+Check if a polygon overlaps with a rectangle	rc-check-if-a-polygon-overlaps-with-a-rectangle
+Check if two polygons overlap	rc-check-if-two-polygons-overlap
+Check input device is a terminal	rc-check-input-device-is-a-terminal
+Check Machin-like formulas	rc-check-machin-like-formulas
+Check output device is a terminal	rc-check-output-device-is-a-terminal
+Cheryl's birthday	rc-cheryl-s-birthday
+Chinese remainder theorem	rc-chinese-remainder-theorem
+Chinese zodiac	rc-chinese-zodiac
+Christofides algorithm	rc-christofides-algorithm
+Church numerals	rc-church-numerals
+Circles of given radius through two points	rc-circles-of-given-radius-through-two-points
+Cistercian numerals	rc-cistercian-numerals
+Closures/Value capture	rc-closures-value-capture
+Cocke–Younger–Kasami (CYK) Algorithm	rc-cocke-younger-kasami-cyk-algorithm
+Colorful numbers	rc-colorful-numbers
+Colour bars/Display	rc-colour-bars-display
+Colour pinstripe/Printer	rc-colour-pinstripe-printer
+Comma quibbling	rc-comma-quibbling
+Command-line arguments	rc-command-line-arguments
+Compare a list of strings	rc-compare-a-list-of-strings
+Compile-time calculation	rc-compile-time-calculation
+Compiler/AST interpreter	rc-compiler-ast-interpreter
+Compiler/code generator	rc-compiler-code-generator
+Compiler/lexical analyzer	rc-compiler-lexical-analyzer
+Compiler/Simple file inclusion pre processor	rc-compiler-simple-file-inclusion-pre-processor
+Compiler/syntax analyzer	rc-compiler-syntax-analyzer
+Compiler/virtual machine interpreter	rc-compiler-virtual-machine-interpreter
+Composite numbers k with no single digit factors whose factors are all substrings of k	rc-composite-numbers-k-with-no-single-digit-factors-whose-factors-are-all-substrings-of-k
+Conjugate transpose	rc-conjugate-transpose
+Continued fraction	rc-continued-fraction
+Continued fraction/Arithmetic/Construct from rational number	rc-continued-fraction-arithmetic-construct-from-rational-number
+Continued fraction/Arithmetic/G(matrix ng, continued fraction n)	rc-continued-fraction-arithmetic-g-matrix-ng-continued-fraction-n
+Convert decimal number to rational	rc-convert-decimal-number-to-rational
+Convert seconds to compound duration	rc-convert-seconds-to-compound-duration
+Copy stdin to stdout	rc-copy-stdin-to-stdout
+Count the coins	rc-count-the-coins
+Create an HTML table	rc-create-an-html-table
+CSV data manipulation	rc-csv-data-manipulation
+CSV to HTML translation	rc-csv-to-html-translation
+Cullen and Woodall numbers	rc-cullen-and-woodall-numbers
+Currency	rc-currency
+Currying	rc-currying
+Curzon numbers	rc-curzon-numbers
+Cut a rectangle	rc-cut-a-rectangle
+Cycles of a permutation	rc-cycles-of-a-permutation
+Cyclotomic polynomial	rc-cyclotomic-polynomial
+Damm algorithm	rc-damm-algorithm
+Dating agency	rc-dating-agency
+De Bruijn sequences	rc-de-bruijn-sequences
+De Polignac numbers	rc-de-polignac-numbers
+Deceptive numbers	rc-deceptive-numbers
+Decorate-sort-undecorate idiom	rc-decorate-sort-undecorate-idiom
+Deepcopy	rc-deepcopy
+Deming's funnel	rc-deming-s-funnel
+Department numbers	rc-department-numbers
+Descending primes	rc-descending-primes
+Detect division by zero	rc-detect-division-by-zero
+Determinant and permanent	rc-determinant-and-permanent
+Determine if a string has all the same characters	rc-determine-if-a-string-has-all-the-same-characters
+Determine if a string has all unique characters	rc-determine-if-a-string-has-all-unique-characters
+Determine if a string is collapsible	rc-determine-if-a-string-is-collapsible
+Determine if a string is squeezable	rc-determine-if-a-string-is-squeezable
+Determine if two triangles overlap	rc-determine-if-two-triangles-overlap
+Dice game probabilities	rc-dice-game-probabilities
+Digital root	rc-digital-root
+Disarium numbers	rc-disarium-numbers
+Display a linear combination	rc-display-a-linear-combination
+Display an outline as a nested table	rc-display-an-outline-as-a-nested-table
+Distance and Bearing	rc-distance-and-bearing
+Diversity prediction theorem	rc-diversity-prediction-theorem
+Doomsday rule	rc-doomsday-rule
+Dot product	rc-dot-product
+Draw a clock	rc-draw-a-clock
+Draw a rotating cube	rc-draw-a-rotating-cube
+Draw a sphere	rc-draw-a-sphere
+Duffinian numbers	rc-duffinian-numbers
+Dutch national flag problem	rc-dutch-national-flag-problem
+Earliest difference between prime gaps	rc-earliest-difference-between-prime-gaps
+Eban numbers	rc-eban-numbers
+Eertree	rc-eertree
+Egyptian division	rc-egyptian-division
+EKG sequence convergence	rc-ekg-sequence-convergence
+Elementary cellular automaton	rc-elementary-cellular-automaton
+Elementary cellular automaton/Infinite length	rc-elementary-cellular-automaton-infinite-length
+Elementary cellular automaton/Random number generator	rc-elementary-cellular-automaton-random-number-generator
+Elliptic curve arithmetic	rc-elliptic-curve-arithmetic
+Empty directory	rc-empty-directory
+Empty string	rc-empty-string
+Engel expansion	rc-engel-expansion
+Entropy/Narcissist	rc-entropy-narcissist
+Equal prime and composite sums	rc-equal-prime-and-composite-sums
+Equilibrium index	rc-equilibrium-index
+Erdös-Selfridge categorization of primes	rc-erd-s-selfridge-categorization-of-primes
+Erdős-Nicolas numbers	rc-erd-s-nicolas-numbers
+Erdős–Woods numbers	rc-erd-s-woods-numbers
+Esthetic numbers	rc-esthetic-numbers
+Euclid-Mullin sequence	rc-euclid-mullin-sequence
+Euclidean rhythm	rc-euclidean-rhythm
+Euler's identity	rc-euler-s-identity
+Euler's sum of powers conjecture	rc-euler-s-sum-of-powers-conjecture
+Even or odd	rc-even-or-odd
+Evolutionary algorithm	rc-evolutionary-algorithm
+Executable library	rc-executable-library
+Execute Brain****	rc-execute-brain
+Execute Computer/Zero	rc-execute-computer-zero
+Execute HQ9+	rc-execute-hq9
+Execute SNUSP	rc-execute-snusp
+Exponential digital sums	rc-exponential-digital-sums
+Exponentiation order	rc-exponentiation-order
+Exponentiation with infix operators in (or operating on) the base	rc-exponentiation-with-infix-operators-in-or-operating-on-the-base
+Extend your language	rc-extend-your-language
+Extreme floating point values	rc-extreme-floating-point-values
+Faces from a mesh	rc-faces-from-a-mesh
+Factorial base numbers indexing permutations of a collection	rc-factorial-base-numbers-indexing-permutations-of-a-collection
+Factorial primes	rc-factorial-primes
+Factorions	rc-factorions
+Factorize string into Lyndon words	rc-factorize-string-into-lyndon-words
+Fairshare between two and more	rc-fairshare-between-two-and-more
+Farey sequence	rc-farey-sequence
+Fast Fourier transform	rc-fast-fourier-transform
+FASTA format	rc-fasta-format
+Feigenbaum constant calculation	rc-feigenbaum-constant-calculation
+Fermat pseudoprimes	rc-fermat-pseudoprimes
+Fibonacci n-step number sequences	rc-fibonacci-n-step-number-sequences
+Fibonacci word	rc-fibonacci-word
+File extension is in extensions list	rc-file-extension-is-in-extensions-list
+File size distribution	rc-file-size-distribution
+Find Chess960 starting position identifier	rc-find-chess960-starting-position-identifier
+Find duplicate files	rc-find-duplicate-files
+Find if a point is within a triangle	rc-find-if-a-point-is-within-a-triangle
+Find limit of recursion	rc-find-limit-of-recursion
+Find palindromic numbers in both binary and ternary bases	rc-find-palindromic-numbers-in-both-binary-and-ternary-bases
+Find the intersection of a line with a plane	rc-find-the-intersection-of-a-line-with-a-plane
+Find the intersection of two lines	rc-find-the-intersection-of-two-lines
+Find the last Sunday of each month	rc-find-the-last-sunday-of-each-month
+Find the missing permutation	rc-find-the-missing-permutation
+First perfect square in base n with n unique digits	rc-first-perfect-square-in-base-n-with-n-unique-digits
+First power of 2 that has leading decimal digits of 12	rc-first-power-of-2-that-has-leading-decimal-digits-of-12
+First-class functions/Use numbers analogously	rc-first-class-functions-use-numbers-analogously
+Fivenum	rc-fivenum
+Fixed length records	rc-fixed-length-records
+Flatten a list	rc-flatten-a-list
+Flipping bits game	rc-flipping-bits-game
+Floyd's triangle	rc-floyd-s-triangle
+Forbidden numbers	rc-forbidden-numbers
+Four bit adder	rc-four-bit-adder
+Four is magic	rc-four-is-magic
+Four is the number of letters in the ...	rc-four-is-the-number-of-letters-in-the
+French Republican calendar	rc-french-republican-calendar
+Function prototype	rc-function-prototype
+Functional coverage tree	rc-functional-coverage-tree
+Fusc sequence	rc-fusc-sequence
+Gabow's algorithm	rc-gabow-s-algorithm
+Gapful numbers	rc-gapful-numbers
+Gauss-Jordan matrix inversion	rc-gauss-jordan-matrix-inversion
+Gaussian elimination	rc-gaussian-elimination
+Gaussian primes	rc-gaussian-primes
+Generate Chess960 starting position	rc-generate-chess960-starting-position
+Generate random chess position	rc-generate-random-chess-position
+Generator/Exponential	rc-generator-exponential
+Get system command output	rc-get-system-command-output
+Giuga numbers	rc-giuga-numbers
+Globally replace text in several files	rc-globally-replace-text-in-several-files
+Gosper's hack	rc-gosper-s-hack
+Gotchas	rc-gotchas
+Graph colouring	rc-graph-colouring
+Gray code	rc-gray-code
+Greatest prime dividing the n-th cubefree number	rc-greatest-prime-dividing-the-n-th-cubefree-number
+Greatest subsequential sum	rc-greatest-subsequential-sum
+Greedy algorithm for Egyptian fractions	rc-greedy-algorithm-for-egyptian-fractions
+Greyscale bars/Display	rc-greyscale-bars-display
+Hailstone sequence	rc-hailstone-sequence
+Halt and catch fire	rc-halt-and-catch-fire
+Hamiltonian Cycle via Chvátal Closure	rc-hamiltonian-cycle-via-chv-tal-closure
+Harmonic series	rc-harmonic-series
+Harriss Spiral	rc-harriss-spiral
+Harshad or Niven series	rc-harshad-or-niven-series
+Hash join	rc-hash-join
+Hashtron inference	rc-hashtron-inference
+Haversine formula	rc-haversine-formula
+Held–Karp algorithm	rc-held-karp-algorithm
+Hello world/Line printer	rc-hello-world-line-printer
+Hello world/Newbie	rc-hello-world-newbie
+Here document	rc-here-document
+Heronian triangles	rc-heronian-triangles
+Hex dump	rc-hex-dump
+Hex words	rc-hex-words
+Hickerson series of almost integers	rc-hickerson-series-of-almost-integers
+History variables	rc-history-variables
+Hofstadter Figure-Figure sequences	rc-hofstadter-figure-figure-sequences
+Hofstadter Q sequence	rc-hofstadter-q-sequence
+Hofstadter-Conway $10,000 sequence	rc-hofstadter-conway-10-000-sequence
+Honaker primes	rc-honaker-primes
+Honeycombs	rc-honeycombs
+Hopcroft-Karp Algorithm	rc-hopcroft-karp-algorithm
+Horner's rule for polynomial evaluation	rc-horner-s-rule-for-polynomial-evaluation
+Horse racing	rc-horse-racing
+I before E except after C	rc-i-before-e-except-after-c
+I'm a software engineer, get me out of here	rc-i-m-a-software-engineer-get-me-out-of-here
+Iccanobif primes	rc-iccanobif-primes
+Identity matrix	rc-identity-matrix
+Idiomatically determine all the characters that can be used for symbols	rc-idiomatically-determine-all-the-characters-that-can-be-used-for-symbols
+Idiomatically determine all the lowercase and uppercase letters	rc-idiomatically-determine-all-the-lowercase-and-uppercase-letters
+Idoneal numbers	rc-idoneal-numbers
+Imaginary base numbers	rc-imaginary-base-numbers
+Include a file	rc-include-a-file
+Inconsummate numbers in base 10	rc-inconsummate-numbers-in-base-10
+Increasing gaps between consecutive Niven numbers	rc-increasing-gaps-between-consecutive-niven-numbers
+Index finite lists of positive integers	rc-index-finite-lists-of-positive-integers
+Inner classes	rc-inner-classes
+Integer overflow	rc-integer-overflow
+Integer sequence	rc-integer-sequence
+Intersecting number wheels	rc-intersecting-number-wheels
+Inventory sequence	rc-inventory-sequence
+Inverted syntax	rc-inverted-syntax
+ISBN13 check digit	rc-isbn13-check-digit
+Isograms and heterograms	rc-isograms-and-heterograms
+Isqrt (integer square root) of X	rc-isqrt-integer-square-root-of-x
+Iterated digits squaring	rc-iterated-digits-squaring
+Jacobi symbol	rc-jacobi-symbol
+Jacobsthal numbers	rc-jacobsthal-numbers
+Jaro similarity	rc-jaro-similarity
+Jewels and stones	rc-jewels-and-stones
+Johnson's algorithm	rc-johnson-s-algorithm
+Jordan-Pólya numbers	rc-jordan-p-lya-numbers
+JSON	rc-json
+JSON pointer	rc-json-pointer
+Juggler sequence	rc-juggler-sequence
+Jump anywhere	rc-jump-anywhere
+Jury stability criterion	rc-jury-stability-criterion
+K-d tree	rc-k-d-tree
+Kaprekar numbers	rc-kaprekar-numbers
+Kernighans large earthquake problem	rc-kernighans-large-earthquake-problem
+Keyboard input/Obtain a Y or N response	rc-keyboard-input-obtain-a-y-or-n-response
+Kirkpatrick–Seidel algorithm	rc-kirkpatrick-seidel-algorithm
+Klarner-Rado sequence	rc-klarner-rado-sequence
+Knight's tour	rc-knight-s-tour
+Knuth's algorithm S	rc-knuth-s-algorithm-s
+Koch curve	rc-koch-curve
+Kolakoski sequence	rc-kolakoski-sequence
+Kosaraju	rc-kosaraju
+Lah numbers	rc-lah-numbers
+Largest int from concatenated ints	rc-largest-int-from-concatenated-ints
+Largest number divisible by its digits	rc-largest-number-divisible-by-its-digits
+Largest proper divisor of n	rc-largest-proper-divisor-of-n
+Last Friday of each month	rc-last-friday-of-each-month
+Last letter-first letter	rc-last-letter-first-letter
+Latin Squares in reduced form	rc-latin-squares-in-reduced-form
+Latin Squares in reduced form/Randomizing using Jacobson and Matthews' technique	rc-latin-squares-in-reduced-form-randomizing-using-jacobson-and-matthews-technique
+Law of cosines - triples	rc-law-of-cosines-triples
+Least common multiple	rc-least-common-multiple
+Least m such that n! + m is prime	rc-least-m-such-that-n-m-is-prime
+Left factorials	rc-left-factorials
+Levenshtein distance	rc-levenshtein-distance
+Levenshtein distance/Alignment	rc-levenshtein-distance-alignment
+List rooted trees	rc-list-rooted-trees
+Long literals, with continuations	rc-long-literals-with-continuations
+Long year	rc-long-year
+Longest common subsequence	rc-longest-common-subsequence
+Longest common substring	rc-longest-common-substring
+Longest increasing subsequence	rc-longest-increasing-subsequence
+Lucky and even lucky numbers	rc-lucky-and-even-lucky-numbers
+Lychrel numbers	rc-lychrel-numbers
+Lyndon word	rc-lyndon-word
+MAC vendor lookup	rc-mac-vendor-lookup
+Machine code	rc-machine-code
+Mad Libs	rc-mad-libs
+Magic 8-ball	rc-magic-8-ball
+Magic constant	rc-magic-constant
+Magic numbers	rc-magic-numbers
+Magic squares of doubly even order	rc-magic-squares-of-doubly-even-order
+Magic squares of odd order	rc-magic-squares-of-odd-order
+Magic squares of singly even order	rc-magic-squares-of-singly-even-order
+Map range	rc-map-range
+Matrix digital rain	rc-matrix-digital-rain
+Maximum triangle path sum	rc-maximum-triangle-path-sum
+Mayan calendar	rc-mayan-calendar
+McNuggets problem	rc-mcnuggets-problem
+MD4	rc-md4
+Meissel-Mertens constant	rc-meissel-mertens-constant
+Memory layout of a data structure	rc-memory-layout-of-a-data-structure
+Metallic ratios	rc-metallic-ratios
+Metaprogramming	rc-metaprogramming
+Metronome	rc-metronome
+Mian-Chowla sequence	rc-mian-chowla-sequence
+Middle three digits	rc-middle-three-digits
+Mind boggling card trick	rc-mind-boggling-card-trick
+Minimal steps down to 1	rc-minimal-steps-down-to-1
+Minimum multiple of m where digital sum equals m	rc-minimum-multiple-of-m-where-digital-sum-equals-m
+Minimum positive multiple in base 10 using only 0 and 1	rc-minimum-positive-multiple-in-base-10-using-only-0-and-1
+Minkowski question-mark function	rc-minkowski-question-mark-function
+Modified random distribution	rc-modified-random-distribution
+Modular arithmetic	rc-modular-arithmetic
+Modular exponentiation	rc-modular-exponentiation
+Modular inverse	rc-modular-inverse
+Monads/List monad	rc-monads-list-monad
+Monads/Maybe monad	rc-monads-maybe-monad
+Monads/Writer monad	rc-monads-writer-monad
+Motor	rc-motor
+Move-to-front algorithm	rc-move-to-front-algorithm
+Multi-dimensional array	rc-multi-dimensional-array
+Multifactorial	rc-multifactorial
+Multiple distinct objects	rc-multiple-distinct-objects
+Multisplit	rc-multisplit
+Multiton	rc-multiton
+Munchausen numbers	rc-munchausen-numbers
+Musical scale	rc-musical-scale
+Mutex	rc-mutex
+N-queens problem	rc-n-queens-problem
+Narcissist	rc-narcissist
+Narcissistic decimal number	rc-narcissistic-decimal-number
+Nautical bell	rc-nautical-bell
+Negative base numbers	rc-negative-base-numbers
+Nested function	rc-nested-function
+Nested templated data	rc-nested-templated-data
+Next highest int from digits	rc-next-highest-int-from-digits
+Nim game	rc-nim-game
+Non-transitive dice	rc-non-transitive-dice
+Nonoblock	rc-nonoblock
+Nonogram solver	rc-nonogram-solver
+Numbers divisible by their individual digits, but not by the product of their digits	rc-numbers-divisible-by-their-individual-digits-but-not-by-the-product-of-their-digits
+Numbers k such that the last letter of k is the same as the first letter of k+1	rc-numbers-k-such-that-the-last-letter-of-k-is-the-same-as-the-first-letter-of-k-1
+Numbers which are not the sum of distinct squares	rc-numbers-which-are-not-the-sum-of-distinct-squares
+Numbers which are the cube roots of the product of their proper divisors	rc-numbers-which-are-the-cube-roots-of-the-product-of-their-proper-divisors
+Numbers with equal rises and falls	rc-numbers-with-equal-rises-and-falls
+Numeric error propagation	rc-numeric-error-propagation
+Numerical and alphabetical suffixes	rc-numerical-and-alphabetical-suffixes
+O'Halloran numbers	rc-o-halloran-numbers
+Odd and square numbers	rc-odd-and-square-numbers
+Odd word problem	rc-odd-word-problem
+Old lady swallowed a fly	rc-old-lady-swallowed-a-fly
+Old Russian measure of length	rc-old-russian-measure-of-length
+One of n lines in a file	rc-one-of-n-lines-in-a-file
+One-time pad	rc-one-time-pad
+One-two primes	rc-one-two-primes
+OpenWebNet password	rc-openwebnet-password
+Operator precedence	rc-operator-precedence
+Order two numerical lists	rc-order-two-numerical-lists
+Ormiston pairs	rc-ormiston-pairs
+Ormiston triples	rc-ormiston-triples
+Own digits power sum	rc-own-digits-power-sum
+Padovan n-step number sequences	rc-padovan-n-step-number-sequences
+Padovan sequence	rc-padovan-sequence
+Pairs with common factors	rc-pairs-with-common-factors
+Palindrome dates	rc-palindrome-dates
+Palindromic gapful numbers	rc-palindromic-gapful-numbers
+Pan base non-primes	rc-pan-base-non-primes
+Pancake numbers	rc-pancake-numbers
+Pangram checker	rc-pangram-checker
+Paraffins	rc-paraffins
+Parse an IP Address	rc-parse-an-ip-address
+Parsing/RPN calculator algorithm	rc-parsing-rpn-calculator-algorithm
+Parsing/RPN to infix conversion	rc-parsing-rpn-to-infix-conversion
+Parsing/Shunting-yard algorithm	rc-parsing-shunting-yard-algorithm
+Particle fountain	rc-particle-fountain
+Pascal's triangle/Puzzle	rc-pascal-s-triangle-puzzle
+Passphrase generator	rc-passphrase-generator
+Password generator	rc-password-generator
+Pathological floating point problems	rc-pathological-floating-point-problems
+Peaceful chess queen armies	rc-peaceful-chess-queen-armies
+Pell numbers	rc-pell-numbers
+Penholodigital squares	rc-penholodigital-squares
+Penta-power prime seeds	rc-penta-power-prime-seeds
+Pentagram	rc-pentagram
+Pentomino tiling	rc-pentomino-tiling
+Perfect shuffle	rc-perfect-shuffle
+Perfect totient numbers	rc-perfect-totient-numbers
+Periodic table	rc-periodic-table
+Peripheral drift illusion	rc-peripheral-drift-illusion
+Perlin noise	rc-perlin-noise
+Permutations by swapping	rc-permutations-by-swapping
+Permutations/Derangements	rc-permutations-derangements
+Permutations/Rank of a permutation	rc-permutations-rank-of-a-permutation
+Phrase reversals	rc-phrase-reversals
+Pi to 1 million digits	rc-pi-to-1-million-digits
+Pig the dice game	rc-pig-the-dice-game
+Pig the dice game/Player	rc-pig-the-dice-game-player
+Pinstripe/Printer	rc-pinstripe-printer
+Piprimes	rc-piprimes
+Plasma effect	rc-plasma-effect
+Playfair cipher	rc-playfair-cipher
+Plot coordinate pairs	rc-plot-coordinate-pairs
+Poker hand analyser	rc-poker-hand-analyser
+Polyspiral	rc-polyspiral
+Population count	rc-population-count
+Pragmatic directives	rc-pragmatic-directives
+Prime numbers whose neighboring pairs are tetraprimes	rc-prime-numbers-whose-neighboring-pairs-are-tetraprimes
+Prime reciprocal sum	rc-prime-reciprocal-sum
+Prime triangle	rc-prime-triangle
+Primes: n*2^m+1	rc-primes-n-2-m-1
+Priority queue	rc-priority-queue
+Product of min and max prime factors	rc-product-of-min-and-max-prime-factors
+Pseudo-random numbers/Combined recursive generator MRG32k3a	rc-pseudo-random-numbers-combined-recursive-generator-mrg32k3a
+Pseudo-random numbers/Middle-square method	rc-pseudo-random-numbers-middle-square-method
+Pseudo-random numbers/PCG32	rc-pseudo-random-numbers-pcg32
+Pseudo-random numbers/Xorshift star	rc-pseudo-random-numbers-xorshift-star
+Punched cards	rc-punched-cards
+Pythagorean quadruples	rc-pythagorean-quadruples
+Pythagorean triples	rc-pythagorean-triples
+Quad-power prime seeds	rc-quad-power-prime-seeds
+Quaternion	rc-quaternion
+Quine	rc-quine
+Quine–McCluskey algorithm	rc-quine-mccluskey-algorithm
+Quoting constructs	rc-quoting-constructs
+Radical of an integer	rc-radical-of-an-integer
+Ramanujan's constant	rc-ramanujan-s-constant
+Ramer-Douglas-Peucker line simplification	rc-ramer-douglas-peucker-line-simplification
+Random Latin squares	rc-random-latin-squares
+Random number generator (device)	rc-random-number-generator-device
+Random number generator (included)	rc-random-number-generator-included
+Random sentence from book	rc-random-sentence-from-book
+Range consolidation	rc-range-consolidation
+Range expansion	rc-range-expansion
+Range extraction	rc-range-extraction
+Rate counter	rc-rate-counter
+Rational calculator	rc-rational-calculator
+Read a specific line from a file	rc-read-a-specific-line-from-a-file
+Recaman's sequence	rc-recaman-s-sequence
+Remove lines from a file	rc-remove-lines-from-a-file
+Rep-string	rc-rep-string
+Repeat	rc-repeat
+Repunit primes	rc-repunit-primes
+Resistor mesh	rc-resistor-mesh
+Reverse words in a string	rc-reverse-words-in-a-string
+Rhonda numbers	rc-rhonda-numbers
+Riordan numbers	rc-riordan-numbers
+RIPEMD-160	rc-ripemd-160
+Roman numerals/Decode	rc-roman-numerals-decode
+Roman numerals/Encode	rc-roman-numerals-encode
+Rosetta Code/Rank languages by number of users	rc-rosetta-code-rank-languages-by-number-of-users
+Round-robin tournament schedule	rc-round-robin-tournament-schedule
+Routh–Hurwitz stability criterion	rc-routh-hurwitz-stability-criterion
+RPG attributes generator	rc-rpg-attributes-generator
+Runge-Kutta method	rc-runge-kutta-method
+Runtime evaluation	rc-runtime-evaluation
+Runtime evaluation/In an environment	rc-runtime-evaluation-in-an-environment
+Ruth-Aaron numbers	rc-ruth-aaron-numbers
+Sailors, coconuts and a monkey problem	rc-sailors-coconuts-and-a-monkey-problem
+Same fringe	rc-same-fringe
+Schieber-Vishkin algorithm	rc-schieber-vishkin-algorithm
+Sealed classes and methods	rc-sealed-classes-and-methods
+Search in paragraph's text	rc-search-in-paragraph-s-text
+Selectively replace multiple instances of a character within a string	rc-selectively-replace-multiple-instances-of-a-character-within-a-string
+Self numbers	rc-self-numbers
+Self-describing numbers	rc-self-describing-numbers
+Semordnilap	rc-semordnilap
+Sequence: nth number with exactly n divisors	rc-sequence-nth-number-with-exactly-n-divisors
+Sequence: smallest number greater than previous term with exactly n divisors	rc-sequence-smallest-number-greater-than-previous-term-with-exactly-n-divisors
+Sequence: smallest number with exactly n divisors	rc-sequence-smallest-number-with-exactly-n-divisors
+Set consolidation	rc-set-consolidation
+Set of real numbers	rc-set-of-real-numbers
+Set right-adjacent bits	rc-set-right-adjacent-bits
+Set, the card game	rc-set-the-card-game
+SHA-1	rc-sha-1
+Shoelace formula for polygonal area	rc-shoelace-formula-for-polygonal-area
+Shortest common supersequence	rc-shortest-common-supersequence
+Show ASCII table	rc-show-ascii-table
+Show the epoch	rc-show-the-epoch
+Sierpinski pentagon	rc-sierpinski-pentagon
+Sierpinski triangle/Graphical	rc-sierpinski-triangle-graphical
+Simple turtle graphics	rc-simple-turtle-graphics
+Singular value decomposition	rc-singular-value-decomposition
+Sisyphus sequence	rc-sisyphus-sequence
+Smallest number k such that k+2^m is composite for all m less than k	rc-smallest-number-k-such-that-k-2-m-is-composite-for-all-m-less-than-k
+Smarandache-Wellin primes	rc-smarandache-wellin-primes
+Smith numbers	rc-smith-numbers
+Smith–Waterman algorithm	rc-smith-waterman-algorithm
+Soloway's recurring rainfall	rc-soloway-s-recurring-rainfall
+Solve a Hidato puzzle	rc-solve-a-hidato-puzzle
+Solve a Holy Knight's tour	rc-solve-a-holy-knight-s-tour
+Solve a Hopido puzzle	rc-solve-a-hopido-puzzle
+Solve a Numbrix puzzle	rc-solve-a-numbrix-puzzle
+Sorensen–Dice coefficient	rc-sorensen-dice-coefficient
+Sort an outline at every level	rc-sort-an-outline-at-every-level
+Sparkline in unicode	rc-sparkline-in-unicode
+Specific characters	rc-specific-characters
+Spelling of ordinal numbers	rc-spelling-of-ordinal-numbers
+Sphenic numbers	rc-sphenic-numbers
+Split a character string based on change of character	rc-split-a-character-string-based-on-change-of-character
+Square but not cube	rc-square-but-not-cube
+Square-free integers	rc-square-free-integers
+Stair-climbing puzzle	rc-stair-climbing-puzzle
+Start from a main routine	rc-start-from-a-main-routine
+Statistics/Normal distribution	rc-statistics-normal-distribution
+Stern-Brocot sequence	rc-stern-brocot-sequence
+Stirling numbers of the first kind	rc-stirling-numbers-of-the-first-kind
+Stirling numbers of the second kind	rc-stirling-numbers-of-the-second-kind
+Strassen's algorithm	rc-strassen-s-algorithm
+Stream merge	rc-stream-merge
+Strip control codes and extended characters from a string	rc-strip-control-codes-and-extended-characters-from-a-string
+Sub-unit squares	rc-sub-unit-squares
+Subleq	rc-subleq
+Substring/Top and tail	rc-substring-top-and-tail
+Suffixation of decimal numbers	rc-suffixation-of-decimal-numbers
+Sum and product puzzle	rc-sum-and-product-puzzle
+Sum digits of an integer	rc-sum-digits-of-an-integer
+Sum multiples of 3 and 5	rc-sum-multiples-of-3-and-5
+Sum of elements below main diagonal of matrix	rc-sum-of-elements-below-main-diagonal-of-matrix
+Sum to 100	rc-sum-to-100
+Summarize and say sequence	rc-summarize-and-say-sequence
+Summarize primes	rc-summarize-primes
+Super-d numbers	rc-super-d-numbers
+Super-Poulet numbers	rc-super-poulet-numbers
+Superellipse	rc-superellipse
+Superpermutation minimisation	rc-superpermutation-minimisation
+Sylvester's sequence	rc-sylvester-s-sequence
+Sync subtitles	rc-sync-subtitles
+Syntax highlighting using Mediawiki formatting	rc-syntax-highlighting-using-mediawiki-formatting
+Tarjan	rc-tarjan
+Tau function	rc-tau-function
+Teacup rim text	rc-teacup-rim-text
+Temperature conversion	rc-temperature-conversion
+Terminal control/Coloured text	rc-terminal-control-coloured-text
+Terminal control/Unicode output	rc-terminal-control-unicode-output
+Test integerness	rc-test-integerness
+Textonyms	rc-textonyms
+The Name Game	rc-the-name-game
+The Twelve Days of Christmas	rc-the-twelve-days-of-christmas
+Thue-Morse	rc-thue-morse
+Tonelli-Shanks algorithm	rc-tonelli-shanks-algorithm
+Top rank per group	rc-top-rank-per-group
+Topic variable	rc-topic-variable
+Topswops	rc-topswops
+Total circles area	rc-total-circles-area
+Trabb Pardo–Knuth algorithm	rc-trabb-pardo-knuth-algorithm
+Transliterate English text using the Greek alphabet	rc-transliterate-english-text-using-the-greek-alphabet
+Tree datastructures	rc-tree-datastructures
+Tree from nesting levels	rc-tree-from-nesting-levels
+Triangular numbers	rc-triangular-numbers
+Tropical algebra overloading	rc-tropical-algebra-overloading
+Truncate a file	rc-truncate-a-file
+Truth table	rc-truth-table
+Tupper's self-referential formula	rc-tupper-s-self-referential-formula
+Two bullet roulette	rc-two-bullet-roulette
+Two identical strings	rc-two-identical-strings
+Ukkonen’s suffix tree construction	rc-ukkonen-s-suffix-tree-construction
+Ultra useful primes	rc-ultra-useful-primes
+Unbias a random generator	rc-unbias-a-random-generator
+Undulating numbers	rc-undulating-numbers
+Unicode strings	rc-unicode-strings
+Universal Lambda Machine	rc-universal-lambda-machine
+Universal Turing machine	rc-universal-turing-machine
+Unix/ls	rc-unix-ls
+UPC	rc-upc
+Upside-down numbers	rc-upside-down-numbers
+URL decoding	rc-url-decoding
+URL encoding	rc-url-encoding
+URL parser	rc-url-parser
+UTF-8 encode and decode	rc-utf-8-encode-and-decode
+Validate International Securities Identification Number	rc-validate-international-securities-identification-number
+Van der Corput sequence	rc-van-der-corput-sequence
+Van Eck sequence	rc-van-eck-sequence
+Variable declaration reset	rc-variable-declaration-reset
+Vector products	rc-vector-products
+Verhoeff algorithm	rc-verhoeff-algorithm
+Video display modes	rc-video-display-modes
+Visitor pattern	rc-visitor-pattern
+Visualize a tree	rc-visualize-a-tree
+Vogel's approximation method	rc-vogel-s-approximation-method
+Voronoi diagram	rc-voronoi-diagram
+Wagstaff primes	rc-wagstaff-primes
+War card game	rc-war-card-game
+Wasteful, equidigital and frugal numbers	rc-wasteful-equidigital-and-frugal-numbers
+Water collected between towers	rc-water-collected-between-towers
+Wavelet Matrix	rc-wavelet-matrix
+Weiler-Atherton polygon clipping	rc-weiler-atherton-polygon-clipping
+Weird numbers	rc-weird-numbers
+Wolstenholme numbers	rc-wolstenholme-numbers
+Word frequency	rc-word-frequency
+Word ladder	rc-word-ladder
+Word search	rc-word-search
+Word wrap	rc-word-wrap
+Wordle comparison	rc-wordle-comparison
+World Cup group stage	rc-world-cup-group-stage
+Worthwhile task shaving	rc-worthwhile-task-shaving
+Write float arrays to a text file	rc-write-float-arrays-to-a-text-file
+Write language name in 3D ASCII	rc-write-language-name-in-3d-ascii
+Write to Windows event log	rc-write-to-windows-event-log
+Yellowstone sequence	rc-yellowstone-sequence
+Zeckendorf number representation	rc-zeckendorf-number-representation
+Zero to the zero power	rc-zero-to-the-zero-power
+Zhang-Suen thinning algorithm	rc-zhang-suen-thinning-algorithm
+Zsigmondy numbers	rc-zsigmondy-numbers
+15 puzzle solver	rc-15-puzzle-solver
+2048	rc-2048
+ADFGVX cipher	rc-adfgvx-cipher
+AKS test for primes	rc-aks-test-for-primes
+Abstract type	rc-abstract-type
+Abundant, deficient and perfect number classifications	rc-abundant-deficient-and-perfect-number-classifications
+Ackermann function	rc-ackermann-function
+Active Directory/Connect	rc-active-directory-connect
+Active Directory/Search for a user	rc-active-directory-search-for-a-user
+Active object	rc-active-object
+Add a variable to a class instance at runtime	rc-add-a-variable-to-a-class-instance-at-runtime
+Additive primes	rc-additive-primes
+Address of a variable	rc-address-of-a-variable
+Algebraic data types	rc-algebraic-data-types
+Align columns	rc-align-columns
+Almost prime	rc-almost-prime
+Amicable pairs	rc-amicable-pairs
+Anagrams	rc-anagrams
+Angles (geometric), normalization and conversion	rc-angles-geometric-normalization-and-conversion
+Animate a pendulum	rc-animate-a-pendulum
+Animation	rc-animation
+Anonymous recursion	rc-anonymous-recursion
+Append a record to the end of a text file	rc-append-a-record-to-the-end-of-a-text-file
+Apply a callback to an array	rc-apply-a-callback-to-an-array
+Arbitrary-precision integers (included)	rc-arbitrary-precision-integers-included
+Arithmetic/Complex	rc-arithmetic-complex
+Arithmetic/Integer	rc-arithmetic-integer
+Arithmetic/Rational	rc-arithmetic-rational
+Array concatenation	rc-array-concatenation
+Arrays	rc-arrays
+Assertions	rc-assertions
+Associative array/Creation	rc-associative-array-creation
+Associative array/Iteration	rc-associative-array-iteration
+Atomic updates	rc-atomic-updates
+Averages/Arithmetic mean	rc-averages-arithmetic-mean
+Averages/Mean time of day	rc-averages-mean-time-of-day
+Averages/Median	rc-averages-median
+Averages/Mode	rc-averages-mode
+Averages/Simple moving average	rc-averages-simple-moving-average
+Bernoulli numbers	rc-bernoulli-numbers
+Binary digits	rc-binary-digits
+Binary search	rc-binary-search
+Binary strings	rc-binary-strings
+Bitmap	rc-bitmap
+Bitmap/Bresenham's line algorithm	rc-bitmap-bresenham-s-line-algorithm
+Bitmap/Bézier curves/Cubic	rc-bitmap-b-zier-curves-cubic
+Bitmap/Bézier curves/Quadratic	rc-bitmap-b-zier-curves-quadratic
+Bitmap/Flood fill	rc-bitmap-flood-fill
+Bitmap/Histogram	rc-bitmap-histogram
+Bitmap/Midpoint circle algorithm	rc-bitmap-midpoint-circle-algorithm
+Bitmap/PPM conversion through a pipe	rc-bitmap-ppm-conversion-through-a-pipe
+Bitmap/Read a PPM file	rc-bitmap-read-a-ppm-file
+Bitmap/Read an image through a pipe	rc-bitmap-read-an-image-through-a-pipe
+Bitmap/Write a PPM file	rc-bitmap-write-a-ppm-file
+Bitwise operations	rc-bitwise-operations
+Boolean values	rc-boolean-values
+Brace expansion	rc-brace-expansion
+Brownian tree	rc-brownian-tree
+Bulls and cows	rc-bulls-and-cows
+Bulls and cows/Player	rc-bulls-and-cows-player
+Bézier curves/Intersections	rc-b-zier-curves-intersections
+CRC-32	rc-crc-32
+CUSIP	rc-cusip
+Caesar cipher	rc-caesar-cipher
+Calendar	rc-calendar
+Calendar - for "REAL" programmers	rc-calendar-for-real-programmers
+Call a foreign-language function	rc-call-a-foreign-language-function
+Call a function in a shared library	rc-call-a-function-in-a-shared-library
+Call an object method	rc-call-an-object-method
+Camel case and snake case	rc-camel-case-and-snake-case
+Canny edge detector	rc-canny-edge-detector
+Carmichael 3 strong pseudoprimes	rc-carmichael-3-strong-pseudoprimes
+Case-sensitivity of identifiers	rc-case-sensitivity-of-identifiers
+Catalan numbers	rc-catalan-numbers
+Catmull–Clark subdivision surface	rc-catmull-clark-subdivision-surface
+Character codes	rc-character-codes
+Chat server	rc-chat-server
+Check that file exists	rc-check-that-file-exists
+Checkpoint synchronization	rc-checkpoint-synchronization
+Chernick's Carmichael numbers	rc-chernick-s-carmichael-numbers
+Cholesky decomposition	rc-cholesky-decomposition
+Chowla numbers	rc-chowla-numbers
+Circular primes	rc-circular-primes
+Classes	rc-classes
+Closest-pair problem	rc-closest-pair-problem
+Collections	rc-collections
+Color of a screen pixel	rc-color-of-a-screen-pixel
+Color quantization	rc-color-quantization
+Color wheel	rc-color-wheel
+Colour pinstripe/Display	rc-colour-pinstripe-display
+Combinations	rc-combinations
+Combinations and permutations	rc-combinations-and-permutations
+Combinations with repetitions	rc-combinations-with-repetitions
+Commatizing numbers	rc-commatizing-numbers
+Comments	rc-comments
+Compare length of two strings	rc-compare-length-of-two-strings
+Compare sorting algorithms' performance	rc-compare-sorting-algorithms-performance
+Compound data type	rc-compound-data-type
+Concurrent computing	rc-concurrent-computing
+Conditional structures	rc-conditional-structures
+Consecutive primes with ascending or descending differences	rc-consecutive-primes-with-ascending-or-descending-differences
+Constrained genericity	rc-constrained-genericity
+Constrained random points on a circle	rc-constrained-random-points-on-a-circle
+Continued fraction/Arithmetic/G(matrix ng, continued fraction n1, continued fraction n2)	rc-continued-fraction-arithmetic-g-matrix-ng-continued-fraction-n1-continued-fraction-n2
+Convex hull	rc-convex-hull
+Conway's Game of Life	rc-conway-s-game-of-life
+Copy a string	rc-copy-a-string
+Count in factors	rc-count-in-factors
+Count in octal	rc-count-in-octal
+Count occurrences of a substring	rc-count-occurrences-of-a-substring
+Cramer's rule	rc-cramer-s-rule
+Create a file	rc-create-a-file
+Create a file on magnetic tape	rc-create-a-file-on-magnetic-tape
+Create a two-dimensional array at runtime	rc-create-a-two-dimensional-array-at-runtime
+Create an object at a given address	rc-create-an-object-at-a-given-address
+Cuban primes	rc-cuban-primes
+Cumulative standard deviation	rc-cumulative-standard-deviation
+Cyclops numbers	rc-cyclops-numbers
+DNS query	rc-dns-query
+Date format	rc-date-format
+Date manipulation	rc-date-manipulation
+Day of the week	rc-day-of-the-week
+Deal cards for FreeCell	rc-deal-cards-for-freecell
+Death Star	rc-death-star
+Deconvolution/1D	rc-deconvolution-1d
+Deconvolution/2D+	rc-deconvolution-2d
+Define a primitive data type	rc-define-a-primitive-data-type
+Delegates	rc-delegates
+Delete a file	rc-delete-a-file
+Determine if a string is numeric	rc-determine-if-a-string-is-numeric
+Determine if only one instance is running	rc-determine-if-only-one-instance-is-running
+Determine sentence type	rc-determine-sentence-type
+Digital root/Multiplicative digital root	rc-digital-root-multiplicative-digital-root
+Dijkstra's algorithm	rc-dijkstra-s-algorithm
+Dinesman's multiple-dwelling problem	rc-dinesman-s-multiple-dwelling-problem
+Dining philosophers	rc-dining-philosophers
+Discordian date	rc-discordian-date
+Distributed programming	rc-distributed-programming
+Distribution of 0 digits in factorial series	rc-distribution-of-0-digits-in-factorial-series
+Documentation	rc-documentation
+Dominoes	rc-dominoes
+Doubly-linked list/Definition	rc-doubly-linked-list-definition
+Doubly-linked list/Element definition	rc-doubly-linked-list-element-definition
+Doubly-linked list/Element insertion	rc-doubly-linked-list-element-insertion
+Doubly-linked list/Traversal	rc-doubly-linked-list-traversal
+Dragon curve	rc-dragon-curve
+Draw a cuboid	rc-draw-a-cuboid
+Draw a pixel	rc-draw-a-pixel
+Dynamic variable names	rc-dynamic-variable-names
+Echo server	rc-echo-server
+Element-wise operations	rc-element-wise-operations
+Elliptic Curve Digital Signature Algorithm	rc-elliptic-curve-digital-signature-algorithm
+Emirp primes	rc-emirp-primes
+Empty program	rc-empty-program
+Enforced immutability	rc-enforced-immutability
+Entropy	rc-entropy
+Enumerations	rc-enumerations
+Environment variables	rc-environment-variables
+Erdős-primes	rc-erd-s-primes
+Ethiopian multiplication	rc-ethiopian-multiplication
+Euler method	rc-euler-method
+Euler's constant 0.5772...	rc-euler-s-constant-0-5772
+Evaluate binomial coefficients	rc-evaluate-binomial-coefficients
+Events	rc-events
+Exceptions	rc-exceptions
+Exceptions/Catch an exception thrown in a nested call	rc-exceptions-catch-an-exception-thrown-in-a-nested-call
+Execute a Markov algorithm	rc-execute-a-markov-algorithm
+Execute a system command	rc-execute-a-system-command
+Experimental Verification of the NKT Law: Interpolating the Masses of 8 Planets Using NASA Data as of 30–31/12/2024	rc-experimental-verification-of-the-nkt-law-interpolating-the-masses-of-8-planets-using-nasa-data-as-of-30-31-12-2024
+Experimental Verification of the NKTg Law Using NASA Mercury Data in 2025	rc-experimental-verification-of-the-nktg-law-using-nasa-mercury-data-in-2025
+Experimental Verification of the NKTg Law Using NASA Neptune Data (2023–2024)	rc-experimental-verification-of-the-nktg-law-using-nasa-neptune-data-2023-2024
+Experimental Verification of the NKTg Law in Earth Orbit Based on NASA’s 2025 Earth Dataset	rc-experimental-verification-of-the-nktg-law-in-earth-orbit-based-on-nasa-s-2025-earth-dataset
+Exponentiation operator	rc-exponentiation-operator
+Extensible prime generator	rc-extensible-prime-generator
+FTP	rc-ftp
+Factorial	rc-factorial
+Factors of a Mersenne number	rc-factors-of-a-mersenne-number
+Factors of an integer	rc-factors-of-an-integer
+Faulhaber's formula	rc-faulhaber-s-formula
+Faulhaber's triangle	rc-faulhaber-s-triangle
+Fermat numbers	rc-fermat-numbers
+Fibonacci sequence	rc-fibonacci-sequence
+Fibonacci word/fractal	rc-fibonacci-word-fractal
+File input/output	rc-file-input-output
+File modification time	rc-file-modification-time
+File size	rc-file-size
+Filter	rc-filter
+Find common directory path	rc-find-common-directory-path
+Find largest left truncatable prime in a given base	rc-find-largest-left-truncatable-prime-in-a-given-base
+First class environments	rc-first-class-environments
+First-class functions	rc-first-class-functions
+Five weekends	rc-five-weekends
+FizzBuzz	rc-fizzbuzz
+Flow-control structures	rc-flow-control-structures
+Floyd-Warshall algorithm	rc-floyd-warshall-algorithm
+Forest fire	rc-forest-fire
+Fork	rc-fork
+Formal power series	rc-formal-power-series
+Formatted numeric output	rc-formatted-numeric-output
+Fortunate numbers	rc-fortunate-numbers
+Forward difference	rc-forward-difference
+Fractal tree	rc-fractal-tree
+Fraction reduction	rc-fraction-reduction
+Fractran	rc-fractran
+Function composition	rc-function-composition
+Function definition	rc-function-definition
+Function frequency	rc-function-frequency
+GSTrans string conversion	rc-gstrans-string-conversion
+GUI component interaction	rc-gui-component-interaction
+GUI enabling/disabling of controls	rc-gui-enabling-disabling-of-controls
+GUI/Maximum window dimensions	rc-gui-maximum-window-dimensions
+Galton box animation	rc-galton-box-animation
+Gamma function	rc-gamma-function
+General FizzBuzz	rc-general-fizzbuzz
+Generate lower case ASCII alphabet	rc-generate-lower-case-ascii-alphabet
+Generic swap	rc-generic-swap
+Go Fish	rc-go-fish
+Goldbach's comet	rc-goldbach-s-comet
+Golden ratio/Convergence	rc-golden-ratio-convergence
+Grayscale image	rc-grayscale-image
+Greatest common divisor	rc-greatest-common-divisor
+Greatest element of a list	rc-greatest-element-of-a-list
+Guess the number	rc-guess-the-number
+Guess the number/With feedback	rc-guess-the-number-with-feedback
+Guess the number/With feedback (player)	rc-guess-the-number-with-feedback-player
+HTTP	rc-http
+HTTPS	rc-https
+HTTPS/Authenticated	rc-https-authenticated
+HTTPS/Client-authenticated	rc-https-client-authenticated
+Hamming numbers	rc-hamming-numbers
+Handle a signal	rc-handle-a-signal
+Happy numbers	rc-happy-numbers
+Hash from two arrays	rc-hash-from-two-arrays
+Hello world/Graphical	rc-hello-world-graphical
+Hello world/Newline omission	rc-hello-world-newline-omission
+Hello world/Standard error	rc-hello-world-standard-error
+Hello world/Text	rc-hello-world-text
+Hello world/Web server	rc-hello-world-web-server
+Higher-order functions	rc-higher-order-functions
+Hilbert curve	rc-hilbert-curve
+Holidays related to Easter	rc-holidays-related-to-easter
+Home primes	rc-home-primes
+Horizontal sundial calculations	rc-horizontal-sundial-calculations
+Host introspection	rc-host-introspection
+Hostname	rc-hostname
+Hough transform	rc-hough-transform
+Huffman coding	rc-huffman-coding
+Humble numbers	rc-humble-numbers
+Hunt the Wumpus	rc-hunt-the-wumpus
+IBAN	rc-iban
+Image convolution	rc-image-convolution
+Image noise	rc-image-noise
+Increment a numerical string	rc-increment-a-numerical-string
+Infinity	rc-infinity
+Inheritance/Multiple	rc-inheritance-multiple
+Inheritance/Single	rc-inheritance-single
+Input loop	rc-input-loop
+Integer comparison	rc-integer-comparison
+Interactive programming (repl)	rc-interactive-programming-repl
+Introspection	rc-introspection
+Inverted index	rc-inverted-index
+Jaro-Winkler distance	rc-jaro-winkler-distance
+Jensen's Device	rc-jensen-s-device
+JortSort	rc-jortsort
+Josephus problem	rc-josephus-problem
+Joystick position	rc-joystick-position
+Julia set	rc-julia-set
+K-means++ clustering	rc-k-means-clustering
+Keyboard input/Flush the keyboard buffer	rc-keyboard-input-flush-the-keyboard-buffer
+Keyboard input/Keypress check	rc-keyboard-input-keypress-check
+Keyboard macros	rc-keyboard-macros
+Knapsack problem/0-1	rc-knapsack-problem-0-1
+Knapsack problem/Bounded	rc-knapsack-problem-bounded
+Knapsack problem/Continuous	rc-knapsack-problem-continuous
+Knapsack problem/Unbounded	rc-knapsack-problem-unbounded
+Knuth shuffle	rc-knuth-shuffle
+Knuth's power tree	rc-knuth-s-power-tree
+Kronecker product	rc-kronecker-product
+Kronecker product based fractals	rc-kronecker-product-based-fractals
+LU decomposition	rc-lu-decomposition
+LZW compression	rc-lzw-compression
+Langton's ant	rc-langton-s-ant
+Leap year	rc-leap-year
+Legendre prime counting function	rc-legendre-prime-counting-function
+Leonardo numbers	rc-leonardo-numbers
+Letter frequency	rc-letter-frequency
+Linear congruential generator	rc-linear-congruential-generator
+List comprehensions	rc-list-comprehensions
+Literals/Floating point	rc-literals-floating-point
+Literals/Integer	rc-literals-integer
+Literals/String	rc-literals-string
+Logical operations	rc-logical-operations
+Logistic curve fitting in epidemiology	rc-logistic-curve-fitting-in-epidemiology
+Long multiplication	rc-long-multiplication
+Long primes	rc-long-primes
+Longest string challenge	rc-longest-string-challenge
+Look-and-say sequence	rc-look-and-say-sequence
+Loop over multiple arrays simultaneously	rc-loop-over-multiple-arrays-simultaneously
+Loops/Break	rc-loops-break
+Loops/Continue	rc-loops-continue
+Loops/Do-while	rc-loops-do-while
+Loops/Downward for	rc-loops-downward-for
+Loops/For	rc-loops-for
+Loops/For with a specified step	rc-loops-for-with-a-specified-step
+Loops/Foreach	rc-loops-foreach
+Loops/Increment loop index within loop body	rc-loops-increment-loop-index-within-loop-body
+Loops/Infinite	rc-loops-infinite
+Loops/N plus one half	rc-loops-n-plus-one-half
+Loops/Nested	rc-loops-nested
+Loops/While	rc-loops-while
+Loops/With multiple ranges	rc-loops-with-multiple-ranges
+Loops/Wrong ranges	rc-loops-wrong-ranges
+Lucas-Lehmer test	rc-lucas-lehmer-test
+Ludic numbers	rc-ludic-numbers
+Luhn test of credit card numbers	rc-luhn-test-of-credit-card-numbers
+MD5	rc-md5
+MD5/Implementation	rc-md5-implementation
+Magnanimous numbers	rc-magnanimous-numbers
+Main step of GOST 28147-89	rc-main-step-of-gost-28147-89
+Make directory path	rc-make-directory-path
+Man or boy test	rc-man-or-boy-test
+Mandelbrot set	rc-mandelbrot-set
+Mastermind	rc-mastermind
+Matrix chain multiplication	rc-matrix-chain-multiplication
+Matrix multiplication	rc-matrix-multiplication
+Matrix transposition	rc-matrix-transposition
+Matrix-exponentiation operator	rc-matrix-exponentiation-operator
+Mayan numerals	rc-mayan-numerals
+Maze generation	rc-maze-generation
+Maze solving	rc-maze-solving
+Median filter	rc-median-filter
+Memory allocation	rc-memory-allocation
+Menu	rc-menu
+Merge and aggregate datasets	rc-merge-and-aggregate-datasets
+Mertens function	rc-mertens-function
+Metered concurrency	rc-metered-concurrency
+Miller-Rabin primality test	rc-miller-rabin-primality-test
+Minesweeper game	rc-minesweeper-game
+Monte Carlo methods	rc-monte-carlo-methods
+Monty Hall problem	rc-monty-hall-problem
+Morse code	rc-morse-code
+Motzkin numbers	rc-motzkin-numbers
+Mouse position	rc-mouse-position
+Multi-base primes	rc-multi-base-primes
+Multiple regression	rc-multiple-regression
+Multiplication tables	rc-multiplication-tables
+Multiplicative order	rc-multiplicative-order
+Munching squares	rc-munching-squares
+Mutual recursion	rc-mutual-recursion
+Möbius function	rc-m-bius-function
+N'th	rc-n-th
+N-smooth numbers	rc-n-smooth-numbers
+NKTgLaw	rc-nktglaw
+Named parameters	rc-named-parameters
+Naming conventions	rc-naming-conventions
+Natural sorting	rc-natural-sorting
+Non-continuous subsequences	rc-non-continuous-subsequences
+Non-decimal radices/Convert	rc-non-decimal-radices-convert
+Non-decimal radices/Input	rc-non-decimal-radices-input
+Non-decimal radices/Output	rc-non-decimal-radices-output
+Nth root	rc-nth-root
+Null object	rc-null-object
+Number names	rc-number-names
+Number reversal game	rc-number-reversal-game
+Numerical integration	rc-numerical-integration
+Numerical integration/Gauss-Legendre Quadrature	rc-numerical-integration-gauss-legendre-quadrature
+Numerical integration/Romberg integration	rc-numerical-integration-romberg-integration
+Numerical integration/Tanh-Sinh Quadrature	rc-numerical-integration-tanh-sinh-quadrature
+OLE automation	rc-ole-automation
+Object serialization	rc-object-serialization
+One-dimensional cellular automata	rc-one-dimensional-cellular-automata
+OpenGL	rc-opengl
+Optional parameters	rc-optional-parameters
+Order by pair comparisons	rc-order-by-pair-comparisons
+Order disjoint list items	rc-order-disjoint-list-items
+Ordered partitions	rc-ordered-partitions
+Ordered words	rc-ordered-words
+P-Adic numbers, basic	rc-p-adic-numbers-basic
+P-Adic square roots	rc-p-adic-square-roots
+P-value correction	rc-p-value-correction
+Palindrome detection	rc-palindrome-detection
+Palindromic primes in base 16	rc-palindromic-primes-in-base-16
+Parallel brute force	rc-parallel-brute-force
+Parallel calculations	rc-parallel-calculations
+Parameterized SQL statement	rc-parameterized-sql-statement
+Parametric polymorphism	rc-parametric-polymorphism
+Partial function application	rc-partial-function-application
+Partition an integer x into n primes	rc-partition-an-integer-x-into-n-primes
+Partition function P	rc-partition-function-p
+Pascal matrix generation	rc-pascal-matrix-generation
+Pascal's triangle	rc-pascal-s-triangle
+Peano curve	rc-peano-curve
+Pell's equation	rc-pell-s-equation
+Penney's game	rc-penney-s-game
+Percentage difference between images	rc-percentage-difference-between-images
+Percolation/Bond percolation	rc-percolation-bond-percolation
+Percolation/Mean cluster density	rc-percolation-mean-cluster-density
+Percolation/Mean run density	rc-percolation-mean-run-density
+Percolation/Site percolation	rc-percolation-site-percolation
+Perfect numbers	rc-perfect-numbers
+Permutation test	rc-permutation-test
+Permutations	rc-permutations
+Pernicious numbers	rc-pernicious-numbers
+Pi	rc-pi
+Pick random element	rc-pick-random-element
+Pierpont primes	rc-pierpont-primes
+Pinstripe/Display	rc-pinstripe-display
+Pisano period	rc-pisano-period
+Play recorded sounds	rc-play-recorded-sounds
+Playing cards	rc-playing-cards
+Pointers and references	rc-pointers-and-references
+Polymorphic copy	rc-polymorphic-copy
+Polymorphism	rc-polymorphism
+Polynomial long division	rc-polynomial-long-division
+Polynomial regression	rc-polynomial-regression
+Power set	rc-power-set
+Price fraction	rc-price-fraction
+Primality by Wilson's theorem	rc-primality-by-wilson-s-theorem
+Primality by trial division	rc-primality-by-trial-division
+Prime conspiracy	rc-prime-conspiracy
+Prime decomposition	rc-prime-decomposition
+Primes - allocate descendants to their ancestors	rc-primes-allocate-descendants-to-their-ancestors
+Primorial numbers	rc-primorial-numbers
+Probabilistic choice	rc-probabilistic-choice
+Problem of Apollonius	rc-problem-of-apollonius
+Program name	rc-program-name
+Program termination	rc-program-termination
+Proper divisors	rc-proper-divisors
+Pseudo-random numbers/Splitmix64	rc-pseudo-random-numbers-splitmix64
+Pythagoras tree	rc-pythagoras-tree
+QR decomposition	rc-qr-decomposition
+Queue/Definition	rc-queue-definition
+Queue/Usage	rc-queue-usage
+Quickselect algorithm	rc-quickselect-algorithm
+RCRPG	rc-rcrpg
+RSA code	rc-rsa-code
+Ramanujan primes/twins	rc-ramanujan-primes-twins
+Random numbers	rc-random-numbers
+Ranking methods	rc-ranking-methods
+Rare numbers	rc-rare-numbers
+Ray-casting algorithm	rc-ray-casting-algorithm
+Read a configuration file	rc-read-a-configuration-file
+Read a file character by character/UTF8	rc-read-a-file-character-by-character-utf8
+Read a file line by line	rc-read-a-file-line-by-line
+Read entire file	rc-read-entire-file
+Real constants and functions	rc-real-constants-and-functions
+Record sound	rc-record-sound
+Reduced row echelon form	rc-reduced-row-echelon-form
+Reflection/Get source	rc-reflection-get-source
+Reflection/List methods	rc-reflection-list-methods
+Reflection/List properties	rc-reflection-list-properties
+Regular expressions	rc-regular-expressions
+Remove duplicate elements	rc-remove-duplicate-elements
+Rename a file	rc-rename-a-file
+Rendezvous	rc-rendezvous
+Repeat a string	rc-repeat-a-string
+Respond to an unknown method call	rc-respond-to-an-unknown-method-call
+Retrieve and search chat history	rc-retrieve-and-search-chat-history
+Return multiple values	rc-return-multiple-values
+Reverse a string	rc-reverse-a-string
+Rock-paper-scissors	rc-rock-paper-scissors
+Roots of a function	rc-roots-of-a-function
+Roots of a quadratic function	rc-roots-of-a-quadratic-function
+Roots of unity	rc-roots-of-unity
+Rosetta Code/Count examples	rc-rosetta-code-count-examples
+Rosetta Code/Find bare lang tags	rc-rosetta-code-find-bare-lang-tags
+Rosetta Code/Find unimplemented tasks	rc-rosetta-code-find-unimplemented-tasks
+Rosetta Code/Fix code tags	rc-rosetta-code-fix-code-tags
+Rosetta Code/Rank languages by popularity	rc-rosetta-code-rank-languages-by-popularity
+Rot-13	rc-rot-13
+Run-length encoding	rc-run-length-encoding
+S-expressions	rc-s-expressions
+SEDOLs	rc-sedols
+SHA-256	rc-sha-256
+SHA-256 Merkle tree	rc-sha-256-merkle-tree
+SOAP	rc-soap
+SQL-based authentication	rc-sql-based-authentication
+Safe addition	rc-safe-addition
+Safe primes and unsafe primes	rc-safe-primes-and-unsafe-primes
+Scope modifiers	rc-scope-modifiers
+Scope/Function names and labels	rc-scope-function-names-and-labels
+Search a list	rc-search-a-list
+Search a list of records	rc-search-a-list-of-records
+Secure temporary file	rc-secure-temporary-file
+Semiprime	rc-semiprime
+Send an unknown method call	rc-send-an-unknown-method-call
+Send email	rc-send-email
+Sequence of non-squares	rc-sequence-of-non-squares
+Sequence of primes by trial division	rc-sequence-of-primes-by-trial-division
+Sequence of primorial primes	rc-sequence-of-primorial-primes
+Set	rc-set
+Set puzzle	rc-set-puzzle
+Seven-sided dice from five-sided dice	rc-seven-sided-dice-from-five-sided-dice
+Sexy primes	rc-sexy-primes
+Shell one-liner	rc-shell-one-liner
+Short-circuit evaluation	rc-short-circuit-evaluation
+Sierpinski arrowhead curve	rc-sierpinski-arrowhead-curve
+Sierpinski carpet	rc-sierpinski-carpet
+Sierpinski square curve	rc-sierpinski-square-curve
+Sierpinski triangle	rc-sierpinski-triangle
+Sieve of Eratosthenes	rc-sieve-of-eratosthenes
+Sieve of Pritchard	rc-sieve-of-pritchard
+Simple database	rc-simple-database
+Simple windowed application	rc-simple-windowed-application
+Simulate input/Keyboard	rc-simulate-input-keyboard
+Simulate input/Mouse	rc-simulate-input-mouse
+Singleton	rc-singleton
+Singly-linked list/Element definition	rc-singly-linked-list-element-definition
+Singly-linked list/Element insertion	rc-singly-linked-list-element-insertion
+Singly-linked list/Traversal	rc-singly-linked-list-traversal
+Sleep	rc-sleep
+Sleeping Beauty problem	rc-sleeping-beauty-problem
+Smarandache prime-digital sequence	rc-smarandache-prime-digital-sequence
+Snake	rc-snake
+Sockets	rc-sockets
+Sokoban	rc-sokoban
+Solve the no connection puzzle	rc-solve-the-no-connection-puzzle
+Sort a list of object identifiers	rc-sort-a-list-of-object-identifiers
+Sort an array of composite structures	rc-sort-an-array-of-composite-structures
+Sort an integer array	rc-sort-an-integer-array
+Sort disjoint sublist	rc-sort-disjoint-sublist
+Sort numbers lexicographically	rc-sort-numbers-lexicographically
+Sort stability	rc-sort-stability
+Sort three variables	rc-sort-three-variables
+Sort using a custom comparator	rc-sort-using-a-custom-comparator
+Sorting algorithms/Bead sort	rc-sorting-algorithms-bead-sort
+Sorting algorithms/Bogosort	rc-sorting-algorithms-bogosort
+Sorting algorithms/Bubble sort	rc-sorting-algorithms-bubble-sort
+Sorting algorithms/Circle sort	rc-sorting-algorithms-circle-sort
+Sorting algorithms/Cocktail sort	rc-sorting-algorithms-cocktail-sort
+Sorting algorithms/Cocktail sort with shifting bounds	rc-sorting-algorithms-cocktail-sort-with-shifting-bounds
+Sorting algorithms/Comb sort	rc-sorting-algorithms-comb-sort
+Sorting algorithms/Counting sort	rc-sorting-algorithms-counting-sort
+Sorting algorithms/Cycle sort	rc-sorting-algorithms-cycle-sort
+Sorting algorithms/Gnome sort	rc-sorting-algorithms-gnome-sort
+Sorting algorithms/Heapsort	rc-sorting-algorithms-heapsort
+Sorting algorithms/Insertion sort	rc-sorting-algorithms-insertion-sort
+Sorting algorithms/Merge sort	rc-sorting-algorithms-merge-sort
+Sorting algorithms/Pancake sort	rc-sorting-algorithms-pancake-sort
+Sorting algorithms/Patience sort	rc-sorting-algorithms-patience-sort
+Sorting algorithms/Permutation sort	rc-sorting-algorithms-permutation-sort
+Sorting algorithms/Quicksort	rc-sorting-algorithms-quicksort
+Sorting algorithms/Radix sort	rc-sorting-algorithms-radix-sort
+Sorting algorithms/Selection sort	rc-sorting-algorithms-selection-sort
+Sorting algorithms/Shell sort	rc-sorting-algorithms-shell-sort
+Sorting algorithms/Sleep sort	rc-sorting-algorithms-sleep-sort
+Sorting algorithms/Stooge sort	rc-sorting-algorithms-stooge-sort
+Sorting algorithms/Strand sort	rc-sorting-algorithms-strand-sort
+Soundex	rc-soundex
+Special characters	rc-special-characters
+Special variables	rc-special-variables
+Speech synthesis	rc-speech-synthesis
+Spinning rod animation/Text	rc-spinning-rod-animation-text
+Spiral matrix	rc-spiral-matrix
+Square form factorization	rc-square-form-factorization
+Stable marriage problem	rc-stable-marriage-problem
+Stack	rc-stack
+Stack traces	rc-stack-traces
+State name puzzle	rc-state-name-puzzle
+Statistics/Basic	rc-statistics-basic
+Steffensen's method	rc-steffensen-s-method
+Stem-and-leaf plot	rc-stem-and-leaf-plot
+Straddling checkerboard	rc-straddling-checkerboard
+String append	rc-string-append
+String case	rc-string-case
+String comparison	rc-string-comparison
+String concatenation	rc-string-concatenation
+String interpolation (included)	rc-string-interpolation-included
+String length	rc-string-length
+String matching	rc-string-matching
+String prepend	rc-string-prepend
+Strip a set of characters from a string	rc-strip-a-set-of-characters-from-a-string
+Strip block comments	rc-strip-block-comments
+Strip comments from a string	rc-strip-comments-from-a-string
+Strip whitespace from a string/Top and tail	rc-strip-whitespace-from-a-string-top-and-tail
+Strong and weak primes	rc-strong-and-weak-primes
+Substitution cipher	rc-substitution-cipher
+Substring	rc-substring
+Subtractive generator	rc-subtractive-generator
+Successive prime differences	rc-successive-prime-differences
+Sudan function	rc-sudan-function
+Sudoku	rc-sudoku
+Sum and product of an array	rc-sum-and-product-of-an-array
+Sum of a series	rc-sum-of-a-series
+Sum of squares	rc-sum-of-squares
+Sutherland-Hodgman polygon clipping	rc-sutherland-hodgman-polygon-clipping
+Symmetric difference	rc-symmetric-difference
+Synchronous concurrency	rc-synchronous-concurrency
+System time	rc-system-time
+Table creation/Postal addresses	rc-table-creation-postal-addresses
+Take notes on the command line	rc-take-notes-on-the-command-line
+Tau number	rc-tau-number
+Taxicab numbers	rc-taxicab-numbers
+Terminal control/Clear the screen	rc-terminal-control-clear-the-screen
+Terminal control/Cursor movement	rc-terminal-control-cursor-movement
+Terminal control/Cursor positioning	rc-terminal-control-cursor-positioning
+Terminal control/Dimensions	rc-terminal-control-dimensions
+Terminal control/Display an extended character	rc-terminal-control-display-an-extended-character
+Terminal control/Hiding the cursor	rc-terminal-control-hiding-the-cursor
+Terminal control/Inverse video	rc-terminal-control-inverse-video
+Terminal control/Positional read	rc-terminal-control-positional-read
+Terminal control/Preserve screen	rc-terminal-control-preserve-screen
+Terminal control/Ringing the terminal bell	rc-terminal-control-ringing-the-terminal-bell
+Ternary logic	rc-ternary-logic
+Test a function	rc-test-a-function
+Text processing/1	rc-text-processing-1
+Text processing/2	rc-text-processing-2
+Text processing/Max licenses in use	rc-text-processing-max-licenses-in-use
+The sieve of Sundaram	rc-the-sieve-of-sundaram
+Thiele's interpolation formula	rc-thiele-s-interpolation-formula
+Tic-tac-toe	rc-tic-tac-toe
+Time a function	rc-time-a-function
+Tokenize a string	rc-tokenize-a-string
+Tokenize a string with escaping	rc-tokenize-a-string-with-escaping
+Topological sort	rc-topological-sort
+Totient function	rc-totient-function
+Towers of Hanoi	rc-towers-of-hanoi
+Tree traversal	rc-tree-traversal
+Trigonometric functions	rc-trigonometric-functions
+Truncatable primes	rc-truncatable-primes
+Twelve statements	rc-twelve-statements
+Twin primes	rc-twin-primes
+Twin primes whose sum is square number	rc-twin-primes-whose-sum-is-square-number
+Two's complement	rc-two-s-complement
+Ulam spiral (for primes)	rc-ulam-spiral-for-primes
+Undefined values	rc-undefined-values
+Unicode variable names	rc-unicode-variable-names
+Unprimeable numbers	rc-unprimeable-numbers
+Untouchable numbers	rc-untouchable-numbers
+Update a configuration file	rc-update-a-configuration-file
+Use another language to call a function	rc-use-another-language-to-call-a-function
+User input/Graphical	rc-user-input-graphical
+User input/Text	rc-user-input-text
+Vampire number	rc-vampire-number
+Variable size/Get	rc-variable-size-get
+Variable size/Set	rc-variable-size-set
+Variable-length quantity	rc-variable-length-quantity
+Variables	rc-variables
+Variadic fixed-point combinator	rc-variadic-fixed-point-combinator
+Variadic function	rc-variadic-function
+Vector	rc-vector
+Verify distribution uniformity/Chi-squared test	rc-verify-distribution-uniformity-chi-squared-test
+Verify distribution uniformity/Naive	rc-verify-distribution-uniformity-naive
+Vigenère cipher	rc-vigen-re-cipher
+Vigenère cipher/Cryptanalysis	rc-vigen-re-cipher-cryptanalysis
+Walk a directory/Non-recursively	rc-walk-a-directory-non-recursively
+Walk a directory/Recursively	rc-walk-a-directory-recursively
+Walsh matrix	rc-walsh-matrix
+Web scraping	rc-web-scraping
+Wieferich primes	rc-wieferich-primes
+Wilson primes of order n	rc-wilson-primes-of-order-n
+Window creation	rc-window-creation
+Window creation/X11	rc-window-creation-x11
+Window management	rc-window-management
+Wireworld	rc-wireworld
+Word wheel	rc-word-wheel
+Wordiff	rc-wordiff
+Write entire file	rc-write-entire-file
+XML/DOM serialization	rc-xml-dom-serialization
+XML/Input	rc-xml-input
+XML/Output	rc-xml-output
+XML/XPath	rc-xml-xpath
+Xiaolin Wu's line algorithm	rc-xiaolin-wu-s-line-algorithm
+Y combinator	rc-y-combinator
+Yahoo! search interface	rc-yahoo-search-interface
+Yin and yang	rc-yin-and-yang
+Zebra puzzle	rc-zebra-puzzle
+Zeckendorf arithmetic	rc-zeckendorf-arithmetic
+Zig-zag matrix	rc-zig-zag-matrix
+Zumkeller numbers	rc-zumkeller-numbers

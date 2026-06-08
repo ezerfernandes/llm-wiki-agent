@@ -2,8 +2,8 @@
 title: "Warp"
 type: concept
 tags: [gpu, cuda, simt, hardware]
-sources: [parproc-ch05-cuda-gpu-programming]
-last_updated: 2026-05-17
+sources: [parproc-ch05-cuda-gpu-programming, mlsysbook-ch08-model-training]
+last_updated: 2026-06-05
 ---
 
 # Warp
@@ -31,4 +31,6 @@ A **warp** is a group of **32 threads** that the [[NVIDIA]] GPU hardware schedul
 - [[ThreadDivergence]] — what happens when threads in a warp branch differently.
 - [[MemoryCoalescing]] — half-warp consecutive-word access optimization.
 - [[StreamingMultiprocessor]] — the SM that schedules warps.
+- [[WaveQuantization]] — [[mlsysbook-ch08-model-training|mlsysbook Ch 8]]'s training-side consequence of the 32-thread quantum: a batch of 33 launches a second ~3%-utilized warp that takes a full step time (the "quantization tax"), so training batch sizes / hidden dims should be multiples of 32/64.
+- [[mlsysbook-ch08-model-training]] — applies the warp quantum to training batch-size selection (wave quantization).
 - [[parproc-ch05-cuda-gpu-programming]] — §5.4.2.1 / §5.4.2.3 / §5.6.

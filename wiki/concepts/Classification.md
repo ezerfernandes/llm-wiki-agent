@@ -2,8 +2,8 @@
 title: "Classification"
 type: concept
 tags: [supervised-learning, ml-task]
-sources: [d2l-introduction, d2l-linear-classification, islr-seventh-printing, mml-book]
-last_updated: 2026-05-16
+sources: [d2l-introduction, d2l-linear-classification, islr-seventh-printing, mml-ch12-classification-svm, mml-book]
+last_updated: 2026-06-05
 ---
 
 # Classification
@@ -27,9 +27,15 @@ Models can return *firm* class assignments ("cat") but these are hard to optimiz
 
 The most-likely class is **not necessarily** the right action. The chapter's death-cap example: a poisoning classifier says 80% safe, but eating the mushroom carries risk $0.2 \times \infty + 0.8 \times 0 = \infty$ vs discarding it $0.8 \times 1 = 0.8$. Action selection requires **expected loss** computation — the bridge to [[DecisionMakingUnderUncertainty|Bayesian decision theory]].
 
+## From [[mml-ch12-classification-svm|MML Ch 12]] — the geometric / loss-first treatment
+
+[[mml-ch12-classification-svm|MML Ch 12]] is MML's classification pillar, and it treats **binary** classification ($f:\mathbb{R}^D\to\{+1,-1\}$, Eq. 12.1) through the [[SupportVectorMachine|SVM]] — the *geometric / loss-function-first* counterpart to the probabilistic classifiers above. Rather than modeling $P(Y\mid\mathbf{x})$ and maximizing likelihood, the SVM designs a loss (the [[HingeLoss|hinge loss]], a convex upper bound on the otherwise-combinatorial zero-one loss) and minimizes it under [[EmpiricalRiskMinimization|ERM]] (§12.2.5). §12.6 explicitly contrasts this with the probabilistic route: the SVM "does not naturally lend itself to a probabilistic interpretation," and recovering a calibrated $P(Y=1\mid\mathbf{x})$ needs a separate step (Platt scaling) — whereas [[LogisticRegression|logistic regression]] is the maximum-likelihood method whose squashing is *already* calibrated. So the wiki's two classification framings — probabilistic (softmax/cross-entropy above) and geometric (SVM/hinge) — are the two halves of §12.6's closing discussion.
+
 ## Connections
 
 - [[SupervisedLearning]] — parent paradigm.
+- [[mml-ch12-classification-svm]] — MML's classification pillar (the SVM, geometric/loss-first).
+- [[SupportVectorMachine]] / [[HingeLoss]] — the geometric/loss-first binary classifier.
 - [[Regression]] — sibling supervised task (continuous labels).
 - [[LogisticRegression]] — simplest model for binary classification.
 - [[Softmax]] — multiclass probabilistic output.

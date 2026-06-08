@@ -2,8 +2,8 @@
 title: "Test-Time Compute"
 type: concept
 tags: [inference, sampling, llm, reasoning]
-sources: [ai-engineering-ch02-foundation-models]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch02-foundation-models, agentic-design-patterns-ch17-reasoning]
+last_updated: 2026-06-07
 ---
 
 # Test-Time Compute
@@ -51,8 +51,14 @@ How to pick the best output among N candidates:
 
 TIFIN (Kittipat Kampa, head of AI): generate multiple responses in parallel; **show the user the first response that completes and validates**. Test-time compute as a latency hedge for slow chain-of-thought queries.
 
+## Agentic Design Patterns (Gulli, Ch 17) framing
+
+[[agentic-design-patterns-ch17-reasoning|Chapter 17 of *Agentic Design Patterns*]] makes "the allocation of increased computational resources during inference" the **organizing principle** of its [[ReasoningTechniques|Reasoning Techniques]] pattern, and formalizes the test-time-compute trade-off as the [[ScalingInferenceLaw|Scaling Inference Law]] — a smaller model with a larger "thinking budget" can beat a larger model with a simpler generation process. Gulli names the same multi-candidate-generation strategies recorded above (diverse beam search, [[selfconsistency|self-consistency]] with a selection mechanism) as the canonical way to spend inference compute, and frames [[Reflection|self-correction]], [[TreeOfThoughts|ToT]], and [[DeepResearch|Deep Research]]'s time budget as instances of the same lever.
+
 ## Connections
 - [[testtimescaling]] — the same family under a different name; cross-link.
+- [[ScalingInferenceLaw]] — Ch 17's deployment-economics formalization of the test-time-compute trade-off.
+- [[ReasoningTechniques]] — the agentic pattern that makes inference-compute its organizing principle.
 - [[bestofn]] / [[beamsearch]] / [[selfconsistency]] — the named strategies.
 - [[Verifier]] / [[RewardModel]] — the selectors.
 - [[Logprobs]] — the most basic selector.

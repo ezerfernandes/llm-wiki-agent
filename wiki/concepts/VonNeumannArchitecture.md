@@ -2,8 +2,8 @@
 title: "Von Neumann Architecture"
 type: concept
 tags: [computer-architecture, foundational, stored-program]
-sources: [dis-5-1-history, dis-5-2-von-neumann, embedded-controllers-fiore]
-last_updated: 2026-05-17
+sources: [dis-5-1-history, dis-5-2-von-neumann, embedded-controllers-fiore, mlsysbook-ch11-hardware-acceleration]
+last_updated: 2026-06-05
 ---
 
 # Von Neumann Architecture

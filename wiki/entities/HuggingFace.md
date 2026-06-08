@@ -2,8 +2,8 @@
 title: "Hugging Face"
 type: entity
 tags: [company, model-hub, nlp]
-sources: [madewithml-mlops-training, madewithml-foundations-transformers, hands-on-llm-ch01-introduction-to-llms, hands-on-llm-ch02-tokens-and-embeddings, hands-on-llm-ch03-looking-inside-llms, hands-on-llm-ch04-text-classification, hands-on-llm-ch05-text-clustering-topic-modeling, ai-engineering-ch08-dataset-engineering, hands-on-llm-ch06-prompt-engineering, hands-on-llm-ch07-advanced-text-generation, hands-on-llm-ch09-multimodal-llms, hands-on-llm-ch11-fine-tuning-representation-models, hands-on-llm-ch12-fine-tuning-generation-models]
-last_updated: 2026-05-24
+sources: [madewithml-mlops-training, madewithml-foundations-transformers, hands-on-llm-ch01-introduction-to-llms, hands-on-llm-ch02-tokens-and-embeddings, hands-on-llm-ch03-looking-inside-llms, hands-on-llm-ch04-text-classification, hands-on-llm-ch05-text-clustering-topic-modeling, ai-engineering-ch08-dataset-engineering, hands-on-llm-ch06-prompt-engineering, hands-on-llm-ch07-advanced-text-generation, hands-on-llm-ch09-multimodal-llms, hands-on-llm-ch11-fine-tuning-representation-models, hands-on-llm-ch12-fine-tuning-generation-models, mlsysbook-ch13-model-serving]
+last_updated: 2026-06-05
 ---
 
 # Hugging Face
@@ -135,3 +135,7 @@ Two Hugging Face datasets anchor the worked recipes:
 - **[[DistilabelIntelOrcaDPOPairs|`argilla/distilabel-intel-orca-dpo-pairs`]]** — ~6,000 filtered triples for the DPO stage.
 
 The Ch 12 stack is the *"swap the trainer + dataset on top of the same QLoRA substrate"* pattern — `SFTTrainer` for SFT, `DPOTrainer` for DPO — making Hugging Face's interface the canonical end-to-end post-training pipeline for the **GPU-poor** practitioner the book targets. **Completes the 12-chapter ingest of *Hands-On LLMs***.
+
+## In [[mlsysbook-ch13-model-serving|mlsysbook Ch 13]]
+
+Ch 13 credits Hugging Face with creating **[[Safetensors]]** (2022) — a model format storing tensors as contiguous raw bytes with a minimal JSON header, enabling zero-copy memory-mapped loading **30–100× faster than pickle** (5 GB model: ~0.5 s vs ~15 s) and eliminating pickle's arbitrary-code-execution risk. For autoscaling serving fleets, this directly cuts [[ColdStart|cold start]]. See also [[mlsysbook-ch13-model-serving]].

@@ -2,8 +2,8 @@
 title: "KV Cache"
 type: concept
 tags: [llm-engineering, inference, attention]
-sources: [leh-ch08-inference-optimization, hands-on-llm-ch03-looking-inside-llms, ai-engineering-ch09-inference-optimization]
-last_updated: 2024-12-04
+sources: [leh-ch08-inference-optimization, hands-on-llm-ch03-looking-inside-llms, ai-engineering-ch09-inference-optimization, mlsysbook-ch06-network-architectures, mlsysbook-ch11-hardware-acceleration, mlsysbook-ch13-model-serving, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 ## Definition
@@ -41,6 +41,7 @@ In [[HuggingFace|Hugging Face]] Transformers, KV caching is **on by default** (`
 - [[multiqueryattention]] / [[GroupedQueryAttention]] — head-side optimizations that **shrink** the cache.
 - [[PagedAttention]] — the OS-paging-inspired memory layout for the cache.
 - [[StaticKVCache]] — the pre-allocated variant enabling [[TorchCompile]] fusion.
+- [[mlsysbook-ch06-network-architectures]] — frames the KV cache as the dominant memory consumer that makes [[Transformer]] inference *memory-bandwidth-bound*: it grows linearly $\mathcal{O}(N_L \cdot 2 \cdot N_{\text{heads}} \cdot S \cdot d_{\text{head}})$ (distinct from the $\mathcal{O}(S^2)$ training matrix); ~1 GB/request for a 32-layer/32-head/2048-token FP16 model — rivaling weight memory at modest concurrency, the final "Fallacies & Pitfalls" warning.
 
 ## From [[ai-engineering-ch09-inference-optimization|AI Engineering Ch 9]]
 
@@ -82,3 +83,7 @@ Ch 9 groups attention/KV-cache optimization into three buckets:
 ### Training vs inference
 
 > *"A KV cache is used only during inference, not training. During training, because all tokens in a sequence are known in advance, next token generation can be computed all at once instead of sequentially."* — Ch 9
+
+## From [[mlsysbook-ch13-model-serving|mlsysbook Ch 13]]
+
+Ch 13 treats the KV cache as **the dominant serving bottleneck for LLMs**: it is the *stateful* memory that distinguishes [[LLMServing|LLM serving]] from fixed-output serving, growing with every generated token and creating dynamic memory pressure (and fragmentation, addressed by [[PagedAttention]]). In the 70B-class figure, batch-32 hits the 80 GB OOM zone at just 8k context — forcing a hard batch-size-vs-context trade-off. **Memory capacity bounds concurrency; bandwidth bounds decode latency.** [[PrefixCaching]] reuses the KV state of shared prefixes, and KV-cache offloading spills inactive context to host RAM/NVMe to prevent OOM. [[ContinuousBatching]] must dynamically allocate/free the cache as sequences enter and exit. For 8B Llama 3 (GQA, INT4), ~0.31 MB/token at FP16 / much less at INT4 ⇒ ~2.2M tokens in 72 GB. See also [[mlsysbook-ch13-model-serving]].

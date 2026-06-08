@@ -2,8 +2,8 @@
 title: "Empirical Risk Minimization"
 type: concept
 tags: [foundational, learning-theory, optimization]
-sources: [pml1-murphy, mml-book, d2l-linear-regression, d2l-linear-classification]
-last_updated: 2026-05-16
+sources: [pml1-murphy, mml-book, mml-ch08-when-models-meet-data, d2l-linear-regression, d2l-linear-classification]
+last_updated: 2026-06-04
 ---
 
 # Empirical Risk Minimization (ERM)
@@ -39,6 +39,17 @@ The standard mitigation is train/validation/test partition with model selection 
 ## Cross-reference: [[mml-book]] §8.2
 
 [[mml-book]] reaches the same definition from the mathematical-foundations side. The four design choices in §8.2 — (i) hypothesis class of functions, (ii) loss function for training, (iii) regularization to construct predictors that perform well on unseen data, (iv) search procedure over the space of models — mirror Murphy's framing, and use ERM as the introductory route to [[SupportVectorMachine|SVMs]] in [[mml-book]] Ch 12. The two corpora agree: ERM is the operational definition of supervised learning before any probabilistic framing.
+
+## From [[mml-ch08-when-models-meet-data|MML Ch 8]]
+
+[[mml-ch08-when-models-meet-data|MML Ch 8]] §8.2 develops ERM as the *non-probabilistic* answer to "what is learning?", structured around the **four design choices** (one subsection each):
+
+1. **[[HypothesisClass|Hypothesis class]]** (§8.2.1) — the parametrized set of functions $f(\cdot,\boldsymbol\theta)$ the predictor may take (canonically affine functions, with the bias-augmentation trick $\mathbf{x}_n=[1,x_n^{(1)},\dots]^\top$ so $f=\boldsymbol\theta^\top\mathbf{x}_n$).
+2. **[[LossFunction|Loss function]]** (§8.2.2) — $\ell(y_n,\hat y_n)\ge 0$; the [[EmpiricalRisk|empirical risk]] $\mathbf{R}_{\text{emp}}(f,\mathbf{X},\mathbf{y})=\frac1N\sum_n\ell(y_n,\hat y_n)$ (Eq. 8.6) is its average over the (i.i.d.) training set, and ERM minimizes it. Squared loss → the least-squares problem $\min_{\boldsymbol\theta}\frac1N\|\mathbf{y}-\mathbf{X}\boldsymbol\theta\|^2$ (Eq. 8.9).
+3. **[[Regularization|Regularization]]** (§8.2.3) — a penalty $+\lambda\|\boldsymbol\theta\|^2$ (Eq. 8.12, Tikhonov) biasing the search away from over-flexible predictors, because we actually want low [[ExpectedRisk|expected risk]] $\mathbf{R}_{\text{true}}(f)=\mathbb{E}_{\mathbf{x},y}[\ell(y,f(\mathbf{x}))]$ (Eq. 8.10), not low training risk.
+4. **Search procedure** (§8.2.4) — [[CrossValidation|cross-validation]] estimates the generalization error (Eq. 8.13).
+
+Two important framings: ERM was popularized by the [[SupportVectorMachine|SVM]] proposal (Ch 12), and **ERM is *not* "probability free"** (§8.2.5) — an unknown joint $p(\mathbf{x},y)$ governs the data, but ERM is *agnostic* to it (unlike standard statistics) and never specifies the label-noise distribution. The probabilistic counterpart of each ERM choice appears in §8.3: the [[LossFunction|loss]] ↔ the [[Likelihood|likelihood]], the [[Regularization|regularizer]] ↔ the [[Prior|prior]] — so [[MaximumLikelihoodEstimation|MLE]] is exactly ERM with the [[NegativeLogLikelihood|NLL]] loss.
 
 ## Weighted ERM for distribution shift
 

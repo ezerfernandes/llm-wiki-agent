@@ -2,8 +2,8 @@
 title: "Model Compression"
 type: concept
 tags: [inference, optimization, compression, quantization, distillation, pruning]
-sources: [ai-engineering-ch09-inference-optimization]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch09-inference-optimization, mlsysbook-ch01-introduction, mlsysbook-ch02-ml-systems, mlsysbook-ch03-ml-workflow, mlsysbook-ch10-model-compression, mlsysbook-ch12-benchmarking]
+last_updated: 2026-06-05
 ---
 
 # Model Compression
@@ -43,8 +43,27 @@ Frankle & Carbin (2019, the *lottery-ticket-hypothesis* paper) showed pruning ca
 
 Ch 9 frames compression as one of three model-level levers (the other two: overcoming the [[Decode|autoregressive decoding]] bottleneck, and optimizing the [[Attention|attention mechanism]]). Compression alone doesn't solve autoregression — but it **multiplies** the effects of every other optimization by reducing the bytes that must be moved per token.
 
+## As an efficiency dimension (mlsysbook)
+
+Reddi's *Machine Learning Systems* ([[mlsysbook-ch01-introduction|Vol 1, Ch 1]]) positions model compression as the core lever of **algorithmic efficiency** — the Algorithm-axis dimension of the [[EfficiencyFramework|efficiency framework]] (alongside compute efficiency and [[DataSelection|data selection]]). It is the *required consequence* of choosing an [[EdgeML|edge]]/[[TinyML]] deployment target: compression trades predictive accuracy to fit a device's fixed resource budget, often reducing model size by **over 90%** so a data-center model can run within kilobyte-scale memory and milliwatt power.
+
+## The three-dimension stack ([[mlsysbook-ch10-model-compression|mlsysbook Ch 10]])
+
+Ch 10 is the wiki's most systematic treatment. It rejects the "bag of tricks" view and organizes *every* technique along three composable dimensions:
+
+1. **Structural optimization** — *what* to compute: [[Pruning]], [[KnowledgeDistillation]], [[NeuralArchitectureSearch|NAS]], [[LowRankFactorization]] / [[TensorDecomposition]].
+2. **Precision optimization** — *how precisely*: [[Quantization]] (FP32→INT8 and below).
+3. **Architectural efficiency** — *how efficiently it executes*: [[OperatorFusion]], [[Sparsity]] exploitation, [[AdaptiveInference]] / [[ConditionalComputation]], [[DepthwiseSeparableConvolution|hardware-aware design]].
+
+Two governing lessons: (1) **dimensions compose multiplicatively** — BERT 440 MB → 28 MB (16×) via sequential pruning + distillation + INT8 QAT, ~0.6% loss when sequenced correctly; (2) **theoretical compression ratios lie** — a 50%-pruned + INT8 model has a 6× paper target but often measures ~1.5× on commodity hardware unless aligned with the hardware's execution model. The whole discipline is governed by the [[ConservationOfComplexity|conservation of complexity]] (no free lunch) and grounded in the [[IronLawOfMLSystems|iron law]] / [[RooflineModel|roofline]] physics. [[mlsysbook-ch10-model-compression]]
+
 ## Connections
 
+- [[EfficiencyFramework]] / [[DataSelection]] / [[mlsysbook-ch01-introduction]] — compression as the algorithmic-efficiency dimension.
+- [[mlsysbook-ch10-model-compression]] — the dedicated chapter: three-dimension stack, energy physics, conservation of complexity, decision framework.
+- [[mlsysbook-ch02-ml-systems]] — frames compression as more important, not less, as the hardware budget tightens (cloud→edge→TinyML); buys 2–4× edge speedup and is mandatory below the TinyML memory-fit constraint.
+- [[mlsysbook-ch03-ml-workflow]] — situates compression in the model-development stage as an iterative *compress-validate-adjust* loop (typically 3–5 iterations), because each step can silently push accuracy below the deployment threshold until the full validation suite runs.
+- [[TinyML]] / [[EdgeML]] / [[MobileML]] — the deployment tiers that mandate it.
 - [[Quantization]] — the dominant family.
 - [[knowledgedistillation]] — the second most common family.
 - [[Pruning]] — the third (less common) family.
@@ -54,3 +73,4 @@ Ch 9 frames compression as one of three model-level levers (the other two: overc
 - [[ai-engineering-ch07-finetuning]] — depth on quantization.
 - [[ai-engineering-ch08-dataset-engineering]] — depth on distillation.
 - [[ai-engineering-ch09-inference-optimization]] — the umbrella source.
+- [[mlsysbook-ch12-benchmarking]] — Ch 12 is the *validation* layer for compression: it demands **multi-dimensional** [[Benchmarking|benchmarking]] (accuracy + [[ExpectedCalibrationError|calibration/ECE]] + edge-case robustness + speedup + memory + energy), shows INT8 MobileNet holds top-1 (−0.9 pp) while ECE and edge-case accuracy degrade, maps the trade-off with the [[ParetoFrontier|Pareto frontier]], and warns that MLPerf mostly benchmarks dense unoptimized models while production runs compressed ones (a "consequential blind spot").

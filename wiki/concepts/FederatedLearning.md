@@ -2,8 +2,8 @@
 title: "Federated Learning"
 type: concept
 tags: [distributed-training, privacy, model-merging]
-sources: [ai-engineering-ch07-finetuning]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch07-finetuning, mlsysbook-ch02-ml-systems, mlsysbook-ch03-ml-workflow, mlsysbook-ch14-ml-operations, mlsysbook-ch15-responsible-engineering]
+last_updated: 2026-06-05
 ---
 
 # Federated Learning
@@ -41,4 +41,9 @@ Per Ch 7: on-device deployment + multi-LoRA adapters + occasional merging back t
 - [[LinearCombinationMerging]] — the core operation (FedAvg).
 - [[McMahan2016FederatedAveraging]] — the foundational paper.
 - [[Apple]] — on-device finetuning + federated workflows.
-- [[ai-engineering-ch07-finetuning]] — primary source.
+- [[HybridML]] / [[EdgeML]] — [[mlsysbook-ch02-ml-systems|mlsysbook Ch 2]] lists federated/collaborative learning as a privacy-preserving extension of the hybrid integration menu, keeping data local to the edge.
+- [[DiabeticRetinopathyScreening]] — [[mlsysbook-ch03-ml-workflow|Ch 3]] presents federated learning as a *constraint-driven* architectural choice forced by patient-privacy regulation (not a universal improvement): its trade-off is per-round communication cost plus non-IID convergence issues across clinic sites.
+- [[ai-engineering-ch07-finetuning]] / [[mlsysbook-ch02-ml-systems]] / [[mlsysbook-ch03-ml-workflow]] — sources.
+- [[mlsysbook-ch14-ml-operations]] — mlsysbook Vol 1 Ch 14 cites federated learning as letting edge devices improve models without transmitting raw data (edge-cloud coordination).
+- [[mlsysbook-ch15-responsible-engineering]] — mlsysbook Vol 1 Ch 15 frames FedAvg as "data minimization by architecture," but stresses it must be combined with [[DifferentialPrivacy|differential privacy]] because gradients still leak training data via reconstruction attacks (validated with [[MembershipInferenceAttack|membership inference]]).
+

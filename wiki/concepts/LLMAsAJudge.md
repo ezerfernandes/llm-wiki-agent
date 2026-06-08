@@ -1,9 +1,9 @@
 ---
 title: "LLM-as-a-Judge"
 type: concept
-tags: [paradigm, evaluation, llm, validation, safety, llm-as-judge]
-sources: [2507.03152-medval, 2603.19247-prompt-optimization-jailbreaking, hands-on-llm-ch12-fine-tuning-generation-models]
-last_updated: 2026-05-24
+tags: [paradigm, evaluation, llm, validation, safety, llm-as-judge, reflection, agentic-design-patterns]
+sources: [2507.03152-medval, 2603.19247-prompt-optimization-jailbreaking, hands-on-llm-ch12-fine-tuning-generation-models, agentic-design-patterns-ch04-reflection, agentic-design-patterns-ch19-evaluation]
+last_updated: 2026-06-07
 ---
 
 # LLM-as-a-Judge
@@ -73,6 +73,19 @@ Ch 12 of *Hands-On LLMs* names LLM-as-a-judge as the **automated-evaluation tier
 Ch 12 describes the most common LLM-as-judge protocol explicitly: *"In a pairwise comparison setup, two LLMs generate output that is then judged by a third LLM."* The chapter's structural observation:
 
 > *"As LLMs improve, so do their capabilities to judge the quality of output — this evaluation methodology grows with the field."* — Ch 12
+
+## As the Critic in the Reflection pattern ([[agentic-design-patterns-ch04-reflection|Agentic Design Patterns Ch 4]])
+
+In Gulli's [[Reflection]] pattern, the **Critic** is an LLM-as-judge applied to *self-evaluation*: a second LLM call (or agent) scores the Producer's output against task criteria and returns structured feedback used to refine it. Two design notes from Ch 4 echo this page's "where it fails" theme:
+
+- **Separate-critic to dodge self-bias.** Gulli argues the Critic should be a *distinct* persona/agent — "two specialized agents... often yields more robust and unbiased results" — because a model judging its own output suffers the "cognitive bias" of self-review (this page's [[SelfBiasJudge|self-bias]]). This is the agentic-framework analog of the cross-family judge selection used by [[2603.19247-prompt-optimization-jailbreaking|Shamsi et al.]] to avoid same-family bias.
+- **Structured output as the judge signal.** ADK's `FactChecker` reviewer emits a typed dictionary — `{status: "ACCURATE"|"INACCURATE", reasoning}` — and LangChain's `reflector_prompt` emits either `CODE_IS_PERFECT` (a binary accept signal that doubles as the loop's stopping condition) or a bulleted critique. Both are concrete rubric instantiations of the "binary / ordinal / free-text justification" scoring schemes described above.
+
+## As an evaluation method in [[EvaluationAndMonitoring|Agentic Design Patterns Ch 19]]
+
+Ch 19 ([[agentic-design-patterns-ch19-evaluation|Evaluation and Monitoring]]) lists LLM-as-a-Judge as one of **three evaluation methods**, contrasting it explicitly: *"Consistent, efficient, and scalable"* but with the weakness that *"intermediate steps may be overlooked"* and it is *"limited by LLM capabilities"* — vs. human evaluation (captures subtle behavior, but unscalable/expensive/subjective) and automated metrics (objective/scalable, but may miss complete capabilities).
+
+Gulli positions it as the way to evaluate **subjective qualities** that escape standard objective metrics — the worked **"helpfulness"** example. The chapter's `LLMJudgeForLegalSurvey` is a concrete rubric instantiation: a [[gemini|Gemini]] judge (`gemini-1.5-flash-latest`, low temperature for determinism, `response_mime_type="application/json"`) scores a legal survey question **1–5 across five criteria** — Clarity & Precision, Neutrality & Bias, Relevance & Focus, Completeness, Appropriateness for Audience — returning structured JSON `{overall_score, rationale, detailed_feedback, concerns, recommended_action}`. The chapter demonstrates it on good vs. biased vs. vague questions. This is the same Critic-as-judge mechanism Ch 4 ([[Reflection]]) uses, now applied to **production agent-response assessment** rather than an inner refinement loop. The chapter also flags LLM-as-judge as the tool for scoring [[AgentTrajectoryEvaluation|agent trajectories]] when exact-match comparison is too rigid.
 
 ### Position in Ch 12's evaluation taxonomy
 

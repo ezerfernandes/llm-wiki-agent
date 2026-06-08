@@ -4810,3 +4810,2114 @@ All 11 chapters of *Designing Machine Learning Systems: An Iterative Process for
 - **last_updated**: bumped to 2026-05-24 on every edited concept page.
 - **Pedagogical contract**: a learner reading any DSPy concept page can now find a curated path from "first contact with this concept" → "canonical worked receipt" → "advanced use". Conversely, the Connections section of each tutorial source page (already present) already pointed back to the concepts. The bidirectional navigation graph between DSPy concept pages and DSPy tutorial source pages is now complete.
 - **Validation**: `grep -l "^## Tutorials" wiki/concepts/DSPy*.md | wc -l` returns 36 == total DSPy concept pages. No edits to existing `## Connections` sections; no tutorials referenced outside the assigned mapping.
+
+## [2026-05-30] ingest | 100 doors (Rosetta Code)
+## [2026-05-30] ingest | 100 prisoners (Rosetta Code)
+## [2026-05-30] ingest | 15 puzzle game (Rosetta Code)
+## [2026-05-30] ingest | 21 game (Rosetta Code)
+## [2026-05-30] ingest | 24 game (Rosetta Code)
+## [2026-05-30] ingest | 24 game/Solve (Rosetta Code)
+## [2026-05-30] ingest | 4-rings or 4-squares puzzle (Rosetta Code)
+## [2026-05-30] ingest | 9 billion names of God the integer (Rosetta Code)
+## [2026-05-30] ingest | 99 bottles of beer (Rosetta Code)
+## [2026-05-30] ingest | A+B (Rosetta Code)
+## [2026-05-30] ingest | Abbreviations, automatic (Rosetta Code)
+## [2026-05-30] ingest | Abbreviations, easy (Rosetta Code)
+## [2026-05-30] ingest | Abbreviations, simple (Rosetta Code)
+## [2026-05-30] ingest | ABC correlation (Rosetta Code)
+## [2026-05-30] ingest | ABC problem (Rosetta Code)
+## [2026-05-30] ingest | ABC words (Rosetta Code)
+## [2026-05-30] ingest | Abelian sandpile model (Rosetta Code)
+## [2026-05-30] ingest | Abelian sandpile model/Identity (Rosetta Code)
+## [2026-05-30] ingest | Abundant odd numbers (Rosetta Code)
+## [2026-05-30] ingest | Accumulator factory (Rosetta Code)
+## [2026-05-30] ingest | Achilles numbers (Rosetta Code)
+## [2026-05-30] ingest | Aliquot sequence classifications (Rosetta Code)
+## [2026-05-30] ingest | Almkvist-Giullera formula for pi (Rosetta Code)
+## [2026-05-30] ingest | Amb (Rosetta Code)
+## [2026-05-30] ingest | Anadromes (Rosetta Code)
+## [2026-05-30] ingest | Anagram generator (Rosetta Code)
+## [2026-05-30] ingest | Anagrams/Deranged anagrams (Rosetta Code)
+## [2026-05-30] ingest | Anaprimes (Rosetta Code)
+## [2026-05-30] ingest | Angle difference between two bearings (Rosetta Code)
+## [2026-05-30] ingest | Animated Spinners (Rosetta Code)
+## [2026-05-30] ingest | Anti-primes (Rosetta Code)
+## [2026-05-30] ingest | Apply a digital filter (direct form II transposed) (Rosetta Code)
+## [2026-05-30] ingest | Approximate equality (Rosetta Code)
+## [2026-05-30] ingest | Apéry's constant (Rosetta Code)
+## [2026-05-30] ingest | Archimedean spiral (Rosetta Code)
+## [2026-05-30] ingest | Arena storage pool (Rosetta Code)
+## [2026-05-30] ingest | Arithmetic derivative (Rosetta Code)
+## [2026-05-30] ingest | Arithmetic evaluation (Rosetta Code)
+## [2026-05-30] ingest | Arithmetic numbers (Rosetta Code)
+## [2026-05-30] ingest | Arithmetic-geometric mean (Rosetta Code)
+## [2026-05-30] ingest | Arithmetic-geometric mean/Calculate Pi (Rosetta Code)
+## [2026-05-30] ingest | Array length (Rosetta Code)
+## [2026-05-30] ingest | Ascending primes (Rosetta Code)
+## [2026-05-30] ingest | ASCII art diagram converter (Rosetta Code)
+## [2026-05-30] ingest | Associative array/Merging (Rosetta Code)
+## [2026-05-30] ingest | Attractive numbers (Rosetta Code)
+## [2026-05-30] ingest | Autogram checker (Rosetta Code)
+## [2026-05-30] ingest | Average loop length (Rosetta Code)
+## [2026-05-30] ingest | Averages/Mean angle (Rosetta Code)
+## [2026-05-30] ingest | Averages/Pythagorean means (Rosetta Code)
+## [2026-05-30] ingest | Averages/Root mean square (Rosetta Code)
+## [2026-05-30] ingest | AVL tree (Rosetta Code)
+## [2026-05-30] ingest | Babbage problem (Rosetta Code)
+## [2026-05-30] ingest | Babylonian spiral (Rosetta Code)
+## [2026-05-30] ingest | Balanced brackets (Rosetta Code)
+## [2026-05-30] ingest | Balanced ternary (Rosetta Code)
+## [2026-05-30] ingest | Barnsley fern (Rosetta Code)
+## [2026-05-30] ingest | Base64 decode data (Rosetta Code)
+## [2026-05-30] ingest | Bell numbers (Rosetta Code)
+## [2026-05-30] ingest | Benford's law (Rosetta Code)
+## [2026-05-30] ingest | Berlekamp–Massey algorithm (Rosetta Code)
+## [2026-05-30] ingest | Bernoulli's triangle (Rosetta Code)
+## [2026-05-30] ingest | Bernstein basis polynomials (Rosetta Code)
+## [2026-05-30] ingest | Best shuffle (Rosetta Code)
+## [2026-05-30] ingest | Bifid cipher (Rosetta Code)
+## [2026-05-30] ingest | Bin given limits (Rosetta Code)
+## [2026-05-30] ingest | Binomial transform (Rosetta Code)
+## [2026-05-30] ingest | Bioinformatics/Base count (Rosetta Code)
+## [2026-05-30] ingest | Bioinformatics/Global alignment (Rosetta Code)
+## [2026-05-30] ingest | Bioinformatics/Sequence mutation (Rosetta Code)
+## [2026-05-30] ingest | Biorhythms (Rosetta Code)
+## [2026-05-30] ingest | Bitcoin/address validation (Rosetta Code)
+## [2026-05-30] ingest | Bitcoin/public point to address (Rosetta Code)
+## [2026-05-30] ingest | Bitwise IO (Rosetta Code)
+## [2026-05-30] ingest | Blossom algorithm (Rosetta Code)
+## [2026-05-30] ingest | Blum integer (Rosetta Code)
+## [2026-05-30] ingest | Borůvka algorithm (Rosetta Code)
+## [2026-05-30] ingest | Boustrophedon transform (Rosetta Code)
+## [2026-05-30] ingest | Box the compass (Rosetta Code)
+## [2026-05-30] ingest | Boyer-Moore string search (Rosetta Code)
+## [2026-05-30] ingest | Brazilian numbers (Rosetta Code)
+## [2026-05-30] ingest | Break OO privacy (Rosetta Code)
+## [2026-05-30] ingest | Brilliant numbers (Rosetta Code)
+## [2026-05-30] ingest | Bron–Kerbosch algorithm (Rosetta Code)
+## [2026-05-30] ingest | Burrows–Wheeler transform (Rosetta Code)
+## [2026-05-30] ingest | Calculating the value of e (Rosetta Code)
+## [2026-05-30] ingest | Calkin-Wilf sequence (Rosetta Code)
+## [2026-05-30] ingest | Call a function (Rosetta Code)
+## [2026-05-30] ingest | Canonicalize CIDR (Rosetta Code)
+## [2026-05-30] ingest | Cantor set (Rosetta Code)
+## [2026-05-30] ingest | Cartesian product of two or more lists (Rosetta Code)
+## [2026-05-30] ingest | Casting out nines (Rosetta Code)
+## [2026-05-30] ingest | Catalan numbers/Pascal's triangle (Rosetta Code)
+## [2026-05-30] ingest | Catamorphism (Rosetta Code)
+## [2026-05-30] ingest | Centre and radius of a circle passing through 3 points in a plane (Rosetta Code)
+## [2026-05-30] ingest | Chaocipher (Rosetta Code)
+## [2026-05-30] ingest | Chaos game (Rosetta Code)
+## [2026-05-30] ingest | Check if a polygon overlaps with a rectangle (Rosetta Code)
+## [2026-05-30] ingest | Check if two polygons overlap (Rosetta Code)
+## [2026-05-30] ingest | Check input device is a terminal (Rosetta Code)
+## [2026-05-30] ingest | Check Machin-like formulas (Rosetta Code)
+## [2026-05-30] ingest | Check output device is a terminal (Rosetta Code)
+## [2026-05-30] ingest | Cheryl's birthday (Rosetta Code)
+## [2026-05-30] ingest | Chinese remainder theorem (Rosetta Code)
+## [2026-05-30] ingest | Chinese zodiac (Rosetta Code)
+## [2026-05-30] ingest | Christofides algorithm (Rosetta Code)
+## [2026-05-30] ingest | Church numerals (Rosetta Code)
+## [2026-05-30] ingest | Circles of given radius through two points (Rosetta Code)
+## [2026-05-30] ingest | Cistercian numerals (Rosetta Code)
+## [2026-05-30] ingest | Closures/Value capture (Rosetta Code)
+## [2026-05-30] ingest | Cocke–Younger–Kasami (CYK) Algorithm (Rosetta Code)
+## [2026-05-30] ingest | Colorful numbers (Rosetta Code)
+## [2026-05-30] ingest | Colour bars/Display (Rosetta Code)
+## [2026-05-30] ingest | Colour pinstripe/Printer (Rosetta Code)
+## [2026-05-30] ingest | Comma quibbling (Rosetta Code)
+## [2026-05-30] ingest | Command-line arguments (Rosetta Code)
+## [2026-05-30] ingest | Compare a list of strings (Rosetta Code)
+## [2026-05-30] ingest | Compile-time calculation (Rosetta Code)
+## [2026-05-30] ingest | Compiler/AST interpreter (Rosetta Code)
+## [2026-05-30] ingest | Compiler/code generator (Rosetta Code)
+## [2026-05-30] ingest | Compiler/lexical analyzer (Rosetta Code)
+## [2026-05-30] ingest | Compiler/Simple file inclusion pre processor (Rosetta Code)
+## [2026-05-30] ingest | Compiler/syntax analyzer (Rosetta Code)
+## [2026-05-30] ingest | Compiler/virtual machine interpreter (Rosetta Code)
+## [2026-05-30] ingest | Composite numbers k with no single digit factors whose factors are all substrings of k (Rosetta Code)
+## [2026-05-30] ingest | Conjugate transpose (Rosetta Code)
+## [2026-05-30] ingest | Continued fraction (Rosetta Code)
+## [2026-05-30] ingest | Continued fraction/Arithmetic/Construct from rational number (Rosetta Code)
+## [2026-05-30] ingest | Continued fraction/Arithmetic/G(matrix ng, continued fraction n) (Rosetta Code)
+## [2026-05-30] ingest | Convert decimal number to rational (Rosetta Code)
+## [2026-05-30] ingest | Convert seconds to compound duration (Rosetta Code)
+## [2026-05-30] ingest | Copy stdin to stdout (Rosetta Code)
+## [2026-05-30] ingest | Count the coins (Rosetta Code)
+## [2026-05-30] ingest | Create an HTML table (Rosetta Code)
+## [2026-05-30] ingest | CSV data manipulation (Rosetta Code)
+## [2026-05-30] ingest | CSV to HTML translation (Rosetta Code)
+## [2026-05-30] ingest | Cullen and Woodall numbers (Rosetta Code)
+## [2026-05-30] ingest | Currency (Rosetta Code)
+## [2026-05-30] ingest | Currying (Rosetta Code)
+## [2026-05-30] ingest | Curzon numbers (Rosetta Code)
+## [2026-05-30] ingest | Cut a rectangle (Rosetta Code)
+## [2026-05-30] ingest | Cycles of a permutation (Rosetta Code)
+## [2026-05-30] ingest | Cyclotomic polynomial (Rosetta Code)
+## [2026-05-30] ingest | Damm algorithm (Rosetta Code)
+## [2026-05-30] ingest | Dating agency (Rosetta Code)
+## [2026-05-30] ingest | De Bruijn sequences (Rosetta Code)
+## [2026-05-30] ingest | De Polignac numbers (Rosetta Code)
+## [2026-05-30] ingest | Deceptive numbers (Rosetta Code)
+## [2026-05-30] ingest | Decorate-sort-undecorate idiom (Rosetta Code)
+## [2026-05-30] ingest | Deepcopy (Rosetta Code)
+## [2026-05-30] ingest | Deming's funnel (Rosetta Code)
+## [2026-05-30] ingest | Department numbers (Rosetta Code)
+## [2026-05-30] ingest | Descending primes (Rosetta Code)
+## [2026-05-30] ingest | Detect division by zero (Rosetta Code)
+## [2026-05-30] ingest | Determinant and permanent (Rosetta Code)
+## [2026-05-30] ingest | Determine if a string has all the same characters (Rosetta Code)
+## [2026-05-30] ingest | Determine if a string has all unique characters (Rosetta Code)
+## [2026-05-30] ingest | Determine if a string is collapsible (Rosetta Code)
+## [2026-05-30] ingest | Determine if a string is squeezable (Rosetta Code)
+## [2026-05-30] ingest | Determine if two triangles overlap (Rosetta Code)
+## [2026-05-30] ingest | Dice game probabilities (Rosetta Code)
+## [2026-05-30] ingest | Digital root (Rosetta Code)
+## [2026-05-30] ingest | Disarium numbers (Rosetta Code)
+## [2026-05-30] ingest | Display a linear combination (Rosetta Code)
+## [2026-05-30] ingest | Display an outline as a nested table (Rosetta Code)
+## [2026-05-30] ingest | Distance and Bearing (Rosetta Code)
+## [2026-05-30] ingest | Diversity prediction theorem (Rosetta Code)
+## [2026-05-30] ingest | Doomsday rule (Rosetta Code)
+## [2026-05-30] ingest | Dot product (Rosetta Code)
+## [2026-05-30] ingest | Draw a clock (Rosetta Code)
+## [2026-05-30] ingest | Draw a rotating cube (Rosetta Code)
+## [2026-05-30] ingest | Draw a sphere (Rosetta Code)
+## [2026-05-30] ingest | Duffinian numbers (Rosetta Code)
+## [2026-05-30] ingest | Dutch national flag problem (Rosetta Code)
+## [2026-05-30] ingest | Earliest difference between prime gaps (Rosetta Code)
+## [2026-05-30] ingest | Eban numbers (Rosetta Code)
+## [2026-05-30] ingest | Eertree (Rosetta Code)
+## [2026-05-30] ingest | Egyptian division (Rosetta Code)
+## [2026-05-30] ingest | EKG sequence convergence (Rosetta Code)
+## [2026-05-30] ingest | Elementary cellular automaton (Rosetta Code)
+## [2026-05-30] ingest | Elementary cellular automaton/Infinite length (Rosetta Code)
+## [2026-05-30] ingest | Elementary cellular automaton/Random number generator (Rosetta Code)
+## [2026-05-30] ingest | Elliptic curve arithmetic (Rosetta Code)
+## [2026-05-30] ingest | Empty directory (Rosetta Code)
+## [2026-05-30] ingest | Empty string (Rosetta Code)
+## [2026-05-30] ingest | Engel expansion (Rosetta Code)
+## [2026-05-30] ingest | Entropy/Narcissist (Rosetta Code)
+## [2026-05-30] ingest | Equal prime and composite sums (Rosetta Code)
+## [2026-05-30] ingest | Equilibrium index (Rosetta Code)
+## [2026-05-30] ingest | Erdös-Selfridge categorization of primes (Rosetta Code)
+## [2026-05-30] ingest | Erdős-Nicolas numbers (Rosetta Code)
+## [2026-05-30] ingest | Erdős–Woods numbers (Rosetta Code)
+## [2026-05-30] ingest | Esthetic numbers (Rosetta Code)
+## [2026-05-30] ingest | Euclid-Mullin sequence (Rosetta Code)
+## [2026-05-30] ingest | Euclidean rhythm (Rosetta Code)
+## [2026-05-30] ingest | Euler's identity (Rosetta Code)
+## [2026-05-30] ingest | Euler's sum of powers conjecture (Rosetta Code)
+## [2026-05-30] ingest | Even or odd (Rosetta Code)
+## [2026-05-30] ingest | Evolutionary algorithm (Rosetta Code)
+## [2026-05-30] ingest | Executable library (Rosetta Code)
+## [2026-05-30] ingest | Execute Brain**** (Rosetta Code)
+## [2026-05-30] ingest | Execute Computer/Zero (Rosetta Code)
+## [2026-05-30] ingest | Execute HQ9+ (Rosetta Code)
+## [2026-05-30] ingest | Execute SNUSP (Rosetta Code)
+## [2026-05-30] ingest | Exponential digital sums (Rosetta Code)
+## [2026-05-30] ingest | Exponentiation order (Rosetta Code)
+## [2026-05-30] ingest | Exponentiation with infix operators in (or operating on) the base (Rosetta Code)
+## [2026-05-30] ingest | Extend your language (Rosetta Code)
+## [2026-05-30] ingest | Extreme floating point values (Rosetta Code)
+## [2026-05-30] ingest | Faces from a mesh (Rosetta Code)
+## [2026-05-30] ingest | Factorial base numbers indexing permutations of a collection (Rosetta Code)
+## [2026-05-30] ingest | Factorial primes (Rosetta Code)
+## [2026-05-30] ingest | Factorions (Rosetta Code)
+## [2026-05-30] ingest | Factorize string into Lyndon words (Rosetta Code)
+## [2026-05-30] ingest | Fairshare between two and more (Rosetta Code)
+## [2026-05-30] ingest | Farey sequence (Rosetta Code)
+## [2026-05-30] ingest | Fast Fourier transform (Rosetta Code)
+## [2026-05-30] ingest | FASTA format (Rosetta Code)
+## [2026-05-30] ingest | Feigenbaum constant calculation (Rosetta Code)
+## [2026-05-30] ingest | Fermat pseudoprimes (Rosetta Code)
+## [2026-05-30] ingest | Fibonacci n-step number sequences (Rosetta Code)
+## [2026-05-30] ingest | Fibonacci word (Rosetta Code)
+## [2026-05-30] ingest | File extension is in extensions list (Rosetta Code)
+## [2026-05-30] ingest | File size distribution (Rosetta Code)
+## [2026-05-30] ingest | Find Chess960 starting position identifier (Rosetta Code)
+## [2026-05-30] ingest | Find duplicate files (Rosetta Code)
+## [2026-05-30] ingest | Find if a point is within a triangle (Rosetta Code)
+## [2026-05-30] ingest | Find limit of recursion (Rosetta Code)
+## [2026-05-30] ingest | Find palindromic numbers in both binary and ternary bases (Rosetta Code)
+## [2026-05-30] ingest | Find the intersection of a line with a plane (Rosetta Code)
+## [2026-05-30] ingest | Find the intersection of two lines (Rosetta Code)
+## [2026-05-30] ingest | Find the last Sunday of each month (Rosetta Code)
+## [2026-05-30] ingest | Find the missing permutation (Rosetta Code)
+## [2026-05-30] ingest | First perfect square in base n with n unique digits (Rosetta Code)
+## [2026-05-30] ingest | First power of 2 that has leading decimal digits of 12 (Rosetta Code)
+## [2026-05-30] ingest | First-class functions/Use numbers analogously (Rosetta Code)
+## [2026-05-30] ingest | Fivenum (Rosetta Code)
+## [2026-05-30] ingest | Fixed length records (Rosetta Code)
+## [2026-05-30] ingest | Flatten a list (Rosetta Code)
+## [2026-05-30] ingest | Flipping bits game (Rosetta Code)
+## [2026-05-30] ingest | Floyd's triangle (Rosetta Code)
+## [2026-05-30] ingest | Forbidden numbers (Rosetta Code)
+## [2026-05-30] ingest | Four bit adder (Rosetta Code)
+## [2026-05-30] ingest | Four is magic (Rosetta Code)
+## [2026-05-30] ingest | Four is the number of letters in the ... (Rosetta Code)
+## [2026-05-30] ingest | French Republican calendar (Rosetta Code)
+## [2026-05-30] ingest | Function prototype (Rosetta Code)
+## [2026-05-30] ingest | Functional coverage tree (Rosetta Code)
+## [2026-05-30] ingest | Fusc sequence (Rosetta Code)
+## [2026-05-30] ingest | Gabow's algorithm (Rosetta Code)
+## [2026-05-30] ingest | Gapful numbers (Rosetta Code)
+## [2026-05-30] ingest | Gauss-Jordan matrix inversion (Rosetta Code)
+## [2026-05-30] ingest | Gaussian elimination (Rosetta Code)
+## [2026-05-30] ingest | Gaussian primes (Rosetta Code)
+## [2026-05-30] ingest | Generate Chess960 starting position (Rosetta Code)
+## [2026-05-30] ingest | Generate random chess position (Rosetta Code)
+## [2026-05-30] ingest | Generator/Exponential (Rosetta Code)
+## [2026-05-30] ingest | Get system command output (Rosetta Code)
+## [2026-05-30] ingest | Giuga numbers (Rosetta Code)
+## [2026-05-30] ingest | Globally replace text in several files (Rosetta Code)
+## [2026-05-30] ingest | Gosper's hack (Rosetta Code)
+## [2026-05-30] ingest | Gotchas (Rosetta Code)
+## [2026-05-30] ingest | Graph colouring (Rosetta Code)
+## [2026-05-30] ingest | Gray code (Rosetta Code)
+## [2026-05-30] ingest | Greatest prime dividing the n-th cubefree number (Rosetta Code)
+## [2026-05-30] ingest | Greatest subsequential sum (Rosetta Code)
+## [2026-05-30] ingest | Greedy algorithm for Egyptian fractions (Rosetta Code)
+## [2026-05-30] ingest | Greyscale bars/Display (Rosetta Code)
+## [2026-05-30] ingest | Hailstone sequence (Rosetta Code)
+## [2026-05-30] ingest | Halt and catch fire (Rosetta Code)
+## [2026-05-30] ingest | Hamiltonian Cycle via Chvátal Closure (Rosetta Code)
+## [2026-05-30] ingest | Harmonic series (Rosetta Code)
+## [2026-05-30] ingest | Harriss Spiral (Rosetta Code)
+## [2026-05-30] ingest | Harshad or Niven series (Rosetta Code)
+## [2026-05-30] ingest | Hash join (Rosetta Code)
+## [2026-05-30] ingest | Hashtron inference (Rosetta Code)
+## [2026-05-30] ingest | Haversine formula (Rosetta Code)
+## [2026-05-30] ingest | Held–Karp algorithm (Rosetta Code)
+## [2026-05-30] ingest | Hello world/Line printer (Rosetta Code)
+## [2026-05-30] ingest | Hello world/Newbie (Rosetta Code)
+## [2026-05-30] ingest | Here document (Rosetta Code)
+## [2026-05-30] ingest | Heronian triangles (Rosetta Code)
+## [2026-05-30] ingest | Hex dump (Rosetta Code)
+## [2026-05-30] ingest | Hex words (Rosetta Code)
+## [2026-05-30] ingest | Hickerson series of almost integers (Rosetta Code)
+## [2026-05-30] ingest | History variables (Rosetta Code)
+## [2026-05-30] ingest | Hofstadter Figure-Figure sequences (Rosetta Code)
+## [2026-05-30] ingest | Hofstadter Q sequence (Rosetta Code)
+## [2026-05-30] ingest | Hofstadter-Conway $10,000 sequence (Rosetta Code)
+## [2026-05-30] ingest | Honaker primes (Rosetta Code)
+## [2026-05-30] ingest | Honeycombs (Rosetta Code)
+## [2026-05-30] ingest | Hopcroft-Karp Algorithm (Rosetta Code)
+## [2026-05-30] ingest | Horner's rule for polynomial evaluation (Rosetta Code)
+## [2026-05-30] ingest | Horse racing (Rosetta Code)
+## [2026-05-30] ingest | I before E except after C (Rosetta Code)
+## [2026-05-30] ingest | I'm a software engineer, get me out of here (Rosetta Code)
+## [2026-05-30] ingest | Iccanobif primes (Rosetta Code)
+## [2026-05-30] ingest | Identity matrix (Rosetta Code)
+## [2026-05-30] ingest | Idiomatically determine all the characters that can be used for symbols (Rosetta Code)
+## [2026-05-30] ingest | Idiomatically determine all the lowercase and uppercase letters (Rosetta Code)
+## [2026-05-30] ingest | Idoneal numbers (Rosetta Code)
+## [2026-05-30] ingest | Imaginary base numbers (Rosetta Code)
+## [2026-05-30] ingest | Include a file (Rosetta Code)
+## [2026-05-30] ingest | Inconsummate numbers in base 10 (Rosetta Code)
+## [2026-05-30] ingest | Increasing gaps between consecutive Niven numbers (Rosetta Code)
+## [2026-05-30] ingest | Index finite lists of positive integers (Rosetta Code)
+## [2026-05-30] ingest | Inner classes (Rosetta Code)
+## [2026-05-30] ingest | Integer overflow (Rosetta Code)
+## [2026-05-30] ingest | Integer sequence (Rosetta Code)
+
+## [2026-05-30] ingest | Intersecting number wheels (Rosetta Code)
+## [2026-05-30] ingest | Inventory sequence (Rosetta Code)
+## [2026-05-30] ingest | Inverted syntax (Rosetta Code)
+## [2026-05-30] ingest | ISBN13 check digit (Rosetta Code)
+## [2026-05-30] ingest | Isograms and heterograms (Rosetta Code)
+## [2026-05-30] ingest | Isqrt (integer square root) of X (Rosetta Code)
+## [2026-05-30] ingest | Iterated digits squaring (Rosetta Code)
+## [2026-05-30] ingest | Jacobi symbol (Rosetta Code)
+## [2026-05-30] ingest | Jacobsthal numbers (Rosetta Code)
+## [2026-05-30] ingest | Jaro similarity (Rosetta Code)
+## [2026-05-30] ingest | Jewels and stones (Rosetta Code)
+## [2026-05-30] ingest | Johnson's algorithm (Rosetta Code)
+## [2026-05-30] ingest | Jordan-Pólya numbers (Rosetta Code)
+## [2026-05-30] ingest | JSON (Rosetta Code)
+## [2026-05-30] ingest | JSON pointer (Rosetta Code)
+## [2026-05-30] ingest | Juggler sequence (Rosetta Code)
+## [2026-05-30] ingest | Jump anywhere (Rosetta Code)
+## [2026-05-30] ingest | Jury stability criterion (Rosetta Code)
+## [2026-05-30] ingest | K-d tree (Rosetta Code)
+## [2026-05-30] ingest | Kaprekar numbers (Rosetta Code)
+## [2026-05-30] ingest | Kernighans large earthquake problem (Rosetta Code)
+## [2026-05-30] ingest | Keyboard input/Obtain a Y or N response (Rosetta Code)
+## [2026-05-30] ingest | Kirkpatrick–Seidel algorithm (Rosetta Code)
+## [2026-05-30] ingest | Klarner-Rado sequence (Rosetta Code)
+## [2026-05-30] ingest | Knight's tour (Rosetta Code)
+## [2026-05-30] ingest | Knuth's algorithm S (Rosetta Code)
+## [2026-05-30] ingest | Koch curve (Rosetta Code)
+## [2026-05-30] ingest | Kolakoski sequence (Rosetta Code)
+## [2026-05-30] ingest | Kosaraju (Rosetta Code)
+## [2026-05-30] ingest | Lah numbers (Rosetta Code)
+## [2026-05-30] ingest | Largest int from concatenated ints (Rosetta Code)
+## [2026-05-30] ingest | Largest number divisible by its digits (Rosetta Code)
+## [2026-05-30] ingest | Largest proper divisor of n (Rosetta Code)
+## [2026-05-30] ingest | Last Friday of each month (Rosetta Code)
+## [2026-05-30] ingest | Last letter-first letter (Rosetta Code)
+## [2026-05-30] ingest | Latin Squares in reduced form (Rosetta Code)
+## [2026-05-30] ingest | Latin Squares in reduced form/Randomizing using Jacobson and Matthews' technique (Rosetta Code)
+## [2026-05-30] ingest | Law of cosines - triples (Rosetta Code)
+## [2026-05-30] ingest | Least common multiple (Rosetta Code)
+## [2026-05-30] ingest | Least m such that n! + m is prime (Rosetta Code)
+## [2026-05-30] ingest | Left factorials (Rosetta Code)
+## [2026-05-30] ingest | Levenshtein distance (Rosetta Code)
+## [2026-05-30] ingest | Levenshtein distance/Alignment (Rosetta Code)
+## [2026-05-30] ingest | List rooted trees (Rosetta Code)
+## [2026-05-30] ingest | Long literals, with continuations (Rosetta Code)
+## [2026-05-30] ingest | Long year (Rosetta Code)
+## [2026-05-30] ingest | Longest common subsequence (Rosetta Code)
+## [2026-05-30] ingest | Longest common substring (Rosetta Code)
+## [2026-05-30] ingest | Longest increasing subsequence (Rosetta Code)
+## [2026-05-30] ingest | Lucky and even lucky numbers (Rosetta Code)
+## [2026-05-30] ingest | Lychrel numbers (Rosetta Code)
+## [2026-05-30] ingest | Lyndon word (Rosetta Code)
+## [2026-05-30] ingest | MAC vendor lookup (Rosetta Code)
+## [2026-05-30] ingest | Machine code (Rosetta Code)
+## [2026-05-30] ingest | Mad Libs (Rosetta Code)
+## [2026-05-30] ingest | Magic 8-ball (Rosetta Code)
+## [2026-05-30] ingest | Magic constant (Rosetta Code)
+## [2026-05-30] ingest | Magic numbers (Rosetta Code)
+## [2026-05-30] ingest | Magic squares of doubly even order (Rosetta Code)
+## [2026-05-30] ingest | Magic squares of odd order (Rosetta Code)
+## [2026-05-30] ingest | Magic squares of singly even order (Rosetta Code)
+## [2026-05-30] ingest | Map range (Rosetta Code)
+## [2026-05-30] ingest | Matrix digital rain (Rosetta Code)
+## [2026-05-30] ingest | Maximum triangle path sum (Rosetta Code)
+## [2026-05-30] ingest | Mayan calendar (Rosetta Code)
+## [2026-05-30] ingest | McNuggets problem (Rosetta Code)
+## [2026-05-30] ingest | MD4 (Rosetta Code)
+## [2026-05-30] ingest | Meissel-Mertens constant (Rosetta Code)
+## [2026-05-30] ingest | Memory layout of a data structure (Rosetta Code)
+## [2026-05-30] ingest | Metallic ratios (Rosetta Code)
+## [2026-05-30] ingest | Metaprogramming (Rosetta Code)
+## [2026-05-30] ingest | Metronome (Rosetta Code)
+## [2026-05-30] ingest | Mian-Chowla sequence (Rosetta Code)
+## [2026-05-30] ingest | Middle three digits (Rosetta Code)
+## [2026-05-30] ingest | Mind boggling card trick (Rosetta Code)
+## [2026-05-30] ingest | Minimal steps down to 1 (Rosetta Code)
+## [2026-05-30] ingest | Minimum multiple of m where digital sum equals m (Rosetta Code)
+## [2026-05-30] ingest | Minimum positive multiple in base 10 using only 0 and 1 (Rosetta Code)
+## [2026-05-30] ingest | Minkowski question-mark function (Rosetta Code)
+## [2026-05-30] ingest | Modified random distribution (Rosetta Code)
+## [2026-05-30] ingest | Modular arithmetic (Rosetta Code)
+## [2026-05-30] ingest | Modular exponentiation (Rosetta Code)
+## [2026-05-30] ingest | Modular inverse (Rosetta Code)
+## [2026-05-30] ingest | Monads/List monad (Rosetta Code)
+## [2026-05-30] ingest | Monads/Maybe monad (Rosetta Code)
+## [2026-05-30] ingest | Monads/Writer monad (Rosetta Code)
+## [2026-05-30] ingest | Motor (Rosetta Code)
+## [2026-05-30] ingest | Move-to-front algorithm (Rosetta Code)
+## [2026-05-30] ingest | Multi-dimensional array (Rosetta Code)
+## [2026-05-30] ingest | Multifactorial (Rosetta Code)
+## [2026-05-30] ingest | Multiple distinct objects (Rosetta Code)
+## [2026-05-30] ingest | Multisplit (Rosetta Code)
+## [2026-05-30] ingest | Multiton (Rosetta Code)
+## [2026-05-30] ingest | Munchausen numbers (Rosetta Code)
+## [2026-05-30] ingest | Musical scale (Rosetta Code)
+## [2026-05-30] ingest | Mutex (Rosetta Code)
+## [2026-05-30] ingest | N-queens problem (Rosetta Code)
+## [2026-05-30] ingest | Narcissist (Rosetta Code)
+## [2026-05-30] ingest | Narcissistic decimal number (Rosetta Code)
+## [2026-05-30] ingest | Nautical bell (Rosetta Code)
+## [2026-05-30] ingest | Negative base numbers (Rosetta Code)
+## [2026-05-30] ingest | Nested function (Rosetta Code)
+## [2026-05-30] ingest | Nested templated data (Rosetta Code)
+## [2026-05-30] ingest | Next highest int from digits (Rosetta Code)
+## [2026-05-30] ingest | Nim game (Rosetta Code)
+## [2026-05-30] ingest | Non-transitive dice (Rosetta Code)
+## [2026-05-30] ingest | Nonoblock (Rosetta Code)
+## [2026-05-30] ingest | Nonogram solver (Rosetta Code)
+## [2026-05-30] ingest | Numbers divisible by their individual digits, but not by the product of their digits (Rosetta Code)
+## [2026-05-30] ingest | Numbers k such that the last letter of k is the same as the first letter of k+1 (Rosetta Code)
+## [2026-05-30] ingest | Numbers which are not the sum of distinct squares (Rosetta Code)
+## [2026-05-30] ingest | Numbers which are the cube roots of the product of their proper divisors (Rosetta Code)
+## [2026-05-30] ingest | Numbers with equal rises and falls (Rosetta Code)
+## [2026-05-30] ingest | Numeric error propagation (Rosetta Code)
+## [2026-05-30] ingest | Numerical and alphabetical suffixes (Rosetta Code)
+## [2026-05-30] ingest | O'Halloran numbers (Rosetta Code)
+## [2026-05-30] ingest | Odd and square numbers (Rosetta Code)
+## [2026-05-30] ingest | Odd word problem (Rosetta Code)
+## [2026-05-30] ingest | Old lady swallowed a fly (Rosetta Code)
+## [2026-05-30] ingest | Old Russian measure of length (Rosetta Code)
+## [2026-05-30] ingest | One of n lines in a file (Rosetta Code)
+## [2026-05-30] ingest | One-time pad (Rosetta Code)
+## [2026-05-30] ingest | One-two primes (Rosetta Code)
+## [2026-05-30] ingest | OpenWebNet password (Rosetta Code)
+## [2026-05-30] ingest | Operator precedence (Rosetta Code)
+## [2026-05-30] ingest | Order two numerical lists (Rosetta Code)
+## [2026-05-30] ingest | Ormiston pairs (Rosetta Code)
+## [2026-05-30] ingest | Ormiston triples (Rosetta Code)
+## [2026-05-30] ingest | Own digits power sum (Rosetta Code)
+## [2026-05-30] ingest | Padovan n-step number sequences (Rosetta Code)
+## [2026-05-30] ingest | Padovan sequence (Rosetta Code)
+## [2026-05-30] ingest | Pairs with common factors (Rosetta Code)
+## [2026-05-30] ingest | Palindrome dates (Rosetta Code)
+## [2026-05-30] ingest | Palindromic gapful numbers (Rosetta Code)
+## [2026-05-30] ingest | Pan base non-primes (Rosetta Code)
+## [2026-05-30] ingest | Pancake numbers (Rosetta Code)
+## [2026-05-30] ingest | Pangram checker (Rosetta Code)
+## [2026-05-30] ingest | Paraffins (Rosetta Code)
+## [2026-05-30] ingest | Parse an IP Address (Rosetta Code)
+## [2026-05-30] ingest | Parsing/RPN calculator algorithm (Rosetta Code)
+## [2026-05-30] ingest | Parsing/RPN to infix conversion (Rosetta Code)
+## [2026-05-30] ingest | Parsing/Shunting-yard algorithm (Rosetta Code)
+## [2026-05-30] ingest | Particle fountain (Rosetta Code)
+## [2026-05-30] ingest | Pascal's triangle/Puzzle (Rosetta Code)
+## [2026-05-30] ingest | Passphrase generator (Rosetta Code)
+## [2026-05-30] ingest | Password generator (Rosetta Code)
+## [2026-05-30] ingest | Pathological floating point problems (Rosetta Code)
+## [2026-05-30] ingest | Peaceful chess queen armies (Rosetta Code)
+## [2026-05-30] ingest | Pell numbers (Rosetta Code)
+## [2026-05-30] ingest | Penholodigital squares (Rosetta Code)
+## [2026-05-30] ingest | Penta-power prime seeds (Rosetta Code)
+## [2026-05-30] ingest | Pentagram (Rosetta Code)
+## [2026-05-30] ingest | Pentomino tiling (Rosetta Code)
+## [2026-05-30] ingest | Perfect shuffle (Rosetta Code)
+## [2026-05-30] ingest | Perfect totient numbers (Rosetta Code)
+## [2026-05-30] ingest | Periodic table (Rosetta Code)
+## [2026-05-30] ingest | Peripheral drift illusion (Rosetta Code)
+## [2026-05-30] ingest | Perlin noise (Rosetta Code)
+## [2026-05-30] ingest | Permutations by swapping (Rosetta Code)
+## [2026-05-30] ingest | Permutations/Derangements (Rosetta Code)
+## [2026-05-30] ingest | Permutations/Rank of a permutation (Rosetta Code)
+## [2026-05-30] ingest | Phrase reversals (Rosetta Code)
+## [2026-05-30] ingest | Pi to 1 million digits (Rosetta Code)
+## [2026-05-30] ingest | Pig the dice game (Rosetta Code)
+## [2026-05-30] ingest | Pig the dice game/Player (Rosetta Code)
+## [2026-05-30] ingest | Pinstripe/Printer (Rosetta Code)
+## [2026-05-30] ingest | Piprimes (Rosetta Code)
+## [2026-05-30] ingest | Plasma effect (Rosetta Code)
+## [2026-05-30] ingest | Playfair cipher (Rosetta Code)
+## [2026-05-30] ingest | Plot coordinate pairs (Rosetta Code)
+## [2026-05-30] ingest | Poker hand analyser (Rosetta Code)
+## [2026-05-30] ingest | Polyspiral (Rosetta Code)
+## [2026-05-30] ingest | Population count (Rosetta Code)
+## [2026-05-30] ingest | Pragmatic directives (Rosetta Code)
+## [2026-05-30] ingest | Prime numbers whose neighboring pairs are tetraprimes (Rosetta Code)
+## [2026-05-30] ingest | Prime reciprocal sum (Rosetta Code)
+## [2026-05-30] ingest | Prime triangle (Rosetta Code)
+## [2026-05-30] ingest | Primes: n*2^m+1 (Rosetta Code)
+## [2026-05-30] ingest | Priority queue (Rosetta Code)
+## [2026-05-30] ingest | Product of min and max prime factors (Rosetta Code)
+## [2026-05-30] ingest | Pseudo-random numbers/Combined recursive generator MRG32k3a (Rosetta Code)
+## [2026-05-30] ingest | Pseudo-random numbers/Middle-square method (Rosetta Code)
+## [2026-05-30] ingest | Pseudo-random numbers/PCG32 (Rosetta Code)
+## [2026-05-30] ingest | Pseudo-random numbers/Xorshift star (Rosetta Code)
+## [2026-05-30] ingest | Punched cards (Rosetta Code)
+## [2026-05-30] ingest | Pythagorean quadruples (Rosetta Code)
+## [2026-05-30] ingest | Pythagorean triples (Rosetta Code)
+## [2026-05-30] ingest | Quad-power prime seeds (Rosetta Code)
+## [2026-05-30] ingest | Quaternion (Rosetta Code)
+## [2026-05-30] ingest | Quine (Rosetta Code)
+## [2026-05-30] ingest | Quine–McCluskey algorithm (Rosetta Code)
+## [2026-05-30] ingest | Quoting constructs (Rosetta Code)
+## [2026-05-30] ingest | Radical of an integer (Rosetta Code)
+## [2026-05-30] ingest | Ramanujan's constant (Rosetta Code)
+## [2026-05-30] ingest | Ramer-Douglas-Peucker line simplification (Rosetta Code)
+## [2026-05-30] ingest | Random Latin squares (Rosetta Code)
+## [2026-05-30] ingest | Random number generator (device) (Rosetta Code)
+## [2026-05-30] ingest | Random number generator (included) (Rosetta Code)
+## [2026-05-30] ingest | Random sentence from book (Rosetta Code)
+## [2026-05-30] ingest | Range consolidation (Rosetta Code)
+## [2026-05-30] ingest | Range expansion (Rosetta Code)
+## [2026-05-30] ingest | Range extraction (Rosetta Code)
+## [2026-05-30] ingest | Rate counter (Rosetta Code)
+## [2026-05-30] ingest | Rational calculator (Rosetta Code)
+## [2026-05-30] ingest | Read a specific line from a file (Rosetta Code)
+## [2026-05-30] ingest | Recaman's sequence (Rosetta Code)
+## [2026-05-30] ingest | Remove lines from a file (Rosetta Code)
+## [2026-05-30] ingest | Rep-string (Rosetta Code)
+## [2026-05-30] ingest | Repeat (Rosetta Code)
+## [2026-05-30] ingest | Repunit primes (Rosetta Code)
+## [2026-05-30] ingest | Resistor mesh (Rosetta Code)
+## [2026-05-30] ingest | Reverse words in a string (Rosetta Code)
+## [2026-05-30] ingest | Rhonda numbers (Rosetta Code)
+## [2026-05-30] ingest | Riordan numbers (Rosetta Code)
+## [2026-05-30] ingest | RIPEMD-160 (Rosetta Code)
+## [2026-05-30] ingest | Roman numerals/Decode (Rosetta Code)
+## [2026-05-30] ingest | Roman numerals/Encode (Rosetta Code)
+## [2026-05-30] ingest | Rosetta Code/Rank languages by number of users (Rosetta Code)
+## [2026-05-30] ingest | Round-robin tournament schedule (Rosetta Code)
+## [2026-05-30] ingest | Routh–Hurwitz stability criterion (Rosetta Code)
+## [2026-05-30] ingest | RPG attributes generator (Rosetta Code)
+## [2026-05-30] ingest | Runge-Kutta method (Rosetta Code)
+## [2026-05-30] ingest | Runtime evaluation (Rosetta Code)
+## [2026-05-30] ingest | Runtime evaluation/In an environment (Rosetta Code)
+## [2026-05-30] ingest | Ruth-Aaron numbers (Rosetta Code)
+## [2026-05-30] ingest | Sailors, coconuts and a monkey problem (Rosetta Code)
+## [2026-05-30] ingest | Same fringe (Rosetta Code)
+## [2026-05-30] ingest | Schieber-Vishkin algorithm (Rosetta Code)
+## [2026-05-30] ingest | Sealed classes and methods (Rosetta Code)
+## [2026-05-30] ingest | Search in paragraph's text (Rosetta Code)
+## [2026-05-30] ingest | Selectively replace multiple instances of a character within a string (Rosetta Code)
+## [2026-05-30] ingest | Self numbers (Rosetta Code)
+## [2026-05-30] ingest | Self-describing numbers (Rosetta Code)
+## [2026-05-30] ingest | Semordnilap (Rosetta Code)
+## [2026-05-30] ingest | Sequence: nth number with exactly n divisors (Rosetta Code)
+## [2026-05-30] ingest | Sequence: smallest number greater than previous term with exactly n divisors (Rosetta Code)
+## [2026-05-30] ingest | Sequence: smallest number with exactly n divisors (Rosetta Code)
+## [2026-05-30] ingest | Set consolidation (Rosetta Code)
+## [2026-05-30] ingest | Set of real numbers (Rosetta Code)
+## [2026-05-30] ingest | Set right-adjacent bits (Rosetta Code)
+## [2026-05-30] ingest | Set, the card game (Rosetta Code)
+## [2026-05-30] ingest | SHA-1 (Rosetta Code)
+## [2026-05-30] ingest | Shoelace formula for polygonal area (Rosetta Code)
+## [2026-05-30] ingest | Shortest common supersequence (Rosetta Code)
+## [2026-05-30] ingest | Show ASCII table (Rosetta Code)
+## [2026-05-30] ingest | Show the epoch (Rosetta Code)
+## [2026-05-30] ingest | Sierpinski pentagon (Rosetta Code)
+## [2026-05-30] ingest | Sierpinski triangle/Graphical (Rosetta Code)
+## [2026-05-30] ingest | Simple turtle graphics (Rosetta Code)
+## [2026-05-30] ingest | Singular value decomposition (Rosetta Code)
+## [2026-05-30] ingest | Sisyphus sequence (Rosetta Code)
+## [2026-05-30] ingest | Smallest number k such that k+2^m is composite for all m less than k (Rosetta Code)
+## [2026-05-30] ingest | Smarandache-Wellin primes (Rosetta Code)
+## [2026-05-30] ingest | Smith numbers (Rosetta Code)
+## [2026-05-30] ingest | Smith–Waterman algorithm (Rosetta Code)
+## [2026-05-30] ingest | Soloway's recurring rainfall (Rosetta Code)
+## [2026-05-30] ingest | Solve a Hidato puzzle (Rosetta Code)
+## [2026-05-30] ingest | Solve a Holy Knight's tour (Rosetta Code)
+## [2026-05-30] ingest | Solve a Hopido puzzle (Rosetta Code)
+## [2026-05-30] ingest | Solve a Numbrix puzzle (Rosetta Code)
+## [2026-05-30] ingest | Sorensen–Dice coefficient (Rosetta Code)
+## [2026-05-30] ingest | Sort an outline at every level (Rosetta Code)
+## [2026-05-30] ingest | Sparkline in unicode (Rosetta Code)
+## [2026-05-30] ingest | Specific characters (Rosetta Code)
+## [2026-05-30] ingest | Spelling of ordinal numbers (Rosetta Code)
+## [2026-05-30] ingest | Sphenic numbers (Rosetta Code)
+## [2026-05-30] ingest | Split a character string based on change of character (Rosetta Code)
+## [2026-05-30] ingest | Square but not cube (Rosetta Code)
+## [2026-05-30] ingest | Square-free integers (Rosetta Code)
+## [2026-05-30] ingest | Stair-climbing puzzle (Rosetta Code)
+## [2026-05-30] ingest | Start from a main routine (Rosetta Code)
+## [2026-05-30] ingest | Statistics/Normal distribution (Rosetta Code)
+## [2026-05-30] ingest | Stern-Brocot sequence (Rosetta Code)
+## [2026-05-30] ingest | Stirling numbers of the first kind (Rosetta Code)
+## [2026-05-30] ingest | Stirling numbers of the second kind (Rosetta Code)
+## [2026-05-30] ingest | Strassen's algorithm (Rosetta Code)
+## [2026-05-30] ingest | Stream merge (Rosetta Code)
+## [2026-05-30] ingest | Strip control codes and extended characters from a string (Rosetta Code)
+## [2026-05-30] ingest | Sub-unit squares (Rosetta Code)
+## [2026-05-30] ingest | Subleq (Rosetta Code)
+## [2026-05-30] ingest | Substring/Top and tail (Rosetta Code)
+## [2026-05-30] ingest | Suffixation of decimal numbers (Rosetta Code)
+## [2026-05-30] ingest | Sum and product puzzle (Rosetta Code)
+## [2026-05-30] ingest | Sum digits of an integer (Rosetta Code)
+## [2026-05-30] ingest | Sum multiples of 3 and 5 (Rosetta Code)
+## [2026-05-30] ingest | Sum of elements below main diagonal of matrix (Rosetta Code)
+## [2026-05-30] ingest | Sum to 100 (Rosetta Code)
+## [2026-05-30] ingest | Summarize and say sequence (Rosetta Code)
+## [2026-05-30] ingest | Summarize primes (Rosetta Code)
+## [2026-05-30] ingest | Super-d numbers (Rosetta Code)
+## [2026-05-30] ingest | Super-Poulet numbers (Rosetta Code)
+## [2026-05-30] ingest | Superellipse (Rosetta Code)
+## [2026-05-30] ingest | Superpermutation minimisation (Rosetta Code)
+## [2026-05-30] ingest | Sylvester's sequence (Rosetta Code)
+## [2026-05-30] ingest | Sync subtitles (Rosetta Code)
+## [2026-05-30] ingest | Syntax highlighting using Mediawiki formatting (Rosetta Code)
+## [2026-05-30] ingest | Tarjan (Rosetta Code)
+## [2026-05-30] ingest | Tau function (Rosetta Code)
+## [2026-05-30] ingest | Teacup rim text (Rosetta Code)
+## [2026-05-30] ingest | Temperature conversion (Rosetta Code)
+## [2026-05-30] ingest | Terminal control/Coloured text (Rosetta Code)
+## [2026-05-30] ingest | Terminal control/Unicode output (Rosetta Code)
+## [2026-05-30] ingest | Test integerness (Rosetta Code)
+## [2026-05-30] ingest | Textonyms (Rosetta Code)
+## [2026-05-30] ingest | The Name Game (Rosetta Code)
+## [2026-05-30] ingest | The Twelve Days of Christmas (Rosetta Code)
+## [2026-05-30] ingest | Thue-Morse (Rosetta Code)
+## [2026-05-30] ingest | Tonelli-Shanks algorithm (Rosetta Code)
+## [2026-05-30] ingest | Top rank per group (Rosetta Code)
+## [2026-05-30] ingest | Topic variable (Rosetta Code)
+## [2026-05-30] ingest | Topswops (Rosetta Code)
+## [2026-05-30] ingest | Total circles area (Rosetta Code)
+## [2026-05-30] ingest | Trabb Pardo–Knuth algorithm (Rosetta Code)
+## [2026-05-30] ingest | Transliterate English text using the Greek alphabet (Rosetta Code)
+## [2026-05-30] ingest | Tree datastructures (Rosetta Code)
+## [2026-05-30] ingest | Tree from nesting levels (Rosetta Code)
+## [2026-05-30] ingest | Triangular numbers (Rosetta Code)
+## [2026-05-30] ingest | Tropical algebra overloading (Rosetta Code)
+## [2026-05-30] ingest | Truncate a file (Rosetta Code)
+## [2026-05-30] ingest | Truth table (Rosetta Code)
+## [2026-05-30] ingest | Tupper's self-referential formula (Rosetta Code)
+## [2026-05-30] ingest | Two bullet roulette (Rosetta Code)
+## [2026-05-30] ingest | Two identical strings (Rosetta Code)
+## [2026-05-30] ingest | Ukkonen's suffix tree construction (Rosetta Code)
+## [2026-05-30] ingest | Ultra useful primes (Rosetta Code)
+## [2026-05-30] ingest | Unbias a random generator (Rosetta Code)
+## [2026-05-30] ingest | Undulating numbers (Rosetta Code)
+## [2026-05-30] ingest | Unicode strings (Rosetta Code)
+## [2026-05-30] ingest | Universal Lambda Machine (Rosetta Code)
+## [2026-05-30] ingest | Universal Turing machine (Rosetta Code)
+## [2026-05-30] ingest | Unix/ls (Rosetta Code)
+## [2026-05-30] ingest | UPC (Rosetta Code)
+## [2026-05-30] ingest | Upside-down numbers (Rosetta Code)
+## [2026-05-30] ingest | URL decoding (Rosetta Code)
+## [2026-05-30] ingest | URL encoding (Rosetta Code)
+## [2026-05-30] ingest | URL parser (Rosetta Code)
+## [2026-05-30] ingest | UTF-8 encode and decode (Rosetta Code)
+## [2026-05-30] ingest | Validate International Securities Identification Number (Rosetta Code)
+## [2026-05-30] ingest | Van der Corput sequence (Rosetta Code)
+## [2026-05-30] ingest | Van Eck sequence (Rosetta Code)
+## [2026-05-30] ingest | Variable declaration reset (Rosetta Code)
+## [2026-05-30] ingest | Vector products (Rosetta Code)
+## [2026-05-30] ingest | Verhoeff algorithm (Rosetta Code)
+## [2026-05-30] ingest | Video display modes (Rosetta Code)
+## [2026-05-30] ingest | Visitor pattern (Rosetta Code)
+## [2026-05-30] ingest | Visualize a tree (Rosetta Code)
+## [2026-05-30] ingest | Vogel's approximation method (Rosetta Code)
+## [2026-05-30] ingest | Voronoi diagram (Rosetta Code)
+## [2026-05-30] ingest | Wagstaff primes (Rosetta Code)
+## [2026-05-30] ingest | War card game (Rosetta Code)
+## [2026-05-30] ingest | Wasteful, equidigital and frugal numbers (Rosetta Code)
+## [2026-05-30] ingest | Water collected between towers (Rosetta Code)
+## [2026-05-30] ingest | Wavelet Matrix (Rosetta Code)
+## [2026-05-30] ingest | Weiler-Atherton polygon clipping (Rosetta Code)
+## [2026-05-30] ingest | Weird numbers (Rosetta Code)
+## [2026-05-30] ingest | Wolstenholme numbers (Rosetta Code)
+## [2026-05-30] ingest | Word frequency (Rosetta Code)
+## [2026-05-30] ingest | Word ladder (Rosetta Code)
+## [2026-05-30] ingest | Word search (Rosetta Code)
+## [2026-05-30] ingest | Word wrap (Rosetta Code)
+## [2026-05-30] ingest | Wordle comparison (Rosetta Code)
+## [2026-05-30] ingest | World Cup group stage (Rosetta Code)
+## [2026-05-30] ingest | Worthwhile task shaving (Rosetta Code)
+## [2026-05-30] ingest | Write float arrays to a text file (Rosetta Code)
+## [2026-05-30] ingest | Write language name in 3D ASCII (Rosetta Code)
+## [2026-05-30] ingest | Write to Windows event log (Rosetta Code)
+## [2026-05-30] ingest | Yellowstone sequence (Rosetta Code)
+## [2026-05-30] ingest | Zeckendorf number representation (Rosetta Code)
+## [2026-05-30] ingest | Zero to the zero power (Rosetta Code)
+## [2026-05-30] ingest | Zhang-Suen thinning algorithm (Rosetta Code)
+## [2026-05-30] ingest | Zsigmondy numbers (Rosetta Code)
+
+## [2026-05-30] ingest | 15 puzzle solver (Rosetta Code)
+## [2026-05-30] ingest | 2048 (Rosetta Code)
+## [2026-05-30] ingest | ADFGVX cipher (Rosetta Code)
+## [2026-05-30] ingest | AKS test for primes (Rosetta Code)
+## [2026-05-30] ingest | Abstract type (Rosetta Code)
+## [2026-05-30] ingest | Abundant, deficient and perfect number classifications (Rosetta Code)
+## [2026-05-30] ingest | Ackermann function (Rosetta Code)
+## [2026-05-30] ingest | Active Directory/Connect (Rosetta Code)
+## [2026-05-30] ingest | Active Directory/Search for a user (Rosetta Code)
+## [2026-05-30] ingest | Active object (Rosetta Code)
+## [2026-05-30] ingest | Add a variable to a class instance at runtime (Rosetta Code)
+## [2026-05-30] ingest | Additive primes (Rosetta Code)
+## [2026-05-30] ingest | Address of a variable (Rosetta Code)
+## [2026-05-30] ingest | Algebraic data types (Rosetta Code)
+## [2026-05-30] ingest | Align columns (Rosetta Code)
+## [2026-05-30] ingest | Almost prime (Rosetta Code)
+## [2026-05-30] ingest | Amicable pairs (Rosetta Code)
+## [2026-05-30] ingest | Anagrams (Rosetta Code)
+## [2026-05-30] ingest | Angles (geometric), normalization and conversion (Rosetta Code)
+## [2026-05-30] ingest | Animate a pendulum (Rosetta Code)
+## [2026-05-30] ingest | Animation (Rosetta Code)
+## [2026-05-30] ingest | Anonymous recursion (Rosetta Code)
+## [2026-05-30] ingest | Append a record to the end of a text file (Rosetta Code)
+## [2026-05-30] ingest | Apply a callback to an array (Rosetta Code)
+## [2026-05-30] ingest | Arbitrary-precision integers (included) (Rosetta Code)
+## [2026-05-30] ingest | Arithmetic/Complex (Rosetta Code)
+## [2026-05-30] ingest | Arithmetic/Integer (Rosetta Code)
+## [2026-05-30] ingest | Arithmetic/Rational (Rosetta Code)
+## [2026-05-30] ingest | Array concatenation (Rosetta Code)
+## [2026-05-30] ingest | Arrays (Rosetta Code)
+## [2026-05-30] ingest | Assertions (Rosetta Code)
+## [2026-05-30] ingest | Associative array/Creation (Rosetta Code)
+## [2026-05-30] ingest | Associative array/Iteration (Rosetta Code)
+## [2026-05-30] ingest | Atomic updates (Rosetta Code)
+## [2026-05-30] ingest | Averages/Arithmetic mean (Rosetta Code)
+## [2026-05-30] ingest | Averages/Mean time of day (Rosetta Code)
+## [2026-05-30] ingest | Averages/Median (Rosetta Code)
+## [2026-05-30] ingest | Averages/Mode (Rosetta Code)
+## [2026-05-30] ingest | Averages/Simple moving average (Rosetta Code)
+## [2026-05-30] ingest | Bernoulli numbers (Rosetta Code)
+## [2026-05-30] ingest | Binary digits (Rosetta Code)
+## [2026-05-30] ingest | Binary search (Rosetta Code)
+## [2026-05-30] ingest | Binary strings (Rosetta Code)
+## [2026-05-30] ingest | Bitmap (Rosetta Code)
+## [2026-05-30] ingest | Bitmap/Bresenham's line algorithm (Rosetta Code)
+## [2026-05-30] ingest | Bitmap/Bézier curves/Cubic (Rosetta Code)
+## [2026-05-30] ingest | Bitmap/Bézier curves/Quadratic (Rosetta Code)
+## [2026-05-30] ingest | Bitmap/Flood fill (Rosetta Code)
+## [2026-05-30] ingest | Bitmap/Histogram (Rosetta Code)
+## [2026-05-30] ingest | Bitmap/Midpoint circle algorithm (Rosetta Code)
+## [2026-05-30] ingest | Bitmap/PPM conversion through a pipe (Rosetta Code)
+## [2026-05-30] ingest | Bitmap/Read a PPM file (Rosetta Code)
+## [2026-05-30] ingest | Bitmap/Read an image through a pipe (Rosetta Code)
+## [2026-05-30] ingest | Bitmap/Write a PPM file (Rosetta Code)
+## [2026-05-30] ingest | Bitwise operations (Rosetta Code)
+## [2026-05-30] ingest | Brace expansion (Rosetta Code)
+## [2026-05-30] ingest | Brownian tree (Rosetta Code)
+## [2026-05-30] ingest | Bulls and cows (Rosetta Code)
+## [2026-05-30] ingest | Bulls and cows/Player (Rosetta Code)
+## [2026-05-30] ingest | Bézier curves/Intersections (Rosetta Code)
+## [2026-05-30] ingest | CRC-32 (Rosetta Code)
+## [2026-05-30] ingest | CUSIP (Rosetta Code)
+## [2026-05-30] ingest | Caesar cipher (Rosetta Code)
+## [2026-05-30] ingest | Calendar (Rosetta Code)
+## [2026-05-30] ingest | Calendar - for \"REAL\" programmers (Rosetta Code)
+## [2026-05-30] ingest | Call a foreign-language function (Rosetta Code)
+## [2026-05-30] ingest | Call a function in a shared library (Rosetta Code)
+## [2026-05-30] ingest | Call an object method (Rosetta Code)
+## [2026-05-30] ingest | Camel case and snake case (Rosetta Code)
+## [2026-05-30] ingest | Canny edge detector (Rosetta Code)
+## [2026-05-30] ingest | Carmichael 3 strong pseudoprimes (Rosetta Code)
+## [2026-05-30] ingest | Case-sensitivity of identifiers (Rosetta Code)
+## [2026-05-30] ingest | Catalan numbers (Rosetta Code)
+## [2026-05-30] ingest | Catmull–Clark subdivision surface (Rosetta Code)
+## [2026-05-30] ingest | Character codes (Rosetta Code)
+## [2026-05-30] ingest | Chat server (Rosetta Code)
+## [2026-05-30] ingest | Check that file exists (Rosetta Code)
+## [2026-05-30] ingest | Checkpoint synchronization (Rosetta Code)
+## [2026-05-30] ingest | Chernick's Carmichael numbers (Rosetta Code)
+## [2026-05-30] ingest | Cholesky decomposition (Rosetta Code)
+## [2026-05-30] ingest | Chowla numbers (Rosetta Code)
+## [2026-05-30] ingest | Circular primes (Rosetta Code)
+## [2026-05-30] ingest | Classes (Rosetta Code)
+## [2026-05-30] ingest | Closest-pair problem (Rosetta Code)
+## [2026-05-30] ingest | Collections (Rosetta Code)
+## [2026-05-30] ingest | Color of a screen pixel (Rosetta Code)
+## [2026-05-30] ingest | Color quantization (Rosetta Code)
+## [2026-05-30] ingest | Color wheel (Rosetta Code)
+## [2026-05-30] ingest | Colour pinstripe/Display (Rosetta Code)
+## [2026-05-30] ingest | Combinations (Rosetta Code)
+## [2026-05-30] ingest | Combinations and permutations (Rosetta Code)
+## [2026-05-30] ingest | Combinations with repetitions (Rosetta Code)
+## [2026-05-30] ingest | Commatizing numbers (Rosetta Code)
+## [2026-05-30] ingest | Comments (Rosetta Code)
+## [2026-05-30] ingest | Compare length of two strings (Rosetta Code)
+## [2026-05-30] ingest | Compare sorting algorithms' performance (Rosetta Code)
+## [2026-05-30] ingest | Compound data type (Rosetta Code)
+## [2026-05-30] ingest | Concurrent computing (Rosetta Code)
+## [2026-05-30] ingest | Conditional structures (Rosetta Code)
+## [2026-05-30] ingest | Consecutive primes with ascending or descending differences (Rosetta Code)
+## [2026-05-30] ingest | Constrained genericity (Rosetta Code)
+## [2026-05-30] ingest | Constrained random points on a circle (Rosetta Code)
+## [2026-05-30] ingest | Continued fraction/Arithmetic/G(matrix ng, continued fraction n1, continued fraction n2) (Rosetta Code)
+## [2026-05-30] ingest | Convex hull (Rosetta Code)
+## [2026-05-30] ingest | Conway's Game of Life (Rosetta Code)
+## [2026-05-30] ingest | Copy a string (Rosetta Code)
+## [2026-05-30] ingest | Count in factors (Rosetta Code)
+## [2026-05-30] ingest | Count in octal (Rosetta Code)
+## [2026-05-30] ingest | Count occurrences of a substring (Rosetta Code)
+## [2026-05-30] ingest | Cramer's rule (Rosetta Code)
+## [2026-05-30] ingest | Create a file (Rosetta Code)
+## [2026-05-30] ingest | Create a file on magnetic tape (Rosetta Code)
+## [2026-05-30] ingest | Create a two-dimensional array at runtime (Rosetta Code)
+## [2026-05-30] ingest | Create an object at a given address (Rosetta Code)
+## [2026-05-30] ingest | Cuban primes (Rosetta Code)
+## [2026-05-30] ingest | Cumulative standard deviation (Rosetta Code)
+## [2026-05-30] ingest | Cyclops numbers (Rosetta Code)
+## [2026-05-30] ingest | DNS query (Rosetta Code)
+## [2026-05-30] ingest | Date format (Rosetta Code)
+## [2026-05-30] ingest | Date manipulation (Rosetta Code)
+## [2026-05-30] ingest | Day of the week (Rosetta Code)
+## [2026-05-30] ingest | Deal cards for FreeCell (Rosetta Code)
+## [2026-05-30] ingest | Death Star (Rosetta Code)
+## [2026-05-30] ingest | Deconvolution/1D (Rosetta Code)
+## [2026-05-30] ingest | Deconvolution/2D+ (Rosetta Code)
+## [2026-05-30] ingest | Define a primitive data type (Rosetta Code)
+## [2026-05-30] ingest | Delegates (Rosetta Code)
+## [2026-05-30] ingest | Delete a file (Rosetta Code)
+## [2026-05-30] ingest | Determine if a string is numeric (Rosetta Code)
+## [2026-05-30] ingest | Determine if only one instance is running (Rosetta Code)
+## [2026-05-30] ingest | Determine sentence type (Rosetta Code)
+## [2026-05-30] ingest | Digital root/Multiplicative digital root (Rosetta Code)
+## [2026-05-30] ingest | Dijkstra's algorithm (Rosetta Code)
+## [2026-05-30] ingest | Dinesman's multiple-dwelling problem (Rosetta Code)
+## [2026-05-30] ingest | Dining philosophers (Rosetta Code)
+## [2026-05-30] ingest | Discordian date (Rosetta Code)
+## [2026-05-30] ingest | Distributed programming (Rosetta Code)
+## [2026-05-30] ingest | Distribution of 0 digits in factorial series (Rosetta Code)
+## [2026-05-30] ingest | Documentation (Rosetta Code)
+## [2026-05-30] ingest | Dominoes (Rosetta Code)
+## [2026-05-30] ingest | Doubly-linked list/Definition (Rosetta Code)
+## [2026-05-30] ingest | Doubly-linked list/Element definition (Rosetta Code)
+## [2026-05-30] ingest | Doubly-linked list/Element insertion (Rosetta Code)
+## [2026-05-30] ingest | Doubly-linked list/Traversal (Rosetta Code)
+## [2026-05-30] ingest | Dragon curve (Rosetta Code)
+## [2026-05-30] ingest | Draw a cuboid (Rosetta Code)
+## [2026-05-30] ingest | Draw a pixel (Rosetta Code)
+## [2026-05-30] ingest | Dynamic variable names (Rosetta Code)
+## [2026-05-30] ingest | Echo server (Rosetta Code)
+## [2026-05-30] ingest | Element-wise operations (Rosetta Code)
+## [2026-05-30] ingest | Elliptic Curve Digital Signature Algorithm (Rosetta Code)
+## [2026-05-30] ingest | Emirp primes (Rosetta Code)
+## [2026-05-30] ingest | Empty program (Rosetta Code)
+## [2026-05-30] ingest | Enforced immutability (Rosetta Code)
+## [2026-05-30] ingest | Entropy (Rosetta Code)
+## [2026-05-30] ingest | Enumerations (Rosetta Code)
+## [2026-05-30] ingest | Environment variables (Rosetta Code)
+## [2026-05-30] ingest | Erdős-primes (Rosetta Code)
+## [2026-05-30] ingest | Ethiopian multiplication (Rosetta Code)
+## [2026-05-30] ingest | Euler method (Rosetta Code)
+## [2026-05-30] ingest | Euler's constant 0.5772... (Rosetta Code)
+## [2026-05-30] ingest | Evaluate binomial coefficients (Rosetta Code)
+## [2026-05-30] ingest | Events (Rosetta Code)
+## [2026-05-30] ingest | Exceptions (Rosetta Code)
+## [2026-05-30] ingest | Exceptions/Catch an exception thrown in a nested call (Rosetta Code)
+## [2026-05-30] ingest | Execute a Markov algorithm (Rosetta Code)
+## [2026-05-30] ingest | Execute a system command (Rosetta Code)
+## [2026-05-30] ingest | Experimental Verification of the NKT Law: Interpolating the Masses of 8 Planets Using NASA Data as of 30–31/12/2024 (Rosetta Code)
+## [2026-05-30] ingest | Experimental Verification of the NKTg Law Using NASA Mercury Data in 2025 (Rosetta Code)
+## [2026-05-30] ingest | Experimental Verification of the NKTg Law Using NASA Neptune Data (2023–2024) (Rosetta Code)
+## [2026-05-30] ingest | Experimental Verification of the NKTg Law in Earth Orbit Based on NASA’s 2025 Earth Dataset (Rosetta Code)
+## [2026-05-30] ingest | Exponentiation operator (Rosetta Code)
+## [2026-05-30] ingest | Extensible prime generator (Rosetta Code)
+## [2026-05-30] ingest | FTP (Rosetta Code)
+## [2026-05-30] ingest | Factorial (Rosetta Code)
+## [2026-05-30] ingest | Factors of a Mersenne number (Rosetta Code)
+## [2026-05-30] ingest | Factors of an integer (Rosetta Code)
+## [2026-05-30] ingest | Faulhaber's formula (Rosetta Code)
+## [2026-05-30] ingest | Faulhaber's triangle (Rosetta Code)
+## [2026-05-30] ingest | Fermat numbers (Rosetta Code)
+## [2026-05-30] ingest | Fibonacci sequence (Rosetta Code)
+## [2026-05-30] ingest | Fibonacci word/fractal (Rosetta Code)
+## [2026-05-30] ingest | File input/output (Rosetta Code)
+## [2026-05-30] ingest | File modification time (Rosetta Code)
+## [2026-05-30] ingest | File size (Rosetta Code)
+## [2026-05-30] ingest | Filter (Rosetta Code)
+## [2026-05-30] ingest | Find common directory path (Rosetta Code)
+## [2026-05-30] ingest | Find largest left truncatable prime in a given base (Rosetta Code)
+## [2026-05-30] ingest | First class environments (Rosetta Code)
+## [2026-05-30] ingest | First-class functions (Rosetta Code)
+## [2026-05-30] ingest | Five weekends (Rosetta Code)
+## [2026-05-30] ingest | FizzBuzz (Rosetta Code)
+## [2026-05-30] ingest | Flow-control structures (Rosetta Code)
+## [2026-05-30] ingest | Floyd-Warshall algorithm (Rosetta Code)
+## [2026-05-30] ingest | Forest fire (Rosetta Code)
+## [2026-05-30] ingest | Fork (Rosetta Code)
+## [2026-05-30] ingest | Formal power series (Rosetta Code)
+## [2026-05-30] ingest | Formatted numeric output (Rosetta Code)
+## [2026-05-30] ingest | Fortunate numbers (Rosetta Code)
+## [2026-05-30] ingest | Forward difference (Rosetta Code)
+## [2026-05-30] ingest | Fractal tree (Rosetta Code)
+## [2026-05-30] ingest | Fraction reduction (Rosetta Code)
+## [2026-05-30] ingest | Fractran (Rosetta Code)
+## [2026-05-30] ingest | Function composition (Rosetta Code)
+## [2026-05-30] ingest | Function definition (Rosetta Code)
+## [2026-05-30] ingest | Function frequency (Rosetta Code)
+## [2026-05-30] ingest | GSTrans string conversion (Rosetta Code)
+## [2026-05-30] ingest | GUI component interaction (Rosetta Code)
+## [2026-05-30] ingest | GUI enabling/disabling of controls (Rosetta Code)
+## [2026-05-30] ingest | GUI/Maximum window dimensions (Rosetta Code)
+## [2026-05-30] ingest | Galton box animation (Rosetta Code)
+## [2026-05-30] ingest | Gamma function (Rosetta Code)
+## [2026-05-30] ingest | General FizzBuzz (Rosetta Code)
+## [2026-05-30] ingest | Generate lower case ASCII alphabet (Rosetta Code)
+## [2026-05-30] ingest | Generic swap (Rosetta Code)
+## [2026-05-30] ingest | Go Fish (Rosetta Code)
+## [2026-05-30] ingest | Goldbach's comet (Rosetta Code)
+## [2026-05-30] ingest | Golden ratio/Convergence (Rosetta Code)
+## [2026-05-30] ingest | Grayscale image (Rosetta Code)
+## [2026-05-30] ingest | Greatest common divisor (Rosetta Code)
+## [2026-05-30] ingest | Greatest element of a list (Rosetta Code)
+## [2026-05-30] ingest | Guess the number (Rosetta Code)
+## [2026-05-30] ingest | Guess the number/With feedback (Rosetta Code)
+## [2026-05-30] ingest | Guess the number/With feedback (player) (Rosetta Code)
+## [2026-05-30] ingest | HTTP (Rosetta Code)
+## [2026-05-30] ingest | HTTPS (Rosetta Code)
+## [2026-05-30] ingest | HTTPS/Authenticated (Rosetta Code)
+## [2026-05-30] ingest | HTTPS/Client-authenticated (Rosetta Code)
+## [2026-05-30] ingest | Hamming numbers (Rosetta Code)
+## [2026-05-30] ingest | Handle a signal (Rosetta Code)
+## [2026-05-30] ingest | Happy numbers (Rosetta Code)
+## [2026-05-30] ingest | Hash from two arrays (Rosetta Code)
+## [2026-05-30] ingest | Hello world/Graphical (Rosetta Code)
+## [2026-05-30] ingest | Hello world/Newline omission (Rosetta Code)
+## [2026-05-30] ingest | Hello world/Standard error (Rosetta Code)
+## [2026-05-30] ingest | Hello world/Text (Rosetta Code)
+## [2026-05-30] ingest | Hello world/Web server (Rosetta Code)
+## [2026-05-30] ingest | Higher-order functions (Rosetta Code)
+## [2026-05-30] ingest | Hilbert curve (Rosetta Code)
+## [2026-05-30] ingest | Holidays related to Easter (Rosetta Code)
+## [2026-05-30] ingest | Home primes (Rosetta Code)
+## [2026-05-30] ingest | Horizontal sundial calculations (Rosetta Code)
+## [2026-05-30] ingest | Host introspection (Rosetta Code)
+## [2026-05-30] ingest | Hostname (Rosetta Code)
+## [2026-05-30] ingest | Hough transform (Rosetta Code)
+## [2026-05-30] ingest | Huffman coding (Rosetta Code)
+## [2026-05-30] ingest | Humble numbers (Rosetta Code)
+## [2026-05-30] ingest | Hunt the Wumpus (Rosetta Code)
+## [2026-05-30] ingest | IBAN (Rosetta Code)
+## [2026-05-30] ingest | Image convolution (Rosetta Code)
+## [2026-05-30] ingest | Image noise (Rosetta Code)
+## [2026-05-30] ingest | Increment a numerical string (Rosetta Code)
+## [2026-05-30] ingest | Infinity (Rosetta Code)
+## [2026-05-30] ingest | Inheritance/Multiple (Rosetta Code)
+## [2026-05-30] ingest | Inheritance/Single (Rosetta Code)
+## [2026-05-30] ingest | Input loop (Rosetta Code)
+## [2026-05-30] ingest | Integer comparison (Rosetta Code)
+## [2026-05-30] ingest | Interactive programming (repl) (Rosetta Code)
+## [2026-05-30] ingest | Introspection (Rosetta Code)
+## [2026-05-30] ingest | Inverted index (Rosetta Code)
+## [2026-05-30] ingest | Jaro-Winkler distance (Rosetta Code)
+## [2026-05-30] ingest | Jensen's Device (Rosetta Code)
+## [2026-05-30] ingest | JortSort (Rosetta Code)
+## [2026-05-30] ingest | Josephus problem (Rosetta Code)
+## [2026-05-30] ingest | Joystick position (Rosetta Code)
+## [2026-05-30] ingest | Julia set (Rosetta Code)
+## [2026-05-30] ingest | K-means++ clustering (Rosetta Code)
+## [2026-05-30] ingest | Keyboard input/Flush the keyboard buffer (Rosetta Code)
+## [2026-05-30] ingest | Keyboard input/Keypress check (Rosetta Code)
+## [2026-05-30] ingest | Keyboard macros (Rosetta Code)
+## [2026-05-30] ingest | Knapsack problem/0-1 (Rosetta Code)
+## [2026-05-30] ingest | Knapsack problem/Bounded (Rosetta Code)
+## [2026-05-30] ingest | Knapsack problem/Continuous (Rosetta Code)
+## [2026-05-30] ingest | Knapsack problem/Unbounded (Rosetta Code)
+## [2026-05-30] ingest | Knuth shuffle (Rosetta Code)
+## [2026-05-30] ingest | Knuth's power tree (Rosetta Code)
+## [2026-05-30] ingest | Kronecker product (Rosetta Code)
+## [2026-05-30] ingest | Kronecker product based fractals (Rosetta Code)
+## [2026-05-30] ingest | LU decomposition (Rosetta Code)
+## [2026-05-30] ingest | LZW compression (Rosetta Code)
+## [2026-05-30] ingest | Langton's ant (Rosetta Code)
+## [2026-05-30] ingest | Leap year (Rosetta Code)
+## [2026-05-30] ingest | Legendre prime counting function (Rosetta Code)
+## [2026-05-30] ingest | Leonardo numbers (Rosetta Code)
+## [2026-05-30] ingest | Letter frequency (Rosetta Code)
+## [2026-05-30] ingest | Linear congruential generator (Rosetta Code)
+## [2026-05-30] ingest | List comprehensions (Rosetta Code)
+## [2026-05-30] ingest | Literals/Floating point (Rosetta Code)
+## [2026-05-30] ingest | Literals/Integer (Rosetta Code)
+## [2026-05-30] ingest | Literals/String (Rosetta Code)
+## [2026-05-30] ingest | Logical operations (Rosetta Code)
+## [2026-05-30] ingest | Logistic curve fitting in epidemiology (Rosetta Code)
+## [2026-05-30] ingest | Long multiplication (Rosetta Code)
+## [2026-05-30] ingest | Long primes (Rosetta Code)
+## [2026-05-30] ingest | Longest string challenge (Rosetta Code)
+## [2026-05-30] ingest | Look-and-say sequence (Rosetta Code)
+## [2026-05-30] ingest | Loop over multiple arrays simultaneously (Rosetta Code)
+## [2026-05-30] ingest | Loops/Break (Rosetta Code)
+## [2026-05-30] ingest | Loops/Continue (Rosetta Code)
+## [2026-05-30] ingest | Loops/Do-while (Rosetta Code)
+## [2026-05-30] ingest | Loops/Downward for (Rosetta Code)
+## [2026-05-30] ingest | Loops/For (Rosetta Code)
+## [2026-05-30] ingest | Loops/For with a specified step (Rosetta Code)
+## [2026-05-30] ingest | Loops/Foreach (Rosetta Code)
+## [2026-05-30] ingest | Loops/Increment loop index within loop body (Rosetta Code)
+## [2026-05-30] ingest | Loops/Infinite (Rosetta Code)
+## [2026-05-30] ingest | Loops/N plus one half (Rosetta Code)
+## [2026-05-30] ingest | Loops/Nested (Rosetta Code)
+## [2026-05-30] ingest | Loops/While (Rosetta Code)
+## [2026-05-30] ingest | Loops/With multiple ranges (Rosetta Code)
+## [2026-05-30] ingest | Loops/Wrong ranges (Rosetta Code)
+## [2026-05-30] ingest | Lucas-Lehmer test (Rosetta Code)
+## [2026-05-30] ingest | Ludic numbers (Rosetta Code)
+## [2026-05-30] ingest | Luhn test of credit card numbers (Rosetta Code)
+## [2026-05-30] ingest | MD5 (Rosetta Code)
+## [2026-05-30] ingest | MD5/Implementation (Rosetta Code)
+## [2026-05-30] ingest | Magnanimous numbers (Rosetta Code)
+## [2026-05-30] ingest | Main step of GOST 28147-89 (Rosetta Code)
+## [2026-05-30] ingest | Make directory path (Rosetta Code)
+## [2026-05-30] ingest | Man or boy test (Rosetta Code)
+## [2026-05-30] ingest | Mandelbrot set (Rosetta Code)
+## [2026-05-30] ingest | Mastermind (Rosetta Code)
+## [2026-05-30] ingest | Matrix chain multiplication (Rosetta Code)
+## [2026-05-30] ingest | Matrix multiplication (Rosetta Code)
+## [2026-05-30] ingest | Matrix transposition (Rosetta Code)
+## [2026-05-30] ingest | Matrix-exponentiation operator (Rosetta Code)
+## [2026-05-30] ingest | Mayan numerals (Rosetta Code)
+## [2026-05-30] ingest | Maze generation (Rosetta Code)
+## [2026-05-30] ingest | Maze solving (Rosetta Code)
+## [2026-05-30] ingest | Median filter (Rosetta Code)
+## [2026-05-30] ingest | Memory allocation (Rosetta Code)
+## [2026-05-30] ingest | Menu (Rosetta Code)
+## [2026-05-30] ingest | Merge and aggregate datasets (Rosetta Code)
+## [2026-05-30] ingest | Mertens function (Rosetta Code)
+## [2026-05-30] ingest | Metered concurrency (Rosetta Code)
+## [2026-05-30] ingest | Miller-Rabin primality test (Rosetta Code)
+## [2026-05-30] ingest | Minesweeper game (Rosetta Code)
+## [2026-05-30] ingest | Monte Carlo methods (Rosetta Code)
+## [2026-05-30] ingest | Monty Hall problem (Rosetta Code)
+## [2026-05-30] ingest | Morse code (Rosetta Code)
+## [2026-05-30] ingest | Motzkin numbers (Rosetta Code)
+## [2026-05-30] ingest | Mouse position (Rosetta Code)
+## [2026-05-30] ingest | Multi-base primes (Rosetta Code)
+## [2026-05-30] ingest | Multiple regression (Rosetta Code)
+## [2026-05-30] ingest | Multiplication tables (Rosetta Code)
+## [2026-05-30] ingest | Multiplicative order (Rosetta Code)
+## [2026-05-30] ingest | Munching squares (Rosetta Code)
+## [2026-05-30] ingest | Mutual recursion (Rosetta Code)
+## [2026-05-30] ingest | Möbius function (Rosetta Code)
+## [2026-05-30] ingest | N'th (Rosetta Code)
+## [2026-05-30] ingest | N-smooth numbers (Rosetta Code)
+## [2026-05-30] ingest | NKTgLaw (Rosetta Code)
+## [2026-05-30] ingest | Named parameters (Rosetta Code)
+## [2026-05-30] ingest | Naming conventions (Rosetta Code)
+## [2026-05-30] ingest | Natural sorting (Rosetta Code)
+## [2026-05-30] ingest | Non-continuous subsequences (Rosetta Code)
+## [2026-05-30] ingest | Non-decimal radices/Convert (Rosetta Code)
+## [2026-05-30] ingest | Non-decimal radices/Input (Rosetta Code)
+## [2026-05-30] ingest | Non-decimal radices/Output (Rosetta Code)
+## [2026-05-30] ingest | Nth root (Rosetta Code)
+## [2026-05-30] ingest | Null object (Rosetta Code)
+## [2026-05-30] ingest | Number names (Rosetta Code)
+## [2026-05-30] ingest | Number reversal game (Rosetta Code)
+## [2026-05-30] ingest | Numerical integration (Rosetta Code)
+## [2026-05-30] ingest | Numerical integration/Gauss-Legendre Quadrature (Rosetta Code)
+## [2026-05-30] ingest | Numerical integration/Romberg integration (Rosetta Code)
+## [2026-05-30] ingest | Numerical integration/Tanh-Sinh Quadrature (Rosetta Code)
+## [2026-05-30] ingest | OLE automation (Rosetta Code)
+## [2026-05-30] ingest | Object serialization (Rosetta Code)
+## [2026-05-30] ingest | One-dimensional cellular automata (Rosetta Code)
+## [2026-05-30] ingest | OpenGL (Rosetta Code)
+## [2026-05-30] ingest | Optional parameters (Rosetta Code)
+## [2026-05-30] ingest | Order by pair comparisons (Rosetta Code)
+## [2026-05-30] ingest | Order disjoint list items (Rosetta Code)
+## [2026-05-30] ingest | Ordered partitions (Rosetta Code)
+## [2026-05-30] ingest | Ordered words (Rosetta Code)
+## [2026-05-30] ingest | P-Adic numbers, basic (Rosetta Code)
+## [2026-05-30] ingest | P-Adic square roots (Rosetta Code)
+## [2026-05-30] ingest | P-value correction (Rosetta Code)
+## [2026-05-30] ingest | Palindrome detection (Rosetta Code)
+## [2026-05-30] ingest | Palindromic primes in base 16 (Rosetta Code)
+## [2026-05-30] ingest | Parallel brute force (Rosetta Code)
+## [2026-05-30] ingest | Parallel calculations (Rosetta Code)
+## [2026-05-30] ingest | Parameterized SQL statement (Rosetta Code)
+## [2026-05-30] ingest | Parametric polymorphism (Rosetta Code)
+## [2026-05-30] ingest | Partial function application (Rosetta Code)
+## [2026-05-30] ingest | Partition an integer x into n primes (Rosetta Code)
+## [2026-05-30] ingest | Partition function P (Rosetta Code)
+## [2026-05-30] ingest | Pascal matrix generation (Rosetta Code)
+## [2026-05-30] ingest | Pascal's triangle (Rosetta Code)
+## [2026-05-30] ingest | Peano curve (Rosetta Code)
+## [2026-05-30] ingest | Pell's equation (Rosetta Code)
+## [2026-05-30] ingest | Penney's game (Rosetta Code)
+## [2026-05-30] ingest | Percentage difference between images (Rosetta Code)
+## [2026-05-30] ingest | Percolation/Bond percolation (Rosetta Code)
+## [2026-05-30] ingest | Percolation/Mean cluster density (Rosetta Code)
+## [2026-05-30] ingest | Percolation/Mean run density (Rosetta Code)
+## [2026-05-30] ingest | Percolation/Site percolation (Rosetta Code)
+## [2026-05-30] ingest | Perfect numbers (Rosetta Code)
+## [2026-05-30] ingest | Permutation test (Rosetta Code)
+## [2026-05-30] ingest | Permutations (Rosetta Code)
+## [2026-05-30] ingest | Pernicious numbers (Rosetta Code)
+## [2026-05-30] ingest | Pi (Rosetta Code)
+## [2026-05-30] ingest | Pick random element (Rosetta Code)
+## [2026-05-30] ingest | Pierpont primes (Rosetta Code)
+## [2026-05-30] ingest | Pinstripe/Display (Rosetta Code)
+## [2026-05-30] ingest | Pisano period (Rosetta Code)
+## [2026-05-30] ingest | Play recorded sounds (Rosetta Code)
+## [2026-05-30] ingest | Playing cards (Rosetta Code)
+## [2026-05-30] ingest | Pointers and references (Rosetta Code)
+## [2026-05-30] ingest | Polymorphic copy (Rosetta Code)
+## [2026-05-30] ingest | Polymorphism (Rosetta Code)
+## [2026-05-30] ingest | Polynomial long division (Rosetta Code)
+## [2026-05-30] ingest | Polynomial regression (Rosetta Code)
+## [2026-05-30] ingest | Power set (Rosetta Code)
+## [2026-05-30] ingest | Price fraction (Rosetta Code)
+## [2026-05-30] ingest | Primality by Wilson's theorem (Rosetta Code)
+## [2026-05-30] ingest | Primality by trial division (Rosetta Code)
+## [2026-05-30] ingest | Prime conspiracy (Rosetta Code)
+## [2026-05-30] ingest | Prime decomposition (Rosetta Code)
+## [2026-05-30] ingest | Primes - allocate descendants to their ancestors (Rosetta Code)
+## [2026-05-30] ingest | Primorial numbers (Rosetta Code)
+## [2026-05-30] ingest | Probabilistic choice (Rosetta Code)
+## [2026-05-30] ingest | Problem of Apollonius (Rosetta Code)
+## [2026-05-30] ingest | Program name (Rosetta Code)
+## [2026-05-30] ingest | Program termination (Rosetta Code)
+## [2026-05-30] ingest | Proper divisors (Rosetta Code)
+## [2026-05-30] ingest | Pseudo-random numbers/Splitmix64 (Rosetta Code)
+## [2026-05-30] ingest | Pythagoras tree (Rosetta Code)
+## [2026-05-30] ingest | QR decomposition (Rosetta Code)
+## [2026-05-30] ingest | Queue/Definition (Rosetta Code)
+## [2026-05-30] ingest | Queue/Usage (Rosetta Code)
+## [2026-05-30] ingest | Quickselect algorithm (Rosetta Code)
+## [2026-05-30] ingest | RCRPG (Rosetta Code)
+## [2026-05-30] ingest | RSA code (Rosetta Code)
+## [2026-05-30] ingest | Ramanujan primes/twins (Rosetta Code)
+## [2026-05-30] ingest | Random numbers (Rosetta Code)
+## [2026-05-30] ingest | Ranking methods (Rosetta Code)
+## [2026-05-30] ingest | Rare numbers (Rosetta Code)
+## [2026-05-30] ingest | Ray-casting algorithm (Rosetta Code)
+## [2026-05-30] ingest | Read a configuration file (Rosetta Code)
+## [2026-05-30] ingest | Read a file character by character/UTF8 (Rosetta Code)
+## [2026-05-30] ingest | Read a file line by line (Rosetta Code)
+## [2026-05-30] ingest | Read entire file (Rosetta Code)
+## [2026-05-30] ingest | Real constants and functions (Rosetta Code)
+## [2026-05-30] ingest | Record sound (Rosetta Code)
+## [2026-05-30] ingest | Reduced row echelon form (Rosetta Code)
+## [2026-05-30] ingest | Reflection/Get source (Rosetta Code)
+## [2026-05-30] ingest | Reflection/List methods (Rosetta Code)
+## [2026-05-30] ingest | Reflection/List properties (Rosetta Code)
+## [2026-05-30] ingest | Regular expressions (Rosetta Code)
+## [2026-05-30] ingest | Remove duplicate elements (Rosetta Code)
+## [2026-05-30] ingest | Rename a file (Rosetta Code)
+## [2026-05-30] ingest | Rendezvous (Rosetta Code)
+## [2026-05-30] ingest | Repeat a string (Rosetta Code)
+## [2026-05-30] ingest | Respond to an unknown method call (Rosetta Code)
+## [2026-05-30] ingest | Retrieve and search chat history (Rosetta Code)
+## [2026-05-30] ingest | Return multiple values (Rosetta Code)
+## [2026-05-30] ingest | Reverse a string (Rosetta Code)
+## [2026-05-30] ingest | Rock-paper-scissors (Rosetta Code)
+## [2026-05-30] ingest | Roots of a function (Rosetta Code)
+## [2026-05-30] ingest | Roots of a quadratic function (Rosetta Code)
+## [2026-05-30] ingest | Roots of unity (Rosetta Code)
+## [2026-05-30] ingest | Rosetta Code/Count examples (Rosetta Code)
+## [2026-05-30] ingest | Rosetta Code/Find bare lang tags (Rosetta Code)
+## [2026-05-30] ingest | Rosetta Code/Find unimplemented tasks (Rosetta Code)
+## [2026-05-30] ingest | Rosetta Code/Fix code tags (Rosetta Code)
+## [2026-05-30] ingest | Rosetta Code/Rank languages by popularity (Rosetta Code)
+## [2026-05-30] ingest | Rot-13 (Rosetta Code)
+## [2026-05-30] ingest | Run-length encoding (Rosetta Code)
+## [2026-05-30] ingest | S-expressions (Rosetta Code)
+## [2026-05-30] ingest | SEDOLs (Rosetta Code)
+## [2026-05-30] ingest | SHA-256 (Rosetta Code)
+## [2026-05-30] ingest | SHA-256 Merkle tree (Rosetta Code)
+## [2026-05-30] ingest | SOAP (Rosetta Code)
+## [2026-05-30] ingest | SQL-based authentication (Rosetta Code)
+## [2026-05-30] ingest | Safe addition (Rosetta Code)
+## [2026-05-30] ingest | Safe primes and unsafe primes (Rosetta Code)
+## [2026-05-30] ingest | Scope modifiers (Rosetta Code)
+## [2026-05-30] ingest | Scope/Function names and labels (Rosetta Code)
+## [2026-05-30] ingest | Search a list (Rosetta Code)
+## [2026-05-30] ingest | Search a list of records (Rosetta Code)
+## [2026-05-30] ingest | Secure temporary file (Rosetta Code)
+## [2026-05-30] ingest | Semiprime (Rosetta Code)
+## [2026-05-30] ingest | Send an unknown method call (Rosetta Code)
+## [2026-05-30] ingest | Send email (Rosetta Code)
+## [2026-05-30] ingest | Sequence of non-squares (Rosetta Code)
+## [2026-05-30] ingest | Sequence of primes by trial division (Rosetta Code)
+## [2026-05-30] ingest | Sequence of primorial primes (Rosetta Code)
+## [2026-05-30] ingest | Set (Rosetta Code)
+## [2026-05-30] ingest | Set puzzle (Rosetta Code)
+## [2026-05-30] ingest | Seven-sided dice from five-sided dice (Rosetta Code)
+## [2026-05-30] ingest | Sexy primes (Rosetta Code)
+## [2026-05-30] ingest | Shell one-liner (Rosetta Code)
+## [2026-05-30] ingest | Short-circuit evaluation (Rosetta Code)
+## [2026-05-30] ingest | Sierpinski arrowhead curve (Rosetta Code)
+## [2026-05-30] ingest | Sierpinski carpet (Rosetta Code)
+## [2026-05-30] ingest | Sierpinski square curve (Rosetta Code)
+## [2026-05-30] ingest | Sierpinski triangle (Rosetta Code)
+## [2026-05-30] ingest | Sieve of Eratosthenes (Rosetta Code)
+## [2026-05-30] ingest | Sieve of Pritchard (Rosetta Code)
+## [2026-05-30] ingest | Simple database (Rosetta Code)
+## [2026-05-30] ingest | Simple windowed application (Rosetta Code)
+
+## [2026-05-30] ingest | Boolean values (Rosetta Code)
+## [2026-05-30] ingest | Simulate input/Keyboard (Rosetta Code)
+## [2026-05-30] ingest | Simulate input/Mouse (Rosetta Code)
+## [2026-05-30] ingest | Singleton (Rosetta Code)
+## [2026-05-30] ingest | Singly-linked list/Element definition (Rosetta Code)
+## [2026-05-30] ingest | Singly-linked list/Element insertion (Rosetta Code)
+## [2026-05-30] ingest | Singly-linked list/Traversal (Rosetta Code)
+## [2026-05-30] ingest | Sleep (Rosetta Code)
+## [2026-05-30] ingest | Sleeping Beauty problem (Rosetta Code)
+## [2026-05-30] ingest | Smarandache prime-digital sequence (Rosetta Code)
+## [2026-05-30] ingest | Snake (Rosetta Code)
+## [2026-05-30] ingest | Sockets (Rosetta Code)
+## [2026-05-30] ingest | Sokoban (Rosetta Code)
+## [2026-05-30] ingest | Solve the no connection puzzle (Rosetta Code)
+## [2026-05-30] ingest | Sort a list of object identifiers (Rosetta Code)
+## [2026-05-30] ingest | Sort an array of composite structures (Rosetta Code)
+## [2026-05-30] ingest | Sort an integer array (Rosetta Code)
+## [2026-05-30] ingest | Sort disjoint sublist (Rosetta Code)
+## [2026-05-30] ingest | Sort numbers lexicographically (Rosetta Code)
+## [2026-05-30] ingest | Sort stability (Rosetta Code)
+## [2026-05-30] ingest | Sort three variables (Rosetta Code)
+## [2026-05-30] ingest | Sort using a custom comparator (Rosetta Code)
+## [2026-05-30] ingest | Sorting algorithms/Bead sort (Rosetta Code)
+## [2026-05-30] ingest | Sorting algorithms/Bogosort (Rosetta Code)
+## [2026-05-30] ingest | Sorting algorithms/Bubble sort (Rosetta Code)
+## [2026-05-30] ingest | Sorting algorithms/Circle sort (Rosetta Code)
+## [2026-05-30] ingest | Sorting algorithms/Cocktail sort (Rosetta Code)
+## [2026-05-30] ingest | Sorting algorithms/Cocktail sort with shifting bounds (Rosetta Code)
+## [2026-05-30] ingest | Sorting algorithms/Comb sort (Rosetta Code)
+## [2026-05-30] ingest | Sorting algorithms/Counting sort (Rosetta Code)
+## [2026-05-30] ingest | Sorting algorithms/Cycle sort (Rosetta Code)
+## [2026-05-30] ingest | Sorting algorithms/Gnome sort (Rosetta Code)
+## [2026-05-30] ingest | Sorting algorithms/Heapsort (Rosetta Code)
+## [2026-05-30] ingest | Sorting algorithms/Insertion sort (Rosetta Code)
+## [2026-05-30] ingest | Sorting algorithms/Merge sort (Rosetta Code)
+## [2026-05-30] ingest | Sorting algorithms/Pancake sort (Rosetta Code)
+## [2026-05-30] ingest | Sorting algorithms/Patience sort (Rosetta Code)
+## [2026-05-30] ingest | Sorting algorithms/Permutation sort (Rosetta Code)
+## [2026-05-30] ingest | Sorting algorithms/Quicksort (Rosetta Code)
+## [2026-05-30] ingest | Sorting algorithms/Radix sort (Rosetta Code)
+## [2026-05-30] ingest | Sorting algorithms/Selection sort (Rosetta Code)
+## [2026-05-30] ingest | Sorting algorithms/Shell sort (Rosetta Code)
+## [2026-05-30] ingest | Sorting algorithms/Sleep sort (Rosetta Code)
+## [2026-05-30] ingest | Sorting algorithms/Stooge sort (Rosetta Code)
+## [2026-05-30] ingest | Sorting algorithms/Strand sort (Rosetta Code)
+## [2026-05-30] ingest | Soundex (Rosetta Code)
+## [2026-05-30] ingest | Special characters (Rosetta Code)
+## [2026-05-30] ingest | Special variables (Rosetta Code)
+## [2026-05-30] ingest | Speech synthesis (Rosetta Code)
+## [2026-05-30] ingest | Spinning rod animation/Text (Rosetta Code)
+## [2026-05-30] ingest | Spiral matrix (Rosetta Code)
+## [2026-05-30] ingest | Square form factorization (Rosetta Code)
+## [2026-05-30] ingest | Stable marriage problem (Rosetta Code)
+## [2026-05-30] ingest | Stack (Rosetta Code)
+## [2026-05-30] ingest | Stack traces (Rosetta Code)
+## [2026-05-30] ingest | State name puzzle (Rosetta Code)
+## [2026-05-30] ingest | Statistics/Basic (Rosetta Code)
+## [2026-05-30] ingest | Steffensen's method (Rosetta Code)
+## [2026-05-30] ingest | Stem-and-leaf plot (Rosetta Code)
+## [2026-05-30] ingest | Straddling checkerboard (Rosetta Code)
+## [2026-05-30] ingest | String append (Rosetta Code)
+## [2026-05-30] ingest | String case (Rosetta Code)
+## [2026-05-30] ingest | String comparison (Rosetta Code)
+## [2026-05-30] ingest | String concatenation (Rosetta Code)
+## [2026-05-30] ingest | String interpolation (included) (Rosetta Code)
+## [2026-05-30] ingest | String length (Rosetta Code)
+## [2026-05-30] ingest | String matching (Rosetta Code)
+## [2026-05-30] ingest | String prepend (Rosetta Code)
+## [2026-05-30] ingest | Strip a set of characters from a string (Rosetta Code)
+## [2026-05-30] ingest | Strip block comments (Rosetta Code)
+## [2026-05-30] ingest | Strip comments from a string (Rosetta Code)
+## [2026-05-30] ingest | Strip whitespace from a string/Top and tail (Rosetta Code)
+## [2026-05-30] ingest | Strong and weak primes (Rosetta Code)
+## [2026-05-30] ingest | Substitution cipher (Rosetta Code)
+## [2026-05-30] ingest | Substring (Rosetta Code)
+## [2026-05-30] ingest | Subtractive generator (Rosetta Code)
+## [2026-05-30] ingest | Successive prime differences (Rosetta Code)
+## [2026-05-30] ingest | Sudan function (Rosetta Code)
+## [2026-05-30] ingest | Sudoku (Rosetta Code)
+## [2026-05-30] ingest | Sum and product of an array (Rosetta Code)
+## [2026-05-30] ingest | Sum of a series (Rosetta Code)
+## [2026-05-30] ingest | Sum of squares (Rosetta Code)
+## [2026-05-30] ingest | Sutherland-Hodgman polygon clipping (Rosetta Code)
+## [2026-05-30] ingest | Symmetric difference (Rosetta Code)
+## [2026-05-30] ingest | Synchronous concurrency (Rosetta Code)
+## [2026-05-30] ingest | System time (Rosetta Code)
+## [2026-05-30] ingest | Table creation/Postal addresses (Rosetta Code)
+## [2026-05-30] ingest | Take notes on the command line (Rosetta Code)
+## [2026-05-30] ingest | Tau number (Rosetta Code)
+## [2026-05-30] ingest | Taxicab numbers (Rosetta Code)
+## [2026-05-30] ingest | Terminal control/Clear the screen (Rosetta Code)
+## [2026-05-30] ingest | Terminal control/Cursor movement (Rosetta Code)
+## [2026-05-30] ingest | Terminal control/Cursor positioning (Rosetta Code)
+## [2026-05-30] ingest | Terminal control/Dimensions (Rosetta Code)
+## [2026-05-30] ingest | Terminal control/Display an extended character (Rosetta Code)
+## [2026-05-30] ingest | Terminal control/Hiding the cursor (Rosetta Code)
+## [2026-05-30] ingest | Terminal control/Inverse video (Rosetta Code)
+## [2026-05-30] ingest | Terminal control/Positional read (Rosetta Code)
+## [2026-05-30] ingest | Terminal control/Preserve screen (Rosetta Code)
+## [2026-05-30] ingest | Terminal control/Ringing the terminal bell (Rosetta Code)
+## [2026-05-30] ingest | Ternary logic (Rosetta Code)
+## [2026-05-30] ingest | Test a function (Rosetta Code)
+## [2026-05-30] ingest | Text processing/1 (Rosetta Code)
+## [2026-05-30] ingest | Text processing/2 (Rosetta Code)
+## [2026-05-30] ingest | Text processing/Max licenses in use (Rosetta Code)
+## [2026-05-30] ingest | The sieve of Sundaram (Rosetta Code)
+## [2026-05-30] ingest | Thiele's interpolation formula (Rosetta Code)
+## [2026-05-30] ingest | Tic-tac-toe (Rosetta Code)
+## [2026-05-30] ingest | Time a function (Rosetta Code)
+## [2026-05-30] ingest | Tokenize a string (Rosetta Code)
+## [2026-05-30] ingest | Tokenize a string with escaping (Rosetta Code)
+## [2026-05-30] ingest | Topological sort (Rosetta Code)
+## [2026-05-30] ingest | Totient function (Rosetta Code)
+## [2026-05-30] ingest | Towers of Hanoi (Rosetta Code)
+## [2026-05-30] ingest | Tree traversal (Rosetta Code)
+## [2026-05-30] ingest | Trigonometric functions (Rosetta Code)
+## [2026-05-30] ingest | Truncatable primes (Rosetta Code)
+## [2026-05-30] ingest | Twelve statements (Rosetta Code)
+## [2026-05-30] ingest | Twin primes (Rosetta Code)
+## [2026-05-30] ingest | Twin primes whose sum is square number (Rosetta Code)
+## [2026-05-30] ingest | Two's complement (Rosetta Code)
+## [2026-05-30] ingest | Ulam spiral (for primes) (Rosetta Code)
+## [2026-05-30] ingest | Undefined values (Rosetta Code)
+## [2026-05-30] ingest | Unicode variable names (Rosetta Code)
+## [2026-05-30] ingest | Unprimeable numbers (Rosetta Code)
+## [2026-05-30] ingest | Untouchable numbers (Rosetta Code)
+## [2026-05-30] ingest | Update a configuration file (Rosetta Code)
+## [2026-05-30] ingest | Use another language to call a function (Rosetta Code)
+## [2026-05-30] ingest | User input/Graphical (Rosetta Code)
+## [2026-05-30] ingest | User input/Text (Rosetta Code)
+## [2026-05-30] ingest | Vampire number (Rosetta Code)
+## [2026-05-30] ingest | Variable size/Get (Rosetta Code)
+## [2026-05-30] ingest | Variable size/Set (Rosetta Code)
+## [2026-05-30] ingest | Variable-length quantity (Rosetta Code)
+## [2026-05-30] ingest | Variables (Rosetta Code)
+## [2026-05-30] ingest | Variadic fixed-point combinator (Rosetta Code)
+## [2026-05-30] ingest | Variadic function (Rosetta Code)
+## [2026-05-30] ingest | Vector (Rosetta Code)
+## [2026-05-30] ingest | Verify distribution uniformity/Chi-squared test (Rosetta Code)
+## [2026-05-30] ingest | Verify distribution uniformity/Naive (Rosetta Code)
+## [2026-05-30] ingest | Vigenère cipher (Rosetta Code)
+## [2026-05-30] ingest | Vigenère cipher/Cryptanalysis (Rosetta Code)
+## [2026-05-30] ingest | Walk a directory/Non-recursively (Rosetta Code)
+## [2026-05-30] ingest | Walk a directory/Recursively (Rosetta Code)
+## [2026-05-30] ingest | Walsh matrix (Rosetta Code)
+## [2026-05-30] ingest | Web scraping (Rosetta Code)
+## [2026-05-30] ingest | Wieferich primes (Rosetta Code)
+## [2026-05-30] ingest | Wilson primes of order n (Rosetta Code)
+## [2026-05-30] ingest | Window creation (Rosetta Code)
+## [2026-05-30] ingest | Window creation/X11 (Rosetta Code)
+## [2026-05-30] ingest | Window management (Rosetta Code)
+## [2026-05-30] ingest | Wireworld (Rosetta Code)
+## [2026-05-30] ingest | Word wheel (Rosetta Code)
+## [2026-05-30] ingest | Wordiff (Rosetta Code)
+## [2026-05-30] ingest | Write entire file (Rosetta Code)
+## [2026-05-30] ingest | XML/DOM serialization (Rosetta Code)
+## [2026-05-30] ingest | XML/Input (Rosetta Code)
+## [2026-05-30] ingest | XML/Output (Rosetta Code)
+## [2026-05-30] ingest | XML/XPath (Rosetta Code)
+## [2026-05-30] ingest | Xiaolin Wu's line algorithm (Rosetta Code)
+## [2026-05-30] ingest | Y combinator (Rosetta Code)
+## [2026-05-30] ingest | Yahoo! search interface (Rosetta Code)
+## [2026-05-30] ingest | Yin and yang (Rosetta Code)
+## [2026-05-30] ingest | Zebra puzzle (Rosetta Code)
+## [2026-05-30] ingest | Zeckendorf arithmetic (Rosetta Code)
+## [2026-05-30] ingest | Zig-zag matrix (Rosetta Code)
+## [2026-05-30] ingest | Zumkeller numbers (Rosetta Code)
+## [2026-06-04] ingest | The Matrix Calculus You Need For Deep Learning
+## [2026-06-04] ingest | Practical Deep Learning for Coders (fast.ai course)
+## [2026-06-04] ingest | The Mechanics of Machine Learning
+## [2026-06-04] ingest | MML Ch 1 — Introduction and Motivation
+- Source page created: `wiki/sources/mml-ch01-introduction-and-motivation.md` (exhaustive per-chapter ingest of book pp. 11–16 = PDF pp. 17–22; §1.1 Finding Words for Intuitions, §1.2 Two Ways to Read This Book, §1.3 Exercises and Feedback).
+- New concept pages created: `Predictor`, `Training`, `FourPillarsOfMachineLearning`.
+- Existing concept pages enriched: `MachineLearning` (added data/model/learning trichotomy + predictor/training disambiguation; added source to frontmatter), `Generalization` (added "goal of learning vs. memorization" framing; added source to frontmatter).
+- Umbrella `wiki/sources/mml-book.md` updated: added `## Per-Chapter Deep Dives` section with a Ch 1 bullet.
+- index.md updated: 1 new Sources entry + 3 new Concepts entries (Four Pillars, Predictor, Training).
+- overview.md: no change (Ch 1 is motivational; umbrella already reflects the four-pillars framing).
+- Contradictions/quirks: Ch 1 frames training as *maximizing a utility function* (hill-climbing) vs. the wiki's prevailing *minimize loss/cost* framing — same idea up to a sign, noted on the source page and on `Training`. No hard contradictions with `mml-book` umbrella.
+- Validation: all introduced [[wikilinks]] resolve to existing pages except `Density estimation` (intentionally NOT created — Ch 1 only previews it; proper home is MML Ch 11; only `KernelDensityEstimation`/`GaussianMixtureModel` exist today). New source page confirmed listed in index.md.
+
+## [2026-06-04] ingest | MML Ch 2 — Linear Algebra
+- Source page created: `wiki/sources/mml-ch02-linear-algebra.md` — exhaustive per-chapter deep dive of book pp. 17–69 (= PDF pp. 23–75, offset +6, "2 Linear Algebra" heading verified). Covers §2.1 Systems of Linear Equations, §2.2 Matrices (algebra, inverse, transpose, symmetric), §2.3 Solving Systems (Gaussian elimination, REF/RREF, pivots, particular+homogeneous solution, Minus-1 Trick, inverse via augmented matrix, pseudo-inverse), §2.4 Vector Spaces (groups, GL(n,R), vector-space axioms, subspaces), §2.5 Linear Independence, §2.6 Basis & Rank, §2.7 Linear Mappings (transformation matrices, basis change, image/kernel, rank–nullity), §2.8 Affine Spaces, §2.9 Further Reading. Every Definition (2.1–2.26) and Theorem (2.17, 2.20, 2.24) captured with section + book-page refs; verbatim quotes incl. marginal notes.
+- New concept pages created (24): `SystemOfLinearEquations`, `Matrix`, `MatrixInverse`, `IdentityMatrix`, `SymmetricMatrix`, `GroupTheory`, `GeneralLinearGroup`, `VectorSubspace`, `LinearCombination`, `Span`, `Basis`, `Dimension`, `Coordinates`, `RowEchelonForm`, `ReducedRowEchelonForm`, `Pivot`, `TransformationMatrix`, `BasisChange`, `Image`, `NullSpace`, `ColumnSpace`, `RankNullityTheorem`, `AffineSpace`, `AffineSubspace`, `AffineMapping`. (`MatrixMultiplication` already existed — see below.)
+- Existing concept pages enriched (10, each with a `## From [[mml-ch02-linear-algebra|MML Ch 2]]` section + source added to frontmatter): `LinearAlgebra`, `VectorSpace`, `LinearMapping`, `LinearIndependence`, `Rank`, `GaussianElimination`, `Determinant`, `MatrixMultiplication`, `MatrixInversion`, `MatrixTranspose`.
+- Stub pages resolved: `systemsoflinearequations.md` and `solvinglinearsystemsusinggaussianelimination.md` rewritten to point at the new canonical pages [[SystemOfLinearEquations]] / [[GaussianElimination]]. Disambiguation note added to OS `Kernel.md` pointing to [[NullSpace]].
+- Umbrella `wiki/sources/mml-book.md` updated: appended Ch 2 bullet to `## Per-Chapter Deep Dives` (chapter order, after Ch 1).
+- index.md updated: 1 new Sources entry (MML Ch 2) + 24 new Concepts entries; gave `Matrix Multiplication` (was bare) a description; added MML refs to `Matrix Transpose`.
+- overview.md: no change (umbrella + `LinearAlgebra` concept page already carry the high-level LA framing; this is a per-chapter deep dive).
+- Contradictions/quirks: (1) `Kernel.md` = OS kernel, so the LA kernel/null space is filed as [[NullSpace]] (disambiguated both ways). (2) Pre-existing `MatrixMultiplication`/`MatrixInversion`/`GaussianElimination`/`MatrixTranspose` are parallel-computing/Matloff-framed (prime $A'$ notation); kept that perspective and added LA-canonical MML sections. The inverse *object* is [[MatrixInverse]] (MML Def 2.3) vs. the numerical [[MatrixInversion]] page — cross-linked. (3) Transpose notation $\mathbf{A}^\top$ (MML) vs $A'$ (Matloff) — noted. No factual contradictions.
+- Validation: grepped all introduced [[wikilinks]]; the only intentional forward-ref is [[OrthonormalBasis]] (MML Ch 3 — not created here; already listed in the umbrella's "concepts introduced" list). All other targets exist (existing pages or the 24 new ones). New source + all 24 new concept pages confirmed in index.md.
+
+## [2026-06-04] ingest | CS324 — Introduction (Large Language Models)
+- Source: https://stanford-cs324.github.io/winter2022/lectures/introduction/ · raw/cs324/cs324-introduction.md · wiki/sources/cs324-introduction.md
+- Part of the Stanford CS324 (Winter 2022) full 14-lecture course ingest; each lecture ingested by a dedicated Opus subagent, shared layer (index/log/overview/entities/concepts) consolidated by the orchestrator.
+
+## [2026-06-04] ingest | CS324 — Capabilities
+- Source: https://stanford-cs324.github.io/winter2022/lectures/capabilities/ · raw/cs324/cs324-capabilities.md · wiki/sources/cs324-capabilities.md
+
+## [2026-06-04] ingest | CS324 — Harms I (Performance Disparities, Social Bias, Toxicity)
+- Source: https://stanford-cs324.github.io/winter2022/lectures/harms-1/ · raw/cs324/cs324-harms-1.md · wiki/sources/cs324-harms-1.md
+- Scope note: the live lecture covers performance disparities + social bias/stereotypes only; toxicity is deferred to Harms II (flagged on the page).
+
+## [2026-06-04] ingest | CS324 — Harms II (Toxicity, Disinformation)
+- Source: https://stanford-cs324.github.io/winter2022/lectures/harms-2/ · raw/cs324/cs324-harms-2.md · wiki/sources/cs324-harms-2.md
+
+## [2026-06-04] ingest | CS324 — Data
+- Source: https://stanford-cs324.github.io/winter2022/lectures/data/ · raw/cs324/cs324-data.md · wiki/sources/cs324-data.md
+
+## [2026-06-04] ingest | CS324 — Security
+- Source: https://stanford-cs324.github.io/winter2022/lectures/security/ · raw/cs324/cs324-security.md · wiki/sources/cs324-security.md
+- Lecture page wraps a slide deck PDF ("Security and Privacy"); substantive content extracted from the PDF.
+
+## [2026-06-04] ingest | CS324 — Legality
+- Source: https://stanford-cs324.github.io/winter2022/lectures/legality/ · raw/cs324/cs324-legality.md · wiki/sources/cs324-legality.md
+
+## [2026-06-04] ingest | CS324 — Modeling
+- Source: https://stanford-cs324.github.io/winter2022/lectures/modeling/ · raw/cs324/cs324-modeling.md · wiki/sources/cs324-modeling.md
+
+## [2026-06-04] ingest | CS324 — Training
+- Source: https://stanford-cs324.github.io/winter2022/lectures/training/ · raw/cs324/cs324-training.md · wiki/sources/cs324-training.md
+
+## [2026-06-04] ingest | CS324 — Parallelism
+- Source: https://stanford-cs324.github.io/winter2022/lectures/parallelism/ · raw/cs324/cs324-parallelism.md · wiki/sources/cs324-parallelism.md
+- Main lecture PDF is a scanned/handwritten whiteboard; technical content reconstructed from OCR + the source papers (Megatron-LM, GPipe, TeraPipe) whose figures were verified directly.
+
+## [2026-06-04] ingest | CS324 — Scaling Laws
+- Source: https://stanford-cs324.github.io/winter2022/lectures/scaling-laws/ · raw/cs324/cs324-scaling-laws.md · wiki/sources/cs324-scaling-laws.md
+- Cross-references existing paper source [[2001.08361-scaling-laws]] (Kaplan et al. 2020); content from the 37-slide deck PDF. Lecture predates Chinchilla.
+
+## [2026-06-04] ingest | CS324 — Selective Architectures (Mixture of Experts, Retrieval)
+- Source: https://stanford-cs324.github.io/winter2022/lectures/selective-architectures/ · raw/cs324/cs324-selective-architectures.md · wiki/sources/cs324-selective-architectures.md
+
+## [2026-06-04] ingest | CS324 — Adaptation
+- Source: https://stanford-cs324.github.io/winter2022/lectures/adaptation/ · raw/cs324/cs324-adaptation.md · wiki/sources/cs324-adaptation.md
+
+## [2026-06-04] ingest | CS324 — Environmental Impact
+- Source: https://stanford-cs324.github.io/winter2022/lectures/environment/ · raw/cs324/cs324-environment.md · wiki/sources/cs324-environment.md
+
+## [2026-06-04] ingest | MML Ch 3 — Analytic Geometry
+- Source: raw/mml-book.pdf (book pp. 70–97 = PDF pp. 76–103, 2024-01-15 draft) · wiki/sources/mml-ch03-analytic-geometry.md
+- Deep per-section ingest: §3.1 Norms (Manhattan/Euclidean), §3.2 Inner Products (dot product, general bilinear forms, SPD matrices + Thm 3.5), §3.3 Lengths & Distances (norm/metric axioms, Cauchy–Schwarz), §3.4 Angles & Orthogonality (orthogonal matrices), §3.5 Orthonormal Basis, §3.6 Orthogonal Complement (normal vectors), §3.7 Inner Product of Functions (Fourier), §3.8 Orthogonal Projections (lines / general subspaces / Gram–Schmidt / affine), §3.9 Rotations (2D / 3D / Givens), §3.10 Further Reading.
+- New concept pages (11): [[Metric]], [[BilinearForm]], [[Angle]], [[Orthogonality]], [[OrthogonalMatrix]], [[OrthonormalBasis]] (resolves the Ch 2 forward-ref), [[OrthogonalComplement]], [[ProjectionMatrix]], [[GramSchmidt]], [[Rotation]], [[InnerProductOfFunctions]].
+- Enriched (8): [[Norm]], [[InnerProduct]], [[DotProduct]], [[OrthogonalProjection]], [[CauchySchwarzInequality]], [[AnalyticGeometry]] (de-stubbed), [[SymmetricPositiveDefiniteMatrix]], [[GramMatrix]] — each got a "From MML Ch 3" section + `mml-ch03-analytic-geometry` added to `sources:`.
+- Updated: index.md (1 source + 11 concepts); umbrella [[mml-book]] Per-Chapter Deep Dives (Ch 3 bullet, chapter order). overview.md unchanged (MML §329–354 already covers Ch 3; no synthesis shift).
+- Notational quirks flagged: "orthogonal matrix" is a misnomer (columns are orthonormal, book's own margin note p. 78); lengths/angles/orthogonality are inner-product-relative (Examples 3.5, 3.7); GramMatrix.md was CV/style-transfer-framed, MML view added alongside.
+
+## [2026-06-04] ingest | MML Ch 4 — Matrix Decompositions
+- Source: `raw/mml-book.pdf`, book pp. 98–138 (PDF pp. 104–144). Heading "4 Matrix Decompositions" confirmed on PDF p. 104.
+- New source page: [[mml-ch04-matrix-decompositions|MML Ch 4 — Matrix Decompositions]] — exhaustive section-by-section deep dive: §4.1 Determinant & Trace (Laplace expansion, Sarrus' rule, signed-volume geometry, properties, characteristic polynomial), §4.2 Eigenvalues & Eigenvectors (eigenvalue equation, eigenspace/eigenspectrum, algebraic vs geometric multiplicity, defective matrices, spectral theorem, det = ∏λ / tr = ∑λ, PageRank/C. elegans examples), §4.3 Cholesky, §4.4 Eigendecomposition & Diagonalization, §4.5 SVD (theorem + 3-map geometry + A^T A construction + eigendecomposition contrast + movie-ratings example), §4.6 Matrix Approximation (rank-1 sum, rank-k truncation, spectral norm, Eckart–Young), §4.7 Matrix Phylogeny, §4.8 Further Reading.
+- New concept pages (10): [[Eigenspace]], [[Diagonalization]], [[SpectralTheorem]], [[LaplaceExpansion]], [[LowRankApproximation]], [[EckartYoung]], [[SpectralNorm]], [[MatrixPhylogeny]], [[DefectiveMatrix]], [[SimilarityTransform]].
+- Enriched (11): [[Determinant]], [[Trace]], [[CharacteristicPolynomial]] (de-stubbed), [[Eigenvalue]], [[Eigenvector]], [[Eigendecomposition]], [[CholeskyDecomposition]], [[SingularValueDecomposition]], [[MatrixDecomposition]], [[Rank]], [[KarhunenLoeveTransform]] (de-stubbed) — each got a "From MML Ch 4" section + `mml-ch04-matrix-decompositions` added to `sources:`.
+- Updated: index.md (1 source + 10 concepts); umbrella [[mml-book]] Per-Chapter Deep Dives (Ch 4 bullet, chapter order). overview.md unchanged (no synthesis shift — Ch 4 deepens existing matrix-decomposition coverage).
+- Contradiction resolved: Matloff's "singular value is a synonym for eigenvalue" corrected on [[Eigenvalue]] — σ_i = √λ_i of A^T A in general (Eq. 4.75); equality only for symmetric PSD matrices.
+- Notational quirks flagged: |A| is determinant not absolute value (p. 99); spectral-norm subscript-2 overloads the vector ℓ2 norm (Def 4.23); invertible ≠ diagonalizable (rotation matrix invertible but defective over ℝ, §4.7).
+
+## [2026-06-04] ingest | MML Ch 5 — Vector Calculus
+
+- Deep-ingested Chapter 5 (book pp. 139–171 = PDF pp. 145–177) of [[mml-book|Mathematics for Machine Learning]]; full Read of both page ranges, heading "5 Vector Calculus" verified on PDF p. 145.
+- New source page: [[mml-ch05-vector-calculus]] — exhaustive per-section deep dive (§5.1 differentiation of univariate functions → §5.9 further reading), all Definitions 5.1–5.8, Examples 5.1–5.15, and Eqs. 5.3–5.181 with §+book-page refs; row-vector-convention and backprop=reverse-mode-autodiff framings quoted verbatim.
+- New concepts (6): [[DifferenceQuotient]], [[TaylorPolynomial]], [[DifferentiationRules]], [[ForwardModeAutodiff]], [[ReverseModeAutodiff]], [[UsefulGradientIdentities]].
+- De-stubbed / fully expanded (4): [[VectorCalculus]], [[Hessian]], [[AutomaticDifferentiation]], [[Linearization]] — each given full Ch-5 content + `mml-ch05-vector-calculus` added to `sources:`.
+- Enriched (9): [[Jacobian]], [[Gradient]], [[PartialDerivative]], [[ChainRule]], [[Backpropagation]], [[ComputationalGraph]], [[TaylorSeries]] (taylorseries.md), [[derivatives]], [[Calculus]] — each got a "From MML Ch 5" section + source added to `sources:`.
+- Updated: index.md (1 source + 6 new concepts); umbrella [[mml-book]] Per-Chapter Deep Dives (Ch 5 bullet, chapter order) + Calculus concept cluster + Ch-5 contradiction cross-link. overview.md unchanged (Ch 5 deepens existing vector-calculus coverage; no synthesis shift).
+- Contradiction / quirk flagged: the **row-vector gradient + numerator-layout Jacobian** convention (Eqs. 5.40, 5.57; §5.2/§5.3 Remarks) vs the column-vector convention in Murphy / Goodfellow / D2L — expanded on the source page and reinforced on [[Gradient]] / [[Jacobian]] / [[PartialDerivative]]. Secondary: the "slightly sloppy" $D_\mathbf{x}^k f\,\boldsymbol\delta^k$ total-derivative tensor notation (§5.8, self-flagged by the book).
+
+## [2026-06-04] ingest | MML Ch 6 — Probability and Distributions
+
+- Deep-ingested Chapter 6 (book pp. 172–224 = PDF pp. 178–230) of [[mml-book|Mathematics for Machine Learning]]; full Read of all three page ranges (178–197, 198–217, 218–230), heading "6 Probability and Distributions" verified on PDF p. 178 / book p. 172.
+- New source page: [[mml-ch06-probability-and-distributions]] — exhaustive per-section deep dive (§6.1 construction of a probability space → §6.8 further reading), covering Definitions 6.1–6.13, Theorems 6.12/6.14/6.15/6.16, Examples 6.1–6.17, Tables 6.1–6.2, and Eqs. 6.1–6.151 with §+book-page refs. Quoted verbatim: the "random variable is a function, not a variable" marginal (p. 175), the probability-generalizes-Boolean-logic framing (Jaynes 2003), the Bayesian/frequentist agnosticism Remark (p. 174), the "lazy notation" admissions on $p(x)$ (§6.1.1/§6.2.3), the likelihood-"measurement model"/"never the likelihood of $\mathbf y$" passage (p. 185), the expectation-as-foundation quote (Whittle 2000, p. 187), the zero-covariance≠independence caveat (§6.4.5), and the random-variables-as-vectors quote (p. 196).
+- New concepts (18): [[ProbabilityMassFunction]], [[CumulativeDistributionFunction]], [[SumRule]], [[ProductRule]], [[Marginalization]], [[ExpectedValue]], [[Mean]], [[Median]], [[Mode]], [[Variance]], [[Covariance]], [[CovarianceMatrix]], [[Correlation]], [[EmpiricalMean]], [[ConditionalIndependence]], [[SufficientStatistics]], [[NaturalParameters]], [[ChangeOfVariables]].
+- De-stubbed / fully expanded (2): [[ProbabilityAndDistributions]] (was a one-line stub → full chapter map), [[CoxJaynesTheorem]] (was a stub → full desiderata + Cox–Jaynes statement) — each given Ch-6 content + `mml-ch06-probability-and-distributions` added to `sources:`.
+- Enriched (12): [[ProbabilitySpace]], [[RandomVariable]], [[BayesTheorem]], [[GaussianDistribution]], [[ConjugatePrior]], [[ExponentialFamily]], [[JointProbability]], [[ConditionalProbability]], [[StatisticalIndependence]], [[probability]], [[DataCovarianceMatrix]], [[ProbabilityDensityFunction]] — each got a "From MML Ch 6" section + source added to `sources:`.
+- Updated: index.md (1 source entry in alphabetical Sources cluster after Ch 5 + a new `### Added with [[mml-ch06-probability-and-distributions]]` subsection of all 18 new concepts); umbrella [[mml-book]] Per-Chapter Deep Dives (Ch 6 bullet, chapter order). overview.md unchanged (overview references mml-book at corpus level only, never per-chapter — consistent with Ch 1–5; Ch 6 deepens existing probability coverage with no cross-corpus synthesis shift).
+- Contradictions / quirks flagged: the book's self-admitted **"lazy notation"** (pmf/pdf/cdf all called "the distribution"; §6.1.1/§6.2.3); **sample-space naming drift** ($\Omega$ as "state space"/"possibility space"/"event space"; §6.1.2 Remark); **biased empirical covariance by default** (÷$N$, not $N-1$; p. 192) — consistent with existing [[DataCovarianceMatrix]]; **covariance↔cross-covariance** terminology fork (p. 190); **zero covariance ≠ independence** (Example 6.5); Bayesian/frequentist agnosticism (consistent with [[probability]]/[[ProbabilitySpace]]/[[d2l-preliminaries]]). No contradictions with prior wiki content — all enrichments additive.
+- Validation: source page + all 18 new concept pages exist; 14 existing pages enriched in place; index source + 18 concept entries inserted; umbrella bullet added. All introduced `[[wikilinks]]` resolve to existing wiki pages except [[NormalizingFlow]] — a pre-existing intentional forward-ref already linked from [[ProbabilityDensityFunction]] before this ingest (the change-of-variables/normalizing-flows connection from §6.7/§6.8), left as a forward-ref.
+
+## [2026-06-04] ingest | MML Ch 7 — Continuous Optimization
+
+- Deep-ingested Chapter 7 (book pp. 225–248 = PDF pp. 231–254) of [[mml-book|Mathematics for Machine Learning]]; full Read of both page ranges (231–250, 251–254), heading "7 Continuous Optimization" verified on PDF p. 231 / book p. 225. This chapter closes Part I (Mathematical Foundations).
+- New source page: [[mml-ch07-continuous-optimization]] — exhaustive per-section deep dive (§7.1 gradient descent → §7.4 further reading), covering Definitions 7.1–7.4, Examples 7.1–7.9, the mind map (Fig. 7.1) + Figs. 7.2–7.9, and Eqs. 7.1–7.68 with §+book-page refs. Quoted verbatim: "For convex functions all local minimums are global minimum" (margin, p. 227); the continuous-vs-combinatorial framing (margin, p. 225); step-size/learning-rate identity + divergence warning (§7.1.1, p. 229); the unbiased-gradient-estimate license for SGD (§7.1.3, p. 232); the duality definition (§7.2, p. 234); the minimax inequality / weak duality (Eqs. 7.23/7.27); the strong-duality statement (§7.3, p. 236); Defs. 7.2–7.4 (convex set / convex function / convex conjugate); the Jensen's-inequality naming (Remark, p. 239); the two-dualities-coincide passage (§7.3.3, p. 245).
+- New concepts (12): [[Lagrangian]], [[LagrangianDuality]], [[KKTConditions]], [[Duality]], [[ConvexSet]], [[ConvexFunction]], [[JensensInequality]], [[LinearProgramming]], [[QuadraticProgramming]], [[ConvexConjugate]], [[LegendreFenchelTransform]] (synonym redirect to [[ConvexConjugate]]), [[Preconditioner]]. (Note: [[Duality]], [[LinearProgramming]], [[QuadraticProgramming]], [[Preconditioner]] resolve pre-existing forward-refs from the [[mml-book]] umbrella's Ch-7 concept list.)
+- De-stubbed / fully expanded (2): [[ContinuousOptimization]] (one-line stub → full three-branch chapter map), [[ConditionNumber]] (stub → full §7.1.1 convergence + preconditioning treatment) — each given Ch-7 content + `mml-ch07-continuous-optimization` added to `sources:`.
+- Enriched (7): [[GradientDescent]], [[Momentum]], [[StochasticGradientDescent]], [[LearningRate]], [[LagrangeMultipliers]], [[ConvexOptimization]], [[Convexity]] — each got a "From MML Ch 7" section + `mml-ch07-continuous-optimization` added to `sources:`.
+- Updated: index.md (1 source entry after the Ch 6 bullet in the MML cluster + 12 new concept entries appended to the Concepts section); umbrella [[mml-book]] Per-Chapter Deep Dives (Ch 7 bullet, chapter order) and its "Optimization (Ch 7)" concept list (expanded to all 20 Ch-7 concepts). overview.md unchanged (overview references mml-book at corpus level only, never per-chapter — consistent with Ch 1–6; Ch 7 deepens existing optimization coverage with no cross-corpus synthesis shift).
+- Contradictions / quirks flagged: **fraktur Lagrangian** $\mathfrak{L}/\mathfrak{D}$ + inequality-only $\boldsymbol\lambda\in\mathbb{R}^m$ (§7.2) vs the [[LagrangeMultipliers]] page's $\mathcal{L}$ with split $\lambda_i/\nu_j$ — reconciled (equality case = two inequalities, Eq. 7.28); **row-vector gradients** force the transpose in Eqs. 7.5/7.6/7.11 vs the DL column-vector convention on the [[GradientDescent]]/[[StochasticGradientDescent]] pages (already flagged on [[mml-book]]); **step-size $\gamma$ = learning rate $\eta$** symbol/name fork; eyeballed (not exact-root) cubic minima on p. 225–227 (book is explicit). No mathematical contradictions — all additive.
+- Validation: source page + all 12 new concept pages exist; 9 existing pages enriched in place; index source + 12 concept entries inserted; umbrella bullet + concept list updated. All introduced `[[wikilinks]]` resolve to existing wiki pages except [[HardMarginSVM]] — a pre-existing intentional forward-ref to the Ch 12 SVM material (already referenced from the [[mml-book]] umbrella before this ingest), left as a forward-ref pending Ch 12 deep-dive.
+
+## [2026-06-04] ingest | MML Ch 8 — When Models Meet Data
+
+- Deep-ingested Chapter 8 (book pp. 251–288 = PDF pp. 257–294) of [[mml-book|Mathematics for Machine Learning]]; full Read of both page ranges (257–276, 277–294), heading "8 When Models Meet Data" verified on PDF p. 257 / book p. 251. This chapter **opens Part II (Central Machine Learning Problems)** and bridges the six foundations to the four pillars (Chs 9–12).
+- New source page: [[mml-ch08-when-models-meet-data]] — exhaustive per-section deep dive (§8.1 Data/Models/Learning → §8.6 Model Selection), covering Examples 8.1–8.9, Figs. 8.1–8.15, and Eqs. 8.1–8.49 with §+book-page refs. Quoted verbatim: "good models should perform well on unseen data" (§8.1); the three-phase trichotomy (§8.1.4); the abduction marginal (p. 258); the empirical-risk definition (Eq. 8.6) + expected-risk (Eq. 8.10); the "probability free is incorrect" passage (§8.2.5); the NLL "historical artifact" remark (§8.3.1); the MAP "bridge" statement (§8.3.2); the Bayesian-inference-as-inversion statement (§8.4.2); the d-separation payoff (§8.5.2); the Occam's-razor / model-selection statement (§8.6.2); the likelihood-vs-marginal-likelihood remark (§8.6.2); the Jeffreys–Lindley paradox (§8.6.3).
+- New concepts (14 full pages): [[LossFunction]], [[EmpiricalRisk]], [[ExpectedRisk]], [[HypothesisClass]], [[NegativeLogLikelihood]], [[BayesianInference]], [[LatentVariable]], [[DirectedGraphicalModel]], [[BayesianNetwork]] (synonym companion to [[DirectedGraphicalModel]]), [[PlateNotation]], [[DSeparation]], [[BayesFactor]], [[OccamsRazor]], [[ProbabilisticModel]].
+- De-stubbed / fully expanded (2): [[NestedCrossValidation]] (one-line stub → full inner/outer-loop treatment + Eq. 8.39 + standard error), [[ProbabilisticGraphicalModel]] (stub → full three-families + d-separation page) — each given Ch-8 content + `mml-ch08-when-models-meet-data` added to `sources:`.
+- Enriched (12): [[EmpiricalRiskMinimization]], [[MaximumLikelihoodEstimation]], [[MAPEstimation]], [[CrossValidation]], [[ModelSelection]], [[MachineLearning]], [[Abduction]], [[Generalization]], [[Regularization]], [[Overfitting]], [[Hyperparameter]], [[MarginalLikelihood]], [[ConditionalIndependence]], [[DesignMatrix]], [[Predictor]] — each got a "From MML Ch 8" section + `mml-ch08-when-models-meet-data` added to `sources:`. (15 enriched in total counting [[Predictor]], which already had a Ch-1 page.)
+- Recurring structural claim recorded across pages: **likelihood ↔ loss, prior ↔ regularizer** (§8.3 intro) — ties ERM (§8.2), MLE/MAP (§8.3), and Bayesian inference (§8.4) together as one framework.
+- Updated: index.md (1 source entry after the Ch 7 bullet in the MML cluster + 14 new concept entries appended to the Concepts section; [[Predictor]] already had a Ch-1 entry, not duplicated); umbrella [[mml-book]] Per-Chapter Deep Dives (Ch 8 bullet, chapter order — first Part II chapter). overview.md unchanged (overview references mml-book at corpus level only, never per-chapter — consistent with Ch 1–7; Ch 8 deepens existing ML-methodology coverage with no cross-corpus synthesis shift, and the [[EmpiricalRiskMinimization]]/[[ModelSelection]]/[[Abduction]] threads it touches were already in the overview's orbit).
+- Contradictions / quirks flagged: **"inference" overloaded** (§8.1.4 Remark — prediction vs parameter-estimation vs non-probabilistic-prediction); **bold-$\mathbf{R}$ risk notation** vs D2L's $R_{\text{emp}}/R$; **expected risk = population risk = generalization error** (three names, one quantity); **validation-set vs test-set naming drifts** within the chapter (§8.2.3 vs §8.6.1); **MAP as minimize-negative-log-posterior** vs the [[MAPEstimation]] page's maximize-log-posterior (same optimum, §8.3.1 sign convention); **parameters-vs-hyperparameters "somewhat arbitrary"** (§8.1.4 Remark); **$\mathbf{z}$-vs-$\boldsymbol\theta$ blurs** in later chapters (§8.4.3 Remark). No mathematical contradictions — all additive.
+- Validation: source page + all 14 new concept pages exist; 15 existing pages enriched in place (incl. [[Predictor]] + 2 de-stubbed); index source + 14 concept entries inserted; umbrella bullet added. Introduced `[[wikilinks]]` resolve to existing pages except intentional forward-refs: [[AkaikeInformationCriterion]] / [[BayesianInformationCriterion]] / [[BayesianModelSelection]] / [[ModelFitting]] / [[GeneralizedLinearModel]] / [[Label]] / [[Prediction]] (new, explicitly deferred in the source page's "named, deferred as forward references" list — content covered on [[ModelSelection]]/[[Overfitting]]/[[MaximumLikelihoodEstimation]]), and [[Likelihood]] / [[Prior]] / [[Posterior]] / [[IID]] (pre-existing wiki-wide forward-refs already linked from 4–8 other pages before this ingest, e.g. the Ch-6 probability ingest). Left as forward-refs.
+
+## [2026-06-04] ingest | MML Ch 9 — Linear Regression
+
+- Deep-ingested Chapter 9 (book pp. 289–316 = PDF pp. 295–322) of [[mml-book|Mathematics for Machine Learning]]; full Read of both page ranges (295–314, 315–322), heading "9 Linear Regression" verified on PDF p. 295 / book p. 289. This is the **first of the four ML pillars** — the regression pillar — fusing all six mathematical foundations (Chs 2, 3, 5, 6, 7) plus the Ch 8 ERM/MLE/MAP/Bayesian machinery.
+- New source page: [[mml-ch09-linear-regression]] — exhaustive per-section deep dive (§9.1 Problem Formulation → §9.5 Further Reading), covering Examples 9.1–9.8, Figs. 9.1–9.12, and Eqs. 9.1–9.72 with §+book-page refs. Quoted verbatim: the "linear in the parameters, not the inputs" margin + main text (pp. 291/295); the likelihood-is-not-a-distribution-in-theta remark (p. 293); the normal-equations existence + positive-definite-Hessian remarks (p. 294); the MAP-vs-MLE single-term-difference passage (pp. 301–302); the "does not even attempt to compute a point estimate" Bayesian statement (p. 303); the "posterior uncertainty is huge … reinforcement learning or robotics" passage (pp. 310–311); the "maximum likelihood linear regression performs an orthogonal projection" framing (p. 314); the "GLMs are the building blocks of deep neural networks" margin (p. 315).
+- New concepts (5 full pages): [[NormalEquations]] (theta_ML = (X^T X)^{-1} X^T y), [[LeastSquares]] (OLS objective + RMSE + ridge), [[NoiseModel]] (Gaussian observation-noise likelihood; noise ⇒ loss; Dirac-delta limit), [[PosteriorPredictiveDistribution]] (integral over the posterior; aleatoric+epistemic variance split), [[RMSE]] (Eq. 9.23 normalized error metric).
+- Canonicalized (de-stubbed) (2): [[RidgeRegression]] (801B ISLR stub → full MML closed-form + MAP-equivalence treatment), [[PolynomialRegression]] (577B stub → full feature-map / overfitting case-study treatment) — each given Ch-9 content + `mml-ch09-linear-regression` added to `sources:`.
+- Enriched (11): [[LinearRegression]], [[BayesianLinearRegression]], [[MaximumLikelihoodEstimation]], [[MAPEstimation]], [[OrthogonalProjection]], [[DesignMatrix]], [[FeatureMap]], [[Regression]], [[MarginalLikelihood]], [[Regularization]], [[Overfitting]] — each got a "From MML Ch 9" section + `mml-ch09-linear-regression` added to `sources:`.
+- Recurring structural claim carried over from Ch 8 and made concrete here: **likelihood ↔ loss, prior ↔ regularizer** — Gaussian noise model ⇒ least-squares loss (Eq. 9.10); Gaussian prior ⇒ ridge regularizer (Eqs. 9.31–9.34); MLE → MAP → Bayesian as the one inferential ladder.
+- Updated: index.md (1 source entry after the Ch 8 bullet in the MML cluster + 5 new concept entries inserted in the regression cluster near [[RidgeRegression]]; [[PolynomialRegression]]/[[RidgeRegression]] already had entries, not duplicated); umbrella [[mml-book]] Per-Chapter Deep Dives (Ch 9 bullet, chapter order — first of the four pillars). overview.md unchanged (overview references mml-book at corpus level only, never per-chapter — consistent with Ch 1–8; Ch 9 deepens existing regression/MLE/MAP/Bayesian coverage with no cross-corpus synthesis shift).
+- Contradictions / quirks flagged: **bias-free origin-line convention** — MML f(x)=x^T theta has no explicit intercept (lines through the origin), recovered only by the §8.1 phi_0≡1 augmentation, vs the explicit-b convention on [[d2l-linear-regression]]/[[islr-seventh-printing]] (reinforces the existing note on [[DesignMatrix]]); **row-vector gradient** dL/dtheta ∈ R^{1×D} with optimality dL/dtheta = 0^T (Eq. 9.11c, MML Ch 5 numerator layout); **lambda vs b^2** regularization parametrizations (MAP inverse-term sigma^2/b^2 I in Eq. 9.31 vs RLS lambda I in Eq. 9.34; coincide at lambda=sigma^2/b^2; the neg-log-prior identity uses lambda=1/(2b^2) in Eq. 9.33 — factor-of-2 / sigma^2 bookkeeping differs from the ISLR ||beta||^2 convention). No mathematical contradictions — all additive; Ch 9 confirms and operationalizes the Ch 8 framing.
+- Validation: source page + all 5 new concept pages exist; 13 existing pages enriched/canonicalized in place (11 enriched + 2 de-stubbed); index source + 5 concept entries inserted; umbrella bullet added. Introduced `[[wikilinks]]` resolve to existing pages except intentional forward-refs: [[mml-ch10-pca]] / [[mml-ch12-svm]] (the not-yet-ingested peer-pillar chapter deep-dives — explicitly noted as forward-refs in the source page) and [[Likelihood]] (no page, but a pre-existing wiki-wide forward-ref already linked from [[MAPEstimation]] / [[EmpiricalRiskMinimization]] / [[BayesianInference]] / [[ProbabilisticModel]] before this ingest — same status as flagged in the Ch 8 ingest). All other introduced links confirmed to exist on disk, including [[GramMatrix]], [[GeneralizedLinearModels]], [[LogisticRegression]], [[Lasso]], [[ConjugatePrior]], [[GaussianProcess]], [[GaussianDistribution]], [[BasisFunctions]], [[WeightDecay]], [[AleatoricUncertainty]], [[EpistemicUncertainty]], [[MeanSquaredError]], [[Rank]], [[StochasticGradientDescent]].
+
+## [2026-06-04] ingest | MML Ch 10 — Dimensionality Reduction with PCA
+
+- Deep-ingested Chapter 10 (book pp. 317–347 = PDF pp. 323–353) of [[mml-book|Mathematics for Machine Learning]]; full Read of both page ranges (323–342, 343–353), heading "10 Dimensionality Reduction with Principal Component Analysis" verified on PDF p. 323 / book p. 317. This is the **second of the four ML pillars** — dimensionality reduction — building on Chs 2 (basis), 3 (orthogonal projection), 4 (eigendecomposition/SVD/Eckart–Young), 6 (Gaussian), 7 (Lagrange) and 8 (latent variables).
+- New source page: [[mml-ch10-dimensionality-reduction-pca]] — exhaustive per-section deep dive (§10.1 Problem Setting → §10.8 Further Reading), covering Examples 10.1–10.5, Figs. 10.1–10.16, and Eqs. 10.1–10.81 with §+book-page refs. Quoted verbatim: the "jpeg/mp3 compression" framing (p. 317); Pearson 1901 / Hotelling 1933 attribution (p. 317); the KLT alias (p. 318); "capturing the largest amount of variance" (Hotelling, p. 320); the "first principal component" passage (p. 322); the "variance = sum of eigenvalues" statement (p. 324); the "minimizing reconstruction error ⟺ maximizing projected variance" margin (p. 332); $\lambda_d=\sigma_d^2/N$ (Eq. 10.49); the power-iteration / PageRank passage (pp. 334–335); the "PCA = noise-free MLE special case" statement (p. 340); the latent-cause arrow remark (p. 341); the linear-auto-encoder equivalence (p. 344).
+- The chapter's central result recorded: **three equivalent derivations** (max-variance §10.2, min-reconstruction-error §10.3, latent-variable/PPCA §10.7) all project onto the top-$M$ eigenvectors of the data covariance $\mathbf S=\frac1N\sum_n\mathbf x_n\mathbf x_n^\top$; variance retained $=\sum_{m=1}^M\lambda_m$ (Eq. 10.24); reconstruction error $=\sum_{j=M+1}^D\lambda_j$ (Eq. 10.44).
+- New concepts (8 full pages): [[ProbabilisticPCA]] (generative latent model + marginal likelihood + MLE + noise-free limit), [[ReconstructionError]] (the §10.3 objective $J_M$), [[PrincipalSubspace]] (the $M$-dim projection target), [[PowerIteration]] (Eq. 10.52 leading-eigenvector iteration / PageRank), [[DataStandardization]] (the §10.6 per-axis centering+scaling step), [[Whitening]] (the decorrelating generalization), [[FactorAnalysis]] (per-dimension noise relative), [[IndependentComponentAnalysis]] (non-Gaussian-prior relative / blind-source separation). [[ProbabilisticPCA]] was already listed in the umbrella's concept index, so creating it resolves a forward-ref.
+- Enriched (11): [[PrincipalComponentAnalysis]] (added full "From MML Ch 10" deep-dive section + repointed its existing "four derivations" header from [[mml-book]] to [[mml-ch10-dimensionality-reduction-pca]]), [[DataCovarianceMatrix]], [[KarhunenLoeveTransform]], [[SingularValueDecomposition]], [[Eigendecomposition]], [[OrthogonalProjection]], [[LowRankApproximation]], [[EckartYoung]], [[LatentVariable]], [[DimensionalityReduction]], [[Autoencoder]] (was sourceless — now sourced + given a "PCA = optimal linear auto-encoder" section) — each got a "From MML Ch 10" section + `mml-ch10-dimensionality-reduction-pca` added to `sources:` and `last_updated: 2026-06-05`.
+- Recurring structural claim recorded: PCA is a linear **coder/decoder (auto-encoder)** — encoder $\mathbf z=\mathbf B^\top\mathbf x$, decoder $\tilde{\mathbf x}=\mathbf B\mathbf B^\top\mathbf x$; the projection $\mathbf B\mathbf B^\top$ is the best rank-$M$ approximation of $\mathbf I$ (Eq. 10.40); §10.8 places PCA among the three linear methods (PCA / FA / ICA) and the nonlinear successors (kernel PCA, deep auto-encoders, GP-LVM).
+- **Slug reconciliation done**: the Ch 9 forward-ref `[[mml-ch10-pca|MML Ch 10 — PCA]]` *(forward ref — not yet ingested)* in [[mml-ch09-linear-regression]] was repointed to the canonical `[[mml-ch10-dimensionality-reduction-pca|MML Ch 10 — Dimensionality Reduction with PCA]]` and the "not yet ingested" note removed. A `grep -rl "mml-ch10-pca"` now returns no standalone `[[mml-ch10-pca]]` links (the only remaining textual occurrences are inside the longer canonical slug `mml-ch10-dimensionality-reduction-pca`).
+- Updated: index.md (1 source entry after the Ch 9 bullet in the MML cluster + 8 new concept entries inserted at their alphabetical anchors — Data Standardization, Factor Analysis, Independent Component Analysis, Power Iteration, Principal Subspace, Probabilistic PCA, Reconstruction Error, Whitening); umbrella [[mml-book]] Per-Chapter Deep Dives (Ch 10 bullet, chapter order — second of the four pillars). overview.md unchanged (overview references mml-book at corpus level only, never per-chapter — consistent with Ch 1–9; Ch 10 deepens existing dimensionality-reduction/PCA coverage with no cross-corpus synthesis shift).
+- Contradictions / quirks flagged: **data-matrix orientation** — MML uses $\mathbf X\in\mathbb R^{D\times N}$ (samples as columns), the transpose of the conventional $N\times D$ statistics layout (and of Bishop/Murphy), so $\mathbf S=\frac1N\mathbf X\mathbf X^\top$ here vs $\frac1N\mathbf X^\top\mathbf X$ elsewhere (Remark, p. 323); **$\mathbf B_{\text{ML}}$ unique only up to an orthogonal rotation $\mathbf R$** (Eq. 10.78) — PCA recovers the subspace, not a canonical basis (the rotation invariance that blocks blind-source separation, vs ICA); **standardization "not strictly necessary"** but turns covariance-PCA into correlation-PCA; **"three derivations" vs the four-characterizations framing** on the [[PrincipalComponentAnalysis]] page — the KLT is an alias, not an independent derivation (noted on both pages). Pre-existing data quirks: stray `</content>` tags removed while enriching [[LowRankApproximation]] and [[EckartYoung]]; the index "Power Law" entry has a pre-existing wrapped-description split (left untouched). No mathematical contradictions — all additive.
+- Validation: source page + all 8 new concept pages exist; 11 existing pages enriched in place; index source + 8 concept entries inserted; umbrella bullet added; slug reconciliation complete. Introduced `[[wikilinks]]` resolve to existing pages except one intentional forward-ref: [[mml-ch11-density-estimation-gmm]] (the not-yet-ingested third-pillar GMM chapter — the latent-variable peer, explicitly noted as a forward-ref in the source page). All other introduced links confirmed on disk: [[mml-ch12-svm]] (pre-existing forward-ref from Ch 9), [[DirectedGraphicalModel]], [[GaussianMixtureModel]], [[EMAlgorithm]], [[SpectralTheorem]], [[OrthogonalComplement]], [[CharacteristicPolynomial]], [[ConditionNumber]], [[LagrangeMultipliers]], [[MaximumLikelihoodEstimation]], [[MAPEstimation]], [[MarginalLikelihood]], [[PowerMethod]] (the parproc synonym, cross-linked from [[PowerIteration]]), [[CurseOfDimensionality]], [[UMAP]], [[encoderdecoder]], [[BERT]], [[maskedlanguagemodel]].
+
+## [2026-06-04] ingest | MML Ch 11 — Density Estimation with Gaussian Mixture Models
+
+- Deep-ingested Chapter 11 (book pp. 348–369 = PDF pp. 354–375) of [[mml-book|Mathematics for Machine Learning]]; full Read of both page ranges (354–373, 374–375), heading "11 Density Estimation with Gaussian Mixture Models" verified on PDF p. 354 / book p. 348. This is the **third of the four ML pillars** — density estimation — building on Ch 6 (Gaussian + Bayes), Ch 5 (chain rule + matrix-calculus identities), Ch 7 (Lagrange multipliers) and Ch 8 (MLE + latent variables / marginalized likelihood).
+- New source page: [[mml-ch11-density-estimation-gmm]] — exhaustive per-section deep dive (§11.1 GMM → §11.5 Further Reading), covering Examples 11.1–11.6, Figs. 11.1–11.13, Theorems 11.1–11.3, and Eqs. 11.1–11.74 with §+book-page refs. Quoted verbatim: the density-estimation framing (p. 348); "mixture models are more expressive ... multimodal" (p. 349); the "we cannot move the log into the sum over $k$" no-closed-form remark (p. 351–352); the $r_{nk}$ definition + "soft assignment" framing (pp. 352–353); the importance-weighted-Monte-Carlo mean interpretation (p. 354); the Dempster et al. 1977 EM statement + "every step ... increases the log-likelihood" (Neal & Hinton 1999, pp. 360–361); the discrete-vs-continuous-latent contrast with PCA (p. 363); the one-hot/1-of-$K$ statement (p. 364); the responsibility-as-posterior justification (p. 367); the local-optimum / multiple-initialization caveat (p. 367); the MacKay-2003 hard-vs-soft $K$-means statement (p. 368).
+- The chapter's central results recorded: the GMM density $\sum_k\pi_k\mathcal N(\boldsymbol\mu_k,\boldsymbol\Sigma_k)$ (Eq. 11.3); responsibilities $r_{nk}$ (Eq. 11.17) = posterior $p(z_k=1\mid\mathbf x_n)$ (Eq. 11.69/11.72b); the three M-step updates — mean $\boldsymbol\mu_k^{\text{new}}=\frac{\sum_n r_{nk}\mathbf x_n}{N_k}$ (Thm 11.1, importance-weighted), covariance $\boldsymbol\Sigma_k^{\text{new}}=\frac1{N_k}\sum_n r_{nk}(\mathbf x_n-\boldsymbol\mu_k)(\mathbf x_n-\boldsymbol\mu_k)^\top$ (Thm 11.2), weight $\pi_k=N_k/N$ (Thm 11.3, via a Lagrange multiplier); EM as alternating E-/M-steps with monotone log-likelihood increase to a local optimum (§11.3); the one-hot-latent generative view + ancestral sampling + marginalized likelihood + expected complete-data log-likelihood $Q$ (§11.4).
+- New concepts (3 full pages): [[DensityEstimation]] (the pillar topic; parametric vs nonparametric), [[MixtureWeight]] (the $\pi_k$ / mixing coefficient — convex weight / prior $p(z_k=1)$ / $N_k/N$ update), [[MixtureComponent]] (the per-cluster base distribution; in a GMM a Gaussian, updated by responsibility-weighted MLE).
+- Enriched (9): [[GaussianMixtureModel]], [[EMAlgorithm]], [[Responsibility]], [[MixtureModel]], [[MaximumLikelihoodEstimation]], [[LatentVariable]], [[GaussianDistribution]], [[KMeansClustering]], [[KernelDensityEstimation]] — each got a "From MML Ch 11" section + `mml-ch11-density-estimation-gmm` added to `sources:` and `last_updated: 2026-06-05`. (The GMM/EM/Responsibility pages already attributed Ch 11 content to [[mml-book]]; this ingest canonicalizes the citation to the per-chapter slug and adds page-anchored verbatim detail.) [[GenerativeModel]] deliberately NOT enriched — it is an LLM/decoder-only-Transformer page, semantically unrelated to the GMM generative process (that content lives on [[GaussianMixtureModel]] / [[LatentVariable]] instead).
+- **Forward-ref resolved**: the Ch 10 source page's `[[mml-ch11-density-estimation-gmm|MML Ch 11 — GMM]] *(forward ref — not yet ingested)*` peer-pillar bullet was repointed to the canonical title and the "not yet ingested" note removed — the Ch 10 forward-ref to this page now resolves.
+- Recurring structural claim recorded: the **no-closed-form MLE** is the through-line — the log-likelihood couples all parameters through the responsibilities, so the "closed-form" mean/covariance/weight updates are closed-form *only given* $r_{nk}$; this is the density-estimation counterpart to the closed-form regression MLE of [[mml-ch09-linear-regression|Ch 9]], and the discrete-latent peer of [[mml-ch10-dimensionality-reduction-pca|Ch 10's continuous-latent PPCA]] (both invoke the §8.4.3 marginalized likelihood and EM).
+- Updated: index.md (1 source entry inserted in the MML cluster after the Ch 10 bullet + 3 new concept entries — Density Estimation adjacent to Gaussian Mixture Model, Mixture Component + Mixture Weight bracketing Mixture Model); umbrella [[mml-book]] Per-Chapter Deep Dives (Ch 11 bullet, chapter order — third of the four pillars). overview.md unchanged (overview references mml-book at corpus level only, never per-chapter — consistent with Ch 1–10; Ch 11 deepens existing density-estimation/GMM/EM coverage with no cross-corpus synthesis shift).
+- Contradictions / quirks flagged: **no ELBO/free-energy derivation in this chapter** — §11.4.5 stops at the expected complete-data log-likelihood $Q$ (Eqs. 11.73a–b) and the Neal-&-Hinton monotone-increase claim; the existing [[EMAlgorithm]] page's "EM optimizes the ELBO" statement is correct/standard (Bishop 2006) but a slight over-attribution to *this* chapter (noted, not corrected); **"soft assignment" precedes its posterior justification** — $r_{nk}$ is introduced intuitively in §11.2.1, only justified as $p(z_k=1\mid\mathbf x)$ in §11.4.3; **$\mathbf z\in\mathbb R^K$ written as real-valued** one-hot (entries $\in\{0,1\}$) so $\int\mathrm d\mathbf z$ in Eq. 11.73b is really a finite sum over the $K$ configurations. No mathematical contradictions — all additive; Ch 11 confirms and completes the pre-existing GMM/EM/Responsibility coverage.
+- Validation: source page + all 3 new concept pages exist; 9 existing pages enriched in place; index source + 3 concept entries inserted; umbrella bullet added; Ch 10 forward-ref resolved. Introduced `[[wikilinks]]` resolve to existing pages — no new forward-refs introduced (the not-yet-ingested fourth pillar [[mml-ch12-classification-svm]] / [[mml-ch12-svm]] is deliberately NOT linked from this chapter). Confirmed on disk: [[mml-ch05-vector-calculus]], [[mml-ch06-probability-and-distributions]], [[mml-ch07-continuous-optimization]], [[mml-ch08-when-models-meet-data]], [[mml-ch09-linear-regression]], [[mml-ch10-dimensionality-reduction-pca]], [[GaussianMixtureModel]], [[EMAlgorithm]], [[Responsibility]], [[MixtureModel]], [[MaximumLikelihoodEstimation]], [[LatentVariable]], [[GaussianDistribution]], [[KMeansClustering]], [[KernelDensityEstimation]], [[Histogram]], [[CovarianceMatrix]], [[LagrangeMultipliers]], [[DensityBasedClustering]], [[Softmax]], [[MixtureOfExperts]], [[ProbabilisticPCA]].
+
+## [2026-06-04] ingest | MML Ch 12 — Classification with Support Vector Machines
+
+- Deep-ingested Chapter 12 (book pp. 370–394 = PDF pp. 376–400) of [[mml-book|Mathematics for Machine Learning]]; full Read of both page ranges (376–395, 396–400), heading "12 Classification with Support Vector Machines" verified on PDF p. 376 / book p. 370. This is the **fourth and last of the four ML pillars** — binary classification — and **the book's final chapter**. **This ingest completes the full 12-chapter per-chapter deep ingest of MML** (Chs 1–12 all now have dedicated source pages); the four pillars (regression Ch 9 / dimensionality-reduction Ch 10 / density-estimation Ch 11 / classification Ch 12) are each anchored. Builds on Ch 2 (inner products), Ch 3 (orthogonal projection / SPD), Ch 5 (matrix calculus / subgradient), Ch 7 (Lagrangian duality / KKT / convex QP / SGD), Ch 8 (ERM), and contrasts with the probabilistic pillars Ch 9 / Ch 11.
+- New source page: [[mml-ch12-classification-svm]] — exhaustive per-section deep dive (§12.1 Separating Hyperplanes → §12.6 Further Reading), covering Figs. 12.1–12.10, Theorem 12.1, and Eqs. 12.1–12.58 with §+book-page refs. Quoted verbatim: the SVM-vs-MLE "subtly different" framing (p. 371); the PCA-pairing / ERM-grounding statement (p. 371); the large-margin-generalizes remark (p. 374); the hard-margin definition (p. 377); the soft-margin / slack-variable definition (pp. 379–380); the "large $C$ implies low regularization" trade-off (p. 380); the hinge-loss definition + "we pay a penalty once we are closer than the margin" (p. 381); "margin maximization can be interpreted as regularization" (p. 382); the support-vector / representer-theorem naming remark (p. 384); the kernel definition (Eq. 12.52, p. 388); "the kernel trick … hides away the explicit non-linear feature map" (p. 389); "we are still solving for hyperplanes … the non-linear surfaces are due to the kernel function" (p. 390); the "does not naturally lend itself to a probabilistic interpretation" calibration passage (pp. 393–394).
+- Central results recorded: separating hyperplane geometry (Eqs. 12.2–12.7) + $\mathbf{w}\perp$ hyperplane; **margin $r=1/\|\mathbf{w}\|$** (Eq. 12.14) and the two equivalent formulations proven equal by Theorem 12.1 (§12.2.3); **hard-margin** $\min\frac12\|\mathbf{w}\|^2$ s.t. $y_n(\langle\mathbf{w},\mathbf{x}_n\rangle+b)\ge1$ (Eqs. 12.18–19); **soft-margin** with slack $\xi_n$ + box $C$ (Eqs. 12.26a–c); the **hinge loss** $\max\{0,1-yf(\mathbf{x})\}$ (three forms: Eqs. 12.28/12.29/12.33) as a convex upper bound on the zero-one loss, giving the regularized-ERM form (Eq. 12.31); the **dual SVM** $\min_{\boldsymbol\alpha}\frac12\sum_{ij}y_iy_j\alpha_i\alpha_j\langle\mathbf{x}_i,\mathbf{x}_j\rangle-\sum_i\alpha_i$ s.t. $\sum_iy_i\alpha_i=0$, $0\le\alpha_i\le C$ (Eq. 12.41) with the **representer theorem** $\mathbf{w}=\sum_n\alpha_ny_n\mathbf{x}_n$ (Eq. 12.38) + complementary slackness → **support vectors** ($\alpha_n>0$); the **convex-hull** reading (§12.3.2); the **kernel trick** + PSD/Mercer condition (Eq. 12.53) + RBF/polynomial kernels (§12.4); numerical solution via subgradient (Eq. 12.54) / standard-form QP (Eqs. 12.55–12.57; LIBSVM, SVMlight).
+- New concepts (7 full pages): [[HardMarginSVM]] (§12.2 — **REQUIRED, resolves the dangling forward-ref** from [[QuadraticProgramming]] / [[mml-ch07-continuous-optimization]] / [[mml-book]]), [[SoftMarginSVM]] (§12.2.4 — the $C$-SVM), [[HingeLoss]] (§12.2.5 — three equivalent forms + subgradient), [[SlackVariable]] (§12.2.4 — $\xi_n$ = per-example hinge), [[DualSVM]] (§12.3 — Eq. 12.41, box constraint, kernel hook, convex-hull view), [[SupportVector]] (§12.3.1 — $\alpha_n>0$ via complementary slackness + 3 KKT regimes), [[ConvexHull]] (§12.3.2 — nearest-points-of-class-hulls reading + reduced hull). [[HardMarginSVM]] was already listed in the umbrella's concept index and referenced from 3 pages, so creating it resolves a long-standing forward-ref.
+- Enriched (15 pages): [[SupportVectorMachine]] (full "From MML Ch 12" five-layer build-order section + new family links), [[SeparatingHyperplane]], [[Margin]] (the $r=1/\|\mathbf{w}\|$ derivation + Theorem 12.1), [[KernelTrick]] (the §12.4 definition + decoupling), [[KernelFunction]] (canonicalized as the ML-kernel home + §12.4 PSD-kernel view; the bare [[Kernel]] page stays the OS kernel, disambiguated), [[RBFKernel]] (kernel-SVM workhorse note), [[GramMatrix]] (the kernel-matrix PSD validity condition, Eq. 12.53), [[FeatureMap]] (the implicit never-materialized $\boldsymbol\phi$), [[Classification]] (the geometric/loss-first treatment + §12.6 calibration contrast), [[ConvexOptimization]] (SVM as the worked convex program), [[QuadraticProgramming]] (SVM-as-QP standard form), [[LagrangianDuality]] (the dual SVM application), [[KKTConditions]] (complementary slackness → support vectors), [[Duality]] (strong duality realized), [[Hyperplane]] (the SVM decision boundary). Plus light cross-links added to the ISLR stubs [[MaximalMarginClassifier]] (↔ [[HardMarginSVM]]) and [[SupportVectorClassifier]] (↔ [[SoftMarginSVM]]). Each enriched MML-concept page got `mml-ch12-classification-svm` added to `sources:` and `last_updated: 2026-06-05`.
+- **Slug reconciliation #1 (mml-ch12-svm → mml-ch12-classification-svm)**: Chs 9 and 10 used the forward-ref `[[mml-ch12-svm|…]]` *(not yet ingested)*. Both repointed to the canonical `[[mml-ch12-classification-svm|MML Ch 12 — Classification with SVM]]` with the "not yet ingested" notes removed (and a sentence of real cross-pillar synthesis added to each). Ch 11's "Forward references" note (which mentioned both slugs as not-yet-ingested) updated to "since ingested." A `grep -rl "mml-ch12-svm"` now returns no standalone `[[mml-ch12-svm]]` links outside the longer canonical slug; the only remaining textual `mml-ch12-svm` occurrences are inside this and earlier log entries (historical record) and inside `mml-ch12-classification-svm`.
+- **Slug reconciliation #2 (HardMarginSVM dangling forward-ref)**: the [[HardMarginSVM]] concept page is now CREATED (Def from §12.2, Eqs. 12.18–19), so the dangling `[[HardMarginSVM]]` refs from [[QuadraticProgramming]], [[mml-ch07-continuous-optimization]], and the [[mml-book]] umbrella concept index now resolve.
+- Notational disambiguation handled: the bare [[Kernel]] page is the **operating-system kernel** (already disambiguated, pointing to KernelTrick/KernelFunction); all ML-meaning `[[Kernel]]`/`[[Kernel|…]]` links introduced here were pointed at `[[KernelFunction|…]]` instead, so the ML-kernel concept is canonicalized on [[KernelFunction]]. The only remaining bare `[[Kernel]]` links are the intentional disambiguation references on the source page + [[KernelFunction]].
+- Updated: index.md (1 source entry inserted in the MML cluster after the Ch 11 bullet + 7 new concept entries inserted as a contiguous SVM-family block around the Support Vector Machine entry — Support Vector, Hard-Margin SVM, Soft-Margin SVM, Slack Variable, Hinge Loss, Dual SVM, Convex Hull); umbrella [[mml-book]] Per-Chapter Deep Dives (Ch 12 bullet appended **after** Ch 11 in chapter order — the list is now complete Ch 1–12) + the four-pillars concept index extended with the 7 new + 3 kernel concepts; overview.md §VIII Ch 12 line linked to the per-chapter deep dive + a completion note added (mirrors how the D2L corpus's completion is recorded — conservative, since the overview already listed Ch 12 as a forward description).
+- Contradictions / quirks flagged (all additive, no mathematical contradictions): **$C$ is an *inverse* regularization weight** (large $C$ = low regularization; the SVM convention puts $C$ on the loss term, opposite to the usual $\lambda$ on the regularizer, §12.2.4 margin p. 380); **bias $b$ is unregularized** (only $\mathbf{w}$ is, §12.2.4 Remark — the "SVM bias-term conspiracy"); **SVM notation $\alpha,\gamma$ vs Ch 7's $\lambda$** (margin p. 383); **MML's $\|\mathbf{w}\|=1$ scaling differs from the standard Schölkopf–Smola presentation** (Theorem 12.1 proves equivalence); **three distinct meanings of "kernel"** (RKHS / null-space §2.7.3 / KDE §11.5, Remark p. 390) — handled on the wiki by keeping [[Kernel]]=OS-kernel and canonicalizing the ML kernel on [[KernelFunction]]; **the hinge loss has three equivalent forms** (Eqs. 12.28/12.29/12.33). Pre-existing stray `</content>` tags removed while enriching [[QuadraticProgramming]], [[LagrangianDuality]], [[KKTConditions]], and [[Duality]].
+- Validation: source page + all 7 new concept pages exist; 15 existing pages enriched in place (+ 2 ISLR stubs cross-linked); index source + 7 concept entries inserted; umbrella bullet appended (list now complete Ch 1–12); overview Ch 12 line linked + completion note. Both slug reconciliations confirmed done (`mml-ch12-svm` repointed everywhere; `HardMarginSVM` now exists/resolves). Introduced `[[wikilinks]]` confirmed to resolve to existing pages — **no remaining dangling MML-related links**. New links verified on disk: [[mml-ch02-linear-algebra]], [[mml-ch03-analytic-geometry]], [[mml-ch05-vector-calculus]], [[mml-ch07-continuous-optimization]], [[mml-ch08-when-models-meet-data]], [[mml-ch09-linear-regression]], [[mml-ch10-dimensionality-reduction-pca]], [[mml-ch11-density-estimation-gmm]], [[SupportVectorMachine]], [[SeparatingHyperplane]], [[Hyperplane]], [[Margin]], [[HardMarginSVM]], [[SoftMarginSVM]], [[SlackVariable]], [[HingeLoss]], [[DualSVM]], [[SupportVector]], [[ConvexHull]], [[KernelTrick]], [[KernelFunction]], [[GramMatrix]], [[RBFKernel]], [[FeatureMap]], [[Classification]], [[ConvexOptimization]], [[QuadraticProgramming]], [[LagrangianDuality]], [[Duality]], [[KKTConditions]], [[Lagrangian]], [[LagrangeMultipliers]], [[OrthogonalProjection]], [[SymmetricPositiveDefiniteMatrix]], [[EmpiricalRiskMinimization]], [[StochasticGradientDescent]], [[LogisticRegression]], [[ConvexSet]], [[MaximalMarginClassifier]], [[SupportVectorClassifier]].
+
+## [2026-06-04] ingest | MML — per-chapter deep-ingest completion + foundational-page reconciliation
+
+- **Milestone**: the 12-chapter **per-chapter deep ingest of *Mathematics for Machine Learning*** (Deisenroth, Faisal & Ong, Cambridge UP 2020) is complete. Each chapter now has its own exhaustive source page `wiki/sources/mml-chNN-*.md` (Ch 1–12), cross-linked from the umbrella [[mml-book]] page's `## Per-Chapter Deep Dives` index, supplementing the original consolidated [[mml-book]] summary. Tally across the 12 chapter agents: **~120 new concept pages** minted + **~120 existing pages enriched** in place (many de-stubbed), all on a `+6` PDF→book page offset verified per chapter.
+- **Foundational-page reconciliation** (this entry): four bedrock Bayesian/probability concepts were referenced by 3–8 wiki pages each but had **no page** (pre-existing debt surfaced and amplified by the MML Ch 6/8/9 ingests). Created in full and sourced to the relevant MML chapters:
+  - [[Likelihood]] — $p(\mathbf{x}\mid\boldsymbol\theta)$, the data-fit term; factorizes under [[IID]]; = loss in Ch 9 (Gaussian-noise MLE). Sources: [[mml-ch06-probability-and-distributions]] §6.3, [[mml-ch08-when-models-meet-data]] §8.3.1, [[mml-ch09-linear-regression]] §9.2.1.
+  - [[Prior]] — $p(\boldsymbol\theta)$; the prior-as-regularizer identity; [[ConjugatePrior|conjugacy]]. Sources: MML Ch 6 §6.6, Ch 8 §8.3.2, Ch 9 §9.3.1.
+  - [[Posterior]] — $p(\boldsymbol\theta\mid\mathbf{x})$; central object of Bayesian inference; mode = MAP. Sources: MML Ch 6 §6.3, Ch 8 §8.4, Ch 9 §9.3.2.
+  - [[IID]] — independence + identical distribution → likelihood/loss factorization, ERM↔expected-risk bridge, unbiased SGD. Sources: MML Ch 6 §6.4.4, Ch 8 §8.2–8.3.
+- Updated: `index.md` (4 new concept entries inserted as a Bayesian block after [[MAPEstimation]]). These four resolve the most-referenced dangling links flagged across the Ch 8/9 ingests.
+- **Remaining intentional forward-refs** (left as wiki-idiom markers, NOT created — peripheral "further reading" / advanced topics): [[LaplaceApproximation]], [[NormalizingFlow]], [[AkaikeInformationCriterion]], [[BayesianInformationCriterion]], [[BayesianModelSelection]], [[GeneralizedLinearModel]], [[ModelFitting]], `MacKay2003`, [[Label]], [[Prediction]]. Candidates for a future ingest pass.
+
+## [2026-06-05] ingest | Hypothesis Docs — Domain and Distribution
+
+- Source: https://hypothesis.readthedocs.io/en/latest/explanation/domain.html → raw capture at `raw/hypothesis/explanation-domain-and-distribution.md` (agent-fetched markdown, not byte-verbatim).
+- Created source page `wiki/sources/hypothesis-domain-and-distribution.md` — the domain (user-owned) vs distribution (library-owned) design split of [[PropertyBasedTesting|property-based testing]] in [[Hypothesis]].
+- **No new concept/entity pages minted** — all targets pre-existed from the prior same-day Hypothesis ingest. Enriched in place: [[PropertyBasedTesting]] (new *Domain vs Distribution* section + source) and [[Hypothesis]] entity (new *Design philosophy: domain vs distribution* section + source).
+- **Index backfill**: the prior Hypothesis cluster ([[hypothesis-howto-suppress-healthchecks]] source, [[Hypothesis]] entity, concepts [[PropertyBasedTesting]] / [[HypothesisSettings]] / [[HealthCheck]]) had never been added to `wiki/index.md` — added those entries plus this ingest's new source, for index/disk sync. Count headers not recomputed (deferred to lint).
+- Updated `wiki/overview.md` with a 2026-06-05 update block.
+- Note: a concurrent ingest session is extending the same cluster (observed new pages: source [[hypothesis-example-count]], [[hypothesis-howto-type-strategies]]; concepts [[Shrinking]], [[SearchStrategy]], [[TypeHints]]). Links to those resolve as the other session lands them.
+
+## [2026-06-05] ingest | Hypothesis Docs — How many times will Hypothesis run my test?
+
+- Source: https://hypothesis.readthedocs.io/en/latest/explanation/example-count.html → raw capture at `raw/hypothesis/explanation-example-count.md` (agent-fetched markdown, not byte-verbatim).
+- Created source page `wiki/sources/hypothesis-example-count.md` — the `max_examples` run-count model of [[Hypothesis]]: search-space exhaustion (fewer runs), `assume()`/`.filter()` + oversized-example retries (more runs, → [[HealthCheck|`HealthCheck.data_too_large`]]), and the [[Shrinking|`Phase.shrink`/`Phase.explain`]] phases + always-on minimal-example flakiness replay.
+- **New concept minted: [[Shrinking]]** (`Phase.shrink`/`explain` + flakiness-replay-once). Enriched in place: [[PropertyBasedTesting]] (run-count bullet + Shrinking links), [[HealthCheck]] (`data_too_large` member), and the [[Hypothesis]] entity (new *How many times a test runs* section + Shrinking connection + this source).
+- Index/log: added this source under Sources and [[Shrinking]] under Concepts; this log entry. (Sibling sources domain-and-distribution / type-strategies handled by the concurrent same-day session.)
+- Concurrency note: this ingest ran alongside a parallel session ingesting sibling Hypothesis pages; shared-layer edits were made with re-read-before-edit / append-only to avoid clobbering. Count headers not recomputed (deferred to lint).
+
+## [2026-06-05] ingest | Hypothesis How-To — Suppress a health check everywhere
+- Source: https://hypothesis.readthedocs.io/en/latest/how-to/suppress-healthchecks.html → raw at `raw/hypothesis/how-to/hypothesis-howto-suppress-healthchecks.md`.
+- First of a 5-guide [[Hypothesis]] how-to ingest (per-source opus subagents, run sequentially; orchestrator consolidated the shared layer). Created source `wiki/sources/hypothesis-howto-suppress-healthchecks.md` + minted entity [[Hypothesis]] and concepts [[PropertyBasedTesting]] / [[HealthCheck]] / [[HypothesisSettings]]; enriched [[Pytest]]. (Index entry + entity/concept entries backfilled by the concurrent same-day session; this log line records the ingest.)
+
+## [2026-06-05] ingest | Hypothesis How-To — Write type hints for strategies
+- Source: https://hypothesis.readthedocs.io/en/latest/how-to/type-strategies.html → raw at `raw/hypothesis/how-to/hypothesis-howto-type-strategies.md`.
+- Created source `wiki/sources/hypothesis-howto-type-strategies.md`. **New concept: [[SearchStrategy]]** (`SearchStrategy[T]`, typing strategy-returning functions, `@composite` return type, covariance). Enriched [[Hypothesis]] / [[PropertyBasedTesting]] / [[TypeHints]] in place.
+
+## [2026-06-05] ingest | Hypothesis How-To — Write a custom Hypothesis database
+- Source: https://hypothesis.readthedocs.io/en/latest/how-to/custom-database.html → raw at `raw/hypothesis/how-to/hypothesis-howto-custom-database.md`.
+- Created source `wiki/sources/hypothesis-howto-custom-database.md`. **New concept: [[ExampleDatabase]]** (pluggable key-value byte store; `save`/`fetch`/`delete`, optional `move`, change-listening; built-in backends; distinct from the generic [[Database]] page). Enriched [[Hypothesis]] / [[Shrinking]] / [[HypothesisSettings]] (`database=`) in place.
+
+## [2026-06-05] ingest | Hypothesis How-To — Detect Hypothesis tests
+- Source: https://hypothesis.readthedocs.io/en/latest/how-to/detect-hypothesis-tests.html → raw at `raw/hypothesis/how-to/hypothesis-howto-detect-tests.md`.
+- Created source `wiki/sources/hypothesis-howto-detect-tests.md`. No new concept (narrow tooling utility) — folded into the [[Hypothesis]] entity (public `is_hypothesis_test()` predicate, covers `@given` + stateful tests) and enriched [[Pytest]] (auto-applied `@pytest.mark.hypothesis` mark).
+
+## [2026-06-05] ingest | Hypothesis How-To — Use an external fuzzer
+- Source: https://hypothesis.readthedocs.io/en/latest/how-to/external-fuzzers.html → raw at `raw/hypothesis/how-to/hypothesis-howto-external-fuzzers.md`.
+- Created source `wiki/sources/hypothesis-howto-external-fuzzers.md`. **New concept: [[Fuzzing]]** (coverage-guided / mutation-based fuzzing — Atheris / libFuzzer / python-afl / HypoFuzz — as complement to [[PropertyBasedTesting]]). Captured `fuzz_one_input(buffer) -> bytes | None` semantics: invalid→`None`, fail→writes pruned buffer to [[ExampleDatabase]] then re-raises (does not bypass the DB; bypasses the normal `Phase` lifecycle; no inline shrink). Enriched [[Hypothesis]] / [[PropertyBasedTesting]] in place.
+- Orchestrator: added the 4 not-yet-indexed sources (type-strategies / custom-database / detect-tests / external-fuzzers) under Sources and concepts [[SearchStrategy]] / [[ExampleDatabase]] / [[Fuzzing]] under Concepts in `wiki/index.md`. Count headers not recomputed (deferred to lint).
+
+<!-- Machine Learning Systems (mlsysbook Vol 1) — 16-chapter sequential book ingest (one Opus 4.8 subagent per chapter; shared layer consolidated by orchestrator). Raw: raw/mlsysbook-vol1/. Ch15 ran in two passes (session-limit interruption + finisher). -->
+## [2026-06-05] ingest | Machine Learning Systems (mlsysbook Vol 1) — Ch 1: Introduction
+## [2026-06-05] ingest | Machine Learning Systems (mlsysbook Vol 1) — Ch 2: ML Systems
+## [2026-06-05] ingest | Machine Learning Systems (mlsysbook Vol 1) — Ch 3: ML Workflow
+## [2026-06-05] ingest | Machine Learning Systems (mlsysbook Vol 1) — Ch 4: Data Engineering
+## [2026-06-05] ingest | Machine Learning Systems (mlsysbook Vol 1) — Ch 5: Neural Computation
+## [2026-06-05] ingest | Machine Learning Systems (mlsysbook Vol 1) — Ch 6: Network Architectures
+## [2026-06-05] ingest | Machine Learning Systems (mlsysbook Vol 1) — Ch 7: ML Frameworks
+## [2026-06-05] ingest | Machine Learning Systems (mlsysbook Vol 1) — Ch 8: Model Training
+## [2026-06-05] ingest | Machine Learning Systems (mlsysbook Vol 1) — Ch 9: Data Selection
+## [2026-06-05] ingest | Machine Learning Systems (mlsysbook Vol 1) — Ch 10: Model Compression
+## [2026-06-05] ingest | Machine Learning Systems (mlsysbook Vol 1) — Ch 11: Hardware Acceleration
+## [2026-06-05] ingest | Machine Learning Systems (mlsysbook Vol 1) — Ch 12: Benchmarking
+## [2026-06-05] ingest | Machine Learning Systems (mlsysbook Vol 1) — Ch 13: Model Serving
+## [2026-06-05] ingest | Machine Learning Systems (mlsysbook Vol 1) — Ch 14: ML Operations
+## [2026-06-05] ingest | Machine Learning Systems (mlsysbook Vol 1) — Ch 15: Responsible Engineering
+## [2026-06-05] ingest | Machine Learning Systems (mlsysbook Vol 1) — Ch 16: Conclusion
+
+## [2026-06-06] ingest | The Fuzzing Book (Zeller, Gopinath, Böhme, Fraser & Holler; CISPA 2024) — full 30-chapter ingest
+
+- **Source**: `raw/books/fuzzingbook/` — 30 content notebooks (Parts I–VI) of *The Fuzzing Book* (fuzzingbook.org), each `.ipynb` converted to markdown and ingested as one source page (`fuzzingbook-01`…`fuzzingbook-30`).
+- **Method**: per-source opus subagents run **sequentially** (chapters share concept pages — grammar, coverage, mutation — so serial avoids write races); shared layer (index/overview/log) consolidated by the orchestrator.
+- **Net**: +30 source pages, **+157 concept pages**, **+35 entity pages**; 69 existing concepts and 15 existing entities updated in place (incl. [[Fuzzing]], [[Coverage]], [[Testing]] and the [[Hypothesis]] / [[PropertyBasedTesting]] cluster).
+- **Contradictions**: none identified across the 30 chapters.
+- **Per-chapter entries follow.**
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 01 — Tours through the Book
+- **Source**: *The Fuzzing Book* (Zeller, Gopinath, Böhme, Fraser & Holler; CISPA Helmholtz Center for Information Security, 2024), Ch 1 "Tours through the Book" — raw/books/fuzzingbook/fuzzingbook-01-tours.md.
+- **Source page**: [[fuzzingbook-01-tours]].
+- **Scope**: Navigational/meta chapter. Captured the book's overall arc (6 parts), the chapter dependency sitemap, and all role-based reading tours (Pragmatic Programmer, Page-by-Page, Undergraduate, Graduate, Black-Box, White-Box, Researcher, Author); cross-linked the 30 sibling chapters. No fuzzing technique is taught here.
+- **New concepts**: none (intentionally — meta/TOC chapter; technique concepts deferred to their own chapters).
+- **Updated concepts**: [[Fuzzing]].
+- **New entities**: [[AndreasZeller]] (lead author).
+- **Updated entities**: none.
+- **Contradictions**: none identified.
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 02 — Introduction to Software Testing
+- **Source**: *The Fuzzing Book* (Zeller, Gopinath, Böhme, Fraser & Holler; CISPA Helmholtz Center for Information Security, 2024), Ch 2 "Introduction to Software Testing" — raw/books/fuzzingbook/fuzzingbook-02-intro-testing.md.
+- **Source page**: [[fuzzingbook-02-intro-testing]].
+- **Scope**: Foundational testing chapter built on the `my_sqrt` Newton–Raphson running example. Captured: testing = execute + check, test cases vs oracles, `assert`/epsilon float comparison, test automation, test generation and random testing, run-time verification (and its limits vs proofs), function vs system input, preconditions/postconditions, and the incompleteness of testing. Includes Shellsort and quadratic-solver exercises.
+- **New concepts**: [[TestCase]] / [[TestOracle]] / [[Assertion]] / [[TestAutomation]] / [[TestGeneration]] / [[RandomTesting]] / [[RunTimeVerification]] / [[Precondition]] / [[Postcondition]].
+- **Updated concepts**: [[Testing]] / [[UnitTesting]] / [[RegressionTesting]] / [[DesignByContract]] / [[Fuzzing]] / [[PropertyBasedTesting]].
+- **New entities**: none.
+- **Updated entities**: [[AndreasZeller]] (added Ch 2 as a source).
+- **Contradictions**: none identified.
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 03 — Fuzzing: Breaking Things with Random Inputs
+- **Source**: *The Fuzzing Book* (Zeller, Gopinath, Böhme, Fraser & Holler; CISPA Helmholtz Center for Information Security, 2024), Ch 3 "Fuzzing: Breaking Things with Random Inputs" — raw/books/fuzzingbook/fuzzingbook-03-fuzzer.md.
+- **Source page**: [[fuzzingbook-03-fuzzer]].
+- **Scope**: Foundational fuzzing chapter (Part II opener). Captured: Barton Miller's 1989 UNIX-utilities experiment; the `fuzzer()` random generator and its parameterization; fuzzing external programs (`bc`) via `subprocess`; the bug classes fuzzers find (buffer overflows, missing error checks via `getchar`/EOF, rogue numbers); generic runtime checkers (AddressSanitizer + the Heartbleed/OpenSSL discovery; in-bounds information leaks vs ASan); program-specific checkers (assertions, `repOK()` representation invariants, MyPy static typing); and the reusable `Fuzzer`/`RandomFuzzer` and `Runner`/`PrintRunner`/`ProgramRunner`/`BinaryProgramRunner` class architecture that later chapters subclass. Includes the troff exercises.
+- **New concepts**: [[RandomFuzzer]] / [[Runner]] / [[RepresentationInvariant]] / [[InformationLeak]] / [[StaticAnalysis]].
+- **Updated concepts**: [[Fuzzing]] / [[RandomTesting]] / [[Testing]] / [[BufferOverflow]] / [[AddressSanitizer]] / [[Assertion]] / [[DesignByContract]].
+- **New entities**: [[BartonMiller]] / [[Heartbleed]] / [[OpenSSL]] / [[MyPy]].
+- **Updated entities**: [[AndreasZeller]] (added Ch 3 as a source).
+- **Contradictions**: none identified.
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 04 — Code Coverage
+- **Source**: *The Fuzzing Book* Ch 4, "Code Coverage" (Zeller, Gopinath, Böhme, Fraser & Holler; CISPA, 2024). Raw: `raw/books/fuzzingbook/fuzzingbook-04-coverage.md`.
+- **Source page**: [[fuzzingbook-04-coverage]].
+- **Scope**: Code coverage as a black-box proxy for bug-finding; the `Coverage` class built on `sys.settrace`; statement vs branch coverage; coverage as a `set` with difference/intersection; the running `cgi_decode()` example; comparing fuzzers by coverage (random `fuzzer()` reaches full statement coverage in ~40–60 inputs); coverage of C programs via `gcov`; the "coverage guides generation" thesis seeding coverage-guided fuzzing.
+- **New concepts**: [[LineCoverage]] / [[BranchCoverage]] / [[TraceFunction]] / [[DynamicAnalysis]] / [[CoverageGuidedFuzzing]].
+- **Updated concepts**: [[Coverage]] (was stub "Test Coverage" — added operational fuzzing treatment + Connections/Sources) / [[Fuzzing]] (added Ch 4 coverage-feedback section) / [[RandomFuzzer]] (added Ch 4 coverage-measurement section).
+- **New entities**: [[gcov]] (GNU C/C++ coverage tool).
+- **Updated entities**: [[AndreasZeller]] (added Ch 4 source/links).
+- **Contradictions**: none identified.
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 05 — Mutation-Based Fuzzing
+- **Source**: *The Fuzzing Book* Ch 5, "Mutation-Based Fuzzing" (Zeller, Gopinath, Böhme, Fraser & Holler; CISPA, 2024). Raw: `raw/books/fuzzingbook/fuzzingbook-05-mutation-fuzzer.md`.
+- **Source page**: [[fuzzingbook-05-mutation-fuzzer]].
+- **Scope**: Mutating valid seed inputs (delete/insert/flip-random-character + `mutate()` dispatcher); the running `http_program()` URL-validator example and the years-to-a-valid-URL argument for mutation over generation; the `MutationFuzzer` class (multiple stacked mutations over a population) and the `class C(C)` reopening hack; `FunctionRunner`/`FunctionCoverageRunner`; coverage-guided `MutationCoverageFuzzer` that keeps only new-coverage inputs; AFL's "new path" heuristic; preview of Ch 6 power schedules.
+- **New concepts**: [[MutationBasedFuzzing]] / [[Mutator]] / [[SeedInput]] / [[MutationCoverageFuzzer]].
+- **Updated concepts**: [[Fuzzing]] (added Ch 5 mutation-family section) / [[CoverageGuidedFuzzing]] (added Ch 5 first-concrete-implementation section) / [[RandomFuzzer]] (added Ch 5 foil/baseline section) / [[Coverage]] (added Ch 5 coverage-as-feedback section) / [[Runner]] (added `FunctionRunner`/`FunctionCoverageRunner` subclasses).
+- **New entities**: [[AFL]] (American Fuzzy Lop — coverage-guided mutation-based greybox fuzzer).
+- **Updated entities**: [[AndreasZeller]] (added Ch 5 source/links).
+- **Contradictions**: none identified.
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 06 — Greybox Fuzzing
+- **Source**: *The Fuzzing Book* Ch 6, "Greybox Fuzzing" — Zeller, Gopinath, Böhme, Fraser & Holler (CISPA, 2024). `raw/books/fuzzingbook/fuzzingbook-06-greybox-fuzzer.md`.
+- **Source page**: [[fuzzingbook-06-greybox-fuzzer]].
+- **Scope**: AFL-style coverage-guided greybox fuzzing — the `Seed`/`PowerSchedule`/`GreyboxFuzzer`/`FunctionCoverageRunner` machinery; energy assignment over seeds; path-coverage via path-ID hashing (`getPathID`); the boosted `CountingGreyboxFuzzer` + exponential `AFLFastSchedule` (rare-path boosting, Böhme et al.'s AFLFast Markov-chain model); and directed greybox fuzzing (`DirectedSchedule`/`AFLGoSchedule`) steering toward a target via call-graph distance (the maze example).
+- **New concepts**: [[GreyboxFuzzing]] / [[PowerSchedule]] / [[SeedEnergy]] / [[PathCoverage]] / [[AFLFast]] / [[BoostedGreyboxFuzzing]] / [[DirectedGreyboxFuzzing]] / [[CallGraph]].
+- **Updated concepts**: [[Fuzzing]] / [[CoverageGuidedFuzzing]] / [[MutationBasedFuzzing]] / [[Mutator]] / [[SeedInput]] / [[Coverage]] / [[MarkovChain]].
+- **New entities**: [[MarcelBohme]] (AFLFast/AFLGo author, book co-author).
+- **Updated entities**: [[AFL]] / [[AndreasZeller]].
+- **Contradictions**: none identified.
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 07 — Search-Based Fuzzing
+- **Source**: *The Fuzzing Book* (Zeller, Gopinath, Böhme, Fraser & Holler; CISPA, 2024), Ch 7 "Search-Based Fuzzing" — `raw/books/fuzzingbook/fuzzingbook-07-search-based-fuzzer.md`.
+- **Source page**: [[fuzzingbook-07-search-based-fuzzer]].
+- **Scope**: Part II — Lexical Fuzzing. Test generation as optimization (SBST): representation + neighborhood, fitness functions / branch distance, AST instrumentation (`BranchTransformer`, `evaluate_condition`, `create_instrumented_function`), hill climbing (first/steepest/restarting), the (1+1)EA, and a full genetic algorithm; worked on the `test_me` branch and `cgi_decode`.
+- **New concepts**: [[SearchBasedTesting]] / [[MetaheuristicSearch]] / [[FitnessFunction]] / [[BranchDistance]] / [[CodeInstrumentation]] / [[HillClimbing]] / [[EvolutionaryTesting]] / [[GeneticAlgorithm]].
+- **Updated concepts**: [[Fuzzing]] / [[BranchCoverage]] / [[GeneticPareto]] (fixed broken `geneticalgorithm` link → [[GeneticAlgorithm]]).
+- **New entities**: [[GordonFraser]] / [[EvoSuite]].
+- **Updated entities**: [[AndreasZeller]].
+- **Contradictions**: none identified.
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 8 — Mutation Analysis
+- **Source**: *The Fuzzing Book* Ch 8, "Mutation Analysis" (Zeller, Gopinath, Böhme, Fraser & Holler; CISPA, 2024). `raw/books/fuzzingbook/fuzzingbook-08-mutation-analysis.md`.
+- **Source page**: [[fuzzingbook-08-mutation-analysis]].
+- **Scope**: Assessing test-suite quality by mutating the PROGRAM (not the input) and counting killed mutants; why coverage is insufficient (`triangle()` weak vs strong oracle, identical coverage, 20% vs 100% mutation score); AST-based `MuFunctionAnalyzer`/`MuProgramAnalyzer` frameworks; statement-deletion + BinOp mutation operators; equivalent/immortal mutants and their statistical estimation (sampling, Chao's estimator). Explicitly distinguished from Ch 5 mutation-based fuzzing.
+- **New concepts**: [[MutationAnalysis]] / [[MutationTesting]] (alias) / [[Mutant]] / [[MutationScore]] / [[MutationOperator]] / [[EquivalentMutant]] / [[TestAdequacy]] / [[AdequacyCriterion]] (alias) / [[AbstractSyntaxTree]] / [[FaultInjection]] / [[DeltaDebugging]].
+- **Updated concepts**: [[Coverage]] / [[Testing]] / [[UnitTesting]] / [[TestOracle]] / [[Assertion]] / [[MutationBasedFuzzing]].
+- **New entities**: none.
+- **Updated entities**: [[AndreasZeller]].
+- **Contradictions**: none identified (sharpens the existing [[Coverage]] caveat; explicitly disambiguated from [[MutationBasedFuzzing]]).
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 9 — Fuzzing with Grammars
+- **Source**: *The Fuzzing Book* (Zeller, Gopinath, Böhme, Fraser & Holler; CISPA, 2024), Ch 9 "Fuzzing with Grammars" — `raw/books/fuzzingbook/fuzzingbook-09-grammars.md`.
+- **Source page**: [[fuzzingbook-09-grammars]].
+- **Scope**: Foundational grammar chapter opening Part III (syntactic fuzzing). Context-free grammars as the `Grammar` Python data structure; nonterminals/terminals; `simple_grammar_fuzzer()` (string-rewriting producer with `max_nonterminals`); `EXPR_GRAMMAR`/`CGI_GRAMMAR`/`URL_GRAMMAR`; grammar toolbox (`srange`/`crange`, `extend_grammar`, `opts`); EBNF and `convert_ebnf_grammar()`; `is_valid_grammar()`; grammars as mutation seeds. The base for Ch 10–18.
+- **New concepts**: [[ContextFreeGrammar]] / [[Grammar]] / [[Nonterminal]] / [[Terminal]] / [[GrammarBasedFuzzing]] / [[ProductionRule]] / [[EBNF]] / [[BNF]].
+- **Updated concepts**: [[Fuzzing]] / [[MutationBasedFuzzing]].
+- **New entities**: [[CSmith]].
+- **Updated entities**: [[AndreasZeller]].
+- **Contradictions**: none identified.
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 10 — Efficient Grammar Fuzzing
+- **Source**: *The Fuzzing Book* (Zeller, Gopinath, Böhme, Fraser & Holler; CISPA, 2024), Ch 10 "Efficient Grammar Fuzzing" — `raw/books/fuzzingbook/fuzzingbook-10-grammar-fuzzer.md`.
+- **Source page**: [[fuzzingbook-10-grammar-fuzzer]].
+- **Scope**: The book's central "hub" chapter. Refines the string-based `simple_grammar_fuzzer()` into a tree-based algorithm: [[DerivationTree|derivation trees]] (`(symbol, children)` nodes; `None`=unexpanded, `[]`=terminal); the [[GrammarFuzzer|`GrammarFuzzer`]] class (subclass of `Fuzzer`) with `init_tree`/`expansion_to_children`/`expand_node_randomly`/`expand_tree_once` (in-place mutation)/`possible_expansions`/`fuzz`/`fuzz_tree`; cost-based expansion (`symbol_cost`/`expansion_cost`, `expand_node_min_cost`/`expand_node_max_cost`); the three-phase `expand_tree()` (grow→random→close); `all_terminals`/`tree_to_string`; `display_tree()` GraphViz visualization. Reuses `Grammar` unchanged; fixes Ch 9's quadratic cost and infinite-expansion hang.
+- **New concepts**: [[DerivationTree]] / [[GrammarFuzzer]] / [[ExpansionCost]].
+- **Updated concepts**: [[GrammarBasedFuzzing]] / [[Grammar]].
+- **New entities**: [[GraphViz]].
+- **Updated entities**: [[AndreasZeller]].
+- **Contradictions**: none identified.
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 11 — Grammar Coverage
+- **Source**: *The Fuzzing Book* (Zeller, Gopinath, Böhme, Fraser & Holler; CISPA, 2024), Ch 11 "Grammar Coverage" — `raw/books/fuzzingbook/fuzzingbook-11-grammar-coverage-fuzzer.md`.
+- **Source page**: [[fuzzingbook-11-grammar-coverage-fuzzer]].
+- **Scope**: Systematic [[GrammarCoverage|grammar coverage]] for grammar-based fuzzing. Expansion keys via `expansion_key()` (`SYMBOL -> EXPANSION`); reachable-expansion set via `max_expansion_coverage(symbol, max_depth)`; residual via `missing_expansion_coverage()`. Three-class lineage on [[GrammarFuzzer|`GrammarFuzzer`]]: `TrackingGrammarCoverageFuzzer` (records `covered_expansions` in `choose_node_expansion`/`add_coverage`), `SimpleGrammarCoverageFuzzer` (prefers `uncovered_children`), and [[GrammarCoverageFuzzer|`GrammarCoverageFuzzer`]] (deep foresight: `new_child_coverage` + breadth-first adaptive `new_coverages` lookahead — Burkhardt 1967 "shortest path selection"). [[ContextCoverage|Coverage in context]] via `duplicate_context()`/`_duplicate_context()` (clones rule subtrees with `new_symbol`/`copy.deepcopy`, prunes `unreachable_nonterminals`). Grammar↔code coverage correlation (≈0.9 CGI, >0.95 URL) measured with [[fuzzingbook-04-coverage|Ch 4]]'s [[Coverage|`Coverage`]] on `cgi_decode`/`urlparse`; bounded by equivalent elements and deep data processing.
+- **New concepts**: [[GrammarCoverage]] / [[GrammarCoverageFuzzer]] / [[ContextCoverage]].
+- **Updated concepts**: [[GrammarFuzzer]] / [[Coverage]] / [[GrammarBasedFuzzing]] / [[CoverageGuidedFuzzing]] / [[DerivationTree]].
+- **New entities**: [[CISPA]].
+- **Updated entities**: [[AndreasZeller]].
+- **Contradictions**: none identified.
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 12 — Parsing Inputs
+- **Source**: *The Fuzzing Book* Ch 12, "Parsing Inputs" (Zeller, Gopinath, Böhme, Fraser & Holler, CISPA, 2024); raw `raw/books/fuzzingbook/fuzzingbook-12-parser.md`.
+- **Source page**: [[fuzzingbook-12-parser]].
+- **Scope**: Parsing seed inputs into [[DerivationTree|derivation trees]] for structural mutation/recombination; the `Parser` base class and canonical-grammar form; the packrat `PEGParser` for [[ParsingExpressionGrammar|PEGs]] (ordered choice, memoization); the `EarleyParser` for arbitrary CFGs ([[ChartParsing|chart parsing]], predict/scan/complete, [[ParseForest|parse forests]], [[Ambiguity|ambiguity]], the Aycock epsilon fix via [[Fixpoint|fixpoint]]/`nullable`, Leo right-recursion optimization).
+- **New concepts**: [[Parser]] / [[ParsingExpressionGrammar]] / [[PackratParsing]] / [[EarleyParser]] / [[ChartParsing]] / [[ParseForest]] / [[Ambiguity]] / [[Fixpoint]] / [[Memoization]]
+- **Updated concepts**: [[DerivationTree]] / [[ContextFreeGrammar]] / [[GrammarBasedFuzzing]] / [[AbstractSyntaxTree]] / [[DynamicProgramming]]
+- **New entities**: [[JayEarley]] / [[BryanFord]]
+- **Updated entities**: none
+- **Contradictions**: none identified
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 13 — Probabilistic Grammar Fuzzing
+- **Source**: *The Fuzzing Book* Ch 13, "Probabilistic Grammar Fuzzing" (Zeller, Gopinath, Böhme, Fraser & Holler, CISPA, 2024); raw `raw/books/fuzzingbook/fuzzingbook-13-probabilistic-grammar-fuzzer.md`.
+- **Source page**: [[fuzzingbook-13-probabilistic-grammar-fuzzer]].
+- **Scope**: Attaching `opts(prob=X)` probabilities to grammar expansions to control input distribution; the [[ProbabilisticGrammarFuzzer|`ProbabilisticGrammarFuzzer`]] (weighted `random.choices()`, un-annotated mass split equally, per-rule sum = 1, zero-prob expansions still taken in the closing phase); [[DirectedFuzzing|directed fuzzing]] via `set_prob()`; per-occurrence probabilities via [[ContextCoverage|`duplicate_context()`]]; [[GrammarMining|learning probabilities]] from a corpus parsed with the [[EarleyParser|`EarleyParser`]] (`ExpansionCountMiner`/`ProbabilisticGrammarMiner`); biasing toward common, against (inverted), or toward a critical slice of inputs; [[BenfordsLaw|Benford's law]] generation and χ² detection.
+- **New concepts**: [[ProbabilisticGrammar]] / [[ProbabilisticGrammarFuzzing]] / [[ProbabilisticGrammarFuzzer]] / [[DirectedFuzzing]] / [[GrammarMining]] / [[BenfordsLaw]]
+- **Updated concepts**: [[GrammarBasedFuzzing]] / [[GrammarFuzzer]] / [[Grammar]] / [[DerivationTree]] / [[EarleyParser]] / [[ContextCoverage]] / [[GrammarCoverageFuzzer]]
+- **New entities**: none
+- **Updated entities**: none
+- **Contradictions**: none identified
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 14 — Fuzzing with Generators
+- **Source**: *The Fuzzing Book* Ch 14, "Fuzzing with Generators" (Zeller, Gopinath, Böhme, Fraser & Holler, CISPA, 2024); raw `raw/books/fuzzingbook/fuzzingbook-14-generator-grammar-fuzzer.md`.
+- **Source page**: [[fuzzingbook-14-generator-grammar-fuzzer]].
+- **Scope**: Attaching Python functions to grammar expansions ([[GeneratorGrammar|generator grammars]], `opts(pre=...)`/`opts(post=...)`/`opts(order=...)`); `pre` computes a value before expansion (replaces it, supports [[Generator|Python generators]] via `run_generator`); `post` runs after expansion to *check* (`False` → re-expand) or *repair* (string/list → replace), receiving the children's terminal strings; the [[GeneratorGrammarFuzzer|`GeneratorGrammarFuzzer`]] (overloads `process_chosen_children`, `apply_result`, `run_post_functions`, `find_expansion`, `eval_function`, `expand_tree_once`/`run_post_functions_locally` with `replacement_attempts` + `RestartExpansionException`, `choose_tree_expansion`); [[SemanticConstraint|semantic constraints]] beyond context-free syntax ([[LuhnAlgorithm|Luhn]]-valid credit cards, numeric ranges, matched XML tags, negative/binary expressions via `eval`, symbol-table def/use); `opts(order=[…])` for side-effect sequencing; "all together" via multiple inheritance into [[PGGCFuzzer|`PGGCFuzzer`]] (coverage rebuilt from the final tree).
+- **New concepts**: [[GeneratorGrammar]] / [[GeneratorGrammarFuzzer]] / [[SemanticConstraint]] / [[PGGCFuzzer]] / [[LuhnAlgorithm]]
+- **Updated concepts**: [[GrammarBasedFuzzing]] / [[GrammarFuzzer]] / [[Grammar]] / [[DerivationTree]] / [[GrammarCoverageFuzzer]] / [[ProbabilisticGrammarFuzzer]] / [[ProbabilisticGrammar]] / [[ContextFreeGrammar]]
+- **New entities**: none
+- **Updated entities**: [[AndreasZeller]] / [[CISPA]]
+- **Contradictions**: none identified
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 15 — Greybox Fuzzing with Grammars
+- **Source**: *The Fuzzing Book* Ch 15, "Greybox Fuzzing with Grammars" (Zeller, Gopinath, Böhme, Fraser & Holler, CISPA, 2024); raw `raw/books/fuzzingbook/fuzzingbook-15-greybox-grammar-fuzzer.md`.
+- **Source page**: [[fuzzingbook-15-greybox-grammar-fuzzer]].
+- **Scope**: Fuses [[GreyboxFuzzing|coverage-guided greybox fuzzing]] ([[fuzzingbook-06-greybox-fuzzer|Ch 6]]: `GreyboxFuzzer`, `Mutator`, `PowerSchedule`, `Seed`) with [[GrammarBasedFuzzing|grammar structure]] ([[fuzzingbook-09-grammars|Ch 9]]/[[fuzzingbook-12-parser|Ch 12]]: [[EarleyParser|`EarleyParser`]], [[DerivationTree|derivation trees]]) on an HTML/`HTMLParser` example. Three structure-aware mutators: [[DictionaryMutation|`DictMutator`]] (inject keywords), [[FragmentBasedFuzzing|`FragmentMutator`]]/`LangFuzzer` (parse seeds → per-symbol fragment pool → `swap_fragment`/`delete_fragment` over subtrees, `SeedWithStructure`, 200 ms `Timeout`), and [[RegionMutation|`RegionMutator`]] (label byte regions via `chart_parse()` for unparsable seeds, `SeedWithRegions`). Integrated into [[GrammarAwareGreyboxFuzzing|`GreyboxGrammarFuzzer`]] (stacks 0–4 tree mutations + up to 32 byte mutations, keeps coverage-increasing inputs) with the [[DegreeOfValidity|validity]]-weighted `AFLSmartSchedule`. [[SeedMining|Mining seeds]] from past failure-inducing inputs (LangFuzz from CVE reports). Reconstructs [[LangFuzz]] (>2,600 JS-engine bugs) and [[AFLSmart]] (42 zero-days, 17 CVEs).
+- **New concepts**: [[GrammarAwareGreyboxFuzzing]] / [[FragmentBasedFuzzing]] / [[RegionMutation]] / [[DictionaryMutation]] / [[DegreeOfValidity]] / [[SeedMining]]
+- **Updated concepts**: [[GreyboxFuzzing]] / [[GrammarBasedFuzzing]] / [[MutationBasedFuzzing]] / [[Mutator]] / [[PowerSchedule]] / [[DerivationTree]] / [[EarleyParser]] / [[Parser]] / [[SeedInput]] / [[CoverageGuidedFuzzing]]
+- **New entities**: [[LangFuzz]] / [[AFLSmart]] / [[ChristianHoller]]
+- **Updated entities**: [[AFL]] / [[MarcelBohme]] / [[AndreasZeller]] / [[CISPA]]
+- **Contradictions**: none identified (`DictMutator` re-presented from Ch 6 in an HTML context — same class, not a conflict)
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 16 — Reducing Failure-Inducing Inputs
+- **Source**: *The Fuzzing Book* Ch 16, "Reducing Failure-Inducing Inputs" — Zeller, Gopinath, Böhme, Fraser & Holler (CISPA, 2024); `raw/books/fuzzingbook/fuzzingbook-16-reducer.md`.
+- **Source page**: [[fuzzingbook-16-reducer]].
+- **Scope**: Zeller's delta debugging chapter closing Part III (Syntactic Fuzzing). Covers the `Reducer`/`CachingReducer` interface, the lexical `ddmin` `DeltaDebuggingReducer` (1-minimal, O(log n)/O(n²) complexity), why it stalls on syntactically structured inputs, and the `GrammarReducer` doing hierarchical delta debugging over the Earley-parsed derivation tree (subtree replacement + alternate grammar expansions, depth-oriented search).
+- **New concepts**: [[InputReduction]] / [[DDMin]] / [[OneMinimality]] / [[GrammarReducer]] / [[HierarchicalDeltaDebugging]].
+- **Updated concepts**: [[DeltaDebugging]] (expanded the Ch-8-seeded stub into the full ddmin treatment) / [[Parser]] / [[EarleyParser]] / [[DerivationTree]] / [[Testing]] / [[TestOracle]] / [[Debugger]].
+- **New entities**: none.
+- **Updated entities**: [[AndreasZeller]] (co-author of the original delta debugging paper, Zeller & Hildebrandt 2002).
+- **Contradictions**: none identified.
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 17 — Fuzzing with Constraints
+- **Source**: *The Fuzzing Book* (Zeller, Gopinath, Böhme, Fraser & Holler; CISPA, 2024), Ch 17 "Fuzzing with Constraints" — `raw/books/fuzzingbook/fuzzingbook-17-fuzzing-with-constraints.md`.
+- **Source page**: [[fuzzingbook-17-fuzzing-with-constraints]].
+- **Scope**: Opens Part IV (Semantic Fuzzing). Introduces the [[ISLa]] framework (Steinhöfel & Zeller): a declarative [[InputSpecificationLanguage|constraint language]] over a [[ContextFreeGrammar|grammar]], the `ISLaSolver` (`solve()`/`check()`/`parse()`), [[ConstraintBasedFuzzing|constraint-based fuzzing]] via an [[SMTSolver|SMT solver]] (SMT-LIB/Z3), tree-access operators (`.`/`..`/`[n]`), `forall`/`exists` quantifiers, match expressions, and `before`/`count` predicates. Contrasts declarative constraints with Ch 14's imperative generators.
+- **New concepts**: [[InputSpecificationLanguage]] / [[ConstraintBasedFuzzing]] / [[SMTSolver]].
+- **Updated concepts**: [[SemanticConstraint]] / [[GeneratorGrammar]] / [[ContextFreeGrammar]] / [[DerivationTree]] / [[GrammarBasedFuzzing]].
+- **New entities**: [[ISLa]] / [[DominicSteinhofel]].
+- **Updated entities**: [[AndreasZeller]] / [[CISPA]].
+- **Contradictions**: none identified. (Naming note: the existing `Z3` concept page documents the 1941 Zuse Z3 *computer*, not the Z3 *SMT solver* used by ISLa; the SMT solver is captured under [[SMTSolver]] to avoid the collision.)
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 18 — Mining Input Grammars
+- **Source**: *The Fuzzing Book* Ch 18, "Mining Input Grammars" (Zeller, Gopinath, Böhme, Fraser & Holler; CISPA, 2024). Raw: `raw/books/fuzzingbook/fuzzingbook-18-grammar-miner.md`.
+- **Source page**: [[fuzzingbook-18-grammar-miner]].
+- **Scope**: Automatically inferring an input grammar from a program + sample inputs by dynamically tracing how input substrings flow through named variables. Covers the three-stage `GrammarMiner` (`Tracer`→`DefineTracker`→`TreeMiner`→`GrammarMiner`; simple → reassignment-aware → scope-aware), substring-inclusion vs dynamic-taint origin checks, the CSV `process_inventory()` and `urllib.parse` running examples, and feeding recovered grammars to the book's grammar fuzzers. Based on the AUTOGRAM work.
+- **New concepts**: [[GrammarInference]] / [[GrammarMiner]] / [[DynamicTaintTracking]].
+- **Updated concepts**: [[GrammarMining]] / [[Grammar]] / [[DerivationTree]] / [[Parser]] / [[ContextFreeGrammar]] / [[GrammarBasedFuzzing]] / [[Coverage]].
+- **New entities**: [[RahulGopinath]].
+- **Updated entities**: [[AndreasZeller]].
+- **Contradictions**: none identified.
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 19 — Tracking Information Flow
+- **Source**: *The Fuzzing Book* Ch 19, "Tracking Information Flow" (Zeller, Gopinath, Böhme, Fraser & Holler; CISPA, 2024). Raw: `raw/books/fuzzingbook/fuzzingbook-19-information-flow.md`.
+- **Source page**: [[fuzzingbook-19-information-flow]].
+- **Scope**: Dynamic taint analysis in pure Python via two `str` subclasses — `tstr` (whole-string taint, propagated through wrapped `str` methods + `__radd__`) and `ostr` (per-character origin indices, with re-implemented slicing/concat/split/replace/join/strip/`%`/case methods). Applied to an `eval()`-vulnerable SQL `DB`: untrusted-input rejection (`TrustedDB`, `sanitize()`), source→sink aborting (`TaintedDB` + `Tainted`), privacy-leak detection on a Heartbleed-style `heartbeat()` via `SECRET_ORIGIN`, and taint-directed fuzzing (`TrackingDB` + `TaintedGrammarFuzzer` tagging grammar keys/alts/tokens with origins, `update_grammar()` biasing rules reaching the sink). Documents taint-loss limits (number conversions, internal C code, implicit/control flow) and the worst-case-default mitigation. Underpins Ch 18 grammar mining; precursor to Ch 20 concolic.
+- **New concepts**: [[InformationFlow]] / [[DynamicTaintAnalysis]] / [[TaintedString]] / [[CharacterOrigin]] / [[DataFlow]] / [[ImplicitInformationFlow]] / [[TaintDirectedFuzzing]] / [[CodeInjection]].
+- **Updated concepts**: [[DynamicTaintTracking]] / [[ControlFlow]].
+- **New entities**: none.
+- **Updated entities**: [[AndreasZeller]] / [[RahulGopinath]] / [[CISPA]].
+- **Contradictions**: none identified.
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 20 — Concolic Fuzzing
+- **Source**: *The Fuzzing Book* Ch 20, "Concolic Fuzzing" (Zeller, Gopinath, Böhme, Fraser & Holler; CISPA, 2024). `raw/books/fuzzingbook/fuzzingbook-20-concolic-fuzzer.md`.
+- **Source page**: [[fuzzingbook-20-concolic-fuzzer]].
+- **Scope**: Concolic (concrete + symbolic) execution for Python — the `ConcolicTracer` context manager with `zbool`/`zint`/`zstr`/`zfloat` symbolic proxies, path conditions solved/negated via Z3 (Python API + command line), and two fuzzers `SimpleConcolicFuzzer` (TraceTree path exploration) and `ConcolicGrammarFuzzer` (lifts constraints into the grammar). Running examples: `factorial`, `triangle`, `cgi_decode`, SQL `db_select`.
+- **New concepts**: [[ConcolicExecution]] / [[ConcolicFuzzing]] / [[SymbolicExecution]] / [[PathConstraint]] / [[PathExploration]].
+- **Updated concepts**: [[SMTSolver]] / [[DynamicTaintAnalysis]] / [[InformationFlow]] / [[ControlFlow]] / [[Coverage]] / [[BranchCoverage]].
+- **New entities**: [[Z3Prover]] (Microsoft Research's Z3 SMT solver / theorem prover; distinct from the unrelated `Z3` Zuse-computer concept page).
+- **Updated entities**: [[AndreasZeller]] / [[microsoftresearch]] / [[CISPA]].
+- **Contradictions**: none identified.
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 21 — Symbolic Fuzzing
+- **Source**: *The Fuzzing Book* Ch 21, "Symbolic Fuzzing" (Zeller, Gopinath, Böhme, Fraser & Holler; CISPA, 2024). `raw/books/fuzzingbook/fuzzingbook-21-symbolic-fuzzer.md`.
+- **Source page**: [[fuzzingbook-21-symbolic-fuzzer]].
+- **Scope**: Pure (static) symbolic execution turned into a fuzzer — treat inputs as symbolic variables from type annotations, statically walk the CFG (`PyCFG`/`gen_cfg`) to enumerate all paths, collect each path condition, and solve with Z3 to synthesize path-reaching inputs. Mints `SimpleSymbolicFuzzer` (loop-free) and `SymbolicFuzzer`/`AdvancedSymbolicFuzzer` (SSA renaming for reassignment + bounded loop/recursion unrolling via `max_iter`/`max_depth`), function summaries, and an Exercise-3 concolic tracer rebuilt on the symbolic machinery. Running examples: `check_triangle`, `abs_value`, `gcd`, quadratic `roots`.
+- **New concepts**: [[SymbolicFuzzer]] / [[SymbolicVariable]] / [[PathExplosion]] / [[ExecutionTree]].
+- **Updated concepts**: [[SymbolicExecution]] (expanded into the full pure-symbolic treatment) / [[ConcolicExecution]] / [[PathConstraint]] / [[PathExploration]] / [[SMTSolver]] / [[ControlFlow]] / [[Coverage]].
+- **New entities**: [[KLEE]] / [[SAGE]] / [[angr]] (landmark symbolic-execution tools from the Background; Driller and CHEF mentioned inline, not minted).
+- **Updated entities**: [[Z3Prover]] / [[AndreasZeller]] / [[microsoftresearch]].
+- **Contradictions**: none identified.
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 22 — Mining Function Specifications
+- **Source**: *The Fuzzing Book* Ch 22, "Mining Function Specifications" (Zeller, Gopinath, Böhme, Fraser & Holler; CISPA, 2024). `raw/books/fuzzingbook/fuzzingbook-22-dynamic-invariants.md`.
+- **Source page**: [[fuzzingbook-22-dynamic-invariants]].
+- **Scope**: Daikon-style dynamic specification mining closing Part IV. Traces function calls via `sys.settrace` (`Tracker`/`CallTracker`, capturing `(arguments, return_value)`), then mines two kinds of spec: (1) TYPES — `TypeAnnotator`/`TypeTransformer` read runtime types (`type_string`), rewrite the function AST, and emit PEP 484 annotations (collapsing conflicts to `Any`); (2) value INVARIANTS — `InvariantTracker`/`InvariantAnnotator` check a catalog `INVARIANT_PROPERTIES` of templated properties over metavars `X,Y,Z` (`metavars`, `instantiate_prop`, `prop_function`, `true_property_instantiations`), intersect the satisfied sets across all calls, and emit `@precondition`/`@postcondition` decorators (or inline `assert`s via Exercise 9's `EmbeddedInvariantAnnotator`). Mined specs act as regression oracles; mining overspecializes on few calls and is pruned by diverse runs from a `GrammarFuzzer`. Running examples: `my_sqrt`, `sum2`/`sum3`, `list_length`.
+- **New concepts**: [[SpecificationMining]] / [[DynamicInvariant]] / [[InvariantInference]] / [[TypeInference]].
+- **Updated concepts**: [[DesignByContract]] / [[Precondition]] / [[Postcondition]] / [[Assertion]] / [[TestOracle]] / [[RunTimeVerification]] / [[DynamicAnalysis]].
+- **New entities**: [[Daikon]] (the seminal DAIKON dynamic invariant detector by Michael Ernst et al.; MonkeyType/PyAnnotate mentioned inline, not minted).
+- **Updated entities**: [[AndreasZeller]] / [[MyPy]] / [[CISPA]].
+- **Contradictions**: none identified.
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 23 — Testing Configurations
+- **Source**: *The Fuzzing Book* Ch 23, "Testing Configurations" (Zeller, Gopinath, Böhme, Fraser & Holler; CISPA, 2024). `raw/books/fuzzingbook/fuzzingbook-23-configuration-fuzzer.md`.
+- **Source page**: [[fuzzingbook-23-configuration-fuzzer]].
+- **Scope**: Opens Part V (Domain-Specific Fuzzing). Testing a program's configuration space (command-line options/arguments): hand-written vs. automatically mined option grammars; the `OptionGrammarMiner` introspecting `argparse` via `sys.settrace` up to `parse_args()`; the `OptionRunner`/`OptionFuzzer` toolkit applied to `autopep8`/`mypy`/`notedown`; combinatorial (pairwise) testing of option interactions via `pairwise()`.
+- **New concepts**: [[ConfigurationFuzzing]] / [[CombinatorialTesting]] / [[OptionGrammar]] / [[OptionGrammarMiner]].
+- **Updated concepts**: [[GrammarCoverageFuzzer]] / [[GrammarCoverage]] / [[ContextCoverage]] / [[GrammarMining]] / [[GrammarMiner]] / [[Grammar]].
+- **New entities**: none.
+- **Updated entities**: [[AndreasZeller]] / [[CISPA]] / [[MyPy]].
+- **Contradictions**: none identified.
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 24 — Fuzzing APIs
+- **Source**: *The Fuzzing Book* Ch 24, "Fuzzing APIs" (Zeller, Gopinath, Böhme, Fraser & Holler; CISPA, 2024). raw/books/fuzzingbook/fuzzingbook-24-api-fuzzer.md
+- **Source page**: [[fuzzingbook-24-api-fuzzer]].
+- **Scope**: Function-level fuzzing — synthesizing function-call code from grammars (`URLPARSE_GRAMMAR`, a C variant), data-type grammar constructors (`INT_GRAMMAR`/`FLOAT_GRAMMAR`/`ASCII_STRING_GRAMMAR`, `int_grammar_with_range`/`float_grammar_with_range`, `list_grammar`), and oracle synthesis via generator `post` functions; fuzzes `urllib.parse.urlparse`. Opens Part V's function-level thread; sets up Ch 25 (Carver).
+- **New concepts**: [[APIFuzzing]] / [[CallSequenceFuzzing]]
+- **Updated concepts**: [[API]] / [[TestOracle]] / [[GeneratorGrammar]]
+- **New entities**: none
+- **Updated entities**: [[Hypothesis]] / [[AndreasZeller]] / [[CISPA]]
+- **Contradictions**: none identified
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 25 — Carving Unit Tests
+- **Source**: *The Fuzzing Book* (Zeller, Gopinath, Böhme, Fraser & Holler; CISPA, 2024), Ch 25 "Carving Unit Tests" — `raw/books/fuzzingbook/fuzzingbook-25-carver.md`.
+- **Source page**: [[fuzzingbook-25-carver]].
+- **Scope**: Part V (Domain-Specific Fuzzing). Carving = record real function calls (args + objects) during a system test and replay each as a fast standalone unit test; the `Carver`/`CallCarver` `sys.settrace` recorder; rendering/replaying calls via `simple_call_string`/`call_string` + `eval`; pickling complex object arguments; mining an API grammar from carved calls (`CallGrammarMiner`) to recombine/fuzz arguments; `ResultCarver` exercise for regression assertions.
+- **New concepts**: [[TestCarving]] / [[Carver]] / [[RecordReplay]] / [[Serialization]] / [[APIGrammarMining]].
+- **Updated concepts**: [[UnitTesting]] / [[IntegrationTesting]] / [[RegressionTesting]] / [[APIFuzzing]] / [[CallSequenceFuzzing]] / [[GrammarMiner]].
+- **New entities**: none.
+- **Updated entities**: [[AndreasZeller]] / [[RahulGopinath]] / [[CISPA]].
+- **Contradictions**: none identified.
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 26 — Testing Compilers (Python Fuzzer)
+- **Source**: *The Fuzzing Book* Ch 26, "Testing Compilers (Python Fuzzer)" (Zeller, Gopinath, Böhme, Fraser & Holler; CISPA, 2024). Raw: `raw/books/fuzzingbook/fuzzingbook-26-python-fuzzer-testing-compilers.md`.
+- **Source page**: [[fuzzingbook-26-python-fuzzer-testing-compilers]].
+- **Scope**: Compiler/interpreter testing via grammar-based fuzzing of Python code; grammar over ASTs (`PYTHON_AST_GRAMMAR`) instead of concrete syntax; the `PythonFuzzer` class (subclass of `ISLaSolver`); steering output by grammar edits and ISLa constraints; parsing & mutating code via `ISLaSolver.mutate()`; coverage-guided evolutionary fuzzing to reach a planted distributive-law bug; CSmith and differential testing as prior art.
+- **New concepts**: [[CompilerTesting]] / [[PythonFuzzer]] / [[DifferentialTesting]] / [[EvolutionaryFuzzing]].
+- **Updated concepts**: [[AbstractSyntaxTree]] / [[EvolutionaryTesting]].
+- **New entities**: [[CPython]].
+- **Updated entities**: [[CSmith]] / [[ISLa]] / [[AndreasZeller]] / [[CISPA]].
+- **Contradictions**: none identified. (Note: existing [[Compiler]] page is ML-compiler-specific — a distinct sense — so the new [[CompilerTesting]] concept was minted rather than editing it.)
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 27 — Testing Web Applications
+- **Source**: *The Fuzzing Book* Ch 27, "Testing Web Applications" (Zeller, Gopinath, Böhme, Fraser & Holler; CISPA, 2024). `raw/books/fuzzingbook/fuzzingbook-27-web-fuzzer.md`.
+- **Source page**: [[fuzzingbook-27-web-fuzzer]].
+- **Scope**: Fuzzing Web applications over HTTP — a vulnerable `http.server` shop form, fuzzing it with a hand-written order [[Grammar|grammar]] and a [[MutationBasedFuzzing|mutation fuzzer]], mining a submission grammar from the served HTML (`HTMLGrammarMiner`/[[WebFormFuzzer|`WebFormFuzzer`]]), a `robots.txt`-aware crawler that discovers forms, and automatic [[SQLInjection|SQL]]/[[CrossSiteScripting|XSS]]/[[HTMLInjection|HTML]] injection attacks (`SQLInjectionFuzzer`) with [[InputSanitization|sanitization]] defenses.
+- **New concepts**: [[WebApplicationFuzzing]] / [[WebFormFuzzer]] / [[SQLInjection]] / [[CrossSiteScripting]] / [[HTMLInjection]] / [[HTTPFuzzing]] / [[InputSanitization]].
+- **Updated concepts**: [[Fuzzing]] / [[GrammarFuzzer]] / [[GrammarMining]] / [[CodeInjection]] / [[WebCrawling]].
+- **New entities**: [[OWASP]].
+- **Updated entities**: [[AndreasZeller]] / [[CISPA]].
+- **Contradictions**: none identified.
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 28 — Testing Graphical User Interfaces
+- **Source**: *The Fuzzing Book* (Zeller, Gopinath, Böhme, Fraser & Holler; CISPA, 2024), Ch 28, "Testing Graphical User Interfaces" — `raw/books/fuzzingbook/fuzzingbook-28-gui-fuzzer.md`.
+- **Source page**: [[fuzzingbook-28-gui-fuzzer]].
+- **Scope**: Generic [[GUIFuzzing|GUI fuzzing]] driven through a real browser via [[Selenium]]/[[WebDriver]]: discover a page's interactive elements, model the UI as an [[FiniteStateMachine|FSM]] of pages ([[UINavigationModel|UI navigation model]]) embedded in a [[Grammar|grammar]] ([[ModelBasedTesting|model-based testing]]), and explore/cover it with [[GUIFuzzer|`GUIFuzzer`]]/`GUICoverageFuzzer` (a [[GrammarCoverageFuzzer|`GrammarCoverageFuzzer`]] mixin) so transition coverage = grammar coverage. Generalizes [[fuzzingbook-27-web-fuzzer|Ch 27]] past JavaScript; experimental (no JS handling).
+- **New concepts**: [[GUIFuzzing]] / [[GUIFuzzer]] / [[ModelBasedTesting]] / [[UINavigationModel]].
+- **Updated concepts**: [[GrammarCoverageFuzzer]] / [[GrammarMiner]] / [[Runner]] / [[FiniteStateMachine]] / [[WebApplicationFuzzing]] / [[WebFormFuzzer]] / [[WebCrawling]].
+- **New entities**: [[WebDriver]].
+- **Updated entities**: [[Selenium]] / [[ChromeDriver]] / [[AndreasZeller]] / [[CISPA]].
+- **Contradictions**: none identified.
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 29 — Fuzzing in the Large
+- **Source**: *The Fuzzing Book* (Zeller, Gopinath, Böhme, Fraser & Holler; CISPA, 2024), Ch 29 "Fuzzing in the Large" — `raw/books/fuzzingbook/fuzzingbook-29-fuzzing-in-the-large.md`.
+- **Source page**: [[fuzzingbook-29-fuzzing-in-the-large]].
+- **Scope**: The management layer of fuzzing — running many fuzzers on many machines/programs at industrial scale; central crash server + database (Mozilla's FuzzManager via `ProgramConfiguration`/`CrashInfo`/`Collector`); crash deduplication via buckets and crash signatures (program counter + stack frames, with coarse-grained `"?"` generalization and the semi-automatic `Optimize` step); triage; and central per-fuzzer code-coverage collection (grcov/CovReporter/CovManager). Worked examples: `simple-crash`, `out-of-bounds`, `maze` from the `simply-buggy` repo.
+- **New concepts**: [[FuzzingAtScale]] / [[CrashDeduplication]] / [[CrashTriage]] / [[ContinuousFuzzing]].
+- **Updated concepts**: [[Fuzzing]] / [[Coverage]] / [[InputReduction]] / [[AddressSanitizer]].
+- **New entities**: [[FuzzManager]] / [[Mozilla]].
+- **Updated entities**: [[ChristianHoller]] / [[Selenium]].
+- **Contradictions**: none identified.
+
+## [2026-06-06] ingest | The Fuzzing Book Ch 30 — When To Stop Fuzzing
+- **Source**: raw/books/fuzzingbook/fuzzingbook-30-when-to-stop-fuzzing.md — *The Fuzzing Book* Ch 30, "When To Stop Fuzzing" (Zeller, Gopinath, Böhme, Fraser & Holler, CISPA 2024). The final content chapter, closing Part VI — Managing Fuzzing.
+- **Source page**: [[fuzzingbook-30-when-to-stop-fuzzing]].
+- **Scope**: A statistical treatment of when to stop a fuzzing campaign. Reframes fuzzing as species discovery (STADS); derives the Good-Turing estimator of discovery probability from the Turing/Good Naval Enigma codebreaking example; shows it upper-bounds residual risk (Böhme); adds Chao1 estimation of total coverage and Chao–Shen–Lin extrapolation. Worked examples: `EnigmaMachine`/`BletchleyPark` trigram cracking and `HTMLParser` trace coverage.
+- **New concepts**: [[SpeciesDiscovery]] / [[GoodTuringEstimator]] / [[DiscoveryProbability]] / [[ResidualRisk]] / [[Chao1Estimator]].
+- **Updated concepts**: [[Coverage]] / [[PathCoverage]] / [[BenfordsLaw]] / [[Fuzzing]] / [[RandomFuzzer]].
+- **New entities**: [[IJGood]] / [[AnneChao]] / [[EnigmaMachine]] / [[BletchleyPark]].
+- **Updated entities**: [[AlanTuring]] / [[MarcelBohme]].
+- **Contradictions**: none identified.
+
+## [2026-06-07] ingest | Introduction to Logic and Critical Thinking (Van Cleave, v2.0)
+- **Source**: raw/books/logic-text-v2.md — *Introduction to Logic and Critical Thinking* v2.0 (Matthew J. Van Cleave, Lansing Community College, 2016; CC BY 4.0). Converted from `~/Downloads/Logic text v 2.0.pdf` via markitdown. The wiki's first dedicated logic / critical-thinking source.
+- **Source page**: [[logic-text-v2]].
+- **Scope**: An introductory logic & critical-thinking textbook in 4 chapters — (1) informal reconstruction/evaluation of arguments (standard form, principle of charity, informal test of validity, soundness, deductive vs inductive); (2) formal methods (propositional logic's 4 connectives + truth tables, the 8 valid forms of inference / proofs, categorical logic + Venn diagrams); (3) inductive argument (inference to the best explanation + 7 explanatory virtues, causal reasoning via necessary/sufficient-condition tests, probability + conjunction/base-rate/small-numbers/regression/gambler's fallacies); (4) formal & informal fallacy catalog.
+- **New concepts**: [[CriticalThinking]] / [[Argument]] / [[Validity]] / [[Soundness]] / [[DeductiveReasoning]] / [[InductiveReasoning]] / [[RulesOfInference]] / [[CategoricalLogic]] / [[InferenceToBestExplanation]] / [[NecessaryAndSufficientConditions]] / [[ConjunctionFallacy]] / [[BaseRateFallacy]] / [[LogicalFallacy]] (13).
+- **Updated concepts**: [[PropositionalLogic]] (de-stubbed) / [[OccamsRazor]] / [[Abduction]] / [[Probability]] / [[TruthTable]] (enriched in place).
+- **New entities**: [[MatthewVanCleave]] / [[DanielKahneman]] / [[AmosTversky]] / [[WilliamOfOckham]] (4).
+- **Contradictions**: none hard. Framing difference flagged — Van Cleave treats inference-to-the-best-explanation as a species of *induction*, whereas [[Abduction]] (after [[mml-book|MML]]) treats abduction as a *third* mode of inference distinct from induction/deduction; same substance (simplicity-favoring explanation), different taxonomy. The book's [[BaseRateFallacy]] is an informal statement of [[BayesTheorem|Bayes' theorem]] — complements, not conflicts with, the wiki's Bayesian [[Probability]] page.
+
+## [2026-06-07] ingest | Zig — official ziglang.org/learn batch (6 pages)
+- **Batch**: The official Zig learning content from https://ziglang.org/learn/ — tutorials/guides/how-tos. Ingested via 6 per-source opus subagents run sequentially; shared layer (index/overview/log) consolidated by the orchestrator. The wiki's first dedicated [[Zig]] / modern-systems-language cluster. **+6 sources / +16 concepts / +3 entities.** No contradictions (only intra-page ~0.16 std-API version drift, noted on source pages).
+- **New entities (3)**: [[Zig]] / [[ZigSoftwareFoundation]] / [[LLVM]].
+- **New concepts (16)**: [[Comptime]] / [[ErrorUnion]] / [[ZigOptional]] / [[DeferStatement]] / [[ZigAllocator]] / [[CInterop]] / [[ZigSlice]] / [[NoHiddenControlFlow]] / [[ZigToolchain]] / [[ZigBuildSystem]] / [[ZigPackageManager]] / [[ZigBuildModes]] / [[ZigLanguageServer]] / [[LanguageServerProtocol]] / [[ManualMemoryManagement]] / [[Metaprogramming]].
+
+## [2026-06-07] ingest | Zig — Getting Started
+- **Source**: https://ziglang.org/learn/getting-started/ → [[zig-getting-started]].
+- **Scope**: Install paths (package managers incl. `brew install zig`, prebuilt, build-from-source nightly/release), [[ZigLanguageServer|ZLS]]/editor setup, `zig init` → `zig build run` hello-world.
+- **New**: entities [[Zig]] / [[ZigSoftwareFoundation]]; concepts [[ZigToolchain]] / [[ZigLanguageServer]] / [[LanguageServerProtocol]]. Updated [[Homebrew]]. Contradictions: none.
+
+## [2026-06-07] ingest | Zig In-Depth Overview
+- **Source**: https://ziglang.org/learn/overview/ → [[zig-in-depth-overview]].
+- **Scope**: Canonical feature tour — comptime, error unions, optionals, defer/errdefer, explicit allocators, C interop, cross-compilation, no-hidden-control-flow philosophy.
+- **New**: concepts [[NoHiddenControlFlow]] / [[Comptime]] / [[ErrorUnion]] / [[ZigOptional]] / [[DeferStatement]] / [[ZigAllocator]] / [[CInterop]] / [[ZigSlice]] / [[ManualMemoryManagement]] / [[Metaprogramming]]; entity [[LLVM]]. Updated [[Zig]] / [[ZigToolchain]]. Contradictions: none (intra-page std-API version drift noted).
+
+## [2026-06-07] ingest | Why Zig When There is Already C++, D, and Rust?
+- **Source**: https://ziglang.org/learn/why_zig_rust_d_cpp/ → [[zig-why-zig-vs-rust-d-cpp]].
+- **Scope**: Rationale essay — no hidden control flow / allocations / preprocessor, first-class comptime vs templates/macros, allocator-passing reusability, build-system-as-package-manager.
+- **New**: concept [[ZigBuildSystem]]. Updated [[NoHiddenControlFlow]] / [[ZigAllocator]] / [[Comptime]] / [[Metaprogramming]] / [[CInterop]] / [[ZigToolchain]] / [[RustStandardLibrary]] / [[Zig]]. Contradictions: none (C++/D kept as prose — no wiki pages).
+
+## [2026-06-07] ingest | Zig Build System (Official Guide)
+- **Source**: https://ziglang.org/learn/build-system/ → [[zig-build-system-guide]].
+- **Scope**: Reference guide to `zig build`/`build.zig` — the [[DirectedAcyclicGraph|DAG]] of lazy build steps, artifacts/modules, build options, build modes, cross-compilation, C linking, file generation, package manager.
+- **New**: concepts [[ZigPackageManager]] / [[ZigBuildModes]]. Substantially expanded [[ZigBuildSystem]]; updated [[Zig]]. Notable cross-links: [[DirectedAcyclicGraph]] / [[BuildRs]] / Make. Contradictions: none.
+
+## [2026-06-07] ingest | Zig Code Samples
+- **Source**: https://ziglang.org/learn/samples/ → [[zig-code-examples]].
+- **Scope**: Curated annotated samples — `DebugAllocator` leak detection, comptime generic types, `@cImport` C interop (raylib/libcurl), bindingless system calls, hello-world.
+- **New**: none (illustrative — enriched existing concepts). Updated [[ZigAllocator]] / [[Comptime]] / [[CInterop]] / [[MemoryLeak]] / [[DeferStatement]] / [[Zig]] with runnable examples. Contradictions: none (naming note: `std.heap.DebugAllocator` ≡ the GPA lineage).
+
+## [2026-06-07] ingest | Zig — Tools
+- **Source**: https://ziglang.org/learn/tools/ → [[zig-tools]].
+- **Scope**: Editor/LSP tooling catalog — [[ZigLanguageServer|ZLS]] plus per-editor plugins (VS Code, Visual Studio, Sublime, Vim, Emacs, Kate, JetBrains/Fleet).
+- **New**: none. Updated [[ZigLanguageServer]] (editor coverage) / [[Zig]] (tooling section); linked [[VimEditor]] / [[EmacsEditor]]. Contradictions: none. Note: live page is editor/LSP-only — no `zig fmt`/debugger/CI content, so those pages were left untouched.
+
+## [2026-06-07] ingest | Prealgebra 2e — Ch 1: Whole Numbers
+- **Source**: https://openstax.org/books/prealgebra-2e (Ch 1, §1.1–1.5) → [[prealgebra-2e-ch01-whole-numbers]]. Opus subagent (sequential).
+- **New**: [[WholeNumbers]], [[PlaceValue]], [[Rounding]], [[WholeNumberArithmetic]], [[Divisibility]]; entities [[OpenStax]], [[Prealgebra]]. Contradictions: none.
+
+## [2026-06-07] ingest | Prealgebra 2e — Ch 2: The Language of Algebra
+- **Source**: openstax.org Prealgebra 2e (Ch 2, §2.1–2.5) → [[prealgebra-2e-ch02-language-of-algebra]].
+- **New**: [[Variable]], [[AlgebraicExpression]], [[OrderOfOperations]], [[Equation]], [[MultiplesAndFactors]], [[PrimeFactorization]], [[LeastCommonMultiple]]. Updated [[Divisibility]] (÷4 test). Contradictions: none.
+
+## [2026-06-07] ingest | Prealgebra 2e — Ch 3: Integers
+- **Source**: openstax.org Prealgebra 2e (Ch 3, §3.1–3.5) → [[prealgebra-2e-ch03-integers]].
+- **New**: [[Integer]], [[NumberLine]], [[AbsoluteValue]], [[SignedNumberArithmetic]], [[DivisionPropertyOfEquality]]. Updated [[Equation]]. Note: kept [[SignedInteger]] (computing/two's-complement) separate. Contradictions: none.
+
+## [2026-06-07] ingest | Prealgebra 2e — Ch 4: Fractions
+- **Source**: openstax.org Prealgebra 2e (Ch 4, §4.1–4.7) → [[prealgebra-2e-ch04-fractions]].
+- **New**: [[Fraction]], [[EquivalentFractions]], [[Reciprocal]], [[FractionArithmetic]], [[MixedNumber]], [[ComplexFraction]]. Contradictions: none.
+
+## [2026-06-07] ingest | Prealgebra 2e — Ch 5: Decimals
+- **Source**: openstax.org Prealgebra 2e (Ch 5, §5.1–5.7) → [[prealgebra-2e-ch05-decimals]].
+- **New**: [[Decimal]], [[DecimalArithmetic]], [[DecimalFractionConversion]], [[Ratio]], [[SquareRoot]]. Updated (prealgebra subsections, kept ML content) [[Mean]], [[Median]], [[Mode]], [[probability]], [[PlaceValue]], [[Rounding]], [[Fraction]]. Contradictions: none.
+
+## [2026-06-07] ingest | Prealgebra 2e — Ch 6: Percents
+- **Source**: openstax.org Prealgebra 2e (Ch 6, §6.1–6.5) → [[prealgebra-2e-ch06-percents]].
+- **New**: [[Percent]], [[PercentApplications]], [[SimpleInterest]], [[Proportion]]. Updated [[Ratio]]. Contradictions: none.
+
+## [2026-06-07] ingest | Prealgebra 2e — Ch 7: The Properties of Real Numbers
+- **Source**: openstax.org Prealgebra 2e (Ch 7, §7.1–7.5) → [[prealgebra-2e-ch07-properties-of-real-numbers]].
+- **New**: [[RealNumbers]], [[CommutativeProperty]], [[AssociativeProperty]], [[DistributiveProperty]], [[IdentityInverseZeroProperties]], [[SystemsOfMeasurement]]. Updated stub `typesofnumber`; linked [[UnitConversion]] / [[SIUnits]] / [[TemperatureMeasurement]] (NOT [[Temperature]], the sampling constant). Contradictions: none.
+
+## [2026-06-07] ingest | Prealgebra 2e — Ch 8: Solving Linear Equations
+- **Source**: openstax.org Prealgebra 2e (Ch 8, §8.1–8.4) → [[prealgebra-2e-ch08-solving-linear-equations]].
+- **New**: [[PropertiesOfEquality]], [[SolvingLinearEquations]], [[MultiplicationPropertyOfEquality]]. Updated [[linearequation|Linear Equation]] (de-stubbed), [[Equation]], [[DivisionPropertyOfEquality]]. Contradictions: none.
+
+## [2026-06-07] ingest | Prealgebra 2e — Ch 9: Math Models and Geometry
+- **Source**: openstax.org Prealgebra 2e (Ch 9, §9.1–9.7) → [[prealgebra-2e-ch09-math-models-and-geometry]].
+- **New**: [[ProblemSolvingStrategy]], [[Triangle]], [[PythagoreanTheorem]], [[PerimeterAndArea]], [[Circle]], [[VolumeAndSurfaceArea]], [[Formula]]. Note: [[Angle]] (inner-product) / [[AngleInclude]] (#include) are off-domain — geometry angles fold into [[Triangle]]. Contradictions: none.
+
+## [2026-06-07] ingest | Prealgebra 2e — Ch 10: Polynomials
+- **Source**: openstax.org Prealgebra 2e (Ch 10, §10.1–10.6) → [[prealgebra-2e-ch10-polynomials]].
+- **New**: [[Polynomial]], [[ExponentRules]], [[ScientificNotation]], [[FactoringPolynomials]]. Note: [[Exponent]] (IEEE-754 field) left off-domain & disambiguated; resolved dangling [[Polynomial]]/[[ScientificNotation]] links in RosettaCode pages. Contradictions: none.
+
+## [2026-06-07] ingest | Prealgebra 2e — Ch 11: Graphs
+- **Source**: openstax.org Prealgebra 2e (Ch 11, §11.1–11.4) → [[prealgebra-2e-ch11-graphs]].
+- **New**: [[RectangularCoordinateSystem]], [[GraphingLinearEquations]], [[Intercepts]], [[Slope]]. Note: [[Coordinates]] / [[AnalyticGeometry]] are linear-algebra abstractions — the concrete Cartesian plane is [[RectangularCoordinateSystem]]. Contradictions: none. **Book complete: 11/11 chapters.**
+
+# College Physics 2e — full 34-chapter ingest (OpenStax, CC BY 4.0)
+# Per-chapter opus subagents run sequentially; shared layer consolidated by orchestrator.
+
+## [2026-06-07] ingest | College Physics 2e — Ch.1: Introduction: The Nature of Science and Physics
+## [2026-06-07] ingest | College Physics 2e — Ch.2: Kinematics
+## [2026-06-07] ingest | College Physics 2e — Ch.3: Two-Dimensional Kinematics
+## [2026-06-07] ingest | College Physics 2e — Ch.4: Dynamics: Force and Newton's Laws of Motion
+## [2026-06-07] ingest | College Physics 2e — Ch.5: Further Applications of Newton's Laws: Friction, Drag, and Elasticity
+## [2026-06-07] ingest | College Physics 2e — Ch.6: Uniform Circular Motion and Gravitation
+## [2026-06-07] ingest | College Physics 2e — Ch.7: Work, Energy, and Energy Resources
+## [2026-06-07] ingest | College Physics 2e — Ch.8: Linear Momentum and Collisions
+## [2026-06-07] ingest | College Physics 2e — Ch.9: Statics and Torque
+## [2026-06-07] ingest | College Physics 2e — Ch.10: Rotational Motion and Angular Momentum
+## [2026-06-07] ingest | College Physics 2e — Ch.11: Fluid Statics
+## [2026-06-07] ingest | College Physics 2e — Ch.12: Fluid Dynamics and Its Biological and Medical Applications
+## [2026-06-07] ingest | College Physics 2e — Ch.13: Temperature, Kinetic Theory, and the Gas Laws
+## [2026-06-07] ingest | College Physics 2e — Ch.14: Heat and Heat Transfer Methods
+## [2026-06-07] ingest | College Physics 2e — Ch.15: Thermodynamics
+## [2026-06-07] ingest | College Physics 2e — Ch.16: Oscillatory Motion and Waves
+## [2026-06-07] ingest | College Physics 2e — Ch.17: Physics of Hearing
+## [2026-06-07] ingest | College Physics 2e — Ch.18: Electric Charge and Electric Field
+## [2026-06-07] ingest | College Physics 2e — Ch.19: Electric Potential and Electric Field
+## [2026-06-07] ingest | College Physics 2e — Ch.20: Electric Current, Resistance, and Ohm's Law
+## [2026-06-07] ingest | College Physics 2e — Ch.21: Circuits and DC Instruments
+## [2026-06-07] ingest | College Physics 2e — Ch.22: Magnetism
+## [2026-06-07] ingest | College Physics 2e — Ch.23: Electromagnetic Induction, AC Circuits, and Electrical Technologies
+## [2026-06-07] ingest | College Physics 2e — Ch.24: Electromagnetic Waves
+## [2026-06-07] ingest | College Physics 2e — Ch.25: Geometric Optics
+## [2026-06-07] ingest | College Physics 2e — Ch.26: Vision and Optical Instruments
+## [2026-06-07] ingest | College Physics 2e — Ch.27: Wave Optics
+## [2026-06-07] ingest | College Physics 2e — Ch.28: Special Relativity
+## [2026-06-07] ingest | College Physics 2e — Ch.29: Introduction to Quantum Physics
+## [2026-06-07] ingest | College Physics 2e — Ch.30: Atomic Physics
+## [2026-06-07] ingest | College Physics 2e — Ch.31: Radioactivity and Nuclear Physics
+## [2026-06-07] ingest | College Physics 2e — Ch.32: Medical Applications of Nuclear Physics
+## [2026-06-07] ingest | College Physics 2e — Ch.33: Particle Physics
+## [2026-06-07] ingest | College Physics 2e — Ch.34: Frontiers of Physics
+
+## [2026-06-07] ingest | Agentic Design Patterns (Antonio Gulli, Google 2025) — full book, 24 units (subagent-per-chapter, Opus 4.8)
+## [2026-06-07] ingest | Agentic Design Patterns — Foreword, Preface & What Makes a System an Agent
+## [2026-06-07] ingest | Chapter 1 — Prompt Chaining (Agentic Design Patterns)
+## [2026-06-07] ingest | Chapter 2 — Routing (Agentic Design Patterns)
+## [2026-06-07] ingest | Chapter 3 — Parallelization (Agentic Design Patterns)
+## [2026-06-07] ingest | Chapter 4 — Reflection (Agentic Design Patterns)
+## [2026-06-07] ingest | Chapter 5 — Tool Use / Function Calling (Agentic Design Patterns)
+## [2026-06-07] ingest | Chapter 6 — Planning (Agentic Design Patterns)
+## [2026-06-07] ingest | Chapter 7 — Multi-Agent Collaboration (Agentic Design Patterns)
+## [2026-06-07] ingest | Chapter 8 — Memory Management (Agentic Design Patterns)
+## [2026-06-07] ingest | Chapter 9 — Learning and Adaptation (Agentic Design Patterns)
+## [2026-06-07] ingest | Chapter 10 — Model Context Protocol / MCP (Agentic Design Patterns)
+## [2026-06-07] ingest | Chapter 11 — Goal Setting and Monitoring (Agentic Design Patterns)
+## [2026-06-07] ingest | Chapter 12 — Exception Handling and Recovery (Agentic Design Patterns)
+## [2026-06-07] ingest | Chapter 13 — Human-in-the-Loop (Agentic Design Patterns)
+## [2026-06-07] ingest | Chapter 14 — Knowledge Retrieval / RAG (Agentic Design Patterns)
+## [2026-06-07] ingest | Chapter 15 — Inter-Agent Communication / A2A (Agentic Design Patterns)
+## [2026-06-07] ingest | Chapter 16 — Resource-Aware Optimization (Agentic Design Patterns)
+## [2026-06-07] ingest | Chapter 17 — Reasoning Techniques (Agentic Design Patterns)
+## [2026-06-07] ingest | Chapter 18 — Guardrails / Safety Patterns (Agentic Design Patterns)
+## [2026-06-07] ingest | Chapter 19 — Evaluation and Monitoring (Agentic Design Patterns)
+## [2026-06-07] ingest | Chapter 20 — Prioritization (Agentic Design Patterns)
+## [2026-06-07] ingest | Chapter 21 — Exploration and Discovery (Agentic Design Patterns)
+## [2026-06-07] ingest | Appendix A — Advanced Prompting Techniques (Agentic Design Patterns)
+## [2026-06-07] ingest | Appendices B–G & Conclusion — Frameworks, AgentSpace, CLI & Coding Agents (Agentic Design Patterns)
+## [2026-06-07] health | Agentic Design Patterns ingest — consolidation + validation
+- index.md: +24 sources, +59 concepts, +16 entities (dated blocks per section); overview.md: new book section; log.md: 24 per-unit entries.
+- health.py: in_index_not_on_disk=0; no ADP page empty; created StateManagement.md to resolve the one dangling [[StateManagement]] link. 99 new ADP pages scanned → 0 broken wikilinks.
+
+<!-- OpenStax Chemistry 2e — full 21-chapter ingest (per-chapter Opus subagents; shared layer consolidated by orchestrator). -->
+## [2026-06-07] ingest | Chemistry 2e — Ch 01: Essential Ideas
+- Sections fetched: full OpenStax web chapter (Essential Ideas); created source page chemistry-2e-ch01-* plus its concept/entity pages. Note: matter classification, properties/changes, scientific method and the three domains, SI units, density, significant figures, dimensional analysis.
+## [2026-06-07] ingest | Chemistry 2e — Ch 02: Atoms, Molecules, and Ions
+- Sections fetched: full OpenStax web chapter (Atoms, Molecules, and Ions); created source page chemistry-2e-ch02-* plus its concept/entity pages. Note: Dalton's atomic theory and mass laws, the experimental evolution of the atom, atomic/mass numbers and isotopes, the periodic table, ionic vs molecular compounds, nomenclature.
+## [2026-06-07] ingest | Chemistry 2e — Ch 03: Composition of Substances and Solutions
+- Sections fetched: full OpenStax web chapter (Composition of Substances and Solutions); created source page chemistry-2e-ch03-* plus its concept/entity pages. Note: formula/molar mass, the mole and Avogadro's number, percent composition, empirical/molecular formulas, molarity, dilution, concentration units.
+## [2026-06-07] ingest | Chemistry 2e — Ch 04: Stoichiometry of Chemical Reactions
+- Sections fetched: full OpenStax web chapter (Stoichiometry of Chemical Reactions); created source page chemistry-2e-ch04-* plus its concept/entity pages. Note: writing/balancing equations, reaction classification (precipitation/acid-base/redox), reaction stoichiometry, limiting reactant and yields, quantitative analysis.
+## [2026-06-07] ingest | Chemistry 2e — Ch 05: Thermochemistry
+- Sections fetched: full OpenStax web chapter (Thermochemistry); created source page chemistry-2e-ch05-* plus its concept/entity pages. Note: energy/heat/work, the first law, heat capacity and specific heat, calorimetry, enthalpy, standard enthalpy of formation, Hess's law.
+## [2026-06-07] ingest | Chemistry 2e — Ch 06: Electronic Structure and Periodic Properties of Elements
+- Sections fetched: full OpenStax web chapter (Electronic Structure and Periodic Properties of Elements); created source page chemistry-2e-ch06-* plus its concept/entity pages. Note: light and energy quantization, line spectra and the Bohr model, wave-particle duality and uncertainty, quantum numbers and orbitals, electron configurations, periodic trends.
+## [2026-06-07] ingest | Chemistry 2e — Ch 07: Chemical Bonding and Molecular Geometry
+- Sections fetched: full OpenStax web chapter (Chemical Bonding and Molecular Geometry); created source page chemistry-2e-ch07-* plus its concept/entity pages. Note: ionic and covalent bonding, electronegativity and polarity, Lewis structures and the octet rule, formal charge and resonance, bond/lattice energy and Born-Haber, VSEPR geometry.
+## [2026-06-07] ingest | Chemistry 2e — Ch 08: Advanced Theories of Covalent Bonding
+- Sections fetched: full OpenStax web chapter (Advanced Theories of Covalent Bonding); created source page chemistry-2e-ch08-* plus its concept/entity pages. Note: valence bond theory (orbital overlap, sigma/pi bonds, hybridization) and molecular orbital theory (LCAO, bond order, MO diagrams), motivated by O2 paramagnetism.
+## [2026-06-07] ingest | Chemistry 2e — Ch 09: Gases
+- Sections fetched: full OpenStax web chapter (Gases); created source page chemistry-2e-ch09-* plus its concept/entity pages. Note: pressure and the gas laws unified into PV = nRT, gas density/molar mass/mixtures, gas stoichiometry, kinetic-molecular theory and Graham's law, non-ideal behavior and van der Waals.
+## [2026-06-07] ingest | Chemistry 2e — Ch 10: Liquids and Solids
+- Sections fetched: full OpenStax web chapter (Liquids and Solids); created source page chemistry-2e-ch10-* plus its concept/entity pages. Note: intermolecular forces (London/dipole-dipole/hydrogen bonding), liquid properties, phase transitions and vapor pressure (Clausius-Clapeyron), phase diagrams, crystalline solids and Bragg diffraction.
+## [2026-06-07] ingest | Chemistry 2e — Ch 11: Solutions and Colloids
+- Sections fetched: full OpenStax web chapter (Solutions and Colloids); created source page chemistry-2e-ch11-* plus its concept/entity pages. Note: dissolution thermodynamics and enthalpy of solution, electrolytes, solubility and Henry's law, the four colligative properties with the van 't Hoff factor, colloids and the Tyndall effect.
+## [2026-06-07] ingest | Chemistry 2e — Ch 12: Kinetics
+- Sections fetched: full OpenStax web chapter (Kinetics); created source page chemistry-2e-ch12-* plus its concept/entity pages. Note: reaction rates and rate-affecting factors, rate laws and integrated rate laws/half-lives, collision theory and the Arrhenius equation, reaction mechanisms, catalysis and enzymes.
+## [2026-06-07] ingest | Chemistry 2e — Ch 13: Fundamental Equilibrium Concepts
+- Sections fetched: full OpenStax web chapter (Fundamental Equilibrium Concepts); created source page chemistry-2e-ch13-* plus its concept/entity pages. Note: dynamic equilibrium, reaction quotient Q and equilibrium constant K (Kc/Kp), homogeneous vs heterogeneous equilibria, Le Chatelier's principle, ICE-table calculations.
+## [2026-06-07] ingest | Chemistry 2e — Ch 14: Acid-Base Equilibria
+- Sections fetched: full OpenStax web chapter (Acid-Base Equilibria); created source page chemistry-2e-ch14-* plus its concept/entity pages. Note: Bronsted-Lowry proton transfer and conjugate pairs, water autoionization and pH/pOH, Ka/Kb and percent ionization, salt hydrolysis, polyprotic acids, buffers, titration curves.
+## [2026-06-07] ingest | Chemistry 2e — Ch 15: Equilibria of Other Reaction Classes
+- Sections fetched: full OpenStax web chapter (Equilibria of Other Reaction Classes); created source page chemistry-2e-ch15-* plus its concept/entity pages. Note: solubility equilibria (Ksp, molar solubility, common-ion effect, selective precipitation), Lewis acids/bases and complex-ion formation (Kf), coupled equilibria.
+## [2026-06-07] ingest | Chemistry 2e — Ch 16: Thermodynamics
+- Sections fetched: full OpenStax web chapter (Thermodynamics); created source page chemistry-2e-ch16-* plus its concept/entity pages. Note: spontaneity and dispersal, entropy as a state function (S = k ln W), the second and third laws, standard molar entropies and ΔS°, Gibbs free energy and ΔG° = −RT ln K.
+## [2026-06-07] ingest | Chemistry 2e — Ch 17: Electrochemistry
+- Sections fetched: full OpenStax web chapter (Electrochemistry); created source page chemistry-2e-ch17-* plus its concept/entity pages. Note: balancing redox by half-reactions, galvanic cells and cell notation, standard reduction potentials and the SHE, the Nernst equation, batteries and fuel cells, corrosion, electrolysis stoichiometry.
+## [2026-06-07] ingest | Chemistry 2e — Ch 18: Representative Metals, Metalloids, and Nonmetals
+- Sections fetched: full OpenStax web chapter (Representative Metals, Metalloids, and Nonmetals); created source page chemistry-2e-ch18-* plus its concept/entity pages. Note: descriptive main-group chemistry by family: occurrence, preparation, and characteristic reactions/compounds of the representative metals, metalloids, and nonmetals.
+## [2026-06-07] ingest | Chemistry 2e — Ch 19: Transition Metals and Coordination Chemistry
+- Sections fetched: full OpenStax web chapter (Transition Metals and Coordination Chemistry); created source page chemistry-2e-ch19-* plus its concept/entity pages. Note: d-block properties and metallurgy, coordination complexes (ligands, chelate effect), nomenclature and isomerism, crystal field theory (color and paramagnetism).
+## [2026-06-07] ingest | Chemistry 2e — Ch 20: Organic Chemistry
+- Sections fetched: full OpenStax web chapter (Organic Chemistry); created source page chemistry-2e-ch20-* plus its concept/entity pages. Note: carbon chemistry from Wohler's urea synthesis: hydrocarbons (alkanes/alkenes/alkynes/aromatics), nomenclature and isomerism, characteristic reactions, functional groups.
+## [2026-06-07] ingest | Chemistry 2e — Ch 21: Nuclear Chemistry
+- Sections fetched: full OpenStax web chapter (Nuclear Chemistry); created source page chemistry-2e-ch21-* plus its concept/entity pages. Note: nuclear structure and binding energy, balancing nuclear equations, radioactive decay and dating, transmutation, fission and fusion, radioisotope uses and ionizing radiation.

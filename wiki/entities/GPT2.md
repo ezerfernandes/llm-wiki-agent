@@ -2,8 +2,8 @@
 title: "GPT-2"
 type: entity
 tags: [model, llm, openai, gpt, generative-model]
-sources: [hands-on-llm-ch01-introduction-to-llms, hands-on-llm-ch02-tokens-and-embeddings, hands-on-llm-ch09-multimodal-llms]
-last_updated: 2026-05-23
+sources: [hands-on-llm-ch01-introduction-to-llms, hands-on-llm-ch02-tokens-and-embeddings, hands-on-llm-ch09-multimodal-llms, mlsysbook-ch08-model-training]
+last_updated: 2026-06-05
 ---
 
 # GPT-2
@@ -43,6 +43,7 @@ The chapter uses the scale-up arc to motivate the claim that *"more parameters g
 - [[GenerativeModel]] / [[CompletionModel]] / [[AutoregressiveLanguageModel]] — model class.
 - [[transformer|Transformer]] — architecture.
 - [[2001.08361-scaling-laws]] — the scaling-laws paper that formalized GPT-2's empirical observation.
+- [[mlsysbook-ch08-model-training]] — GPT-2 (1.5B, 48 layers, 1600 dim, OpenWebText ~40 GB, ~10¹⁹ FLOPs) is Ch 8's recurring **Lighthouse Model** for training-systems engineering: large enough to need distributed training and memory tricks, small enough to reason about. Used to ground FLOP counting, the Adam memory budget, the activation-OOM problem, and the 12× end-to-end optimization walkthrough (mixed precision + checkpointing + prefetching). Training it cost ~$50,000 in 2019 (vs GPT-4's estimated ~$100M).
 - [[hands-on-llm-ch01-introduction-to-llms]] — primary source citing GPT-2 in this wiki.
 
 ## In *Hands-On LLMs* Ch 2 (tokenizer)

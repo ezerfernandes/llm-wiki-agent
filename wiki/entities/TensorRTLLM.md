@@ -2,8 +2,8 @@
 title: "TensorRT-LLM"
 type: entity
 tags: [tool, inference, nvidia, serving]
-sources: [leh-ch08-inference-optimization, ai-engineering-ch09-inference-optimization]
-last_updated: 2024-12-04
+sources: [leh-ch08-inference-optimization, ai-engineering-ch09-inference-optimization, mlsysbook-ch11-hardware-acceleration, mlsysbook-ch13-model-serving]
+last_updated: 2026-06-05
 ---
 
 ## What it is
@@ -23,3 +23,7 @@ Ch 9 also names **the TensorRT compiler** as one of three framework-integrated M
 > *"Compilers can be ... integrated into ML and inference frameworks, like torch.compile (a feature in PyTorch), XLA, and the compiler built into the TensorRT, which is optimized for NVIDIA GPUs."*
 
 So TensorRT-LLM is the **NVIDIA-only inference stack** — high-performance because it's hardware-specific, less portable than [[XLA]] or `torch.compile` for the same reason.
+
+## In [[mlsysbook-ch13-model-serving|mlsysbook Ch 13]]
+
+Ch 13 names TensorRT-LLM as the engine that calls [[ContinuousBatching|continuous batching]] **"in-flight batching,"** and as a continuous-batching implementation alongside [[vLLM]]. It is the LLM-serving sibling of [[TensorRT]] (the general TensorRT engine, which gives ResNet-50 up to ~9× over PyTorch eager). See also [[mlsysbook-ch13-model-serving]].

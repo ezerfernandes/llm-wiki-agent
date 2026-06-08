@@ -1,9 +1,9 @@
 ---
 title: "knowledgedistillation"
 type: concept
-tags: [stub]
-sources: [2507.03152-medval, ai-engineering-ch07-finetuning, ai-engineering-ch08-dataset-engineering]
-last_updated: 2024-12-04
+tags: [data-selection, model-compression, mlsysbook]
+sources: [2507.03152-medval, ai-engineering-ch07-finetuning, ai-engineering-ch08-dataset-engineering, mlsysbook-ch09-data-selection, mlsysbook-ch10-model-compression, mlsysbook-ch12-benchmarking, mlsysbook-ch15-responsible-engineering]
+last_updated: 2026-06-05
 ---
 
 # Knowledge Distillation
@@ -82,3 +82,25 @@ A legal constraint orthogonal to feasibility — distillation may be technically
 ### Why distillation is structurally different from other synthesis use cases
 
 Per Ch 8: distillation is **the one use case where AI-generated data isn't supplementary — it's required**. You cannot distill a model using human-generated data (you'd be doing something else). All other Ch 8 synthesis use cases (quantity, coverage, quality, privacy) allow mixing or substitution with human data.
+
+## From [[mlsysbook-ch09-data-selection|Machine Learning Systems Ch 9]] — distillation as *data selection*
+
+Reddi Ch 9 reframes distillation as a **[[DataSelection|data-selection]] technique that creates enriched labels** rather than a compression technique (the Ch 10 view). Hinton's "dark knowledge": the teacher's soft probabilities (e.g. [0.7, 0.2, 0.1]) reveal inter-class relationships that a hard label [1,0,0] obscures, raising the **information density per sample** and thus the [[InformationComputeRatio|ICR]] — the temperature parameter controls how much dark knowledge is exposed. At scale, run a large model (e.g. GPT-4) over unlabeled data to generate high-quality soft labels, then train a cheap student that amortizes the teacher cost across many deployments. See [[GeoffreyHinton]] (originator).
+
+This dual role (data-selection vs [[ModelCompression|compression]]) is a deliberate framing choice; both perspectives are correct.
+
+## From [[mlsysbook-ch10-model-compression|mlsysbook Ch 10]] — distillation as *structural compression*
+
+Ch 10 gives the compression-side mechanics that Ch 9 deferred. The loss balances cross-entropy on hard labels with [[KullbackLeiblerDivergence|KL divergence]] on the teacher's [[Softmax|temperature-softened]] distribution:
+
+$$ \mathcal{L}_{\text{distill}} = (1-\gamma)\,\mathcal{L}_{CE}(\mathbf{p}_{\text{student}}, y) + \gamma\, T^2\, \mathcal{D}_{KL}\!\left(\mathbf{p}_{\text{teacher}}^{(T)} \,\|\, \mathbf{p}_{\text{student}}^{(T)}\right) $$
+
+with temperature $T\approx 3$–$5$ controlling how much "dark knowledge" transfers; the $T^2$ factor keeps gradient scales consistent. The systems advantage over [[Pruning|pruning]]: distillation produces a **dense** student that runs on commodity hardware with no sparse kernels. Per the [[ConservationOfComplexity|conservation of complexity]], it relocates complexity from inference compute to **training compute** (you must train a new model + generate teacher soft targets). [[DistilBERT]] (97%/40%/60%, 85→34 ms, 1.35→0.81 GB) is the canonical case; limitations include teacher-quality dependence and student-capacity sizing. Often combined with [[Quantization|quantization]] to mitigate extreme-precision accuracy loss. [[mlsysbook-ch10-model-compression]]
+
+## Benchmarking distillation ([[mlsysbook-ch12-benchmarking|mlsysbook Ch 12]])
+
+Ch 12 frames distillation as reaching **90–95% of the teacher's accuracy at 5–10× smaller size**, but stresses that [[Benchmarking|benchmarking]] must verify the student *generalizes* rather than merely memorizing the teacher's outputs — and that distillation, like quantization, can lose [[ExpectedCalibrationError|calibration]] even when matching accuracy, so multi-dimensional validation along the [[ParetoFrontier|Pareto frontier]] is required.
+
+## Efficiency-as-responsibility ([[mlsysbook-ch15-responsible-engineering|mlsysbook Ch 15]])
+
+Ch 15 recasts distillation (5–20× reduction) as an instrument of responsibility — shrinking inference energy/[[CarbonFootprint|carbon]] and [[TotalCostOfOwnership|TCO]] over a deployed system's life (inference dominates training ~40:1) and improving accessibility on commodity/edge hardware — alongside [[Quantization|quantization]] and [[Pruning|pruning]]. See [[Sustainability]], [[GreenAI]], [[mlsysbook-ch15-responsible-engineering]].

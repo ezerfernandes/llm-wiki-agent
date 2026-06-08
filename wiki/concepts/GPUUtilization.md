@@ -1,9 +1,9 @@
 ---
 title: "GPU Utilization"
 type: concept
-tags: [hardware, performance, monitoring, gpu]
-sources: [leh-ch10-inference-pipeline-deployment, ai-engineering-ch09-inference-optimization]
-last_updated: 2024-12-04
+tags: [hardware, performance, monitoring, gpu, mlsysbook, serving]
+sources: [leh-ch10-inference-pipeline-deployment, ai-engineering-ch09-inference-optimization, mlsysbook-ch13-model-serving]
+last_updated: 2026-06-05
 ---
 
 ## Definition
@@ -50,3 +50,7 @@ For autoscaling purposes, GPU utilization can still be useful as a *capacity sig
 > *"Higher utilization rates for similar workloads on the same hardware generally mean that your services are becoming more efficient. However, the goal isn't to get the chips with the highest utilization. What you really care about is how to get your jobs done faster and cheaper. A higher utilization rate means nothing if the cost and latency both increase."* — Ch 9
 
 A workload that hits 100% GPU utilization via aggressive batching but blows past TTFT/TPOT SLOs has **worse goodput** than one running at 70% utilization within SLOs.
+
+## From [[mlsysbook-ch13-model-serving|mlsysbook Ch 13]]
+
+Ch 13 reframes the systems goal as maximizing the accelerator **duty cycle** (fraction of wall-clock spent on useful compute) via [[DynamicBatching|batching]] and request pipelining (overlapping CPU preprocessing with GPU inference) — but explicitly lists **"run at high utilization for cost efficiency" as a pitfall**: per [[QueuingTheory|M/M/1]], 70→90% util cuts cost ~22% but triples average latency. The [[DAMTaxonomy|serving inversion]] flips the training goal of 100% utilization into a **40–60% headroom** target to absorb spikes before [[TailLatency|tail latency]] explodes. ResNet-50/V100 batch sweep: 15% util at batch-1 → 95% at batch-32. See also [[mlsysbook-ch13-model-serving]].

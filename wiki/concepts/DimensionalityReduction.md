@@ -2,8 +2,8 @@
 title: "Dimensionality Reduction"
 type: concept
 tags: [unsupervised, manifold-learning, preprocessing, embeddings]
-sources: [hands-on-llm-ch05-text-clustering-topic-modeling]
-last_updated: 2026-05-23
+sources: [hands-on-llm-ch05-text-clustering-topic-modeling, mml-ch10-dimensionality-reduction-pca, mml-book]
+last_updated: 2026-06-05
 ---
 
 # Dimensionality Reduction
@@ -29,9 +29,14 @@ Other named methods: **t-SNE** (popular for 2D visualization; less faithful to g
 
 Ch 5 uses **two separate UMAP projections**: `n_components=5` for clustering, `n_components=2` for visualization — explicitly acknowledging that the 2D view is approximate and may distort cluster structure.
 
+## From [[mml-ch10-dimensionality-reduction-pca|MML Ch 10]] (the linear, first-principles treatment)
+
+[[mml-ch10-dimensionality-reduction-pca|MML Ch 10]] is the **second of the four ML pillars** and the rigorous, linear-algebra-grounded treatment of dimensionality reduction. It motivates reduction by the same intuition as Ch 5 above — high-dimensional data "often has an intrinsic lower-dimensional structure," and reduction is "a compression technique, similar to jpeg or mp3." Its workhorse is [[PrincipalComponentAnalysis|PCA]], derived three equivalent ways (max-variance, min-[[ReconstructionError|reconstruction-error]], latent-variable / [[ProbabilisticPCA|PPCA]]), all projecting onto the leading eigenvectors of the [[DataCovarianceMatrix|data covariance]]. §10.8 places PCA among the **three linear methods** — PCA, [[FactorAnalysis|factor analysis]], [[IndependentComponentAnalysis|ICA]] (Cunningham & Ghahramani 2015) — and surveys nonlinear successors: kernel PCA, deep [[Autoencoder|auto-encoders]], and the Gaussian-process latent-variable model (GP-LVM). Where *Hands-On LLMs* Ch 5 prefers nonlinear [[UMAP]] for embedding clustering, MML gives the foundational *why* of the linear baseline and its probabilistic generalizations.
+
 ## Connections
 
-- [[hands-on-llm-ch05-text-clustering-topic-modeling]] — primary source.
+- [[hands-on-llm-ch05-text-clustering-topic-modeling]] — primary source (the applied NLP view).
+- [[mml-ch10-dimensionality-reduction-pca|MML Ch 10]] — the linear, first-principles treatment (PCA / PPCA / FA / ICA).
 - [[UMAP]] / [[PCA]] / [[PrincipalComponentAnalysis]] — canonical methods.
 - [[CurseOfDimensionality]] — the underlying problem.
 - [[TextClustering]] / [[BERTopic]] — the modern NLP consumer.

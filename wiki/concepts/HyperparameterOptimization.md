@@ -2,8 +2,8 @@
 title: "Hyperparameter Optimization (HPO)"
 type: concept
 tags: [hpo, optimization, automl, ml-engineering]
-sources: [d2l-hyperparameter-optimization]
-last_updated: 2026-05-16
+sources: [d2l-hyperparameter-optimization, mlsysbook-ch03-ml-workflow]
+last_updated: 2026-06-05
 ---
 
 # Hyperparameter Optimization (HPO)
@@ -48,3 +48,4 @@ Casting the choice of non-learned model / training settings — learning rate, b
 - [[CrossValidation]] / [[ModelSelection]] — HPO inherits the train/validation/test discipline; using the test set during HPO is the model-selection sin [[d2l-linear-classification]] warns against.
 - [[SyneTune]] / [[RayTune]] / [[Optuna]] / [[HyperOpt]] — production HPO libraries.
 - [[AaronKlein]] / [[MatthiasSeeger]] / [[CedricArchambeau]] — D2L HPO chapter authors.
+- [[IterationTax]] — [[mlsysbook-ch03-ml-workflow|mlsysbook Ch 3]] flags HPO's *multiplicative* cost (a naive grid over 5 hyperparameters × 4 values = $4^5$ = 1,024 full training runs at $100s–$1,000s each), motivating disciplined search and fast iteration over exhaustive sweeps.

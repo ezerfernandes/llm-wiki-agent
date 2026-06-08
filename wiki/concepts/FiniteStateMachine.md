@@ -2,8 +2,8 @@
 title: "Finite State Machine"
 type: concept
 tags: [computation, modeling, embedded, design-pattern]
-sources: [rust-embedded-book-static-guarantees-state-machines]
-last_updated: 2026-05-16
+sources: [rust-embedded-book-static-guarantees-state-machines, fuzzingbook-28-gui-fuzzer]
+last_updated: 2026-06-06
 ---
 
 # Finite State Machine
@@ -42,6 +42,9 @@ So the valid-state set is **seven** leaf states, not 32. An API that exposes the
 
 The FSM is the *what* (the abstract model of valid states + valid transitions); typestate is the *how* (the Rust idiom that mechanizes that model in the type system at zero runtime cost).
 
+## From The Fuzzing Book — Testing Graphical User Interfaces
+[[fuzzingbook-28-gui-fuzzer|Ch 28]] uses an FSM as the model of a *user interface* for [[GUIFuzzing|GUI fuzzing]]: each *state* is a page (identified by its set of interactive elements, **not** its URL) and each *transition* is a user action (`click`/`submit`). The chapter's central trick is to **embed the FSM into a [[Grammar|grammar]]** — every state becomes a grammar symbol and every transition becomes a grammar alternative `actions <target-state>` — so one structure encodes both states and form values ([[ModelBasedTesting|model-based testing]] / a [[UINavigationModel|UI navigation model]]). A consequence is that covering all FSM transitions reduces to covering all [[GrammarCoverage|grammar expansions]], which an off-the-shelf [[GrammarCoverageFuzzer|`GrammarCoverageFuzzer`]] does for free. `fsm_diagram()` renders such a state grammar back as a Graphviz state machine. This is a different use of FSMs than the embedded-systems framing below — here the FSM is *mined by exploration* rather than designed up front.
+
 ## Applications in this wiki
 
 - **Embedded peripherals** ([[rust-embedded-book-static-guarantees-state-machines]]): GPIO pins, USART configuration, clock-tree configuration, DMA channel state.
@@ -56,3 +59,11 @@ The FSM is the *what* (the abstract model of valid states + valid transitions); 
 - [[GPIO]] — the canonical embedded FSM the book uses as its worked example.
 - [[Peripheral]] — the noun the book recasts as an FSM: each peripheral has a finite state machine of valid configurations.
 - [[HALCrate]] — the crate-stack layer where peripheral FSMs are concretely encoded as typestate APIs.
+- [[UINavigationModel]] — an FSM of UI pages and actions, mined by exploration in [[fuzzingbook-28-gui-fuzzer|Ch 28]].
+- [[ModelBasedTesting]] — testing by traversing an FSM (or other model) of expected behavior.
+- [[GUIFuzzing]] / [[GUIFuzzer]] — embed a UI FSM into a grammar and cover its transitions.
+- [[Grammar]] / [[GrammarCoverageFuzzer]] — Ch 28 embeds the FSM in a grammar so transition coverage = grammar coverage.
+
+## Sources
+- [[rust-embedded-book-static-guarantees-state-machines]] — *The Embedded Rust Book* (FSMs as the model for MCU peripherals + typestate).
+- [[fuzzingbook-28-gui-fuzzer]] — *The Fuzzing Book* Ch 28, "Testing Graphical User Interfaces" (FSM-of-pages embedded in a grammar for GUI fuzzing).

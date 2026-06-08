@@ -1,9 +1,9 @@
 ---
 title: "vLLM"
 type: entity
-tags: [tool, inference, serving]
-sources: [leh-ch07-evaluating-llms, leh-ch08-inference-optimization, ai-engineering-ch09-inference-optimization]
-last_updated: 2024-12-04
+tags: [tool, inference, serving, mlsysbook]
+sources: [leh-ch07-evaluating-llms, leh-ch08-inference-optimization, ai-engineering-ch09-inference-optimization, mlsysbook-ch13-model-serving]
+last_updated: 2026-06-05
 ---
 
 ## What it is
@@ -27,3 +27,7 @@ Ch 9 cites vLLM in two specific roles:
 vLLM is one of three frameworks Ch 9 names as having integrated speculative decoding:
 
 > *"It's been incorporated into popular inference frameworks such as vLLM, TensorRT-LLM, and llama.cpp."*
+
+## From [[mlsysbook-ch13-model-serving|mlsysbook Ch 13]]
+
+Ch 13 ("Virtual LLM") credits vLLM with introducing [[PagedAttention]] (SOSP 2023, Kwon et al.) — the OS-virtual-memory analogy that cuts KV-cache fragmentation from 40–80% to <4% (>95% memory utilization vs 50–60%), enabling 2–4× higher throughput and the [[ContinuousBatching|continuous batching]] it makes fine-grained admission possible for. The standard for production [[LLMServing|LLM serving]]. See also [[mlsysbook-ch13-model-serving]].

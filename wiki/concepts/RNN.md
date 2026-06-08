@@ -2,8 +2,8 @@
 title: "RNN"
 type: concept
 tags: [neural-networks, sequence-models, deep-learning]
-sources: [madewithml-baselines, madewithml-foundations-recurrent-neural-networks, d2l-recurrent-neural-networks, d2l-recurrent-modern, hands-on-llm-ch01-introduction-to-llms]
-last_updated: 2026-05-23
+sources: [madewithml-baselines, madewithml-foundations-recurrent-neural-networks, d2l-recurrent-neural-networks, d2l-recurrent-modern, hands-on-llm-ch01-introduction-to-llms, mlsysbook-ch06-network-architectures]
+last_updated: 2026-06-05
 ---
 
 # RNN
@@ -43,3 +43,4 @@ Popularized by 2010s breakthroughs in handwriting recognition (Graves 2008), mac
 - [[DeepRNN]] / [[BidirectionalRNN]] — depth and direction architectural axes.
 - [[Transformer]] — modern replacement.
 - [[1706.03762-attention-is-all-you-need]] — the architectural pivot away from RNNs.
+- [[mlsysbook-ch06-network-architectures]] — systems view: RNNs hit the *"wall of time"* — the sequential dependency makes them *latency-bound* (a 1,000-word doc = 1,000 serial matrix-vector multiplies; no extra hardware accelerates the critical path), achieving only 30–50% of peak hardware utilization. They are uniquely memory-*efficient* though: a fixed $\mathcal{O}(d_{\text{hidden}})$ state regardless of sequence length, via temporal [[WeightSharing|weight sharing]].

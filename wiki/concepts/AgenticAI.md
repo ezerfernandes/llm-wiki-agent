@@ -2,8 +2,8 @@
 title: "Agentic AI"
 type: concept
 tags: [paradigm, multi-agent, ml-architecture, agi]
-sources: [2605.12966-agentic-ai-to-agi, hands-on-llm-ch07-advanced-text-generation]
-last_updated: 2026-05-23
+sources: [2605.12966-agentic-ai-to-agi, hands-on-llm-ch07-advanced-text-generation, agentic-design-patterns-00-frontmatter]
+last_updated: 2026-06-07
 ---
 
 # Agentic AI
@@ -66,6 +66,16 @@ Per Lemma 4.4 and the [[TopologicalEdgeWeight]] decomposition, edges in a well-d
 - [[MultiAgentSystems]]
 - [[llmagents|LLMAgents]]
 - [[agenticharness|AgenticHarness]]
+
+## Agentic Design Patterns (Gulli) perspective
+
+[[AgenticDesignPatterns|*Agentic Design Patterns*]] ([[AntonioGulli|Gulli]], Google) supplies the **practitioner-level** definition that sits beneath the formal DAG-of-mappings framing above:
+
+> *"An AI agent is a system designed to perceive its environment and take actions to achieve a specific goal. It's an evolution from a standard Large Language Model (LLM), enhanced with the abilities to plan, use tools, and interact with its surroundings."*
+
+Equivalently: *"a computational entity designed to perceive its environment, make informed decisions based on those perceptions and a set of predefined or learned goals, and execute actions to achieve those goals autonomously."* The book enumerates the defining **characteristics**: [[Autonomy]], [[Proactiveness]], [[Reactiveness]], [[GoalOriented|goal-orientation]], [[ToolUse|tool use]], [[MemoryManagement|memory]], and [[AgentCommunication|communication]]. Operationally an agent runs a five-step loop — *Get the Mission → Scan the Scene → Think It Through → Take Action → Learn and Get Better*.
+
+Gulli organizes agentic systems on a four-level [[AgentComplexitySpectrum|complexity spectrum]] (Level 0 reasoning engine → Level 1 connected → Level 2 strategic → Level 3 collaborative multi-agent), echoing the paradigm shift this page formalizes: Gulli's Level-3 collaborative systems are an informal, hand-designed instance of Def. 4.1's DAG of agents, and his patterns ([[AgenticDesignPattern]]) are reusable blueprints for the topology this page argues should minimize $C(\mathcal{G})$.
 
 ## From [[hands-on-llm-ch07-advanced-text-generation|Hands-On LLMs Ch 7]]
 

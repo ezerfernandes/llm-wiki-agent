@@ -2,8 +2,8 @@
 title: "Temperature"
 type: concept
 tags: [sampling, inference, llm, softmax]
-sources: [ai-engineering-ch02-foundation-models, hands-on-llm-ch06-prompt-engineering]
-last_updated: 2026-05-23
+sources: [ai-engineering-ch02-foundation-models, hands-on-llm-ch06-prompt-engineering, agentic-design-patterns-appendix-a-prompting]
+last_updated: 2026-06-07
 ---
 
 # Temperature
@@ -78,3 +78,7 @@ This is the wiki's most practical Temperature × Top-p use-case matrix — ancho
 ### Required pipe-level flag
 
 Ch 6's `transformers.pipeline` worked example sets `do_sample=False` for deterministic output (greedy decoding); to use temperature / top_p you must set `do_sample=True`. *"Note that every time you rerun this piece of code, the output will change! temperature introduces stochastic behavior since the model now randomly selects tokens."*
+
+## In [[agentic-design-patterns-appendix-a-prompting|Agentic Design Patterns Appendix A]]
+
+[[AntonioGulli|Gulli]]'s prompting survey treats temperature (with [[Topk|top-k]]/[[Topp|top-p]]) as part of the **experimentation surface** and ties it to two reasoning techniques: set **temperature 0** (greedy decoding) when using [[chainofthought|CoT]] on tasks with a single correct answer (e.g. math) for deterministic step-by-step selection; and use a **higher temperature** in [[selfconsistency|self-consistency]] to generate diverse reasoning paths before majority-voting. The best-practices checklist also pairs temperature control with managing **max token length** via model configuration.

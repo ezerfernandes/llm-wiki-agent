@@ -2,8 +2,8 @@
 title: "Microsoft"
 type: entity
 tags: [entity]
-sources: [2604.28181-synthetic-computers-at-scale, 2605.02572-long-horizon-llm-training, 2605.03808-agentic-imodels, ai-engineering-ch01-intro, hands-on-llm-ch01-introduction-to-llms, hands-on-llm-ch02-tokens-and-embeddings, ai-engineering-ch04-evaluate-ai-systems, ai-engineering-ch05-prompt-engineering, hands-on-llm-ch06-prompt-engineering]
-last_updated: 2026-05-23
+sources: [2604.28181-synthetic-computers-at-scale, 2605.02572-long-horizon-llm-training, 2605.03808-agentic-imodels, ai-engineering-ch01-intro, hands-on-llm-ch01-introduction-to-llms, hands-on-llm-ch02-tokens-and-embeddings, ai-engineering-ch04-evaluate-ai-systems, ai-engineering-ch05-prompt-engineering, hands-on-llm-ch06-prompt-engineering, mlsysbook-ch14-ml-operations, agentic-design-patterns-ch17-reasoning, agentic-design-patterns-appendices-bg]
+last_updated: 2026-06-07
 ---
 
 # Microsoft
@@ -56,3 +56,15 @@ Ch 6 uses Microsoft assets in two roles:
 2. **[[Guidance]]** — Microsoft's templating + constrained-decoding open-source library; named in Ch 6 alongside [[Guardrails]] and [[LMQL]] as one of three canonical Python packages for constrain-and-validate LLM output.
 
 Microsoft sits at both endpoints of Ch 6's grammar-constrained-decoding worked example — providing the [[Phi3Mini|model]] and (in the broader toolchain ecosystem) authoring [[Guidance]] as one of the canonical constrained-sampling libraries.
+
+## From [[agentic-design-patterns-ch17-reasoning|Agentic Design Patterns Ch 17]]
+
+[[AntonioGulli|Gulli]]'s Reasoning Techniques chapter credits Microsoft with proposing **[[ChainOfDebates|Chain of Debates (CoD)]]** — a formal multi-agent framework in which multiple diverse models collaborate and argue like an "AI council," critiquing each other's reasoning to enhance accuracy, reduce bias, and create a transparent reasoning record. This positions Microsoft as the originator of one of the chapter's multi-agent [[ReasoningTechniques|reasoning techniques]], a shift from a solitary agent's [[ChainOfThought|chain of thought]] to a collaborative team of agents.
+
+## From [[agentic-design-patterns-appendices-bg|Agentic Design Patterns Appendices B & C]]
+
+Three Microsoft products appear:
+- **[[autogen|AutoGen]]** (Appendix C) — Microsoft's conversation-driven multi-agent orchestration framework; flexible but with less predictable execution paths.
+- **[[SemanticKernel|Semantic Kernel]]** (Appendix C) — Microsoft SDK integrating LLMs into conventional code via "plugins" and "planners"; strong .NET/Python enterprise integration.
+- **Seeing AI** (Appendix B) — accessibility mobile app narrating surroundings (objects, text, currency, scenes, people) in real time for blind/low-vision users — Gulli's example of agentic real-world interaction in service of accessibility.
+- Appendix G also notes Microsoft's claim (via Satya Nadella) that ~30% of its code is now AI-generated, paralleling [[google|Google]]'s Gemini figure.

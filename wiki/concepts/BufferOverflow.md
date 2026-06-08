@@ -2,8 +2,8 @@
 title: "Buffer Overflow"
 type: concept
 tags: [security, c-language, memory-safety, undefined-behavior]
-sources: [dis-1-5-arrays-strings, dis-7-10-x86-64-buffer-overflow]
-last_updated: 2026-05-17
+sources: [dis-1-5-arrays-strings, dis-7-10-x86-64-buffer-overflow, fuzzingbook-03-fuzzer]
+last_updated: 2026-06-06
 ---
 
 # Buffer Overflow
@@ -49,7 +49,11 @@ A substantial fraction of historical remote-code-execution vulnerabilities in wi
 
 [[dis-1-5-arrays-strings|Ch 1.5]] *introduces* the hazard in passing (the [[Strcpy|`strcpy`]] warning); Ch 2.6 develops it in detail with the safer-functions catalog; the assembly and architecture chapters return to it when explaining stack layout and calling conventions.
 
+## From The Fuzzing Book — Fuzzing: Breaking Things with Random Inputs
+[[fuzzingbook-03-fuzzer|Ch 3]] casts buffer overflows as the **canonical bug class that [[Fuzzing|fuzzing]] finds**, because random inputs trivially produce arbitrarily long strings and input elements. Its minimal C example — `char weekday[9]; strcpy(weekday, input);` — already overflows on `"Wednesday"` (9 chars), corrupting adjacent memory; the book simulates the behavior with a Python `crash_if_too_long(s)`. It then introduces the runtime defense pairing: compile with [[AddressSanitizer]] (`clang -fsanitize=address`, ~2× slowdown) so out-of-bounds reads/writes abort with a diagnostic — the same method that surfaced the [[Heartbleed]] over-read in [[OpenSSL]]. It distinguishes overflows from in-bounds [[InformationLeak|information leaks]], which ASan cannot catch.
+
 ## Sources
 
 - [[dis-1-5-arrays-strings]] — Ch 1.5 §1.5.4 flags [[Strcpy|`strcpy`]]'s buffer-overflow risk and forwards the reader to Ch 2.6 for safer alternatives.
+- [[fuzzingbook-03-fuzzer]] — *The Fuzzing Book* Ch 3 treats buffer overflows as a primary fuzzing-found bug class and pairs fuzzing with [[AddressSanitizer]].
 - [[dis-7-10-x86-64-buffer-overflow]] — Ch 7.10 *operationalizes* the hazard at the [[X86_64|x86-64]] [[StackFrame|stack-frame]] surface with the `secret` worked exploit (40-byte padding + 8-byte little-endian return address); develops [[StackSmashing|stack smashing]], [[ReturnAddressOverwrite]], the [[StackCanary|canary]] / [[AddressSpaceLayoutRandomization|ASLR]] / [[ExecutableSpaceProtection|NX]] defenses, the [[ReturnOrientedProgramming|ROP]] bypass, and the Morris Worm / AOL Chat Wars historical case studies.

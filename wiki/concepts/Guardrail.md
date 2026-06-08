@@ -1,9 +1,9 @@
 ---
 title: "Guardrail"
 type: concept
-tags: [llm-security, safety, defense]
-sources: [dspy-guardrails, ai-engineering-ch05-prompt-engineering, ai-engineering-ch10-architecture-feedback]
-last_updated: 2024-12-04
+tags: [llm-security, safety, defense, agentic-design-patterns]
+sources: [dspy-guardrails, ai-engineering-ch05-prompt-engineering, ai-engineering-ch10-architecture-feedback, agentic-design-patterns-ch18-guardrails]
+last_updated: 2026-06-07
 ---
 
 # Guardrail
@@ -94,3 +94,32 @@ Beyond detect/block, Ch 10 names three policy patterns for handling failures the
 ### Where guardrails live in the architecture
 
 Ch 10 notes that guardrail responsibility is *fluid*: it can sit in the [[InferenceService]], in the [[ModelGateway]], or as a standalone component. *"While it's necessary to separate components to keep your system modular and maintainable, this separation is fluid."* The same goes for [[ExactCache|caching]] — it can be in the gateway or as a standalone layer.
+
+## Agentic Design Patterns (Gulli) perspective — the 18th pattern
+
+[[AntonioGulli|Gulli's]] [[AgenticDesignPatterns|*Agentic Design Patterns*]] ([[agentic-design-patterns-ch18-guardrails|Ch 18]], "Guardrails/Safety Patterns") elevates guardrails from a defensive add-on to **the 18th of 21 agentic design patterns** — the safety layer that lets increasingly autonomous agents be deployed in critical systems. The book's framing is that guardrails *"are not meant to restrict an agent's capabilities but to ensure its operation is robust, trustworthy, and beneficial"*; without them an AI system is *"unconstrained, unpredictable, and potentially hazardous."*
+
+### Six implementation stages
+Gulli enumerates the layers a guardrail can occupy (a superset of Ch 5's input/output split):
+1. **Input Validation/Sanitization** — filter malicious content before it reaches the agent (see [[InputSanitization]], [[InputGuardrail]]).
+2. **Output Filtering/Post-processing** — analyze generated responses for toxicity or bias and flag/redact problematic phrases (see [[OutputGuardrail]]).
+3. **Behavioral Constraints (prompt-level)** — direct instructions in the system prompt ([[DefensivePromptEngineering|defensive prompting]]; the "Defensive Prompting" node in the chapter's Fig. 1).
+4. **Tool Use Restrictions** — limit agent capabilities (the [[ToolUse|tool]]-sandboxing / least-privilege layer; realized in the ADK example below).
+5. **External Moderation APIs** — third-party content moderation (see [[ContentModeration]], [[OpenAIModeration]], [[PerspectiveAPI]]).
+6. **Human Oversight/Intervention** — [[HumanInTheLoop|Human-in-the-Loop]] for critical decisions.
+
+### The fast-cheap secondary-model safeguard
+A recurring Ch 18 recommendation: deploy *"a less computationally intensive model … as a rapid, additional safeguard to pre-screen inputs or double-check the outputs of the primary model for policy violations."* The worked examples use `gemini/gemini-2.0-flash` ([[gemini|Gemini]] Flash) as a `CONTENT_POLICY_MODEL` at `temperature=0.0`, and the Vertex section recommends **Gemini Flash Lite** in the same role. This is the wiki's clearest articulation of the **LLM-as-its-own-guardrail** idea — a cheap model running a policy prompt that classifies input as compliant/non-compliant, defaulting to compliant *only when no violation is demonstrably found*.
+
+### Hands-on #1 — CrewAI prompt-based policy enforcer
+The chapter's first example builds an **LLM-based content-policy guardrail** in [[crewai|CrewAI]]: a `policy_enforcer_agent` (role "AI Content Policy Enforcer", `allow_delegation=False`, `temperature=0.0`) runs a long `SAFETY_GUARDRAIL_PROMPT` that screens user input against four directive families — **(1) instruction-subversion/[[Jailbreak|jailbreaking]]**, **(2) prohibited content** (hate speech, hazardous activities, explicit material, abusive language), **(3) off-domain/irrelevant** (politics, religion, sports, academic dishonesty), **(4) brand-disparagement/competitive discussion** — and emits a JSON verdict (`compliance_status`, `evaluation_summary`, `triggered_policies`). The `evaluate_input_task` attaches `guardrail=validate_policy_evaluation` and `output_pydantic=PolicyEvaluation` — i.e. a **technical guardrail layered on the semantic one**: a [[Pydantic]] model ([[SchemaValidation|schema validation]]) plus a `validate_policy_evaluation` function that strips markdown fences, `json.loads`-parses, and validates the structure before the crew acts. This is the **constrain-and-validate** pattern (the same niche as the [[Guardrails|Guardrails AI]] library) used to make a prompt-based guardrail's output machine-checkable.
+
+### Hands-on #2 — Google ADK `before_tool_callback` (tool sandboxing)
+The second example shows a **callback-based technical guardrail** in [[GoogleADK|Google ADK]]: a `validate_tool_params(tool, args, tool_context)` function wired as `before_tool_callback` on a `root_agent`. It reads `tool_context.state["session_user_id"]`, compares it to the tool call's `user_id_param`, and on mismatch **blocks execution by returning an error dict** (`{"status": "error", "error_message": "Tool call blocked: User ID validation failed for security reasons."}`); returning `None` lets the tool proceed. This is the **tool-use-restriction / least-privilege** guardrail realized in ADK's callback substrate — validating model and tool invocations through callbacks, alongside Gemini's built-in content filters and system instructions. (Gulli notes [[LangChain]] provides analogous interaction tools.)
+
+### Engineering Reliable Agents
+Ch 18 closes by arguing guardrails are one facet of treating agents as **production-grade software**: **checkpoint-and-rollback** (commit/rollback for fault tolerance), **modularity & separation of concerns** (specialized agents over a brittle monolith), **observability through [[StructuredLogging|structured logging]]** (capture the agent's full chain of thought, tool calls, reasoning, and confidence scores), and the **[[PrincipleOfLeastPrivilege|Principle of Least Privilege]]** — *"an agent should be granted the absolute minimum set of permissions required to perform its task,"* drastically limiting the *"blast radius"* of errors or exploits. These compose with the [[ExceptionHandlingAndRecovery]] pattern (retry with [[ExponentialBackoff|exponential backoff]], graceful failure) and [[EvaluationAndMonitoring]] (ongoing monitoring, evaluation, and refinement to adapt to evolving risks).
+
+> "A combination of different guardrail techniques provides the most robust protection." — Ch 18 Key Takeaways
+
+The chapter's visual summary (Fig. 1) renders the pattern as a loop: **User → Prompt → Input Validation & Sanitization → Agent → Output Validation → (Yes: Output to user / No: loop back to Prompt)**, with a **Defensive Prompting** shield feeding the Agent node.

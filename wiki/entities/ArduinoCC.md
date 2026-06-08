@@ -2,8 +2,8 @@
 title: "Arduino"
 type: entity
 tags: [open-source, hardware, mcu, dev-board]
-sources: [embedded-controllers-fiore]
-last_updated: 2026-05-17
+sources: [embedded-controllers-fiore, mlsysbook-ch02-ml-systems]
+last_updated: 2026-06-05
 ---
 
 # Arduino
@@ -28,4 +28,6 @@ Per [[embedded-controllers-fiore]]:
 
 - [[ArduinoUno]] — the specific Uno reference board.
 - [[ATmega328P]] / [[AVR]] / [[Atmel]] — the chip family Arduino is built on.
+- [[TinyML]] / [[mlsysbook-ch02-ml-systems]] — mlsysbook Ch 2 cites the Arduino Nano 33 BLE Sense (256 KB RAM, 1 MB flash, 20–40 mW) as a representative TinyML developer kit.
+- [[Microcontroller]] — the substrate Arduino boards are built around.
 - [[embedded-controllers-fiore]] — the OER textbook teaching Arduino at the register level.

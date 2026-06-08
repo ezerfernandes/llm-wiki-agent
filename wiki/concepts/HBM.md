@@ -2,8 +2,8 @@
 title: "HBM"
 type: concept
 tags: [hardware, gpu, memory]
-sources: [d2l-computational-performance, 2205.14135-flashattention]
-last_updated: 2026-05-16
+sources: [d2l-computational-performance, 2205.14135-flashattention, mlsysbook-ch11-hardware-acceleration]
+last_updated: 2026-06-05
 ---
 
 # HBM (High Bandwidth Memory)

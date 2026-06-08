@@ -2,8 +2,8 @@
 title: "Meta"
 type: entity
 tags: [organization, ai-lab]
-sources: [2601.21343-self-improving-pretraining, 2603.19247-prompt-optimization-jailbreaking, ai-engineering-ch01-intro, ai-engineering-ch02-foundation-models, hands-on-llm-ch01-introduction-to-llms, hands-on-llm-ch02-tokens-and-embeddings, ai-engineering-ch04-evaluate-ai-systems, ai-engineering-ch05-prompt-engineering, ai-engineering-ch08-dataset-engineering, hands-on-llm-ch09-multimodal-llms]
-last_updated: 2024-12-04
+sources: [2601.21343-self-improving-pretraining, 2603.19247-prompt-optimization-jailbreaking, ai-engineering-ch01-intro, ai-engineering-ch02-foundation-models, hands-on-llm-ch01-introduction-to-llms, hands-on-llm-ch02-tokens-and-embeddings, ai-engineering-ch04-evaluate-ai-systems, ai-engineering-ch05-prompt-engineering, ai-engineering-ch08-dataset-engineering, hands-on-llm-ch09-multimodal-llms, mlsysbook-ch13-model-serving]
+last_updated: 2026-06-05
 ---
 
 # Meta
@@ -107,3 +107,7 @@ This is one of the chapter's few concrete recommendations for **how to choose a 
 ## From [[hands-on-llm-ch09-multimodal-llms|*Hands-On LLMs* Ch 9]]
 
 Ch 9 surfaces Meta as the author of **OPT-2.7b** — the LLM backbone inside the [[BLIP2|BLIP-2]] checkpoint (`Salesforce/blip2-opt-2.7b`) Ch 9 loads for its [[ImageCaptioning|image-captioning]] and [[VisualQuestionAnswering|VQA]] worked examples. OPT-2.7b is what `model.language_model` returns when introspecting the BLIP-2 wrapper; its tokenizer is `GPT2TokenizerFast` (GPT-2-family [[BPE]] byte-level encoder) with 50,265-token vocabulary and `</s>` BOS/EOS/UNK. Meta's contribution here is the **open-weights generative LLM substrate** that adapter-style multimodal LLMs like BLIP-2 bridge a frozen [[VisionTransformer|ViT]] to — without Meta's OPT release, Salesforce Research could not have bridged BLIP-2 to a non-Meta open LLM with comparable ergonomics. The chapter also references [[ImageBind]] (Girdhar et al. 2023 — Meta) indirectly via prior wiki coverage as the six-modality successor to CLIP in the [[MultimodalEmbeddingSpace|multimodal-embedding-space]] lineage.
+
+## From [[mlsysbook-ch13-model-serving|mlsysbook Ch 13]]
+
+Meta (as Facebook) supplies Ch 13's motivating **"inference tax" war story** (Hazelwood et al. 2018): a production ML workload touching News Feed, Ads, Search, Lumos, Facer, Sigma, and a Translate system serving ~**4.5 billion translated post impressions/day** across 2,000+ language pairs — tens of trillions of ops/day under strict tail-latency targets, where a one-hour-old ranking model measurably degraded News Feed quality. The lesson: "training creates the model; serving pays the recurring bill." Meta's **[[Llama3|Llama 3]]** (8B) is also the chapter's end-to-end production [[LLMServing|LLM-serving]] case study. See also [[mlsysbook-ch13-model-serving]].

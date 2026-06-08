@@ -1,9 +1,9 @@
 ---
 title: "Neural architecture search (NAS)"
 type: concept
-tags: [deep-learning, automl, architecture]
-sources: [d2l-convolutional-modern]
-last_updated: 2026-05-16
+tags: [deep-learning, automl, architecture, model-compression, mlsysbook]
+sources: [d2l-convolutional-modern, mlsysbook-ch10-model-compression]
+last_updated: 2026-06-05
 ---
 
 # Neural architecture search
@@ -39,9 +39,17 @@ A family of **automatic architecture-design methods** that search a predefined s
 - Yields scientific insights ("tie bottleneck ratios; tie group widths; increase channels and depths across stages").
 - Outputs a *family* of networks transferable across compute budgets.
 
+## As structural compression ([[mlsysbook-ch10-model-compression|mlsysbook Ch 10]])
+
+Ch 10 treats NAS as the structural-optimization technique that discovers architectures *efficient by construction* (vs pruning/distillation that compress a finished model), formalized as **bi-level optimization**: the outer loop searches architecture space $\mathcal{A}$, the inner loop trains each candidate. The inner loop is the cost: early RL-NAS (Zoph & Le 2017) ran **22,400 GPU-days (537,600 GPU-hours = 800 GPUs × 28 days, ~$50K–$100K)**; weight-sharing cut this ~1000×.
+
+Search-strategy cost ladder: **RL** 400–1,000 GPU-days → **evolutionary** 200–500 → **[[DARTS|gradient-based DARTS]]** 1–4. **Hardware-aware NAS** (MnasNet) feeds measured device latency into the reward (accuracy × (target_latency/latency)^β), finding nets 1.8× faster than MobileNetV2. Recommended practice: *start with existing NAS-discovered architectures* ([[EfficientNet]], [[MobileNetV3]], MnasNet) rather than running NAS from scratch — reserve custom NAS for novel hardware or deployment scales that amortize the search. [[CompoundScaling]] (EfficientNet) is one of NAS's cleanest discoveries. [[mlsysbook-ch10-model-compression]]
+
 ## Connections
 
 - [[d2l-convolutional-modern]] — canonical reference for NAS-vs-design-spaces framing.
+- [[mlsysbook-ch10-model-compression]] — NAS as structural compression; cost ladder; hardware-aware NAS.
+- [[EfficientNet]] / [[MobileNetV3]] / [[CompoundScaling]] / [[DARTS]] — NAS outputs and strategies covered there.
 - [[RegNet]] — the design-space alternative.
 - [[CNN]] — most NAS work targets CNN architectures.
 - [[HyperparameterTuning]] — broader related field.

@@ -2,8 +2,8 @@
 title: "Continuous Training (CT)"
 type: concept
 tags: [mlops, llmops, cicd, automation]
-sources: [leh-ch01-understanding-llm-twin-concept, leh-ch11-mlops-and-llmops]
-last_updated: 2026-05-22
+sources: [leh-ch01-understanding-llm-twin-concept, leh-ch11-mlops-and-llmops, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 ## Definition
@@ -28,3 +28,5 @@ last_updated: 2026-05-22
 - [[FeatureStore]] — source of CT input data.
 - [[InstructDataset]] — the LLM-specific artifact whose arrival can trigger CT.
 - [[CanaryDeployment]] / [[ShadowDeployment]] — progressive-rollout patterns that complement CT's "red button" gate.
+- [[mlsysbook-ch14-ml-operations]] — mlsysbook Vol 1 Ch 14 covers continuous-training pipelines with retraining triggers (drift/performance) feeding the CI/CD loop.
+

@@ -2,8 +2,8 @@
 title: "Responsibility"
 type: concept
 tags: [probabilistic-models, density-estimation, latent-variable]
-sources: [mml-book]
-last_updated: 2026-05-16
+sources: [mml-ch11-density-estimation-gmm, mml-book]
+last_updated: 2026-06-05
 ---
 
 # Responsibility
@@ -35,10 +35,18 @@ The mean update is interpretable as an **importance-weighted Monte Carlo estimat
 
 The hard limit is the $\sigma\to 0$ limit of equal-covariance isotropic GMM. So $k$-means is GMM-EM with degenerate responsibilities — the source of its sharper but less expressive cluster boundaries.
 
+## From [[mml-ch11-density-estimation-gmm|MML Ch 11]]
+
+[[mml-ch11-density-estimation-gmm|MML §11.2.1]] defines $r_{nk}$ (Eq. 11.17) as "the responsibility of the $k$th mixture component for the $n$th data point," proportional to the likelihood $\pi_k\mathcal N(\mathbf x_n\mid\boldsymbol\mu_k,\boldsymbol\Sigma_k)$ (Eq. 11.18). The vector $\mathbf r_n\in\mathbb R^K$ is a normalized probability vector ($\sum_k r_{nk}=1$) — a **"soft assignment"** of $\mathbf x_n$ to the $K$ components (margin: $\mathbf r_n$ follows a Boltzmann/Gibbs distribution). Example 11.2 (p. 353) gives the $7\times3$ responsibility matrix for the running example, with column sums $N_1=2.058,\,N_2=2.008,\,N_3=2.934$ ($N_k=\sum_n r_{nk}$).
+
+The **decisive upgrade is in §11.4.3**: via Bayes' theorem the latent posterior $p(z_k=1\mid\mathbf x)=\frac{\pi_k\mathcal N(\mathbf x\mid\boldsymbol\mu_k,\boldsymbol\Sigma_k)}{\sum_j\pi_j\mathcal N(\mathbf x\mid\boldsymbol\mu_j,\boldsymbol\Sigma_j)}$ (Eq. 11.69) is *identically* $r_{nk}$ — so "the responsibilities also have not only an intuitive but also a mathematically justified interpretation as posterior probabilities" (p. 367, Eq. 11.72b). Responsibilities are the **central quantity of the whole chapter**: the E-step computes them, and every M-step update (mean Eq. 11.20, covariance Eq. 11.30, weight Eq. 11.42) is an $r_{nk}$-weighted estimate. Because $r_{nk}$ depends on *all* parameters, this coupling is exactly what blocks a closed-form joint MLE. Fig. 11.10(b) visualizes the converged responsibilities by coloring the 2-D data; in the overlap of two clusters, points have responsibilities $\approx0.5$ — genuinely soft, not uniquely assignable.
+
 ## Connections
 
+- [[mml-ch11-density-estimation-gmm]] — §11.2.1 / §11.4.3 per-chapter deep dive.
 - [[mml-book]] — §11.2.1 canonical reference.
 - [[GaussianMixtureModel]] — primary context.
-- [[EMAlgorithm]] — the algorithm responsibilities drive.
-- [[MixtureModel]] — broader family.
+- [[EMAlgorithm]] — the algorithm responsibilities drive (the E-step output).
+- [[LatentVariable]] — $r_{nk}=p(z_{nk}=1\mid\mathbf x_n)$ is the latent posterior.
+- [[MixtureModel]] / [[MixtureWeight]] / [[MixtureComponent]] — the family and parts whose parameters $r_{nk}$ re-weights.
 - [[Softmax]] — the same Boltzmann normalization.

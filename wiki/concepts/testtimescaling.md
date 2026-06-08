@@ -2,8 +2,8 @@
 title: "Test-Time Scaling"
 type: concept
 tags: [ml-method, reasoning, inference]
-sources: [2512.04388-conductor, 2605.02396-heavyskill, 2605.08083-autotts, ai-engineering-ch02-foundation-models]
-last_updated: 2024-12-04
+sources: [2512.04388-conductor, 2605.02396-heavyskill, 2605.08083-autotts, ai-engineering-ch02-foundation-models, agentic-design-patterns-ch17-reasoning]
+last_updated: 2026-06-07
 ---
 
 # Test-Time Scaling
@@ -41,6 +41,8 @@ Improving inference-time performance by spending more compute per query — extr
 - [[bestofn|Best-of-N]] — width-only degenerate case.
 - [[selfconsistency|Self-Consistency]] — width + majority-vote degenerate case.
 - [[2402.01817-llm-modulo|LLM-Modulo]] — orthogonal lens: many TTS methods reduce to LLM-Modulo instances when the verifier is implicit (test suite, ground truth, soft critic).
+- [[ScalingInferenceLaw]] — [[agentic-design-patterns-ch17-reasoning|Gulli Ch 17]]'s deployment-economics framing of TTS: a smaller model with a larger "thinking budget" can outperform a larger model with a simpler generation process.
+- [[ReasoningTechniques]] — the agentic pattern (Ch 17) whose organizing principle is spending compute at inference.
 
 ## From [[ai-engineering-ch02-foundation-models|AI Engineering Ch 2]]
 

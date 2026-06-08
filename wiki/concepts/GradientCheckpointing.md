@@ -2,8 +2,8 @@
 title: "Gradient Checkpointing"
 type: concept
 tags: [memory, training, finetuning, optimization]
-sources: [ai-engineering-ch07-finetuning, hands-on-llm-ch12-fine-tuning-generation-models]
-last_updated: 2026-05-24
+sources: [ai-engineering-ch07-finetuning, hands-on-llm-ch12-fine-tuning-generation-models, mlsysbook-ch07-ml-frameworks, mlsysbook-ch08-model-training]
+last_updated: 2026-06-05
 ---
 
 # Gradient Checkpointing
@@ -41,6 +41,9 @@ If you checkpoint `√L` evenly-spaced layers in an `L`-layer network, you get a
 
 ## Connections
 
+- [[mlsysbook-ch08-model-training]] — Ch 8 (training capstone) quantifies the optimal-placement math: minimizing $k\cdot A + (N_L/k)\cdot A$ gives $k_{\text{optimal}}=\sqrt{N_L}$; for GPT-2's 48 layers that's ~7 checkpoints, peak ~14×A vs 48×A = **71% memory savings for ~33% extra compute**. *Selective* checkpointing (checkpoint attention layers, skip cheap FFN/LayerNorm) hits 60–80% savings at 20–25% overhead. GPT-3 scales 1.3B→3.7B on V100s via checkpointing.
+- [[mlsysbook-ch07-ml-frameworks]] — Ch 7 treats it as a primary memory lever of reverse-mode AD: with optimal $\sqrt{N_L}$ placement it cuts activation memory 50–90% for +20–33% compute, trading the $D_{\text{vol}}$ term for $O$ in the iron law. See also [[ActivationCheckpointing]] (the synonym Ch 7 uses).
+- [[ActivationCheckpointing]] — synonymous concept.
 - [[ActivationMemory]] — what gradient checkpointing reduces.
 - [[ActivationRecomputation]] — alternate name.
 - [[MemoryBottleneck]] — the umbrella problem.

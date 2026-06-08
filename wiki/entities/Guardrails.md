@@ -1,10 +1,12 @@
 ---
 title: "Guardrails (Guardrails AI)"
 type: entity
-tags: [tool, library, structured-output, llm, open-source, validation]
-sources: [hands-on-llm-ch06-prompt-engineering]
-last_updated: 2026-05-23
+tags: [tool, library, structured-output, llm, open-source, validation, agentic-design-patterns]
+sources: [hands-on-llm-ch06-prompt-engineering, agentic-design-patterns-ch18-guardrails]
+last_updated: 2026-06-07
 ---
+
+> **Disambiguation.** This page is the **Guardrails AI** open-source library (constrain-and-validate LLM output). The general **agentic safety pattern** — input/output validation, content moderation, jailbreak defense, tool sandboxing, human oversight — lives at the [[Guardrail]] concept page. [[AntonioGulli|Gulli's]] [[AgenticDesignPatterns|*Agentic Design Patterns*]] chapter 18 ([[agentic-design-patterns-ch18-guardrails|"Guardrails/Safety Patterns"]], the 18th of 21 patterns) is linked from the book hub as `[[Guardrails]]` and lands here; its substance is captured on [[Guardrail]]. The constrain-and-validate technique this library embodies is itself used as a **technical guardrail** in that chapter's [[crewai|CrewAI]] example (a [[Pydantic]] `PolicyEvaluation` schema validating an LLM policy-enforcer's JSON verdict — see [[SchemaValidation]]).
 
 # Guardrails (Guardrails AI)
 

@@ -1,9 +1,9 @@
 ---
 title: "Foundation Model"
 type: concept
-tags: [foundation-models, llm, multimodal, ai-engineering]
-sources: [ai-engineering-chip-huyen, ai-engineering-ch01-intro, ai-engineering-ch02-foundation-models, hands-on-llm-ch01-introduction-to-llms, hands-on-llm-ch09-multimodal-llms]
-last_updated: 2026-05-23
+tags: [foundation-models, llm, multimodal, ai-engineering, mlsysbook]
+sources: [ai-engineering-chip-huyen, ai-engineering-ch01-intro, ai-engineering-ch02-foundation-models, hands-on-llm-ch01-introduction-to-llms, hands-on-llm-ch09-multimodal-llms, mlsysbook-ch09-data-selection]
+last_updated: 2026-06-05
 ---
 
 # Foundation Model
@@ -87,3 +87,14 @@ Ch 9 supplies the wiki's **first runnable end-to-end vision-language pipeline** 
 2. **Multimodal generative foundation models** — [[BLIP2|BLIP-2]] (Li et al. 2023), [[LLaVA15|LLaVA]] (Liu et al. 2024), [[Idefics2|Idefics 2]] (Laurençon et al. 2024). The [[MultimodalLLM|adapter-on-frozen-encoder]] family that takes images as input and emits text.
 
 Ch 9's central structural observation — *"the moment the embeddings are passed to the encoder, they are treated as if they were textual tokens"* — is what makes the [[transformer|Transformer]] machinery generalize across modalities and underpins the foundation-model thesis itself: **one architecture, many modalities, build-upon-able by downstream applications**.
+
+## The data-economics view ([[mlsysbook-ch09-data-selection|Machine Learning Systems Ch 9]])
+
+Reddi Ch 9 explains *why* foundation models dominate via **[[CostAmortization|cost amortization]]**: expensive [[SelfSupervisedLearning|self-supervised]] pretraining is paid once and reused across thousands of tasks, so per-task labeling drops ~100× and marginal compute ~20× vs training from scratch. The flip side is **homogenization risk** — the model is a single point of failure: defects in pretraining-corpus curation (biases, factual errors, memorized private content) propagate to every downstream deployment, giving data-selection quality during pretraining an outsized blast radius.
+
+## Connections
+
+- [[SelfSupervisedLearning]] / [[CostAmortization]] — the paradigm's data economics (Ch 9).
+- [[Pretraining]] / [[FineTuning]] — "pretrain once, fine-tune many."
+- [[DataSelection]] — pretraining-corpus curation applies dedup/quality filtering at web scale.
+- [[ai-engineering-ch01-intro]] / [[mlsysbook-ch09-data-selection]] — sources.

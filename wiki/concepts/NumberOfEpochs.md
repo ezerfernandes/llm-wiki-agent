@@ -2,8 +2,8 @@
 title: "Number of Epochs"
 type: concept
 tags: [training, hyperparameters, finetuning]
-sources: [ai-engineering-ch07-finetuning]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch07-finetuning, mlsysbook-ch05-neural-computation]
+last_updated: 2026-06-05
 ---
 
 # Number of Epochs
@@ -39,4 +39,5 @@ Number of epochs and batch size combine to give the **total number of gradient u
 - [[LearningRate]] / [[LearningRateScheduler]] — the per-update step size.
 - [[HyperparameterTuning]] — the broader discipline.
 - [[ValidationLoss]] / [[TrainingLoss]] — the diagnostic signals.
+- [[MiniBatchGradientDescent]] / [[mlsysbook-ch05-neural-computation]] — Ch 5 defines an epoch as one full pass over the data (MNIST = 60,000 images / batch 32 = 1,875 iterations/epoch) and notes the epoch count is a *direct multiplier* on total compute — at frontier scale GPT-3 trained for only ~1 epoch over 300B tokens because per-epoch cost already consumed thousands of GPU-weeks.
 - [[ai-engineering-ch07-finetuning]] — primary source.

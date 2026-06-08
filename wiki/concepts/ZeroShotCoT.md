@@ -2,8 +2,8 @@
 title: "Zero-Shot Chain-of-Thought"
 type: concept
 tags: [reasoning, prompting, chain-of-thought, llm]
-sources: [hands-on-llm-ch06-prompt-engineering]
-last_updated: 2026-05-23
+sources: [hands-on-llm-ch06-prompt-engineering, agentic-design-patterns-appendix-a-prompting]
+last_updated: 2026-06-07
 ---
 
 # Zero-Shot Chain-of-Thought
@@ -57,3 +57,8 @@ Per Ch 6's compute-justification framing of CoT generally: *"each additional tok
 - [[ai-engineering-ch05-prompt-engineering]] — Huyen Ch 5's variant catalog.
 - [[hands-on-llm-ch06-prompt-engineering]] — Alammar & Grootendorst Ch 6's framing.
 - [[System1And2]] — the Kahneman framing zero-shot CoT operationalizes.
+- [[agentic-design-patterns-appendix-a-prompting]] — Gulli's Appendix A names this as one of CoT's two main variants.
+
+## In [[agentic-design-patterns-appendix-a-prompting|Agentic Design Patterns Appendix A]]
+
+[[AntonioGulli|Gulli]]'s Appendix A presents **Zero-Shot CoT** as one of [[chainofthought|CoT]]'s two main variations (alongside few-shot CoT): *"simply adding the phrase 'Let's think step by step' … without providing any examples of the reasoning process. Surprisingly, for many tasks, this simple addition can significantly improve the model's performance by triggering its ability to expose its internal reasoning trace."* Its worked example: *"If a train travels at 60 miles per hour and covers a distance of 240 miles, how long did the journey take? Let's think step by step."*

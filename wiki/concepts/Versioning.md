@@ -2,8 +2,8 @@
 title: "Versioning"
 type: concept
 tags: [mlops, reproducibility]
-sources: [madewithml-versioning]
-last_updated: 2026-05-15
+sources: [madewithml-versioning, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 # Versioning

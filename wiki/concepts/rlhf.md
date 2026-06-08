@@ -2,8 +2,8 @@
 title: "RLHF"
 type: concept
 tags: [post-training, alignment, reward-model]
-sources: [2312.11805-gemini, ai-engineering-ch02-foundation-models, hands-on-llm-ch12-fine-tuning-generation-models]
-last_updated: 2026-05-24
+sources: [2312.11805-gemini, ai-engineering-ch02-foundation-models, hands-on-llm-ch12-fine-tuning-generation-models, agentic-design-patterns-ch13-human-in-the-loop]
+last_updated: 2026-06-07
 ---
 
 # RLHF — Reinforcement Learning from Human Feedback
@@ -33,10 +33,15 @@ The four stages run **iteratively**: RL pushes the policy past the RM's coverage
 - **Reward hacking** — RL can exploit RM weaknesses; iterative RM refreshes are the working mitigation.
 - **Capability/safety trade-off** — over-tuned safety RMs collapse into "I cannot help" responses (the *harmlessness vs helpfulness* failure mode flagged in [[2312.11805-gemini]]).
 
+## As HITL's "Human Feedback for Learning" arm
+
+[[AntonioGulli|Gulli's]] [[AgenticDesignPatterns|*Agentic Design Patterns*]] ([[agentic-design-patterns-ch13-human-in-the-loop|Ch 13]]) names **RLHF as the canonical realization of one of the six [[HumanInTheLoop|Human-in-the-Loop]] aspects — "Human Feedback for Learning"**: feedback collected from human oversight/correction is *"used to refine AI models, prominently in methodologies like reinforcement learning with human feedback, where human preferences directly influence the agent's learning trajectory."* This positions RLHF not only as a one-time post-training step but as the **mechanism by which routine HITL interventions become a durable training signal** — the human-in-the-loop correction at runtime feeds the preference data that retrains the policy.
+
 ## See also
 
 - [[Reinforcement Learning]]
 - [[LLM-as-Judge]] — an automated proxy for the human-preference step.
+- [[HumanInTheLoop]] — RLHF is HITL's "Human Feedback for Learning" arm (per [[AntonioGulli|Gulli]] Ch 13).
 - [[2601.21343-self-improving-pretraining]] — pushes a complementary judge-rewriter loop *upstream* into pretraining.
 
 ## From [[ai-engineering-ch02-foundation-models|AI Engineering Ch 2]]

@@ -1,9 +1,9 @@
 ---
 title: "Low-Rank Factorization"
 type: concept
-tags: [linear-algebra, dimensionality-reduction, lora, model-compression]
-sources: [ai-engineering-ch07-finetuning, ai-engineering-ch09-inference-optimization]
-last_updated: 2024-12-04
+tags: [linear-algebra, dimensionality-reduction, lora, model-compression, mlsysbook]
+sources: [ai-engineering-ch07-finetuning, ai-engineering-ch09-inference-optimization, mlsysbook-ch10-model-compression]
+last_updated: 2026-06-05
 ---
 
 # Low-Rank Factorization
@@ -76,3 +76,13 @@ Ch 9 reframes low-rank factorization explicitly as one of the **[[ModelCompressi
 - The [[IntrinsicDimension|intrinsic-dimension hypothesis]] supports the *finetuning-delta* application (LoRA) better than the *whole-model* application — pre-training distributes information across the full rank.
 
 The chapter's framing thus consolidates the wiki's earlier LoRA-centric view: low-rank works for the **delta**, not the **whole weight tensor**.
+
+## The bandwidth-compute trade-off ([[mlsysbook-ch10-model-compression|mlsysbook Ch 10]])
+
+Ch 10 frames LRMF (Low-Rank Matrix Factorization) as a structured-approximation compression technique that **trades arithmetic for bandwidth**: a 4096×4096 FP32 matrix (67 MB) factored at rank-128 → two matrices totaling ~4 MB (**16× data-movement reduction**); applying the factors directly drops per-vector compute from $\mathcal{O}(mn)$ to $\mathcal{O}(k(m+n))$. The optimal rank-$k$ approximation comes from **[[SingularValueDecomposition|SVD]]** (Eckart-Young theorem). Critical caveat: **never materialize $UV$ explicitly** — that adds $\mathcal{O}(mkn)$ and defeats the purpose. The one-time $\mathcal{O}(mn\cdot\min(m,n))$ factorization cost must be amortized by repeated inference savings. [[TensorDecomposition]] (CP/Tucker/Tensor-Train) extends this to conv filters and attention. [[mlsysbook-ch10-model-compression]]
+
+## Connections (mlsysbook)
+
+- [[TensorDecomposition]] — the multi-dimensional generalization.
+- [[SingularValueDecomposition]] — the optimal factorization method.
+- [[mlsysbook-ch10-model-compression]] — bandwidth-compute trade, Eckart-Young, never-materialize-UV caveat.

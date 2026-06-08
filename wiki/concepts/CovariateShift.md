@@ -2,8 +2,8 @@
 title: "Covariate Shift"
 type: concept
 tags: [distribution-shift, generalization, mlops]
-sources: [d2l-linear-classification, madewithml-monitoring]
-last_updated: 2026-05-16
+sources: [d2l-linear-classification, madewithml-monitoring, mlsysbook-ch04-data-engineering, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 # Covariate Shift
@@ -45,9 +45,12 @@ The correction only works when **each target-distribution point had nonzero trai
 ## Connections
 
 - [[DistributionShift]] — parent taxonomy.
-- [[LabelShift]] / [[ConceptShift]] — sibling shift types.
+- [[LabelShift]] / [[ConceptShift]] / [[ConceptDrift]] — sibling shift types.
+- [[mlsysbook-ch04-data-engineering]] — Reddi's *Machine Learning Systems* Ch 4: covariate shift ($p(x)$ changes, $p(y\mid x)$ fixed) is detected by monitoring feature distributions with [[PopulationStabilityIndex|PSI]] / [[KullbackLeiblerDivergence|KL divergence]]; the medical-imaging-camera-swap example.
 - [[EmpiricalRiskMinimization]] — what gets reweighted.
 - [[LogisticRegression]] — the binary classifier used for weight estimation.
 - [[Softmax]] — multiclass parent that logistic regression specializes; this is where the recursion closes.
 - [[d2l-linear-classification]] — corpus anchor (Section *Covariate Shift Correction*).
 - [[AlibiDetect]] / [[EvidentlyAI]] / [[TorchDrift]] / [[WhyLogs]] — operational drift-detection layer.
+- [[mlsysbook-ch14-ml-operations]] — mlsysbook Vol 1 Ch 14 notes Shimodaira's importance-weighting correction fails when deployment inputs fall outside training support, requiring full retraining instead of reweighting.
+

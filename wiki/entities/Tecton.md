@@ -2,8 +2,8 @@
 title: "Tecton"
 type: entity
 tags: [tool]
-sources: [leh-ch11-mlops-and-llmops]
-last_updated: 2026-05-22
+sources: [leh-ch11-mlops-and-llmops, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 ## What it is

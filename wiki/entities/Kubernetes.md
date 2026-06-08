@@ -2,8 +2,8 @@
 title: "Kubernetes"
 type: entity
 tags: [tool, orchestration, container, open-source]
-sources: [leh-ch02-tooling-and-installation]
-last_updated: 2026-05-22
+sources: [leh-ch02-tooling-and-installation, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 ## What it is
@@ -17,3 +17,5 @@ Ch. 2 ([[leh-ch02-tooling-and-installation]]) references Kubernetes as the subst
 - [[Kubeflow]] / [[ArgoWorkflows]] — Kubernetes-native orchestrators.
 - [[Docker]] — containers run by Kubernetes.
 - [[google]] — original creator.
+- [[mlsysbook-ch14-ml-operations]] — Ch 14 uses Kubernetes for containerized ML workload orchestration, autoscaling (1→dozens of replicas in <60s), and KServe scale-to-zero serving.
+

@@ -2,8 +2,8 @@
 title: "Weaviate"
 type: entity
 tags: [product, vector-database, search, open-source, hybrid-search]
-sources: [leh-ch02-tooling-and-installation, leh-ch04-rag-feature-pipeline, hands-on-llm-ch08-semantic-search-and-rag]
-last_updated: 2026-05-23
+sources: [leh-ch02-tooling-and-installation, leh-ch04-rag-feature-pipeline, hands-on-llm-ch08-semantic-search-and-rag, agentic-design-patterns-ch14-rag]
+last_updated: 2026-06-07
 ---
 
 ## What it is
@@ -20,7 +20,12 @@ Ch 8 names Weaviate alongside [[Pinecone]] as the **canonical vector-database ex
 
 Same framing as the LEH treatment — Weaviate is positioned as a category exemplar, with the distinguishing CRUD-and-no-rebuild + metadata-filtering capabilities.
 
+## From [[agentic-design-patterns-ch14-rag|Agentic Design Patterns (Gulli) Ch 14]]
+
+Ch 14 of [[AntonioGulli|Gulli's]] [[AgenticDesignPatterns|*Agentic Design Patterns*]] uses Weaviate as the **vector store in its full [[LangChain]]/[[langgraph|LangGraph]] [[rag|RAG]] hands-on example** — the wiki's first runnable Weaviate-as-RAG-backend receipt. The pipeline runs `client = weaviate.Client(embedded_options=EmbeddedOptions())` (Weaviate's embedded mode) then `vectorstore = Weaviate.from_documents(client=client, documents=chunks, embedding=OpenAIEmbeddings(), by_text=False)`, exposing retrieval via `vectorstore.as_retriever()`. The chapter also names Weaviate (alongside [[Pinecone]]) as a **managed** vector-database example in its prose survey of the [[VectorDatabase|vector DB]] landscape (vs open-source [[ChromaDB|Chroma]] / [[Milvus]] / [[Qdrant]] and vector-augmented [[RedisVectorSearch|Redis]] / [[Elasticsearch]] / [[PostgreSQL|Postgres]]). Consistent with the LEH and *Hands-On LLMs* framing.
+
 ## Connections
+- [[rag]] / [[agentic-design-patterns-ch14-rag]] — Weaviate as the `Weaviate.from_documents(...)` vector store in Gulli Ch 14's LangChain/LangGraph RAG pipeline.
 - [[Qdrant]] — chosen vector DB.
 - [[Pinecone]] / [[Milvus]] / [[ChromaDB]] / [[Pgvector]] / [[RedisVectorSearch]] — peer vector DBs.
 - [[VectorDatabase]] — category.

@@ -2,8 +2,8 @@
 title: "Partial Derivative"
 type: concept
 tags: [vector-calculus, foundational]
-sources: [mml-book, d2l-preliminaries, d2l-appendix-mathematics]
-last_updated: 2026-05-16
+sources: [mml-ch05-vector-calculus, mml-book, d2l-preliminaries, d2l-appendix-mathematics]
+last_updated: 2026-06-04
 ---
 
 # Partial Derivative
@@ -25,9 +25,16 @@ $$\nabla_{\mathbf{x}}f \;=\;\frac{df}{d\mathbf{x}} \;=\;\begin{bmatrix}\partial 
 - **[[Hessian]]**: the matrix of *second* partials, used in Newton-style optimization and to determine whether a stationary point is a minimum / maximum / saddle.
 - **[[Linearization]]** ([[mml-book]] §5.8): the first-order Taylor expansion $f(\mathbf{x}+\boldsymbol\delta)\approx f(\mathbf{x}) + \nabla f(\mathbf{x})\boldsymbol\delta$ uses the gradient of partials.
 
+## From [[mml-ch05-vector-calculus|MML Ch 5]]
+
+§5.2 Def 5.5 (Eq. 5.39) defines each partial as a [[DifferenceQuotient|difference-quotient]] limit in one coordinate, the others held fixed: $\frac{\partial f}{\partial x_i}=\lim_{h\to 0}\frac{f(\dots,x_i+h,\dots)-f(\mathbf{x})}{h}$. MML's marginal note frames the practical payoff: *"Each partial derivative is a derivative with respect to a scalar"* — so all the univariate [[DifferentiationRules|differentiation rules]] (§5.1.2) apply directly. The basic multivariate sum/product/chain rules (Eqs. 5.46–5.48) carry over, **but order matters** since gradients are now vectors/matrices (matrix multiplication is non-commutative). Worked: MML Example 5.7, $f(x_1,x_2)=x_1^2x_2+x_1x_2^3$ → $\frac{\partial f}{\partial x_1}=2x_1x_2+x_2^3$, $\frac{\partial f}{\partial x_2}=x_1^2+3x_1x_2^2$. The $n$ partials collect into the row-vector [[Gradient|gradient]] (Eq. 5.40); second partials collect into the symmetric [[Hessian]] (§5.7); for a vector-valued $\mathbf{f}$ they fill the [[Jacobian]] (§5.3).
+
 ## Connections
 
-- [[mml-book]] — §5.2 canonical reference.
+- [[mml-ch05-vector-calculus|MML Ch 5]] — §5.2 Def 5.5 canonical reference.
+- [[mml-book]] — umbrella source.
+- [[DifferenceQuotient]] — the limit each partial is built from.
+- [[Gradient]] — the row vector of partials.
 - [[Jacobian]] — partials of vector-valued functions.
 - [[Hessian]] — second partials.
 - [[ChainRule]] — composition of partial derivatives.

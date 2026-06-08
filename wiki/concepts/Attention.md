@@ -2,8 +2,8 @@
 title: "Attention"
 type: concept
 tags: [deep-learning, transformers]
-sources: [d2l-attention-and-transformers, hands-on-llm-ch01-introduction-to-llms]
-last_updated: 2026-05-23
+sources: [d2l-attention-and-transformers, hands-on-llm-ch01-introduction-to-llms, mlsysbook-ch06-network-architectures]
+last_updated: 2026-06-05
 ---
 
 # Attention
@@ -19,3 +19,10 @@ Ch 1 attributes attention to [[DzmitryBahdanau|Bahdanau]], [[KyunghyunCho|Cho]] 
 The chapter's worked example: translating *"I love llamas"* → Dutch *"Ik hou van lama's"*. The attention between the input word *"llamas"* and the output word *"lama's"* is high; the attention between *"lama's"* and *"I"* is lower because they aren't as related. The chapter forward-references Ch 3 for the in-depth attention mechanism treatment.
 
 Attention's payoff in this RNN+attention era: *"the hidden states of all input words are passed [to the decoder]"* — replacing the single context-vector bottleneck — but *"this sequential nature ... precludes parallelization during training of the model."* The [[transformer|Transformer]] (2017) resolves this by removing recurrence entirely.
+
+## Connections
+
+- [[mlsysbook-ch06-network-architectures]] — systems view: attention replaces structural constraints with learned, content-dependent routing giving $\mathcal{O}(1)$ information-flow depth, but the $S{\times}S$ score matrix scales as $\mathcal{O}(S^2)$ in memory — the "quadratic wall." [[Softmax]] is itself the bottleneck (a full pass over $S$ scores for the normalizer forces materializing the matrix, or tiling it as [[FlashAttention]] does), and attention has the worst energy profile of any primitive (fresh key-value loads per position).
+- [[Transformer]] / [[SelfAttention]] / [[MultiHeadAttention]] — the architecture and variants built on attention.
+- [[FlashAttention]] / [[KVCache]] — the IO-aware kernel and the inference-time memory consumer.
+- [[InductiveBias]] — attention encodes an *adaptive* bias (any element may attend to any other).

@@ -2,8 +2,8 @@
 title: "Context (Prompt Component)"
 type: concept
 tags: [prompt-engineering, prompt-component, llm]
-sources: [hands-on-llm-ch06-prompt-engineering]
-last_updated: 2026-05-23
+sources: [hands-on-llm-ch06-prompt-engineering, agentic-design-patterns-appendix-a-prompting]
+last_updated: 2026-06-07
 ---
 
 # Context (Prompt Component)
@@ -34,3 +34,7 @@ The Ch 6 *"context"* prompt component is the **narrative reason / framing** for 
 - [[ContextConstruction]] — broader RAG / tool-output / memory discipline.
 - [[rag|RAG]] — operationalizes dynamic context insertion.
 - [[SystemPrompt]] — context often lives in the system prompt.
+- [[agentic-design-patterns-appendix-a-prompting]] — Gulli's Appendix A "contextual prompting".
+
+## Relation to Appendix A's "contextual prompting"
+[[agentic-design-patterns-appendix-a-prompting|*Agentic Design Patterns* Appendix A]] uses **contextual prompting** for this same idea but scales it up to the full discipline of [[ContextEngineering|context engineering]] — *dynamically* providing background (previous dialogue, retrieved documents per [[rag|RAG]], operational parameters) rather than the single static "reason for the instruction" string this Ch-6 component captures. The Ch-6 component is one narrow slice of Appendix A's broader contextual layer.

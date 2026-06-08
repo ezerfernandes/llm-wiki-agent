@@ -2,8 +2,8 @@
 title: "MLIR (Multi-Level Intermediate Representation)"
 type: concept
 tags: [compiler, ml, infrastructure, llvm]
-sources: [ai-engineering-ch09-inference-optimization]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch09-inference-optimization, mlsysbook-ch11-hardware-acceleration]
+last_updated: 2026-06-05
 ---
 
 # MLIR — Multi-Level Intermediate Representation

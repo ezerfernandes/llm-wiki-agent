@@ -32,4 +32,4 @@ The Pareto-selection mechanism is the **"illumination"** strategy of **Mouret & 
 - [[SystemAwareMerge]] — the optional genetic-crossover operator.
 - [[ParetoBasedCandidateSelection]] — the Pareto-selection rule.
 - [[PromptOptimization]] — parent activity.
-- [[geneticalgorithm|Genetic Algorithm]] — parent class.
+- [[GeneticAlgorithm|Genetic Algorithm]] — parent class.

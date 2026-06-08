@@ -2,8 +2,8 @@
 title: "MapReduce"
 type: concept
 tags: [parallel-computing, paradigm, distributed-systems, scatter-gather]
-sources: [parproc-ch01-intro-parallel-processing, parproc-ch09-mapreduce-computation]
-last_updated: 2026-05-17
+sources: [parproc-ch01-intro-parallel-processing, parproc-ch09-mapreduce-computation, mlsysbook-ch04-data-engineering]
+last_updated: 2026-06-05
 ---
 
 # MapReduce
@@ -51,3 +51,5 @@ Because HDFS distributes file blocks across the cluster, Hadoop schedules each m
 - [[Cluster]] — typical execution substrate.
 - [[MPIScatter]] — the low-level MPI primitive underlying the scatter phase.
 - [[MPIGather]] — the low-level MPI primitive underlying the gather/reduce phase.
+- [[mlsysbook-ch04-data-engineering]] — Reddi's *Machine Learning Systems* Ch 4 cites MapReduce as the template for the **compute-follows-data** principle (data locality as the scheduling primitive) that limits the distributed-processing "coordination tax"; operations that *reduce* data run locally first, operations that *expand* (joins) pay unavoidable network cost.
+- [[DataGravity]] / [[AmdahlsLaw]] — the constraints that make compute-follows-data necessary.

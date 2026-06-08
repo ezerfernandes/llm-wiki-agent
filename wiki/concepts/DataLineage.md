@@ -2,8 +2,8 @@
 title: "Data Lineage"
 type: concept
 tags: [data, governance, mlops]
-sources: [ai-engineering-ch08-dataset-engineering]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch08-dataset-engineering, mlsysbook-ch03-ml-workflow, mlsysbook-ch04-data-engineering, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 # Data Lineage
@@ -31,3 +31,9 @@ Tracking where every dataset, feature, and model artifact came from — which up
 - For [[ModelCollapse|model collapse]] mitigation, lineage tracking is also required to detect recursive contamination.
 
 This is one of the chapter's most actionable governance recommendations.
+
+## In the ML workflow (mlsysbook)
+
+Reddi's *Machine Learning Systems* ([[mlsysbook-ch03-ml-workflow|Vol 1, Ch 3]]) treats data lineage as the automated metadata linking each clinic's production logs to the exact data/code/model version that generated them. Without it, correlating a site-specific accuracy drop with a training experiment becomes a multi-week forensic analysis across hundreds of GB of logs instead of a minutes-long metadata query — and it is a hard requirement for [[FDA]] regulatory audit trails. See [[MLTechnicalDebt]] for why this provenance gap compounds.
+
+The dedicated data-engineering chapter ([[mlsysbook-ch04-data-engineering|Vol 1, Ch 4]]) makes lineage the governance pillar of data processing: transformation versioning (code commit hash, library versions, Docker image), parameter tracking (normalization means/std-devs, categorical vocabularies, FFT/MFCC parameters persisted with the model), and processing lineage (Apache Atlas / Amundsen). It is what converts a week-long forensic debugging session into a graph traversal, and underpins GDPR's right to explanation and FCRA adverse-action notices.

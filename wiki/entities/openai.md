@@ -2,15 +2,30 @@
 title: "OpenAI"
 type: entity
 tags: [organization, ai-lab]
-sources: [2001.08361-scaling-laws, 2604.25067-frontier-coding-agents-c4, 2603.19247-prompt-optimization-jailbreaking, ai-engineering-ch01-intro, ai-engineering-ch02-foundation-models, hands-on-llm-ch01-introduction-to-llms, ai-engineering-ch05-prompt-engineering, hands-on-llm-ch04-text-classification, hands-on-llm-ch05-text-clustering-topic-modeling, ai-engineering-ch08-dataset-engineering, hands-on-llm-ch07-advanced-text-generation, hands-on-llm-ch09-multimodal-llms]
-last_updated: 2026-05-23
+sources: [2001.08361-scaling-laws, 2604.25067-frontier-coding-agents-c4, 2603.19247-prompt-optimization-jailbreaking, ai-engineering-ch01-intro, ai-engineering-ch02-foundation-models, hands-on-llm-ch01-introduction-to-llms, ai-engineering-ch05-prompt-engineering, hands-on-llm-ch04-text-classification, hands-on-llm-ch05-text-clustering-topic-modeling, ai-engineering-ch08-dataset-engineering, hands-on-llm-ch07-advanced-text-generation, hands-on-llm-ch09-multimodal-llms, agentic-design-patterns-ch05-tool-use, agentic-design-patterns-ch06-planning, agentic-design-patterns-ch11-goal-setting, agentic-design-patterns-ch16-resource-aware]
+last_updated: 2026-06-07
 ---
 
 # OpenAI
 
 AI lab; develops the GPT family of models. OpenAI authors produced [[2001.08361-scaling-laws]] (Kaplan, McCandlish, Henighan, Brown, Chess, Child, Gray, Radford, Wu, Amodei — 2020), the foundational empirical study of [[ScalingLaws]] for neural language models and the quantitative argument behind the lab's subsequent compute-scaling roadmap. Several of those authors (Tom B. Brown, Dario Amodei) went on to co-author GPT-3 and to co-found Anthropic. In the broader corpus, GPT-5.4 surfaces as the agent with anomalous time-budget under-utilization in the C4-AlphaZero benchmark — consistent with but not diagnostic of sandbagging. Codex (the OpenAI coding agent) is also one of the four ADS systems improved by AGENTIC-IMODELS.
 
+## Native function calling (Agentic Design Patterns Ch 5)
+[[agentic-design-patterns-ch05-tool-use|Ch 5 (Tool Use)]] of [[AgenticDesignPatterns|*Agentic Design Patterns*]] names the OpenAI series (with [[gemini|Gemini]]) as the modern LLMs whose **native function calling** capability the agent frameworks ([[LangChain]], [[LangGraph]], [[GoogleADK|ADK]], [[CrewAI]]) leverage to emit structured [[ToolUse|tool-use]] requests. The [[CrewAI]] example configures `OPENAI_API_KEY` / `OPENAI_MODEL_NAME = "gpt-4o"`. The chapter's References cite the [OpenAI Function Calling docs](https://platform.openai.com/docs/guides/function-calling). See [[ToolUse]] / [[FunctionCalling]].
+
+[[agentic-design-patterns-ch11-goal-setting|Ch 11 (Goal Setting and Monitoring)]] also runs its hands-on iterative-coding agent on OpenAI: `ChatOpenAI(model="gpt-4o", temperature=0.3)` via `langchain_openai`, keyed by `OPENAI_API_KEY`, with `gpt-4o` doing both code generation and the [[LLMAsAJudge|self-judge]] `goals_met` verdict in the [[GoalSettingAndMonitoring|goal-monitoring]] loop. See [[GoalSettingAndMonitoring]].
+
+## Tiered model selection for cost (Agentic Design Patterns Ch 16)
+[[agentic-design-patterns-ch16-resource-aware|Ch 16 (Resource-Aware Optimization)]] uses the OpenAI API for one of its three hands-on [[ResourceAwareOptimization|resource-aware]] examples: a `classify_prompt` step (running `gpt-4o`) sorts each user query into `simple`, `reasoning`, or `internet_search`, and `generate_response` then selects the model by class — **`gpt-4o-mini`** for simple, **`o4-mini`** for reasoning, and **`gpt-4o`** (plus a Google Custom Search call) for internet-search queries. This is OpenAI's model lineup serving as the **cost tier menu** for [[DynamicModelSelection|dynamic model selection]] — *"avoids wasting computational resources on simple requests while ensuring complex queries get the necessary attention."* See [[ResourceAwareOptimization]].
+
+## Deep Research API (Agentic Design Patterns Ch 6)
+[[agentic-design-patterns-ch06-planning|Ch 6 (Planning)]] details the **OpenAI Deep Research API** as a real-world exemplar of the [[Planning]] pattern (see [[DeepResearch]]): an agentic model that independently reasons, plans, and synthesizes from web sources, returning a structured, citation-rich report. Models named: `o3-deep-research-2025-06-26` (high quality) and `o4-mini-deep-research-2025-06-26` (faster). Called via `client.responses.create` with a `web_search_preview` tool (optionally `code_interpreter` and custom **MCP** tools). Distinctive vs ChatGPT: it exposes all intermediate steps — reasoning, search queries, code run — and supports the [[ModelContextProtocol|Model Context Protocol]] for private-data extensibility.
+
 ## Connections
+- [[ResourceAwareOptimization]] / [[DynamicModelSelection]] — Ch 16's cost-tier example (`gpt-4o-mini` / `o4-mini` / `gpt-4o` by query class).
+- [[DeepResearch]] / [[Planning]] — the OpenAI Deep Research API (`o3`/`o4-mini` deep-research models), Ch 6.
+- [[ModelContextProtocol|MCP]] — the Deep Research API's private-data extensibility mechanism.
+- [[ToolUse]] / [[FunctionCalling]] — OpenAI's native function-calling API underpins Ch 5's tool-using agents.
 - [[gpt54|GPT54]]
 - [[GPT51|GPT-5.1]] — used as the cross-family [[LLMAsAJudge|danger judge]] in [[2603.19247-prompt-optimization-jailbreaking]]; chosen specifically because it is *not* in the same model family as any of the four jailbreak targets.
 - [[codex|Codex]]

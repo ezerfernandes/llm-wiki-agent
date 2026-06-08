@@ -2,8 +2,8 @@
 title: "Model Parallelism"
 type: concept
 tags: [distributed-training, parallelism, multi-gpu, deep-learning]
-sources: [d2l-computational-performance]
-last_updated: 2026-05-16
+sources: [d2l-computational-performance, mlsysbook-ch06-network-architectures, mlsysbook-ch08-model-training]
+last_updated: 2026-06-05
 ---
 
 # Model Parallelism
@@ -35,4 +35,6 @@ D2L's stance: **only recommended when there is excellent framework or OS support
 - [[PipelineParallelism]] — inter-layer model parallelism.
 - [[AlexNet]] — the historical model-parallel example (2 × GTX 580 @ 2 GB).
 - [[DistributedTraining]] — parent concept.
+- [[mlsysbook-ch08-model-training]] — Ch 8's selection rule: **model parallelism when the model is too big to fit one GPU's memory**. It partitions weights (each GPU holds ~$P/N$ params) and transfers *activations* ($\propto B\times d$) at every layer boundary — but naive layer partitioning idles downstream devices, yielding **25–50% utilization from pipeline bubbles** that [[PipelineParallelism|pipeline parallelism]] (microbatching) recovers.
 - [[d2l-computational-performance]] §`multiple-gpus`.
+- [[mlsysbook-ch06-network-architectures]] — a third use case beyond "doesn't fit": [[DLRM]] **embedding sharding**, where TB-scale [[EmbeddingTable|embedding tables]] are split across hundreds of GPUs (dense MLPs replicated), inducing an [[AllToAllCommunication|all-to-all]] gather bottlenecked by bisection bandwidth.

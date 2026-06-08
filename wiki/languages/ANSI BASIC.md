@@ -1,0 +1,107 @@
+---
+title: "ANSI BASIC (programming language)"
+type: entity
+tags: [programming-language, rosetta-code]
+date: 2026-05-31
+rc_category: "Category:ANSI BASIC"
+rc_task_entries: 65
+rc_tasks_done_pct: "3.75%"
+wiki_tasks_solved: 86
+---
+
+## Summary
+ANSI BASIC refers to the family of standardized dialects of the BASIC programming language defined by ANSI, beginning with Minimal BASIC (ANSI X3.60-1978, ECMA-55) and culminating in the much richer Full BASIC standard (ANSI X3.113-1987, ISO/IEC 10279). It is an imperative, procedural language with dynamic but largely static-feeling weak typing centered on numeric and string scalars plus arrays, originally line-numbered though Full BASIC added structured control flow, named subprograms, and exception handling. Conceived in the mid-1970s and 1980s to bring portability and discipline to the many incompatible vendor BASICs of the microcomputer era, it was aimed at teaching, scientific computation, and general-purpose programming. Today it is largely of historical and educational interest, with implementations such as the True BASIC system tracing their lineage directly to the ANSI/ISO Full BASIC standard.
+
+## Rosetta Code Coverage
+Solves **86** of the wiki's 1350 ingested Rosetta Code tasks. Rosetta Code's popularity ranking credits **ANSI BASIC** with **65** task entries (3.75% of all tasks).
+
+## Tasks Solved
+- [[rc-100-doors]]
+- [[rc-abundant-deficient-and-perfect-number-classifications]]
+- [[rc-abundant-odd-numbers]]
+- [[rc-aks-test-for-primes]]
+- [[rc-amicable-pairs]]
+- [[rc-angle-difference-between-two-bearings]]
+- [[rc-arithmetic-geometric-mean]]
+- [[rc-arithmetic-numbers]]
+- [[rc-babbage-problem]]
+- [[rc-bell-numbers]]
+- [[rc-brazilian-numbers]]
+- [[rc-catalan-numbers]]
+- [[rc-conditional-structures]]
+- [[rc-cumulative-standard-deviation]]
+- [[rc-cusip]]
+- [[rc-damm-algorithm]]
+- [[rc-day-of-the-week]]
+- [[rc-de-polignac-numbers]]
+- [[rc-decorate-sort-undecorate-idiom]]
+- [[rc-department-numbers]]
+- [[rc-determine-if-a-string-is-collapsible]]
+- [[rc-diversity-prediction-theorem]]
+- [[rc-dot-product]]
+- [[rc-dragon-curve]]
+- [[rc-dutch-national-flag-problem]]
+- [[rc-egyptian-division]]
+- [[rc-equilibrium-index]]
+- [[rc-ethiopian-multiplication]]
+- [[rc-factors-of-an-integer]]
+- [[rc-fibonacci-sequence]]
+- [[rc-fizzbuzz]]
+- [[rc-formatted-numeric-output]]
+- [[rc-function-definition]]
+- [[rc-gamma-function]]
+- [[rc-generate-lower-case-ascii-alphabet]]
+- [[rc-greyscale-bars-display]]
+- [[rc-horizontal-sundial-calculations]]
+- [[rc-horner-s-rule-for-polynomial-evaluation]]
+- [[rc-idoneal-numbers]]
+- [[rc-josephus-problem]]
+- [[rc-knight-s-tour]]
+- [[rc-langton-s-ant]]
+- [[rc-largest-proper-divisor-of-n]]
+- [[rc-leap-year]]
+- [[rc-leonardo-numbers]]
+- [[rc-levenshtein-distance]]
+- [[rc-long-year]]
+- [[rc-loops-do-while]]
+- [[rc-loops-while]]
+- [[rc-luhn-test-of-credit-card-numbers]]
+- [[rc-m-bius-function]]
+- [[rc-magic-constant]]
+- [[rc-map-range]]
+- [[rc-mayan-numerals]]
+- [[rc-monty-hall-problem]]
+- [[rc-multifactorial]]
+- [[rc-n-th]]
+- [[rc-nth-root]]
+- [[rc-old-russian-measure-of-length]]
+- [[rc-parsing-rpn-calculator-algorithm]]
+- [[rc-periodic-table]]
+- [[rc-prime-decomposition]]
+- [[rc-pythagorean-triples]]
+- [[rc-random-numbers]]
+- [[rc-ray-casting-algorithm]]
+- [[rc-real-constants-and-functions]]
+- [[rc-remove-duplicate-elements]]
+- [[rc-repeat-a-string]]
+- [[rc-return-multiple-values]]
+- [[rc-rot-13]]
+- [[rc-semiprime]]
+- [[rc-shoelace-formula-for-polygonal-area]]
+- [[rc-sorting-algorithms-quicksort]]
+- [[rc-soundex]]
+- [[rc-split-a-character-string-based-on-change-of-character]]
+- [[rc-square-free-integers]]
+- [[rc-statistics-basic]]
+- [[rc-statistics-normal-distribution]]
+- [[rc-stem-and-leaf-plot]]
+- [[rc-string-length]]
+- [[rc-strip-comments-from-a-string]]
+- [[rc-sum-digits-of-an-integer]]
+- [[rc-tau-number]]
+- [[rc-temperature-conversion]]
+- [[rc-trabb-pardo-knuth-algorithm]]
+- [[rc-variable-length-quantity]]
+
+## Connections
+- [[RosettaCode]] — tasks sourced from the Rosetta Code project

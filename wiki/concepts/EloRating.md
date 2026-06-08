@@ -2,8 +2,8 @@
 title: "Elo Rating"
 type: concept
 tags: [evaluation, ranking, rating-algorithm]
-sources: [ai-engineering-ch03-evaluation-methodology, hands-on-llm-ch12-fine-tuning-generation-models]
-last_updated: 2026-05-24
+sources: [ai-engineering-ch03-evaluation-methodology, hands-on-llm-ch12-fine-tuning-generation-models, agentic-design-patterns-ch21-exploration]
+last_updated: 2026-06-07
 ---
 
 # Elo Rating
@@ -31,8 +31,13 @@ Even after switching to Bradley-Terry, LMSYS continued *"referring to their mode
 
 **Takeaway:** what is publicly displayed as an "Elo score" on Chatbot Arena since the switch is *not* a true Elo score — it's a Bradley-Terry score in Elo-style clothing. This is a wiki-flagged contradiction in nomenclature.
 
+## Ranking agent hypotheses ([[AgenticDesignPatterns|Gulli]] Ch 21)
+
+Beyond ranking *models*, Elo is used inside agentic discovery systems to rank *ideas*. In [[GoogleCoScientist|Google's AI Co-Scientist]] ([[agentic-design-patterns-ch21-exploration|Agentic Design Patterns Ch 21]]), the **Ranking agent employs an Elo-based tournament** to compare and prioritize generated scientific hypotheses through simulated debates. Notably, the system's internal Elo rating was shown to be *concordant with accuracy* on the [[GPQA]] benchmark, and scaling [[TestTimeCompute|test-time compute]] consistently raised hypothesis Elo — making Elo a self-evaluation signal for an [[ExplorationAndDiscovery|exploration-and-discovery]] loop rather than just a leaderboard score.
+
 ## Connections
 
+- [[GoogleCoScientist]] / [[ExplorationAndDiscovery]] — Elo as a hypothesis-tournament signal (Gulli Ch 21).
 - [[ai-engineering-ch03-evaluation-methodology]] — primary source.
 - [[RatingAlgorithm]] — parent concept.
 - [[BradleyTerry]] — the algorithm LMSYS switched to.

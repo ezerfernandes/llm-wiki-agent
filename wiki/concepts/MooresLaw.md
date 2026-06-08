@@ -2,8 +2,8 @@
 title: "Moore's Law"
 type: concept
 tags: [computer-architecture, cpu, history, scaling]
-sources: [dis-5-9-modern]
-last_updated: 2026-05-17
+sources: [dis-5-9-modern, mlsysbook-ch01-introduction, mlsysbook-ch11-hardware-acceleration]
+last_updated: 2026-06-05
 ---
 
 # Moore's Law
@@ -26,8 +26,13 @@ Moore's Law is about **transistor count / density**, not clock speed, not perfor
 
 The chapter's central narrative: *"multicore microprocessor design is the primary way in which the performance of processor architectures can continue to keep pace with Moore's Law without increasing the processor clock rate."* Multicore is the architectural response to the **decoupling of transistor budget from single-thread performance**.
 
+## Outpaced by AI compute demand (mlsysbook)
+
+Reddi's *Machine Learning Systems* ([[mlsysbook-ch01-introduction|Vol 1, Ch 1]]) uses Moore's Law as the *baseline that AI scaling broke*: over 2012–2019, algorithmic efficiency improved ~44.5× (vs. ~11× from a two-year transistor-doubling cadence), while demand for training compute doubled **every 3.4 months** — about **7× faster** than Moore's two-year cadence (Amodei 2018). This gap is *why* the field pivoted to domain-specific accelerators (GPUs/TPUs) and why the [[EfficiencyFramework|efficiency framework]] is not optional.
+
 ## Connections
 
+- [[EfficiencyFramework]] / [[BitterLesson]] / [[mlsysbook-ch01-introduction]] — the AI-compute-vs-Moore's-Law contrast.
 - [[PowerWall]] — the constraint that broke the "more transistors = faster single thread" link.
 - [[InstructionLevelParallelism]] — how architects spent the transistor budget *before* the power wall.
 - [[MulticoreProcessor]] — how they spent it *after*.

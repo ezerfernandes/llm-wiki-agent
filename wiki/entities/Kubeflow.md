@@ -2,8 +2,8 @@
 title: "Kubeflow"
 type: entity
 tags: [tool, orchestrator, kubernetes, mlops, open-source]
-sources: [leh-ch02-tooling-and-installation, leh-ch11-mlops-and-llmops]
-last_updated: 2026-05-22
+sources: [leh-ch02-tooling-and-installation, leh-ch11-mlops-and-llmops, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 ## What it is
@@ -18,3 +18,5 @@ Ch. 2 ([[leh-ch02-tooling-and-installation]]) lists Kubeflow among the orchestra
 - [[ArgoWorkflows]] — sibling Kubernetes-native workflow engine.
 - [[Orchestrator]] — category.
 - [[MLOps]] — discipline.
+- [[mlsysbook-ch14-ml-operations]] — Ch 14 cites Kubeflow as an ML-specific CI/CD layer (above general orchestrators) for data versioning, metric gating, and retraining triggers.
+

@@ -2,8 +2,8 @@
 title: "Cross-Entropy"
 type: concept
 tags: [information-theory, foundational]
-sources: [d2l-appendix-mathematics]
-last_updated: 2026-05-16
+sources: [d2l-appendix-mathematics, mlsysbook-ch05-neural-computation]
+last_updated: 2026-06-05
 ---
 
 # Cross-Entropy
@@ -47,3 +47,5 @@ This is exactly [[MaximumLikelihoodEstimation|MLE]] under a categorical likeliho
 - [[KullbackLeiblerDivergence]] — the difference $H(P, Q) - H(P)$.
 - [[MaximumLikelihoodEstimation]] — equivalent under categorical / Gaussian / etc. likelihoods.
 - [[InformationTheory]] — parent field.
+- [[mlsysbook-ch05-neural-computation]] — systems view: for [[OneHotEncoding|one-hot]] labels cross-entropy simplifies to `−log(ŷ_c)` (only correct-class probability matters), its gradient w.r.t. outputs is just (predicted − true) — strong gradients far from target — and the `log(0)→−∞/NaN` hazard motivates the epsilon and log-sum-exp safeguards.
+- [[Logits]] / [[Softmax]] — softmax(logits) is the distribution cross-entropy scores.

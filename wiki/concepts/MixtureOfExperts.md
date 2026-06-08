@@ -36,6 +36,7 @@ Agentic AI therefore admits richer topological structures and greater expressivi
 - [[Mixtral8x7B]] — the canonical worked example from Ch 2.
 - [[Jamba]] — Transformer–Mamba MoE hybrid (Ch 2).
 - [[ai-engineering-ch02-foundation-models]] — primary source for the production-MoE framing.
+- [[SwitchTransformer]] / [[ConditionalComputation]] / [[mlsysbook-ch10-model-compression]] — Ch 10 frames MoE as **gate-based conditional computation** (an adaptive-computation compression technique): a router activates only a small subset of experts per token. Switch Transformer = 1.6T params but ~2B active/token (0.13%), 7× faster pretraining than dense T5; load imbalance needs auxiliary losses + capacity factors.
 
 ## From [[ai-engineering-ch02-foundation-models|AI Engineering Ch 2]]
 

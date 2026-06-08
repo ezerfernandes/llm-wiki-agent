@@ -1,9 +1,9 @@
 ---
 title: "Grouped-Query Attention (GQA)"
 type: concept
-tags: [attention, architecture, inference-efficiency, kv-cache]
-sources: [hands-on-llm-ch03-looking-inside-llms, ai-engineering-ch09-inference-optimization]
-last_updated: 2024-12-04
+tags: [attention, architecture, inference-efficiency, kv-cache, mlsysbook, serving]
+sources: [hands-on-llm-ch03-looking-inside-llms, ai-engineering-ch09-inference-optimization, mlsysbook-ch13-model-serving]
+last_updated: 2026-06-05
 ---
 
 # Grouped-Query Attention (GQA)
@@ -47,3 +47,7 @@ Ch 9 frames GQA explicitly as a **generalization of [[multiqueryattention|multi-
 > *"Grouped-query attention (Ainslie et al., 2023) is a generalization of multi-query attention. Instead of using only one set of key-value pairs for all query heads, its grouped-query attention puts query heads into smaller groups and shares key-value pairs only among query heads in the same group. This allows for a more flexible balance between the number of query heads and the number of key-value pairs."*
 
 GQA is one of four **attention-mechanism redesigns** Ch 9 names (alongside [[LocalAttention|local windowed attention]], [[CrossLayerAttention|cross-layer attention]], and MQA) — all of which reduce [[KVCache|KV-cache]] memory by sharing K/V across some axis (heads, groups of heads, layers, or sequence positions). All require **architectural change**, applied during training or finetuning, not as a drop-in inference modification.
+
+## In [[mlsysbook-ch13-model-serving|mlsysbook Ch 13]]
+
+Ch 13's 8B [[Llama3|Llama 3]] serving case study relies on GQA: it "reduces KV-head storage relative to full multi-head attention," cutting per-token [[KVCache|KV-cache]] cost (~0.31 MB/token FP16 for the 70B GQA-8× contrast model) so ~72 GB of free H100 VRAM holds ~2.2M tokens and a concurrent batch of ~1,700+ requests. Without GQA/MQA the cache would be several times larger, sharply limiting [[LLMServing|LLM-serving]] concurrency. See also [[mlsysbook-ch13-model-serving]].

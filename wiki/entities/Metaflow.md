@@ -2,8 +2,8 @@
 title: "Metaflow"
 type: entity
 tags: [tool, orchestrator, ml-framework, open-source]
-sources: [leh-ch02-tooling-and-installation, leh-ch11-mlops-and-llmops]
-last_updated: 2026-05-22
+sources: [leh-ch02-tooling-and-installation, leh-ch11-mlops-and-llmops, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 ## What it is
@@ -17,3 +17,5 @@ Ch. 2 ([[leh-ch02-tooling-and-installation]]) lists Metaflow among the orchestra
 - [[Airflow]] / [[Prefect]] / [[Dagster]] / [[Kubeflow]] — peers.
 - [[Orchestrator]] — category.
 - [[MLOps]] — discipline Metaflow targets.
+- [[mlsysbook-ch14-ml-operations]] — Ch 14 cites Metaflow as an ML-specific platform layering higher-level abstractions over general CI/CD orchestrators.
+

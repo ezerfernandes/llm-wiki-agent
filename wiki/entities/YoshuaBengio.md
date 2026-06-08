@@ -2,8 +2,8 @@
 title: "Yoshua Bengio"
 type: entity
 tags: [person, researcher, deep-learning, turing-award]
-sources: [hands-on-llm-ch01-introduction-to-llms]
-last_updated: 2026-05-23
+sources: [hands-on-llm-ch01-introduction-to-llms, mlsysbook-ch05-neural-computation]
+last_updated: 2026-06-05
 ---
 
 # Yoshua Bengio
@@ -19,3 +19,4 @@ Bengio is also a co-author of the foundational 2003 neural-language-model paper 
 - [[encoderdecoder|Encoder-Decoder]] / [[RNN]] / [[LanguageModel]] — areas where Bengio made foundational contributions.
 - [[transformer|Transformer]] — the architecture that built on Bengio-collaboration attention work.
 - [[hands-on-llm-ch01-introduction-to-llms]] — Ch 1 cites Bahdanau-Cho-Bengio 2014.
+- [[mlsysbook-ch05-neural-computation]] — Reddi's Ch 5 names Bengio (with [[YannLeCun|LeCun]]/[[GeoffreyHinton|Hinton]]) as the 2018 Turing trio, crediting his probabilistic sequence-model work among the contributions that shaped modern accelerator workloads ([[DeepLearning|deep learning]] formalized via LeCun-Bengio-Hinton's 2015 *Nature* review).

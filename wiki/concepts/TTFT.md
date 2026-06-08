@@ -1,9 +1,9 @@
 ---
 title: "TTFT (Time to First Token)"
 type: concept
-tags: [latency, metrics, inference, autoregressive]
-sources: [ai-engineering-ch01-intro, ai-engineering-ch09-inference-optimization]
-last_updated: 2024-12-04
+tags: [latency, metrics, inference, autoregressive, mlsysbook, serving]
+sources: [ai-engineering-ch01-intro, ai-engineering-ch09-inference-optimization, mlsysbook-ch13-model-serving]
+last_updated: 2026-06-05
 ---
 
 # TTFT — Time to First Token
@@ -62,3 +62,7 @@ For [[ChainOfThought|CoT]] / [[Agent|agentic]] queries where intermediate plan/a
 > *"Reducing TTFT at the cost of higher TPOT is possible by shifting more compute instances from decoding to prefilling and vice versa."* — Ch 9
 
 This is the **prefill:decode instance ratio** lever — 2:1–4:1 for TTFT priority; 1:2–1:1 for TPOT priority.
+
+## From [[mlsysbook-ch13-model-serving|mlsysbook Ch 13]]
+
+Ch 13 frames TTFT as the metric of the **prefill phase**, which is *compute-bound* (the prompt's tokens process in parallel) — contrasting with [[TPOT]]'s memory-bandwidth-bound decode phase. TTFT measures responsiveness, TPOT measures fluidity (the "rhythm" of token arrival). A model can have fast TTFT but sluggish TPOT if the [[MemoryWall|memory wall]] binds. Production targets: TTFT < 500 ms (1,000-token prompt). In the 8B [[Llama3|Llama 3]]/H100 case study, prefill at ~10,000 tok/s gives TTFT ≈ 120 ms (within a 200 ms SLO); [[PrefixCaching|prefix caching]] collapses prefill (and TTFT) for shared prompts. See also [[LLMServing]], [[mlsysbook-ch13-model-serving]].

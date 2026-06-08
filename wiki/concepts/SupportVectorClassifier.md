@@ -12,5 +12,6 @@ Soft-margin generalization of the [[MaximalMarginClassifier]]: allow some traini
 
 ## Connections
 - [[islr-seventh-printing]] — Ch.9.2.
-- [[MaximalMarginClassifier]] — hard-margin special case.
+- [[MaximalMarginClassifier]] / [[HardMarginSVM]] — hard-margin special case.
+- [[SoftMarginSVM]] — the [[mml-ch12-classification-svm|MML Ch 12]] name for this idea (slack $\xi_n$ + budget $C$).
 - [[SupportVectorMachine]] — non-linear kernelized version.

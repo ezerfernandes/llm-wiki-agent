@@ -2,8 +2,8 @@
 title: "Tanh"
 type: concept
 tags: [activation-function, neural-networks]
-sources: [d2l-multilayer-perceptrons]
-last_updated: 2026-05-16
+sources: [d2l-multilayer-perceptrons, mlsysbook-ch05-neural-computation]
+last_updated: 2026-06-05
 ---
 
 # Tanh
@@ -34,3 +34,5 @@ $\tanh(x) + 1 = 2\sigma(2x)$, so an MLP with biases parametrizes the same functi
 - [[ReLU]] — modern replacement in hidden layers.
 - [[VanishingGradient]] — pathology tanh shares with sigmoid (milder).
 - [[LSTM]] / [[GRU]] — recurrent architectures that still use tanh.
+- [[TransistorTax]] — per [[mlsysbook-ch05-neural-computation|mlsysbook Ch 5]], tanh's exponential carries the same ~50× silicon cost over [[ReLU]]; its zero-centering is critical in recurrent nets to keep activations within hardware float limits across many time steps.
+- [[mlsysbook-ch05-neural-computation]] — systems framing.

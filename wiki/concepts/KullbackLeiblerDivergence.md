@@ -2,8 +2,8 @@
 title: "Kullback-Leibler Divergence"
 type: concept
 tags: [information-theory, foundational]
-sources: [d2l-appendix-mathematics]
-last_updated: 2026-05-16
+sources: [d2l-appendix-mathematics, mlsysbook-ch04-data-engineering, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 # Kullback-Leibler Divergence
@@ -41,8 +41,11 @@ This asymmetry is *why* [[VariationalAutoencoder|VAEs]] (which minimize reverse 
 - **Policy distillation / behavior cloning**: KL between teacher and student policies.
 - **[[RLHF]] / [[GRPO]] / [[PPO]]** regularize updates with a KL penalty to the reference policy.
 - **Diffusion model training objectives** are derived as a chain of conditional KL terms.
+- **Data-engineering drift detection** ([[mlsysbook-ch04-data-engineering|mlsysbook Ch 4]]): KL divergence (with [[PopulationStabilityIndex|PSI]]) measures the degradation equation's divergence term $\mathcal{D}(P_t \lVert P_0)$ between training and serving distributions; the [[TrainingServingConsistency|consistency imperative]] predicts accuracy degradation ∝ $\mathcal{D}_{\text{KL}}(p_{g_{\text{serve}}} \lVert p_{g_{\text{train}}})$.
 
 ## Connections
+- [[mlsysbook-ch04-data-engineering]] — ML data-engineering drift-detection use.
+- [[PopulationStabilityIndex]] — the binned companion drift metric.
 
 - [[d2l-appendix-mathematics]] — §information-theory canonical reference.
 - [[Entropy]] — KL is the gap between cross-entropy and entropy.
@@ -51,3 +54,5 @@ This asymmetry is *why* [[VariationalAutoencoder|VAEs]] (which minimize reverse 
 - [[MaximumLikelihoodEstimation]] — equivalent to forward-KL minimization.
 - [[VariationalInference]] — reverse-KL minimization with tractable $Q$.
 - [[InformationTheory]] — parent field.
+- [[mlsysbook-ch14-ml-operations]] — mlsysbook Vol 1 Ch 14 uses KL divergence as the more-sensitive (asymmetric) alternative to PSI for continuous drift, with $\mathcal{D}(P_t\|P_0)>0.1$ as a common runbook threshold.
+

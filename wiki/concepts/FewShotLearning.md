@@ -2,8 +2,8 @@
 title: "Few-Shot Learning"
 type: concept
 tags: [llm, learning-paradigms, prompt-engineering]
-sources: [ai-engineering-ch05-prompt-engineering, hands-on-llm-ch06-prompt-engineering, hands-on-llm-ch11-fine-tuning-representation-models]
-last_updated: 2026-05-23
+sources: [ai-engineering-ch05-prompt-engineering, hands-on-llm-ch06-prompt-engineering, hands-on-llm-ch11-fine-tuning-representation-models, agentic-design-patterns-appendix-a-prompting]
+last_updated: 2026-06-07
 ---
 
 # Few-Shot Learning
@@ -84,3 +84,10 @@ The Ch 11 framing positions **few-shot classification** as a **labeled-data-scar
 **Headline Ch 11 result**: 32 labeled examples (16 per class on Rotten Tomatoes) → F1 = 0.85, **matching** the F1 from a logistic regression trained on the embeddings of the **full** 8,500-example dataset (Ch 2). The combinatorial pair-expansion (32 sentences → 1,280 contrastive pairs) is what makes this efficient.
 
 SetFit also supports **zero-shot** by **synthesizing examples from label names** (e.g., labels *happy / sad* → synthetic data *"The example is happy"* / *"This example is sad"*).
+
+## From [[agentic-design-patterns-appendix-a-prompting|Agentic Design Patterns Appendix A]]
+
+[[AntonioGulli|Gulli]]'s Appendix A defines few-shot as *"enhancing one-shot prompting by supplying several examples, typically three to five, of input-output pairs"* — a general rule of thumb adjusted by task complexity and model token limits. It surfaces two practical points the wiki's other framings touch only lightly:
+
+- **Mixing up classes in classification examples.** For few-shot *classification*, **mix the order** of examples from different classes — this prevents the model from overfitting to the example *sequence* and forces it to learn each class's key features independently, yielding more robust generalization. (This appears again in Appendix A's best-practices checklist.)
+- **Evolution to "many-shot" learning.** As long-context models (e.g. [[gemini|Gemini]]) strengthen, **many-shot** (dozens to hundreds of examples directly in the prompt) becomes highly effective, letting the model learn more intricate patterns — the high end of the zero → one → few → many spectrum. Example quality and **diversity** matter throughout: even a small mistake in an example can confuse the model.

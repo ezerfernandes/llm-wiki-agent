@@ -2,8 +2,8 @@
 title: "Compute-Bound"
 type: concept
 tags: [inference, performance, hardware, roofline]
-sources: [ai-engineering-ch09-inference-optimization]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch09-inference-optimization, mlsysbook-ch05-neural-computation]
+last_updated: 2026-06-05
 ---
 
 # Compute-Bound
@@ -32,7 +32,8 @@ Compute-bound workloads typically achieve **higher [[MFU]]** (Model FLOP/s Utili
 
 ## Connections
 
-- [[MemoryBandwidthBound]] — the opposite regime, dominant for autoregressive [[Decode|decode]].
+- [[MemoryBound]] / [[MemoryBandwidthBound]] — the opposite regime; [[mlsysbook-ch05-neural-computation|mlsysbook Ch 5]] contrasts dense [[GEMM]]/[[MatrixMultiplication|matmul]] (compute-bound) against element-wise [[ReLU]] (memory-bound) and notes the whole-network "Logic to Arithmetic" shift creates compute-bound workloads.
+- [[mlsysbook-ch05-neural-computation]] — neural-computation framing.
 - [[ArithmeticIntensity]] — the classifier.
 - [[RooflineModel]] — Williams et al. 2009's cost model.
 - [[Prefill]] — the compute-bound phase of LLM inference.

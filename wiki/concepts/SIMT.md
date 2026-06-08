@@ -2,8 +2,8 @@
 title: "SIMT (Single Instruction, Multiple Thread)"
 type: concept
 tags: [gpu, cuda, parallelism, execution-model]
-sources: [parproc-ch05-cuda-gpu-programming]
-last_updated: 2026-05-17
+sources: [parproc-ch05-cuda-gpu-programming, mlsysbook-ch11-hardware-acceleration]
+last_updated: 2026-06-05
 ---
 
 # SIMT (Single Instruction, Multiple Thread)

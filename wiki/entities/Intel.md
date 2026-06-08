@@ -2,8 +2,8 @@
 title: "Intel"
 type: entity
 tags: [company, semiconductor, hardware, open-source-data]
-sources: [hands-on-llm-ch12-fine-tuning-generation-models]
-last_updated: 2026-05-23
+sources: [hands-on-llm-ch12-fine-tuning-generation-models, mlsysbook-ch11-hardware-acceleration, mlsysbook-ch13-model-serving]
+last_updated: 2026-06-05
 ---
 
 # Intel
@@ -19,3 +19,4 @@ last_updated: 2026-05-23
 - [[Argilla]] — partner on the DPO pairs dataset.
 - [[DistilabelIntelOrcaDPOPairs]] — the dataset used in Ch 12.
 - [[hands-on-llm-ch12-fine-tuning-generation-models]] — primary source.
+- [[OpenVINO]] / [[mlsysbook-ch13-model-serving]] — Intel's serving-side [[InferenceRuntime|inference runtime]] (Open Visual Inference and Neural network Optimization), mapping ops onto AVX-512/AMX for 2–5× CPU speedups; makes CPU serving viable for sub-500M-param models.

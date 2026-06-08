@@ -2,8 +2,8 @@
 title: "Mem0"
 type: entity
 tags: [framework, memory, agents, long-term-memory, vector-store, python-library]
-sources: [dspy-mem0-react-tutorial]
-last_updated: 2026-05-24
+sources: [dspy-mem0-react-tutorial, agentic-design-patterns-ch08-memory-management]
+last_updated: 2026-06-07
 ---
 
 # Mem0
@@ -92,3 +92,4 @@ Mem0's two distinguishing properties are (i) the **internal extraction LM** (dec
 - **[[openai]]** — entity. Default provider for both the extraction LM and the embedder in the wiki's canonical receipt.
 - **[[AgenticRAG]]** — concept. Adjacent pattern: agentic RAG retrieves from a document store; a Mem0-enabled agent retrieves from a **personalized memory store**.
 - **[[2604.25850-agentic-harness-engineering]]** — paper. The AHE paper positions **long-term memory** as one of the three load-bearing legs of an agent harness (alongside tools and middleware); Mem0 is a concrete instantiation of that leg.
+- **[[MemoryManagement]]** — concept. [[agentic-design-patterns-ch08-memory-management|*Agentic Design Patterns* Ch 8]] (Gulli) frames the same long-term-memory tier Mem0 occupies; Mem0's extraction-LM + vector-store design is the self-hosted peer of the managed [[VertexAiMemoryBank|Vertex AI Memory Bank]] ([[gemini|Gemini]] extracts/consolidates) and the [[LangGraph]] namespaced store.

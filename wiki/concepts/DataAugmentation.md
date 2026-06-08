@@ -1,9 +1,9 @@
 ---
 title: "Data Augmentation"
 type: concept
-tags: [training, regularization, computer-vision]
-sources: [d2l-computer-vision, ai-engineering-ch08-dataset-engineering]
-last_updated: 2024-12-04
+tags: [training, regularization, computer-vision, data-selection, mlsysbook]
+sources: [d2l-computer-vision, ai-engineering-ch08-dataset-engineering, mlsysbook-ch09-data-selection]
+last_updated: 2026-06-05
 ---
 
 # Data Augmentation
@@ -56,3 +56,15 @@ In practice, the terms are often used interchangeably "since the goal of both au
 ### Augmentation as bias mitigation
 
 The chapter's most operational claim: if your training data has gender bias (e.g., "nurse" → female; "doctor" → male), augmentation by replacing gendered tokens with their opposites can rebalance the distribution before training. This is one of the most accessible bias-mitigation techniques in the [[DatasetEngineering]] toolkit.
+
+## In [[mlsysbook-ch09-data-selection|Machine Learning Systems Ch 9]]
+
+Reddi Ch 9 frames augmentation as the lowest-cost form of [[SyntheticDataGeneration|synthetic generation]] (stage 3 of [[DataSelection|data selection]]) — multiplying training-set diversity by applying label-preserving transformations. Advanced methods: [[Cutout]] (random masks), [[MixUp]] (image/label blending), [[CutMix]] (patch pasting). Policy search via [[AutoAugment]] (15,000 GPU-hours) was displaced by [[RandAugment]] (2 hyperparameters). Text: [[BackTranslation|back-translation]], synonym replacement. Capacity-constrained models (MobileNet) rely on aggressive augmentation as the primary overfitting defense; heavy augmentation can make the CPU pipeline the bottleneck, motivating [[DataEchoing|data echoing]].
+
+## Connections
+
+- [[SyntheticDataGeneration]] / [[DataSelection]] — augmentation as pipeline stage 3 (Ch 9).
+- [[Cutout]] / [[MixUp]] / [[CutMix]] / [[RandAugment]] / [[AutoAugment]] — the augmentation method family.
+- [[ConsistencyRegularization]] — uses augmentations as a loss term (not extra data).
+- [[DataEchoing]] — addresses the CPU cost of heavy augmentation.
+- [[d2l-computer-vision]] / [[ai-engineering-ch08-dataset-engineering]] / [[mlsysbook-ch09-data-selection]] — sources.

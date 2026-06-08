@@ -2,8 +2,8 @@
 title: "One-Shot Prompting"
 type: concept
 tags: [prompt-engineering, in-context-learning, llm]
-sources: [hands-on-llm-ch06-prompt-engineering]
-last_updated: 2026-05-23
+sources: [hands-on-llm-ch06-prompt-engineering, agentic-design-patterns-appendix-a-prompting]
+last_updated: 2026-06-07
 ---
 
 # One-Shot Prompting
@@ -50,3 +50,8 @@ One-shot is the right sweet spot when:
 - [[PromptEngineering]] — discipline.
 - [[ChatTemplate]] — the `<|user|>` / `<|assistant|>` alternation needed for one-shot prompts.
 - [[GPT3]] — the model where the few-shot result first dramatically appeared.
+- [[agentic-design-patterns-appendix-a-prompting]] — Gulli's Appendix A coverage of one-shot prompting.
+
+## From [[agentic-design-patterns-appendix-a-prompting|Agentic Design Patterns Appendix A]]
+
+[[AntonioGulli|Gulli]]'s Appendix A frames one-shot prompting as *"providing the language model with a single example of the input and the corresponding desired output prior to presenting the actual task … a concrete instance it can use as a template."* Its stated sweet spot matches this page's: useful **when the desired output format or style is specific or less common**, giving the model one concrete instance to learn from and improving on zero-shot for tasks requiring a particular structure or tone. It is the middle point of the appendix's zero → one → few → many-shot spectrum.

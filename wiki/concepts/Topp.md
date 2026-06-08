@@ -2,8 +2,8 @@
 title: "Top-p (Nucleus Sampling)"
 type: concept
 tags: [sampling, inference, llm]
-sources: [ai-engineering-ch02-foundation-models, hands-on-llm-ch06-prompt-engineering]
-last_updated: 2026-05-23
+sources: [ai-engineering-ch02-foundation-models, hands-on-llm-ch06-prompt-engineering, agentic-design-patterns-appendix-a-prompting]
+last_updated: 2026-06-07
 ---
 
 # Top-p (Nucleus Sampling)
@@ -48,6 +48,7 @@ Unlike top-k, **top-p doesn't necessarily reduce softmax compute** — you still
 - [[Logprobs]] — the log-scale probabilities top-p sums.
 - [[ai-engineering-ch02-foundation-models]] — primary source (Huyen Ch 2).
 - [[hands-on-llm-ch06-prompt-engineering]] — operational source (Ch 6).
+- [[agentic-design-patterns-appendix-a-prompting]] — Gulli's Appendix A lists top-p among the sampling controls (with [[Temperature|temperature]] / [[Topk|top-k]]) in its experimentation/best-practices guidance.
 
 ## From [[hands-on-llm-ch06-prompt-engineering|Hands-On LLMs Ch 6]]
 

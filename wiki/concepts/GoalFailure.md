@@ -1,9 +1,9 @@
 ---
 title: "Goal Failure"
 type: concept
-tags: [agents, evaluation, failure-mode]
-sources: [ai-engineering-ch06-rag-agents]
-last_updated: 2024-12-04
+tags: [agents, evaluation, failure-mode, agentic-design-patterns]
+sources: [ai-engineering-ch06-rag-agents, agentic-design-patterns-ch11-goal-setting]
+last_updated: 2026-06-07
 ---
 
 # Goal Failure
@@ -25,9 +25,14 @@ A correct plan that completes after the deadline is still a goal failure — tim
 
 Most agent benchmarks measure **per-step validity** but not **goal achievement**. An agent can have 100% valid-step-rate and still fail every task if it consistently misreads the goal. Goal-failure evaluation requires task-level rubrics — was the goal achieved? Were the constraints respected? — that go beyond mechanical step counting.
 
+## The pattern that guards against it ([[agentic-design-patterns-ch11-goal-setting|Gulli Ch 11]])
+
+The [[GoalSettingAndMonitoring|Goal Setting and Monitoring]] pattern exists precisely to catch goal failure early: explicit [[SMARTGoals|SMART]] success criteria + a monitoring [[FeedbackLoop|feedback loop]] let the agent assess whether the goal is actually being met and course-correct or escalate before finishing. But [[AntonioGulli|Gulli]] flags the converse risk — *"an LLM may not fully grasp the intended meaning of a goal and might incorrectly assess its performance as successful,"* and *"when the same LLM is responsible for both writing the code and judging its quality, it may have a harder time discovering it is going the wrong direction."* A self-judging monitor can thus **mask** a goal failure (this is the [[ReflectionFailure]] overlap); the recommended mitigation is separating writer and reviewer roles across a crew of agents ([[MultiAgentCollaboration]]).
+
 ## Connections
 
 - [[PlanningFailure]] — parent.
+- [[GoalSettingAndMonitoring]] — the pattern designed to detect/prevent goal failure (and whose self-judge weakness can hide it).
 - [[ReflectionFailure]] — sibling — *believing* the goal was reached when it wasn't.
 - [[AgentEfficiency]] — time-as-goal-constraint overlap.
 - [[TravelPlannerBenchmark]] — benchmark that explicitly tests goal + constraint satisfaction.

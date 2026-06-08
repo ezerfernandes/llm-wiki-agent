@@ -12,5 +12,6 @@ When the training data are linearly separable, the unique hyperplane that maximi
 
 ## Connections
 - [[islr-seventh-printing]] — Ch.9.1.
-- [[SupportVectorClassifier]] — relaxed (soft-margin) extension.
+- [[HardMarginSVM]] — the [[mml-ch12-classification-svm|MML Ch 12]] name for this exact idea ($\min\frac12\|\mathbf{w}\|^2$ s.t. unit margin).
+- [[SupportVectorClassifier]] / [[SoftMarginSVM]] — relaxed (soft-margin) extension.
 - [[SupportVectorMachine]] — non-linear kernelized extension.

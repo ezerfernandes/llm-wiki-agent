@@ -2,8 +2,8 @@
 title: "Continual Learning"
 type: concept
 tags: [concept, llm]
-sources: [2604.27707-agentic-memory-is-a-memo, ai-engineering-ch05-prompt-engineering]
-last_updated: 2024-12-04
+sources: [2604.27707-agentic-memory-is-a-memo, ai-engineering-ch05-prompt-engineering, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 # Continual Learning

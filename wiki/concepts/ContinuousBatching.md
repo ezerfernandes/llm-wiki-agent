@@ -1,9 +1,9 @@
 ---
 title: "Continuous Batching (In-Flight Batching)"
 type: concept
-tags: [inference, optimization, serving, llm-engineering]
-sources: [leh-ch08-inference-optimization, leh-ch10-inference-pipeline-deployment, ai-engineering-ch09-inference-optimization]
-last_updated: 2024-12-04
+tags: [inference, optimization, serving, llm-engineering, mlsysbook]
+sources: [leh-ch08-inference-optimization, leh-ch10-inference-pipeline-deployment, ai-engineering-ch09-inference-optimization, mlsysbook-ch13-model-serving]
+last_updated: 2026-06-05
 ---
 
 ## Definition
@@ -43,3 +43,7 @@ The head-of-line blocking that static and dynamic batching produce, eliminated.
 ### Aliases
 
 Continuous batching is also called **in-flight batching** (especially in NVIDIA/TensorRT-LLM contexts).
+
+## From [[mlsysbook-ch13-model-serving|mlsysbook Ch 13]]
+
+Ch 13 derives *why* it is needed from variable-length output: in a batch of 8 where one sequence finishes at 10 tokens while others need 100, ~90% of that slot's compute is wasted. Continuous (iteration-level) batching reschedules at *every* token-generation step — "analogous to preemptive OS process scheduling vs. run-to-completion" — freeing a finished sequence's slot for a waiting request immediately. It pairs with [[PagedAttention]] for near-zero KV-cache fragmentation, and **Sarathi-Serve** refines the scheduler with chunked prefill + stall-free batching to reduce prefill/decode interference. It is "essential for cost-effective deployment" of [[LLMServing|LLM serving]]. See also [[mlsysbook-ch13-model-serving]].

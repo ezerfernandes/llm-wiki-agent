@@ -2,8 +2,8 @@
 title: "AlexNet"
 type: concept
 tags: [deep-learning, cnn, architecture, computer-vision]
-sources: [d2l-convolutional-modern, ai-engineering-ch01-intro]
-last_updated: 2024-12-04
+sources: [d2l-convolutional-modern, ai-engineering-ch01-intro, mlsysbook-ch01-introduction, mlsysbook-ch05-neural-computation]
+last_updated: 2026-06-05
 ---
 
 # AlexNet
@@ -64,3 +64,9 @@ AlexNet's last two FC layers are matrices of size $6400\times4096$ and $4096\tim
 - $50M to scale to 1M categories (real-world coverage).
 
 This cost curve is exactly what made language models (which derive labels from the input itself) such a structural breakthrough: AlexNet's success required *manual* labels at every step; [[LargeLanguageModel|LLMs]] succeed by avoiding them. AlexNet thus sits as the **structural counterexample** that justifies the [[FoundationModel|foundation-model]] paradigm shift.
+
+## From [[mlsysbook-ch01-introduction|Machine Learning Systems Ch 1]] — the systems co-design reading
+
+Reddi's *Machine Learning Systems* uses AlexNet as the exemplar of **[[BitterLesson|systems co-design]]**, not algorithmic novelty alone: 60M parameters across **two GTX 580 GPUs** (the famous two-stream split was a *memory* artifact of fitting into ~6 GB), 15.3% top-5 error (84.7% accuracy) — a **~42% relative improvement** over the second-place 26.2%. The breakthrough happened because the CNN's parallel matrix operations *aligned with* GPU hardware. AlexNet (1×) anchors the chapter's algorithmic-efficiency trajectory that reaches EfficientNet (~44.5×) by 2019, and its ~1.2×10¹⁸ training FLOPs are the baseline for the ~10⁷× growth to GPT-4-class training. See [[EfficiencyFramework]] and [[DAMTaxonomy]].
+
+[[mlsysbook-ch05-neural-computation|Ch 5]] reuses AlexNet as the **2012 ImageNet inflection** (25.8% → 15.3% top-5 error, before [[ResNet]]'s 2015 3.6%) and frames its two-GPU split as the **first production instance of model parallelism** — each GTX 580 held only 3 GB VRAM, forcing half the feature maps per card with cross-GPU communication only at specific layers. "Every modern pipeline-parallel strategy traces its lineage to this 3 GB ceiling."

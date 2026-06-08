@@ -2,8 +2,8 @@
 title: "Deep Learning"
 type: concept
 tags: [ml-method, neural-networks, foundational]
-sources: [d2l-preface, d2l-introduction]
-last_updated: 2026-05-16
+sources: [d2l-preface, d2l-introduction, mlsysbook-ch01-introduction, mlsysbook-ch05-neural-computation]
+last_updated: 2026-06-05
 ---
 
 # Deep Learning
@@ -31,11 +31,17 @@ Two interlocking principles capture this:
 
 Many "modern" components — [[MultilayerPerceptron|MLPs]] (McCulloch-Pitts 1943), [[CNN|CNNs]] (LeCun-Bottou-Bengio-Haffner 1998), [[lstm|LSTM]] (Hochreiter-Schmidhuber 1997), [[QLearning|Q-learning]] (Watkins-Dayan 1992) — were essentially *rediscovered* after lying dormant. The revival is what the chapter calls a "Cambrian explosion."
 
+## The systems reading (mlsysbook)
+
+Reddi's *Machine Learning Systems* ([[mlsysbook-ch01-introduction|Vol 1, Ch 1]]) frames deep learning as the era that **traded the [[FeatureEngineering|feature-engineering]] bottleneck for a compute bottleneck.** Removing hand-crafted features didn't make the problem easier — it shifted the binding constraint to infrastructure (distributed training, [[MemoryBandwidth|memory bandwidth]], energy). [[AlexNet]] (2012) is the canonical [[BitterLesson|systems co-design]] win (CNN matrix ops aligned with GPUs); [[GPT3|GPT-3]]-scale models illustrate the new ceiling (zettaFLOPs, ~1,287 MWh). The lesson: *systems* innovation, not algorithmic cleverness alone, enabled the deep-learning transition.
+
 ## Connections
 
 - [[MachineLearning]] — parent field.
+- [[BitterLesson]] / [[EfficiencyFramework]] / [[mlsysbook-ch01-introduction]] — the compute-bottleneck systems framing.
 - [[NeuralNetwork]], [[Backpropagation]], [[GradientDescent]] — the substrate.
 - [[RepresentationLearning]], [[EndToEndTraining]] — DL's two defining principles.
 - [[d2l-preface]], [[d2l-introduction]] — corpus-anchor introductions.
 - [[ComputerVision]], [[NLP]], [[SpeechRecognition]] — three transformed application domains.
 - [[transformer]], [[CNN]], [[RNN]], [[lstm]] — major architecture families.
+- [[mlsysbook-ch05-neural-computation]] — the *computational* reading: DL as a small set of primitives (matmul + [[ActivationFunction|activations]] + gradients), with depth/[[Compositionality|compositionality]] as the distinguishing mechanism and a ~1,092× MNIST compute escalation over rule-based code.

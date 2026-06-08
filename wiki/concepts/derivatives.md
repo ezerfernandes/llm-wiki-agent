@@ -2,8 +2,8 @@
 title: "Derivatives"
 type: concept
 tags: [calculus, foundational]
-sources: [d2l-preliminaries, mml-book]
-last_updated: 2026-05-16
+sources: [mml-ch05-vector-calculus, d2l-preliminaries, mml-book]
+last_updated: 2026-06-04
 ---
 
 # Derivatives
@@ -36,10 +36,17 @@ For differentiable $f, g$ and constant $C$:
 - **Non-differentiable losses** (accuracy, AUC, BLEU) are optimized via differentiable **surrogates** (cross-entropy, smoothed metrics).
 - Multivariate generalization → [[PartialDerivative]], [[Gradient]], [[Jacobian]], [[Hessian]].
 
+## From [[mml-ch05-vector-calculus|MML Ch 5]]
+
+§5.1 Def 5.2 (Eq. 5.4) defines the derivative as the limit of the [[DifferenceQuotient|difference quotient]] $\frac{\mathrm{d}f}{\mathrm{d}x}=\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}$ — the secant rotating into the tangent — and notes it *"points in the direction of steepest ascent."* MML Example 5.2 derives $\frac{\mathrm{d}}{\mathrm{d}x}x^n=nx^{n-1}$ directly from this limit (binomial expansion; the $x^n$ term cancels, $i\geq 2$ terms vanish). The univariate [[DifferentiationRules|product/quotient/sum/chain rules]] follow (§5.1.2); the multivariate generalization is the [[PartialDerivative|partial derivative]] (§5.2).
+
 ## Connections
 
+- [[mml-ch05-vector-calculus|MML Ch 5]] — §5.1 Def 5.2 canonical reference.
+- [[DifferenceQuotient]] — the limit that defines the derivative.
+- [[DifferentiationRules]] — composition rules.
 - [[d2l-preliminaries]] — definition + standard rules.
-- [[mml-book]] — Ch 5 canonical reference.
+- [[mml-book]] — umbrella source.
 - [[Calculus]] — parent topic.
 - [[PartialDerivative]] / [[Gradient]] / [[Jacobian]] / [[Hessian]] — multivariate generalizations.
 - [[ChainRule]] — composition.

@@ -2,8 +2,8 @@
 title: "Design by Contract"
 type: concept
 tags: [software-engineering, design-pattern, types, embedded]
-sources: [rust-embedded-book-static-guarantees-design-contracts]
-last_updated: 2026-05-16
+sources: [rust-embedded-book-static-guarantees-design-contracts, fuzzingbook-02-intro-testing, fuzzingbook-03-fuzzer, fuzzingbook-22-dynamic-invariants]
+last_updated: 2026-06-06
 ---
 
 # Design by Contract
@@ -70,6 +70,15 @@ All four [[StaticGuarantee|static-guarantee]] families from the book's chapter f
 | Type signature complexity | Plain | Generic over state markers |
 | Caller refactor cost on contract change | Low (`Result` already there) | Higher (signature changes) |
 
+## From The Fuzzing Book — Introduction to Software Testing
+[[fuzzingbook-02-intro-testing|Ch 2]] of *The Fuzzing Book* approaches DbC from the dynamic/testing side rather than the type-system side. It frames a function's [[Precondition|preconditions]] as caller obligations (`my_sqrt`'s implicit "`x` must be non-negative and finite," made explicit as `assert 0 <= x` in `my_sqrt_fixed`) and a function's [[Postcondition|postcondition]] as a property the result must satisfy (`root * root ≈ x`). Enforcing the postcondition on every call is its notion of [[RunTimeVerification|run-time verification]] — runtime DbC. Crucially for fuzzing, the chapter argues you can only safely *generate* calls into a function if you "*know* its precise preconditions"; at the *system* boundary, by contrast, robust code must accept and validate arbitrary input, which is what makes it fuzzable. This complements the wiki's existing compile-time (typestate) view of DbC: the Rust chapters push contracts into types, while *The Fuzzing Book* checks them dynamically via [[Assertion|assertions]].
+
+## From The Fuzzing Book — Fuzzing: Breaking Things with Random Inputs
+[[fuzzingbook-03-fuzzer|Ch 3]] extends the contract idea from single functions to **whole data structures** via the [[RepresentationInvariant|`repOK()`]] *class invariant* — the DbC clause asserting an object is internally consistent. Mutating methods assert `repOK()` both before and after every change (`add_new_airport_2`, `RedBlackTree.add_element`/`delete_element`), so a contract violation is caught at the moment of corruption. The chapter argues such assertions both *find errors* (especially under [[Fuzzing|fuzzing]]) and *document the design assumptions*, and contrasts them with [[StaticAnalysis|static type checking]] ([[MyPy]]), which enforces simple type contracts but cannot statically verify rich invariants — exactly the same runtime-vs-compile-time DbC tension the Rust chapters frame.
+
+## From The Fuzzing Book — Mining Function Specifications
+[[fuzzingbook-22-dynamic-invariants|Ch 22]] both *implements* and *mines* DbC contracts. It first builds a clean runtime-DbC mechanism: a `condition()` decorator factory yielding `@precondition(lambda x: x > 0)` and `@postcondition(lambda ret, x: ...)` decorators that `assert` the [[Precondition|pre-]]/[[Postcondition|postcondition]] around every call (a runtime form of [[DesignByContract|DbC]] / [[RunTimeVerification|run-time verification]]). It then closes the loop by *automatically inferring* the contract: the `InvariantAnnotator` observes a function's executions and emits the surviving [[DynamicInvariant|dynamic invariants]] as exactly these decorators (or, in Exercise 9, as inline `assert`s). This is the dynamic, learned counterpart to the Rust chapters' compile-time (typestate) DbC: where Rust encodes contracts into types, Ch 22 *discovers* the contract from runs and checks it at runtime — and the mined contract doubles as a regression [[TestOracle|oracle]] (it catches a `my_sqrt` that starts returning a negative root). See [[Daikon]] for the seminal tool that mines such contracts.
+
 ## Relation to adjacent patterns
 
 - [[TypeStateProgramming]] — the **mechanism** by which compile-time DbC is implemented in Rust. The wiki's DbC page is the *named framing* of *why* one would reach for typestate; the typestate page is the *how*.
@@ -80,6 +89,13 @@ All four [[StaticGuarantee|static-guarantee]] families from the book's chapter f
 
 ## Connections
 
+- [[Precondition]] / [[Postcondition]] — the caller/callee obligations DbC is built from; *The Fuzzing Book* treats them as dynamically-checked assertions.
+- [[RunTimeVerification]] — runtime DbC: enforcing the postcondition on every invocation.
+- [[fuzzingbook-02-intro-testing]] — *The Fuzzing Book* Ch 2; the dynamic/testing view of DbC (preconditions + property postconditions via `assert`).
+- [[fuzzingbook-03-fuzzer]] — *The Fuzzing Book* Ch 3; the class-invariant form of DbC ([[RepresentationInvariant|`repOK()`]]) checked before/after mutations and under fuzzing.
+- [[fuzzingbook-22-dynamic-invariants]] — *The Fuzzing Book* Ch 22; implements `@precondition`/`@postcondition` decorators and *mines* the contract automatically from executions ([[SpecificationMining]] / [[DynamicInvariant]]).
+- [[Daikon]] — the seminal tool that mines DbC contracts (likely invariants) from runs.
+- [[RepresentationInvariant]] — the data-structure invariant (`repOK()`) that is the class-level DbC clause.
 - [[StaticGuarantee]] — the wiki's umbrella term for compile-time-enforced properties; DbC is the **classical software-engineering name** for the family of designs `StaticGuarantee` covers.
 - [[rust-embedded-book-static-guarantees-design-contracts]] — the source chapter; provides the side-by-side GPIO runtime-vs-compile-time DbC worked example.
 - [[rust-embedded-book-static-guarantees-state-machines]] — the prior chapter file that built the GPIO FSM the DbC contract operates over.

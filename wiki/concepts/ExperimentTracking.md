@@ -2,8 +2,8 @@
 title: "Experiment Tracking"
 type: concept
 tags: [mlops, reproducibility, mlflow, dspy, optimization, autologging]
-sources: [dspy-optimizer-tracking-tutorial]
-last_updated: 2026-05-24
+sources: [dspy-optimizer-tracking-tutorial, mlsysbook-ch03-ml-workflow]
+last_updated: 2026-06-05
 ---
 
 # Experiment Tracking
@@ -38,3 +38,4 @@ The DSPy-specific autologging API exposes three optimization-aware kwargs — `m
 - [[CICD]] — the broader pipeline tracking integrates into.
 - [[MLOps]] — the umbrella discipline.
 - [[Reproducibility]] — the property tracking supports but does not by itself guarantee.
+- [[IterationTax]] — [[mlsysbook-ch03-ml-workflow|mlsysbook Ch 3]] casts tracking ([[MLflow]], [[WeightsAndBiases]]) as what turns rapid iteration's chaos into scientific methodology: artifact lineage answers "what exactly changed between run 47 and run 48?" months later, separating genuine gains from seed noise.

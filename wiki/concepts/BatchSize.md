@@ -2,8 +2,8 @@
 title: "Batch Size"
 type: concept
 tags: [training, hyperparameters, finetuning]
-sources: [ai-engineering-ch07-finetuning]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch07-finetuning, mlsysbook-ch05-neural-computation]
+last_updated: 2026-06-05
 ---
 
 # Batch Size
@@ -51,4 +51,5 @@ Ch 7's footnote: *"While it's commonly acknowledged that small batch sizes lead 
 - [[MemoryBottleneck]] — what bounds batch size.
 - [[HyperparameterTuning]] — the broader hyperparameter discipline.
 - [[NumberOfEpochs]] / [[LearningRate]] / [[PromptLossWeight]] — fellow finetuning hyperparameters.
+- [[MiniBatchGradientDescent]] / [[mlsysbook-ch05-neural-computation]] — Ch 5 calls batch size a *systems lever*: GPUs process 32 inputs at ~the latency of 1 ([[MatrixMultiplication|matmul]] parallelizes across the batch dim), but each doubling roughly doubles activation memory; it couples to [[LearningRate|learning rate]] via the linear scaling rule, a common single→multi-GPU divergence trap.
 - [[ai-engineering-ch07-finetuning]] — primary source.

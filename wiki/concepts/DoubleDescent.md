@@ -2,8 +2,8 @@
 title: "Double Descent"
 type: concept
 tags: [theory, generalization, deep-learning]
-sources: [d2l-multilayer-perceptrons]
-last_updated: 2026-05-16
+sources: [d2l-multilayer-perceptrons, mlsysbook-ch05-neural-computation]
+last_updated: 2026-06-05
 ---
 
 # Double Descent
@@ -34,3 +34,4 @@ Per [[d2l-multilayer-perceptrons]]: "traditional complexity-based generalization
 - [[VCDimension]] / [[RademacherComplexity]] — bounds that fail to predict double descent.
 - [[ScalingLaws]] / [[2001.08361-scaling-laws]] — empirical second descent at LLM scale.
 - [[StochasticGradientDescent]] — implicit-regularization candidate explanation.
+- [[mlsysbook-ch05-neural-computation]] — frames double descent (Belkin 2019) as the systems-level *engineering lever*: properly regularized scale lets larger models generalize better, pushing teams toward 100B+ parameter frontier models; "larger models trained longer are often more stable than smaller models stopped early."

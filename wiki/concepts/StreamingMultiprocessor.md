@@ -2,8 +2,8 @@
 title: "Streaming Multiprocessor (SM)"
 type: concept
 tags: [gpu, cuda, hardware, nvidia]
-sources: [parproc-ch05-cuda-gpu-programming]
-last_updated: 2026-05-17
+sources: [parproc-ch05-cuda-gpu-programming, mlsysbook-ch11-hardware-acceleration]
+last_updated: 2026-06-05
 ---
 
 # Streaming Multiprocessor (SM)

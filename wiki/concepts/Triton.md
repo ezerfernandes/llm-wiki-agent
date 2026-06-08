@@ -2,8 +2,8 @@
 title: "Triton (Kernel Language)"
 type: concept
 tags: [gpu, kernel, compiler, openai, infrastructure]
-sources: [ai-engineering-ch09-inference-optimization]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch09-inference-optimization, mlsysbook-ch07-ml-frameworks, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 # Triton (Kernel Language)
@@ -34,8 +34,14 @@ Triton is one of three GPU programming languages explicitly named in Ch 9 alongs
 - The [[FlashAttention]] reference implementations include Triton variants alongside CUDA ones.
 - The [[Mamba]]-family selective-scan kernels were originally written in Triton.
 
+## From [[mlsysbook-ch07-ml-frameworks|mlsysbook Vol 1 Ch 7]]
+
+Ch 7 explains *why* [[TorchInductor]] generates Triton rather than CUDA: Triton's Python-like syntax is a simpler, more stable compilation target, handling GPU details like memory coalescing automatically — a requirement for automated [[KernelFusion|kernel fusion]]. The accepted trade-off is 80–95% of hand-tuned CUDA performance in exchange for compiler-tractable autotuning and dev-time cut from weeks to hours. Triton compiles down to [[PTX]] (the stable NVIDIA IR), so the driver does the final SASS translation.
+
 ## Connections
 
+- [[mlsysbook-ch07-ml-frameworks]] — why TorchInductor emits Triton; the 80–95%-of-CUDA trade-off.
+- [[TorchInductor]] / [[PTX]] — the codegen path Triton sits in.
 - [[CUDA]] — NVIDIA's lower-level alternative.
 - [[ROCm]] — AMD's open-source alternative.
 - [[FlashAttention]] — has Triton implementations.
@@ -45,3 +51,5 @@ Triton is one of three GPU programming languages explicitly named in Ch 9 alongs
 - [[NvidiaTriton]] — the unrelated inference server (name collision).
 - [[InferenceOptimization]] — broader discipline.
 - [[ai-engineering-ch09-inference-optimization]] — primary source.
+- [[mlsysbook-ch14-ml-operations]] — mlsysbook Vol 1 Ch 14 lists NVIDIA Triton among production serving frameworks (best for multi-framework GPU serving) alongside TF Serving and KServe.
+

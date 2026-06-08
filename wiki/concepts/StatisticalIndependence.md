@@ -2,8 +2,8 @@
 title: "Statistical Independence"
 type: concept
 tags: [probability, foundational]
-sources: [d2l-preliminaries, mml-book]
-last_updated: 2026-05-16
+sources: [d2l-preliminaries, mml-book, mml-ch06-probability-and-distributions]
+last_updated: 2026-06-04
 ---
 
 # Statistical Independence
@@ -34,11 +34,23 @@ Marginal and conditional independence are distinct: each can hold without the ot
 - **Bayes nets / [[ProbabilisticGraphicalModel|PGMs]]** encode a sparse pattern of conditional independencies via a DAG, making inference tractable.
 - **Causal inference** turns on which conditional independencies a graph implies (d-separation).
 
+## From [[mml-ch06-probability-and-distributions|MML Ch 6]]
+
+[[mml-book]] §6.4.5 (book pp. 194–195, Def. 6.10): $X\perp Y$ iff $p(\mathbf x,\mathbf y)=p(\mathbf x)p(\mathbf y)$ (Eq. 6.53) — "the value of $\mathbf y$ (once known) does not add any additional information about $\mathbf x$." When independent: $p(\mathbf y\mid\mathbf x)=p(\mathbf y)$, $p(\mathbf x\mid\mathbf y)=p(\mathbf x)$, $\mathbb{V}_{X,Y}[\mathbf x+\mathbf y]=\mathbb{V}_X[\mathbf x]+\mathbb{V}_Y[\mathbf y]$, and $\mathrm{Cov}_{X,Y}[\mathbf x,\mathbf y]=\mathbf 0$.
+
+**Zero covariance does *not* imply independence** — a caveat the chapter pre-empts: [[Covariance|covariance]] measures only *linear* dependence, so nonlinearly dependent RVs can have zero covariance. **Example 6.5**: take $X$ zero-mean with $\mathbb{E}[x^3]=0$ and let $Y=x^2$ (clearly dependent on $X$); then $\mathrm{Cov}[x,y]=\mathbb{E}[xy]-\mathbb{E}[x]\mathbb{E}[y]=\mathbb{E}[x^3]=0$. The converse direction *does* hold: independence ⇒ zero covariance.
+
+The chapter also defines **i.i.d.** (independent and identically distributed, p. 195): "independent" for $>2$ variables means *mutually* independent (all subsets independent); "identically distributed" means all from the same distribution — the standing assumption that factorizes the likelihood $\prod_i p(\mathbf x_i\mid\boldsymbol\theta)$ for [[MaximumLikelihoodEstimation|MLE]]. The geometric reading (§6.4.6): in the [[InnerProduct|inner-product space of random variables]], $X\perp Y$ (uncorrelated) iff $X,Y$ are *orthogonal vectors* ($\mathrm{Cov}[x,y]=0$). See [[ConditionalIndependence]] for $X\perp\!\!\!\perp Y\mid Z$.
+
 ## Connections
 
+- [[mml-ch06-probability-and-distributions]] — §6.4.5 deep dive.
 - [[d2l-preliminaries]] — definition + both reversal examples.
 - [[mml-book]] — §6.4.5 canonical reference.
 - [[JointProbability]] — factorization criterion.
-- [[ConditionalProbability]] — alternate definition; conditional independence.
+- [[ConditionalProbability]] — alternate definition.
+- [[ConditionalIndependence]] — conditioning on a third variable.
+- [[Covariance]] — zero covariance ≠ independence (only linear dependence).
+- [[InnerProduct]] — uncorrelated = orthogonal random variables.
 - [[RandomVariable]] — the entities related.
 - [[BayesTheorem]] — independence simplifies its denominator.

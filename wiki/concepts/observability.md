@@ -2,8 +2,8 @@
 title: "observability"
 type: concept
 tags: [mlops, operations, monitoring, ai-engineering]
-sources: [ai-engineering-ch10-architecture-feedback]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch10-architecture-feedback, mlsysbook-ch14-ml-operations, agentic-design-patterns-ch19-evaluation]
+last_updated: 2026-06-07
 ---
 
 # observability
@@ -46,8 +46,13 @@ These require AI-specific metrics design (factual-consistency scoring, refusal-r
 
 Both are required; neither suffices alone.
 
+## Agent observability — [[EvaluationAndMonitoring|Agentic Design Patterns Ch 19]]
+
+[[agentic-design-patterns-ch19-evaluation|Ch 19]] (Evaluation and Monitoring) extends observability to agentic systems: latency, cost, and token-usage telemetry must be persisted to observability platforms ([[Datadog]], [[Splunk]], [[Grafana|Grafana Cloud]]) or time-series stores, and the recorded [[AgentTrajectoryEvaluation|trajectory]] (tool calls, intermediate steps) becomes the diagnostic substrate for agent debugging — the agentic analog of the [[RequestTrace|request trace]]. [[GoogleADK|Google's ADK]] surfaces this in its eval web UI, which renders per-turn Events and Traces of an agent session.
+
 ## Connections
 
+- [[EvaluationAndMonitoring]] / [[AgentTrajectoryEvaluation]] — Ch 19's agent-observability extension (trajectory as diagnostic substrate; telemetry sinks).
 - [[ai-engineering-ch10-architecture-feedback]] — primary source.
 - [[Monitoring]] / [[ModelMonitoring]] — sibling / sub-concepts.
 - [[MTTD]] / [[MTTR]] / [[ChangeFailureRate]] — the three observability-quality metrics.
@@ -55,3 +60,5 @@ Both are required; neither suffices alone.
 - [[DriftDetection]] / [[SilentModelUpdate]] — AI-specific failure modes.
 - [[LangSmith]] — Ch 10's named tracing tool (Figure 10-11).
 - [[DataObservability]] — the data-pipeline-side sibling.
+- [[mlsysbook-ch14-ml-operations]] — mlsysbook Vol 1 Ch 14 distinguishes monitoring ("is it broken?") from observability ("why?", from control theory) and derives observability cost economics (1 GB/s vs 16.7 MB/s sampling swing).
+

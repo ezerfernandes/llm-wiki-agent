@@ -1,9 +1,9 @@
 ---
 title: "Model Collapse"
 type: concept
-tags: [synthetic-data, training, llm-failure-mode]
-sources: [ai-engineering-ch08-dataset-engineering]
-last_updated: 2024-12-04
+tags: [synthetic-data, training, llm-failure-mode, data-selection, mlsysbook]
+sources: [ai-engineering-ch08-dataset-engineering, mlsysbook-ch09-data-selection]
+last_updated: 2026-06-05
 ---
 
 # Model Collapse
@@ -53,10 +53,15 @@ Counter-finding: the *more faithful* the model's outputs to the original trainin
 - Track [[DataLineage|data lineage]] — recursive contamination is hard to detect after-the-fact.
 - Limit recursion depth.
 
+## In [[mlsysbook-ch09-data-selection|Machine Learning Systems Ch 9]]
+
+Reddi Ch 9 cites Shumailov et al. 2024 with a concrete degradation curve: generative models systematically underrepresent tail distributions, so recursive training compresses the tails each generation — **original diversity can drop below 50% by generation 5**. This is the chapter's central caution against pure synthetic training and a key reason its optimal mixes are 50–80% synthetic + 20–50% real (alongside the [[DomainGap|domain gap]]).
+
 ## Connections
 
 - [[SuperficialImitation]] — sibling limit on AI-generated data; about teacher → student knowledge transfer.
-- [[DataSynthesis]] / [[AIPoweredDataSynthesis]] — the practice that risks collapse.
+- [[DataSynthesis]] / [[AIPoweredDataSynthesis]] / [[SyntheticDataGeneration]] — the practice that risks collapse.
+- [[DomainGap]] — the second failure mode of synthetic-only training in Ch 9.
 - [[DataLineage]] — the tracking discipline that detects recursive contamination.
 - [[Hallucination]] — the failure mode collapsed models often exhibit.
-- [[ai-engineering-ch08-dataset-engineering]] — primary source.
+- [[ai-engineering-ch08-dataset-engineering]] / [[mlsysbook-ch09-data-selection]] — sources.

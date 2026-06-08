@@ -2,8 +2,8 @@
 title: "Backpropagation"
 type: concept
 tags: [deep-learning, optimization, vector-calculus, foundational]
-sources: [mml-book, d2l-preliminaries, d2l-multilayer-perceptrons, d2l-convolutional-neural-networks, ai-engineering-ch07-finetuning]
-last_updated: 2026-05-23
+sources: [mml-ch05-vector-calculus, mml-book, d2l-preliminaries, d2l-multilayer-perceptrons, d2l-convolutional-neural-networks, ai-engineering-ch07-finetuning, mlsysbook-ch05-neural-computation]
+last_updated: 2026-06-05
 ---
 
 # Backpropagation
@@ -38,6 +38,14 @@ $$
 
 and so on — the canonical chain-rule + Hadamard-product walk used to motivate every framework's autograd implementation.
 
+## From [[mml-ch05-vector-calculus|MML Ch 5]]
+
+§5.6 is the canonical reference. MML motivates backprop by the impracticality of explicit symbolic gradients: for $f(x)=\sqrt{x^2+\exp(x^2)}+\cos(x^2+\exp(x^2))$ (Eq. 5.109) the analytic derivative (5.110) is a long, expensive expression — *"if we are not careful, the implementation of the gradient could be significantly more expensive than computing the function."* Backprop (citing Kelley 1960; Bryson 1961; Dreyfus 1962; Rumelhart et al. 1986) avoids this.
+
+**§5.6.1 — gradients in a deep network.** A net is the composition $\mathbf{y}=(f_K\circ\cdots\circ f_1)(\mathbf{x})$ (Eq. 5.111), layers $\mathbf{f}_i=\sigma_i(\mathbf{A}_{i-1}\mathbf{f}_{i-1}+\mathbf{b}_{i-1})$ (Eq. 5.113), squared loss $L=\|\mathbf{y}-\mathbf{f}_K\|^2$ (Eq. 5.114). The chain rule for $\frac{\partial L}{\partial\boldsymbol\theta_i}$ (Eqs. 5.115–5.118) shows the recursion reuses upstream work: *"Assuming we have already computed the partial derivatives $\partial L/\partial\boldsymbol\theta_{i+1}$, then most of the computation can be reused to compute $\partial L/\partial\boldsymbol\theta_i$."* Orange terms = layer-output-w.r.t.-input; blue terms = layer-output-w.r.t.-parameters.
+
+**§5.6.2 — backprop *is* [[ReverseModeAutodiff|reverse-mode]] [[AutomaticDifferentiation|automatic differentiation]].** MML's headline statement: *"backpropagation is a special case of a general technique... called automatic differentiation"* — a numeric-but-exact (up to machine precision) gradient, distinct from both symbolic differentiation and finite differences. Formalized over a [[ComputationalGraph|computation graph]]: set $\frac{\partial f}{\partial x_D}=1$ (Eq. 5.144), accumulate backward via $\frac{\partial f}{\partial x_i}=\sum_{x_j:\,x_i\in\mathrm{Pa}(x_j)}\frac{\partial f}{\partial x_j}\frac{\partial g_j}{\partial x_i}$ (Eq. 5.145). Reverse mode wins because *"the input dimensionality is often much higher than the dimensionality of the labels."* Deep insight (Example 5.14): **gradient cost ≈ function cost**, even when the symbolic derivative looks far worse.
+
 ## Combined with optimization
 
 Backprop computes *gradients*; it does not update parameters. The downstream consumer is some variant of [[GradientDescent]] (vanilla, [[Momentum]], [[Adam]]). Together: **backprop + SGD = the entire training loop of every neural network in this wiki**.
@@ -58,6 +66,8 @@ Backprop computes *gradients*; it does not update parameters. The downstream con
 - [[GradientDescent]] — what consumes backprop's output.
 - [[Autograd]] — the [[PyTorch]] implementation.
 - [[FlashAttention]] — recomputation strategy that saves backprop activations.
+- [[CreditAssignment]] / [[ModelSize]] — the problem backprop solves and its training-memory consequence.
+- [[mlsysbook-ch05-neural-computation]] — systems framing: 2× forward FLOPs, O(1)× cost, activation-storage memory gap.
 
 ## From [[ai-engineering-ch07-finetuning|AI Engineering Ch 7]]
 
@@ -84,3 +94,12 @@ This is the **fundamental reason** [[QuantizationAwareTraining|QAT]] and [[Mixed
 - **Direct feedback alignment** (Arild Nøkland, 2016) — alternative credit-assignment scheme.
 
 These remain experimental — backprop + variants of SGD remain "by far the most widely used" mechanism for transformer training.
+
+## Systems framing (mlsysbook Ch 5)
+
+[[mlsysbook-ch05-neural-computation|mlsysbook Vol 1 Ch 5]] defines backprop as "the efficient application of the chain rule to a [[ComputationalGraph|computational graph]], computing the gradient of the loss w.r.t. every parameter in a single backward traversal to solve the **[[CreditAssignment|credit assignment problem]]**" (illustrated with a factory-assembly-line analogy). Key quantitative claims:
+
+- The backward pass costs **~2× the forward-pass FLOPs** and computes all P gradients in **one** pass — O(1)× the forward cost regardless of model size, vs numerical differentiation's O(P)× (P perturbed forward passes).
+- The three per-layer gradient components: weight `∂L/∂W = A^(ℓ-1)ᵀ · ∂L/∂Z`, bias `∂L/∂b = 1ᵀ · ∂L/∂Z`, input `∂L/∂A^(ℓ-1) = ∂L/∂Z · W^(ℓ)ᵀ`.
+- **Common pitfall**: backprop is *not* learning — it computes gradients; the optimizer performs the update. "Backpropagation determines the memory footprint; the optimizer determines the additional state overhead."
+- For the MNIST MLP at batch 32, the stored-activation requirement makes **training ~4× the inference memory** — the structural driver behind [[GradientCheckpointing|gradient checkpointing]] and [[ModelParallelism|model parallelism]] (see [[ModelSize]]).

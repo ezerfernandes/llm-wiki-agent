@@ -2,8 +2,8 @@
 title: "FPU (Floating-Point Unit)"
 type: concept
 tags: [embedded, hardware, cpu, floating-point, acronym]
-sources: [rust-embedded-book-appendix-glossary, rust-embedded-book-start-hardware]
-last_updated: 2026-05-16
+sources: [rust-embedded-book-appendix-glossary, rust-embedded-book-start-hardware, mlsysbook-ch11-hardware-acceleration]
+last_updated: 2026-06-05
 ---
 
 # FPU — Floating-Point Unit

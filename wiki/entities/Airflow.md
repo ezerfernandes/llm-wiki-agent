@@ -2,8 +2,8 @@
 title: "Apache Airflow"
 type: entity
 tags: [tool, orchestrator, workflow, open-source]
-sources: [leh-ch02-tooling-and-installation, leh-ch11-mlops-and-llmops, ai-engineering-ch10-architecture-feedback]
-last_updated: 2024-12-04
+sources: [leh-ch02-tooling-and-installation, leh-ch11-mlops-and-llmops, ai-engineering-ch10-architecture-feedback, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 ## What it is
@@ -17,6 +17,8 @@ Ch. 2 ([[leh-ch02-tooling-and-installation]]) names Airflow among the orchestrat
 - [[Prefect]] / [[Dagster]] / [[Metaflow]] / [[ArgoWorkflows]] / [[Kubeflow]] — other orchestrators compared.
 - [[DataPipeline]] / [[DirectedAcyclicGraph]] — what Airflow runs.
 - [[Orchestrator]] — category Airflow belongs to.
+- [[mlsysbook-ch14-ml-operations]] — Ch 14 lists Apache Airflow among orchestration tools (with Prefect, dbt) for automated, freshness-maintaining data pipelines.
+
 
 ## From [[ai-engineering-ch10-architecture-feedback|AI Engineering Ch 10]]
 

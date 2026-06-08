@@ -2,8 +2,8 @@
 title: "Forward Propagation"
 type: concept
 tags: [deep-learning, training, foundational]
-sources: [d2l-multilayer-perceptrons]
-last_updated: 2026-05-16
+sources: [d2l-multilayer-perceptrons, mlsysbook-ch05-neural-computation]
+last_updated: 2026-06-05
 ---
 
 # Forward Propagation
@@ -40,3 +40,5 @@ Caching all intermediates is the dominant memory cost of training. For a depth-$
 - [[NeuralNetwork]] / [[MultilayerPerceptron]] — what forward propagates through.
 - [[Autograd]] — framework engines that build the graph during the forward pass.
 - [[ChainRule]] — what backward applies to the cached forward variables.
+- [[MatrixMultiplication]] / [[GEMM]] — per [[mlsysbook-ch05-neural-computation|mlsysbook Ch 5]], the forward pass is a chain of matmuls interleaved with [[ActivationFunction|activations]]; [[GEMM]] = >90% of its FLOPs. The MNIST first layer alone is 100,352 MACs/image.
+- [[mlsysbook-ch05-neural-computation]] — forward pass as the dominant inference workload.

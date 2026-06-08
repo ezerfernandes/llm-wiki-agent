@@ -2,8 +2,8 @@
 title: "Convolutional Neural Network"
 type: concept
 tags: [deep-learning, architectures, cnn, computer-vision]
-sources: [d2l-convolutional-neural-networks, madewithml-foundations-cnn, imlbook-cnn-features]
-last_updated: 2026-05-16
+sources: [d2l-convolutional-neural-networks, madewithml-foundations-cnn, imlbook-cnn-features, mlsysbook-ch06-network-architectures]
+last_updated: 2026-06-05
 ---
 
 # CNN
@@ -67,3 +67,4 @@ The locality + translation-invariance prior is not vision-only: 1-D convolutions
 - [[ComputerVision]] — primary application domain.
 - [[TranslationInvariance]] / [[Locality]] / [[InductiveBias]] — conceptual frame.
 - [[Backpropagation]] / [[XavierInitialization]] / [[CrossEntropyLoss]] / [[MinibatchSGD]] — training stack.
+- [[mlsysbook-ch06-network-architectures]] — systems view: CNNs are the *compute-bound* family (high [[ArithmeticIntensity|arithmetic intensity]], ~40 FLOP/byte for [[ResNet|ResNet-50]]) thanks to [[WeightSharing|weight sharing]], which decouples parameter count from input resolution (~5,500× fewer params than the equivalent FC layer); implemented on hardware via [[Im2col|im2col]]→[[GEMM]]; the spatial-locality [[InductiveBias|inductive bias]] gives ~47× fewer params than an MLP on MNIST.

@@ -1,9 +1,9 @@
 ---
 title: "Actor-Critic Agent"
 type: concept
-tags: [reinforcement-learning, agents, reflection]
-sources: [ai-engineering-ch06-rag-agents]
-last_updated: 2024-12-04
+tags: [reinforcement-learning, agents, reflection, agentic-design-patterns]
+sources: [ai-engineering-ch06-rag-agents, agentic-design-patterns-ch04-reflection]
+last_updated: 2026-06-07
 ---
 
 # Actor-Critic Agent
@@ -38,9 +38,14 @@ But she predicts convergence:
 
 Actor-critic is the *structural* substrate that already enables this merge: prompted LLMs can play either role, and RL training can be added on top of the same architectural skeleton.
 
+## In Agentic Design Patterns (Gulli Ch 4)
+
+[[agentic-design-patterns-ch04-reflection|Ch 4 of *Agentic Design Patterns*]] names the same decomposition the **Producer–Critic** (or "Generator-Critic" / "Producer-Reviewer") model and makes it the recommended implementation of the [[Reflection]] pattern: a **Producer** agent generates content (the *actor*), and a **Critic** agent with a distinct persona evaluates it and returns structured feedback (the *critic*). Gulli's argument for the split — that a separate critic "prevents the 'cognitive bias' of an agent reviewing its own work" — is the practitioner-level rationale for the same actor/critic separation this RL architecture formalizes. The book realizes it concretely as [[GoogleADK|ADK]]'s `SequentialAgent(sub_agents=[generator, reviewer])` and [[LangChain]]'s producer + `reflector_prompt` critic loop.
+
 ## Connections
 
 - [[Agent]] — the parent abstraction.
+- [[Reflection]] — the agentic Producer-Critic pattern (Gulli Ch 4) that mirrors actor-critic at the prompt/framework level.
 - [[react|ReAct]] / [[reflexion|Reflexion]] — modern LLM realizations of the actor-evaluator pattern.
 - [[ReinforcementLearning]] — the parent RL field.
 - [[SelfCritique]] — the LLM-side mechanism.

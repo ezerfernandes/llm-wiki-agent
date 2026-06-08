@@ -1,9 +1,9 @@
 ---
 title: "Kernel Density Estimation"
 type: concept
-tags: [statistics, probability, nonparametric, parallel-computing]
-sources: [parproc-ch14-statistics-data-mining]
-last_updated: 2026-05-17
+tags: [statistics, probability, nonparametric, parallel-computing, density-estimation]
+sources: [parproc-ch14-statistics-data-mining, mml-ch11-density-estimation-gmm]
+last_updated: 2026-06-05
 ---
 
 # Kernel Density Estimation
@@ -38,8 +38,15 @@ Two strategies:
 
 Different values of h can also be explored simultaneously, with each process using its own h.
 
+## From [[mml-ch11-density-estimation-gmm|MML Ch 11]] (nonparametric alternative to the GMM)
+
+[[mml-ch11-density-estimation-gmm|MML §11.5]] (p. 369) presents KDE as a **nonparametric [[DensityEstimation|density-estimation]]** technique alongside [[Histogram|histograms]], contrasted with the *parametric* [[GaussianMixtureModel|GMM]] that the chapter develops. Independently proposed by **Rosenblatt (1956)** and **Parzen (1962)**, the estimator (MML Eq. 11.74) is $p(\mathbf x)=\tfrac1{Nh}\sum_{n=1}^N k\!\big(\tfrac{\mathbf x-\mathbf x_n}{h}\big)$, where $k$ is a nonnegative kernel integrating to 1 (commonly uniform or Gaussian) and $h>0$ is the bandwidth "which plays a similar role as the bin size in histograms." A kernel is placed **on every single data point** — unlike the GMM's fixed $K$ components — so the model complexity grows with the data. With a smooth (e.g. Gaussian) kernel, KDE guarantees a smooth density estimate, improving on the histogram's unsmoothed step function (MML Fig. 11.13 contrasts the two on 250 points). This is the MML notation of the same estimator written with $n/X_i/t$ in the [[parproc-ch14-statistics-data-mining|parproc]] treatment above.
+
 ## Connections
 
+- [[mml-ch11-density-estimation-gmm]] — §11.5, KDE as a nonparametric density-estimation method (Eq. 11.74; Rosenblatt 1956 / Parzen 1962).
+- [[DensityEstimation]] — the umbrella problem; KDE is the smooth nonparametric option.
+- [[GaussianMixtureModel]] — the parametric mixture alternative from the same MML chapter.
 - [[ProbabilityDensityFunction]] — the function being estimated.
 - [[Histogram]] — the cruder, step-function alternative that KDE improves upon.
 - [[FastFourierTransform]] — KDE has convolution form; parallelization can reduce to parallel FFT.

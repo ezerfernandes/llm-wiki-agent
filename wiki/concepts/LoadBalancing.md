@@ -1,9 +1,9 @@
 ---
 title: "Load Balancing"
 type: concept
-tags: [parallel-computing, performance]
-sources: [parproc-ch02-recurring-performance-issues]
-last_updated: 2026-05-17
+tags: [parallel-computing, performance, serving, mlsysbook]
+sources: [parproc-ch02-recurring-performance-issues, mlsysbook-ch13-model-serving]
+last_updated: 2026-06-05
 ---
 
 # Load Balancing
@@ -32,9 +32,15 @@ When the i.i.d. assumption fails (Mandelbrot's spatial correlation; mutual outli
 | `guided`     | 29.6 | chunk size shrinks over time |
 | `random`     | **15.7** | Method A' — randomized static, wins by 26% |
 
+## The serving load-balancer layer ([[mlsysbook-ch13-model-serving|mlsysbook Ch 13]])
+
+In model serving, the load balancer is a distinct infrastructure layer sitting between clients and model replicas, providing three functions: **request distribution** (round-robin / least-connections; for latency-sensitive ML, route *away* from slow/overloaded replicas to improve [[TailLatency|tail latency]]), **health monitoring** (verify both process liveness *and* model readiness — weights loaded, warmup complete), and **deployment support** (gradually shift traffic between versions for canary/blue-green/shadow rollouts). Single-machine multi-instance serving lets the framework/OS queue; full load balancing becomes necessary at distributed (multi-machine) scale. It also implements [[HedgedRequests|hedged requests]] and coordinated load shedding ([[AdmissionControl|admission control]]).
+
 ## Connections
 
-- [[parproc-ch02-recurring-performance-issues]] — primary source.
+- [[parproc-ch02-recurring-performance-issues]] — primary source (parallel-computing sense).
+- [[mlsysbook-ch13-model-serving]] — the serving load-balancer layer (request distribution, health checks, deployment support).
+- [[InferenceServer]] / [[TailLatency]] / [[HedgedRequests]] / [[AdmissionControl]] — adjacent serving concepts.
 - [[CommunicationBottleneck]] — communication and load balancing are the two sides of the same coin: dynamic schedulers trade load imbalance for communication overhead.
 - [[StaticTaskAssignment]] — the recommended default.
 - [[DynamicTaskAssignment]] — the more flexible but more expensive alternative.

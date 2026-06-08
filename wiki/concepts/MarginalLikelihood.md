@@ -2,8 +2,8 @@
 title: "Marginal Likelihood"
 type: concept
 tags: [bayesian, model-selection, gaussian-processes]
-sources: [d2l-gaussian-processes]
-last_updated: 2026-05-16
+sources: [d2l-gaussian-processes, mml-ch08-when-models-meet-data, mml-ch09-linear-regression]
+last_updated: 2026-06-04
 ---
 
 # Marginal Likelihood
@@ -40,6 +40,25 @@ The marginal likelihood is **not convex** in $\theta$. Different local optima en
 - *Small $\ell$ + small $\sigma^2$* — rapidly varying function with little observation noise.
 
 Both can be plausible for the same data; the choice between them is a **prior commitment** that the marginal likelihood alone cannot resolve.
+
+## From [[mml-ch08-when-models-meet-data|MML Ch 8]]
+
+[[mml-ch08-when-models-meet-data|MML Ch 8]] uses the marginal likelihood as the **central quantity for [[ModelSelection|model selection]]**. §8.4.1 identifies it as one of the three things the joint $p(\mathbf{x},\boldsymbol\theta)$ encapsulates: $p(\mathbf{x})$ "can be computed by taking the joint distribution and integrating out the parameters (sum rule)." §8.6.2 frames model selection as hierarchical inference: the **model evidence / marginal likelihood** of model $M_k$ is
+
+$$p(\mathcal{D}\,|\,M_k)=\int p(\mathcal{D}\,|\,\boldsymbol\theta_k)\,p(\boldsymbol\theta_k\,|\,M_k)\,d\boldsymbol\theta_k\qquad(\text{Eq. 8.44}),$$
+
+and under a uniform model prior the MAP model is the one maximizing this evidence (Eq. 8.45). The chapter's **Remark (likelihood vs marginal likelihood)** (§8.6.2, p. 286) is the crux: *"While the likelihood is prone to overfitting, the marginal likelihood is typically not, as the model parameters have been marginalized out (i.e., we no longer have to fit the parameters). Furthermore, the marginal likelihood automatically embodies a trade-off between model complexity and data fit ([[OccamsRazor|Occam's razor]])"* — the same data-fit + complexity-penalty decomposition exhibited above for the GP case (Fig. 8.14). It is the numerator/denominator of the [[BayesFactor|Bayes factor]] (§8.6.3) and — per the Jeffreys–Lindley paradox — a diffuse prior makes a complex model's evidence very small. Computing it generally requires an intractable integral (numerical integration / Monte Carlo), with a closed form only for [[ConjugatePrior|conjugate priors]] (done for [[BayesianLinearRegression|linear regression]] in Ch 9).
+
+## From [[mml-ch09-linear-regression|MML Ch 9]] (the closed-form case)
+
+[[mml-ch09-linear-regression|MML Ch 9]] §9.3.5 is the **one model where the marginal likelihood is computed in closed form** (the conjugate-Gaussian special case Ch 8 promised). For the generative process $\boldsymbol\theta\sim\mathcal{N}(\mathbf{m}_0,\mathbf{S}_0)$, $y_n\mid\mathbf{x}_n,\boldsymbol\theta\sim\mathcal{N}(\mathbf{x}_n^\top\boldsymbol\theta,\sigma^2)$, the evidence is itself a Gaussian in $\mathbf{y}$ (product of Gaussians + linear transform are Gaussian, §6.5.2):
+$$p(\mathcal{Y}\mid\mathcal{X})=\int p(\mathcal{Y}\mid\mathcal{X},\boldsymbol\theta)p(\boldsymbol\theta)\,d\boldsymbol\theta=\mathcal{N}\big(\mathbf{y}\,\big|\,\mathbf{X}\mathbf{m}_0,\ \mathbf{X}\mathbf{S}_0\mathbf{X}^\top+\sigma^2\mathbf{I}\big)\quad(\text{Eqs. 9.61–9.64}),$$
+with mean $\mathbf{X}\mathbf{m}_0$ (Eq. 9.62) and covariance $\mathbf{X}\mathbf{S}_0\mathbf{X}^\top+\sigma^2\mathbf{I}$ (Eq. 9.63). A Remark (p. 309) sharply distinguishes it from the [[PosteriorPredictiveDistribution|posterior predictive]]: both are likelihood expectations, but the **marginal likelihood predicts the *training* targets $\mathbf{y}$ averaged under the *prior*** ($\mathbb{E}_{\boldsymbol\theta}[p(\mathcal{Y}\mid\mathcal{X},\boldsymbol\theta)]$), whereas the predictive predicts *test* targets averaged under the *posterior*. This is the finite-feature analogue of the GP marginal-likelihood objective above (its covariance $\mathbf{X}\mathbf{S}_0\mathbf{X}^\top+\sigma^2\mathbf{I}$ is exactly a linear/dot-product kernel Gram matrix plus noise).
+
+## Connections
+
+- [[mml-ch09-linear-regression]] — §9.3.5 closed-form marginal likelihood for Bayesian linear regression (Eq. 9.64).
+- [[mml-ch08-when-models-meet-data]] — §8.4.1 (joint), §8.6.2 (model evidence + Occam's razor), §8.6.3 (Bayes factor).
 
 ## Practical optimization
 

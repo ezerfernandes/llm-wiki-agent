@@ -2,8 +2,8 @@
 title: "Geoffrey Hinton"
 type: entity
 tags: [person, researcher, deep-learning, turing-award]
-sources: [d2l-convolutional-modern, d2l-multilayer-perceptrons, d2l-optimization]
-last_updated: 2026-05-16
+sources: [d2l-convolutional-modern, d2l-multilayer-perceptrons, d2l-optimization, mlsysbook-ch05-neural-computation, mlsysbook-ch09-data-selection, mlsysbook-ch10-model-compression]
+last_updated: 2026-06-05
 ---
 
 # Geoffrey Hinton
@@ -32,3 +32,6 @@ British-Canadian cognitive psychologist and computer scientist; long-time Univer
 - [[YannLeCun]] / [[YoshuaBengio]] — 2018 Turing Award co-recipients.
 - [[Backpropagation]] — co-introduced backprop into NN practice.
 - [[CNN]] / [[ImageNet]] — the architectures and benchmark his AlexNet broke through on.
+- [[ReLU]] / [[mlsysbook-ch05-neural-computation]] — Reddi's Ch 5 credits Nair & Hinton (2010) with demonstrating ReLU's effective deep-net training, and names Hinton (with [[YannLeCun|LeCun]]/[[YoshuaBengio|Bengio]]) as the 2018 Turing trio whose contributions (backprop, conv nets, sequence models) shaped the three dominant accelerator workloads.
+- [[KnowledgeDistillation]] / [[mlsysbook-ch09-data-selection]] — coined "dark knowledge" (Hinton et al. 2015); Ch 9 frames distillation's soft labels as a [[DataSelection|data-selection]] technique that raises information density per sample.
+- [[KnowledgeDistillation]] / [[mlsysbook-ch10-model-compression]] — Ch 10's distillation math (temperature-scaled softmax, $T^2$ KL loss) is the Hinton et al. (2015) formulation; the [[AlexKrizhevsky|AlexNet]] two-GPU split he co-authored anchors the chapter's "memory shaped deep learning since 2012" war story.

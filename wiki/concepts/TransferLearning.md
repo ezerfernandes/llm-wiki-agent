@@ -2,8 +2,8 @@
 title: "Transfer Learning"
 type: concept
 tags: [training, pretrained-models]
-sources: [madewithml-transformers, d2l-computer-vision, ai-engineering-ch07-finetuning]
-last_updated: 2026-05-23
+sources: [madewithml-transformers, d2l-computer-vision, ai-engineering-ch07-finetuning, mlsysbook-ch03-ml-workflow]
+last_updated: 2026-06-05
 ---
 
 # Transfer Learning
@@ -58,3 +58,7 @@ Ch 7 opens with the **transfer-learning framing of finetuning**: "transfer learn
 > "While training a model from scratch for legal question answering may need millions of examples, finetuning a good base model might only require a few hundred." — Ch 7
 
 This is the empirical claim that anchors the chapter's pro-finetuning argument — though [[ChipHuyen|Huyen]] immediately tempers it with the "earn it via prompting first" rule.
+
+### In the ML workflow
+
+Reddi's *Machine Learning Systems* ([[mlsysbook-ch03-ml-workflow|Vol 1, Ch 3]]) frames transfer learning as the lever that resolves the [[DiabeticRetinopathyScreening|DR]] system's sharp optimization challenge: pretraining on [[ImageNet]]'s ~14M images then fine-tuning on ~128K retinal images reached AUC 0.99 (Gulshan et al. 2016). Without it the project would need 10–100× more labeled images, making annotation cost prohibitive — it reduces the iron law's $D$, $D_{vol}$, and $O$ terms simultaneously. Became widespread ~2013–2014 (Yosinski et al. 2014).

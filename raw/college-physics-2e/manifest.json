@@ -1,0 +1,1325 @@
+{
+  "book": "College Physics 2e",
+  "publisher": "OpenStax",
+  "license": "CC BY 4.0",
+  "source_url": "https://openstax.org/details/books/college-physics-2e",
+  "base": "https://openstax.org/books/college-physics-2e/pages/",
+  "chapters": [
+    {
+      "chapter": 1,
+      "title": "Introduction: The Nature of Science and Physics",
+      "sections": [
+        {
+          "slug": "1-introduction-to-science-and-the-realm-of-physics-physical-quantities-and-units",
+          "title": "Introduction to Science and the Realm of Physics, Physical Quantities, and Units"
+        },
+        {
+          "slug": "1-1-physics-an-introduction",
+          "title": "1.1 Physics: An Introduction"
+        },
+        {
+          "slug": "1-2-physical-quantities-and-units",
+          "title": "1.2 Physical Quantities and Units"
+        },
+        {
+          "slug": "1-3-accuracy-precision-and-significant-figures",
+          "title": "1.3 Accuracy, Precision, and Significant Figures"
+        },
+        {
+          "slug": "1-4-approximation",
+          "title": "1.4 Approximation"
+        }
+      ]
+    },
+    {
+      "chapter": 2,
+      "title": "Kinematics",
+      "sections": [
+        {
+          "slug": "2-introduction-to-one-dimensional-kinematics",
+          "title": "Introduction to One-Dimensional Kinematics"
+        },
+        {
+          "slug": "2-1-displacement",
+          "title": "2.1 Displacement"
+        },
+        {
+          "slug": "2-2-vectors-scalars-and-coordinate-systems",
+          "title": "2.2 Vectors, Scalars, and Coordinate Systems"
+        },
+        {
+          "slug": "2-3-time-velocity-and-speed",
+          "title": "2.3 Time, Velocity, and Speed"
+        },
+        {
+          "slug": "2-4-acceleration",
+          "title": "2.4 Acceleration"
+        },
+        {
+          "slug": "2-5-motion-equations-for-constant-acceleration-in-one-dimension",
+          "title": "2.5 Motion Equations for Constant Acceleration in One Dimension"
+        },
+        {
+          "slug": "2-6-problem-solving-basics-for-one-dimensional-kinematics",
+          "title": "2.6 Problem-Solving Basics for One-Dimensional Kinematics"
+        },
+        {
+          "slug": "2-7-falling-objects",
+          "title": "2.7 Falling Objects"
+        },
+        {
+          "slug": "2-8-graphical-analysis-of-one-dimensional-motion",
+          "title": "2.8 Graphical Analysis of One-Dimensional Motion"
+        }
+      ]
+    },
+    {
+      "chapter": 3,
+      "title": "Two-Dimensional Kinematics",
+      "sections": [
+        {
+          "slug": "3-introduction-to-two-dimensional-kinematics",
+          "title": "Introduction to Two-Dimensional Kinematics"
+        },
+        {
+          "slug": "3-1-kinematics-in-two-dimensions-an-introduction",
+          "title": "3.1 Kinematics in Two Dimensions: An Introduction"
+        },
+        {
+          "slug": "3-2-vector-addition-and-subtraction-graphical-methods",
+          "title": "3.2 Vector Addition and Subtraction: Graphical Methods"
+        },
+        {
+          "slug": "3-3-vector-addition-and-subtraction-analytical-methods",
+          "title": "3.3 Vector Addition and Subtraction: Analytical Methods"
+        },
+        {
+          "slug": "3-4-projectile-motion",
+          "title": "3.4 Projectile Motion"
+        },
+        {
+          "slug": "3-5-addition-of-velocities",
+          "title": "3.5 Addition of Velocities"
+        }
+      ]
+    },
+    {
+      "chapter": 4,
+      "title": "Dynamics: Force and Newton's Laws of Motion",
+      "sections": [
+        {
+          "slug": "4-introduction-to-dynamics-newtons-laws-of-motion",
+          "title": "Introduction to Dynamics: Newton\u2019s Laws of Motion"
+        },
+        {
+          "slug": "4-1-development-of-force-concept",
+          "title": "4.1 Development of Force Concept"
+        },
+        {
+          "slug": "4-2-newtons-first-law-of-motion-inertia",
+          "title": "4.2 Newton\u2019s First Law of Motion: Inertia"
+        },
+        {
+          "slug": "4-3-newtons-second-law-of-motion-concept-of-a-system",
+          "title": "4.3 Newton\u2019s Second Law of Motion: Concept of a System"
+        },
+        {
+          "slug": "4-4-newtons-third-law-of-motion-symmetry-in-forces",
+          "title": "4.4 Newton\u2019s Third Law of Motion: Symmetry in Forces"
+        },
+        {
+          "slug": "4-5-normal-tension-and-other-examples-of-forces",
+          "title": "4.5 Normal, Tension, and Other Examples of Forces"
+        },
+        {
+          "slug": "4-6-problem-solving-strategies",
+          "title": "4.6 Problem-Solving Strategies"
+        },
+        {
+          "slug": "4-7-further-applications-of-newtons-laws-of-motion",
+          "title": "4.7 Further Applications of Newton\u2019s Laws of Motion"
+        },
+        {
+          "slug": "4-8-extended-topic-the-four-basic-forces-an-introduction",
+          "title": "4.8 Extended Topic: The Four Basic Forces\u2014An Introduction"
+        }
+      ]
+    },
+    {
+      "chapter": 5,
+      "title": "Further Applications of Newton's Laws: Friction, Drag, and Elasticity",
+      "sections": [
+        {
+          "slug": "5-introduction-further-applications-of-newtons-laws",
+          "title": "Introduction: Further Applications of Newton\u2019s Laws"
+        },
+        {
+          "slug": "5-1-friction",
+          "title": "5.1 Friction"
+        },
+        {
+          "slug": "5-2-drag-forces",
+          "title": "5.2 Drag Forces"
+        },
+        {
+          "slug": "5-3-elasticity-stress-and-strain",
+          "title": "5.3 Elasticity: Stress and Strain"
+        }
+      ]
+    },
+    {
+      "chapter": 6,
+      "title": "Uniform Circular Motion and Gravitation",
+      "sections": [
+        {
+          "slug": "6-introduction-to-uniform-circular-motion-and-gravitation",
+          "title": "Introduction to Uniform Circular Motion and Gravitation"
+        },
+        {
+          "slug": "6-1-rotation-angle-and-angular-velocity",
+          "title": "6.1 Rotation Angle and Angular Velocity"
+        },
+        {
+          "slug": "6-2-centripetal-acceleration",
+          "title": "6.2 Centripetal Acceleration"
+        },
+        {
+          "slug": "6-3-centripetal-force",
+          "title": "6.3 Centripetal Force"
+        },
+        {
+          "slug": "6-4-fictitious-forces-and-non-inertial-frames-the-coriolis-force",
+          "title": "6.4 Fictitious Forces and Non-inertial Frames: The Coriolis Force"
+        },
+        {
+          "slug": "6-5-newtons-universal-law-of-gravitation",
+          "title": "6.5 Newton\u2019s Universal Law of Gravitation"
+        },
+        {
+          "slug": "6-6-satellites-and-keplers-laws-an-argument-for-simplicity",
+          "title": "6.6 Satellites and Kepler\u2019s Laws: An Argument for Simplicity"
+        }
+      ]
+    },
+    {
+      "chapter": 7,
+      "title": "Work, Energy, and Energy Resources",
+      "sections": [
+        {
+          "slug": "7-introduction-to-work-energy-and-energy-resources",
+          "title": "Introduction to Work, Energy, and Energy Resources"
+        },
+        {
+          "slug": "7-1-work-the-scientific-definition",
+          "title": "7.1 Work: The Scientific Definition"
+        },
+        {
+          "slug": "7-2-kinetic-energy-and-the-work-energy-theorem",
+          "title": "7.2 Kinetic Energy and the Work-Energy Theorem"
+        },
+        {
+          "slug": "7-3-gravitational-potential-energy",
+          "title": "7.3 Gravitational Potential Energy"
+        },
+        {
+          "slug": "7-4-conservative-forces-and-potential-energy",
+          "title": "7.4 Conservative Forces and Potential Energy"
+        },
+        {
+          "slug": "7-5-nonconservative-forces",
+          "title": "7.5 Nonconservative Forces"
+        },
+        {
+          "slug": "7-6-conservation-of-energy",
+          "title": "7.6 Conservation of Energy"
+        },
+        {
+          "slug": "7-7-power",
+          "title": "7.7 Power"
+        },
+        {
+          "slug": "7-8-work-energy-and-power-in-humans",
+          "title": "7.8 Work, Energy, and Power in Humans"
+        },
+        {
+          "slug": "7-9-world-energy-use",
+          "title": "7.9 World Energy Use"
+        }
+      ]
+    },
+    {
+      "chapter": 8,
+      "title": "Linear Momentum and Collisions",
+      "sections": [
+        {
+          "slug": "8-introduction-to-linear-momentum-and-collisions",
+          "title": "Introduction to Linear Momentum and Collisions"
+        },
+        {
+          "slug": "8-1-linear-momentum-and-force",
+          "title": "8.1 Linear Momentum and Force"
+        },
+        {
+          "slug": "8-2-impulse",
+          "title": "8.2 Impulse"
+        },
+        {
+          "slug": "8-3-conservation-of-momentum",
+          "title": "8.3 Conservation of Momentum"
+        },
+        {
+          "slug": "8-4-elastic-collisions-in-one-dimension",
+          "title": "8.4 Elastic Collisions in One Dimension"
+        },
+        {
+          "slug": "8-5-inelastic-collisions-in-one-dimension",
+          "title": "8.5 Inelastic Collisions in One Dimension"
+        },
+        {
+          "slug": "8-6-collisions-of-point-masses-in-two-dimensions",
+          "title": "8.6 Collisions of Point Masses in Two Dimensions"
+        },
+        {
+          "slug": "8-7-introduction-to-rocket-propulsion",
+          "title": "8.7 Introduction to Rocket Propulsion"
+        }
+      ]
+    },
+    {
+      "chapter": 9,
+      "title": "Statics and Torque",
+      "sections": [
+        {
+          "slug": "9-introduction-to-statics-and-torque",
+          "title": "Introduction to Statics and Torque"
+        },
+        {
+          "slug": "9-1-the-first-condition-for-equilibrium",
+          "title": "9.1 The First Condition for Equilibrium"
+        },
+        {
+          "slug": "9-2-the-second-condition-for-equilibrium",
+          "title": "9.2 The Second Condition for Equilibrium"
+        },
+        {
+          "slug": "9-3-stability",
+          "title": "9.3 Stability"
+        },
+        {
+          "slug": "9-4-applications-of-statics-including-problem-solving-strategies",
+          "title": "9.4 Applications of Statics, Including Problem-Solving Strategies"
+        },
+        {
+          "slug": "9-5-simple-machines",
+          "title": "9.5 Simple Machines"
+        },
+        {
+          "slug": "9-6-forces-and-torques-in-muscles-and-joints",
+          "title": "9.6 Forces and Torques in Muscles and Joints"
+        }
+      ]
+    },
+    {
+      "chapter": 10,
+      "title": "Rotational Motion and Angular Momentum",
+      "sections": [
+        {
+          "slug": "10-introduction-to-rotational-motion-and-angular-momentum",
+          "title": "Introduction to Rotational Motion and Angular Momentum"
+        },
+        {
+          "slug": "10-1-angular-acceleration",
+          "title": "10.1 Angular Acceleration"
+        },
+        {
+          "slug": "10-2-kinematics-of-rotational-motion",
+          "title": "10.2 Kinematics of Rotational Motion"
+        },
+        {
+          "slug": "10-3-dynamics-of-rotational-motion-rotational-inertia",
+          "title": "10.3 Dynamics of Rotational Motion: Rotational Inertia"
+        },
+        {
+          "slug": "10-4-rotational-kinetic-energy-work-and-energy-revisited",
+          "title": "10.4 Rotational Kinetic Energy: Work and Energy Revisited"
+        },
+        {
+          "slug": "10-5-angular-momentum-and-its-conservation",
+          "title": "10.5 Angular Momentum and Its Conservation"
+        },
+        {
+          "slug": "10-6-collisions-of-extended-bodies-in-two-dimensions",
+          "title": "10.6 Collisions of Extended Bodies in Two Dimensions"
+        },
+        {
+          "slug": "10-7-gyroscopic-effects-vector-aspects-of-angular-momentum",
+          "title": "10.7 Gyroscopic Effects: Vector Aspects of Angular Momentum"
+        }
+      ]
+    },
+    {
+      "chapter": 11,
+      "title": "Fluid Statics",
+      "sections": [
+        {
+          "slug": "11-introduction-to-fluid-statics",
+          "title": "Introduction to Fluid Statics"
+        },
+        {
+          "slug": "11-1-what-is-a-fluid",
+          "title": "11.1 What Is a Fluid?"
+        },
+        {
+          "slug": "11-2-density",
+          "title": "11.2 Density"
+        },
+        {
+          "slug": "11-3-pressure",
+          "title": "11.3 Pressure"
+        },
+        {
+          "slug": "11-4-variation-of-pressure-with-depth-in-a-fluid",
+          "title": "11.4 Variation of Pressure with Depth in a Fluid"
+        },
+        {
+          "slug": "11-5-pascals-principle",
+          "title": "11.5 Pascal\u2019s Principle"
+        },
+        {
+          "slug": "11-6-gauge-pressure-absolute-pressure-and-pressure-measurement",
+          "title": "11.6 Gauge Pressure, Absolute Pressure, and Pressure Measurement"
+        },
+        {
+          "slug": "11-7-archimedes-principle",
+          "title": "11.7 Archimedes\u2019 Principle"
+        },
+        {
+          "slug": "11-8-cohesion-and-adhesion-in-liquids-surface-tension-and-capillary-action",
+          "title": "11.8 Cohesion and Adhesion in Liquids: Surface Tension and Capillary Action"
+        },
+        {
+          "slug": "11-9-pressures-in-the-body",
+          "title": "11.9 Pressures in the Body"
+        }
+      ]
+    },
+    {
+      "chapter": 12,
+      "title": "Fluid Dynamics and Its Biological and Medical Applications",
+      "sections": [
+        {
+          "slug": "12-introduction-to-fluid-dynamics-and-its-biological-and-medical-applications",
+          "title": "Introduction to Fluid Dynamics and Its Biological and Medical Applications"
+        },
+        {
+          "slug": "12-1-flow-rate-and-its-relation-to-velocity",
+          "title": "12.1 Flow Rate and Its Relation to Velocity"
+        },
+        {
+          "slug": "12-2-bernoullis-equation",
+          "title": "12.2 Bernoulli\u2019s Equation"
+        },
+        {
+          "slug": "12-3-the-most-general-applications-of-bernoullis-equation",
+          "title": "12.3 The Most General Applications of Bernoulli\u2019s Equation"
+        },
+        {
+          "slug": "12-4-viscosity-and-laminar-flow-poiseuilles-law",
+          "title": "12.4 Viscosity and Laminar Flow; Poiseuille\u2019s Law"
+        },
+        {
+          "slug": "12-5-the-onset-of-turbulence",
+          "title": "12.5 The Onset of Turbulence"
+        },
+        {
+          "slug": "12-6-motion-of-an-object-in-a-viscous-fluid",
+          "title": "12.6 Motion of an Object in a Viscous Fluid"
+        },
+        {
+          "slug": "12-7-molecular-transport-phenomena-diffusion-osmosis-and-related-processes",
+          "title": "12.7 Molecular Transport Phenomena: Diffusion, Osmosis, and Related Processes"
+        }
+      ]
+    },
+    {
+      "chapter": 13,
+      "title": "Temperature, Kinetic Theory, and the Gas Laws",
+      "sections": [
+        {
+          "slug": "13-introduction-to-temperature-kinetic-theory-and-the-gas-laws",
+          "title": "Introduction to Temperature, Kinetic Theory, and the Gas Laws"
+        },
+        {
+          "slug": "13-1-temperature",
+          "title": "13.1 Temperature"
+        },
+        {
+          "slug": "13-2-thermal-expansion-of-solids-and-liquids",
+          "title": "13.2 Thermal Expansion of Solids and Liquids"
+        },
+        {
+          "slug": "13-3-the-ideal-gas-law",
+          "title": "13.3 The Ideal Gas Law"
+        },
+        {
+          "slug": "13-4-kinetic-theory-atomic-and-molecular-explanation-of-pressure-and-temperature",
+          "title": "13.4 Kinetic Theory: Atomic and Molecular Explanation of Pressure and Temperature"
+        },
+        {
+          "slug": "13-5-phase-changes",
+          "title": "13.5 Phase Changes"
+        },
+        {
+          "slug": "13-6-humidity-evaporation-and-boiling",
+          "title": "13.6 Humidity, Evaporation, and Boiling"
+        }
+      ]
+    },
+    {
+      "chapter": 14,
+      "title": "Heat and Heat Transfer Methods",
+      "sections": [
+        {
+          "slug": "14-introduction-to-heat-and-heat-transfer-methods",
+          "title": "Introduction to Heat and Heat Transfer Methods"
+        },
+        {
+          "slug": "14-1-heat",
+          "title": "14.1 Heat"
+        },
+        {
+          "slug": "14-2-temperature-change-and-heat-capacity",
+          "title": "14.2 Temperature Change and Heat Capacity"
+        },
+        {
+          "slug": "14-3-phase-change-and-latent-heat",
+          "title": "14.3 Phase Change and Latent Heat"
+        },
+        {
+          "slug": "14-4-heat-transfer-methods",
+          "title": "14.4 Heat Transfer Methods"
+        },
+        {
+          "slug": "14-5-conduction",
+          "title": "14.5 Conduction"
+        },
+        {
+          "slug": "14-6-convection",
+          "title": "14.6 Convection"
+        },
+        {
+          "slug": "14-7-radiation",
+          "title": "14.7 Radiation"
+        }
+      ]
+    },
+    {
+      "chapter": 15,
+      "title": "Thermodynamics",
+      "sections": [
+        {
+          "slug": "15-introduction-to-thermodynamics",
+          "title": "Introduction to Thermodynamics"
+        },
+        {
+          "slug": "15-1-the-first-law-of-thermodynamics",
+          "title": "15.1 The First Law of Thermodynamics"
+        },
+        {
+          "slug": "15-2-the-first-law-of-thermodynamics-and-some-simple-processes",
+          "title": "15.2 The First Law of Thermodynamics and Some Simple Processes"
+        },
+        {
+          "slug": "15-3-introduction-to-the-second-law-of-thermodynamics-heat-engines-and-their-efficiency",
+          "title": "15.3 Introduction to the Second Law of Thermodynamics: Heat Engines and Their Efficiency"
+        },
+        {
+          "slug": "15-4-carnots-perfect-heat-engine-the-second-law-of-thermodynamics-restated",
+          "title": "15.4 Carnot\u2019s Perfect Heat Engine: The Second Law of Thermodynamics Restated"
+        },
+        {
+          "slug": "15-5-applications-of-thermodynamics-heat-pumps-and-refrigerators",
+          "title": "15.5 Applications of Thermodynamics: Heat Pumps and Refrigerators"
+        },
+        {
+          "slug": "15-6-entropy-and-the-second-law-of-thermodynamics-disorder-and-the-unavailability-of-energy",
+          "title": "15.6 Entropy and the Second Law of Thermodynamics: Disorder and the Unavailability of Energy"
+        },
+        {
+          "slug": "15-7-statistical-interpretation-of-entropy-and-the-second-law-of-thermodynamics-the-underlying-explanation",
+          "title": "15.7 Statistical Interpretation of Entropy and the Second Law of Thermodynamics: The Underlying Explanation"
+        }
+      ]
+    },
+    {
+      "chapter": 16,
+      "title": "Oscillatory Motion and Waves",
+      "sections": [
+        {
+          "slug": "16-introduction-to-oscillatory-motion-and-waves",
+          "title": "Introduction to Oscillatory Motion and Waves"
+        },
+        {
+          "slug": "16-1-hookes-law-stress-and-strain-revisited",
+          "title": "16.1 Hooke\u2019s Law: Stress and Strain Revisited"
+        },
+        {
+          "slug": "16-2-period-and-frequency-in-oscillations",
+          "title": "16.2 Period and Frequency in Oscillations"
+        },
+        {
+          "slug": "16-3-simple-harmonic-motion-a-special-periodic-motion",
+          "title": "16.3 Simple Harmonic Motion: A Special Periodic Motion"
+        },
+        {
+          "slug": "16-4-the-simple-pendulum",
+          "title": "16.4 The Simple Pendulum"
+        },
+        {
+          "slug": "16-5-energy-and-the-simple-harmonic-oscillator",
+          "title": "16.5 Energy and the Simple Harmonic Oscillator"
+        },
+        {
+          "slug": "16-6-uniform-circular-motion-and-simple-harmonic-motion",
+          "title": "16.6 Uniform Circular Motion and Simple Harmonic Motion"
+        },
+        {
+          "slug": "16-7-damped-harmonic-motion",
+          "title": "16.7 Damped Harmonic Motion"
+        },
+        {
+          "slug": "16-8-forced-oscillations-and-resonance",
+          "title": "16.8 Forced Oscillations and Resonance"
+        },
+        {
+          "slug": "16-9-waves",
+          "title": "16.9 Waves"
+        },
+        {
+          "slug": "16-10-superposition-and-interference",
+          "title": "16.10 Superposition and Interference"
+        },
+        {
+          "slug": "16-11-energy-in-waves-intensity",
+          "title": "16.11 Energy in Waves: Intensity"
+        }
+      ]
+    },
+    {
+      "chapter": 17,
+      "title": "Physics of Hearing",
+      "sections": [
+        {
+          "slug": "17-introduction-to-the-physics-of-hearing",
+          "title": "Introduction to the Physics of Hearing"
+        },
+        {
+          "slug": "17-1-sound",
+          "title": "17.1 Sound"
+        },
+        {
+          "slug": "17-2-speed-of-sound-frequency-and-wavelength",
+          "title": "17.2 Speed of Sound, Frequency, and Wavelength"
+        },
+        {
+          "slug": "17-3-sound-intensity-and-sound-level",
+          "title": "17.3 Sound Intensity and Sound Level"
+        },
+        {
+          "slug": "17-4-doppler-effect-and-sonic-booms",
+          "title": "17.4 Doppler Effect and Sonic Booms"
+        },
+        {
+          "slug": "17-5-sound-interference-and-resonance-standing-waves-in-air-columns",
+          "title": "17.5 Sound Interference and Resonance: Standing Waves in Air Columns"
+        },
+        {
+          "slug": "17-6-hearing",
+          "title": "17.6 Hearing"
+        },
+        {
+          "slug": "17-7-ultrasound",
+          "title": "17.7 Ultrasound"
+        }
+      ]
+    },
+    {
+      "chapter": 18,
+      "title": "Electric Charge and Electric Field",
+      "sections": [
+        {
+          "slug": "18-introduction-to-electric-charge-and-electric-field",
+          "title": "Introduction to Electric Charge and Electric Field"
+        },
+        {
+          "slug": "18-1-static-electricity-and-charge-conservation-of-charge",
+          "title": "18.1 Static Electricity and Charge: Conservation of Charge"
+        },
+        {
+          "slug": "18-2-conductors-and-insulators",
+          "title": "18.2 Conductors and Insulators"
+        },
+        {
+          "slug": "18-3-coulombs-law",
+          "title": "18.3 Coulomb\u2019s Law"
+        },
+        {
+          "slug": "18-4-electric-field-concept-of-a-field-revisited",
+          "title": "18.4 Electric Field: Concept of a Field Revisited"
+        },
+        {
+          "slug": "18-5-electric-field-lines-multiple-charges",
+          "title": "18.5 Electric Field Lines: Multiple Charges"
+        },
+        {
+          "slug": "18-6-electric-forces-in-biology",
+          "title": "18.6 Electric Forces in Biology"
+        },
+        {
+          "slug": "18-7-conductors-and-electric-fields-in-static-equilibrium",
+          "title": "18.7 Conductors and Electric Fields in Static Equilibrium"
+        },
+        {
+          "slug": "18-8-applications-of-electrostatics",
+          "title": "18.8 Applications of Electrostatics"
+        }
+      ]
+    },
+    {
+      "chapter": 19,
+      "title": "Electric Potential and Electric Field",
+      "sections": [
+        {
+          "slug": "19-introduction-to-electric-potential-and-electric-energy",
+          "title": "Introduction to Electric Potential and Electric Energy"
+        },
+        {
+          "slug": "19-1-electric-potential-energy-potential-difference",
+          "title": "19.1 Electric Potential Energy: Potential Difference"
+        },
+        {
+          "slug": "19-2-electric-potential-in-a-uniform-electric-field",
+          "title": "19.2 Electric Potential in a Uniform Electric Field"
+        },
+        {
+          "slug": "19-3-electrical-potential-due-to-a-point-charge",
+          "title": "19.3 Electrical Potential Due to a Point Charge"
+        },
+        {
+          "slug": "19-4-equipotential-lines",
+          "title": "19.4 Equipotential Lines"
+        },
+        {
+          "slug": "19-5-capacitors-and-dielectrics",
+          "title": "19.5 Capacitors and Dielectrics"
+        },
+        {
+          "slug": "19-6-capacitors-in-series-and-parallel",
+          "title": "19.6 Capacitors in Series and Parallel"
+        },
+        {
+          "slug": "19-7-energy-stored-in-capacitors",
+          "title": "19.7 Energy Stored in Capacitors"
+        }
+      ]
+    },
+    {
+      "chapter": 20,
+      "title": "Electric Current, Resistance, and Ohm's Law",
+      "sections": [
+        {
+          "slug": "20-introduction-to-electric-current-resistance-and-ohms-law",
+          "title": "Introduction to Electric Current, Resistance, and Ohm's Law"
+        },
+        {
+          "slug": "20-1-current",
+          "title": "20.1 Current"
+        },
+        {
+          "slug": "20-2-ohms-law-resistance-and-simple-circuits",
+          "title": "20.2 Ohm\u2019s Law: Resistance and Simple Circuits"
+        },
+        {
+          "slug": "20-3-resistance-and-resistivity",
+          "title": "20.3 Resistance and Resistivity"
+        },
+        {
+          "slug": "20-4-electric-power-and-energy",
+          "title": "20.4 Electric Power and Energy"
+        },
+        {
+          "slug": "20-5-alternating-current-versus-direct-current",
+          "title": "20.5 Alternating Current versus Direct Current"
+        },
+        {
+          "slug": "20-6-electric-hazards-and-the-human-body",
+          "title": "20.6 Electric Hazards and the Human Body"
+        },
+        {
+          "slug": "20-7-nerve-conduction-electrocardiograms",
+          "title": "20.7 Nerve Conduction\u2013Electrocardiograms"
+        }
+      ]
+    },
+    {
+      "chapter": 21,
+      "title": "Circuits and DC Instruments",
+      "sections": [
+        {
+          "slug": "21-introduction-to-circuits-and-dc-instruments",
+          "title": "Introduction to Circuits and DC Instruments"
+        },
+        {
+          "slug": "21-1-resistors-in-series-and-parallel",
+          "title": "21.1 Resistors in Series and Parallel"
+        },
+        {
+          "slug": "21-2-electromotive-force-terminal-voltage",
+          "title": "21.2 Electromotive Force: Terminal Voltage"
+        },
+        {
+          "slug": "21-3-kirchhoffs-rules",
+          "title": "21.3 Kirchhoff\u2019s Rules"
+        },
+        {
+          "slug": "21-4-dc-voltmeters-and-ammeters",
+          "title": "21.4 DC Voltmeters and Ammeters"
+        },
+        {
+          "slug": "21-5-null-measurements",
+          "title": "21.5 Null Measurements"
+        },
+        {
+          "slug": "21-6-dc-circuits-containing-resistors-and-capacitors",
+          "title": "21.6 DC Circuits Containing Resistors and Capacitors"
+        }
+      ]
+    },
+    {
+      "chapter": 22,
+      "title": "Magnetism",
+      "sections": [
+        {
+          "slug": "22-introduction-to-magnetism",
+          "title": "Introduction to Magnetism"
+        },
+        {
+          "slug": "22-1-magnets",
+          "title": "22.1 Magnets"
+        },
+        {
+          "slug": "22-2-ferromagnets-and-electromagnets",
+          "title": "22.2 Ferromagnets and Electromagnets"
+        },
+        {
+          "slug": "22-3-magnetic-fields-and-magnetic-field-lines",
+          "title": "22.3 Magnetic Fields and Magnetic Field Lines"
+        },
+        {
+          "slug": "22-4-magnetic-field-strength-force-on-a-moving-charge-in-a-magnetic-field",
+          "title": "22.4 Magnetic Field Strength: Force on a Moving Charge in a Magnetic Field"
+        },
+        {
+          "slug": "22-5-force-on-a-moving-charge-in-a-magnetic-field-examples-and-applications",
+          "title": "22.5 Force on a Moving Charge in a Magnetic Field: Examples and Applications"
+        },
+        {
+          "slug": "22-6-the-hall-effect",
+          "title": "22.6 The Hall Effect"
+        },
+        {
+          "slug": "22-7-magnetic-force-on-a-current-carrying-conductor",
+          "title": "22.7 Magnetic Force on a Current-Carrying Conductor"
+        },
+        {
+          "slug": "22-8-torque-on-a-current-loop-motors-and-meters",
+          "title": "22.8 Torque on a Current Loop: Motors and Meters"
+        },
+        {
+          "slug": "22-9-magnetic-fields-produced-by-currents-amperes-law",
+          "title": "22.9 Magnetic Fields Produced by Currents: Ampere\u2019s Law"
+        },
+        {
+          "slug": "22-10-magnetic-force-between-two-parallel-conductors",
+          "title": "22.10 Magnetic Force between Two Parallel Conductors"
+        },
+        {
+          "slug": "22-11-more-applications-of-magnetism",
+          "title": "22.11 More Applications of Magnetism"
+        }
+      ]
+    },
+    {
+      "chapter": 23,
+      "title": "Electromagnetic Induction, AC Circuits, and Electrical Technologies",
+      "sections": [
+        {
+          "slug": "23-introduction-to-electromagnetic-induction-ac-circuits-and-electrical-technologies",
+          "title": "Introduction to Electromagnetic Induction, AC Circuits and Electrical Technologies"
+        },
+        {
+          "slug": "23-1-induced-emf-and-magnetic-flux",
+          "title": "23.1 Induced Emf and Magnetic Flux"
+        },
+        {
+          "slug": "23-2-faradays-law-of-induction-lenzs-law",
+          "title": "23.2 Faraday\u2019s Law of Induction: Lenz\u2019s Law"
+        },
+        {
+          "slug": "23-3-motional-emf",
+          "title": "23.3 Motional Emf"
+        },
+        {
+          "slug": "23-4-eddy-currents-and-magnetic-damping",
+          "title": "23.4 Eddy Currents and Magnetic Damping"
+        },
+        {
+          "slug": "23-5-electric-generators",
+          "title": "23.5 Electric Generators"
+        },
+        {
+          "slug": "23-6-back-emf",
+          "title": "23.6 Back Emf"
+        },
+        {
+          "slug": "23-7-transformers",
+          "title": "23.7 Transformers"
+        },
+        {
+          "slug": "23-8-electrical-safety-systems-and-devices",
+          "title": "23.8 Electrical Safety: Systems and Devices"
+        },
+        {
+          "slug": "23-9-inductance",
+          "title": "23.9 Inductance"
+        },
+        {
+          "slug": "23-10-rl-circuits",
+          "title": "23.10 RL Circuits"
+        },
+        {
+          "slug": "23-11-reactance-inductive-and-capacitive",
+          "title": "23.11 Reactance, Inductive and Capacitive"
+        },
+        {
+          "slug": "23-12-rlc-series-ac-circuits",
+          "title": "23.12 RLC Series AC Circuits"
+        }
+      ]
+    },
+    {
+      "chapter": 24,
+      "title": "Electromagnetic Waves",
+      "sections": [
+        {
+          "slug": "24-introduction-to-electromagnetic-waves",
+          "title": "Introduction to Electromagnetic Waves"
+        },
+        {
+          "slug": "24-1-maxwells-equations-electromagnetic-waves-predicted-and-observed",
+          "title": "24.1 Maxwell\u2019s Equations: Electromagnetic Waves Predicted and Observed"
+        },
+        {
+          "slug": "24-2-production-of-electromagnetic-waves",
+          "title": "24.2 Production of Electromagnetic Waves"
+        },
+        {
+          "slug": "24-3-the-electromagnetic-spectrum",
+          "title": "24.3 The Electromagnetic Spectrum"
+        },
+        {
+          "slug": "24-4-energy-in-electromagnetic-waves",
+          "title": "24.4 Energy in Electromagnetic Waves"
+        }
+      ]
+    },
+    {
+      "chapter": 25,
+      "title": "Geometric Optics",
+      "sections": [
+        {
+          "slug": "25-introduction-to-geometric-optics",
+          "title": "Introduction to Geometric Optics"
+        },
+        {
+          "slug": "25-1-the-ray-aspect-of-light",
+          "title": "25.1 The Ray Aspect of Light"
+        },
+        {
+          "slug": "25-2-the-law-of-reflection",
+          "title": "25.2 The Law of Reflection"
+        },
+        {
+          "slug": "25-3-the-law-of-refraction",
+          "title": "25.3 The Law of Refraction"
+        },
+        {
+          "slug": "25-4-total-internal-reflection",
+          "title": "25.4 Total Internal Reflection"
+        },
+        {
+          "slug": "25-5-dispersion-the-rainbow-and-prisms",
+          "title": "25.5 Dispersion: The Rainbow and Prisms"
+        },
+        {
+          "slug": "25-6-image-formation-by-lenses",
+          "title": "25.6 Image Formation by Lenses"
+        },
+        {
+          "slug": "25-7-image-formation-by-mirrors",
+          "title": "25.7 Image Formation by Mirrors"
+        }
+      ]
+    },
+    {
+      "chapter": 26,
+      "title": "Vision and Optical Instruments",
+      "sections": [
+        {
+          "slug": "26-introduction-to-vision-and-optical-instruments",
+          "title": "Introduction to Vision and Optical Instruments"
+        },
+        {
+          "slug": "26-1-physics-of-the-eye",
+          "title": "26.1 Physics of the Eye"
+        },
+        {
+          "slug": "26-2-vision-correction",
+          "title": "26.2 Vision Correction"
+        },
+        {
+          "slug": "26-3-color-and-color-vision",
+          "title": "26.3 Color and Color Vision"
+        },
+        {
+          "slug": "26-4-microscopes",
+          "title": "26.4 Microscopes"
+        },
+        {
+          "slug": "26-5-telescopes",
+          "title": "26.5 Telescopes"
+        },
+        {
+          "slug": "26-6-aberrations",
+          "title": "26.6 Aberrations"
+        }
+      ]
+    },
+    {
+      "chapter": 27,
+      "title": "Wave Optics",
+      "sections": [
+        {
+          "slug": "27-introduction-to-wave-optics",
+          "title": "Introduction to Wave Optics"
+        },
+        {
+          "slug": "27-1-the-wave-aspect-of-light-interference",
+          "title": "27.1 The Wave Aspect of Light: Interference"
+        },
+        {
+          "slug": "27-2-huygenss-principle-diffraction",
+          "title": "27.2 Huygens's Principle: Diffraction"
+        },
+        {
+          "slug": "27-3-youngs-double-slit-experiment",
+          "title": "27.3 Young\u2019s Double Slit Experiment"
+        },
+        {
+          "slug": "27-4-multiple-slit-diffraction",
+          "title": "27.4 Multiple Slit Diffraction"
+        },
+        {
+          "slug": "27-5-single-slit-diffraction",
+          "title": "27.5 Single Slit Diffraction"
+        },
+        {
+          "slug": "27-6-limits-of-resolution-the-rayleigh-criterion",
+          "title": "27.6 Limits of Resolution: The Rayleigh Criterion"
+        },
+        {
+          "slug": "27-7-thin-film-interference",
+          "title": "27.7 Thin Film Interference"
+        },
+        {
+          "slug": "27-8-polarization",
+          "title": "27.8 Polarization"
+        },
+        {
+          "slug": "27-9-extended-topic-microscopy-enhanced-by-the-wave-characteristics-of-light",
+          "title": "27.9 *Extended Topic* Microscopy Enhanced by the Wave Characteristics of Light"
+        }
+      ]
+    },
+    {
+      "chapter": 28,
+      "title": "Special Relativity",
+      "sections": [
+        {
+          "slug": "28-introduction-to-special-relativity",
+          "title": "Introduction to Special Relativity"
+        },
+        {
+          "slug": "28-1-einsteins-postulates",
+          "title": "28.1 Einstein\u2019s Postulates"
+        },
+        {
+          "slug": "28-2-simultaneity-and-time-dilation",
+          "title": "28.2 Simultaneity And Time Dilation"
+        },
+        {
+          "slug": "28-3-length-contraction",
+          "title": "28.3 Length Contraction"
+        },
+        {
+          "slug": "28-4-relativistic-addition-of-velocities",
+          "title": "28.4 Relativistic Addition of Velocities"
+        },
+        {
+          "slug": "28-5-relativistic-momentum",
+          "title": "28.5 Relativistic Momentum"
+        },
+        {
+          "slug": "28-6-relativistic-energy",
+          "title": "28.6 Relativistic Energy"
+        }
+      ]
+    },
+    {
+      "chapter": 29,
+      "title": "Quantum Physics",
+      "sections": [
+        {
+          "slug": "29-introduction-to-quantum-physics",
+          "title": "Introduction to Quantum Physics"
+        },
+        {
+          "slug": "29-1-quantization-of-energy",
+          "title": "29.1 Quantization of Energy"
+        },
+        {
+          "slug": "29-2-the-photoelectric-effect",
+          "title": "29.2 The Photoelectric Effect"
+        },
+        {
+          "slug": "29-3-photon-energies-and-the-electromagnetic-spectrum",
+          "title": "29.3 Photon Energies and the Electromagnetic Spectrum"
+        },
+        {
+          "slug": "29-4-photon-momentum",
+          "title": "29.4 Photon Momentum"
+        },
+        {
+          "slug": "29-5-the-particle-wave-duality",
+          "title": "29.5 The Particle-Wave Duality"
+        },
+        {
+          "slug": "29-6-the-wave-nature-of-matter",
+          "title": "29.6 The Wave Nature of Matter"
+        },
+        {
+          "slug": "29-7-probability-the-heisenberg-uncertainty-principle",
+          "title": "29.7 Probability: The Heisenberg Uncertainty Principle"
+        },
+        {
+          "slug": "29-8-the-particle-wave-duality-reviewed",
+          "title": "29.8 The Particle-Wave Duality Reviewed"
+        }
+      ]
+    },
+    {
+      "chapter": 30,
+      "title": "Atomic Physics",
+      "sections": [
+        {
+          "slug": "30-introduction-to-atomic-physics",
+          "title": "Introduction to Atomic Physics"
+        },
+        {
+          "slug": "30-1-discovery-of-the-atom",
+          "title": "30.1 Discovery of the Atom"
+        },
+        {
+          "slug": "30-2-discovery-of-the-parts-of-the-atom-electrons-and-nuclei",
+          "title": "30.2 Discovery of the Parts of the Atom: Electrons and Nuclei"
+        },
+        {
+          "slug": "30-3-bohrs-theory-of-the-hydrogen-atom",
+          "title": "30.3 Bohr\u2019s Theory of the Hydrogen Atom"
+        },
+        {
+          "slug": "30-4-x-rays-atomic-origins-and-applications",
+          "title": "30.4 X Rays: Atomic Origins and Applications"
+        },
+        {
+          "slug": "30-5-applications-of-atomic-excitations-and-de-excitations",
+          "title": "30.5 Applications of Atomic Excitations and De-Excitations"
+        },
+        {
+          "slug": "30-6-the-wave-nature-of-matter-causes-quantization",
+          "title": "30.6 The Wave Nature of Matter Causes Quantization"
+        },
+        {
+          "slug": "30-7-patterns-in-spectra-reveal-more-quantization",
+          "title": "30.7 Patterns in Spectra Reveal More Quantization"
+        },
+        {
+          "slug": "30-8-quantum-numbers-and-rules",
+          "title": "30.8 Quantum Numbers and Rules"
+        },
+        {
+          "slug": "30-9-the-pauli-exclusion-principle",
+          "title": "30.9 The Pauli Exclusion Principle"
+        }
+      ]
+    },
+    {
+      "chapter": 31,
+      "title": "Radioactivity and Nuclear Physics",
+      "sections": [
+        {
+          "slug": "31-introduction-to-radioactivity-and-nuclear-physics",
+          "title": "Introduction to Radioactivity and Nuclear Physics"
+        },
+        {
+          "slug": "31-1-nuclear-radioactivity",
+          "title": "31.1 Nuclear Radioactivity"
+        },
+        {
+          "slug": "31-2-radiation-detection-and-detectors",
+          "title": "31.2 Radiation Detection and Detectors"
+        },
+        {
+          "slug": "31-3-substructure-of-the-nucleus",
+          "title": "31.3 Substructure of the Nucleus"
+        },
+        {
+          "slug": "31-4-nuclear-decay-and-conservation-laws",
+          "title": "31.4 Nuclear Decay and Conservation Laws"
+        },
+        {
+          "slug": "31-5-half-life-and-activity",
+          "title": "31.5 Half-Life and Activity"
+        },
+        {
+          "slug": "31-6-binding-energy",
+          "title": "31.6 Binding Energy"
+        },
+        {
+          "slug": "31-7-tunneling",
+          "title": "31.7 Tunneling"
+        }
+      ]
+    },
+    {
+      "chapter": 32,
+      "title": "Medical Applications of Nuclear Physics",
+      "sections": [
+        {
+          "slug": "32-introduction-to-applications-of-nuclear-physics",
+          "title": "Introduction to Applications of Nuclear Physics"
+        },
+        {
+          "slug": "32-1-diagnostics-and-medical-imaging",
+          "title": "32.1 Diagnostics and Medical Imaging"
+        },
+        {
+          "slug": "32-2-biological-effects-of-ionizing-radiation",
+          "title": "32.2 Biological Effects of Ionizing Radiation"
+        },
+        {
+          "slug": "32-3-therapeutic-uses-of-ionizing-radiation",
+          "title": "32.3 Therapeutic Uses of Ionizing Radiation"
+        },
+        {
+          "slug": "32-4-food-irradiation",
+          "title": "32.4 Food Irradiation"
+        },
+        {
+          "slug": "32-5-fusion",
+          "title": "32.5 Fusion"
+        },
+        {
+          "slug": "32-6-fission",
+          "title": "32.6 Fission"
+        },
+        {
+          "slug": "32-7-nuclear-weapons",
+          "title": "32.7 Nuclear Weapons"
+        }
+      ]
+    },
+    {
+      "chapter": 33,
+      "title": "Particle Physics",
+      "sections": [
+        {
+          "slug": "33-introduction-to-particle-physics",
+          "title": "Introduction to Particle Physics"
+        },
+        {
+          "slug": "33-1-the-yukawa-particle-and-the-heisenberg-uncertainty-principle-revisited",
+          "title": "33.1 The Yukawa Particle and the Heisenberg Uncertainty Principle Revisited"
+        },
+        {
+          "slug": "33-2-the-four-basic-forces",
+          "title": "33.2 The Four Basic Forces"
+        },
+        {
+          "slug": "33-3-accelerators-create-matter-from-energy",
+          "title": "33.3 Accelerators Create Matter from Energy"
+        },
+        {
+          "slug": "33-4-particles-patterns-and-conservation-laws",
+          "title": "33.4 Particles, Patterns, and Conservation Laws"
+        },
+        {
+          "slug": "33-5-quarks-is-that-all-there-is",
+          "title": "33.5 Quarks: Is That All There Is?"
+        },
+        {
+          "slug": "33-6-guts-the-unification-of-forces",
+          "title": "33.6 GUTs: The Unification of Forces"
+        }
+      ]
+    },
+    {
+      "chapter": 34,
+      "title": "Frontiers of Physics",
+      "sections": [
+        {
+          "slug": "34-introduction-to-frontiers-of-physics",
+          "title": "Introduction to Frontiers of Physics"
+        },
+        {
+          "slug": "34-1-cosmology-and-particle-physics",
+          "title": "34.1 Cosmology and Particle Physics"
+        },
+        {
+          "slug": "34-2-general-relativity-and-quantum-gravity",
+          "title": "34.2 General Relativity and Quantum Gravity"
+        },
+        {
+          "slug": "34-3-superstrings",
+          "title": "34.3 Superstrings"
+        },
+        {
+          "slug": "34-4-dark-matter-and-closure",
+          "title": "34.4 Dark Matter and Closure"
+        },
+        {
+          "slug": "34-5-complexity-and-chaos",
+          "title": "34.5 Complexity and Chaos"
+        },
+        {
+          "slug": "34-6-high-temperature-superconductors",
+          "title": "34.6 High-temperature Superconductors"
+        },
+        {
+          "slug": "34-7-some-questions-we-know-to-ask",
+          "title": "34.7 Some Questions We Know to Ask"
+        }
+      ]
+    }
+  ]
+}

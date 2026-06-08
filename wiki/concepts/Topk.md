@@ -2,8 +2,8 @@
 title: "Top-k"
 type: concept
 tags: [sampling, inference, llm]
-sources: [ai-engineering-ch02-foundation-models, hands-on-llm-ch06-prompt-engineering]
-last_updated: 2026-05-23
+sources: [ai-engineering-ch02-foundation-models, hands-on-llm-ch06-prompt-engineering, agentic-design-patterns-appendix-a-prompting]
+last_updated: 2026-06-07
 ---
 
 # Top-k
@@ -41,6 +41,7 @@ Most modern LLM APIs expose both top-k and top-p (and temperature). Common produ
 - [[Logprobs]] — the log-scale probabilities top-k operates on.
 - [[ai-engineering-ch02-foundation-models]] — primary source (Huyen Ch 2).
 - [[hands-on-llm-ch06-prompt-engineering]] — operational source (Ch 6).
+- [[agentic-design-patterns-appendix-a-prompting]] — Gulli's Appendix A lists top-k among the sampling controls (with [[Temperature|temperature]] / [[Topp|top-p]]) in its experimentation/best-practices guidance.
 
 ## From [[hands-on-llm-ch06-prompt-engineering|Hands-On LLMs Ch 6]]
 

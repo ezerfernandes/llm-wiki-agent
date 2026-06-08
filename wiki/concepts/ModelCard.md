@@ -3,8 +3,8 @@ name: ModelCard
 title: "Model Card"
 type: concept
 tags: [responsible-ai, governance, documentation]
-sources: [dmls-ch11-human-side]
-last_updated: 2026-05-23
+sources: [dmls-ch11-human-side, mlsysbook-ch15-responsible-engineering]
+last_updated: 2026-06-05
 ---
 
 # Model Card
@@ -34,3 +34,4 @@ Standardized disclosure document accompanying a trained ML model — proposed by
 - [[DataSlicing]] — slice-based evaluation is the quantitative-analyses backbone.
 - [[FineGrainedEvaluation]] — sibling concept (subgroup-level metrics).
 - [[Fairness]] / [[AlgorithmicFairness]] — the property model cards make legible.
+- [[mlsysbook-ch15-responsible-engineering]] — mlsysbook Vol 1 Ch 15 treats model cards (with [[Datasheets|datasheets]]) as the documentation "nutrition labels" of its responsible-engineering checklist, while warning that documentation ≠ enforcement (40–60% of models drift outside documented scope within 18 months).

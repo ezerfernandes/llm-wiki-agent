@@ -1,9 +1,9 @@
 ---
 title: "Memory Leak"
 type: concept
-tags: [c-language, dynamic-allocation, heap, memory, bugs, undefined-behavior]
-sources: [dis-2-4-dynamic-memory]
-last_updated: 2026-05-17
+tags: [c-language, dynamic-allocation, heap, memory, bugs, undefined-behavior, zig]
+sources: [dis-2-4-dynamic-memory, zig-code-examples]
+last_updated: 2026-06-07
 ---
 
 # Memory Leak
@@ -29,6 +29,20 @@ Per [[dis-2-4-dynamic-memory|DIS Ch 2.4]]'s framing: *"when a program no longer 
 - **Match allocation lifetime to the obvious owner.** If a function allocates a structure and returns it, the caller frees it; if a function only reads, it does not free. Document the contract.
 - **Tools** — [[Valgrind|Valgrind]]'s `memcheck`, AddressSanitizer's `-fsanitize=leak`, and language-level alternatives ([[RustLanguage|Rust]] ownership, C++ RAII / `unique_ptr`) all aim at the same bug.
 
+## In Zig: the leak-detecting allocator
+
+Because [[Zig]] uses [[ZigAllocator|explicit allocators]] rather than a global `malloc`/`free`, leak detection can be built into the allocator itself rather than bolted on as an external tool. The official [[zig-code-examples|samples page]] demonstrates `std.heap.DebugAllocator`, which captures a stack trace at each allocation site; calling `deinit()` at scope exit reports any still-live allocations:
+
+```zig
+var debug_allocator = std.heap.DebugAllocator(.{}){};
+defer std.debug.assert(debug_allocator.deinit() == .ok);
+const gpa = debug_allocator.allocator();
+const u32_ptr = try gpa.create(u32);
+_ = u32_ptr; // oops I forgot to free!
+```
+
+At exit the allocator prints `error(DebugAllocator): memory address 0x... leaked:` with the source line of the leaking `gpa.create(u32)` call, and the `deinit() == .ok` assertion then panics. This turns a leak into a **deterministic, traced, in-process failure at every run** — no separate `valgrind` invocation — and the same facility also detects double-frees (see [[DoubleFree]], [[ZigAllocator]]). The Zig equivalent of "pair every `malloc` with one `free`" is "pair every `allocator.create`/`alloc` with one `destroy`/`free`," usually enforced with [[DeferStatement|`defer`/`errdefer`]].
+
 ## Distinction from neighbors
 
 - A leak is **not** a [[UseAfterFree|use-after-free]] — the pointer either still references valid memory (you just never freed) or has been dropped (you can't free).
@@ -45,4 +59,7 @@ Per [[dis-2-4-dynamic-memory|DIS Ch 2.4]]'s framing: *"when a program no longer 
 - [[NullPointer]] — the eventual [[Malloc|`malloc`]] return value once enough leaks accumulate.
 - [[Pointer]] — the mechanism whose loss makes a leak unrecoverable.
 - [[HeapAllocation]] — the embedded-Rust angle on the same hazard.
+- [[Zig]] / [[ZigAllocator]] — `std.heap.DebugAllocator` detects leaks (and double-frees) in-process via the explicit-allocator model.
+- [[DeferStatement]] — `defer`/`errdefer` are how Zig reliably pairs allocation with release.
 - [[CLanguage]] / [[DiveIntoSystems]].
+- [[zig-code-examples]] — source for the Zig `DebugAllocator` leak-detection example.

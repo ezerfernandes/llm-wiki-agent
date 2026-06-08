@@ -2,8 +2,8 @@
 title: "Model Monitoring"
 type: concept
 tags: [mlops, monitoring]
-sources: [madewithml-monitoring]
-last_updated: 2026-05-15
+sources: [madewithml-monitoring, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 # Model Monitoring

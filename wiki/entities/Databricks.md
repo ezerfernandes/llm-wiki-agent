@@ -2,8 +2,8 @@
 title: "Databricks"
 type: entity
 tags: [company, platform, analytics]
-sources: [madewithml-mlops-experiment-tracking, 2507.19457-gepa, ai-engineering-ch09-inference-optimization]
-last_updated: 2024-12-04
+sources: [madewithml-mlops-experiment-tracking, 2507.19457-gepa, ai-engineering-ch09-inference-optimization, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 # Databricks

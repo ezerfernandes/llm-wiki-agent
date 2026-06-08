@@ -2,8 +2,8 @@
 title: "MNIST"
 type: entity
 tags: [dataset, computer-vision, benchmark]
-sources: [d2l-introduction, d2l-linear-classification, d2l-convolutional-neural-networks]
-last_updated: 2026-05-16
+sources: [d2l-introduction, d2l-linear-classification, d2l-convolutional-neural-networks, mlsysbook-ch05-neural-computation]
+last_updated: 2026-06-05
 ---
 
 # MNIST
@@ -27,3 +27,5 @@ ImageNet (1.4M images, 1000 classes — see [[ImageNet]]) and CIFAR-10/100 displ
 - [[ImageNet]] — successor scale-benchmark dataset that replaced MNIST as the front-line CV benchmark.
 - [[ComputerVision]] — the application domain MNIST is from.
 - [[d2l-introduction]] / [[d2l-linear-classification]] — corpus anchors for the "considered huge" framing and the "displaced by Fashion-MNIST" framing.
+- [[mlsysbook-ch05-neural-computation]] — uses MNIST as the *running cost example* throughout: the 784→128→64→10 MLP = ~109,386 params / 109,184 MACs/digit / ~438 KB FP32; tracks one digit through rule-based → [[HOG]] → neural paradigms (~1,092× compute escalation) and through forward/backward/inference memory budgets.
+- [[USPSDigitRecognition]] — the deployment whose data-collection effort produced MNIST.

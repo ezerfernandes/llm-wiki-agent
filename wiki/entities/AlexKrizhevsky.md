@@ -1,9 +1,9 @@
 ---
 title: "Alex Krizhevsky"
 type: entity
-tags: [person, researcher, cnn, deep-learning]
-sources: [d2l-convolutional-modern, d2l-multilayer-perceptrons]
-last_updated: 2026-05-16
+tags: [person, researcher, cnn, deep-learning, mlsysbook]
+sources: [d2l-convolutional-modern, d2l-multilayer-perceptrons, mlsysbook-ch10-model-compression]
+last_updated: 2026-06-05
 ---
 
 # Alex Krizhevsky
@@ -23,3 +23,4 @@ Ukrainian-Canadian computer scientist; PhD student of [[GeoffreyHinton|Geoffrey 
 - [[Dropout]] — co-authored the canonical 2014 paper.
 - [[ImageNet]] — the dataset AlexNet broke through on.
 - [[CNN]] — the architecture family AlexNet revived.
+- [[mlsysbook-ch10-model-compression]] — Ch 10's opening war story: the GTX 580 (3 GB) couldn't hold the 60M-param net, so the two-tower split was *"a memory budget forced into the architecture"* — the chapter's anchor for "every model carries the fingerprints of the memory hierarchy it had to fit on."

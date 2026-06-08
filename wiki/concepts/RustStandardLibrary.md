@@ -2,8 +2,8 @@
 title: "Rust Standard Library (`libstd`)"
 type: concept
 tags: [rust, standard-library, hosted-environment]
-sources: [rust-embedded-book-intro-no-std]
-last_updated: 2026-05-16
+sources: [rust-embedded-book-intro-no-std, zig-why-zig-vs-rust-d-cpp]
+last_updated: 2026-06-07
 ---
 
 # Rust Standard Library (`libstd`)
@@ -29,6 +29,10 @@ The feature-delta table from [[rust-embedded-book-intro-no-std]] enumerates what
 - Pre-main init code ([[RustRuntime]]).
 - The OS-abstraction layer (file system, threads, networking, …).
 
+## Outside critique: OOM behavior
+
+The [[Zig]] rationale essay [[zig-why-zig-vs-rust-d-cpp]] cites `std` as an example of *hidden allocation* policy it wants to avoid: "The main Rust standard library APIs panic on out of memory conditions, and the alternate APIs that accept allocator parameters are an afterthought," referencing [rust-lang/rust#29802](https://github.com/rust-lang/rust/issues/29802). The contrast is with [[ZigAllocator|Zig's explicit-allocator]] convention, where every allocating API takes an `Allocator` and surfaces failure as a value rather than panicking. (This is a cross-language design critique, not an embedded-Rust claim.)
+
 ## Connections
 
 - [[NoStd]] — the attribute that opts a crate *out* of `std`.
@@ -38,3 +42,5 @@ The feature-delta table from [[rust-embedded-book-intro-no-std]] enumerates what
 - [[BareMetalProgramming]] — the regime where `std` is *not* available.
 - [[HeapAllocation]] — one of the things `std` brings on by default; `no_std` makes it opt-in.
 - [[RustLanguage]] — the language whose default library `std` is.
+- [[ZigAllocator]] — contrasting explicit-allocator model that surfaces OOM as a value, not a panic.
+- [[zig-why-zig-vs-rust-d-cpp]] — source for the OOM-panic critique of `std`.

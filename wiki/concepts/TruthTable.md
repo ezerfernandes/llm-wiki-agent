@@ -27,3 +27,5 @@ A **truth table** enumerates **every possible combination of input values** for 
 - [[BooleanAlgebra]] — truth tables are the **semantic** view; Boolean algebra is the **syntactic** view; the two are equivalent.
 - [[FullAdder]] — first non-trivial truth table in the corpus.
 - [[dis-5-3-gates]] / [[dis-4-4-1-addition]] — sources.
+- [[PropositionalLogic]] — truth tables give the semantics of the four logical connectives ([[logic-text-v2|Van Cleave]] Ch 2); the **truth-table test of validity** (no row with all premises true and conclusion false) is propositional logic's decision procedure for [[Validity|validity]].
+- [[RulesOfInference]] — proofs are the shorter, validity-only alternative to the $2^N$-row truth table.

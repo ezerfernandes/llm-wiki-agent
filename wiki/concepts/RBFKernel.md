@@ -2,8 +2,8 @@
 title: "RBF / Squared-Exponential Kernel"
 type: concept
 tags: [kernel-methods, gaussian-processes]
-sources: [d2l-gaussian-processes]
-last_updated: 2026-05-16
+sources: [d2l-gaussian-processes, mml-ch12-classification-svm]
+last_updated: 2026-06-05
 ---
 
 # RBF (Radial Basis Function) / Squared-Exponential Kernel
@@ -35,9 +35,15 @@ RBF is **stationary**: $k(x,x')$ depends only on $\tau=x-x'$, so high-level prop
 
 Sample functions from a GP with RBF kernel are **infinitely differentiable** ($C^\infty$). This is often *too smooth* for physical processes — practitioners frequently prefer the [[MaternKernel|Matérn]] family which interpolates between RBF ($\nu\to\infty$) and exponential / [[OUKernel|Ornstein–Uhlenbeck]] ($\nu=1/2$, continuous-but-non-differentiable).
 
+## From [[mml-ch12-classification-svm|MML Ch 12]] — the kernel-SVM workhorse
+
+[[mml-ch12-classification-svm|MML Ch 12]] §12.4 (p. 389–390) names the **Gaussian radial basis function kernel** as one of the two flagship kernels for the [[SupportVectorMachine|SVM]] (with the polynomial kernel). Its defining property for kernel machines: the corresponding feature space is **infinite-dimensional**, so "we cannot explicitly represent the feature space but can still compute similarities between a pair of examples using the kernel" — the [[KernelTrick|kernel trick]] in its purest form. Plugged into the [[DualSVM|dual SVM]] (replacing $\langle\mathbf{x}_i,\mathbf{x}_j\rangle$ by $k_\text{RBF}(\mathbf{x}_i,\mathbf{x}_j)$), it yields the smoothly nonlinear decision boundaries of Fig. 12.10(b) — while the underlying hypothesis class stays linear (a [[SeparatingHyperplane|separating hyperplane]] in feature space). The kernel and its parameters are typically chosen by nested [[CrossValidation|cross-validation]] (§8.6.1). RBF is a valid kernel because its [[GramMatrix|Gram matrix]] is symmetric positive-semidefinite (Eq. 12.53), the [[SymmetricPositiveDefiniteMatrix|SPD]] condition of §3.2.3.
+
 ## Connections
 
 - [[d2l-gaussian-processes]] — gp-priors §RBF and gp-inference (used in every from-scratch example).
+- [[mml-ch12-classification-svm]] — §12.4 kernel-SVM reference.
+- [[KernelTrick]] / [[DualSVM]] / [[SupportVectorMachine]] — the kernel-SVM consumers.
 - [[GaussianProcess]] — the model class.
 - [[KernelFunction]] — the family it belongs to.
 - [[MaternKernel]] — the standard alternative when RBF is too smooth.

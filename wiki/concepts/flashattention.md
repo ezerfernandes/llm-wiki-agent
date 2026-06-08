@@ -2,8 +2,8 @@
 title: "FlashAttention"
 type: concept
 tags: [attention, gpu, systems, kernel, optimization]
-sources: [2205.14135-flashattention, hands-on-llm-ch03-looking-inside-llms, ai-engineering-ch09-inference-optimization]
-last_updated: 2024-12-04
+sources: [2205.14135-flashattention, hands-on-llm-ch03-looking-inside-llms, ai-engineering-ch09-inference-optimization, mlsysbook-ch08-model-training, mlsysbook-ch11-hardware-acceleration]
+last_updated: 2026-06-05
 ---
 
 # FlashAttention
@@ -71,3 +71,11 @@ This is one of the load-bearing points of the kernel-writing section: **new hard
 ### FlashAttention and operator fusion
 
 Ch 9 names four kernel-writing techniques ([[Vectorization|vectorization]], parallelization, [[LoopTiling|loop tiling]], [[OperatorFusion|operator fusion]]). FlashAttention is the **operator-fusion exemplar** — it fuses Q-K-multiply, softmax, attention-V-multiply (and during backward, the recomputation steps) into a single CUDA kernel.
+
+## From [[mlsysbook-ch08-model-training|mlsysbook Ch 8 (Model Training)]]
+
+Ch 8 uses FlashAttention as the **exemplar of IO-aware algorithm design** — *"an algorithm's runtime is determined not by FLOP count but by memory traffic."* Standard attention materializes the $S{\times}S$ score matrix in HBM (4096-len, 16 heads ≈ 4.0 GB just for scores) and spends 70–80% of attention time waiting on memory; tiling Q/K/V into [[SRAM]] blocks (20+ TB/s, ~10× HBM) with **online softmax** drops memory from $\mathcal{O}(S^2)$ to $\mathcal{O}(S)$ at the same $\mathcal{O}(S^2 d)$ FLOPs, shifting attention from memory-bound to **compute-bound on the [[RooflineModel|roofline]]** for a 2–4× training speedup. The backward pass *recomputes* score/probability blocks rather than reading stored full matrices. The chapter's benchmark table is explicitly illustrative (representative chapter numbers, not verbatim from Dao et al.); the load-bearing pattern is OOM→fits + larger backward-pass gains. Default above 512 tokens, mandatory above 2,048. [[FlashAttention2]] reaches 50–73% of A100 peak; FlashAttention-3 ~740 TFLOP/s (~75% peak) on H100 via FP8.
+
+- [[mlsysbook-ch08-model-training]] — IO-aware design exemplar; roofline regime shift; training-time benchmarks.
+- [[RooflineModel]] / [[ArithmeticIntensity]] — the framework that explains *why* tiling helps (memory- → compute-bound).
+- [[GradientCheckpointing]] — composes with FlashAttention for 4–8× larger trainable models.

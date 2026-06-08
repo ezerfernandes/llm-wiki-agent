@@ -2,8 +2,8 @@
 title: "Chain-of-Thought"
 type: concept
 tags: [ml-method, prompting]
-sources: [2512.04388-conductor, 2604.21590-agenticqwen, dspy-modules, dspy-signatures, dspy-programming-overview, ai-engineering-ch05-prompt-engineering, ai-engineering-ch08-dataset-engineering, hands-on-llm-ch06-prompt-engineering, dspy-entity-extraction-tutorial, dspy-ai-text-game-tutorial, dspy-sample-code-generation-tutorial, dspy-email-extraction-tutorial, dspy-tutorial-program-of-thought]
-last_updated: 2026-05-24
+sources: [2512.04388-conductor, 2604.21590-agenticqwen, dspy-modules, dspy-signatures, dspy-programming-overview, ai-engineering-ch05-prompt-engineering, ai-engineering-ch08-dataset-engineering, hands-on-llm-ch06-prompt-engineering, dspy-entity-extraction-tutorial, dspy-ai-text-game-tutorial, dspy-sample-code-generation-tutorial, dspy-email-extraction-tutorial, dspy-tutorial-program-of-thought, agentic-design-patterns-ch17-reasoning, agentic-design-patterns-appendix-a-prompting]
+last_updated: 2026-06-07
 ---
 
 # Chain-of-Thought
@@ -144,3 +144,10 @@ This is the **token-budget argument** for CoT — the model can use intermediate
 ### Position alongside Huyen Ch 5's variant catalog
 
 Huyen Ch 5's four variants (zero-shot CoT, zero-shot CoT with rationale, zero-shot CoT with explicit steps, one-shot CoT) are **fully consistent** with Ch 6's two-way framing — Ch 6's *"Let's think step-by-step"* is the canonical zero-shot CoT trigger; the alternative triggers are equivalent operating points; Ch 6's few-shot CoT subsumes Huyen's one-shot CoT row.
+
+## Agentic Design Patterns (Gulli, Ch 17) perspective
+
+[[agentic-design-patterns-ch17-reasoning|Chapter 17 of *Agentic Design Patterns*]] opens its [[ReasoningTechniques|Reasoning Techniques]] survey with CoT, framing it as the agent's **internal monologue** — *"a cornerstone technique for enabling advanced reasoning capabilities in contemporary LLMs."* Gulli's emphasis is on the **agentic value of transparency**: by breaking a complex problem into manageable sub-problems explicitly, CoT lets autonomous agents *"perform more reliable and auditable actions in complex environments."* In the chapter's arc, CoT is the base layer (the internal plan) that [[TreeOfThoughts|ToT]] branches, [[Reflection|self-correction]] critiques, and [[react|ReAct]] interleaves with action. Gulli also positions CoT as the single-model baseline that the multi-agent [[ChainOfDebates|Chain of Debates]] / [[GraphOfDebates|Graph of Debates]] frameworks deliberately move beyond, and notes that the "thinking" of [[rlvr|RLVR]]-trained reasoning models is essentially a long, dynamic CoT (thousands of tokens) learned via training rather than prompting.
+
+### Appendix A: prompt-level CoT
+The book's [[agentic-design-patterns-appendix-a-prompting|Appendix A]] presents CoT at the prompt level with the same two-way framing as *Hands-On LLMs* Ch 6 — **zero-shot CoT** (*"Let's think step by step"*) and **few-shot CoT** (provide example chains) — and adds two best practices: present the **final answer *after* the reasoning steps** (since generating the reasoning influences the answer's token predictions), and for single-correct-answer tasks (e.g. math) set [[Temperature|temperature]] to **0** (greedy decoding) for deterministic selection. It lists CoT's advantages (low-effort, off-the-shelf, interpretable, robust across model versions) and its main cost (more reasoning tokens → higher cost and latency).

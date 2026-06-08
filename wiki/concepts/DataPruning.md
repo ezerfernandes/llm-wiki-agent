@@ -1,9 +1,9 @@
 ---
 title: "Data Pruning"
 type: concept
-tags: [dataset-engineering, training-efficiency]
-sources: [ai-engineering-ch08-dataset-engineering]
-last_updated: 2024-12-04
+tags: [dataset-engineering, training-efficiency, data-selection, mlsysbook]
+sources: [ai-engineering-ch08-dataset-engineering, mlsysbook-ch09-data-selection]
+last_updated: 2026-06-05
 ---
 
 # Data Pruning
@@ -34,9 +34,15 @@ Without a reliable importance metric, all pruning methods devolve into approxima
 | [[DataDeduplication\|Deduplication]] | Remove redundant copies of the same example |
 | **Data pruning** | Select the best subset from non-duplicate examples |
 
+## In [[mlsysbook-ch09-data-selection|Machine Learning Systems Ch 9]]
+
+Reddi Ch 9 treats pruning as one of three [[StaticDataPruning|static-pruning]] techniques, distinguishing **quality pruning** (removing samples that actively harm learning) from [[CoresetSelection|coreset selection]] (informativeness) and [[DataDeduplication|deduplication]] (redundancy). Quality pruning = label-error detection ([[Cleanlab]]-style confidence patterns), outlier removal, and [[Perplexity|perplexity]]/low-information filtering. The "Data Quality Multiplier" makes the stakes concrete: clean-data convergence scales $\mathcal{O}(1/N)$ vs noisy $\mathcal{O}(1/\sqrt N)$, so **one clean label is worth ~100 noisy ones** — cleaning is a 100× compute accelerator.
+
 ## Connections
 
 - [[DataDeduplication]] — sibling operation (different goal).
+- [[StaticDataPruning]] / [[CoresetSelection]] / [[DataSelection]] — the Ch 9 pruning taxonomy.
 - [[ActiveLearning]] / [[ImportanceWeighting]] / [[importancesampling|Importance Sampling]] — importance-metric methods.
+- [[Cleanlab]] — label-error detection for quality pruning.
 - [[DataQuality]] / [[DataCoverage]] — the criteria pruning optimizes for.
-- [[ai-engineering-ch08-dataset-engineering]] — primary source.
+- [[ai-engineering-ch08-dataset-engineering]] / [[mlsysbook-ch09-data-selection]] — sources.

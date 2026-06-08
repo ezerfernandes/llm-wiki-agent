@@ -30,3 +30,6 @@ Class of attack where untrusted content reaches an LLM and overrides operator in
 - **Wrapper-level** — input/output filters.
 - **Tool-boundary** — sanitize tool outputs before they re-enter the prompt.
 - **External** — [[Guardrail|guardrails]] ([[LlamaGuard]], [[NeMoGuardrails]], [[GuardrailsAI]]).
+
+## In Agentic Design Patterns Ch 18 (Gulli)
+[[AntonioGulli|Gulli's]] [[agentic-design-patterns-ch18-guardrails|Ch 18 (Guardrails/Safety Patterns)]] makes **input validation/sanitization** the first stage of the [[Guardrail|guardrails]] pattern and folds instruction-subversion ([[Jailbreak|jailbreaking]]) into the safety-policy directives a pre-screening LLM enforces. The chapter also warns to **sanitize all model-generated content before rendering it in a UI** to prevent malicious code execution in browsers — a tool-output / output-side analogue of [[InputSanitization|input sanitization]] guarding against injected payloads. See [[Guardrail]] / [[InputSanitization]].

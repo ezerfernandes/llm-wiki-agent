@@ -2,8 +2,8 @@
 title: "AlphaFold"
 type: entity
 tags: [model, biology, drug-discovery, googledeepmind]
-sources: [ai-engineering-ch02-foundation-models]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch02-foundation-models, mlsysbook-ch01-introduction]
+last_updated: 2026-06-05
 ---
 
 # AlphaFold
@@ -26,7 +26,12 @@ This wiki page is intentionally brief — AlphaFold is named in Ch 2 as an examp
 - [[BioNeMo]] ([[NVIDIA]]) — biomolecular data for drug discovery.
 - [[MedPaLM2]] ([[google|Google]]) — medical QA.
 
+## As a deployment case study (mlsysbook)
+
+Reddi's *Machine Learning Systems* ([[mlsysbook-ch01-introduction|Vol 1, Ch 1]]) uses AlphaFold as the **compute-intensive cloud** deployment case study (alongside [[Waymo]] and [[FarmBeats]]). Training required **128 TPUv3 cores for weeks** and drew on the Protein Data Bank's experimentally determined structures. Its binding [[DAMTaxonomy|D·A·M]] constraints are **compute-intensive search** and **curated scientific data**; it prioritizes throughput (running for days in the cloud to explore vast protein configuration spaces) over the low-latency edge inference that defines Waymo.
+
 ## Connections
+- [[mlsysbook-ch01-introduction]] / [[Waymo]] / [[FarmBeats]] — the three Ch 1 deployment case studies.
 - [[DomainSpecificModel]] — the concept AlphaFold exemplifies.
 - [[googledeepmind|Google DeepMind]] — the builder.
 - [[BioNeMo]] / [[MedPaLM2]] — peer biomedical FMs named in Ch 2.

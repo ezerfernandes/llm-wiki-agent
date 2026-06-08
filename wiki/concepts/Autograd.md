@@ -2,8 +2,8 @@
 title: "Autograd"
 type: concept
 tags: [deep-learning, frameworks]
-sources: [d2l-preliminaries]
-last_updated: 2026-05-16
+sources: [d2l-preliminaries, mlsysbook-ch07-ml-frameworks]
+last_updated: 2026-06-05
 ---
 
 # Autograd
@@ -37,3 +37,13 @@ Backprop is the dominant method but not the only option — Julia's `ForwardDiff
 - **Detach / `stop_gradient`**: remove a subgraph from gradient flow without breaking the forward computation. See [[ComputationalGraph]].
 - **Python control flow** (while/if) is supported in dynamic frameworks — the graph is realized per execution.
 - **Higher-order gradients**: gradients of gradients via nested `grad` (JAX) or `create_graph=True` (PyTorch).
+
+## Internals from [[mlsysbook-ch07-ml-frameworks|mlsysbook Vol 1 Ch 7]]
+
+Ch 7 details PyTorch's autograd as a dynamic **tape** (also called the reverse-linked graph): each forward op records a `Function` node storing input references + a backward rule; every differentiable tensor stores a `grad_fn`, and `next_functions` forms a reverse chain (`PowBackward0`→`MulBackward0`→`AccumulateGrad` at leaf tensors). The tape is destroyed after `backward()` (use `retain_graph=True` for multi-loss/higher-order, at doubled memory). The dominant cost is the **activation tax**: stored intermediates make training memory ~100× inference. Safe gradient control: `.detach()` (and `.detach().clone()` before in-place mutation), hooks (`register_hook`) for clipping/inspection; the legacy `.data` attribute and in-place ops (`x += 1`) can silently corrupt gradients (PyTorch's tensor version counters catch the latter). Ch 7's "tape-based vs transform-based" perspective contrasts this with [[JAX]]'s function transformations.
+
+## Connections
+
+- [[mlsysbook-ch07-ml-frameworks]] — PyTorch autograd internals (grad_fn chain, memory tax, hooks, detach).
+- [[ReverseModeAutodiff]] / [[ForwardModeAutodiff]] / [[DualNumbers]] — the modes.
+- [[ActivationCheckpointing]] / [[GradientAccumulation]] — managing the activation tax.

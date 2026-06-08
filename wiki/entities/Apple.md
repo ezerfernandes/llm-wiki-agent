@@ -2,8 +2,8 @@
 title: "Apple"
 type: entity
 tags: [company, consumer-electronics, ai-deployer, hardware]
-sources: [ai-engineering-ch01-intro, ai-engineering-ch07-finetuning, ai-engineering-ch09-inference-optimization, ai-engineering-ch10-architecture-feedback]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch01-intro, ai-engineering-ch07-finetuning, ai-engineering-ch09-inference-optimization, ai-engineering-ch10-architecture-feedback, mlsysbook-ch02-ml-systems, mlsysbook-ch11-hardware-acceleration, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 # Apple
@@ -22,7 +22,10 @@ Apple also surfaces as the operator of the App Store (cited for the "half of top
 
 - [[CriticalOrComplementary]] / [[ReactiveOrProactive]] / [[DynamicOrStatic]] — the three axes.
 - [[AIInterface]] — Siri as the voice-assistant interface category.
+- [[MobileML]] / [[mlsysbook-ch02-ml-systems]] — mlsysbook Ch 2 cites Apple's Face ID / Secure Enclave (30,000 IR dots, 1:1,000,000 false acceptance, templates never leave device) and Apple Watch on-device ECG ([[HIPAA]] compliance) as mobile on-device-privacy exemplars.
 - [[ai-engineering-ch01-intro]] — Ch 1 source.
+- [[mlsysbook-ch14-ml-operations]] — Ch 14 lists Apple's Core ML as the unified on-device optimization framework (Neural Engine/GPU/CPU).
+
 
 ## From [[ai-engineering-ch09-inference-optimization|AI Engineering Ch 9]]
 

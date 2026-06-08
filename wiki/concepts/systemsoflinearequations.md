@@ -1,13 +1,19 @@
 ---
 title: "Systems Of Linear Equations"
 type: concept
-tags: [stub]
-sources: []
-last_updated: 2026-05-10
+tags: [linear-algebra, foundational]
+sources: [mml-ch02-linear-algebra, mml-book]
+last_updated: 2026-06-04
 ---
 
 # Systems Of Linear Equations
 
-*Stub — referenced by other wiki pages but not yet ingested as a primary source.*
+This page now resolves to the canonical concept page **[[SystemOfLinearEquations]]**, written up from [[mml-ch02-linear-algebra|MML Ch 2]] §2.1.
 
-This page exists to resolve `[[SystemsOfLinearEquations]]` wikilinks. Flesh out when a relevant source is ingested.
+A system of linear equations is a finite collection of linear equations in shared unknowns, written compactly as $\mathbf{A}\mathbf{x}=\mathbf{b}$. A real system has **no**, **exactly one**, or **infinitely many** solutions. See [[SystemOfLinearEquations]] for the full treatment (solution trichotomy, geometric reading, homogeneous vs inhomogeneous, solvability via [[Rank|rank]]).
+
+## Connections
+
+- [[SystemOfLinearEquations]] — canonical page (this slug is an alias).
+- [[GaussianElimination]] — the solving algorithm.
+- [[mml-ch02-linear-algebra|MML Ch 2]] / [[mml-book]] — §2.1, §2.3 reference.

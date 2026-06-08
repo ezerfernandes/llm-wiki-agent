@@ -2,8 +2,8 @@
 title: "Matrix Decomposition"
 type: concept
 tags: [linear-algebra, foundational, factorization]
-sources: [mml-book]
-last_updated: 2026-05-16
+sources: [mml-book, mml-ch04-matrix-decompositions]
+last_updated: 2026-06-04
 ---
 
 # Matrix Decomposition
@@ -25,6 +25,10 @@ Six related operations are framed together (Fig. 4.1 mind map):
 
 SVD generalizes eigendecomposition to non-square / non-diagonalizable matrices and is "considered one of the fundamental concepts in linear algebra" (Ch 4 intro, p. 98).
 
+## From [[mml-ch04-matrix-decompositions|MML Ch 4]]
+
+The full chapter deep dive develops the three threads — *summarize* ([[Determinant]], [[Trace]], [[CharacteristicPolynomial]], [[Eigenvalue|eigenvalues]]/[[Eigenvector|eigenvectors]], [[Eigenspace]]), *decompose* ([[CholeskyDecomposition]], [[Eigendecomposition]] via [[Diagonalization]] and the [[SimilarityTransform|similarity transform]], [[SingularValueDecomposition]]), and *approximate* ([[LowRankApproximation]] with the [[EckartYoung|Eckart–Young theorem]] in the [[SpectralNorm|spectral norm]]). Key cross-cutting results: the [[SpectralTheorem|spectral theorem]] (symmetric ⇒ orthonormal real eigenbasis), the [[DefectiveMatrix|defective-matrix]] obstruction to diagonalization, and the [[MatrixPhylogeny|matrix phylogeny]] (§4.7) organizing every matrix type into one taxonomy. The [[LaplaceExpansion|Laplace expansion]] computes determinants recursively (§4.1).
+
 ## Why decomposition matters for ML
 
 - **[[CholeskyDecomposition]]** is the cheap factorization that makes Gaussian-density sampling tractable ($\boldsymbol\Sigma = \mathbf{L}\mathbf{L}^\top \Rightarrow \mathbf{L}\mathbf{z}$ samples from $\mathcal{N}(\mathbf{0}, \boldsymbol\Sigma)$).
@@ -34,6 +38,8 @@ SVD generalizes eigendecomposition to non-square / non-diagonalizable matrices a
 ## Connections
 
 - [[mml-book]] — Ch 4 canonical reference.
+- [[mml-ch04-matrix-decompositions|MML Ch 4]] — the full exhaustive deep dive.
+- [[MatrixPhylogeny]] — the §4.7 taxonomy of matrix types and factorizations.
 - [[matrix-diagonalization]] — algebrica.org's restricted version (square + diagonalizable only).
 - [[determinant-of-a-square-matrix]] — algebrica.org's determinant page.
 - [[eigenvalues-and-eigenvectors]] — algebrica.org's eigenvalue page.

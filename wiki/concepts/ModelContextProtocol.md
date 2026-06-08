@@ -2,8 +2,8 @@
 title: "Model Context Protocol (MCP)"
 type: concept
 tags: [mcp, model-context-protocol, protocol, anthropic, tools, function-calling, agents, interoperability, open-standard]
-sources: [dspy-mcp, dspy-mcp-tutorial, dspy-tools, dspy-learn-index]
-last_updated: 2026-05-24
+sources: [dspy-mcp, dspy-mcp-tutorial, dspy-tools, dspy-learn-index, agentic-design-patterns-ch06-planning, agentic-design-patterns-ch10-mcp, agentic-design-patterns-ch15-a2a]
+last_updated: 2026-06-07
 ---
 
 # Model Context Protocol (MCP)
@@ -128,6 +128,70 @@ The MCP page does **not** modify any of these abstractions — it adds a **new c
 
 - **Distinct from [[DSPyMCP]].** The DSPy-specific binding is its own concept (the `dspy.Tool.from_mcp_tool(...)` class-method plus the recommended `async with` usage pattern). This page records the protocol *itself*, framework-agnostically; [[DSPyMCP]] records DSPy's integration with it. The split mirrors the [[LiteLLM]] / [[DSPyLM]] precedent — protocol/library at the upstream end, framework binding at the downstream end.
 
+## Agentic Design Patterns (Gulli) perspective ([[agentic-design-patterns-ch10-mcp]])
+
+[[AntonioGulli|Gulli's]] [[AgenticDesignPatterns|*Agentic Design Patterns*]] devotes its **Chapter 10** to MCP, framing it as pattern #10 of 21 and the *standardized* answer to the [[ToolUse|Tool Use]] (Ch 5) and [[FunctionCalling|function-calling]] problem. The DSPy-derived material above covers the protocol mechanics; the ADP chapter adds the following framings:
+
+### The "universal adapter" framing
+
+Gulli's headline metaphor: MCP is "a universal adapter that allows any LLM to plug into any external system, database, or tool without a custom integration for each one." Restated as the canonical analogy against function calling: function calling is *"a specific set of custom-built tools, like a particular wrench and screwdriver"* (efficient for a fixed workshop), while MCP is *"a universal, standardized power outlet system"* — it doesn't provide the tools, but lets any compliant tool from any manufacturer plug in, enabling a dynamic, ever-expanding workshop.
+
+### MCP vs. tool function calling — the five-axis table
+
+The chapter's most-cited artifact is a side-by-side contrast (this complements, with the same conclusion as, the wiki's [[FunctionCalling]] coverage):
+
+| Feature | Tool Function Calling | Model Context Protocol |
+|---|---|---|
+| **Standardization** | Proprietary, vendor-specific; format/implementation differ across LLM providers | Open, standardized protocol; interoperability across LLMs and tools |
+| **Scope** | A direct mechanism for an LLM to request execution of one predefined function | A broader framework for how LLMs and external tools discover and communicate |
+| **Architecture** | One-to-one between the LLM and the app's tool-handling logic | Client-server; LLM-powered clients connect to many MCP servers |
+| **Discovery** | The LLM is explicitly told which tools exist for a given conversation | **Dynamic discovery** — a client can query a server to see its capabilities |
+| **Reusability** | Integrations tightly coupled to the specific app + LLM | Standalone, reusable MCP servers any compliant app can access |
+
+Bottom line: *"For simple applications, specific tools are enough; for complex, interconnected AI systems that need to adapt, a universal standard like MCP is essential."*
+
+### The four-role component model
+
+Gulli decomposes the client-server architecture into four roles (the wiki's DSPy material above describes the *lifecycle*; this is the *component view*):
+
+1. **Large Language Model (LLM)** — the core intelligence that plans and decides when to access external information or act.
+2. **MCP Client** — an application/wrapper around the LLM; translates the LLM's intent into a standardized request, and discovers/connects/communicates with servers.
+3. **MCP Server** — the gateway to the external world; exposes tools/resources/prompts, each server typically scoped to one domain (a DB, an email service, a public API).
+4. **Optional Third-Party (3P) Service** — the actual external tool/app/data source the server fronts (proprietary DB, SaaS platform, public weather API).
+
+The five-step interaction flow: **Discovery** (client queries server → manifest of tools like `send_email`, resources like `customer_database`, prompts) → **Request Formulation** → **Client Communication** → **Server Execution** (authenticate, validate, run via underlying software) → **Response and Context Update**.
+
+### The three primitives, sharply defined
+
+Gulli draws the cleanest line in the wiki between the three MCP primitives by their *semantics*, not just their API category:
+
+- **Resource** — *static data* (a PDF file, a database record). Read-only.
+- **Tool** — an *executable function that performs an action* (sending an email, querying an API). Has side effects.
+- **Prompt** — a *template that guides the LLM* in how to interact with a resource or tool, ensuring structured, effective interaction.
+
+### The API-design caveat (a contribution unique to this source)
+
+The chapter's most distinctive argument is a warning the DSPy material doesn't make: **MCP is a contract for an "agentic interface," but its effectiveness depends on the design of the APIs it exposes.** Two failure modes:
+
+1. **Wrapping bad APIs.** Naively MCP-wrapping a legacy API (e.g., a ticketing API that returns tickets one-by-one) makes an agent slow and inaccurate at scale; the underlying API should add *deterministic* features (filtering, sorting). *"Agents do not magically replace deterministic workflows; they often require stronger deterministic support to succeed."*
+2. **Agent-unfriendly data formats.** MCP does not enforce that data is agent-parseable. An MCP server returning PDFs is "mostly useless" if the agent can't parse PDF; better to return Markdown. Developers must consider not just the connection but the *nature of the data exchanged*.
+
+This is a notable counterpoint to MCP-evangelism: the protocol standardizes the *plumbing*, not the *quality* of what flows through it.
+
+### Additional considerations
+
+The chapter enumerates evaluation dimensions: **Security** (auth/authz are mandatory for any tool-exposing protocol), **Implementation complexity** (SDKs from [[anthropic|Anthropic]] or [[FastMCP]] abstract the boilerplate), **Error handling** (the protocol must surface failures — tool errors, unavailable servers, invalid requests — so the LLM can retry/adapt), **Local vs. Remote servers** (local for speed/sensitive data; remote for shared scalable org access), **On-demand vs. Batch** processing, and the **Transport mechanism** (JSON-RPC over STDIO locally; Streamable HTTP + SSE remotely — matching the transports the DSPy material documents).
+
+### MCP vs. A2A (boundary note)
+
+Gulli treats MCP strictly as the **agent ↔ tool/data** (vertical) protocol. The book's *separate* [[InterAgentCommunication|Inter-Agent Communication]] pattern (Ch 15) covers **agent ↔ agent** (horizontal) coordination via [[A2AProtocol|Google's A2A protocol]]. MCP and A2A are complementary layers — MCP standardizes how an agent reaches its tools; A2A standardizes how agents coordinate with each other. Ch 15 confirms this symmetric framing from the A2A side: *"While MCP focuses on structuring context for agents and their interaction with external data and tools, A2A facilitates coordination and communication among agents."* Notably both protocols share a JSON-RPC lineage ([[JSONRPC|A2A uses JSON-RPC 2.0]]; MCP uses JSON-RPC-style `tools/call`). Neither chapter conflates them.
+
+### Hands-on: Google ADK + FastMCP
+
+The chapter's runnable examples use [[GoogleADK|Google ADK]]:
+- **Consuming** a local filesystem MCP server: an `LlmAgent` (`gemini-2.0-flash`) is given an `MCPToolset` whose `connection_params=StdioServerParameters(command='npx', args=['-y', '@modelcontextprotocol/server-filesystem', TARGET_FOLDER_PATH])`. `npx` runs Node.js-distributed community MCP servers; `uvx` is the Python-isolated-env analog. An optional `tool_filter=[...]` restricts which server tools are exposed.
+- **Authoring** a server with [[FastMCP]]: `from fastmcp import FastMCP, Client`; `@mcp_server.tool` decorates a Python function (its docstring + type hints become the tool's schema via **automatic schema generation**); `mcp_server.run(transport="http", host="127.0.0.1", port=8000)` serves it over HTTP. An ADK client then connects via `HttpServerParameters(url="http://localhost:8000")`.
+
 ## Connections
 
 - [[anthropic|Anthropic]] — the originating organization; MCP is one of Anthropic's open-standard contributions to the agent ecosystem.
@@ -148,6 +212,16 @@ The MCP page does **not** modify any of these abstractions — it adds a **new c
 - [[FunctionCall]] — the C-language *function-call* concept; MCP tool calls are the prompt-level analog over a JSON-RPC transport.
 - [[2604.25850-agentic-harness-engineering|Agentic Harness Engineering]] — argues tools / middleware / long-term memory are the load-bearing layer for agent capability; MCP is the standardized middleware story.
 - [[2604.21590-agenticqwen|AgenticQwen]] — names tool use as a core agentic capability; MCP is one realization of the tool-source side of that capability.
+- [[DeepResearch]] / [[agentic-design-patterns-ch06-planning|ADP Ch 6 (Planning)]] — the **OpenAI Deep Research API** lists MCP as its *extensibility* mechanism: custom MCP tools let the research agent connect to private knowledge bases / internal data, blending public web research with proprietary information.
 - [[LiteLLM]] — the upstream provider-abstraction layer for LMs; the [[LiteLLM]] / [[DSPyLM]] split is the architectural precedent for the [[ModelContextProtocol]] / [[DSPyMCP]] split.
 - [[DSPyLM]] — the LM-client analog; MCP plays the same role for tool sources that LiteLLM/[[DSPyLM]] play for LM providers — provider-abstraction one layer down from the framework's typed abstraction.
 - [[openai|OpenAI]] — provider whose function-calling API serves as an alternative (proprietary) tool-spec format MCP supersedes for cross-stack portability.
+- [[AgenticDesignPatterns]] — Gulli's book; MCP is its Chapter 10 / pattern #10 of 21.
+- [[AgenticDesignPattern]] — the meta-concept; MCP is one of the catalogued patterns.
+- [[agentic-design-patterns-ch10-mcp]] — ADP Ch 10 source; adds the universal-adapter framing, five-axis MCP-vs-function-calling table, four-role component model, the API-design caveat, and the Google-ADK/FastMCP hands-on receipts.
+- [[GoogleADK|Google ADK]] — the framework Gulli uses to demonstrate consuming and exposing MCP servers (`MCPToolset`).
+- [[gemini|Gemini]] — the model driving the ADK MCP examples.
+- [[InterAgentCommunication]] — the complementary agent-to-agent (A2A) pattern (Ch 15); MCP is agent-to-tool, A2A is agent-to-agent.
+- [[A2AProtocol]] — Google's concrete agent↔agent protocol; the horizontal counterpart to MCP's vertical agent↔tool reach.
+- [[agentic-design-patterns-ch15-a2a]] — ADP Ch 15 source; confirms the MCP-vs-A2A boundary from the A2A side.
+- [[FunctionCalling]] — the proprietary mechanism MCP is contrasted against in Ch 10's five-axis table.

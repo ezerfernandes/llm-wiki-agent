@@ -1,9 +1,9 @@
 ---
 title: "Speculative Decoding"
 type: concept
-tags: [llm-engineering, inference, decoding]
-sources: [leh-ch08-inference-optimization, ai-engineering-ch09-inference-optimization]
-last_updated: 2024-12-04
+tags: [llm-engineering, inference, decoding, mlsysbook, serving]
+sources: [leh-ch08-inference-optimization, ai-engineering-ch09-inference-optimization, mlsysbook-ch13-model-serving]
+last_updated: 2026-06-05
 ---
 
 ## Definition
@@ -63,3 +63,7 @@ The idle-FLOPs assumption breaks down at high [[MFU]] — there's no free comput
 - **[[PromptLookupDecoding]]** — draft from prompt n-grams.
 - **[[MedusaDecoding|Medusa]]** — multiple decoding heads (parallel decoding family, not strictly speculative).
 - **[[LookaheadDecoding]]** — same decoder generates K parallel tokens (Jacobi verification).
+
+## From [[mlsysbook-ch13-model-serving|mlsysbook Ch 13]]
+
+Ch 13 frames it as breaking the serial [[Autoregressive|autoregressive]] bottleneck "at the runtime layer, not the architecture layer." At acceptance rate α = 0.8 with k = 4 candidate tokens, effective throughput scales as k·α ≈ **~3.2× over sequential decoding** without modifying the target model (verification is parallel, so wall-clock cost ≈ one large-model step regardless of k). Listed among advanced [[LLMServing|LLM-serving]] techniques alongside [[PrefixCaching]] and weight-only INT4 quantization. See also [[mlsysbook-ch13-model-serving]].

@@ -1,9 +1,9 @@
 ---
 title: "Operator Fusion"
 type: concept
-tags: [compiler, kernel, optimization, gpu]
-sources: [ai-engineering-ch09-inference-optimization]
-last_updated: 2024-12-04
+tags: [compiler, kernel, optimization, gpu, mlsysbook, serving]
+sources: [ai-engineering-ch09-inference-optimization, mlsysbook-ch10-model-compression, mlsysbook-ch13-model-serving]
+last_updated: 2026-06-05
 ---
 
 # Operator Fusion
@@ -35,13 +35,20 @@ Ch 9's Figure 9-13 explicitly shows FlashAttention as the *"kernel that fuses to
 
 But hand-fused kernels for "hot" workloads (attention, matmul) often still outperform compiler-emitted ones — the prize for operator-fusion expertise.
 
+## The architectural-efficiency lens ([[mlsysbook-ch10-model-compression|mlsysbook Ch 10]])
+
+Ch 10 places operator fusion in its *architectural efficiency* dimension and quantifies it with the canonical **Conv-BN-ReLU** pattern: unfused = 6 memory transfers ($\text{Memory}=2NM$); fused = 2 ($\text{Memory}=2M$) — a 3× transfer reduction, computing batchnorm + ReLU in registers. For a 28×28×256 ResNet-50 layer this is ~50% bandwidth reduction; across the net it cuts kernel launches from 159 → 53 (each ~5–10 µs). Speedup is workload-dependent: element-wise 2–4×, Conv-BN-Act 1.5–2×, GEMM 1.2–1.5×, attention 2–4× ([[flashattention|FlashAttention]] tiling, $\mathcal{O}(S^2)\to\mathcal{O}(S)$). *"The arithmetic is identical; only the memory access pattern changes."* It is the chapter's prototypical Region-1 "free lunch" (no accuracy cost). [[mlsysbook-ch10-model-compression]]
+
 ## Connections
 
 - [[FlashAttention]] — canonical operator-fusion kernel.
+- [[ModelCompression]] / [[mlsysbook-ch10-model-compression]] — fusion as the architectural-efficiency "free lunch."
 - [[Compiler]] / [[Lowering]] — where automatic operator fusion happens.
 - [[Kernel]] — what operator fusion produces.
 - [[Vectorization]] / [[LoopTiling]] — sibling kernel techniques.
 - [[MemoryBandwidthBound]] — the regime operator fusion targets.
 - [[kernelfusion]] — adjacent existing concept page.
+- [[LayerFusion]] — the serving-runtime framing ([[mlsysbook-ch13-model-serving|Ch 13]]: TensorRT drops ResNet-50 from ~50→~15 kernels).
 - [[InferenceOptimization]] — broader discipline.
 - [[ai-engineering-ch09-inference-optimization]] — primary source.
+- [[mlsysbook-ch13-model-serving]] — Ch 13 lists operator fusion as "the most potent graph-level optimization" in node-level serving optimization (the static serving graph enables aggressive fusion unsafe during training); 2–5× typical gain on memory-bound layers.

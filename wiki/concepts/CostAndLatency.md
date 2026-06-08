@@ -2,8 +2,8 @@
 title: "Cost and Latency"
 type: concept
 tags: [evaluation, criteria, ai-engineering, latency, cost, pareto]
-sources: [ai-engineering-ch04-evaluate-ai-systems]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch04-evaluate-ai-systems, agentic-design-patterns-ch16-resource-aware, agentic-design-patterns-ch19-evaluation]
+last_updated: 2026-06-07
 ---
 
 # Cost and Latency
@@ -51,9 +51,19 @@ GPUs ship with 16 / 24 / 48 / 80 GB of memory. Popular model sizes max out these
 | Code | [[PassAtK|pass@1]] | [[HumanEval]] | > 90% | > 95% |
 | Factual consistency | Internal GPT metric | Internal hallucination set | > 0.8 | > 0.9 |
 
+## Runtime resolution: Resource-Aware Optimization ([[agentic-design-patterns-ch16-resource-aware|Gulli Ch 16]])
+
+Where Huyen frames cost/latency/quality as a model-*selection-time* [[ParetoOptimization|Pareto]] filter, [[agentic-design-patterns-ch16-resource-aware|*Agentic Design Patterns* Ch 16]] turns the same trade-off into a **per-query runtime decision**: the [[ResourceAwareOptimization|Resource-Aware Optimization]] pattern uses a [[ModelRouter|Router Agent]] to dispatch each request to a cheap or frontier model by complexity and budget ([[DynamicModelSelection|dynamic model selection]]), with a [[CritiqueAgent|Critique Agent]] tuning the routing for cost savings. Same three axes (quality, cost, latency), resolved continuously at inference rather than once at model-pick time.
+
+## As production metrics: latency + token-usage monitoring ([[agentic-design-patterns-ch19-evaluation|Gulli Ch 19]])
+
+[[EvaluationAndMonitoring|Ch 19 (Evaluation and Monitoring)]] treats cost and latency as **operational monitoring** targets for deployed agents, not just selection-time criteria. **Latency monitoring** measures per-request processing duration; *"simply printing latency data to the console is insufficient"* — persist it to time-series DBs ([[InfluxDB]], [[Prometheus]]), data warehouses ([[Snowflake]], [[GoogleBigQuery|BigQuery]]), or observability platforms ([[Datadog]], [[Splunk]], [[Grafana]]). **Token-usage tracking** (the chapter's `LLMInteractionMonitor` accumulating input/output token counts per interaction) is the cost-side metric — billing scales with tokens, so efficient token use cuts operational expense and flags prompt-engineering improvements. This is the runtime-telemetry sibling of Ch 4's selection-time table.
+
 ## Connections
 
+- [[EvaluationAndMonitoring]] — Ch 19's runtime latency + token-usage monitoring (persisted to telemetry sinks).
 - [[ai-engineering-ch04-evaluate-ai-systems]] — primary source.
+- [[ResourceAwareOptimization]] / [[DynamicModelSelection]] / [[ModelRouter]] — Ch 16's runtime, per-query resolution of this trade-off.
 - [[DomainSpecificCapability]] / [[GenerationCapability]] / [[InstructionFollowingCapability]] — sibling buckets.
 - [[ParetoOptimization]] — methodology framing.
 - [[TTFT]] / [[TPOT]] / [[TimePerToken]] / [[TimeBetweenTokens]] / [[TimePerQuery]] — specific metrics.

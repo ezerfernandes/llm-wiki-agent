@@ -2,8 +2,8 @@
 title: "AMD (Advanced Micro Devices)"
 type: entity
 tags: [company, hardware, gpu, semiconductor]
-sources: [ai-engineering-ch09-inference-optimization]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch09-inference-optimization, mlsysbook-ch11-hardware-acceleration]
+last_updated: 2026-06-05
 ---
 
 # AMD — Advanced Micro Devices

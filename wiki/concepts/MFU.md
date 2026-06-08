@@ -2,8 +2,8 @@
 title: "MFU (Model FLOP/s Utilization)"
 type: concept
 tags: [inference, training, performance, metrics, gpu]
-sources: [ai-engineering-ch09-inference-optimization]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch09-inference-optimization, mlsysbook-ch08-model-training, mlsysbook-ch12-benchmarking]
+last_updated: 2026-06-05
 ---
 
 # MFU — Model FLOP/s Utilization
@@ -55,12 +55,20 @@ In other words: a 50% MFU on a high-claimed-peak chip may be lower absolute thro
 
 A higher MFU at the cost of more latency or cost is *not* a win. MFU is diagnostic, not the objective.
 
+## Training-side framing from [[mlsysbook-ch08-model-training|mlsysbook Ch 8]]
+
+Ch 8 (the training capstone) defines MFU for **training** as a *FLOP-ratio* rather than a throughput-ratio: $\text{MFU} = O_{\text{model}} / (R_{\text{peak}} \cdot T_{\text{step}})$, where $O_{\text{model}}$ counts only convergence-advancing forward+backward FLOPs (excluding gradient-checkpointing recomputation and padding). This is **the $\eta_{\text{hw}}$ term of the [[IronLawOfTrainingPerformance|iron law of training]] made concrete**. Same PaLM provenance and intent as the inference framing; treat MFU as one metric with a training/inference split rather than two metrics. Practical training ceiling is **55–65%** (only with [[FlashAttention]] + tuned batch sizes); 100% is impossible because weights must still load from DRAM. The chapter ties MFU directly to the [[DAMTaxonomy]] for bottleneck diagnosis.
+
 ## Connections
 
+- [[mlsysbook-ch08-model-training]] — the training-side FLOP-ratio definition; MFU as the iron-law $\eta_{\text{hw}}$ term.
+- [[IronLawOfTrainingPerformance]] — MFU *is* the utilization term.
+- [[DAMTaxonomy]] — MFU value + symptoms classify the bottleneck axis.
 - [[MBU]] — companion utilization metric (bandwidth side).
 - [[GPUUtilization]] — the `nvidia-smi` metric MFU corrects for.
 - [[ComputeBound]] / [[MemoryBandwidthBound]] — the regimes MFU/MBU diagnose.
 - [[PaLM]] — the paper that named MFU.
 - [[InferenceOptimization]] — discipline that uses MFU.
 - [[Prefill]] / [[Decode]] — phases with asymmetric MFU.
+- [[mlsysbook-ch12-benchmarking]] — [[Benchmarking|benchmarking]] (Ch 12) is what *measures* MFU empirically: it defines ML system benchmarks as isolating $\eta_{\text{hw}} = R_{\text{sustained}}/R_{\text{peak}}$, reports transformer training sustaining 30–50% MFU (a 2–3.5× peak-vs-sustained gap), and treats the [[BenchmarkEngineering|peak-FLOP/s gaming]] MFU exposes as a disqualifiable practice.
 - [[ai-engineering-ch09-inference-optimization]] — primary source.

@@ -2,8 +2,8 @@
 title: "GitHub Actions"
 type: entity
 tags: [tool, ci-cd]
-sources: [madewithml-mlops-cicd, madewithml-mlops-pre-commit, madewithml-mlops-testing, madewithml-mlops-styling]
-last_updated: 2026-05-15
+sources: [madewithml-mlops-cicd, madewithml-mlops-pre-commit, madewithml-mlops-testing, madewithml-mlops-styling, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 # GitHub Actions

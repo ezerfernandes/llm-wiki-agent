@@ -2,8 +2,8 @@
 title: "Dropout"
 type: concept
 tags: [regularization, deep-learning, foundational]
-sources: [d2l-multilayer-perceptrons]
-last_updated: 2026-05-16
+sources: [d2l-multilayer-perceptrons, mlsysbook-ch05-neural-computation]
+last_updated: 2026-06-05
 ---
 
 # Dropout
@@ -53,3 +53,4 @@ Frameworks track `training` vs `eval` mode (PyTorch `model.eval()`, TF `training
 - [[WeightDecay]] / [[EarlyStopping]] — companion regularizers.
 - [[BatchNormalization]] — orthogonal technique with subtle interactions.
 - [[NitishSrivastava]] / [[GeoffreyHinton]] / [[AlexKrizhevsky]] — original authors.
+- [[mlsysbook-ch05-neural-computation]] — flags dropout's systems hazard: it makes training stochastic but inference deterministic, creating divergent computational graphs; forgetting to switch from the training to the inference graph silently degrades accuracy 5–15%.

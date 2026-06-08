@@ -2,8 +2,8 @@
 title: "Data Observability"
 type: concept
 tags: [monitoring, mlops, data]
-sources: []
-last_updated: 2026-05-15
+sources: [mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 # Data Observability

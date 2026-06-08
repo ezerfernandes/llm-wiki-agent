@@ -2,8 +2,8 @@
 title: "NVIDIA"
 type: entity
 tags: [company, hardware, gpu]
-sources: [d2l-installation, d2l-builders-guide, 2205.14135-flashattention, d2l-computational-performance, parproc-ch05-cuda-gpu-programming, ai-engineering-ch01-intro, ai-engineering-ch02-foundation-models, ai-engineering-ch08-dataset-engineering, ai-engineering-ch09-inference-optimization]
-last_updated: 2024-12-04
+sources: [d2l-installation, d2l-builders-guide, 2205.14135-flashattention, d2l-computational-performance, parproc-ch05-cuda-gpu-programming, ai-engineering-ch01-intro, ai-engineering-ch02-foundation-models, ai-engineering-ch08-dataset-engineering, ai-engineering-ch09-inference-optimization, mlsysbook-ch07-ml-frameworks, mlsysbook-ch10-model-compression, mlsysbook-ch11-hardware-acceleration, mlsysbook-ch13-model-serving, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 # NVIDIA
@@ -42,6 +42,8 @@ Santa Clara-headquartered semiconductor company; designer and vendor of essentia
 - [[FlashAttention]] — exploits NVIDIA SRAM/HBM asymmetry.
 - [[PyTorch]] / [[TensorFlow]] / [[JAX]] / [[MXNet]] — all ship CUDA-targeted wheels.
 - [[d2l-builders-guide]] / [[d2l-installation]] — operational mentions.
+- [[mlsysbook-ch14-ml-operations]] — Ch 14 lists NVIDIA's TensorRT (NVIDIA-only peak throughput) and Triton Inference Server among model-optimization and serving frameworks.
+
 
 ## From [[ai-engineering-ch01-intro|AI Engineering Ch 1]]
 
@@ -134,3 +136,19 @@ The NVIDIA-side name for what LinkedIn calls [[TBT|TBT (time between tokens)]].
 ### Inference-side hardware
 
 - **Jetson Xavier** — named as an edge-inference chip example.
+
+## From [[mlsysbook-ch07-ml-frameworks|mlsysbook Vol 1 Ch 7]]
+
+Ch 7 anchors nearly every quantitative claim on the **A100** (312 TFLOP/s FP16, 2.04 TB/s HBM, 80 GiB, ~153 FLOP/byte ridge point). NVIDIA's software stack pervades the framework→hardware path: [[CUDA]] (2007) as the parallel-computing substrate (each `torch.matmul` traverses the dispatcher → [[CUBLAS|cuBLAS]] kernel → launch, costing 5–20 μs overhead), [[cuDNN]] for DL backward kernels, [[Triton]]→[[PTX]] as [[TorchInductor]]'s codegen target, [[TensorCore|Tensor Cores]] for FP16 [[MixedPrecisionTraining|mixed-precision]], [[NVLink]] (~600 GB/s, ~10× PCIe) for tensor parallelism, [[TensorRTLLM|TensorRT]] as the inference compiler (often 1.5–2× over TorchInductor), and Nsight Systems/Compute as the profilers.
+
+## From [[mlsysbook-ch10-model-compression|mlsysbook Vol 1 Ch 10]]
+
+Ch 10's compression hardware grounds in NVIDIA silicon: the **A100 (2020)** introduced **[[NMSparsity|2:4 structured sparsity]]** and the [[SparseTensorCore|Sparse Tensor Core]] path (up to 2× over dense when the pattern matches); INT8 Tensor Cores give ~2× peak throughput over FP16 (~624 TOPS vs ~312 TFLOP/s). cuSPARSE supports block-sparse storage, TensorRT's default calibration is the **Entropy** method, and Hopper FP8 units extend the energy-dividend story to even lower precision.
+
+## From [[mlsysbook-ch11-hardware-acceleration|mlsysbook Vol 1 Ch 11]]
+
+Ch 11 anchors the hardware-acceleration chapter on NVIDIA silicon and ecosystem: GPU performance rose ~1,000× in a decade (K20X 3.9 TFLOP/s FP32 → H100 ~4,000 → B200 ~9,000 TFLOP/s FP8); the precision evolution Volta(FP16)→Turing(+INT8/4/1)→Ampere(+TF32/BF16/FP64)→Hopper(FP8)→Blackwell(FP4); the [[TensorCore|Tensor Core]] "brittle contract" (FP32 fallback at 1/16th throughput); the [[NVLink]] vs PCIe bandwidth taper; and the **[[CUDA]] software moat** (cuBLAS/cuDNN/TensorRT) framed as "the primary reason NVIDIA dominates AI training infrastructure — not raw silicon performance." A100/H100/B200 supply the chapter's roofline and economics worked examples.
+
+## From [[mlsysbook-ch13-model-serving|mlsysbook Vol 1 Ch 13]]
+
+Ch 13 ([[ModelServing|Model Serving]]) leans on the NVIDIA serving stack: [[NVIDIATriton|Triton]] (multi-framework [[InferenceServer|inference server]]), [[TensorRT]] / [[TensorRTLLM|TensorRT-LLM]] ([[LayerFusion|fusion]], in-flight batching, INT8 — up to ~9× over PyTorch eager on ResNet-50), [[MIG]] (hardware GPU partitioning for multi-model SLO isolation), [[CUDAMPS|CUDA MPS]] (shared-context concurrency), and [[PinnedMemory|pinned memory]] for fast DMA. V100/A100/H100 supply the latency-budget, capacity-planning, and 8B Llama-3 worked examples; [[CUDA]] context creation (0.3–0.5 s) is a named [[ColdStart|cold-start]] component. See also [[mlsysbook-ch13-model-serving]].

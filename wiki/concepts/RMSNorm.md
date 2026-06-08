@@ -2,8 +2,8 @@
 title: "RMSNorm"
 type: concept
 tags: [normalization, transformer, architecture]
-sources: [hands-on-llm-ch03-looking-inside-llms]
-last_updated: 2026-05-23
+sources: [hands-on-llm-ch03-looking-inside-llms, mlsysbook-ch06-network-architectures]
+last_updated: 2026-06-05
 ---
 
 # RMSNorm
@@ -27,3 +27,4 @@ In Phi-3's PyTorch module print-out from Ch 3, RMSNorm appears as `Phi3RMSNorm` 
 - [[PreNorm]] — the placement scheme RMSNorm is typically deployed in.
 - [[transformer]] — the architecture.
 - [[hands-on-llm-ch03-looking-inside-llms|*Hands-On LLMs* Ch 3]] — primary source.
+- [[mlsysbook-ch06-network-architectures]] — quantifies the systems payoff: dropping mean-centering eliminates one full reduction pass over the feature dimension, cutting per-layer normalization latency 7–64% depending on model size — the de-facto standard for efficient LLM inference (LLaMA, Mistral, post-2023 models); the latest step in the [[BatchNormalization|BatchNorm]]→[[LayerNormalization|LayerNorm]]→RMSNorm portable-building-block chain.

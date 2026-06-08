@@ -2,8 +2,8 @@
 title: "dbt"
 type: entity
 tags: [tool, data-engineering, transformation]
-sources: [madewithml-mlops-data-engineering]
-last_updated: 2026-05-15
+sources: [madewithml-mlops-data-engineering, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 # dbt

@@ -2,8 +2,8 @@
 title: "Transformer"
 type: concept
 tags: [architecture, attention, foundational]
-sources: [1706.03762-attention-is-all-you-need, 1810.04805-bert, 1910.10683-t5, 2001.08361-scaling-laws, d2l-attention-and-transformers, ai-engineering-ch02-foundation-models, hands-on-llm-ch01-introduction-to-llms, hands-on-llm-ch03-looking-inside-llms, hands-on-llm-ch09-multimodal-llms]
-last_updated: 2026-05-23
+sources: [1706.03762-attention-is-all-you-need, 1810.04805-bert, 1910.10683-t5, 2001.08361-scaling-laws, d2l-attention-and-transformers, ai-engineering-ch02-foundation-models, hands-on-llm-ch01-introduction-to-llms, hands-on-llm-ch03-looking-inside-llms, hands-on-llm-ch09-multimodal-llms, mlsysbook-ch06-network-architectures]
+last_updated: 2026-06-05
 ---
 
 # Transformer
@@ -68,6 +68,7 @@ The attention operation as written in [[1706.03762-attention-is-all-you-need]] i
 - [[PositionalEncoding]]
 - [[EncoderDecoder]]
 - [[FlashAttention]]
+- [[mlsysbook-ch06-network-architectures]] — systems view: training is *compute-bound* ($\mathcal{O}(S^2)$, the "quadratic wall"); autoregressive inference is *memory-bandwidth-bound* (reload all weights per token + read/write the [[KVCache|KV cache]], which grows linearly with $S$ and concurrency). The transformer is framed as a *recombination* of portable building blocks — [[GEMM]] feedforward + [[SkipConnection|skip connections]] + [[LayerNormalization|LayerNorm]] + [[Attention|softmax-attention gating]] — atop the adaptive [[InductiveBias|inductive bias]] (no spatial prior; learn all pairwise relations).
 
 ## From [[ai-engineering-ch02-foundation-models|AI Engineering Ch 2]]
 

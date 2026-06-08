@@ -2,8 +2,8 @@
 title: "Safety"
 type: concept
 tags: [evaluation, safety, generation, ai-engineering]
-sources: [ai-engineering-ch04-evaluate-ai-systems]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch04-evaluate-ai-systems, agentic-design-patterns-ch18-guardrails]
+last_updated: 2026-06-07
 ---
 
 # Safety
@@ -48,3 +48,6 @@ Feng et al. 2023, Motoki et al. 2023, Hartman et al. 2023: model alignment leave
 - [[RealToxicityPrompts]] / [[BOLD]] — benchmarks.
 - [[Guardrail]] — the defensive infrastructure that operationalizes safety.
 - [[Hallucination]] — factual unsafety, technically under safety but treated as separate.
+
+## Agentic safety patterns (Gulli Ch 18)
+[[AntonioGulli|Gulli's]] [[AgenticDesignPatterns|*Agentic Design Patterns*]] [[agentic-design-patterns-ch18-guardrails|Ch 18 (Guardrails/Safety Patterns)]] operationalizes this harm taxonomy in agentic systems via the [[Guardrail|guardrails]] pattern. Its policy prompt screens for the same harm families named here — **hate speech / discrimination, hazardous activities (self-harm, weapons, illegal acts), explicit material, abusive/toxic language** — plus off-domain ([[ContentModeration|moderation]]) categories, and recommends a **fast cheap model** ([[gemini|Gemini]] Flash) as a pre-screening safety classifier. See [[Guardrail]] / [[ContentModeration]].

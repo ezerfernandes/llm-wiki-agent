@@ -2,8 +2,8 @@
 title: "Docker"
 type: entity
 tags: [tool, container, devops, open-source]
-sources: [leh-ch02-tooling-and-installation, leh-ch10-inference-pipeline-deployment, leh-ch11-mlops-and-llmops]
-last_updated: 2026-05-22
+sources: [leh-ch02-tooling-and-installation, leh-ch10-inference-pipeline-deployment, leh-ch11-mlops-and-llmops, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 ## What it is
@@ -19,3 +19,5 @@ Ch. 2 ([[leh-ch02-tooling-and-installation]]) requires Docker 27.1.1+ as the pre
 - [[GitHubActions]] — builds + pushes the Docker image in CD.
 - [[ZenML]] / [[MongoDB]] / [[Qdrant]] — local infra run as Docker containers.
 - [[CICD]] — Docker is the CD artifact.
+- [[mlsysbook-ch14-ml-operations]] — Ch 14 uses Docker to package models + dependencies into portable units, solving the Environment_v environment-parity term of reproducibility.
+

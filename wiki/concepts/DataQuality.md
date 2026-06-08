@@ -2,13 +2,17 @@
 title: "Data Quality"
 type: concept
 tags: [data, evaluation]
-sources: [ai-engineering-ch08-dataset-engineering]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch08-dataset-engineering, mlsysbook-ch04-data-engineering, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 # Data Quality
 
-The fitness of data for its intended use, measured along axes like completeness, accuracy, consistency, timeliness, and uniqueness. Bad data dominates model failures; tools like Great Expectations and [[ConfidentLearning]] enforce constraints, and [[DataObservability]] catches regressions.
+The fitness of data for its intended use, measured along axes like completeness, accuracy, consistency, timeliness, and uniqueness. Bad data dominates model failures; tools like [[GreatExpectations|Great Expectations]] and [[ConfidentLearning]] enforce constraints, and [[DataObservability]] catches regressions.
+
+## Mechanical vs semantic quality (mlsysbook Ch 4)
+
+Reddi's *Machine Learning Systems* ([[mlsysbook-ch04-data-engineering|Vol 1, Ch 4]]) distinguishes two dimensions: **mechanical** quality (the *Container* — is `age` an integer? deterministic yes/no) and **semantic** quality (the *Content* — is the `age` distribution shifting? probabilistic). A dataset can be mechanically perfect (no nulls, correct types) yet semantically broken (all users suddenly 25 from a default-value change). The self-driving-car LiDAR labels misaligned by 10–20 cm passed every [[SchemaValidation|schema check]] for 3 months because each record was structurally valid — only **statistical** monitoring caught it. Robust systems validate both, with synchronous schema checks (microseconds) plus asynchronous statistical validation ([[KolmogorovSmirnovTest|K-S test]], [[PopulationStabilityIndex|PSI]]) on 1–10% sampled traffic. **Data quality as code** ([[GreatExpectations|Great Expectations]] / Pandera / Pydantic) catches ~60% of issues before training.
 
 ## From [[ai-engineering-ch08-dataset-engineering|AI Engineering Ch 8]]
 

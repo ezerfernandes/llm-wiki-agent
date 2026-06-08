@@ -2,8 +2,8 @@
 title: "Tensor Parallelism"
 type: concept
 tags: [inference, training, parallelism, gpu, llm-engineering]
-sources: [leh-ch08-inference-optimization, leh-ch10-inference-pipeline-deployment, ai-engineering-ch09-inference-optimization]
-last_updated: 2024-12-04
+sources: [leh-ch08-inference-optimization, leh-ch10-inference-pipeline-deployment, ai-engineering-ch09-inference-optimization, mlsysbook-ch08-model-training]
+last_updated: 2026-06-05
 ---
 
 ## Definition
@@ -50,3 +50,10 @@ Pipeline parallelism *increases* per-request latency due to inter-stage communic
 ### Composes with replica parallelism
 
 TP shares model weights across GPUs in a node; [[ReplicaParallelism|replica parallelism]] adds copies across nodes. Together they form the foundation of modern multi-GPU LLM serving.
+
+## From [[mlsysbook-ch08-model-training|mlsysbook Ch 8 (Model Training)]]
+
+Ch 8 describes TP as the **finest-grained** parallelism: rather than assigning whole layers to devices, it splits individual operations — e.g. column-wise sharding the FFN weight matrix $W$ in $Y=XW$ so each GPU computes part of the output, then gathering. Megatron-LM used this to train models with hundreds of billions of parameters by distributing individual attention heads and FFN blocks. Because TP communicates frequently, it belongs *within a node* (high-bandwidth [[NVLink]]) in the hybrid stack; pipeline parallelism goes across nodes and data parallelism across racks.
+
+- [[mlsysbook-ch08-model-training]] — TP as intra-layer operation splitting; Megatron-LM at hundreds of billions of params; placement within the NVLink-bandwidth tier.
+- [[MegatronLM]] — the canonical tensor-parallel training system.

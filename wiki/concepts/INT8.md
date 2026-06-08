@@ -1,9 +1,9 @@
 ---
 title: "INT8 — 8-Bit Integer"
 type: concept
-tags: [numerics, quantization, inference]
-sources: [ai-engineering-ch07-finetuning]
-last_updated: 2024-12-04
+tags: [numerics, quantization, inference, mlsysbook]
+sources: [ai-engineering-ch07-finetuning, mlsysbook-ch10-model-compression, mlsysbook-ch11-hardware-acceleration]
+last_updated: 2026-06-05
 ---
 
 # INT8 — 8-Bit Integer
@@ -38,3 +38,4 @@ Ch 7 cites [[CharacterAI]] (2024) as having **trained their models entirely in I
 - [[Bitsandbytes]] — library implementing INT8 quantization.
 - [[CharacterAI]] — training-in-INT8 case study.
 - [[ai-engineering-ch07-finetuning]] — primary source.
+- [[mlsysbook-ch10-model-compression]] — INT8 as the chapter's default quantization target: 4× memory, ~30× arithmetic-energy "dividend" vs FP32, 4× SIMD packing; the "4× MobileNet win" and the BERT 16× pipeline both end in INT8.

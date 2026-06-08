@@ -2,8 +2,8 @@
 title: "Anthropic"
 type: entity
 tags: [organization, ai-lab, frontier-lab, protocol-author]
-sources: [2604.25067-frontier-coding-agents-c4, dspy-mcp, dspy-language-models, 2603.19247-prompt-optimization-jailbreaking, 2604.14585-prompt-optimization-coin-flip, ai-engineering-ch01-intro, ai-engineering-ch02-foundation-models, hands-on-llm-ch01-introduction-to-llms, ai-engineering-ch04-evaluate-ai-systems, ai-engineering-ch05-prompt-engineering, ai-engineering-ch06-rag-agents, ai-engineering-ch08-dataset-engineering]
-last_updated: 2024-12-04
+sources: [2604.25067-frontier-coding-agents-c4, dspy-mcp, dspy-language-models, 2603.19247-prompt-optimization-jailbreaking, 2604.14585-prompt-optimization-coin-flip, ai-engineering-ch01-intro, ai-engineering-ch02-foundation-models, hands-on-llm-ch01-introduction-to-llms, ai-engineering-ch04-evaluate-ai-systems, ai-engineering-ch05-prompt-engineering, ai-engineering-ch06-rag-agents, ai-engineering-ch08-dataset-engineering, agentic-design-patterns-ch10-mcp]
+last_updated: 2026-06-07
 ---
 
 # Anthropic
@@ -12,7 +12,7 @@ AI safety company. Develops the [[ClaudeOpus47|Claude family]] (Opus / Sonnet / 
 
 - **Frontier-model provider.** Developer of [[ClaudeOpus47|Claude Opus 4.7]], the dominant agent in the [[2604.25067-frontier-coding-agents-c4|C4-AlphaZero benchmark]] (7/8 wins as first-mover vs Pons solver). Surfaced as a Conductor worker provider in [[2512.04388-conductor]].
 - **Managed-API LM provider via [[DSPy]] / [[LiteLLM]].** [[dspy-language-models|`dspy.LM('anthropic/claude-sonnet-4-5-20250929')`]] is one of the canonical managed-API examples DSPy demonstrates through the [[DSPyLM|`dspy.LM`]] universal client routed through [[LiteLLM]]. Anthropic is one of eight managed-API providers in DSPy's provider matrix.
-- **Originator of the [[ModelContextProtocol|Model Context Protocol (MCP)]].** Authored and published the open standard for connecting LLMs to external tools and context via standalone servers ([modelcontextprotocol.io](https://modelcontextprotocol.io/)). MCP is **framework-agnostic** — [[DSPy]] consumes it via [[DSPyMCP|`dspy.Tool.from_mcp_tool(...)`]] ([[dspy-mcp]], page 8 of 13 of the DSPy *Learn* corpus), [[ClaudeCode|Claude Code]] consumes it natively, and a growing ecosystem of independent MCP clients implements the same protocol. This is the wiki's first record of an Anthropic-authored open standard outside of the model-development thread.
+- **Originator of the [[ModelContextProtocol|Model Context Protocol (MCP)]].** Authored and published the open standard for connecting LLMs to external tools and context via standalone servers ([modelcontextprotocol.io](https://modelcontextprotocol.io/)). MCP is **framework-agnostic** — [[DSPy]] consumes it via [[DSPyMCP|`dspy.Tool.from_mcp_tool(...)`]] ([[dspy-mcp]], page 8 of 13 of the DSPy *Learn* corpus), [[ClaudeCode|Claude Code]] consumes it natively, and a growing ecosystem of independent MCP clients implements the same protocol. This is the wiki's first record of an Anthropic-authored open standard outside of the model-development thread. [[AntonioGulli|Gulli's]] [[AgenticDesignPatterns|*Agentic Design Patterns*]] devotes its Chapter 10 ([[agentic-design-patterns-ch10-mcp]]) to MCP, naming Anthropic (alongside [[FastMCP]]) as a provider of SDKs that abstract away MCP boilerplate, and framing MCP as the open, federated alternative to proprietary per-vendor [[FunctionCalling|function calling]] (which includes Anthropic's own `tool_use` schema).
 
 ## Connections
 
@@ -20,6 +20,8 @@ AI safety company. Develops the [[ClaudeOpus47|Claude family]] (Opus / Sonnet / 
 - [[claudeopus46|ClaudeOpus46]] — prior-generation Opus model.
 - [[claudecode|ClaudeCode]] — Anthropic's coding agent; native MCP client.
 - [[ModelContextProtocol]] — Anthropic-authored open protocol for tool/context plumbing between LMs and external services.
+- [[agentic-design-patterns-ch10-mcp]] — Gulli's ADP Ch 10 on MCP; names Anthropic as MCP originator and an SDK provider.
+- [[FastMCP]] — high-level MCP-server framework; named alongside Anthropic as an MCP-SDK provider in ADP Ch 10.
 - [[DSPyMCP]] — DSPy's binding to MCP; one consumer among many.
 - [[DSPyLM]] — DSPy's universal LM client; lists Anthropic as a managed-API provider via [[LiteLLM]].
 - [[LiteLLM]] — provider-abstraction layer that routes Anthropic API calls.

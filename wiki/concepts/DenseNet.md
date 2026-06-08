@@ -1,9 +1,9 @@
 ---
 title: "DenseNet"
 type: concept
-tags: [deep-learning, cnn, architecture]
-sources: [d2l-convolutional-modern]
-last_updated: 2026-05-16
+tags: [deep-learning, cnn, architecture, mlsysbook]
+sources: [d2l-convolutional-modern, mlsysbook-ch10-model-compression]
+last_updated: 2026-06-05
 ---
 
 # DenseNet
@@ -68,3 +68,4 @@ DenseNet uses the **"BN → ReLU → Conv"** order from the second ResNet paper 
 - [[GlobalAveragePooling]] — head structure.
 - [[CNN]] — parent family.
 - [[ImageNet]] — benchmark context.
+- [[mlsysbook-ch10-model-compression]] — Ch 10 cites DenseNet's **feature reuse** as a memory-optimization design principle: reusing earlier-layer feature maps cuts the $\mathcal{O}(N_L k)$ activation footprint, a [[ModelCompression|hardware-aware-design]] lever alongside SqueezeNet (param reduction) and [[ActivationCheckpointing]] (memory-for-compute).

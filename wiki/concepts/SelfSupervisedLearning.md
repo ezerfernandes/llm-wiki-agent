@@ -1,9 +1,9 @@
 ---
 title: "Self-Supervised Learning"
 type: concept
-tags: [paradigm, pretraining, deep-learning]
-sources: [d2l-introduction, 1810.04805-bert, 2601.21343-self-improving-pretraining]
-last_updated: 2026-05-16
+tags: [paradigm, pretraining, deep-learning, data-selection, mlsysbook]
+sources: [d2l-introduction, 1810.04805-bert, 2601.21343-self-improving-pretraining, mlsysbook-ch09-data-selection]
+last_updated: 2026-06-05
 ---
 
 # Self-Supervised Learning
@@ -30,4 +30,5 @@ Per [[2601.21343-self-improving-pretraining]], self-supervised objectives can th
 - [[FineTuning]], [[TransferLearning]] — what happens *after* self-supervised pretraining.
 - [[UnsupervisedLearning]] — sister paradigm that the chapter explicitly frames as the parent.
 - [[SupervisedLearning]] — the downstream consumer.
-- [[d2l-introduction]] — corpus-anchor description of the paradigm.
+- [[DataSelection]] / [[DataWall]] — [[mlsysbook-ch09-data-selection|Ch 9]] frames SSL as the field's most effective response to the Data Wall: it *breaks the label asymptote* by extracting supervision from data structure (pretext tasks), and via [[CostAmortization|cost amortization]] makes the [[FoundationModel|foundation-model]] paradigm economical (label cost ↓100×, marginal compute ↓20×).
+- [[d2l-introduction]] / [[mlsysbook-ch09-data-selection]] — sources.

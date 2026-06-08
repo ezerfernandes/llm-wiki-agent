@@ -2,8 +2,8 @@
 title: "Model Router"
 type: concept
 tags: [architecture, routing, intent-classification, agents, cost-optimization]
-sources: [ai-engineering-ch10-architecture-feedback]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch10-architecture-feedback, agentic-design-patterns-ch02-routing, agentic-design-patterns-ch16-resource-aware]
+last_updated: 2026-06-07
 ---
 
 # Model Router
@@ -49,9 +49,25 @@ When the router selects a model with a tight context window but later steps (e.g
 
 Routing can happen *after* retrieval too (e.g., escalate to a human if the answer is poor), but the pre-retrieval position is more common.
 
+## The routing pattern's four mechanisms ([[agentic-design-patterns-ch02-routing|Gulli Ch 2]])
+
+The model router is the *production-architecture* instance of the broader [[Routing|routing]] pattern. [[agentic-design-patterns-ch02-routing|*Agentic Design Patterns* Ch 2]] generalizes "how the router decides" into four implementation mechanisms — Huyen's model router is essentially the **LLM-based** + **ML-model-based** variants:
+
+1. **LLM-based routing** — prompt the LLM to emit a route identifier. (Huyen's *"adapt a smaller foundation model"* is the cheap version.)
+2. **Embedding-based / semantic routing** — route to the most [[SemanticSimilarity|similar]] capability [[Embedding|embedding]] (cf. [[QueryRouting]]).
+3. **Rule-based routing** — if-else / switch / keyword matching; faster and deterministic, less flexible.
+4. **ML model-based routing** — a fine-tuned discriminative [[Classification|classifier]] whose routing logic lives in learned weights (Huyen's *"train a small classifier from scratch"*).
+
+So this page's "adapt a smaller foundation model" vs "train a small classifier" dichotomy is a finer slice of Gulli's mechanisms #1/#4, sharing the **fast-and-cheap** constraint. See [[Routing]] for the full pattern and [[AgentHandoff]] for routing-to-sub-agents.
+
+## Cost-routing in Resource-Aware Optimization ([[agentic-design-patterns-ch16-resource-aware|Gulli Ch 16]])
+
+[[agentic-design-patterns-ch16-resource-aware|Ch 16 (Resource-Aware Optimization)]] makes the model router the **central component of cost-aware agents**, specializing it to route on **complexity/cost/budget** rather than intent. The Router Agent classifies request difficulty and dispatches simple queries to a cheap/fast model ([[gemini|Gemini]] Flash, `gpt-4o-mini`) and complex ones to a frontier model (Gemini Pro, `gpt-4o`), with the choice gated by available budget and time — see [[DynamicModelSelection]]. Ch 16 reuses Ch 2's routing-decision spectrum (query-length metric → LLM/ML classifier of nuance) and adds two refinements distinctive to the cost setting: a **[[CritiqueAgent|Critique Agent]]** that monitors response quality and feeds back to improve the router's choices (catching simple→Pro / complex→Flash mis-routes for indirect budget savings), and **[[SequentialModelFallback|sequential model fallback]]** for [[GracefulDegradation|graceful degradation]] when the chosen model is unavailable. [[OpenRouter]]'s `openrouter/auto` is a managed implementation of this cost router. See [[ResourceAwareOptimization]].
+
 ## Connections
 
-- [[ai-engineering-ch10-architecture-feedback]] — primary source.
+- [[ai-engineering-ch10-architecture-feedback]] / [[agentic-design-patterns-ch02-routing]] — sources.
+- [[Routing]] — the general agentic pattern this is a production instance of.
 - [[ModelGateway]] — paired component; routing decides *which*, gateway handles *how to talk*.
 - [[IntentClassifier]] — the standard implementation; Ch 6 origin.
 - [[Agent]] / [[AgenticAI]] — agent next-action routing.

@@ -2,8 +2,8 @@
 title: "ResNet"
 type: concept
 tags: [deep-learning, cnn, architecture, foundational]
-sources: [d2l-convolutional-modern]
-last_updated: 2026-05-16
+sources: [d2l-convolutional-modern, mlsysbook-ch05-neural-computation, mlsysbook-ch06-network-architectures]
+last_updated: 2026-06-05
 ---
 
 # ResNet
@@ -77,4 +77,7 @@ A subsequent paper (He et al. 2016 "Identity mappings in deep residual networks"
 - [[ResNeXt]] / [[DenseNet]] / [[RegNet]] — direct successors.
 - [[transformer]] — adopted residual connections wholesale.
 - [[microsoftresearch]] — institutional home (MSRA).
-- [[ImageNet]] — the benchmark won (ILSVRC 2015).
+- [[ImageNet]] — the benchmark won (ILSVRC 2015, 3.6% top-5 error, beating ~5.1% estimated human performance).
+- [[mlsysbook-ch05-neural-computation]] — Ch 5's "deeper is always better" fallacy uses ResNet: networks beyond 152 layers showed negligible accuracy gain despite higher cost, and EfficientNet later showed *balanced* width/depth/resolution scaling beats depth-only by 2–3 points at equal compute.
+- [[Compositionality]] / [[VanishingGradient]] — residual connections are the depth-enabling fix Ch 5 credits alongside [[ReLU]].
+- [[mlsysbook-ch06-network-architectures]] — ResNet-50 is the *compute* [[LighthouseModel|Lighthouse Model]]: high [[ArithmeticIntensity|arithmetic intensity]] (~40 FLOP/byte whole-model, 100–200+ in bottleneck layers) from [[WeightSharing|weight reuse]], so it saturates GPU/TPU ALUs. Ch 6 also derives the [[SkipConnection|skip connection]] "gradient highway" (Jacobian $\mathbf{I}+\mathcal{F}'$) here, with the 56-layer plain-vs-residual CIFAR-10 contrast (~13.6% → ~7.0% error).

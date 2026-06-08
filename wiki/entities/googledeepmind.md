@@ -2,8 +2,8 @@
 title: "Google DeepMind"
 type: entity
 tags: [company, lab, google]
-sources: [2312.11805-gemini, 2605.06651v2-ai-co-mathematician, 2603.19247-prompt-optimization-jailbreaking, ai-engineering-ch02-foundation-models, ai-engineering-ch04-evaluate-ai-systems, ai-engineering-ch05-prompt-engineering, ai-engineering-ch09-inference-optimization]
-last_updated: 2024-12-04
+sources: [2312.11805-gemini, 2605.06651v2-ai-co-mathematician, 2603.19247-prompt-optimization-jailbreaking, ai-engineering-ch02-foundation-models, ai-engineering-ch04-evaluate-ai-systems, ai-engineering-ch05-prompt-engineering, ai-engineering-ch09-inference-optimization, agentic-design-patterns-ch21-exploration]
+last_updated: 2026-06-07
 ---
 
 # Google DeepMind
@@ -18,6 +18,7 @@ Within this wiki, Google DeepMind sits beside (and is the modern successor to) [
 - [[AlphaCode2]] — Gemini-Pro-tuned competitive-programming agent.
 - [[AlphaProof]] — IMO-level formal theorem proving with RL.
 - [[AlphaEvolve]] — evolutionary coding agent for scientific/algorithmic discovery.
+- [[GoogleCoScientist|AI Co-Scientist]] — [[Gemini]]-powered multi-agent scientific collaborator (Google Research); flagship of the [[ExplorationAndDiscovery|Exploration and Discovery]] pattern in [[AgenticDesignPatterns|Gulli Ch 21]], with wet-lab-validated discoveries (AML drug repurposing, liver-fibrosis targets, antimicrobial resistance).
 - [[Aletheia]] — autonomous mathematics research system.
 - [[AICoMathematician]] — interactive agentic workbench for mathematicians ([[2605.06651v2-ai-co-mathematician]]); reaches 48% on [[FrontierMath]] Tier 4.
 - The DeepMind Responsibility & Safety Council reviews all Gemini model and product launches; the Gemini paper documents the responsible-deployment lifecycle (Assessment → Policy → Evaluation → Mitigation → Deployment).

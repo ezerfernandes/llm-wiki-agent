@@ -1,9 +1,9 @@
 ---
 title: "TPOT (Time Per Output Token)"
 type: concept
-tags: [latency, metrics, inference, autoregressive]
-sources: [ai-engineering-ch01-intro, ai-engineering-ch09-inference-optimization]
-last_updated: 2024-12-04
+tags: [latency, metrics, inference, autoregressive, mlsysbook, serving]
+sources: [ai-engineering-ch01-intro, ai-engineering-ch09-inference-optimization, mlsysbook-ch13-model-serving]
+last_updated: 2026-06-05
 ---
 
 # TPOT — Time Per Output Token
@@ -70,3 +70,7 @@ Halving bytes/param (FP16 → INT8) roughly halves TPOT (modulo format-conversio
 ### TPOT and goodput
 
 A typical TPOT-side SLO ("TPOT ≤ 100 ms") is one of the constraints [[Goodput|goodput]] is measured against. Continuous batching tuning, prefill-decode disaggregation, and batch-size selection all optimize against TPOT-bounded goodput.
+
+## From [[mlsysbook-ch13-model-serving|mlsysbook Ch 13]]
+
+Ch 13 makes the memory-wall argument first-principles: decode has arithmetic intensity ≈ 1 FLOP/byte (every weight is read to generate one token), so $T_{\text{token}} \approx D_{\text{vol}}/\text{BW}_{\text{memory}}$ — **"adding compute cores yields zero latency improvement; only faster memory or smaller models help."** TPOT is the decode-phase metric (vs [[TTFT]]'s compute-bound prefill), measuring fluidity. Production target: TPOT < 50 ms (~20 tok/s, faster than human reading). In the 8B [[Llama3|Llama 3]]/H100 case study the theoretical floor is ~1.0 ms/token (3.5 GB ÷ HBM bandwidth). See also [[LLMServing]], [[MemoryWall]], [[mlsysbook-ch13-model-serving]].

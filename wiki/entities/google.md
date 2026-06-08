@@ -2,8 +2,8 @@
 title: "Google"
 type: entity
 tags: [company, lab]
-sources: [1409.3215-seq2seq, 1706.03762-attention-is-all-you-need, 1810.04805-bert, 1910.10683-t5, 2312.11805-gemini, ai-engineering-ch01-intro, ai-engineering-ch02-foundation-models, hands-on-llm-ch01-introduction-to-llms, ai-engineering-ch05-prompt-engineering, hands-on-llm-ch04-text-classification, hands-on-llm-ch05-text-clustering-topic-modeling]
-last_updated: 2026-05-23
+sources: [1409.3215-seq2seq, 1706.03762-attention-is-all-you-need, 1810.04805-bert, 1910.10683-t5, 2312.11805-gemini, ai-engineering-ch01-intro, ai-engineering-ch02-foundation-models, hands-on-llm-ch01-introduction-to-llms, ai-engineering-ch05-prompt-engineering, hands-on-llm-ch04-text-classification, hands-on-llm-ch05-text-clustering-topic-modeling, mlsysbook-ch11-hardware-acceleration, mlsysbook-ch14-ml-operations, agentic-design-patterns-00-frontmatter]
+last_updated: 2026-06-07
 ---
 
 # Google
@@ -63,6 +63,12 @@ Code and checkpoints at https://github.com/google-research/text-to-text-transfer
 ## Role in the wiki
 
 Google is the architectural origin of every modern large language model in this wiki. The 2014 [[SeqToSeq]] paper established the encoder-decoder framing; the 2017 [[Transformer]] paper replaced its recurrent backbone with self-attention; the 2018 [[BERT]] paper supplied the pretrain-then-finetune transfer-learning recipe; and the 2023 [[Gemini]] family supplies the frontier-multimodal-deployment template. Every subsequent LLM in the AI/LLM corpus inherits this substrate.
+
+## From [[AgenticDesignPatterns|Agentic Design Patterns]] (Gulli)
+
+[[AntonioGulli|Antonio Gulli]] (Google) authored [[AgenticDesignPatterns|*Agentic Design Patterns*]] (2025). Google's footprint in the book's front matter:
+- **Foreword** by Saurabh Tiwary (VP & General Manager, Cloud AI @ Google), tying the agentic-design-pattern approach to the [[GoogleCloudVertexAI|Vertex AI]] "canvas."
+- **[[GoogleADK|Google Agent Developer Kit (ADK)]]** is one of the three frameworks used for the book's code examples (alongside [[LangChain]]/[[LangGraph]] and [[CrewAI]]), positioned as a canvas integrated with Google's AI infrastructure.
 
 ## From [[ai-engineering-ch01-intro|AI Engineering Ch 1]]
 

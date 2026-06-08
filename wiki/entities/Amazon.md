@@ -2,8 +2,8 @@
 title: "Amazon"
 type: entity
 tags: [company, cloud, ai]
-sources: [d2l-preface, d2l-hyperparameter-optimization, d2l-recommender-systems, d2l-appendix-tools, 2604.14585-prompt-optimization-coin-flip]
-last_updated: 2026-05-22
+sources: [d2l-preface, d2l-hyperparameter-optimization, d2l-recommender-systems, d2l-appendix-tools, 2604.14585-prompt-optimization-coin-flip, mlsysbook-ch03-ml-workflow]
+last_updated: 2026-06-05
 ---
 
 # Amazon
@@ -24,3 +24,7 @@ The preface also uses Amazon as a 1990s example of a "successful database-driven
 
 - [[AWSGenerativeAIInnovationCenter]] — Amazon's GenAI applied-research unit. Lead institution on [[2604.14585-prompt-optimization-coin-flip]] (the wiki's first paper from this unit) — a controlled empirical audit of [[PromptOptimization|prompt optimization]] in [[CompoundAISystem|compound AI systems]] that established the **49% coin-flip failure rate** and the [[CompoundAIDiagnostic|two-stage diagnostic framework]].
 - [[AmazonNovaLite]] — Amazon's budget-tier LM; evaluated as a cross-vendor executor in the same study alongside [[ClaudeHaiku45|Anthropic's Claude Haiku 4.5]].
+
+## Recruiting-bias war story (mlsysbook Ch 3)
+
+[[mlsysbook-ch03-ml-workflow|Reddi Ch 3]] uses Amazon's ~12-person Edinburgh recruiting-ML team (2014) as the canonical "when the label was the bias" failure: trained on a decade of male-dominated hiring data, the model penalized resumes containing "women's" and downgraded all-women's-college graduates — it learned to predict the *historical labeling decision*, not job ability. Disbanded by early 2017 with no deployable system. Lesson: [[MLWorkflow|problem definition]] must specify fairness, auditability, and rejection criteria *before* data collection.

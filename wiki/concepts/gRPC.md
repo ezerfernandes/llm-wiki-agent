@@ -1,9 +1,9 @@
 ---
 title: "gRPC"
 type: concept
-tags: [api, protocols, networking, deployment]
-sources: [leh-ch10-inference-pipeline-deployment]
-last_updated: 2026-05-22
+tags: [api, protocols, networking, deployment, serving, mlsysbook]
+sources: [leh-ch10-inference-pipeline-deployment, mlsysbook-ch13-model-serving]
+last_updated: 2026-06-05
 ---
 
 ## Definition
@@ -19,6 +19,10 @@ last_updated: 2026-05-22
 - Streaming: built-in support for unary, server-streaming, client-streaming, and bidirectional streaming.
 - Trade-off: schema coupling means client and server must agree on the `.proto` files; updates need versioning.
 
+## From [[mlsysbook-ch13-model-serving|mlsysbook Ch 13]]
+
+Ch 13 quantifies the **"serialization tax"**: a 1,000-float payload (e.g., an embedding vector) is ~9 KB / ~50 μs to parse as JSON vs ~4 KB / ~5 μs as Protobuf — a **~10× serialization-efficiency gain** that saves nearly half a CPU core at 10,000 req/s. HTTP/2 multiplexing eliminates handshake latency and head-of-line blocking that REST/HTTP-1.1 suffers (REST's statelessness also forces re-sending >10 KB of LLM conversation context per call). The system rule: **REST for public APIs (accessibility), gRPC for internal high-QPS service-to-service.** FlatBuffers goes further with true zero-copy deserialization (TF Lite's model format).
+
 ## Connections
 - [[REST]] / [[RESTAPI]] — the text-based alternative.
 - [[Protobuf]] — the schema/serialization format.
@@ -26,4 +30,5 @@ last_updated: 2026-05-22
 - [[WebSockets]] — alternative for bidirectional streaming use cases.
 - [[ServerSentEvents]] — one-way streaming alternative.
 - [[MicroservicesArchitecture]] — typical deployment topology where gRPC is used.
-- [[ModelServing]] — the broader practice.
+- [[ModelServing]] / [[InferenceServer]] / [[LatencyBudget]] — the broader serving practice and where the serialization tax lands.
+- [[mlsysbook-ch13-model-serving]] — source.

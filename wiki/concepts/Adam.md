@@ -2,8 +2,8 @@
 title: "Adam Optimizer"
 type: concept
 tags: [optimization, deep-learning, foundational]
-sources: [d2l-optimization]
-last_updated: 2026-05-16
+sources: [d2l-optimization, mlsysbook-ch05-neural-computation, mlsysbook-ch08-model-training]
+last_updated: 2026-06-05
 ---
 
 # Adam
@@ -80,3 +80,5 @@ A subtle but important practical variant — Loshchilov & Hutter 2017's **AdamW*
 - [[LearningRateScheduler]] / [[Warmup]] / [[CosineLRSchedule]] — typically composed with Adam in practice.
 - [[WeightDecay]] — AdamW handles this correctly; plain Adam distorts it.
 - [[FineTuning]] / [[LLMFineTuning]] — Adam (or AdamW) is the default.
+- [[OptimizerState]] / [[ModelSize]] / [[mlsysbook-ch05-neural-computation]] — Ch 5's systems point: Adam's two moment buffers (momentum + variance) + FP32 master weight bring total per-parameter training state to ~16 bytes in mixed precision — an ~8× multiplier over the 2-byte FP16 inference weight, *independent of model size*, and the primary reason training needs more accelerators than inference.
+- [[mlsysbook-ch08-model-training]] — the training-capstone treatment: Adam imposes a **6× training-memory multiplier** over FP16 inference weights (7B model = 14 GB weights + 14 GB grads + 56 GB FP32 moments = 84 GB before activations); it converges in ~⅓ the iterations of SGD (GPT-2 XL ~50K vs ~150K+ steps) but at 3× per-parameter state, making optimizer choice a first-order memory constraint. [[AdamW]] is the memory-neutral generalization-improving default.

@@ -1,0 +1,106 @@
+---
+title: "X86 Assembly (programming language)"
+type: entity
+tags: [programming-language, rosetta-code]
+date: 2026-05-31
+rc_category: "Category:X86 Assembly"
+rc_task_entries: 95
+rc_tasks_done_pct: "5.48%"
+wiki_tasks_solved: 85
+---
+
+## Summary
+x86 assembly is a low-level, imperative programming language consisting of the human-readable mnemonics for the machine instructions of Intel's x86 processor family, which began with the 16-bit 8086 in 1978 and evolved through the 32-bit IA-32 and 64-bit x86-64 architectures. It is untyped in the high-level sense: the programmer works directly with registers, memory addresses, flags, and raw bytes, and an assembler (such as NASM, MASM, GAS, or FASM) translates the mnemonics one-to-one into the processor's CISC opcode encoding. Because it exposes the hardware directly with no abstraction, it gives total control over performance and memory layout at the cost of portability and productivity. Today it is used mainly for performance-critical inner loops, bootloaders, operating-system kernels, device drivers, embedded firmware, reverse engineering, and as the compilation target studied to understand how higher-level languages execute.
+
+## Rosetta Code Coverage
+Solves **85** of the wiki's 1350 ingested Rosetta Code tasks. Rosetta Code's popularity ranking credits **X86 Assembly** with **95** task entries (5.48% of all tasks).
+
+## Tasks Solved
+- [[rc-100-doors]]
+- [[rc-4-rings-or-4-squares-puzzle]]
+- [[rc-99-bottles-of-beer]]
+- [[rc-a-b]]
+- [[rc-abundant-odd-numbers]]
+- [[rc-accumulator-factory]]
+- [[rc-ackermann-function]]
+- [[rc-address-of-a-variable]]
+- [[rc-anonymous-recursion]]
+- [[rc-arithmetic-integer]]
+- [[rc-arrays]]
+- [[rc-babbage-problem]]
+- [[rc-balanced-brackets]]
+- [[rc-binary-digits]]
+- [[rc-bitwise-operations]]
+- [[rc-caesar-cipher]]
+- [[rc-calendar-for-real-programmers]]
+- [[rc-chaos-game]]
+- [[rc-conditional-structures]]
+- [[rc-copy-a-string]]
+- [[rc-create-a-file]]
+- [[rc-delete-a-file]]
+- [[rc-dot-product]]
+- [[rc-dragon-curve]]
+- [[rc-draw-a-cuboid]]
+- [[rc-draw-a-pixel]]
+- [[rc-echo-server]]
+- [[rc-empty-program]]
+- [[rc-ethiopian-multiplication]]
+- [[rc-execute-a-system-command]]
+- [[rc-execute-brain]]
+- [[rc-execute-hq9]]
+- [[rc-experimental-verification-of-the-nkt-law-interpolating-the-masses-of-8-planets-using-nasa-data-as-of-30-31-12-2024]]
+- [[rc-factorial]]
+- [[rc-factors-of-an-integer]]
+- [[rc-fibonacci-sequence]]
+- [[rc-file-size]]
+- [[rc-find-limit-of-recursion]]
+- [[rc-fizzbuzz]]
+- [[rc-function-definition]]
+- [[rc-gotchas]]
+- [[rc-greatest-common-divisor]]
+- [[rc-guess-the-number]]
+- [[rc-handle-a-signal]]
+- [[rc-haversine-formula]]
+- [[rc-hello-world-graphical]]
+- [[rc-hello-world-line-printer]]
+- [[rc-hello-world-standard-error]]
+- [[rc-hello-world-text]]
+- [[rc-hofstadter-conway-10-000-sequence]]
+- [[rc-horizontal-sundial-calculations]]
+- [[rc-include-a-file]]
+- [[rc-input-loop]]
+- [[rc-iterated-digits-squaring]]
+- [[rc-largest-proper-divisor-of-n]]
+- [[rc-leap-year]]
+- [[rc-least-common-multiple]]
+- [[rc-linear-congruential-generator]]
+- [[rc-loop-over-multiple-arrays-simultaneously]]
+- [[rc-loops-continue]]
+- [[rc-loops-do-while]]
+- [[rc-loops-for]]
+- [[rc-loops-infinite]]
+- [[rc-loops-while]]
+- [[rc-main-step-of-gost-28147-89]]
+- [[rc-md5-implementation]]
+- [[rc-memory-allocation]]
+- [[rc-mutual-recursion]]
+- [[rc-palindrome-detection]]
+- [[rc-pascal-s-triangle]]
+- [[rc-program-name]]
+- [[rc-pythagoras-tree]]
+- [[rc-quine]]
+- [[rc-random-number-generator-device]]
+- [[rc-rot-13]]
+- [[rc-sierpinski-carpet]]
+- [[rc-sierpinski-triangle]]
+- [[rc-singly-linked-list-element-definition]]
+- [[rc-singly-linked-list-element-insertion]]
+- [[rc-sleep]]
+- [[rc-sockets]]
+- [[rc-sorting-algorithms-bubble-sort]]
+- [[rc-string-length]]
+- [[rc-terminal-control-ringing-the-terminal-bell]]
+- [[rc-window-creation]]
+
+## Connections
+- [[RosettaCode]] — tasks sourced from the Rosetta Code project

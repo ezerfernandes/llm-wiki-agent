@@ -2,8 +2,8 @@
 title: "Pipeline Parallelism"
 type: concept
 tags: [llm-engineering, parallelism, inference, training]
-sources: [leh-ch08-inference-optimization, ai-engineering-ch09-inference-optimization]
-last_updated: 2024-12-04
+sources: [leh-ch08-inference-optimization, ai-engineering-ch09-inference-optimization, mlsysbook-ch08-model-training]
+last_updated: 2026-06-05
 ---
 
 ## Definition
@@ -38,3 +38,9 @@ For inference, this typically collapses to TP-within-node + replica-parallelism,
 ### Inference-engine support
 
 Per [[leh-ch08-inference-optimization|LEH Ch 8]] (cited above), among the major inference engines (TGI, vLLM, TensorRT-LLM), **only TensorRT-LLM supports PP** — consistent with Ch 9's verdict that PP is uncommon for inference.
+
+## From [[mlsysbook-ch08-model-training|mlsysbook Ch 8 (Model Training)]]
+
+Ch 8 quantifies the win: naive [[ModelParallelism|model parallelism]] suffers **25–50% utilization** from idle [[AcceleratorBubble|pipeline bubbles]] (downstream devices wait for upstream activations); microbatching ([[GPipe]], PipeDream) interleaves micro-batches to recover **70–90% utilization**, at the cost of higher memory (multiple micro-batches in flight) and implementation complexity. In the hybrid stack, PP sits across nodes within a rack (moderate communication at layer boundaries).
+
+- [[mlsysbook-ch08-model-training]] — bubble/utilization figures; GPipe/PipeDream microbatching as the bubble fix.

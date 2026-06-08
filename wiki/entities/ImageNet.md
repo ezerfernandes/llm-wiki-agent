@@ -2,8 +2,8 @@
 title: "ImageNet"
 type: entity
 tags: [dataset, computer-vision, benchmark]
-sources: [d2l-introduction, ai-engineering-ch01-intro]
-last_updated: 2024-12-04
+sources: [d2l-introduction, ai-engineering-ch01-intro, mlsysbook-ch03-ml-workflow, mlsysbook-ch04-data-engineering]
+last_updated: 2026-06-05
 ---
 
 # ImageNet
@@ -42,3 +42,11 @@ ImageNet is also a recurring training-time benchmark — [[d2l-introduction]] ci
 Ch 1's contrast: [[CLIP]] (2021) bypassed this entire cost curve via **[[NaturalLanguageSupervision|natural language supervision]]** — 400M (image, text) pairs from the internet, *400× larger than ImageNet, with zero labeling cost.* CLIP enabled the first zero-shot generalization across image classification tasks.
 
 ImageNet is thus the **structural anchor** that lets Huyen explain *why* foundation models exist: they exist because the ImageNet labeling-cost regime would never have scaled to multimodal frontier capability.
+
+## As a transfer-learning source (mlsysbook Ch 3)
+
+[[mlsysbook-ch03-ml-workflow|Reddi Ch 3]] cites ImageNet's ~14M images as the pretraining corpus that makes [[TransferLearning|transfer learning]] viable: fine-tuning an ImageNet-pretrained model on ~128K retinal images reached AUC 0.99 for [[DiabeticRetinopathyScreening|DR screening]] — avoiding the 10–100× more labeled images training from scratch would demand.
+
+## As the canonical data-engineering investment (mlsysbook Ch 4)
+
+The data-engineering chapter ([[mlsysbook-ch04-data-engineering|Reddi Ch 4]]) makes ImageNet the canonical "cost-efficient starting point": **14.2M images labeled by 49,000 [[AmazonMechanicalTurk|Mechanical Turk]] workers across 21,841 categories (2009)**, the product of two years of [[FeiFeiLi|Fei-Fei Li]]'s team building labeling infrastructure that every later team reuses for free — but with a benchmark-overfitting caution (models tuned to ImageNet's distribution underperform on production data with different lighting/occlusion/demographics). It is the exemplar of [[Crowdsourcing|crowdsourcing]] and [[WebScraping|web-scraping]] acquisition at scale.

@@ -1,9 +1,9 @@
 ---
 title: "LiteLLM"
 type: entity
-tags: [framework, llm, provider-abstraction, python, oss]
-sources: [dspy-language-models]
-last_updated: 2026-05-17
+tags: [framework, llm, provider-abstraction, python, oss, agentic-design-patterns]
+sources: [dspy-language-models, agentic-design-patterns-ch16-resource-aware]
+last_updated: 2026-06-07
 ---
 
 # LiteLLM
@@ -22,8 +22,15 @@ LiteLLM is therefore the **substrate that makes [[DSPyProgrammingModel|DSPy's *s
 
 LiteLLM's most-leveraged convention is its **OpenAI-compatible-endpoint** pattern: any provider that exposes an HTTP API matching OpenAI's `/v1/chat/completions` shape is reachable by prefixing the model string with `openai/` and setting `api_base` to the provider URL. [[SGLang]]'s self-hosted server relies on exactly this pattern; many third-party model-hosting services do too. The pattern is what gives the [[dspy-language-models|DSPy Language Models page]] its *catch-all* answer to "what about provider X that isn't in your list?"
 
+## ADK model integration (Agentic Design Patterns Ch 16)
+
+[[agentic-design-patterns-ch16-resource-aware|Ch 16 (Resource-Aware Optimization)]] names LiteLLM as [[GoogleADK|Google ADK]]'s escape hatch for **model flexibility**: ADK can use various [[gemini|Gemini]] models directly, *"or integration of other models through LiteLLM"* (`from google.adk.models.lite_llm import LiteLlm`). This is what lets an ADK [[DynamicModelSelection|dynamic-model-selection]] / [[ResourceAwareOptimization|resource-aware]] router dispatch across providers (not just the Gemini family) — the cross-provider role [[OpenRouter]] plays in the chapter's other example.
+
 ## Connections
 
+- [[ResourceAwareOptimization]] / [[DynamicModelSelection]] — Ch 16: LiteLLM is how ADK reaches non-Gemini models for cost-aware routing.
+- [[GoogleADK]] — integrates LiteLLM (`google.adk.models.lite_llm.LiteLlm`) for non-default models.
+- [[OpenRouter]] — sibling unified-routing layer playing the same cross-provider role in Ch 16's other example.
 - [[DSPy]] — primary consumer recorded on the wiki; [[DSPyLM|`dspy.LM`]] is a thin facade over LiteLLM.
 - [[dspy-language-models]] — canonical source recording the DSPy-on-LiteLLM dependency.
 - [[DSPyLM]] — the DSPy abstraction LiteLLM substantiates.

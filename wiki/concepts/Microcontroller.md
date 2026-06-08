@@ -2,8 +2,8 @@
 title: "Microcontroller"
 type: concept
 tags: [embedded, hardware, mcu]
-sources: [rust-embedded-book-intro-index, embedded-controllers-fiore]
-last_updated: 2026-05-17
+sources: [rust-embedded-book-intro-index, embedded-controllers-fiore, mlsysbook-ch02-ml-systems]
+last_updated: 2026-06-05
 ---
 
 # Microcontroller
@@ -16,9 +16,16 @@ The book notes that **peripherals and implementation details differ between vend
 
 [[embedded-controllers-fiore]] ch. 16 establishes the same concept at a much smaller scale: the [[ATmega328P]] on the [[ArduinoUno|Arduino Uno]] is an 8-bit [[AVR]] [[HarvardArchitecture|Harvard]] [[RISC]] MCU with 32 k Flash, 2 k SRAM, 1 k EEPROM, three I/O ports (B / C / D), six 10-bit [[ADC]] channels, three [[TimerCounter|timer/counters]], USART/SPI/I²C, and 26 interrupt vectors — all running at 16 MHz with most instructions completing in one clock tick. Every peripheral is [[MemoryMappedIO|memory-mapped]] into the same address space as SRAM, so peripheral access in C looks exactly like a normal variable write: `PORTB |= 0x01;`.
 
+## As the TinyML substrate ([[mlsysbook-ch02-ml-systems|mlsysbook Ch 2]])
+
+The microcontroller is the hardware floor of the [[DeploymentSpectrum|deployment spectrum]] and the substrate of [[TinyML]]. Reddi frames its defining constraint as a hard memory ceiling: ML models must fit entirely in 32–512 KB of on-chip SRAM (no virtual memory or DRAM), ~1,000× less than a smartphone, forcing memory-centric architectures, 10K–100K-parameter models, and inference-only operation. Representative dev kits: Arduino Nano 33 BLE Sense (256 KB RAM, 1 MB flash, 20–40 mW) and ESP32-CAM (520 KB RAM, 4 MB flash, 50–250 mW). Fragmentation across ARM Cortex-M / RISC-V / Xtensa families multiplies the cost of multi-device deployment.
+
 ## Connections
 
 - [[EmbeddedSystems]] — the parent domain.
+- [[TinyML]] — the ML paradigm that runs on microcontrollers.
+- [[EnergyHarvesting]] — what the sub-1-mW MCU budget enables ("deploy and forget").
 - [[ARMCortexM]] — the most common 32-bit MCU core family today and the one standardized by [[TheEmbeddedRustBook]].
 - [[STM32F3DISCOVERY]] — the specific Cortex-M4 MCU dev board the book uses.
 - [[MemoryMappedIO]] — how peripherals are accessed from firmware.
+- [[rust-embedded-book-intro-index]] / [[embedded-controllers-fiore]] / [[mlsysbook-ch02-ml-systems]] — sources.

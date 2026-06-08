@@ -2,8 +2,8 @@
 title: "Activation Memory"
 type: concept
 tags: [memory, training, finetuning, transformers]
-sources: [ai-engineering-ch07-finetuning]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch07-finetuning, mlsysbook-ch08-model-training]
+last_updated: 2026-06-05
 ---
 
 # Activation Memory
@@ -51,4 +51,5 @@ Spread activations across multiple devices.
 - [[TrainingMemoryFormula]] — formula where activation memory can dwarf weights.
 - [[Backpropagation]] — why activations need to be cached.
 - [[Korthikanti2022ActivationRecomputation]] — citation.
+- [[mlsysbook-ch08-model-training]] — Ch 8's central point: **activations, not parameters, cause OOM**. Both $z^{(\ell)}$ and $a^{(\ell)}$ per layer must be cached, scaling as $B\times\sum_\ell(s_\ell+a_\ell)$; GPT-2 needs >40 GB at batch 8 (exceeding a V100), routinely 10–50× the weight footprint for transformer training — the failure mode that hits *before the first gradient*. Fixes: [[GradientCheckpointing|checkpointing]], CPU offload, FP16, smaller per-device batch + [[GradientAccumulation|accumulation]].
 - [[ai-engineering-ch07-finetuning]] — primary source.

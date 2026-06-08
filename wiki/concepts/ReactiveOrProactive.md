@@ -2,8 +2,8 @@
 title: "Reactive or Proactive"
 type: concept
 tags: [planning, ux, apple, ai-engineering]
-sources: [ai-engineering-ch01-intro]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch01-intro, agentic-design-patterns-00-frontmatter]
+last_updated: 2026-06-07
 ---
 
 # Reactive or Proactive
@@ -33,8 +33,13 @@ One of three role axes; the others are:
 - **[[CriticalOrComplementary]]** — does the app work without the AI?
 - **[[DynamicOrStatic]]** — does the AI update continually or periodically?
 
+## Parallel framing: Gulli's agent characteristics
+
+[[AgenticDesignPatterns|*Agentic Design Patterns*]] ([[AntonioGulli|Gulli]]) treats **[[Proactiveness|proactiveness]]** and **[[Reactiveness|reactiveness]]** not as a product-design axis but as two of the defining *characteristics* of an [[AgenticAI|agentic system]] — proactiveness = initiating actions toward goals, reactiveness = responding to environmental change. Apple's product axis here (reactive vs. proactive role of AI in a feature) is the UX-level reflection of those two agent capabilities, and shares the same quality-bar tension: unprompted proactive behavior carries a higher bar because users did not ask for it.
+
 ## Connections
 
+- [[Proactiveness]] / [[Reactiveness]] — Gulli's agent-characteristic framing.
 - [[Apple]] — framework source.
 - [[CriticalOrComplementary]] / [[DynamicOrStatic]] — companion axes.
 - [[UseCaseEvaluation]] — parent planning framework.

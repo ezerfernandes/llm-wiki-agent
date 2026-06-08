@@ -2,8 +2,8 @@
 title: "Server-Sent Events (SSE)"
 type: concept
 tags: [api, protocols, networking, streaming]
-sources: [leh-ch10-inference-pipeline-deployment, dspy-deployment-tutorial]
-last_updated: 2026-05-24
+sources: [leh-ch10-inference-pipeline-deployment, dspy-deployment-tutorial, agentic-design-patterns-ch15-a2a]
+last_updated: 2026-06-07
 ---
 
 ## Definition
@@ -14,6 +14,9 @@ last_updated: 2026-05-24
 
 ## In DSPy
 [[dspy-deployment-tutorial|The DSPy Deployment tutorial]] specifies SSE as the canonical web-layer transport for [[DSPyStreaming|`dspy.streamify`]]-wrapped programs. Pattern: `dspy.utils.streaming.streaming_response(stream)` converts the DSPy chunk union (`StreamResponse | StatusMessage | Prediction`) into properly framed SSE text, wrapped in [[FastAPI]]'s `StreamingResponse(..., media_type="text/event-stream")`. Closes [[DSPyStreaming|the Streaming concept page's]] forward reference to *"natural transports for the streaming generator at the web layer."*
+
+## In A2A (Agentic Design Patterns, Gulli — Ch 15)
+SSE is one of [[A2AProtocol|A2A]]'s four interaction mechanisms — the **Streaming Updates** mode. The [[JSONRPC|JSON-RPC]] `sendTaskSubscribe` (`tasks/sendSubscribe`) method opens a persistent, one-way server→client SSE connection so a remote agent can continuously push status changes or partial results without the client making repeated requests — the same unidirectional-push fit SSE has for LLM token streaming, applied to [[InterAgentCommunication|agent↔agent]] task updates. SSE support is advertised by an agent's [[AgentCard|Agent Card]] (`capabilities.streaming`). The contrast partner in A2A is webhook **push notifications** (server POSTs to a client-registered URL) for very long-running tasks.
 
 ## Key details
 - One-way: server-to-client only.
@@ -31,3 +34,5 @@ last_updated: 2026-05-24
 - [[ContinuousBatching]] — the server-side optimization that pairs with SSE to stream from a busy inference engine.
 - [[TTFT]] / [[TPOT]] — the latency metrics SSE makes observable to the client.
 - [[ModelServing]] — the broader practice.
+- [[A2AProtocol]] / [[InterAgentCommunication]] — A2A uses SSE for its streaming `sendTaskSubscribe` mode.
+- [[JSONRPC]] — the RPC layer whose `sendTaskSubscribe` rides on SSE.

@@ -2,8 +2,8 @@
 title: "Batch Normalization"
 type: concept
 tags: [deep-learning, regularization, normalization]
-sources: [d2l-convolutional-modern]
-last_updated: 2026-05-16
+sources: [d2l-convolutional-modern, mlsysbook-ch05-neural-computation, mlsysbook-ch06-network-architectures]
+last_updated: 2026-06-05
 ---
 
 # Batch Normalization
@@ -77,3 +77,5 @@ The mechanism is debated; the empirical effectiveness is not.
 - [[ReLU]] — typically placed *after* BN.
 - [[CNN]] / [[Backpropagation]] / [[LearningRate]] — context.
 - [[transformer]] — uses LayerNorm instead.
+- [[mlsysbook-ch05-neural-computation]] — systems cost: BN adds an all-reduce sync barrier across the batch dim, diverges between train (live batch stats) and inference (frozen running stats), and is small-batch-sensitive (batch <8–16 degrades accuracy 3–8%) — which is *why* [[LayerNormalization|LayerNorm]] (batch-independent) replaced it in transformers. Also a [[DyingReLU|dying-ReLU]] mitigation.
+- [[mlsysbook-ch06-network-architectures]] — frames normalization as a *portable building block*: BatchNorm (born in CNNs, cut ImageNet training time 14×) → [[LayerNormalization|LayerNorm]] (batch-independent, for transformers) → [[RMSNorm]] (drops mean-centering, 7–64% faster) — an evolution driven by systems pressure (batch dependency, training-serving skew, LLM latency).

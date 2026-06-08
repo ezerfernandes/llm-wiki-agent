@@ -2,8 +2,8 @@
 title: "AllReduce"
 type: concept
 tags: [distributed-training, collective-ops, parallelism, multi-gpu]
-sources: [d2l-computational-performance]
-last_updated: 2026-05-16
+sources: [d2l-computational-performance, mlsysbook-ch08-model-training]
+last_updated: 2026-06-05
 ---
 
 # AllReduce
@@ -54,4 +54,5 @@ Synchronization strategy is **inseparable from hardware topology** — which mot
 - [[DataParallelism]] — what consumes AllReduce.
 - [[ParameterServer]] — the alternative "centralized" synchronization architecture.
 - [[NCCL]] / [[Horovod]] — production implementations.
+- [[mlsysbook-ch08-model-training]] — Ch 8's "network wall": [[RingAllReduce|Ring AllReduce]] moves $2(N-1)/N$ × the gradient per worker (≈ constant in $N$, why data-parallel training stays practical at cluster scale); the network becomes the wall when $t_{\text{comm}} > t_{\text{compute}}$. [[GradientAccumulation|Gradient accumulation]]'s `no_sync()` fires AllReduce once per effective batch instead of once per micro-batch.
 - [[d2l-computational-performance]] §`multiple-gpus` / §`parameterserver`.

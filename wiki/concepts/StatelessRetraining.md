@@ -3,8 +3,8 @@ name: StatelessRetraining
 title: "Stateless Retraining"
 type: concept
 tags: [continual-learning, training]
-sources: [dmls-ch08-distribution-shifts-monitoring, dmls-ch09-continual-learning]
-last_updated: 2026-05-23
+sources: [dmls-ch08-distribution-shifts-monitoring, dmls-ch09-continual-learning, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 # Stateless Retraining
@@ -32,3 +32,5 @@ Higher stages require [[StatefulTraining|stateful training]] + [[ModelLineage|mo
 - [[ContinualLearning]] — the broader umbrella.
 - [[ModelIteration]] vs [[DataIteration]] — the architectural-change distinction that forces stateless.
 - [[CatastrophicForgetting]] — the failure stateless retraining is immune to.
+- [[mlsysbook-ch14-ml-operations]] — mlsysbook Vol 1 Ch 14 frames retraining-from-scratch vs fine-tuning trade-offs and the square-root-law cadence economics.
+

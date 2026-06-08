@@ -2,8 +2,8 @@
 title: "Dot Product"
 type: concept
 tags: [math, linear-algebra, foundational]
-sources: [d2l-preliminaries]
-last_updated: 2026-05-16
+sources: [mml-ch03-analytic-geometry, mml-book, d2l-preliminaries]
+last_updated: 2026-06-04
 ---
 
 # Dot Product
@@ -30,10 +30,18 @@ A measure of alignment. Equivalent definitions ([[d2l-preliminaries]] §Dot Prod
 - **Linear regression prediction**: $\hat y = \mathbf{w}^\top\mathbf{x}$.
 - **Matrix–vector / matrix–matrix multiplication** are stacked dot products.
 
+## From [[mml-ch03-analytic-geometry|MML Ch 3]]
+
+[[mml-book]] §3.2.1 (Eq. 3.5) calls $\mathbf{x}^\top\mathbf{y}=\sum_{i=1}^n x_iy_i$ the **scalar product / dot product** and treats it as the *particular* [[InnerProduct]] used by default throughout the book — the one that makes $(\mathbb{R}^n,\langle\cdot,\cdot\rangle)$ a *Euclidean vector space*. It induces the **Euclidean / $\ell_2$ [[Norm]]** $\|\mathbf{x}\|_2=\sqrt{\mathbf{x}^\top\mathbf{x}}$ (Eq. 3.4), the **Euclidean [[Metric|distance]]** $d(\mathbf{x},\mathbf{y})=\|\mathbf{x}-\mathbf{y}\|$, and (via [[CauchySchwarzInequality|Cauchy-Schwarz]]) the standard [[Angle]] $\cos\omega=\frac{\mathbf{x}^\top\mathbf{y}}{\|\mathbf{x}\|\|\mathbf{y}\|}$.
+
+**Important caveat the book stresses**: the dot product is only *one* inner product. Other [[SymmetricPositiveDefiniteMatrix|SPD]]-matrix inner products $\langle\mathbf{x},\mathbf{y}\rangle=\hat{\mathbf{x}}^\top\mathbf{A}\hat{\mathbf{y}}$ give different lengths, angles, and orthogonality for the same vectors (Examples 3.5, 3.7). So "the angle/length/orthogonality" of two vectors is implicitly *w.r.t. the dot product* unless another inner product is named.
+
 ## Connections
 
+- [[mml-ch03-analytic-geometry]] / [[mml-book]] — §3.2.1 (Eq. 3.5); the default inner product.
 - [[d2l-preliminaries]] — §Dot Products canonical exposition.
 - [[InnerProduct]] — general formulation (any SPD matrix defines one).
 - [[Norm]] — $\ell_2$ norm induced by the dot product.
+- [[Angle]] / [[Metric]] / [[Orthogonality]] — geometry induced by the dot product.
 - [[LinearAlgebra]] — parent topic.
 - [[CauchySchwarzInequality]] — $|\mathbf{x}^\top\mathbf{y}|\leq\|\mathbf{x}\|\|\mathbf{y}\|$.

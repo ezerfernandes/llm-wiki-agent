@@ -2,8 +2,8 @@
 title: "Zero-Shot Learning"
 type: concept
 tags: [evaluation, llm, prompt-engineering]
-sources: [madewithml-transformers, ai-engineering-ch05-prompt-engineering, hands-on-llm-ch04-text-classification, hands-on-llm-ch06-prompt-engineering]
-last_updated: 2026-05-23
+sources: [madewithml-transformers, ai-engineering-ch05-prompt-engineering, hands-on-llm-ch04-text-classification, hands-on-llm-ch06-prompt-engineering, agentic-design-patterns-appendix-a-prompting]
+last_updated: 2026-06-07
 ---
 
 # Zero-Shot Learning
@@ -35,3 +35,6 @@ Ch 6 codifies the [[InContextLearning|in-context learning]] spectrum explicitly:
 > *"Zero-shot prompting does not leverage examples, one-shot prompts use a single example, and few-shot prompts use two or more examples."* — Ch 6
 
 Ch 6 also names a distinct sub-form: **[[ZeroShotCoT|zero-shot chain-of-thought]]** — appending *"Let's think step-by-step"* to elicit reasoning without examples (Kojima et al. 2022). This is **zero-shot in the example-count sense** (no examples) but **not zero-shot in the reasoning-template sense** (the trigger phrase activates step-by-step pattern). The distinction matters when comparing techniques in the literature.
+
+## From [[agentic-design-patterns-appendix-a-prompting|Agentic Design Patterns Appendix A]]
+[[AntonioGulli|Gulli]]'s Appendix A frames zero-shot prompting as *"the most basic form of prompting, where the language model is provided with an instruction and input data without any examples … it relies entirely on the model's pre-training to understand the task."* It is the **quickest approach to try first**, often sufficient for tasks the model encountered extensively during training (simple QA, text completion, basic summarization). Example: *"Translate the following English sentence to French: 'Hello, how are you?'"* This is the zero-shot endpoint of the appendix's zero → one → few → many-shot spectrum (see [[OneShotPrompting]], [[FewShotLearning]]).

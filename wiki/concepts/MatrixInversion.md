@@ -2,13 +2,17 @@
 title: "Matrix Inversion"
 type: concept
 tags: [linear-algebra, numerical-methods, parallel-computing]
-sources: [parproc-ch11-parallel-matrix-operations]
-last_updated: 2026-05-17
+sources: [parproc-ch11-parallel-matrix-operations, mml-ch02-linear-algebra, mml-book]
+last_updated: 2026-06-04
 ---
 
 # Matrix Inversion
 
 Computing $A^{-1}$ for a square matrix A. Direct methods (e.g., [[GaussianElimination|Gaussian elimination]] on the augmented matrix $(A \mid I)$) have $O(n^3)$ complexity, the same as matrix multiplication.
+
+## From [[mml-ch02-linear-algebra|MML Ch 2]]
+
+This page is numerical/parallel-computing-focused; the LA-canonical treatment of the inverse as an *object* (Def 2.3, the $2\times2$ formula, the inverse/transpose identities) lives on the sibling page [[MatrixInverse]]. MML's method for *computing* the inverse (§2.3.3): bring the augmented matrix $[\mathbf{A}\,|\,\mathbf{I}_n]$ to [[ReducedRowEchelonForm|reduced row-echelon form]] via [[GaussianElimination|Gaussian elimination]], yielding $[\mathbf{I}_n\,|\,\mathbf{A}^{-1}]$ (Eqs. 2.56–2.58) — i.e. inverting is solving the simultaneous systems $\mathbf{A}\mathbf{X}=\mathbf{I}_n$. For non-square/non-invertible $\mathbf{A}$ with independent columns, the **Moore–Penrose pseudo-inverse** $(\mathbf{A}^\top\mathbf{A})^{-1}\mathbf{A}^\top$ gives the minimum-norm least-squares solution (Eq. 2.59), though MML cautions against forming inverses explicitly for numerical reasons.
 
 ## Power Series Method
 
@@ -52,5 +56,8 @@ qr.solve(m)             # QR-based inverse
 - [[MatrixTranspose]] — orthogonal matrices satisfy $U^{-1} = U'$; QR formula uses $Q'$.
 - [[GraphConnectedness]] — a related matrix-power application.
 - [[FibonacciNumbers]] — another matrix-power application.
+- [[MatrixInverse]] — sibling page: the inverse as an object, MML Def 2.3, $2\times2$ formula, identities.
+- [[ReducedRowEchelonForm]] / [[IdentityMatrix]] — the augmented-matrix method.
+- [[mml-ch02-linear-algebra|MML Ch 2]] / [[mml-book]] — §2.3.3 augmented-matrix inversion.
 - [[parproc-ch11-parallel-matrix-operations]] — §11.4.3 primary source.
 - [[parproc-appB-matrix-algebra]] — §B.5 formal definitions and QR route.

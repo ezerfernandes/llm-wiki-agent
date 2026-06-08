@@ -2,8 +2,8 @@
 title: "FP8 — 8-Bit Float"
 type: concept
 tags: [numerics, floating-point, quantization]
-sources: [ai-engineering-ch07-finetuning]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch07-finetuning, mlsysbook-ch11-hardware-acceleration]
+last_updated: 2026-06-05
 ---
 
 # FP8 — 8-Bit Float

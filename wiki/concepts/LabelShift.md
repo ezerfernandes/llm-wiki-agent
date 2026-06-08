@@ -2,8 +2,8 @@
 title: "Label Shift"
 type: concept
 tags: [distribution-shift, generalization, mlops]
-sources: [d2l-linear-classification]
-last_updated: 2026-05-16
+sources: [d2l-linear-classification, mlsysbook-ch04-data-engineering]
+last_updated: 2026-06-05
 ---
 
 # Label Shift
@@ -40,7 +40,8 @@ When labels are deterministic functions of inputs, both label-shift and [[Covari
 ## Connections
 
 - [[DistributionShift]] — parent taxonomy.
-- [[CovariateShift]] / [[ConceptShift]] — sibling shift types.
+- [[CovariateShift]] / [[ConceptShift]] / [[ConceptDrift]] — sibling shift types.
+- [[mlsysbook-ch04-data-engineering]] — Reddi's *Machine Learning Systems* Ch 4: label shift ($p(y)$ changes, $p(x\mid y)$ fixed) is detectable *without* ground truth by tracking model output distributions (e.g., seasonal disease prevalence, new product categories).
 - [[EmpiricalRiskMinimization]] — what gets reweighted.
 - [[Softmax]] / [[CrossEntropyLoss]] — what the underlying classifier is trained with.
 - [[d2l-linear-classification]] — corpus anchor (Section *Label Shift Correction*).

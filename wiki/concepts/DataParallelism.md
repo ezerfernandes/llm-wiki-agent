@@ -2,8 +2,8 @@
 title: "Data Parallelism"
 type: concept
 tags: [distributed-training, parallelism, multi-gpu, deep-learning]
-sources: [d2l-computational-performance]
-last_updated: 2026-05-16
+sources: [d2l-computational-performance, mlsysbook-ch08-model-training]
+last_updated: 2026-06-05
 ---
 
 # Data Parallelism
@@ -54,4 +54,5 @@ D2L compares three multi-GPU strategies:
 - [[ParameterServer]] — multi-machine generalization.
 - [[Horovod]] / [[NCCL]] — production implementations.
 - [[DistributedTraining]] — parent concept.
+- [[mlsysbook-ch08-model-training]] — Ch 8's selection rule: **data parallelism when the model fits but training is too slow** (the default when models fit; PyTorch `DistributedDataParallel`/TF `MirroredStrategy` automate the single per-step sync). Hard constraint: every GPU must hold a *full* model copy — a 7B model needs 14 GB FP16 weights before grads/optimizer/activations, so beyond ~10B params [[ModelParallelism|model]]/[[TensorParallelism|tensor]] parallelism becomes necessary. Communication scales with model size; [[RingAllReduce|Ring AllReduce]] makes it nearly GPU-count-independent.
 - [[d2l-computational-performance]] §`multiple-gpus` / `multiple-gpus-concise`.

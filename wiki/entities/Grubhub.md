@@ -3,8 +3,8 @@ name: Grubhub
 title: "Grubhub"
 type: entity
 tags: [company, food-delivery, ml-case-study]
-sources: [dmls-ch07-model-deployment, dmls-ch09-continual-learning]
-last_updated: 2026-05-23
+sources: [dmls-ch07-model-deployment, dmls-ch09-continual-learning, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 # Grubhub
@@ -23,3 +23,5 @@ Grubhub reported a **45× compute reduction and 20% click-through-rate (PTR) lif
 - [[StatefulTraining]] / [[StatelessRetraining]] — the retraining-mode choice Grubhub publicized.
 - [[ContinualLearning]] — the broader discipline.
 - [[CTRPrediction]] — the modeled task.
+- [[mlsysbook-ch14-ml-operations]] — adjacent mlsysbook Vol 1 Ch 14 (ML Operations) treats request-density and serving economics this Grubhub batch-vs-online case study (DMLS Ch 7) illustrates.
+

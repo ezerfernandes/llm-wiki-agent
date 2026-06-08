@@ -2,8 +2,8 @@
 title: "Locality of Reference"
 type: concept
 tags: [systems, performance, cache, memory]
-sources: [parproc-appA-systems-issues, dis-11-3-locality]
-last_updated: 2026-05-17
+sources: [parproc-appA-systems-issues, dis-11-3-locality, mlsysbook-ch03-ml-workflow]
+last_updated: 2026-06-05
 ---
 
 # Locality of Reference
@@ -45,3 +45,4 @@ Parallel programs must be designed to preserve locality:
 - [[MemoryHierarchy]] — locality is the key property that makes the full hierarchy workable.
 - [[RowMajorOrder]] — the C/C++ array layout that aligns with spatial locality.
 - [[gpumemoryhierarchy]] — GPU shared memory reuse requires similar locality reasoning within a thread block.
+- [[mlsysbook-ch03-ml-workflow]] — argues ML training *violates* this 50-year OS assumption at scale: randomly shuffling a multi-TB dataset every epoch is the worst case for VM prefetchers (L1 ~1 ns vs. DRAM 50–100 ns vs. NVMe 10–100 µs), forcing ML data loaders to implement their own prefetching rather than trusting the OS page cache.

@@ -1,0 +1,108 @@
+---
+title: "ALGOL 60 (programming language)"
+type: entity
+tags: [programming-language, rosetta-code]
+date: 2026-05-31
+rc_category: "Category:ALGOL 60"
+rc_task_entries: 70
+rc_tasks_done_pct: "4.04%"
+wiki_tasks_solved: 87
+---
+
+## Summary
+ALGOL 60 is a statically typed, imperative procedural language designed by an international committee and defined in the landmark 1960 "Report on the Algorithmic Language ALGOL 60." It pioneered many concepts now ubiquitous in programming, including block structure with lexical scoping, nested functions, recursion, formal parameters passed by value or by name, and a rigorous syntactic definition expressed in Backus-Naur Form. Conceived primarily for the publication and exchange of algorithms rather than for systems programming, it became the dominant language for describing algorithms in academic literature for decades and was the direct ancestor of Pascal, C, Simula, and most subsequent block-structured languages. Today it is of historical and pedagogical interest, kept alive mainly through compilers like MARST that translate ALGOL 60 to C.
+
+## Rosetta Code Coverage
+Solves **87** of the wiki's 1350 ingested Rosetta Code tasks. Rosetta Code's popularity ranking credits **ALGOL 60** with **70** task entries (4.04% of all tasks).
+
+## Tasks Solved
+- [[rc-100-doors]]
+- [[rc-99-bottles-of-beer]]
+- [[rc-a-b]]
+- [[rc-abundant-deficient-and-perfect-number-classifications]]
+- [[rc-abundant-odd-numbers]]
+- [[rc-ackermann-function]]
+- [[rc-additive-primes]]
+- [[rc-aks-test-for-primes]]
+- [[rc-amicable-pairs]]
+- [[rc-anti-primes]]
+- [[rc-arithmetic-numbers]]
+- [[rc-arrays]]
+- [[rc-bell-numbers]]
+- [[rc-bernstein-basis-polynomials]]
+- [[rc-calculating-the-value-of-e]]
+- [[rc-catalan-numbers]]
+- [[rc-comments]]
+- [[rc-conditional-structures]]
+- [[rc-create-a-two-dimensional-array-at-runtime]]
+- [[rc-cumulative-standard-deviation]]
+- [[rc-cusip]]
+- [[rc-day-of-the-week]]
+- [[rc-de-polignac-numbers]]
+- [[rc-disarium-numbers]]
+- [[rc-diversity-prediction-theorem]]
+- [[rc-empty-program]]
+- [[rc-equilibrium-index]]
+- [[rc-ethiopian-multiplication]]
+- [[rc-even-or-odd]]
+- [[rc-factorial]]
+- [[rc-factors-of-an-integer]]
+- [[rc-fibonacci-sequence]]
+- [[rc-function-definition]]
+- [[rc-gamma-function]]
+- [[rc-gauss-jordan-matrix-inversion]]
+- [[rc-golden-ratio-convergence]]
+- [[rc-greatest-common-divisor]]
+- [[rc-hailstone-sequence]]
+- [[rc-harmonic-series]]
+- [[rc-hello-world-text]]
+- [[rc-horner-s-rule-for-polynomial-evaluation]]
+- [[rc-integer-comparison]]
+- [[rc-jensen-s-device]]
+- [[rc-josephus-problem]]
+- [[rc-largest-proper-divisor-of-n]]
+- [[rc-leap-year]]
+- [[rc-levenshtein-distance]]
+- [[rc-long-multiplication]]
+- [[rc-long-year]]
+- [[rc-loops-break]]
+- [[rc-loops-continue]]
+- [[rc-loops-do-while]]
+- [[rc-loops-downward-for]]
+- [[rc-loops-for]]
+- [[rc-loops-for-with-a-specified-step]]
+- [[rc-loops-increment-loop-index-within-loop-body]]
+- [[rc-loops-infinite]]
+- [[rc-loops-n-plus-one-half]]
+- [[rc-loops-nested]]
+- [[rc-loops-while]]
+- [[rc-loops-with-multiple-ranges]]
+- [[rc-magic-squares-of-doubly-even-order]]
+- [[rc-man-or-boy-test]]
+- [[rc-nth-root]]
+- [[rc-odd-and-square-numbers]]
+- [[rc-operator-precedence]]
+- [[rc-perfect-numbers]]
+- [[rc-primality-by-trial-division]]
+- [[rc-prime-decomposition]]
+- [[rc-proper-divisors]]
+- [[rc-scope-modifiers]]
+- [[rc-semiprime]]
+- [[rc-sequence-of-primes-by-trial-division]]
+- [[rc-shoelace-formula-for-polygonal-area]]
+- [[rc-sieve-of-eratosthenes]]
+- [[rc-sorting-algorithms-bubble-sort]]
+- [[rc-sorting-algorithms-cocktail-sort]]
+- [[rc-sorting-algorithms-cocktail-sort-with-shifting-bounds]]
+- [[rc-square-free-integers]]
+- [[rc-sum-digits-of-an-integer]]
+- [[rc-sum-multiples-of-3-and-5]]
+- [[rc-sum-of-a-series]]
+- [[rc-sum-of-squares]]
+- [[rc-tau-function]]
+- [[rc-tau-number]]
+- [[rc-towers-of-hanoi]]
+- [[rc-trabb-pardo-knuth-algorithm]]
+
+## Connections
+- [[RosettaCode]] — tasks sourced from the Rosetta Code project

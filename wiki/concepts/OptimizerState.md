@@ -2,8 +2,8 @@
 title: "Optimizer State"
 type: concept
 tags: [optimization, training, memory]
-sources: [ai-engineering-ch07-finetuning]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch07-finetuning, mlsysbook-ch05-neural-computation]
+last_updated: 2026-06-05
 ---
 
 # Optimizer State
@@ -41,4 +41,5 @@ Adam's two-state-per-parameter cost is the reason a 13B-param model in FP16 with
 - [[TrainableParameters]] — what optimizer states are stored per.
 - [[CPUOffloading]] — strategy for swapping out optimizer states.
 - [[QLoRA]] — paged optimizers.
+- [[Adam]] / [[ModelSize]] / [[mlsysbook-ch05-neural-computation]] — Ch 5 quantifies the per-parameter state: vanilla SGD = 0 extra, momentum = 1, [[Adam]] = 2 moment buffers → ~16 bytes/param mixed precision (~8× the FP16 inference weight), a structural constant independent of model size.
 - [[ai-engineering-ch07-finetuning]] — primary source.

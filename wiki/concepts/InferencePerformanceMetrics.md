@@ -1,9 +1,9 @@
 ---
 title: "Inference Performance Metrics"
 type: concept
-tags: [inference, metrics, latency, throughput, performance]
-sources: [ai-engineering-ch09-inference-optimization]
-last_updated: 2024-12-04
+tags: [inference, metrics, latency, throughput, performance, mlsysbook]
+sources: [ai-engineering-ch09-inference-optimization, mlsysbook-ch12-benchmarking]
+last_updated: 2026-06-05
 ---
 
 # Inference Performance Metrics
@@ -56,4 +56,5 @@ The hierarchy: latency targets the SLO; throughput targets the cost; utilization
 - [[MFU]] / [[MBU]] / [[GPUUtilization]] — utilization metrics.
 - [[ComputeBound]] / [[MemoryBandwidthBound]] — what MFU/MBU diagnose.
 - [[InferenceOptimization]] — what the metrics target.
+- [[mlsysbook-ch12-benchmarking]] — the [[Benchmarking|benchmarking]] chapter that operationalizes these into a deployment-filter metric set (latency/[[TailLatency|tail latency]], throughput, precision impact, memory footprint, cold-start, scalability, energy QPS/W) and a per-context priority table (real-time = p95<50 ms; cloud = QPS; edge = power); also the [[MLPerfScenarios|MLPerf scenarios]] that condition every number.
 - [[ai-engineering-ch09-inference-optimization]] — primary source.

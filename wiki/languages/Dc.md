@@ -1,0 +1,107 @@
+---
+title: "Dc (programming language)"
+type: entity
+tags: [programming-language, rosetta-code]
+date: 2026-05-31
+rc_category: "Category:Dc"
+rc_task_entries: 90
+rc_tasks_done_pct: "5.2%"
+wiki_tasks_solved: 86
+---
+
+## Summary
+dc (desk calculator) is one of the oldest surviving Unix utilities, written by Robert Morris and Lou Salkind for early Unix at Bell Labs around 1970, predating the C language itself. It is a stack-based, reverse-Polish-notation arbitrary-precision calculator that doubles as a minimalist programming language: operands are pushed onto a stack and terse single-character commands manipulate them, with registers, macros, and conditional/recursive macro execution providing rudimentary control flow. Its dynamic typing is essentially limited to arbitrary-precision numbers and strings, and a user-settable scale governs decimal precision. Today dc survives mainly as the backend engine for bc and as a compact tool for high-precision arithmetic, scripting golf, and educational demonstrations of RPN and stack machines.
+
+## Rosetta Code Coverage
+Solves **86** of the wiki's 1350 ingested Rosetta Code tasks. Rosetta Code's popularity ranking credits **Dc** with **90** task entries (5.2% of all tasks).
+
+## Tasks Solved
+- [[rc-100-doors]]
+- [[rc-99-bottles-of-beer]]
+- [[rc-a-b]]
+- [[rc-ackermann-function]]
+- [[rc-almkvist-giullera-formula-for-pi]]
+- [[rc-arbitrary-precision-integers-included]]
+- [[rc-arithmetic-geometric-mean]]
+- [[rc-arithmetic-integer]]
+- [[rc-averages-arithmetic-mean]]
+- [[rc-binary-digits]]
+- [[rc-boolean-values]]
+- [[rc-calculating-the-value-of-e]]
+- [[rc-case-sensitivity-of-identifiers]]
+- [[rc-character-codes]]
+- [[rc-comma-quibbling]]
+- [[rc-comments]]
+- [[rc-continued-fraction]]
+- [[rc-copy-a-string]]
+- [[rc-count-in-octal]]
+- [[rc-create-a-file]]
+- [[rc-digital-root]]
+- [[rc-disarium-numbers]]
+- [[rc-empty-program]]
+- [[rc-ethiopian-multiplication]]
+- [[rc-evaluate-binomial-coefficients]]
+- [[rc-even-or-odd]]
+- [[rc-execute-a-system-command]]
+- [[rc-factorial]]
+- [[rc-factors-of-an-integer]]
+- [[rc-fibonacci-sequence]]
+- [[rc-find-limit-of-recursion]]
+- [[rc-fizzbuzz]]
+- [[rc-formatted-numeric-output]]
+- [[rc-function-definition]]
+- [[rc-generate-lower-case-ascii-alphabet]]
+- [[rc-generic-swap]]
+- [[rc-greatest-common-divisor]]
+- [[rc-greatest-element-of-a-list]]
+- [[rc-hailstone-sequence]]
+- [[rc-happy-numbers]]
+- [[rc-hello-world-newline-omission]]
+- [[rc-hello-world-text]]
+- [[rc-increment-a-numerical-string]]
+- [[rc-integer-comparison]]
+- [[rc-integer-sequence]]
+- [[rc-leap-year]]
+- [[rc-linear-congruential-generator]]
+- [[rc-logical-operations]]
+- [[rc-long-multiplication]]
+- [[rc-long-year]]
+- [[rc-loops-break]]
+- [[rc-loops-continue]]
+- [[rc-loops-do-while]]
+- [[rc-loops-downward-for]]
+- [[rc-loops-for]]
+- [[rc-loops-infinite]]
+- [[rc-loops-nested]]
+- [[rc-loops-while]]
+- [[rc-man-or-boy-test]]
+- [[rc-mandelbrot-set]]
+- [[rc-modular-exponentiation]]
+- [[rc-modular-inverse]]
+- [[rc-munchausen-numbers]]
+- [[rc-non-decimal-radices-output]]
+- [[rc-operator-precedence]]
+- [[rc-pseudo-random-numbers-middle-square-method]]
+- [[rc-quine]]
+- [[rc-return-multiple-values]]
+- [[rc-reverse-a-string]]
+- [[rc-shell-one-liner]]
+- [[rc-show-ascii-table]]
+- [[rc-sieve-of-eratosthenes]]
+- [[rc-square-but-not-cube]]
+- [[rc-string-length]]
+- [[rc-subtractive-generator]]
+- [[rc-sum-and-product-of-an-array]]
+- [[rc-sum-digits-of-an-integer]]
+- [[rc-sum-multiples-of-3-and-5]]
+- [[rc-sum-of-a-series]]
+- [[rc-terminal-control-clear-the-screen]]
+- [[rc-terminal-control-coloured-text]]
+- [[rc-terminal-control-display-an-extended-character]]
+- [[rc-terminal-control-ringing-the-terminal-bell]]
+- [[rc-the-twelve-days-of-christmas]]
+- [[rc-towers-of-hanoi]]
+- [[rc-zero-to-the-zero-power]]
+
+## Connections
+- [[RosettaCode]] — tasks sourced from the Rosetta Code project

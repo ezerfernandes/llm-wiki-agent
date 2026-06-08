@@ -2,8 +2,8 @@
 title: "Data Acquisition"
 type: concept
 tags: [dataset-engineering, data-curation]
-sources: [ai-engineering-ch08-dataset-engineering]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch08-dataset-engineering, mlsysbook-ch04-data-engineering]
+last_updated: 2026-06-05
 ---
 
 # Data Acquisition
@@ -54,10 +54,15 @@ Even public datasets with permissive licenses may include sub-sources with restr
 
 This is the chapter's "oversimplification of the actual dataset curation process" — many more iterations of guideline-revision and re-annotation typically happen.
 
+## In ML systems (mlsysbook)
+
+Reddi's *Machine Learning Systems* ([[mlsysbook-ch04-data-engineering|Vol 1, Ch 4]]) frames acquisition as a strategic, multi-source decision evaluated against the [[FourPillarsOfDataEngineering|four pillars]]: no single method suffices, so production systems combine [[Crowdsourcing|crowdsourcing]], [[WebScraping|web scraping]], [[SyntheticDataGeneration|synthetic generation]], and preexisting datasets. The recurring caution — coverage gaps (geographic/demographic bias, missing edge cases) cause correlated failures when many models train on the same repository, and scale alone cannot satisfy the quality pillar (the 1914 traffic-light scrape).
+
 ## Connections
 
 - [[DatasetEngineering]] — parent discipline.
-- [[DataAnnotation]] / [[AnnotationGuidelines]] — the labeling sub-pipeline.
+- [[DataAnnotation]] / [[DataLabeling]] / [[AnnotationGuidelines]] — the labeling sub-pipeline.
+- [[Crowdsourcing]] / [[WebScraping]] / [[SyntheticDataGeneration]] — the mlsysbook acquisition channels.
 - [[DataSynthesis]] / [[DataAugmentation]] — the synthesis-channel alternatives.
 - [[DataFlywheel]] — the highest-leverage source.
-- [[ai-engineering-ch08-dataset-engineering]] — primary source.
+- [[ai-engineering-ch08-dataset-engineering]] / [[mlsysbook-ch04-data-engineering]] — sources.

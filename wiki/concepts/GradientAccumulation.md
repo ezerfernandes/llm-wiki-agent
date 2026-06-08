@@ -2,8 +2,8 @@
 title: "Gradient Accumulation"
 type: concept
 tags: [training, memory, batch-size]
-sources: [ai-engineering-ch07-finetuning, hands-on-llm-ch12-fine-tuning-generation-models]
-last_updated: 2026-05-24
+sources: [ai-engineering-ch07-finetuning, hands-on-llm-ch12-fine-tuning-generation-models, mlsysbook-ch08-model-training]
+last_updated: 2026-06-05
 ---
 
 # Gradient Accumulation
@@ -38,8 +38,13 @@ The result is **mathematically equivalent** to a single forward+backward pass wi
 
 Ch 7's footnote: *"I tried to find the first paper where gradient accumulation was introduced but couldn't. Its use in deep learning was mentioned as early as 2016 in 'Ako: Decentralised Deep Learning with Partial Gradient Exchange' (Watcharapichat et al., Proceedings of the Seventh ACM Symposium on Cloud Computing, 2016). The concept seems to come from distributed training, where gradients computed on different machines need to be accumulated and used to update the model's weights."*
 
+## From [[mlsysbook-ch08-model-training|mlsysbook Ch 8 (Model Training)]]
+
+Ch 8 frames gradient accumulation as a *cost* lever as much as a memory one: GPT-2 reaches effective batch 512 on **8 V100s** (micro-batch 16 × 4 accumulation steps) instead of **32 GPUs** — a 75% cluster-cost cut. The `no_sync()` context suppresses [[AllReduce]] on the first $k-1$ micro-batches so gradient sync fires once per effective batch (75% less communication). It's mathematically exact because gradients are additive; BERT-Large hit 99.5% of full-batch performance at effective batch 256 over 8 steps. Cost: ~8–15% wall-clock overhead from micro-batch serialization. **Convention gotcha**: when loss is divided by $k$ the LR needs no change; when gradients are summed without division the LR must drop $k\times$ — a common subtle bug.
+
 ## Connections
 
+- [[mlsysbook-ch08-model-training]] — the cost/communication framing; `no_sync()` AllReduce reduction; loss-division convention gotcha.
 - [[BatchSize]] — what gradient accumulation effectively scales.
 - [[MemoryBottleneck]] — what gradient accumulation mitigates.
 - [[Backpropagation]] — the per-step operation being accumulated.

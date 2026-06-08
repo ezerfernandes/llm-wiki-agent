@@ -2,8 +2,8 @@
 title: "CUDA"
 type: concept
 tags: [gpu, infrastructure, nvidia]
-sources: [d2l-installation, d2l-builders-guide, d2l-computational-performance, d2l-appendix-tools, parproc-ch05-cuda-gpu-programming]
-last_updated: 2026-05-17
+sources: [d2l-installation, d2l-builders-guide, d2l-computational-performance, d2l-appendix-tools, parproc-ch05-cuda-gpu-programming, mlsysbook-ch11-hardware-acceleration]
+last_updated: 2026-06-05
 ---
 
 # CUDA

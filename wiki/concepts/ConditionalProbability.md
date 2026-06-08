@@ -2,8 +2,8 @@
 title: "Conditional Probability"
 type: concept
 tags: [probability, foundational]
-sources: [d2l-preliminaries, mml-book]
-last_updated: 2026-05-16
+sources: [d2l-preliminaries, mml-book, mml-ch06-probability-and-distributions]
+last_updated: 2026-06-04
 ---
 
 # Conditional Probability
@@ -32,11 +32,20 @@ Two random variables can be *marginally independent* yet *conditionally dependen
 - **Variational inference**: approximate intractable $P(\mathbf{z} \mid \mathbf{x})$ with a tractable $q_\phi(\mathbf{z} \mid \mathbf{x})$ ([[Autoencoder|VAE]]).
 - **Conditional independence assumptions** are how Bayes nets / PGMs become tractable.
 
+## From [[mml-ch06-probability-and-distributions|MML Ch 6]]
+
+[[mml-book]] §6.2.1 (book pp. 179–180) defines the discrete conditional as a cell divided by its row/column total: $p(y_j\mid x_i)=n_{ij}/c_i$ (Eq. 6.13), $p(x_i\mid y_j)=n_{ij}/r_j$ (Eq. 6.14) — "the fraction of a row or column in a particular cell." It is written lazily as $p(y\mid x)$ in ML notation (§6.2.1). The conditional is one leg of the [[ProductRule|product rule]] $p(\mathbf x,\mathbf y)=p(\mathbf y\mid\mathbf x)p(\mathbf x)$ (Eq. 6.22), the foundation of [[BayesTheorem|Bayes' theorem]] and of the **chain rule for probability** $p(x_1,\dots,x_n)=p(x_1)\prod_{i\ge2}p(x_i\mid x_{<i})$.
+
+The chapter develops **[[ConditionalIndependence|conditional independence]]** $X\perp\!\!\!\perp Y\mid Z$ from conditionals (§6.4.5, Def. 6.11): $p(\mathbf x,\mathbf y\mid\mathbf z)=p(\mathbf x\mid\mathbf z)p(\mathbf y\mid\mathbf z)$, equivalently $p(\mathbf x\mid\mathbf y,\mathbf z)=p(\mathbf x\mid\mathbf z)$ (Eq. 6.57). It also stresses (§6.8) that the lazy notation $p(\mathbf y\mid\mathbf x)$ for *continuous* RVs hides genuine measure-theoretic subtlety — a precise statement conditions a test function's expectation on the $\sigma$-algebra of $\mathbf x$.
+
 ## Connections
 
+- [[mml-ch06-probability-and-distributions]] — §6.2/§6.4.5 deep dive.
 - [[d2l-preliminaries]] — definition + explaining-away exposition.
 - [[mml-book]] — §6.2 canonical reference.
 - [[JointProbability]] — numerator of the definition.
+- [[ProductRule]] — the conditional is one factor.
 - [[BayesTheorem]] — inverting the conditioning.
 - [[StatisticalIndependence]] — when $P(B\mid A) = P(B)$.
+- [[ConditionalIndependence]] — conditioning on a third variable.
 - [[RandomVariable]] — the entities being conditioned.

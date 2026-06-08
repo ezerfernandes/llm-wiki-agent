@@ -2,8 +2,8 @@
 title: "RAG"
 type: concept
 tags: [concept, retrieval, generation, dspy]
-sources: [2604.27707-agentic-memory-is-a-memo, 2408.08849-ecg-chat, dspy-custom-module, dspy-rag-tutorial, ai-engineering-ch01-intro, ai-engineering-ch06-rag-agents, ai-engineering-ch07-finetuning, hands-on-llm-ch08-semantic-search-and-rag]
-last_updated: 2026-05-23
+sources: [2604.27707-agentic-memory-is-a-memo, 2408.08849-ecg-chat, dspy-custom-module, dspy-rag-tutorial, ai-engineering-ch01-intro, ai-engineering-ch06-rag-agents, ai-engineering-ch07-finetuning, hands-on-llm-ch08-semantic-search-and-rag, agentic-design-patterns-ch14-rag, agentic-design-patterns-appendix-a-prompting]
+last_updated: 2026-06-07
 ---
 
 # RAG
@@ -104,6 +104,19 @@ Ch 7's recommended order: **start with RAG, then add finetuning if behavior-base
 > "In the same experiment, Ovadia et al. (2024) showed that incorporating RAG on top of a finetuned model can boost its performance on the MMLU benchmark 43% of the time. ... using RAG with finetuned models doesn't improve the performance 57% of the time, compared to using RAG alone."
 
 This is the chapter's clearest signal that **finetuning isn't free** — it has a measurable downside risk even when combined with RAG.
+
+## From [[agentic-design-patterns-ch14-rag|Agentic Design Patterns (Gulli) Ch 14]]
+
+[[AntonioGulli|Gulli's]] [[AgenticDesignPatterns|*Agentic Design Patterns*]] makes RAG the **14th of 21 agentic design patterns** — the agent-centric framing rather than the engineering deep-dive. Its load-bearing sentence: RAG *"transforms the LLM from a closed-book reasoner into an open-book one,"* and for agents specifically *"allows them to ground their actions and responses in real-time, verifiable data … transforming agents from simple conversationalists into effective, data-driven tools capable of executing meaningful work."*
+
+The chapter's mechanics are a concise, beginner-pitched walk consistent with [[ai-engineering-ch06-rag-agents|Huyen Ch 6]] and [[hands-on-llm-ch08-semantic-search-and-rag|Hands-On LLMs Ch 8]]: query → **[[SemanticSearch|semantic search]]** (not keyword match) over an external base → pull relevant **[[Chunking|chunks]]** → **augment** the prompt → send to LLM. Foundations: [[Embedding|embeddings]] (the "cat (2,3) / kitten (2.1,3.1) / car (8,1)" toy example), text vs [[SemanticSimilarity|semantic similarity/distance]], chunking, [[VectorDatabase|vector databases]], and retrieval via vector search / [[BM25]] / [[HybridSearch|hybrid]]. It names the vendor landscape ([[Pinecone]], [[Weaviate]], [[ChromaDB|Chroma]], [[Milvus]], [[Qdrant]]; [[RedisVectorSearch|Redis]], [[Elasticsearch]], [[PostgreSQL|pgvector]]), the ANN index [[HNSW]], and the core libraries [[FAISS]] (Meta AI) and [[ScaNN]] (Google Research). RAG's *"vital advantage"* is **[[CitationGeneration|citations]]** that pinpoint exact sources; its benefits include [[Hallucination|hallucination]] reduction via [[GroundedGeneration|grounding]]; its challenges are cross-chunk/cross-document fragmentation, contradictory-source synthesis, pre-processing burden + periodic reconciliation, and added latency/cost/token usage.
+
+**Two advanced variants the chapter introduces:**
+
+- **[[GraphRAG]]** — retrieval over a **[[KnowledgeGraph|knowledge graph]]** (nodes/edges) instead of a flat vector DB, navigating explicit entity relationships to synthesize answers fragmented across documents. Gulli's distinctive use cases: complex financial analysis, connecting companies to market events, and gene–disease relationship discovery. *"It excels where deep, interconnected insights are more critical than the speed and simplicity of standard RAG."*
+- **[[AgenticRAG]]** — a reasoning agent as **critical gatekeeper and refiner** of knowledge (vs Naive RAG's fixed query-vectors→chunks→model pipeline; Agentic RAG *"picks tools to call"*). Four scenarios: (1) reflection & source validation (discard the stale 2020 blog post for the authoritative 2025 policy doc); (2) reconcile knowledge conflicts (€65K finalized report over €50K initial proposal); (3) multi-step reasoning (decompose a feature+pricing comparison into sub-queries); (4) identify knowledge gaps and fire an external [[ToolUse|tool]] (live web-search API for fresh info).
+
+**Hands-on (three examples):** [[GoogleADK|Google ADK]] with the `google_search` grounding tool; ADK's `VertexAiRagMemoryService` over a [[GoogleCloudVertexAI|Vertex AI]] **RAG Corpus** (`SIMILARITY_TOP_K=5`, `VECTOR_DISTANCE_THRESHOLD=0.7`) — the [[MemoryManagement|long-term-memory]] tie-in; and a full [[LangChain]]/[[langgraph|LangGraph]] pipeline (`CharacterTextSplitter` chunking → [[openai|OpenAI]] `OpenAIEmbeddings` → [[Weaviate]] vectorstore → a two-node `StateGraph`: `retrieve_documents_node` → `generate_response_node`, `gpt-3.5-turbo` generator). Gulli grounds the chapter in [[Lewis2020RAG|Lewis et al. 2020]] (arxiv 2005.11401) — the same foundational citation the wiki's other RAG sources use.
 
 ## From [[hands-on-llm-ch08-semantic-search-and-rag|*Hands-On LLMs* Ch 8]]
 

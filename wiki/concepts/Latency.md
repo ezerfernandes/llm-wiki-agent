@@ -2,8 +2,8 @@
 title: "Latency"
 type: concept
 tags: [parallel-computing, networking, performance]
-sources: [parproc-ch02-recurring-performance-issues]
-last_updated: 2026-05-17
+sources: [parproc-ch02-recurring-performance-issues, mlsysbook-ch02-ml-systems]
+last_updated: 2026-06-05
 ---
 
 # Latency
@@ -36,9 +36,14 @@ Latency and bandwidth are **independent** — you can have a high-latency high-b
 
 When you can't reduce latency, you can **hide** it — see [[LatencyHiding]]. [[parproc-ch02-recurring-performance-issues]] §2.5: *"For example, GPUs tend to have very long memory access times, but this is solved by having many pending memory accesses at the same time. During the latency of some accesses, earlier ones that have now completed can now be acted upon."* This is one of the things [[GPU|GPUs]] are exceptionally good at.
 
+## Latency as a deployment driver ([[mlsysbook-ch02-ml-systems|mlsysbook Ch 2]])
+
+In ML systems, latency is multi-scale and decisive for [[DeploymentSpectrum|deployment-paradigm]] choice. Reddi's reference table spans eight orders of magnitude — GPU matmul ~1 ns, HBM read 20–50 ns, same-region network 1–5 ms, cross-region 50–150 ms, GPT-4 first token 200–500 ms — and yields a hard rule: *an operation with latency > X cannot appear on the critical path of a system whose budget is X.* The **light barrier** ([[SpeedOfLight|speed of light]] in fiber, ~200,000 km/s) sets an irreducible ~36 ms cross-continental floor, which is why sub-10-ms safety tasks *must* run on the [[EdgeML|edge]], not in the cloud.
+
 ## Connections
 
-- [[parproc-ch02-recurring-performance-issues]] — primary source, §2.5.
+- [[parproc-ch02-recurring-performance-issues]] / [[mlsysbook-ch02-ml-systems]] — sources.
+- [[SpeedOfLight]] — the physical floor on network latency.
 - [[Bandwidth]] — the orthogonal axis.
 - [[LatencyHiding]] — the workaround.
 - [[CommunicationBottleneck]] — latency is one of the two dimensions of this cost.

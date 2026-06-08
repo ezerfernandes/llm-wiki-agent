@@ -2,8 +2,8 @@
 title: "Vector Processor"
 type: concept
 tags: [computer-architecture, cpu, parallelism, ilp, simd]
-sources: [dis-5-9-modern]
-last_updated: 2026-05-17
+sources: [dis-5-9-modern, mlsysbook-ch11-hardware-acceleration]
+last_updated: 2026-06-05
 ---
 
 # Vector Processor

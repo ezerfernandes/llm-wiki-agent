@@ -2,8 +2,8 @@
 title: "Probability Density Function"
 type: concept
 tags: [probability, foundational]
-sources: [d2l-appendix-mathematics]
-last_updated: 2026-05-16
+sources: [d2l-appendix-mathematics, mml-book, mml-ch06-probability-and-distributions]
+last_updated: 2026-06-04
 ---
 
 # Probability Density Function (PDF)
@@ -58,9 +58,21 @@ Multivariate: the absolute value of the Jacobian determinant replaces the absolu
 - **Generative modeling**: [[Diffusion]] models, [[VariationalAutoencoder|VAEs]], [[GAN|GANs]] all relate to PDFs (directly or implicitly).
 - **Sampling**: inverse-CDF, rejection, MCMC, Langevin all leverage PDF structure.
 
+## From [[mml-ch06-probability-and-distributions|MML Ch 6]]
+
+[[mml-book]] §6.2.2 (book pp. 180–183, Def. 6.1) defines a pdf as *any* function $f:\mathbb{R}^D\to\mathbb{R}$ that is (1) non-negative $f(\mathbf x)\ge0$ and (2) integrates to one $\int_{\mathbb{R}^D} f(\mathbf x)\,d\mathbf x=1$ (Eq. 6.15) — for the discrete [[ProbabilityMassFunction|pmf]] the integral becomes a sum (Eq. 6.12). The RV is associated with $f$ via $P(a\le X\le b)=\int_a^b f(x)\,dx$ (Eq. 6.16); this association is the **law / distribution** of $X$, a *distinct* concept from the pdf itself (Def. 6.2 Remark). Two emphasized facts:
+
+- **$P(X=x)=0$ for a continuous RV** — "a set of measure zero," like an interval $[a,b]$ with $a=b$ (§6.2.2 Remark, p. 181).
+- **Density can exceed 1** — only the *integral* is constrained, not the function value (§6.2.3, Eq. 6.19; Fig. 6.3 shows a uniform density of height $\approx1.43$ on $[0.9,1.6]$).
+
+The chapter repeatedly flags the **"lazy notation"** by which the pmf $P(X{=}x)$, the pdf $p(x)$, and the [[CumulativeDistributionFunction|cdf]] $P(X\le x)$ are all loosely called the "distribution" (Table 6.1; §6.2.3 Remark, p. 183). The **[[ChangeOfVariables|change-of-variables]]** rule for transformed densities is treated carefully in §6.7 (the Jacobian-determinant formula, Eq. 6.144) — the basis of [[NormalizingFlow|normalizing flows]].
+
 ## Connections
 
+- [[mml-ch06-probability-and-distributions]] — §6.2 deep dive.
+- [[mml-book]] — §6.2.2 canonical reference (Def. 6.1).
 - [[d2l-appendix-mathematics]] — §random-variables canonical reference.
+- [[ProbabilityMassFunction]] — discrete counterpart.
 - [[CumulativeDistributionFunction]] — the integral of the PDF.
 - [[RandomVariable]] — the entity a PDF describes.
 - [[GaussianDistribution]] / [[BernoulliDistribution]] / [[PoissonDistribution]] — concrete PDFs / PMFs.

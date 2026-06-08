@@ -2,8 +2,8 @@
 title: "DVC"
 type: entity
 tags: [tool, data-versioning, mlops, open-source]
-sources: [leh-ch11-mlops-and-llmops]
-last_updated: 2026-05-22
+sources: [leh-ch11-mlops-and-llmops, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 ## What it is
@@ -18,3 +18,5 @@ Ch. 11 ([[leh-ch11-mlops-and-llmops]]) names DVC as the canonical option for **d
 - [[Versioning]] — MLOps principle.
 - [[MLOps]] — discipline.
 - [[GitHub]] — typical Git remote DVC pairs with.
+- [[mlsysbook-ch14-ml-operations]] — Ch 14 uses DVC for Git-like dataset versioning, recovering the Data_v term that pure code versioning loses.
+

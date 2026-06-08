@@ -3,8 +3,8 @@ name: Roblox
 title: "Roblox"
 type: entity
 tags: [company, gaming, ml-deployment]
-sources: [dmls-ch07-model-deployment]
-last_updated: 2026-05-23
+sources: [dmls-ch07-model-deployment, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 # Roblox
@@ -26,3 +26,5 @@ Cited as the proof point that large transformer models can be made cost-effectiv
 - [[bert]] — the model architecture Roblox quantized.
 - [[InferenceOptimization]] — the broader discipline.
 - [[EdgeComputing]] — adjacent regime (though Roblox uses datacenter CPU, the techniques transfer).
+- [[mlsysbook-ch14-ml-operations]] — adjacent mlsysbook Vol 1 Ch 14 (ML Operations) extends the production-serving story this Roblox quantization case study anchors in DMLS Ch 7.
+

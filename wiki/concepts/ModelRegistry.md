@@ -2,8 +2,8 @@
 title: "Model Registry"
 type: concept
 tags: [mlops, versioning]
-sources: [madewithml-mlops, madewithml-training]
-last_updated: 2026-05-15
+sources: [madewithml-mlops, madewithml-training, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 # Model Registry

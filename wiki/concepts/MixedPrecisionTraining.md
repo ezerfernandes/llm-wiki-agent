@@ -2,8 +2,8 @@
 title: "Mixed Precision Training"
 type: concept
 tags: [training, numerics, gpu, finetuning]
-sources: [ai-engineering-ch07-finetuning]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch07-finetuning, mlsysbook-ch07-ml-frameworks, mlsysbook-ch08-model-training, mlsysbook-ch11-hardware-acceleration]
+last_updated: 2026-06-05
 ---
 
 # Mixed Precision Training
@@ -51,8 +51,20 @@ Most ML frameworks ship an AMP utility that decides per-op what precision to use
 
 Ch 7 also notes: *"It's also possible to have different phases of training in different precision levels. For example, a model can be trained in higher precision but finetuned in lower precision. This is especially common with foundation models, where the team training a model from scratch might be an organization with sufficient compute for higher precision training. Once the model is published, developers with less compute access can finetune that model in lower precision."*
 
+## Framework view from [[mlsysbook-ch07-ml-frameworks|mlsysbook Vol 1 Ch 7]]
+
+Ch 7 frames mixed precision as the rare optimization that **improves two iron-law terms at once**: [[TensorCore|Tensor Cores]] run FP16 matmuls faster (raising $R_{\text{peak}}$, cutting the compute term) *and* FP16 activations halve the memory footprint (cutting $D_{\text{vol}}$). Frameworks auto-route matmuls/convs to FP16 while keeping softmax/layernorm in FP32. Key precision distinction: [[FP16]]'s 5-bit exponent underflows for gradients below ~6×10⁻⁵, requiring loss scaling (`GradScaler`); [[BF16]] (Google Brain ~2018) matches FP32's exponent range, **eliminating loss scaling** in most workloads — "BF16 is preferred when training stability matters, FP16 when numerical precision matters more."
+
+## The six-step cycle and hardware ladder from [[mlsysbook-ch08-model-training|mlsysbook Ch 8]]
+
+Ch 8 (the Build-part training capstone) gives the canonical six-step cycle — (1) FP32 master weights cast to FP16, (2) forward computes FP16 loss, (3) **[[LossScaling|loss is scaled]]** to prevent gradient underflow, (4) backprop computes scaled FP16 gradients, (5) gradients copied to FP32 and unscaled, (6) FP32 gradients update the master weights. The realized speedup is *smaller than the peak ratio*: A100 FP16/BF16 Tensor Cores hit ~16× FP32 *peak*, but end-to-end training gains ~2–2.5× once data movement, non-Tensor-Core kernels, communication, and optimizer work are counted. Cross-generation GPT-2 throughput: V100 18→45 samples/s (FP32→FP16, 2.5×), A100 165 (BF16), H100 380 ([[FP8]]) — ~21× over V100-FP32. Per-architecture defaults: V100 → FP16+loss-scaling, A100 → BF16 (transformers) / FP16 (CNNs), H100 → FP8 via TransformerEngine.
+
 ## Connections
 
+- [[mlsysbook-ch08-model-training]] — the training-capstone treatment: six-step cycle, cross-generation throughput ladder, FP8 on Hopper.
+- [[LossScaling]] — step 3 of the cycle; the FP16 underflow safeguard BF16 eliminates.
+- [[mlsysbook-ch07-ml-frameworks]] — mixed precision as a dual iron-law win; FP16 vs BF16 loss-scaling distinction.
+- [[TensorCore]] — the hardware mixed precision exploits.
 - [[AutomaticMixedPrecision]] — the framework-level autopilot.
 - [[NumericalRepresentation]] — the bit-allocation framework.
 - [[FP16]] / [[BF16]] / [[FP8]] / [[FP32]] — the formats commonly mixed.

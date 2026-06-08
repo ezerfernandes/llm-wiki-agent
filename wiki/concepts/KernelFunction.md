@@ -2,8 +2,8 @@
 title: "Kernel / Covariance Function"
 type: concept
 tags: [kernel-methods, gaussian-processes, bayesian]
-sources: [d2l-gaussian-processes]
-last_updated: 2026-05-16
+sources: [d2l-gaussian-processes, mml-ch12-classification-svm]
+last_updated: 2026-06-05
 ---
 
 # Kernel / Covariance Function
@@ -51,9 +51,22 @@ Closure properties allow constructing more expressive kernels:
 
 This is the GP equivalent of stacking neural-network layers — a *kernel grammar* in which interpretable function classes compose.
 
+## From [[mml-ch12-classification-svm|MML Ch 12]] — the SVM / kernel-machine view
+
+> This page is the canonical wiki home for the **ML kernel concept** (the bare [[Kernel]] page is the *operating-system* kernel; see its disambiguation note). [[mml-ch12-classification-svm|MML Ch 12]] §12.4 anchors the SVM/kernel-machine view here.
+
+§12.4 (book pp. 388–390) *defines* a kernel as a function $k:\mathcal{X}\times\mathcal{X}\to\mathbb{R}$ for which there exists a Hilbert space $\mathcal{H}$ and a [[FeatureMap|feature map]] $\boldsymbol\phi:\mathcal{X}\to\mathcal{H}$ such that
+
+$$k(\mathbf{x}_i,\mathbf{x}_j)=\langle\boldsymbol\phi(\mathbf{x}_i),\boldsymbol\phi(\mathbf{x}_j)\rangle_\mathcal{H}\qquad(\text{Eq. } 12.52).$$
+
+The **validity condition** is identical to the GP/Mercer condition above: kernels must be symmetric and positive-semidefinite, so every [[GramMatrix|kernel/Gram matrix]] $K_{ij}=k(\mathbf{x}_i,\mathbf{x}_j)$ satisfies $\forall\mathbf{z}\in\mathbb{R}^N:\mathbf{z}^\top\mathbf{K}\mathbf{z}\ge0$ (Eq. 12.53, §3.2.3 [[SymmetricPositiveDefiniteMatrix|SPD]]). Each kernel has a *unique* reproducing kernel Hilbert space (RKHS, Aronszajn 1950), and $\boldsymbol\phi(\mathbf{x})=k(\cdot,\mathbf{x})$ is its **canonical feature map**. In the [[DualSVM|dual SVM]] the kernel replaces $\langle\mathbf{x}_i,\mathbf{x}_j\rangle$, lifting the classifier to nonlinear decision surfaces via the [[KernelTrick|kernel trick]] without ever materializing $\boldsymbol\phi$. The chapter's flagged kernels are the polynomial $(\mathbf{x}^\top\mathbf{x}'+c)^d$ (cheap even when the monomial expansion is huge) and the Gaussian [[RBFKernel|RBF]] (infinite-dimensional feature space, "cannot be explicitly represented"). A *Remark* (p. 390) disambiguates the three uses of "kernel": this RKHS kernel, the linear-algebra kernel/null-space (§2.7.3), and the KDE smoothing kernel (§11.5).
+
 ## Connections
 
-- [[d2l-gaussian-processes]] — canonical reference.
+- [[d2l-gaussian-processes]] — canonical GP reference.
+- [[mml-ch12-classification-svm]] — §12.4 SVM/kernel-machine reference.
+- [[KernelTrick]] / [[DualSVM]] / [[SupportVectorMachine]] — the SVM consumers.
+- [[GramMatrix]] / [[SymmetricPositiveDefiniteMatrix]] — the PSD validity condition.
 - [[GaussianProcess]] — the prior the kernel specifies.
 - [[RBFKernel]] / [[MaternKernel]] / [[NeuralNetworkKernel]] / [[OUKernel]] — instances.
 - [[KernelTrick]] — the Mercer / weight-space-equivalence machinery.

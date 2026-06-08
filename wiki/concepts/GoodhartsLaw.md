@@ -1,9 +1,9 @@
 ---
 title: "Goodhart's Law"
 type: concept
-tags: [evaluation, measurement, benchmarks, alignment, hands-on-llm]
-sources: [hands-on-llm-ch12-fine-tuning-generation-models]
-last_updated: 2026-05-23
+tags: [evaluation, measurement, benchmarks, alignment, hands-on-llm, mlsysbook]
+sources: [hands-on-llm-ch12-fine-tuning-generation-models, mlsysbook-ch12-benchmarking, mlsysbook-ch15-responsible-engineering]
+last_updated: 2026-06-05
 ---
 
 # Goodhart's Law
@@ -41,4 +41,7 @@ Three practitioner moves the chapter explicitly recommends:
 - [[Benchmark]] / [[OpenLLMLeaderboard]] / [[MMLU]] / [[HellaSwag]] / [[TruthfulQA]] / [[GSM8K]] / [[HumanEval]] — the metrics Goodhart's Law warns against over-optimizing.
 - [[LLMAsAJudge]] / [[ChatbotArena]] — eval methods designed in part to be Goodhart-robust by being adaptive.
 - [[AlignmentTax]] / [[Sycophancy]] / [[DegenerateFeedbackLoop]] — failure modes that are special cases of Goodhart's Law.
+- [[mlsysbook-ch12-benchmarking]] — Reddi's [[Benchmarking|ML-systems benchmarking]] chapter treats Goodhart's Law as the **master pitfall** of system benchmarking (Whetstone compiler gaming, BLEU n-gram matching, [[BenchmarkSaturation|GLUE saturation]], leaderboard overfit) and the explicit rationale for [[BenchmarkEngineering|benchmark engineering]] defenses; its worked BLEU example (28.0→28.5 via beam-size 10, 4× latency, violating the serving budget) is the canonical systems instance.
+- [[BenchmarkEngineering]] / [[BenchmarkSaturation]] — the benchmarking failure modes that *are* Goodhart's Law in ML-systems practice.
 - [[hands-on-llm-ch12-fine-tuning-generation-models]] — primary source.
+- [[mlsysbook-ch15-responsible-engineering]] — mlsysbook Vol 1 Ch 15 names Goodhart's Law the canonical Algorithm-axis *silent failure*: clicks→satisfaction correlation can decay 0.8→0.2 once the proxy becomes the target ([[ProxyVariable|proxy]] optimization, YouTube radicalization, Facebook's 2018 News Feed pivot), requiring counterfactual/holdout evaluation to re-calibrate.

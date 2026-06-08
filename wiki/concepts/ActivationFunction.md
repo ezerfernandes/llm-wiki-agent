@@ -2,8 +2,8 @@
 title: "Activation Function"
 type: concept
 tags: [deep-learning, neural-networks, foundational]
-sources: [d2l-multilayer-perceptrons]
-last_updated: 2026-05-16
+sources: [d2l-multilayer-perceptrons, mlsysbook-ch05-neural-computation]
+last_updated: 2026-06-05
 ---
 
 # Activation Function
@@ -35,6 +35,10 @@ Per [[d2l-multilayer-perceptrons]] §Activation Functions: "ReLU is significantl
 
 The choice of activation co-determines the right [[WeightInitialization|initialization]]: [[XavierInitialization|Xavier]] for symmetric (tanh / sigmoid), [[HeInitialization|He / Kaiming]] for [[ReLU]] (factor-of-2 variance correction because ReLU zeroes half its inputs).
 
+## Activation choice as a hardware decision (mlsysbook Ch 5)
+
+[[mlsysbook-ch05-neural-computation|mlsysbook Vol 1 Ch 5]] frames activation choice as *both* gradient behavior *and* silicon cost — the **[[TransistorTax|transistor tax]]**. Element-wise activations are [[MemoryBound|memory-bound]] (~0.125 FLOP/byte for FP32), so they are candidates for kernel *fusion* with adjacent matmuls; their cost is the comparator/exponential logic itself. [[ReLU]] ≈ 50 transistors / 1 cycle; [[Sigmoid]]/[[Tanh]] ≈ 2,500 transistors / 20–40 cycles (~50×). [[Softmax]] is *vector-level* (not element-wise) and carries a FP32-overflow (NaN) hazard requiring the log-sum-exp trick.
+
 ## Connections
 
 - [[d2l-multilayer-perceptrons]] — §Activation Functions canonical reference.
@@ -45,3 +49,5 @@ The choice of activation co-determines the right [[WeightInitialization|initiali
 - [[Backpropagation]] — flows the activation's derivative.
 - [[Dropout]] — composed after the activation in standard practice.
 - [[Softmax]] — output-layer activation for classification.
+- [[TransistorTax]] / [[DyingReLU]] / [[GELU]] / [[SiLU]] — hardware cost, ReLU failure mode, transformer-era variants.
+- [[mlsysbook-ch05-neural-computation]] — activation choice as a silicon decision.

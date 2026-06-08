@@ -2,8 +2,8 @@
 title: "ReLU"
 type: concept
 tags: [activation-function, neural-networks, foundational]
-sources: [madewithml-baselines, d2l-multilayer-perceptrons]
-last_updated: 2026-05-16
+sources: [madewithml-baselines, d2l-multilayer-perceptrons, mlsysbook-ch05-neural-computation]
+last_updated: 2026-06-05
 ---
 
 # ReLU
@@ -34,7 +34,11 @@ $\operatorname{ReLU}'(x) = \mathbb{1}\{x>0\}$ — exactly 0 or 1. The discontinu
 
 ## Failure modes
 
-- **Dying ReLU**: a unit can land in the $x<0$ regime *permanently* if a large gradient drives its pre-activation negative across all inputs — gradient is then always zero. Mitigated by Leaky / pReLU or careful learning rates.
+- **Dying ReLU**: a unit can land in the $x<0$ regime *permanently* if a large gradient drives its pre-activation negative across all inputs — gradient is then always zero. Mitigated by Leaky / pReLU or careful learning rates. See [[DyingReLU]] for the dedicated treatment (10–40% of neurons can die per [[mlsysbook-ch05-neural-computation]]).
+
+## Systems view (mlsysbook)
+
+[[mlsysbook-ch05-neural-computation|mlsysbook Vol 1 Ch 5]] frames ReLU's dominance as a hardware decision, not just a gradient one: the **[[TransistorTax|transistor tax]]** — ReLU = ~50 transistors / 1 cycle vs sigmoid's ~2,500 transistors / 20–40 cycles (~50×) — makes ReLU a density optimization that packs orders of magnitude more neurons into the same area/power budget, with ~5–10× faster activation per element.
 
 ## Connections
 
@@ -45,3 +49,5 @@ $\operatorname{ReLU}'(x) = \mathbb{1}\{x>0\}$ — exactly 0 or 1. The discontinu
 - [[HeInitialization]] — the matched initialization scheme.
 - [[NeuralNetwork]] / [[MultilayerPerceptron]] — where ReLU lives.
 - [[Dropout]] — composed after ReLU in standard MLP layouts.
+- [[TransistorTax]] / [[DyingReLU]] — the hardware-cost framing and failure mode (mlsysbook).
+- [[mlsysbook-ch05-neural-computation]] — systems treatment of activation choice as a silicon decision.

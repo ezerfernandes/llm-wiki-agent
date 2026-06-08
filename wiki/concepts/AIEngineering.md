@@ -2,8 +2,8 @@
 title: "AI Engineering"
 type: concept
 tags: [discipline, ai-engineering, foundation-models, ml-engineering]
-sources: [ai-engineering-chip-huyen, ai-engineering-ch01-intro]
-last_updated: 2024-12-04
+sources: [ai-engineering-chip-huyen, ai-engineering-ch01-intro, mlsysbook-ch01-introduction]
+last_updated: 2026-06-05
 ---
 
 # AI Engineering
@@ -32,8 +32,19 @@ Huyen rejects competing terms: **ML engineering** is too narrow because foundati
 
 Within two years of [[ChatGPT|ChatGPT]]'s launch, four open-source AI engineering tools ([[AutoGPT]], [[StableDiffusion]] Web UI, [[LangChain]], [[Ollama]]) had each surpassed Bitcoin in GitHub stars — on track to surpass React and Vue. A LinkedIn survey (August 2023) showed professionals adding "Generative AI", "ChatGPT", "Prompt Engineering", "Prompt Crafting" to their profiles grew on average 75% per month. ComputerWorld declared "teaching AI to behave is the fastest-growing career skill."
 
+## A second, broader definition (mlsysbook)
+
+[[VijayJanapaReddi|Vijay Janapa Reddi]]'s *Machine Learning Systems* ([[mlsysbook-ch01-introduction|Vol 1, Ch 1]]) gives a **different and broader** definition of "AI Engineering": *the discipline of designing, deploying, and maintaining systems whose outputs are probabilistic yet must meet deterministic reliability targets, jointly satisfying constraints on all three [[DAMTaxonomy|D·A·M]] axes (Data, Algorithm, Machine) in production.* This is **not a contradiction but a scope difference**:
+
+- **Huyen's sense** (above) = the *application layer* — building on top of pretrained [[FoundationModel|foundation models]] (adaptation > development).
+- **Reddi's sense** ([[MLSystemsEngineering]]) = the *full-stack systems discipline* — explicitly including training from scratch, hardware co-design, and the cloud→[[TinyML]] [[DeploymentSpectrum|deployment spectrum]]; analogous to how Computer Engineering bridged EE and CS.
+
+Both agree on the core insight: ML systems' probabilistic behavior makes continuous monitoring a *structural* requirement, not an operational choice.
+
 ## Connections
 
+- [[MLSystemsEngineering]] — the broader systems-physics definition (mlsysbook).
+- [[mlsysbook-ch01-introduction]] — source of the second definition.
 - [[FoundationModel]] — the substrate.
 - [[AIEngineeringStack]] — the three-layer (application / model / infrastructure) stack.
 - [[AIEngineeringVsMLEngineering]] — the comparison taxonomy.

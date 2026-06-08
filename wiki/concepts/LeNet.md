@@ -2,8 +2,8 @@
 title: "LeNet (LeNet-5)"
 type: concept
 tags: [deep-learning, cnn, architecture, computer-vision, history]
-sources: [d2l-convolutional-neural-networks]
-last_updated: 2026-05-16
+sources: [d2l-convolutional-neural-networks, mlsysbook-ch05-neural-computation]
+last_updated: 2026-06-05
 ---
 
 # LeNet
@@ -75,3 +75,5 @@ Total: 2 conv layers, 2 avg-pool layers, 3 FC layers. About 60k parameters.
 - [[d2l-convolutional-neural-networks]] — chapter that re-implements LeNet from scratch.
 - [[AlexNet]] / [[ResNet]] — modern descendants.
 - [[VanishingGradient]] — why sigmoid + deep stacks lost; what ReLU + BatchNorm fixed.
+- [[USPSDigitRecognition]] — [[mlsysbook-ch05-neural-computation|mlsysbook Ch 5]]'s deployment case study: LeNet read USPS ZIP codes at 1% error (vs humans' 2.5%), 10–30 digits/sec, 9% rejection, ~10K params, trained 3 days / 23 epochs on a Sun-4/260; the same model now runs on pocket hardware (algorithm unchanged) — the canonical algorithm–hardware co-design story.
+- [[mlsysbook-ch05-neural-computation]] — systems case study.

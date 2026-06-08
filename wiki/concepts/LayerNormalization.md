@@ -2,8 +2,8 @@
 title: "Layer normalization"
 type: concept
 tags: [deep-learning, regularization, normalization]
-sources: [d2l-convolutional-modern, hands-on-llm-ch03-looking-inside-llms]
-last_updated: 2026-05-23
+sources: [d2l-convolutional-modern, hands-on-llm-ch03-looking-inside-llms, mlsysbook-ch06-network-architectures]
+last_updated: 2026-06-05
 ---
 
 # Layer normalization
@@ -59,6 +59,7 @@ Both statistics are computed **within a single observation** (no batch dimension
 - [[CNN]] — context where LN is sometimes a BN alternative for small batches.
 - [[RMSNorm]] — the simpler successor used by modern LLMs.
 - [[PreNorm]] — the placement scheme modern LLMs favor over post-norm.
+- [[mlsysbook-ch06-network-architectures]] — Ch 6 positions LayerNorm in the normalization-evolution chain ([[BatchNormalization|BatchNorm]] → LayerNorm → [[RMSNorm]]) as a *portable building block*: it removed BatchNorm's batch-size dependency and training-serving skew, behaving identically in train and inference (cost $\mathcal{O}(d_{\text{model}})$ per sample).
 
 ## From [[hands-on-llm-ch03-looking-inside-llms|*Hands-On LLMs* Ch 3]]
 

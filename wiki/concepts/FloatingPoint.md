@@ -2,8 +2,8 @@
 title: "Floating Point"
 type: concept
 tags: [binary-representation, numerics, floating-point, real-numbers]
-sources: [dis-4-8-floating-point, ai-engineering-ch07-finetuning]
-last_updated: 2026-05-23
+sources: [dis-4-8-floating-point, ai-engineering-ch07-finetuning, mlsysbook-ch11-hardware-acceleration]
+last_updated: 2026-06-05
 ---
 
 # Floating Point

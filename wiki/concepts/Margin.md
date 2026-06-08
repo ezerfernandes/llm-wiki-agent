@@ -2,8 +2,8 @@
 title: "Margin"
 type: concept
 tags: [classification, geometry, foundational]
-sources: [mml-book]
-last_updated: 2026-05-16
+sources: [mml-ch12-classification-svm, mml-book]
+last_updated: 2026-06-05
 ---
 
 # Margin
@@ -38,10 +38,16 @@ $$\min\,\tfrac{1}{2}\|\mathbf{w}\|^2 + C\sum_n\xi_n \quad\text{s.t.}\quad y_n(\l
 
 $C$ trades off margin width against training-error tolerance — the SVM equivalent of an inverse-regularization parameter.
 
+## From [[mml-ch12-classification-svm|MML Ch 12]]
+
+§12.2.1 (book pp. 374–377) derives the central identity **$r=1/\|\mathbf{w}\|$** (Eq. 12.14). Take $\mathbf{x}_a$ at distance $r$ from the hyperplane; its [[OrthogonalProjection|orthogonal projection]] $\mathbf{x}_a'$ satisfies $\mathbf{x}_a=\mathbf{x}_a'+r\frac{\mathbf{w}}{\|\mathbf{w}\|}$ (Eq. 12.8, since $\mathbf{w}$ is the orthogonal direction, §3.8). Substituting into $\langle\mathbf{w},\mathbf{x}_a'\rangle+b=0$ (Eq. 12.11) and using $\langle\mathbf{w},\mathbf{w}\rangle=\|\mathbf{w}\|^2$ (Eq. 3.16) plus the scale fix $\langle\mathbf{w},\mathbf{x}_a\rangle+b=1$ collapses to $r=1/\|\mathbf{w}\|$. **Theorem 12.1** (§12.2.3, pp. 378–379) proves the two formulations on this page are *the same problem*: scaling so the margin equals $1$ (then minimizing $\frac12\|\mathbf{w}\|^2$) is equivalent to constraining $\|\mathbf{w}\|=1$ (then maximizing $r$). The chapter then makes the deep statistical reading explicit — **the margin term $\frac12\|\mathbf{w}\|^2$ *is* the regularizer**, so "margin maximization can be interpreted as regularization" (§12.2.5, p. 382). The generalization remark (§12.2.1, p. 376) attributes the large-margin → low-complexity argument to Vapnik & Chervonenkis (Vapnik 2000; Steinwart & Christmann 2008; Shalev-Shwartz & Ben-David 2014).
+
 ## Connections
 
-- [[mml-book]] — §12.2 canonical reference.
+- [[mml-ch12-classification-svm]] — §12.2 canonical per-chapter reference.
+- [[mml-book]] — umbrella source.
 - [[SupportVectorMachine]] — the algorithm that maximizes margin.
+- [[HardMarginSVM]] / [[SoftMarginSVM]] — the formulations; [[HingeLoss]] — the loss-first view.
 - [[SeparatingHyperplane]] — the geometric object whose distance defines margin.
 - [[ConvexOptimization]] — the problem class margin maximization falls in.
 - [[OrthogonalProjection]] — how distance to hyperplane is computed.

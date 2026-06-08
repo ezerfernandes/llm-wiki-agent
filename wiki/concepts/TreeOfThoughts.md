@@ -2,8 +2,8 @@
 title: "Tree of Thoughts (ToT)"
 type: concept
 tags: [reasoning, prompting, agents]
-sources: [2402.01817-llm-modulo, hands-on-llm-ch06-prompt-engineering]
-last_updated: 2026-05-23
+sources: [2402.01817-llm-modulo, hands-on-llm-ch06-prompt-engineering, agentic-design-patterns-ch17-reasoning, agentic-design-patterns-appendix-a-prompting]
+last_updated: 2026-06-07
 ---
 
 # Tree of Thoughts (ToT)
@@ -52,3 +52,9 @@ The model produces a back-and-forth discussion between three labeled experts tha
 ### The tension with the Kambhampati critique
 
 Ch 6's operational framing and [[2402.01817-llm-modulo|Kambhampati et al.]]'s critique together capture a **live methodological tension**: Ch 6 takes the position that ToT's *resemblance* to deliberation usefully improves outputs (regardless of whether it is *truly* reasoning); Kambhampati et al. argue the resemblance is empty without an external verifier and the apparent gains come from problem-specific verifiers like arithmetic checkers in the 24-puzzle task. Both positions are documented on [[System1And2]] as the constructive-vs-critical stance.
+
+## Agentic Design Patterns (Gulli, Ch 17) perspective
+
+[[agentic-design-patterns-ch17-reasoning|Chapter 17 of *Agentic Design Patterns*]] presents ToT operationally (like Ch 6, without the Kambhampati critique) as one of its core [[ReasoningTechniques|Reasoning Techniques]]: *"a reasoning technique that builds upon Chain-of-Thought… It allows large language models to explore multiple reasoning paths by branching into different intermediate steps, forming a tree structure."* Gulli stresses the **agentic affordances** the tree unlocks — *"backtracking, self-correction, and exploration of alternative solutions"* — and frames maintaining a tree of possibilities as the mechanism that lets a model evaluate various reasoning trajectories before finalizing, enhancing its ability to handle tasks requiring strategic planning and decision-making. In the chapter's arc, ToT (with [[Reflection|self-correction]]) gives agents the **crucial ability to deliberate** before execution; [[GraphOfDebates|Graph of Debates]] is presented as the multi-agent, graph-structured generalization of the same branch-and-evaluate idea.
+
+The book's [[agentic-design-patterns-appendix-a-prompting|Appendix A]] repeats this operational framing at the prompt level: ToT *"extends the Chain of Thought method … enabling a language model to explore multiple reasoning paths concurrently, instead of following a single linear progression,"* where each node is a "thought" (a coherent intermediate language sequence) and the model branches to explore alternatives, backtrack, and recover from initial errors. Appendix A notes ToT is *"more computationally demanding and intricate to implement than the linear Chain of Thought"* but achieves superior results on tasks needing deliberate, exploratory problem-solving (its example: developing multiple distinct narrative branches for a story). This is the same constructive stance the [[2402.01817-llm-modulo|Kambhampati critique]] above contests.

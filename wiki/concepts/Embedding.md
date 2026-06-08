@@ -2,8 +2,8 @@
 title: "Embedding"
 type: concept
 tags: [rag, retrieval, representations, nlp, llm-engineering]
-sources: [leh-ch01-understanding-llm-twin-concept, leh-ch04-rag-feature-pipeline, leh-ch05-supervised-fine-tuning, leh-ch09-rag-inference-pipeline, hands-on-llm-ch01-introduction-to-llms, hands-on-llm-ch02-tokens-and-embeddings, hands-on-llm-ch04-text-classification, hands-on-llm-ch05-text-clustering-topic-modeling]
-last_updated: 2026-05-23
+sources: [leh-ch01-understanding-llm-twin-concept, leh-ch04-rag-feature-pipeline, leh-ch05-supervised-fine-tuning, leh-ch09-rag-inference-pipeline, hands-on-llm-ch01-introduction-to-llms, hands-on-llm-ch02-tokens-and-embeddings, hands-on-llm-ch04-text-classification, hands-on-llm-ch05-text-clustering-topic-modeling, mlsysbook-ch06-network-architectures]
+last_updated: 2026-06-05
 ---
 
 ## Definition
@@ -32,6 +32,7 @@ An **embedding** is a dense, low-dimensional vector representation of a piece of
 - [[ContextualEmbedding]] — the modern (transformer-produced) class of embeddings.
 - [[TrainingServingSkew]] — failure mode when ingest-time and query-time embedding models drift apart.
 - [[Chunking]] — produces the units that get embedded.
+- [[mlsysbook-ch06-network-architectures]] — systems view: in [[DLRM]]/RecSys, embeddings live in massive [[EmbeddingTable|embedding tables]] (each lookup a random gather into a TB-scale table), making recommendation the *memory-capacity-bound* workload distinct from compute-bound vision/language.
 
 ## From [[hands-on-llm-ch01-introduction-to-llms|*Hands-On LLMs* Ch 1]]
 

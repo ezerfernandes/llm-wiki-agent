@@ -1,9 +1,9 @@
 ---
 title: "Quantization-Aware Training (QAT)"
 type: concept
-tags: [quantization, training, finetuning]
-sources: [ai-engineering-ch07-finetuning]
-last_updated: 2024-12-04
+tags: [quantization, training, finetuning, mlsysbook]
+sources: [ai-engineering-ch07-finetuning, mlsysbook-ch10-model-compression]
+last_updated: 2026-06-05
 ---
 
 # Quantization-Aware Training (QAT)
@@ -37,10 +37,18 @@ The compounding-error footnote in Ch 7 is the deep reason — small rounding err
 - You have the training budget to do it.
 - You're a model developer; QAT is mostly model-developer territory, not application-developer territory.
 
+## Mechanics ([[mlsysbook-ch10-model-compression|mlsysbook Ch 10]])
+
+Ch 10 spells out the implementation. QAT inserts **fake-quantization nodes** that perform a quantize→clip→dequantize round-trip in the forward pass (simulating INT8 while staying in floating point), then uses the **[[StraightThroughEstimator|Straight-Through Estimator]]** in the backward pass — treating rounding's derivative as 1 within the valid range so gradients flow. The model thereby *learns* weight distributions that tolerate quantization. Two implementation details: scale factors must track evolving weight distributions via EMA (not stay static), and batch-norm running statistics must be computed on fake-quantized activations.
+
+Concrete payoff: BERT-Base retains **99.1% of FP32 GLUE (QAT) vs 96.8% (PTQ)** — a 2.3-point gap that often decides whether a model meets a production threshold. Costs 20–50% extra training time. Decision rule: *start with PTQ, measure; invest in QAT only if PTQ falls short.* [[mlsysbook-ch10-model-compression]]
+
 ## Connections
 
 - [[Quantization]] — parent family.
 - [[PostTrainingQuantization]] — the cheaper, more-common alternative.
+- [[StraightThroughEstimator]] — the gradient trick that makes QAT trainable (mlsysbook Ch 10).
+- [[mlsysbook-ch10-model-compression]] — fake-quant nodes, STE, PTQ↔QAT decision rule.
 - [[MixedPrecisionTraining]] — neighboring technique.
 - [[LLMQAT]] — Liu et al. 2023, mentioned in Ch 7 (4-bit weights/activations + 16-bit embeddings).
 - [[CharacterAI]] — INT8 native training case study.

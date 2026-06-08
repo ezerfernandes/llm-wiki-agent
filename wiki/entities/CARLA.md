@@ -1,9 +1,9 @@
 ---
 title: "CARLA"
 type: entity
-tags: [self-driving, simulator, dataset]
-sources: [ai-engineering-ch08-dataset-engineering]
-last_updated: 2024-12-04
+tags: [self-driving, simulator, dataset, data-selection]
+sources: [ai-engineering-ch08-dataset-engineering, mlsysbook-ch09-data-selection]
+last_updated: 2026-06-05
 ---
 
 # CARLA
@@ -26,4 +26,5 @@ The classic [[Sim2Real|sim2real]] caveat applies: a model that succeeds in CARLA
 - [[Sim2Real]] — the subfield bridging CARLA-trained policies to real driving.
 - [[Tesla]] / Waymo — adjacent self-driving simulation efforts.
 - [[Dosovitskiy]] — first author of the CARLA paper (also a [[ViT]] author).
-- [[ai-engineering-ch08-dataset-engineering]] — primary source.
+- [[SyntheticDataGeneration]] / [[mlsysbook-ch09-data-selection]] — Reddi Ch 9 cites CARLA as a physics-based simulation engine generating unlimited labeled data with perfect ground truth for safety-critical edge-case coverage; the [[DomainGap|domain gap]] and [[DomainRandomization]] caveats apply.
+- [[ai-engineering-ch08-dataset-engineering]] / [[mlsysbook-ch09-data-selection]] — sources.

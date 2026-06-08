@@ -1,9 +1,9 @@
 ---
 title: "Feedback Loop"
 type: concept
-tags: [programming-languages, distributed-systems, architecture, control]
-sources: [vanroy-programming-paradigms-for-dummies]
-last_updated: 2026-05-22
+tags: [programming-languages, distributed-systems, architecture, control, agents, agentic-design-patterns]
+sources: [vanroy-programming-paradigms-for-dummies, mlsysbook-ch14-ml-operations, agentic-design-patterns-ch11-goal-setting]
+last_updated: 2026-06-07
 ---
 
 # Feedback Loop
@@ -58,6 +58,10 @@ The three agents run **concurrently** ([[MessagePassingConcurrency|message-passi
 ## Design lesson
 
 Realistic large-scale systems are **not** monolithic. They are **sets of interacting feedback loops** at multiple abstraction levels, coordinated via stigmergy + management. *"In our view, the large-scale structure of software will more and more be done in this self-sufficient style."*
+
+## The agentic goal-monitoring loop ([[agentic-design-patterns-ch11-goal-setting|Gulli Ch 11]])
+
+The same control-theoretic structure reappears as the core of the [[GoalSettingAndMonitoring|Goal Setting and Monitoring]] agentic pattern. An agent's **monitor** observes its actions, environmental state, and tool outputs against explicit goal/success criteria; the **calculate-corrective-action** step is a self-evaluation / [[LLMAsAJudge|LLM-judge]] verdict ([[Reflection|reflection]] against a checklist); the **actuator** then either continues, **revises the plan (replans)**, or **escalates**. Gulli's framing: this loop *"enables the agent to assess its performance, correct its course, and adapt its plan if it deviates from the path to success."* Practically it needs an iteration/budget cap or it can run forever.
 
 ## In this wiki
 

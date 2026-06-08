@@ -2,8 +2,8 @@
 title: "Overfitting"
 type: concept
 tags: [theory, training]
-sources: [madewithml-training, d2l-linear-regression, d2l-multilayer-perceptrons]
-last_updated: 2026-05-16
+sources: [madewithml-training, d2l-linear-regression, d2l-multilayer-perceptrons, mml-ch08-when-models-meet-data, mml-ch09-linear-regression]
+last_updated: 2026-06-04
 ---
 
 # Overfitting
@@ -27,7 +27,18 @@ Modern over-parametrized networks can perfectly fit **arbitrary labels** (includ
 - **Reduce capacity** — fewer parameters, smaller polynomial degree, smaller network.
 - **Proper [[TrainValTestSplit]]** + [[ModelSelection]] on validation, not test.
 
+## From [[mml-ch08-when-models-meet-data|MML Ch 8]]
+
+[[mml-ch08-when-models-meet-data|MML Ch 8]] gives two complementary definitions. **§8.2.3 (risk view):** for a fixed predictor, overfitting occurs when the training [[EmpiricalRisk|empirical risk]] $\mathbf{R}_{\text{emp}}(f,\mathbf{X}_{\text{train}},\mathbf{y}_{\text{train}})$ *under-estimates* the [[ExpectedRisk|expected risk]] $\mathbf{R}_{\text{true}}(f)$ — "having very small average loss on the training set but large average loss on the test set," tending to occur "when we have little data and a complex [[HypothesisClass|hypothesis class]]" (Mitchell 1997). The diagnostic: since we estimate $\mathbf{R}_{\text{true}}$ by the test risk, a test risk *much larger* than the training risk indicates overfitting (margin, via [[CrossValidation|cross-validation]], §8.2.4). **§8.3.3 ([[ModelFitting|model-fitting]] view):** overfitting is when the model class $M_{\boldsymbol\theta}$ is *too rich* (e.g. 7th-order polynomials for linear data) — overfit models "use all [their] modeling power to reduce the training error" and on noisy data "find some useful signal in the noise itself," causing enormous problems away from the training data (Fig. 8.8a; overfit models typically have *many* parameters). The symmetric failure is [[Underfitting|underfitting]] (too-poor class, few parameters, Fig. 8.8b). Mitigations: [[Regularization|regularization]] (§8.2.3), priors / [[MAPEstimation|MAP]] (§8.3.2). MLE in particular overfits "in the 'small' data regime" (§8.3.2 Remark).
+
+## From [[mml-ch09-linear-regression|MML Ch 9]] (the polynomial-degree case study)
+
+[[mml-ch09-linear-regression|MML Ch 9]] §9.2.2 is the canonical worked demonstration. Fitting [[PolynomialRegression|polynomials]] of increasing degree $M$ to $N=10$ points by [[MaximumLikelihoodEstimation|MLE]] (Fig. 9.5): low $M$ underfits; $M=N-1=9$ **interpolates every training point** but oscillates wildly between them; the extreme $M=N-1$ case is degenerate (otherwise the linear system would be underdetermined with infinitely many MLEs). Quantitatively (Fig. 9.6, via [[RMSE]] on a 200-point test set): **training error never increases with $M$**, but **test error is minimized at $M=4$** and explodes from $M=6$ onward — the U-shaped generalization curve. The diagnosis: MLE makes parameter magnitudes blow up under overfitting (Bishop 2006), motivating [[MAPEstimation|MAP]] / a prior (§9.2.3) and [[Regularization|regularization]] (§9.2.4) as mitigations. [[BayesianLinearRegression|Bayesian linear regression]] (§9.3) goes further, exposing the "huge" predictive uncertainty of overfit high-degree models rather than committing to a single bad fit.
+
 ## Connections
+
+- [[mml-ch09-linear-regression]] — §9.2.2 polynomial-degree overfitting case study (Figs. 9.5–9.6, best $M=4$).
+- [[mml-ch08-when-models-meet-data]] — §8.2.3 (risk view) + §8.3.3 (model-fitting view); the empirical-vs-expected-risk diagnostic.
 
 - [[d2l-linear-regression]] — §3.6 canonical reference; polynomial-fitting demo.
 - [[d2l-multilayer-perceptrons]] — modern deep-learning regime.

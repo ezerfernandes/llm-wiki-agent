@@ -2,8 +2,8 @@
 title: "Kernel Trick"
 type: concept
 tags: [classification, kernel-methods, foundational]
-sources: [mml-book]
-last_updated: 2026-05-16
+sources: [mml-ch12-classification-svm, mml-book]
+last_updated: 2026-06-05
 ---
 
 # Kernel Trick
@@ -44,9 +44,16 @@ Any algorithm whose computations depend on inputs only through dot products $\ma
 - **Kernel PCA**: PCA on the centered Gram matrix.
 - **Gaussian processes**: BLR with infinite features = GP with kernel $k$.
 
+## From [[mml-ch12-classification-svm|MML Ch 12]]
+
+§12.4 (book pp. 388–390) introduces the trick from the [[DualSVM|dual SVM]]: its objective contains inner products **only between examples** $\langle\mathbf{x}_i,\mathbf{x}_j\rangle$ — never between examples and parameters — "so the only change in the dual SVM will be to replace the inner product." A **[[KernelFunction|kernel]]** is *defined* as a function $k:\mathcal{X}\times\mathcal{X}\to\mathbb{R}$ for which there exists a Hilbert space $\mathcal{H}$ and feature map $\boldsymbol\phi$ with $k(\mathbf{x}_i,\mathbf{x}_j)=\langle\boldsymbol\phi(\mathbf{x}_i),\boldsymbol\phi(\mathbf{x}_j)\rangle_\mathcal{H}$ (Eq. 12.52). "The generalization from an inner product to a kernel function (12.52) is known as the kernel trick … as it hides away the explicit non-linear feature map" (p. 389). The validity condition is the [[GramMatrix|kernel/Gram matrix]] being symmetric PSD: $\forall\mathbf{z}:\mathbf{z}^\top\mathbf{K}\mathbf{z}\ge0$ (Eq. 12.53) — exactly the [[SymmetricPositiveDefiniteMatrix|SPD]] machinery of §3.2.3. The decoupling is the headline: "the choice of the classification method (the SVM) and the choice of the feature representation $\boldsymbol\phi(\mathbf{x})$ can be considered separately." The hypothesis class stays **linear** — "the non-linear surfaces are due to the kernel function" (Fig. 12.10, p. 390). Three names of "kernel" are disambiguated (RKHS / null space §2.7.3 / KDE smoothing §11.5); $\boldsymbol\phi(\mathbf{x})=k(\cdot,\mathbf{x})$ is the **canonical feature map** of the (unique, Aronszajn 1950) RKHS. Kernels can act on non-vector objects (strings, graphs, sets, distributions).
+
 ## Connections
 
-- [[mml-book]] — §12.4 canonical reference.
+- [[mml-ch12-classification-svm]] — §12.4 canonical per-chapter reference.
+- [[mml-book]] — umbrella source.
+- [[KernelFunction]] — the kernel function / PSD condition.
+- [[DualSVM]] — the inner-product-only structure the trick exploits.
 - [[SupportVectorMachine]] — primary application.
 - [[InnerProduct]] — what kernels generalize.
 - [[SymmetricPositiveDefiniteMatrix]] — Mercer's condition.

@@ -1,9 +1,9 @@
 ---
 title: "PPO"
 type: concept
-tags: [reinforcement-learning, rlhf, alignment, training]
-sources: [ai-engineering-ch02-foundation-models, hands-on-llm-ch12-fine-tuning-generation-models]
-last_updated: 2026-05-24
+tags: [reinforcement-learning, rlhf, alignment, training, agentic-design-patterns]
+sources: [ai-engineering-ch02-foundation-models, hands-on-llm-ch12-fine-tuning-generation-models, agentic-design-patterns-ch09-learning-adaptation]
+last_updated: 2026-06-07
 ---
 
 # PPO
@@ -58,3 +58,15 @@ The chapter walks PPO + the [[RewardModel|reward model]] as the **baseline** pre
 > *"A disadvantage of PPO is that it is a complex method that needs to train at least two models, the reward model and the LLM, which can be more costly than perhaps necessary. Compared to PPO, the authors found DPO to be more stable during training and more accurate."* — Ch 12
 
 DPO eliminates **both** the reward model and the RL training loop — a strict simplification of the PPO stack the chapter is willing to pay for.
+
+## Agentic Design Patterns (Gulli) perspective
+
+[[agentic-design-patterns-ch09-learning-adaptation|Chapter 9 (Learning and Adaptation)]] of [[AgenticDesignPatterns|*Agentic Design Patterns*]] presents PPO without math, as a way for agents to learn in continuous-action environments (controlling a robot's joints, a game character):
+
+> "The core idea behind PPO is to make small, careful updates to the agent's policy. It avoids drastic changes that could cause performance to collapse."
+
+Gulli's framing of the clipping mechanism — the same trust-region idea above — is the chapter's memorable metaphor:
+
+> "This clipping acts like a safety brake, ensuring the agent doesn't take a huge, risky step that undoes its learning."
+
+For LLM alignment specifically, the chapter describes the **two-step PPO route** (train a separate [[RewardModel|reward model]] from human preference comparisons → fine-tune the LLM with PPO to maximize the reward-model score, with the reward model acting as the "judge"), then contrasts it with [[DPO]] as the simpler, more robust alternative — consistent with the *AI Engineering* and *Hands-On LLMs* treatments above. See [[LearningAndAdaptation]].

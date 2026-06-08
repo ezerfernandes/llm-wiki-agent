@@ -2,8 +2,8 @@
 title: "MLflow"
 type: entity
 tags: [tool, experiment-tracking, model-registry, dspy-tracing, model-gateway, model-serving]
-sources: [madewithml-mlops-experiment-tracking, madewithml-mlops-jobs-and-services, madewithml-mlops-versioning, dspy-custom-module, dspy-rag-tutorial, dspy-tutorial-rag-as-agent, ai-engineering-ch10-architecture-feedback, dspy-entity-extraction-tutorial, dspy-optimizer-tracking-tutorial, dspy-observability-tutorial, dspy-deployment-tutorial, dspy-multihop-search-tutorial]
-last_updated: 2026-05-24
+sources: [madewithml-mlops-experiment-tracking, madewithml-mlops-jobs-and-services, madewithml-mlops-versioning, dspy-custom-module, dspy-rag-tutorial, dspy-tutorial-rag-as-agent, ai-engineering-ch10-architecture-feedback, dspy-entity-extraction-tutorial, dspy-optimizer-tracking-tutorial, dspy-observability-tutorial, dspy-deployment-tutorial, dspy-multihop-search-tutorial, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 # MLflow

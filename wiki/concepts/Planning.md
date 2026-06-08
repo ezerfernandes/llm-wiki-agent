@@ -1,9 +1,9 @@
 ---
 title: "Planning (Automated / AI)"
 type: concept
-tags: [planning, agents, reasoning, neuro-symbolic]
-sources: [2402.01817-llm-modulo, ai-engineering-ch06-rag-agents]
-last_updated: 2024-12-04
+tags: [planning, agents, reasoning, neuro-symbolic, agentic-design-patterns, task-decomposition, dynamic-replanning]
+sources: [2402.01817-llm-modulo, ai-engineering-ch06-rag-agents, agentic-design-patterns-ch06-planning, agentic-design-patterns-ch17-reasoning]
+last_updated: 2026-06-07
 ---
 
 # Planning
@@ -44,6 +44,7 @@ Conflating (1) and (2) is, per the paper, the source of much over-optimism about
 - [[SelfVerification]] — what LLMs can't do, hence external critics needed
 - [[NeuroSymbolicAI]] — broader lineage
 - [[ReinforcementLearning]] — adjacent paradigm; simulator-in-the-loop RL is an LLM-Modulo instance
+- [[Prioritization]] — Ch 20 sibling pattern; prioritization orders the sub-tasks a plan produces, and its "scheduling/selection logic" may delegate to a planning component
 - [[2402.01817-llm-modulo]] — source
 
 ## From [[ai-engineering-ch06-rag-agents|AI Engineering Ch 6]]
@@ -72,3 +73,25 @@ Validation can be heuristic (eliminate plans with invalid actions or with too ma
 - Refactor complex functions into simpler ones.
 - Use a stronger model.
 - Finetune a model for plan generation.
+
+## Agentic Design Patterns (Gulli) perspective
+
+[[agentic-design-patterns-ch06-planning|Chapter 6 of *Agentic Design Patterns*]] (Gulli) treats Planning as the 6th of 21 [[AgenticDesignPattern|agentic design patterns]] and frames it from a practitioner, framework-centric angle — complementary to (and more optimistic than) the LLM-Modulo and Huyen treatments above.
+
+**Initial state → goal state.** "Planning is the ability for an agent or a system of agents to formulate a sequence of actions to move from an initial state towards a goal state." The plan "is not known in advance; it is created in response to the request." This restates the classical automated-planning definition already on this page (initial state, goal state, action sequence) in agentic, LLM-era terms.
+
+**Delegate the *what*, discover the *how*.** A planning agent is like a specialist to whom you delegate a complex goal ("organize a team offsite"): you define the objective and its constraints (the *what*) but not the steps (the *how*). The agent infers the initial state (budget, participants, dates) and goal state (a booked offsite), then charts the optimal action sequence. This is the [[GoalOriented|goal→plan→action]] bridge — see [[TaskDecomposition]] for the decompose-into-sub-goals mechanism.
+
+**Adaptability / dynamic re-planning.** "An initial plan is merely a starting point, not a rigid script." When an obstacle appears (venue unavailable), a capable agent "registers the new constraint, re-evaluates its options, and formulates a new plan." This **dynamic re-planning** is the chapter's answer to the soundness gap the LLM-Modulo critique raises: rather than guaranteeing a sound plan up front, the agent iterates as reality diverges from the plan.
+
+**Flexibility-vs-predictability trade-off.** Dynamic planning is "a specific tool, not a universal solution." When the solution is well-understood and repeatable, a **predetermined, fixed workflow** is more effective — limiting agent autonomy reduces uncertainty and guarantees consistent outcomes. The decision rule: *"does the 'how' need to be discovered, or is it already known?"* (If known, prefer a fixed workflow over a planning agent.)
+
+**LLMs as plan generators.** Gulli's optimistic claim — "LLMs are particularly well-suited for this, as they can generate plausible and effective plans based on their vast training data" — is in *framing tension* with the LLM-Modulo position above (LLMs alone can't produce *sound* plans). The tension is softened by Gulli's word choice ("plausible") and his reliance on dynamic re-planning + reflection as the recovery mechanism rather than claiming one-shot soundness. Recorded as a framing difference, not a strict contradiction.
+
+**Two ends of the spectrum (both from Ch 6):**
+- *Simple sequential* — a [[CrewAI]] `planner_writer_agent` whose `Task` explicitly asks it to first create a bullet-point plan, then write from that plan (`Process.sequential`, `crew.kickoff()`). Planning is **explicitly prompted** by the task description and `expected_output` format. This is the wiki's first ADP-coverage receipt of CrewAI used for *planning* (vs. tool use / multi-agent).
+- *Complex dynamic* — [[DeepResearch|Deep Research]] agents (Google Gemini DeepResearch; OpenAI Deep Research API with `o3-deep-research`/`o4-mini-deep-research`) that build iterative research plans, present them for user review, execute an asynchronous search-analysis loop, and **adapt the plan as information accumulates**. Key Takeaway: Deep Research "reflects, plans, and executes" — uniting [[Reflection]], Planning, and [[ToolUse]].
+
+**Visual summary (Fig. 4):** Prompt → Agent ⇄ Plan (Plan 1, Plan 2, Plan 3, …) → Output → User — the plan is an explicit artifact the agent reads back from and revises.
+
+[[agentic-design-patterns-ch17-reasoning|Chapter 17 (Reasoning Techniques)]] revisits planning as a **practical application** of advanced reasoning ("Strategic Planning": reasoning across options, consequences, and preconditions, adjusting plans on real-time feedback via [[react|ReAct]]) and notes that extended inference-time deliberation ([[ScalingInferenceLaw|Scaling Inference Law]]) *"can lead to more effective and reliable plans."* The chapter's [[DeepResearch|Deep Research]] exemplar wraps an explicit research plan around a ReAct-style search loop with [[Reflection|reflection]]-driven re-planning.

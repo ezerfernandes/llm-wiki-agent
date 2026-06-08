@@ -2,8 +2,8 @@
 title: "Synthetic Data"
 type: concept
 tags: [concept]
-sources: [2604.28181-synthetic-computers-at-scale, ai-engineering-ch08-dataset-engineering]
-last_updated: 2024-12-04
+sources: [2604.28181-synthetic-computers-at-scale, ai-engineering-ch08-dataset-engineering, mlsysbook-ch04-data-engineering]
+last_updated: 2026-06-05
 ---
 
 # Synthetic Data
@@ -40,3 +40,12 @@ Machine-generated training data, often used when real trajectories are private/e
 - AI-synthesized data sometimes **exceeds** human data quality (math difficulty, preference consistency, tool-use efficiency — Ch 8 / Llama 3 team).
 - **Reverse-direction distillation works**: [[Nemotron4|Nemotron-4-340B]] (student) exceeded Mixtral-8x7B (teacher) using teacher-generated synthetic data — disproving the "teacher ≥ student" framing.
 - **Verifiability drives usage**: coding is the dominant synthetic-data domain because it's functionally verifiable (Llama 3's 2.7M synthetic coding examples).
+
+## In ML systems (mlsysbook)
+
+Reddi's *Machine Learning Systems* ([[mlsysbook-ch04-data-engineering|Vol 1, Ch 4]]) treats [[SyntheticDataGeneration|synthetic generation]] as an acquisition channel that *changes the scaling constraint* (human labor → validation burden), valuable for rare-event coverage and augmentation (AutoAugment, RandAugment, SpecAugment). Its fallacy-flag echoes the limits above: synthetic data **augments but cannot replace** real collection — a KWS model trained purely on synthesized speech fails on unmodeled accents/noises.
+
+## Connections
+- [[SyntheticDataGeneration]] — the mlsysbook acquisition-channel page.
+- [[DataAugmentation]] — the augmentation subset.
+- [[mlsysbook-ch04-data-engineering]] — source.

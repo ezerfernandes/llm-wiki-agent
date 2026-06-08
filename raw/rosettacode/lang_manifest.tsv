@@ -1,0 +1,981 @@
+category	display	page	task_entries	pct
+Phix	Phix	Phix	1732	100%
+Wren	Wren	Wren	1732	100%
+Julia	Julia	Julia	1730	99.88%
+Raku	Raku	Raku	1691	97.63%
+FreeBASIC	FreeBASIC	FreeBASIC	1686	97.34%
+Python	Python	Python	1660	95.84%
+Java	Java	Java	1615	93.24%
+Nim	Nim	Nim	1613	93.13%
+Perl	Perl	Perl	1611	93.01%
+Go	Go	Go	1606	92.73%
+C++	C++	C++	1470	84.87%
+J	J	J	1417	81.81%
+C	C	C	1325	76.5%
+Mathematica	Mathematica	Mathematica	1276	73.67%
+Ruby	Ruby	Ruby	1250	72.17%
+Rust	Rust	Rust	1215	70.15%
+Jq	Jq	Jq	1205	69.57%
+Haskell	Haskell	Haskell	1192	68.82%
+REXX	REXX	REXX	1186	68.48%
+Kotlin	Kotlin	Kotlin	1182	68.24%
+ALGOL 68	ALGOL 68	ALGOL 68	1122	64.78%
+Racket	Racket	Racket	1105	63.8%
+C sharp	C sharp	C sharp	1075	62.07%
+Sidef	Sidef	Sidef	1070	61.78%
+EasyLang	EasyLang	EasyLang	1057	61.03%
+Ada	Ada	Ada	1054	60.85%
+11l	11l	11l	1016	58.66%
+Zkl	Zkl	Zkl	1012	58.43%
+Lua	Lua	Lua	1010	58.31%
+Factor	Factor	Factor	1004	57.97%
+Tcl	Tcl	Tcl	999	57.68%
+D	D	D	995	57.45%
+JavaScript	JavaScript	JavaScript	988	57.04%
+Scala	Scala	Scala	983	56.76%
+Delphi	Delphi	Delphi	948	54.73%
+XPL0	XPL0	XPL0	944	54.5%
+F Sharp	F Sharp	F Sharp	882	50.92%
+PicoLisp	PicoLisp	PicoLisp	847	48.9%
+Ring	Ring	Ring	840	48.5%
+AutoHotkey	AutoHotkey	AutoHotkey	823	47.52%
+R	R	R	818	47.23%
+Arturo	Arturo	Arturo	800	46.19%
+Common Lisp	Common Lisp	Common Lisp	784	45.27%
+RPL	RPL	RPL	778	44.92%
+Quackery	Quackery	Quackery	754	43.53%
+Fortran	Fortran	Fortran	751	43.36%
+PureBasic	PureBasic	PureBasic	747	43.13%
+Pascal	Pascal	Pascal	739	42.67%
+BASIC	BASIC	BASIC	721	41.63%
+FutureBasic	FutureBasic	FutureBasic	721	41.63%
+AWK	AWK	AWK	717	41.4%
+OCaml	OCaml	OCaml	692	39.95%
+Unicon	Unicon	Unicon	682	39.38%
+Clojure	Clojure	Clojure	648	37.41%
+Swift	Swift	Swift	644	37.18%
+Forth	Forth	Forth	639	36.89%
+Icon	Icon	Icon	628	36.26%
+PARI/GP	PARI/GP	PARI-GP	624	36.03%
+PascalABC.NET	PascalABC.NET	PascalABC.NET	622	35.91%
+BBC BASIC	BBC BASIC	BBC BASIC	591	34.12%
+Yabasic	Yabasic	Yabasic	576	33.26%
+M2000 Interpreter	M2000 Interpreter	M2000 Interpreter	555	32.04%
+Elixir	Elixir	Elixir	550	31.76%
+Action!	Action!	Action!	540	31.18%
+Erlang	Erlang	Erlang	534	30.83%
+V (Vlang)	V	V (Vlang)	531	30.66%
+Prolog	Prolog	Prolog	524	30.25%
+PowerShell	PowerShell	PowerShell	518	29.91%
+BASIC256	BASIC256	BASIC256	505	29.16%
+Groovy	Groovy	Groovy	503	29.04%
+PHP	PHP	PHP	487	28.12%
+AppleScript	AppleScript	AppleScript	476	27.48%
+Seed7	Seed7	Seed7	476	27.48%
+PL/I	PL/I	PL-I	450	25.98%
+Pluto	Pluto	Pluto	438	25.29%
+Scheme	Scheme	Scheme	438	25.29%
+VBA	VBA	VBA	417	24.08%
+MATLAB	MATLAB	MATLAB	412	23.79%
+Maple	Maple	Maple	406	23.44%
+Visual Basic .NET	Visual Basic .NET	Visual Basic .NET	404	23.33%
+Run BASIC	Run BASIC	Run BASIC	401	23.15%
+COBOL	COBOL	COBOL	375	21.65%
+Crystal	Crystal	Crystal	361	20.84%
+UNIX Shell	UNIX Shell	UNIX Shell	361	20.84%
+Liberty BASIC	Liberty BASIC	Liberty BASIC	360	20.79%
+Objeck	Objeck	Objeck	357	20.61%
+VBScript	VBScript	VBScript	357	20.61%
+ALGOL W	ALGOL W	ALGOL W	347	20.03%
+Applesoft BASIC	Applesoft BASIC	Applesoft BASIC	347	20.03%
+Maxima	Maxima	Maxima	341	19.69%
+Picat	Picat	Picat	335	19.34%
+APL	APL	APL	327	18.88%
+Octave	Octave	Octave	327	18.88%
+Smalltalk	Smalltalk	Smalltalk	325	18.76%
+Zig	Zig	Zig	318	18.36%
+BQN	BQN	BQN	309	17.84%
+Oforth	Oforth	Oforth	308	17.78%
+Standard ML	Standard ML	Standard ML	308	17.78%
+Bracmat	Bracmat	Bracmat	306	17.67%
+DuckDB	DuckDB	DuckDB	306	17.67%
+EchoLisp	EchoLisp	EchoLisp	303	17.49%
+Frink	Frink	Frink	289	16.69%
+NetRexx	NetRexx	NetRexx	284	16.4%
+Gambas	Gambas	Gambas	281	16.22%
+ARM Assembly	ARM Assembly	ARM Assembly	280	16.17%
+Oz	Oz	Oz	277	15.99%
+True BASIC	True BASIC	True BASIC	271	15.65%
+E	E	E	269	15.53%
+Lambdatalk	Lambdatalk	Lambdatalk	265	15.3%
+Lasso	Lasso	Lasso	259	14.95%
+Modula-2	Modula-2	Modula-2	259	14.95%
+QBasic	QBasic	QBasic	258	14.9%
+Rebol	Rebol	Rebol	252	14.55%
+Dart	Dart	Dart	250	14.43%
+CLU	CLU	CLU	246	14.2%
+Elena	Elena	Elena	245	14.15%
+AArch64 Assembly	AArch64 Assembly	AArch64 Assembly	244	14.09%
+MiniScript	MiniScript	MiniScript	241	13.91%
+OoRexx	OoRexx	OoRexx	238	13.74%
+Euphoria	Euphoria	Euphoria	234	13.51%
+GW-BASIC	GW-BASIC	GW-BASIC	231	13.34%
+Chipmunk Basic	Chipmunk Basic	Chipmunk Basic	227	13.11%
+360 Assembly	360 Assembly	360 Assembly	220	12.7%
+Batch File	Batch File	Batch File	219	12.64%
+CoffeeScript	CoffeeScript	CoffeeScript	219	12.64%
+Logo	Logo	Logo	219	12.64%
+Stata	Stata	Stata	219	12.64%
+ZX Spectrum Basic	ZX Spectrum Basic	ZX Spectrum Basic	217	12.53%
+Uiua	Uiua	Uiua	216	12.47%
+Free Pascal	Free Pascal	Free Pascal	212	12.24%
+IS-BASIC	IS-BASIC	IS-BASIC	212	12.24%
+Fōrmulæ	Fōrmulæ	Fōrmulæ	210	12.12%
+Emacs Lisp	Emacs Lisp	Emacs Lisp	207	11.95%
+Red	Red	Red	201	11.61%
+Nanoquery	Nanoquery	Nanoquery	199	11.49%
+Lingo	Lingo	Lingo	195	11.26%
+Ursala	Ursala	Ursala	193	11.14%
+K	K	K	191	11.03%
+BaCon	BaCon	BaCon	187	10.8%
+SETL	SETL	SETL	186	10.74%
+ERRE	ERRE	ERRE	184	10.62%
+Cowgol	Cowgol	Cowgol	179	10.33%
+QB64	QB64	QB64	177	10.22%
+BCPL	BCPL	BCPL	175	10.1%
+PL/M	PL/M	PL-M	175	10.1%
+NewLISP	NewLISP	NewLISP	173	9.99%
+Ol	Ol	Ol	172	9.93%
+Phixmonti	Phixmonti	Phixmonti	170	9.82%
+Befunge	Befunge	Befunge	169	9.76%
+Aime	Aime	Aime	166	9.58%
+Pike	Pike	Pike	163	9.41%
+Commodore BASIC	Commodore BASIC	Commodore BASIC	162	9.35%
+TXR	TXR	TXR	161	9.3%
+GAP	GAP	GAP	160	9.24%
+Eiffel	Eiffel	Eiffel	159	9.18%
+Objective-C	Objective-C	Objective-C	158	9.12%
+HicEst	HicEst	HicEst	153	8.83%
+TUSCRIPT	TUSCRIPT	TUSCRIPT	152	8.78%
+Fantom	Fantom	Fantom	150	8.66%
+Nemerle	Nemerle	Nemerle	147	8.49%
+MSX Basic	MSX Basic	MSX Basic	144	8.31%
+ATS	ATS	ATS	143	8.26%
+Nu	Nu	Nu	143	8.26%
+Draco	Draco	Draco	141	8.14%
+Jsish	Jsish	Jsish	137	7.91%
+Dyalect	Dyalect	Dyalect	136	7.85%
+Oberon-2	Oberon-2	Oberon-2	135	7.79%
+SNOBOL4	SNOBOL4	SNOBOL4	133	7.68%
+Agena	Agena	Agena	131	7.56%
+Golfscript	Golfscript	Golfscript	131	7.56%
+Modula-3	Modula-3	Modula-3	130	7.51%
+6502 Assembly	6502 Assembly	6502 Assembly	129	7.45%
+LiveCode	LiveCode	LiveCode	129	7.45%
+Visual Basic	Visual Basic	Visual Basic	129	7.45%
+Amazing Hopper	Amazing Hopper	Amazing Hopper	127	7.33%
+Mercury	Mercury	Mercury	127	7.33%
+Z80 Assembly	Z80 Assembly	Z80 Assembly	127	7.33%
+XBasic	XBasic	XBasic	126	7.27%
+8086 Assembly	8086 Assembly	8086 Assembly	124	7.16%
+Slate	Slate	Slate	123	7.1%
+Min	Min	Min	121	6.99%
+EMal	EMal	EMal	120	6.93%
+Processing	Processing	Processing	120	6.93%
+ActionScript	ActionScript	ActionScript	118	6.81%
+Plain English	Plain English	Plain English	118	6.81%
+8080 Assembly	8080 Assembly	8080 Assembly	116	6.7%
+Bc	Bc	Bc	116	6.7%
+MAXScript	MAXScript	MAXScript	116	6.7%
+OxygenBasic	OxygenBasic	OxygenBasic	116	6.7%
+TI-83 BASIC	TI-83 BASIC	TI-83 BASIC	116	6.7%
+Vala	Vala	Vala	112	6.47%
+SenseTalk	SenseTalk	SenseTalk	110	6.35%
+Ursa	Ursa	Ursa	110	6.35%
+MUMPS	MUMPS	MUMPS	109	6.29%
+68000 Assembly	68000 Assembly	68000 Assembly	108	6.24%
+Vedit macro language	Vedit macro language	Vedit macro language	108	6.24%
+Ballerina	Ballerina	Ballerina	106	6.12%
+Refal	Refal	Refal	106	6.12%
+Déjà Vu	Déjà Vu	Déjà Vu	105	6.06%
+Retro	Retro	Retro	104	6%
+ArkScript	ArkScript	ArkScript	101	5.83%
+DWScript	DWScript	DWScript	100	5.77%
+Ed	Ed	Ed	100	5.77%
+Langur	Langur	Langur	99	5.72%
+Simula	Simula	Simula	97	5.6%
+ACL2	ACL2	ACL2	96	5.54%
+Tailspin	Tailspin	Tailspin	96	5.54%
+Joy	Joy	Joy	95	5.48%
+X86 Assembly	X86 Assembly	X86 Assembly	95	5.48%
+AutoIt	AutoIt	AutoIt	94	5.43%
+Ceylon	Ceylon	Ceylon	94	5.43%
+Pop11	Pop11	Pop11	93	5.37%
+M4	M4	M4	92	5.31%
+PostScript	PostScript	PostScript	92	5.31%
+TI-89 BASIC	TI-89 BASIC	TI-89 BASIC	92	5.31%
+8th	8th	8th	91	5.25%
+Axe	Axe	Axe	91	5.25%
+Fermat	Fermat	Fermat	91	5.25%
+Dc	Dc	Dc	90	5.2%
+FunL	FunL	FunL	90	5.2%
+Io	Io	Io	90	5.2%
+SQL	SQL	SQL	90	5.2%
+MAD	MAD	MAD	88	5.08%
+МК-61/52	МК-61/52	МК-61-52	85	4.91%
+Excel	Excel	Excel	84	4.85%
+Logtalk	Logtalk	Logtalk	81	4.68%
+Miranda	Miranda	Miranda	81	4.68%
+LFE	LFE	LFE	80	4.62%
+Lang	Lang	Lang	79	4.56%
+Tiny BASIC	Tiny BASIC	Tiny BASIC	79	4.56%
+Minimal BASIC	Minimal BASIC	Minimal BASIC	78	4.5%
+Ksh	Ksh	Ksh	77	4.45%
+Sinclair ZX81 BASIC	Sinclair ZX81 BASIC	Sinclair ZX81 BASIC	77	4.45%
+Locomotive Basic	Locomotive Basic	Locomotive Basic	76	4.39%
+Insitux	Insitux	Insitux	74	4.27%
+Raven	Raven	Raven	74	4.27%
+Component Pascal	Component Pascal	Component Pascal	73	4.21%
+Craft Basic	Craft Basic	Craft Basic	72	4.16%
+Sather	Sather	Sather	71	4.1%
+Sed	Sed	Sed	71	4.1%
+ABAP	ABAP	ABAP	70	4.04%
+ALGOL 60	ALGOL 60	ALGOL 60	70	4.04%
+Burlesque	Burlesque	Burlesque	70	4.04%
+Neko	Neko	Neko	70	4.04%
+S-BASIC	S-BASIC	S-BASIC	70	4.04%
+Transd	Transd	Transd	70	4.04%
+Quite BASIC	Quite BASIC	Quite BASIC	69	3.98%
+XLISP	XLISP	XLISP	69	3.98%
+EDSAC order code	EDSAC order code	EDSAC order code	68	3.93%
+Ela	Ela	Ela	66	3.81%
+Haxe	Haxe	Haxe	66	3.81%
+ANSI BASIC	ANSI BASIC	ANSI BASIC	65	3.75%
+Brat	Brat	Brat	65	3.75%
+Odin	Odin	Odin	65	3.75%
+Asymptote	Asymptote	Asymptote	64	3.7%
+Ecstasy	Ecstasy	Ecstasy	64	3.7%
+FOCAL	FOCAL	FOCAL	64	3.7%
+Scilab	Scilab	Scilab	63	3.64%
+Fennel	Fennel	Fennel	62	3.58%
+IDL	IDL	IDL	61	3.52%
+LabVIEW	LabVIEW	LabVIEW	61	3.52%
+TypeScript	TypeScript	TypeScript	61	3.52%
+Wart	Wart	Wart	61	3.52%
+ColdFusion	ColdFusion	ColdFusion	59	3.41%
+SequenceL	SequenceL	SequenceL	59	3.41%
+FALSE	FALSE	FALSE	57	3.29%
+ALGOL-M	ALGOL-M	ALGOL-M	56	3.23%
+FBSL	FBSL	FBSL	56	3.23%
+Microsoft Small Basic	Microsoft Small Basic	Microsoft Small Basic	56	3.23%
+SAS	SAS	SAS	56	3.23%
+SparForte	SparForte	SparForte	56	3.23%
+PowerBASIC	PowerBASIC	PowerBASIC	55	3.18%
+ABC	ABC	ABC	54	3.12%
+QuickBASIC	QuickBASIC	QuickBASIC	52	3%
+Binary Lambda Calculus	Binary Lambda Calculus	Binary Lambda Calculus	51	2.94%
+Elm	Elm	Elm	50	2.89%
+OpenEdge/Progress	OpenEdge/Progress	OpenEdge-Progress	50	2.89%
+RapidQ	RapidQ	RapidQ	50	2.89%
+SPL	SPL	SPL	50	2.89%
+Verilog	Verilog	Verilog	50	2.89%
+Lang5	Lang5	Lang5	49	2.83%
+Rascal	Rascal	Rascal	49	2.83%
+Metafont	Metafont	Metafont	47	2.71%
+Caché ObjectScript	Caché ObjectScript	Caché ObjectScript	46	2.66%
+Harbour	Harbour	Harbour	46	2.66%
+Klingphix	Klingphix	Klingphix	46	2.66%
+Uxntal	Uxntal	Uxntal	46	2.66%
+DCL	DCL	DCL	45	2.6%
+MIPS Assembly	MIPS Assembly	MIPS Assembly	45	2.6%
+Chapel	Chapel	Chapel	44	2.54%
+Toka	Toka	Toka	44	2.54%
+Vim Script	Vim Script	Vim Script	44	2.54%
+Inform 7	Inform 7	Inform 7	43	2.48%
+LOLCODE	LOLCODE	LOLCODE	43	2.48%
+NS-HUBASIC	NS-HUBASIC	NS-HUBASIC	43	2.48%
+Wortel	Wortel	Wortel	43	2.48%
+HolyC	HolyC	HolyC	42	2.42%
+Sparkling	Sparkling	Sparkling	42	2.42%
+Brainf***	Brainf***	Brainf***	41	2.37%
+Q	Q	Q	41	2.37%
+XSLT	XSLT	XSLT	41	2.37%
+YAMLScript	YAMLScript	YAMLScript	41	2.37%
+S-lang	S-lang	S-lang	40	2.31%
+SQL PL	SQL PL	SQL PL	40	2.31%
+Aikido	Aikido	Aikido	38	2.19%
+Apex	Apex	Apex	38	2.19%
+Bruijn	Bruijn	Bruijn	38	2.19%
+Processing Python mode	Processing Python mode	Processing Python mode	38	2.19%
+TAV	TAV	TAV	38	2.19%
+TorqueScript	TorqueScript	TorqueScript	38	2.19%
+VTL-2	VTL-2	VTL-2	38	2.19%
+Yorick	Yorick	Yorick	38	2.19%
+Babel	Babel	Babel	37	2.14%
+Futhark	Futhark	Futhark	37	2.14%
+Comal	Comal	Comal	36	2.08%
+SuperCollider	SuperCollider	SuperCollider	36	2.08%
+UnixPipes	UnixPipes	UnixPipes	36	2.08%
+V	V	V	36	2.08%
+Falcon	Falcon	Falcon	35	2.02%
+Jakt	Jakt	Jakt	35	2.02%
+Lisaac	Lisaac	Lisaac	35	2.02%
+ReScript	ReScript	ReScript	35	2.02%
+Genie	Genie	Genie	34	1.96%
+GML	GML	GML	33	1.91%
+PL/SQL	PL/SQL	PL-SQL	33	1.91%
+WDTE	WDTE	WDTE	33	1.91%
+XBS	XBS	XBS	33	1.91%
+AmigaE	AmigaE	AmigaE	32	1.85%
+I	I	I	32	1.85%
+Nial	Nial	Nial	32	1.85%
+Visual FoxPro	Visual FoxPro	Visual FoxPro	32	1.85%
+X86-64 Assembly	X86-64 Assembly	X86-64 Assembly	32	1.85%
+C Shell	C Shell	C Shell	31	1.79%
+EGL	EGL	EGL	31	1.79%
+Hy	Hy	Hy	31	1.79%
+MiniZinc	MiniZinc	MiniZinc	31	1.79%
+RLaB	RLaB	RLaB	31	1.79%
+ASIC	ASIC	ASIC	30	1.73%
+Diego	Diego	Diego	30	1.73%
+Idris	Idris	Idris	30	1.73%
+Gnuplot	Gnuplot	Gnuplot	29	1.67%
+Hoon	Hoon	Hoon	29	1.67%
+Smart BASIC	Smart BASIC	Smart BASIC	29	1.67%
+Symsyn	Symsyn	Symsyn	29	1.67%
+Zoea	Zoea	Zoea	29	1.67%
+ECL	ECL	ECL	28	1.62%
+Hexiscript	Hexiscript	Hexiscript	28	1.62%
+Huginn	Huginn	Huginn	28	1.62%
+Potion	Potion	Potion	28	1.62%
+Slope	Slope	Slope	28	1.62%
+Avail	Avail	Avail	27	1.56%
+CMake	CMake	CMake	27	1.56%
+GUISS	GUISS	GUISS	27	1.56%
+Koka	Koka	Koka	27	1.56%
+Latitude	Latitude	Latitude	27	1.56%
+LIL	LIL	LIL	27	1.56%
+MACRO-11	MACRO-11	MACRO-11	27	1.56%
+Order	Order	Order	27	1.56%
+Qi	Qi	Qi	27	1.56%
+Zoea Visual	Zoea Visual	Zoea Visual	27	1.56%
+Zonnon	Zonnon	Zonnon	27	1.56%
+GDScript	GDScript	GDScript	26	1.5%
+MIRC Scripting Language	MIRC Scripting Language	MIRC Scripting Language	26	1.5%
+MLite	MLite	MLite	26	1.5%
+REALbasic	REALbasic	REALbasic	26	1.5%
+LDPL	LDPL	LDPL	25	1.44%
+ObjectIcon	ObjectIcon	ObjectIcon	25	1.44%
+PL/0	PL/0	PL-0	25	1.44%
+PlainTeX	PlainTeX	PlainTeX	25	1.44%
+Relation	Relation	Relation	25	1.44%
+Limbo	Limbo	Limbo	24	1.39%
+Nascom BASIC	Nascom BASIC	Nascom BASIC	24	1.39%
+RATFOR	RATFOR	RATFOR	24	1.39%
+SNUSP	SNUSP	SNUSP	24	1.39%
+SSEM	SSEM	SSEM	24	1.39%
+Astro	Astro	Astro	23	1.33%
+Clean	Clean	Clean	23	1.33%
+Clipper	Clipper	Clipper	23	1.33%
+Janet	Janet	Janet	23	1.33%
+Lobster	Lobster	Lobster	23	1.33%
+Robotic	Robotic	Robotic	23	1.33%
+Salmon	Salmon	Salmon	23	1.33%
+Shen	Shen	Shen	23	1.33%
+Atari BASIC	Atari BASIC	Atari BASIC	22	1.27%
+Furor	Furor	Furor	22	1.27%
+Klong	Klong	Klong	22	1.27%
+ML	ML	ML	22	1.27%
+Oberon-07	Oberon-07	Oberon-07	22	1.27%
+OPL	OPL	OPL	22	1.27%
+PILOT	PILOT	PILOT	22	1.27%
+Stax	Stax	Stax	22	1.27%
+Fish	Fish	Fish	21	1.21%
+LLVM	LLVM	LLVM	21	1.21%
+Mirah	Mirah	Mirah	21	1.21%
+Peloton	Peloton	Peloton	21	1.21%
+PHL	PHL	PHL	21	1.21%
+Scratch	Scratch	Scratch	21	1.21%
+Trith	Trith	Trith	21	1.21%
+Wee Basic	Wee Basic	Wee Basic	21	1.21%
+Beeswax	Beeswax	Beeswax	20	1.15%
+Dragon	Dragon	Dragon	20	1.15%
+Ioke	Ioke	Ioke	20	1.15%
+Jactl	Jactl	Jactl	20	1.15%
+ML/I	ML/I	ML-I	20	1.15%
+OmniMark	OmniMark	OmniMark	20	1.15%
+ChucK	ChucK	ChucK	19	1.1%
+DBL	DBL	DBL	19	1.1%
+Euler	Euler	Euler	19	1.1%
+Make	Make	Make	19	1.1%
+Peri	Peri	Peri	19	1.1%
+Pony	Pony	Pony	19	1.1%
+ProDOS	ProDOS	ProDOS	19	1.1%
+Suneido	Suneido	Suneido	19	1.1%
+Verbexx	Verbexx	Verbexx	19	1.1%
+Argile	Argile	Argile	18	1.04%
+C3	C3	C3	18	1.04%
+Gosu	Gosu	Gosu	18	1.04%
+Pascal-P	Pascal-P	Pascal-P	18	1.04%
+Pure	Pure	Pure	18	1.04%
+Transact-SQL	Transact-SQL	Transact-SQL	18	1.04%
+Acornsoft Lisp	Acornsoft Lisp	Acornsoft Lisp	17	0.98%
+Agda	Agda	Agda	17	0.98%
+AmigaBASIC	AmigaBASIC	AmigaBASIC	17	0.98%
+Beads	Beads	Beads	17	0.98%
+Computer/zero Assembly	Computer/zero Assembly	Computer-zero Assembly	17	0.98%
+GFA Basic	GFA Basic	GFA Basic	17	0.98%
+Hare	Hare	Hare	17	0.98%
+LSL	LSL	LSL	17	0.98%
+Openscad	Openscad	Openscad	17	0.98%
+Self	Self	Self	17	0.98%
+SmileBASIC	SmileBASIC	SmileBASIC	17	0.98%
+TSE SAL	TSE SAL	TSE SAL	17	0.98%
+Xojo	Xojo	Xojo	17	0.98%
+0815	0815	0815	16	0.92%
+Evaldraw	Evaldraw	Evaldraw	16	0.92%
+Isabelle	Isabelle	Isabelle	16	0.92%
+N/t/roff	N/t/roff	N-t-roff	16	0.92%
+Palo Alto Tiny BASIC	Palo Alto Tiny BASIC	Palo Alto Tiny BASIC	16	0.92%
+Ursalang	Ursalang	Ursalang	16	0.92%
+Arc	Arc	Arc	15	0.87%
+Chef	Chef	Chef	15	0.87%
+Dylan	Dylan	Dylan	15	0.87%
+Fancy	Fancy	Fancy	15	0.87%
+Friendly interactive shell	Friendly interactive shell	Friendly interactive shell	15	0.87%
+PL/I-80	PL/I-80	PL-I-80	15	0.87%
+Rapira	Rapira	Rapira	15	0.87%
+Spin	Spin	Spin	15	0.87%
+Whitespace	Whitespace	Whitespace	15	0.87%
+XQuery	XQuery	XQuery	15	0.87%
+Axiom	Axiom	Axiom	14	0.81%
+Efene	Efene	Efene	14	0.81%
+MMIX	MMIX	MMIX	14	0.81%
+MOO	MOO	MOO	14	0.81%
+OOC	OOC	OOC	14	0.81%
+Ezhil	Ezhil	Ezhil	13	0.75%
+Fe	Fe	Fe	13	0.75%
+Komodo	Komodo	Komodo	13	0.75%
+LaTeX	LaTeX	LaTeX	13	0.75%
+Little	Little	Little	13	0.75%
+Object Pascal	Object Pascal	Object Pascal	13	0.75%
+RISC-V Assembly	RISC-V Assembly	RISC-V Assembly	13	0.75%
+SPAD	SPAD	SPAD	13	0.75%
+VAX Assembly	VAX Assembly	VAX Assembly	13	0.75%
+VHDL	VHDL	VHDL	13	0.75%
+ArnoldC	ArnoldC	ArnoldC	12	0.69%
+Beef	Beef	Beef	12	0.69%
+Egel	Egel	Egel	12	0.69%
+Gema	Gema	Gema	12	0.69%
+Golo	Golo	Golo	12	0.69%
+Halon	Halon	Halon	12	0.69%
+LSE64	LSE64	LSE64	12	0.69%
+Lucid	Lucid	Lucid	12	0.69%
+MontiLang	MontiLang	MontiLang	12	0.69%
+Panda	Panda	Panda	12	0.69%
+Rhombus	Rhombus	Rhombus	12	0.69%
+Rocq	Rocq	Rocq	12	0.69%
+SystemVerilog	SystemVerilog	SystemVerilog	12	0.69%
+Arendelle	Arendelle	Arendelle	11	0.64%
+BootBASIC	BootBASIC	BootBASIC	11	0.64%
+Coco	Coco	Coco	11	0.64%
+Creative Basic	Creative Basic	Creative Basic	11	0.64%
+Dao	Dao	Dao	11	0.64%
+Dt	Dt	Dt	11	0.64%
+Frege	Frege	Frege	11	0.64%
+FTCBASIC	FTCBASIC	FTCBASIC	11	0.64%
+GlovePIE	GlovePIE	GlovePIE	11	0.64%
+Inform 6	Inform 6	Inform 6	11	0.64%
+Never	Never	Never	11	0.64%
+OASYS Assembler	OASYS Assembler	OASYS Assembler	11	0.64%
+Pointless	Pointless	Pointless	11	0.64%
+Pure Data	Pure Data	Pure Data	11	0.64%
+RPG	RPG	RPG	11	0.64%
+Shale	Shale	Shale	11	0.64%
+TMG	TMG	TMG	11	0.64%
+Unlambda	Unlambda	Unlambda	11	0.64%
+WebAssembly	WebAssembly	WebAssembly	11	0.64%
+App Inventor	App Inventor	App Inventor	10	0.58%
+AsciiDots	AsciiDots	AsciiDots	10	0.58%
+AutoLISP	AutoLISP	AutoLISP	10	0.58%
+Blz	Blz	Blz	10	0.58%
+CBASIC	CBASIC	CBASIC	10	0.58%
+Gleam	Gleam	Gleam	10	0.58%
+IWBASIC	IWBASIC	IWBASIC	10	0.58%
+KonsolScript	KonsolScript	KonsolScript	10	0.58%
+NGS	NGS	NGS	10	0.58%
+Nom	Nom	Nom	10	0.58%
+POV-Ray	POV-Ray	POV-Ray	10	0.58%
+Rockstar	Rockstar	Rockstar	10	0.58%
+Snobol	Snobol	Snobol	10	0.58%
+Zoomscript	Zoomscript	Zoomscript	10	0.58%
+8051 Assembly	8051 Assembly	8051 Assembly	9	0.52%
+Bait	Bait	Bait	9	0.52%
+Brlcad	Brlcad	Brlcad	9	0.52%
+Clay	Clay	Clay	9	0.52%
+Eero	Eero	Eero	9	0.52%
+Gecho	Gecho	Gecho	9	0.52%
+Genyris	Genyris	Genyris	9	0.52%
+Integer BASIC	Integer BASIC	Integer BASIC	9	0.52%
+Lily	Lily	Lily	9	0.52%
+Little Man Computer	Little Man Computer	Little Man Computer	9	0.52%
+Mathprog	Mathprog	Mathprog	9	0.52%
+Monte	Monte	Monte	9	0.52%
+Morfa	Morfa	Morfa	9	0.52%
+Piet	Piet	Piet	9	0.52%
+Polyglot:PL/I and PL/M	Polyglot:PL/I and PL/M	Polyglot:PL-I and PL-M	9	0.52%
+PROMAL	PROMAL	PROMAL	9	0.52%
+Ra	Ra	Ra	9	0.52%
+Terraform	Terraform	Terraform	9	0.52%
+TI SR-56	TI SR-56	TI SR-56	9	0.52%
+UTFool	UTFool	UTFool	9	0.52%
+Vorpal	Vorpal	Vorpal	9	0.52%
+Apple	Apple	Apple	8	0.46%
+Aquarius BASIC	Aquarius BASIC	Aquarius BASIC	8	0.46%
+Calcscript	Calcscript	Calcscript	8	0.46%
+Clio	Clio	Clio	8	0.46%
+CLIPS	CLIPS	CLIPS	8	0.46%
+Curry	Curry	Curry	8	0.46%
+Egison	Egison	Egison	8	0.46%
+Es	Es	Es	8	0.46%
+FuncSug	FuncSug	FuncSug	8	0.46%
+GLSL	GLSL	GLSL	8	0.46%
+LC3 Assembly	LC3 Assembly	LC3 Assembly	8	0.46%
+Lhogho	Lhogho	Lhogho	8	0.46%
+LSE	LSE	LSE	8	0.46%
+Luck	Luck	Luck	8	0.46%
+Mathcad	Mathcad	Mathcad	8	0.46%
+NESL	NESL	NESL	8	0.46%
+NetLogo	NetLogo	NetLogo	8	0.46%
+Nit	Nit	Nit	8	0.46%
+Nutt	Nutt	Nutt	8	0.46%
+Onyx	Onyx	Onyx	8	0.46%
+SASL	SASL	SASL	8	0.46%
+Shiny	Shiny	Shiny	8	0.46%
+SPARK	SPARK	SPARK	8	0.46%
+BlitzMax	BlitzMax	BlitzMax	7	0.4%
+Blue	Blue	Blue	7	0.4%
+CFEngine	CFEngine	CFEngine	7	0.4%
+EC	EC	EC	7	0.4%
+Elisa	Elisa	Elisa	7	0.4%
+FUZE BASIC	FUZE BASIC	FUZE BASIC	7	0.4%
+Lean	Lean	Lean	7	0.4%
+LotusScript	LotusScript	LotusScript	7	0.4%
+MoonScript	MoonScript	MoonScript	7	0.4%
+Niue	Niue	Niue	7	0.4%
+Nix	Nix	Nix	7	0.4%
+Pebble	Pebble	Pebble	7	0.4%
+ProgressBASIC	ProgressBASIC	ProgressBASIC	7	0.4%
+Set lang	Set lang	Set lang	7	0.4%
+SIL	SIL	SIL	7	0.4%
+Tbas	Tbas	Tbas	7	0.4%
+TI-57	TI-57	TI-57	7	0.4%
+Visual Prolog	Visual Prolog	Visual Prolog	7	0.4%
+Wrapl	Wrapl	Wrapl	7	0.4%
+XProfan	XProfan	XProfan	7	0.4%
+XTalk	XTalk	XTalk	7	0.4%
+4DOS Batch	4DOS Batch	4DOS Batch	6	0.35%
+4ME	4ME	4ME	6	0.35%
+Alore	Alore	Alore	6	0.35%
+ANTLR	ANTLR	ANTLR	6	0.35%
+BabyCobol	BabyCobol	BabyCobol	6	0.35%
+Boo	Boo	Boo	6	0.35%
+Comefrom0x10	Comefrom0x10	Comefrom0x10	6	0.35%
+DIBOL-11	DIBOL-11	DIBOL-11	6	0.35%
+DM	DM	DM	6	0.35%
+DUP	DUP	DUP	6	0.35%
+Extended Color BASIC	Extended Color BASIC	Extended Color BASIC	6	0.35%
+Fexl	Fexl	Fexl	6	0.35%
+Fortress	Fortress	Fortress	6	0.35%
+Gastona	Gastona	Gastona	6	0.35%
+Gri	Gri	Gri	6	0.35%
+Intercal	Intercal	Intercal	6	0.35%
+MANOOL	MANOOL	MANOOL	6	0.35%
+MariaDB	MariaDB	MariaDB	6	0.35%
+MySQL	MySQL	MySQL	6	0.35%
+NSIS	NSIS	NSIS	6	0.35%
+Onyx (wasm)	Onyx	Onyx (wasm)	6	0.35%
+Oxygene	Oxygene	Oxygene	6	0.35%
+Pixilang	Pixilang	Pixilang	6	0.35%
+Rhovas	Rhovas	Rhovas	6	0.35%
+Sage	Sage	Sage	6	0.35%
+SIMPOL	SIMPOL	SIMPOL	6	0.35%
+SkookumScript	SkookumScript	SkookumScript	6	0.35%
+Stringle	Stringle	Stringle	6	0.35%
+Tern	Tern	Tern	6	0.35%
+Turing	Turing	Turing	6	0.35%
+XEec	XEec	XEec	6	0.35%
+Yacas	Yacas	Yacas	6	0.35%
+4D	4D	4D	5	0.29%
+Adina	Adina	Adina	5	0.29%
+B	B	B	5	0.29%
+Berkeley Logo	Berkeley Logo	Berkeley Logo	5	0.29%
+Blade	Blade	Blade	5	0.29%
+Dylan.NET	Dylan.NET	Dylan.NET	5	0.29%
+Epoxy	Epoxy	Epoxy	5	0.29%
+Fan	Fan	Fan	5	0.29%
+GEORGE	GEORGE	GEORGE	5	0.29%
+Glee	Glee	Glee	5	0.29%
+Goboscript	Goboscript	Goboscript	5	0.29%
+Hope	Hope	Hope	5	0.29%
+JCL	JCL	JCL	5	0.29%
+KQL	KQL	KQL	5	0.29%
+L++	L++	L++	5	0.29%
+Malbolge	Malbolge	Malbolge	5	0.29%
+MBS	MBS	MBS	5	0.29%
+MelonBasic	MelonBasic	MelonBasic	5	0.29%
+Nickle	Nickle	Nickle	5	0.29%
+Nyquist	Nyquist	Nyquist	5	0.29%
+Panoramic	Panoramic	Panoramic	5	0.29%
+PIR	PIR	PIR	5	0.29%
+Pyret	Pyret	Pyret	5	0.29%
+ScratchScript	ScratchScript	ScratchScript	5	0.29%
+TIScript	TIScript	TIScript	5	0.29%
+TPP	TPP	TPP	5	0.29%
+Ultimate++	Ultimate++	Ultimate++	5	0.29%
+Unison	Unison	Unison	5	0.29%
+Vale	Vale	Vale	5	0.29%
+Wisp	Wisp	Wisp	5	0.29%
+6800 Assembly	6800 Assembly	6800 Assembly	4	0.23%
+AmbientTalk	AmbientTalk	AmbientTalk	4	0.23%
+Arbre	Arbre	Arbre	4	0.23%
+B4X	B4X	B4X	4	0.23%
+Blast	Blast	Blast	4	0.23%
+BlooP	BlooP	BlooP	4	0.23%
+Bori	Bori	Bori	4	0.23%
+C++/CLI	C++/CLI	C++-CLI	4	0.23%
+Cind	Cind	Cind	4	0.23%
+Cobra	Cobra	Cobra	4	0.23%
+Corescript	Corescript	Corescript	4	0.23%
+Crack	Crack	Crack	4	0.23%
+Cubescript	Cubescript	Cubescript	4	0.23%
+Dafny	Dafny	Dafny	4	0.23%
+Emojicode	Emojicode	Emojicode	4	0.23%
+Fhidwfe	Fhidwfe	Fhidwfe	4	0.23%
+Grain	Grain	Grain	4	0.23%
+Guile	Guile	Guile	4	0.23%
+HPPPL	HPPPL	HPPPL	4	0.23%
+HQ9+	HQ9+	HQ9+	4	0.23%
+Imp77	Imp77	Imp77	4	0.23%
+Jinja	Jinja	Jinja	4	0.23%
+Kabap	Kabap	Kabap	4	0.23%
+Keg	Keg	Keg	4	0.23%
+Kite	Kite	Kite	4	0.23%
+Lisp	Lisp	Lisp	4	0.23%
+MEL	MEL	MEL	4	0.23%
+Mojo	Mojo	Mojo	4	0.23%
+Monicelli	Monicelli	Monicelli	4	0.23%
+Owl Lisp	Owl Lisp	Owl Lisp	4	0.23%
+PL/pgSQL	PL/pgSQL	PL-pgSQL	4	0.23%
+Portugol	Portugol	Portugol	4	0.23%
+Purity	Purity	Purity	4	0.23%
+QL SuperBASIC	QL SuperBASIC	QL SuperBASIC	4	0.23%
+RASEL	RASEL	RASEL	4	0.23%
+Rhope	Rhope	Rhope	4	0.23%
+RTL/2	RTL/2	RTL-2	4	0.23%
+SimpleCode	SimpleCode	SimpleCode	4	0.23%
+TI-83 Hex Assembly	TI-83 Hex Assembly	TI-83 Hex Assembly	4	0.23%
+TransFORTH	TransFORTH	TransFORTH	4	0.23%
+Uniface	Uniface	Uniface	4	0.23%
+Visual Objects	Visual Objects	Visual Objects	4	0.23%
+Whenever	Whenever	Whenever	4	0.23%
+XSLT 2.0	XSLT 2.0	XSLT 2.0	4	0.23%
+ZED	ZED	ZED	4	0.23%
+Acurity Architect	Acurity Architect	Acurity Architect	3	0.17%
+Assembly	Assembly	Assembly	3	0.17%
+Basic09	Basic09	Basic09	3	0.17%
+Battlestar	Battlestar	Battlestar	3	0.17%
+BML	BML	BML	3	0.17%
+C1R	C1R	C1R	3	0.17%
+CafeOBJ	CafeOBJ	CafeOBJ	3	0.17%
+Casio BASIC	Casio BASIC	Casio BASIC	3	0.17%
+Cat	Cat	Cat	3	0.17%
+Cherrycake	Cherrycake	Cherrycake	3	0.17%
+ContextFree	ContextFree	ContextFree	3	0.17%
+Curto	Curto	Curto	3	0.17%
+Datalog	Datalog	Datalog	3	0.17%
+DataWeave	DataWeave	DataWeave	3	0.17%
+Dodo0	Dodo0	Dodo0	3	0.17%
+Explore	Explore	Explore	3	0.17%
+GB BASIC	GB BASIC	GB BASIC	3	0.17%
+Glagol	Glagol	Glagol	3	0.17%
+Global Script	Global Script	Global Script	3	0.17%
+Guish	Guish	Guish	3	0.17%
+JavaFX Script	JavaFX Script	JavaFX Script	3	0.17%
+Kaya	Kaya	Kaya	3	0.17%
+Kitten	Kitten	Kitten	3	0.17%
+LiveScript	LiveScript	LiveScript	3	0.17%
+Maude	Maude	Maude	3	0.17%
+MoonRock	MoonRock	MoonRock	3	0.17%
+Mosaic	Mosaic	Mosaic	3	0.17%
+Myrddin	Myrddin	Myrddin	3	0.17%
+NATURAL	NATURAL	NATURAL	3	0.17%
+OASYS	OASYS	OASYS	3	0.17%
+Object Pascal Implementations	Object Pascal Implementations	Object Pascal Implementations	3	0.17%
+PASM	PASM	PASM	3	0.17%
+PDP-11 Assembly	PDP-11 Assembly	PDP-11 Assembly	3	0.17%
+PepsiScript	PepsiScript	PepsiScript	3	0.17%
+Powerbuilder	Powerbuilder	Powerbuilder	3	0.17%
+Processing.R	Processing.R	Processing.R	3	0.17%
+Sass/SCSS	Sass/SCSS	Sass-SCSS	3	0.17%
+Squirrel	Squirrel	Squirrel	3	0.17%
+SuperTalk	SuperTalk	SuperTalk	3	0.17%
+Swahili	Swahili	Swahili	3	0.17%
+Tosh	Tosh	Tosh	3	0.17%
+Woma	Woma	Woma	3	0.17%
+X10	X10	X10	3	0.17%
+உயிர்/Uyir	உயிர்/Uyir	உயிர்-Uyir	3	0.17%
+1C	1C	1C	2	0.12%
+Algae	Algae	Algae	2	0.12%
+AngelScript	AngelScript	AngelScript	2	0.12%
+Aria	Aria	Aria	2	0.12%
+Bird	Bird	Bird	2	0.12%
+Brace	Brace	Brace	2	0.12%
+Cduce	Cduce	Cduce	2	0.12%
+CHR	CHR	CHR	2	0.12%
+CJam	CJam	CJam	2	0.12%
+Clipper/XBase++	Clipper/XBase++	Clipper-XBase++	2	0.12%
+Convex	Convex	Convex	2	0.12%
+Deluge	Deluge	Deluge	2	0.12%
+DeviousYarn	DeviousYarn	DeviousYarn	2	0.12%
+DMS	DMS	DMS	2	0.12%
+Elan	Elan	Elan	2	0.12%
+ELLA	ELLA	ELLA	2	0.12%
+Enguage	Enguage	Enguage	2	0.12%
+Extended BrainF***	Extended BrainF***	Extended BrainF***	2	0.12%
+F	F	F	2	0.12%
+Ferite	Ferite	Ferite	2	0.12%
+FurryScript	FurryScript	FurryScript	2	0.12%
+GLBasic	GLBasic	GLBasic	2	0.12%
+Hack	Hack	Hack	2	0.12%
+HyperTalk	HyperTalk	HyperTalk	2	0.12%
+Jack	Jack	Jack	2	0.12%
+JAMES II/Rule-based Cellular Automata	JAMES II/Rule-based Cellular Automata	JAMES II-Rule-based Cellular Automata	2	0.12%
+JOVIAL	JOVIAL	JOVIAL	2	0.12%
+JSE	JSE	JSE	2	0.12%
+KAP	KAP	KAP	2	0.12%
+KL1	KL1	KL1	2	0.12%
+Labyrinth	Labyrinth	Labyrinth	2	0.12%
+Luna	Luna	Luna	2	0.12%
+Mastermind	Mastermind	Mastermind	2	0.12%
+MathCortex	MathCortex	MathCortex	2	0.12%
+MDL	MDL	MDL	2	0.12%
+Metapost	Metapost	Metapost	2	0.12%
+MINIL	MINIL	MINIL	2	0.12%
+Mn	Mn	Mn	2	0.12%
+MyrtleScript	MyrtleScript	MyrtleScript	2	0.12%
+NOWUT	NOWUT	NOWUT	2	0.12%
+Occam	Occam	Occam	2	0.12%
+OOCalc	OOCalc	OOCalc	2	0.12%
+OpenLisp	OpenLisp	OpenLisp	2	0.12%
+PeopleCode	PeopleCode	PeopleCode	2	0.12%
+Perl5i	Perl5i	Perl5i	2	0.12%
+Peylang	Peylang	Peylang	2	0.12%
+Pict	Pict	Pict	2	0.12%
+Prog8	Prog8	Prog8	2	0.12%
+Programming Language	Programming Language	Programming Language	2	0.12%
+PSQL	PSQL	PSQL	2	0.12%
+Quill	Quill	Quill	2	0.12%
+Roc	Roc	Roc	2	0.12%
+SapbotVM	SapbotVM	SapbotVM	2	0.12%
+Sing	Sing	Sing	2	0.12%
+Sisal	Sisal	Sisal	2	0.12%
+Skew	Skew	Skew	2	0.12%
+Soda	Soda	Soda	2	0.12%
+SPSS	SPSS	SPSS	2	0.12%
+TailDot	TailDot	TailDot	2	0.12%
+TechBASIC	TechBASIC	TechBASIC	2	0.12%
+ToffeeScript	ToffeeScript	ToffeeScript	2	0.12%
+Turbo-Basic XL	Turbo-Basic XL	Turbo-Basic XL	2	0.12%
+Viua VM assembly	Viua VM assembly	Viua VM assembly	2	0.12%
+Vyxal	Vyxal	Vyxal	2	0.12%
+Waduzitdo	Waduzitdo	Waduzitdo	2	0.12%
+XL	XL	XL	2	0.12%
+XPath 2.0	XPath 2.0	XPath 2.0	2	0.12%
+XProc	XProc	XProc	2	0.12%
+XSLT 1.0	XSLT 1.0	XSLT 1.0	2	0.12%
+XUL	XUL	XUL	2	0.12%
+ZPL	ZPL	ZPL	2	0.12%
+80386 Assembly	80386 Assembly	80386 Assembly	1	0.06%
+AMPL	AMPL	AMPL	1	0.06%
+Anyways	Anyways	Anyways	1	0.06%
+Apricot	Apricot	Apricot	1	0.06%
+ASP	ASP	ASP	1	0.06%
+AspectJ	AspectJ	AspectJ	1	0.06%
+AutoHotKey V2	AutoHotKey V2	AutoHotKey V2	1	0.06%
+B4J	B4J	B4J	1	0.06%
+Bas	Bas	Bas	1	0.06%
+Batari Basic	Batari Basic	Batari Basic	1	0.06%
+Biferno	Biferno	Biferno	1	0.06%
+C2	C2	C2	1	0.06%
+Clarion	Clarion	Clarion	1	0.06%
+Coconut	Coconut	Coconut	1	0.06%
+DDNC	DDNC	DDNC	1	0.06%
+DIV Games Studio	DIV Games Studio	DIV Games Studio	1	0.06%
+DreamBerd	DreamBerd	DreamBerd	1	0.06%
+ElastiC	ElastiC	ElastiC	1	0.06%
+ESQL	ESQL	ESQL	1	0.06%
+FormulaOne	FormulaOne	FormulaOne	1	0.06%
+FP	FP	FP	1	0.06%
+FRISC Assembly	FRISC Assembly	FRISC Assembly	1	0.06%
+G-fu	G-fu	G-fu	1	0.06%
+Gentee	Gentee	Gentee	1	0.06%
+Go!	Go!	Go!	1	0.06%
+Goaldi	Goaldi	Goaldi	1	0.06%
+Heron	Heron	Heron	1	0.06%
+HLA	HLA	HLA	1	0.06%
+Hopper	Hopper	Hopper	1	0.06%
+Informix 4GL	Informix 4GL	Informix 4GL	1	0.06%
+Inko	Inko	Inko	1	0.06%
+Iptscrae	Iptscrae	Iptscrae	1	0.06%
+Jacquard Loom	Jacquard Loom	Jacquard Loom	1	0.06%
+JoCaml	JoCaml	JoCaml	1	0.06%
+JScript.NET	JScript.NET	JScript.NET	1	0.06%
+JudoScript	JudoScript	JudoScript	1	0.06%
+Kamailio Script	Kamailio Script	Kamailio Script	1	0.06%
+Lambda Prolog	Lambda Prolog	Lambda Prolog	1	0.06%
+LibreOffice Basic	LibreOffice Basic	LibreOffice Basic	1	0.06%
+Lush	Lush	Lush	1	0.06%
+Lychen	Lychen	Lychen	1	0.06%
+Mia	Mia	Mia	1	0.06%
+Mond	Mond	Mond	1	0.06%
+Monkey	Monkey	Monkey	1	0.06%
+MUF	MUF	MUF	1	0.06%
+Mythryl	Mythryl	Mythryl	1	0.06%
+NASL	NASL	NASL	1	0.06%
+Neat	Neat	Neat	1	0.06%
+NewtonScript	NewtonScript	NewtonScript	1	0.06%
+Night	Night	Night	1	0.06%
+NLP++	NLP++	NLP++	1	0.06%
+Omega	Omega	Omega	1	0.06%
+Opa	Opa	Opa	1	0.06%
+ParaCL	ParaCL	ParaCL	1	0.06%
+Pare	Pare	Pare	1	0.06%
+Pico-8	Pico-8	Pico-8	1	0.06%
+Plan	Plan	Plan	1	0.06%
+PowerPC Assembly	PowerPC Assembly	PowerPC Assembly	1	0.06%
+Qore	Qore	Qore	1	0.06%
+Quorum	Quorum	Quorum	1	0.06%
+RPGIV	RPGIV	RPGIV	1	0.06%
+RPL/2	RPL/2	RPL-2	1	0.06%
+ScriptBasic	ScriptBasic	ScriptBasic	1	0.06%
+Setl4	Setl4	Setl4	1	0.06%
+SheerPower 4GL	SheerPower 4GL	SheerPower 4GL	1	0.06%
+SMEQL	SMEQL	SMEQL	1	0.06%
+Soar	Soar	Soar	1	0.06%
+SoneKing Assembly	SoneKing Assembly	SoneKing Assembly	1	0.06%
+SPARC Assembly	SPARC Assembly	SPARC Assembly	1	0.06%
+StreamIt	StreamIt	StreamIt	1	0.06%
+Supernova	Supernova	Supernova	1	0.06%
+Teco	Teco	Teco	1	0.06%
+Terra	Terra	Terra	1	0.06%
+TestML	TestML	TestML	1	0.06%
+Thyrd	Thyrd	Thyrd	1	0.06%
+TRS-80 BASIC	TRS-80 BASIC	TRS-80 BASIC	1	0.06%
+TutorialD	TutorialD	TutorialD	1	0.06%
+Twelf	Twelf	Twelf	1	0.06%
+Typed Racket	Typed Racket	Typed Racket	1	0.06%
+VB6	VB6	VB6	1	0.06%
+Vox	Vox	Vox	1	0.06%
+Wollok	Wollok	Wollok	1	0.06%
+X-script	X-script	X-script	1	0.06%
+Xanadu	Xanadu	Xanadu	1	0.06%
+Ya	Ya	Ya	1	0.06%
+.QL	.QL	.QL	0	0%
+8 1/2	8 1/2	8 1-2	0	0%
+A+	A+	A+	0	0%
+Agda2	Agda2	Agda2	0	0%
+AHDL	AHDL	AHDL	0	0%
+AIDED NATURAL LANGUAGE	AIDED NATURAL LANGUAGE	AIDED NATURAL LANGUAGE	0	0%
+ALGOL	ALGOL	ALGOL	0	0%
+Alice ML	Alice ML	Alice ML	0	0%
+ANT	ANT	ANT	0	0%
+Application Master	Application Master	Application Master	0	0%
+ASP.Net	ASP.Net	ASP.Net	0	0%
+AspectC++	AspectC++	AspectC++	0	0%
+AssemblyScript	AssemblyScript	AssemblyScript	0	0%
+Autohotkey V2	Autohotkey V2	Autohotkey V2 (2)	0	0%
+Axum	Axum	Axum	0	0%
+Ayrch	Ayrch	Ayrch	0	0%
+Beta	Beta	Beta	0	0%
+BLISS	BLISS	BLISS	0	0%
+C0H	C0H	C0H	0	0%
+Caml	Caml	Caml	0	0%
+CB80	CB80	CB80	0	0%
+Cecil	Cecil	Cecil	0	0%
+Changuage	Changuage	Changuage	0	0%
+Cilk	Cilk	Cilk	0	0%
+Cilk++	Cilk++	Cilk++	0	0%
+Diesel	Diesel	Diesel	0	0%
+EhBASIC	EhBASIC	EhBASIC	0	0%
+Epigram	Epigram	Epigram	0	0%
+FAUST	FAUST	FAUST	0	0%
+FeatureC++	FeatureC++	FeatureC++	0	0%
+Felix	Felix	Felix	0	0%
+FLORA-2	FLORA-2	FLORA-2	0	0%
+Florid	Florid	Florid	0	0%
+FPI	FPI	FPI	0	0%
+FreeMat	FreeMat	FreeMat	0	0%
+Gerbil	Gerbil	Gerbil	0	0%
+Goo	Goo	Goo	0	0%
+IPL Loader Config	IPL Loader Config	IPL Loader Config	0	0%
+Jabaco	Jabaco	Jabaco	0	0%
+Kantalo	Kantalo	Kantalo	0	0%
+KeyList Databasing	KeyList Databasing	KeyList Databasing	0	0%
+L.in.oleum	L.in.oleum	L.in.oleum	0	0%
+Languages by Feature	Languages by Feature	Languages by Feature	0	0%
+LAST	LAST	LAST	0	0%
+LC2200 Assembly	LC2200 Assembly	LC2200 Assembly	0	0%
+Leon	Leon	Leon	0	0%
+LLP	LLP	LLP	0	0%
+Loglan82	Loglan82	Loglan82	0	0%
+Lolli	Lolli	Lolli	0	0%
+Lotus 123 Macro Scripting	Lotus 123 Macro Scripting	Lotus 123 Macro Scripting	0	0%
+Lout	Lout	Lout	0	0%
+LSTS	LSTS	LSTS	0	0%
+Lygon	Lygon	Lygon	0	0%
+M680x0	M680x0	M680x0	0	0%
+Macsyma	Macsyma	Macsyma	0	0%
+MAPPER	MAPPER	MAPPER	0	0%
+ME10 macro	ME10 macro	ME10 macro	0	0%
+MGS	MGS	MGS	0	0%
+Mirelle	Mirelle	Mirelle	0	0%
+Motoko	Motoko	Motoko	0	0%
+MPIF90	MPIF90	MPIF90	0	0%
+Mython	Mython	Mython	0	0%
+Nice	Nice	Nice	0	0%
+NQP	NQP	NQP	0	0%
+OpenC++	OpenC++	OpenC++	0	0%
+Pentium Assembly	Pentium Assembly	Pentium Assembly	0	0%
+Perl 6	Perl 6	Perl 6	0	0%
+PL/B	PL/B	PL-B	0	0%
+PLUS	PLUS	PLUS	0	0%
+PLZ/SYS	PLZ/SYS	PLZ-SYS	0	0%
+PPL	PPL	PPL	0	0%
+QuakeC	QuakeC	QuakeC	0	0%
+Reason	Reason	Reason	0	0%
+Reduce	Reduce	Reduce	0	0%
+RLSL	RLSL	RLSL	0	0%
+RTSL	RTSL	RTSL	0	0%
+Rubylog	Rubylog	Rubylog	0	0%
+S++	S++	S++	0	0%
+Script Basic	Script Basic	Script Basic	0	0%
+Script3D	Script3D	Script3D	0	0%
+SimpleLang	SimpleLang	SimpleLang	0	0%
+Star	Star	Star	0	0%
+Superbase BASIC	Superbase BASIC	Superbase BASIC	0	0%
+SWI-Prolog	SWI-Prolog	SWI-Prolog	0	0%
+TAL	TAL	TAL	0	0%
+TeLa	TeLa	TeLa	0	0%
+Thistle	Thistle	Thistle	0	0%
+TI BASIC	TI BASIC	TI BASIC	0	0%
+TIS-100	TIS-100	TIS-100	0	0%
+Tobbisk	Tobbisk	Tobbisk	0	0%
+UC++	UC++	UC++	0	0%
+UScript	UScript	UScript	0	0%
+UserRPL	UserRPL	UserRPL	0	0%
+VRML	VRML	VRML	0	0%
+WML	WML	WML	0	0%
+XBase	XBase	XBase	0	0%
+XS	XS	XS	0	0%
+ΜC++	ΜC++	ΜC++	0	0%

@@ -2,13 +2,15 @@
 title: "Monitoring"
 type: concept
 tags: [mlops, operations]
-sources: [madewithml-monitoring, ai-engineering-ch10-architecture-feedback]
-last_updated: 2024-12-04
+sources: [madewithml-monitoring, ai-engineering-ch10-architecture-feedback, mlsysbook-ch14-ml-operations, agentic-design-patterns-ch11-goal-setting, agentic-design-patterns-ch19-evaluation]
+last_updated: 2026-06-07
 ---
 
 # Monitoring
 
 Tracking system and model health signals in production. Encompasses [[ModelMonitoring]], infrastructure metrics, and [[observability|observability]] practices to catch failures before users do.
+
+> **Disambiguation.** This page is the **MLOps/production** sense of monitoring (telemetry on a deployed system). There is a distinct *agentic self-management* sense — an agent observing **its own actions, environmental state, and tool outputs** against its goals to decide whether to continue, replan, or escalate. For that, see [[GoalSettingAndMonitoring]] (the [[AgenticDesignPatterns|Gulli]] [[agentic-design-patterns-ch11-goal-setting|Ch 11]] pattern). Same word, different referent: infra telemetry vs. goal-progress self-assessment.
 
 ## From [[ai-engineering-ch10-architecture-feedback|AI Engineering Ch 10]]
 
@@ -45,8 +47,13 @@ Combination is the typical strategy.
 
 Metrics must be breakable down by: users, releases, prompt/chain versions, prompt/chain types, time. Aggregate metrics hide regressions confined to specific cohorts.
 
+## Agent monitoring — [[EvaluationAndMonitoring|Agentic Design Patterns Ch 19]]
+
+Ch 19 ([[agentic-design-patterns-ch19-evaluation|Evaluation and Monitoring]]) applies the production-monitoring sense to **agentic systems**. Because agents are probabilistic and degrade post-deployment, it prescribes continuous tracking of accuracy, [[Latency|latency]], resource/token consumption, plus [[ConceptDrift|drift]] detection and **anomaly detection in agent behavior** (unusual actions signalling errors, attacks, or emergent undesired behavior). Crucially, *"simply printing latency data to the console is insufficient"* — log to persistent stores: structured JSON logs, time-series DBs ([[InfluxDB]], [[Prometheus]]), data warehouses ([[Snowflake]], [[GoogleBigQuery|BigQuery]], PostgreSQL), or observability platforms ([[Datadog]], [[Splunk]], [[Grafana|Grafana Cloud]]). This complements [[GoalSettingAndMonitoring|Ch 11]]'s *internal* self-monitoring loop with *external* operational measurement.
+
 ## Connections
 
+- [[EvaluationAndMonitoring]] — Ch 19 applies production monitoring to agents (latency/cost/token tracking, drift + anomaly detection, persistent telemetry sinks).
 - [[ai-engineering-ch10-architecture-feedback]] — Ch 10 source.
 - [[observability]] — the broader discipline this is part of.
 - [[ModelMonitoring]] / [[PromptMonitoring]] — sub-disciplines.
@@ -54,3 +61,5 @@ Metrics must be breakable down by: users, releases, prompt/chain versions, promp
 - [[RequestTrace]] / [[Logging]] — the diagnostic substrate.
 - [[DriftDetection]] / [[SilentModelUpdate]] — AI-app-specific failure modes.
 - [[BusinessMetric]] / [[StickinessMetric]] / [[EngagementMetric]] — north-star metrics to correlate against.
+- [[mlsysbook-ch14-ml-operations]] — mlsysbook Vol 1 Ch 14 layers monitoring (infra/data/model), with Prometheus/Grafana, drift-detection-delay physics, and observability cost economics.
+

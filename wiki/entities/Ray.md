@@ -2,8 +2,8 @@
 title: "Ray"
 type: entity
 tags: [tool, distributed-compute, framework]
-sources: [madewithml-mlops-distributed-data, madewithml-mlops-training, madewithml-mlops-tuning, madewithml-mlops-serving, madewithml-mlops-jobs-and-services]
-last_updated: 2026-05-15
+sources: [madewithml-mlops-distributed-data, madewithml-mlops-training, madewithml-mlops-tuning, madewithml-mlops-serving, madewithml-mlops-jobs-and-services, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 # Ray

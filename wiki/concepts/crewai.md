@@ -1,11 +1,50 @@
 ---
-title: "crewai"
+title: "CrewAI"
 type: concept
-tags: [stub]
-sources: []
-last_updated: 2026-05-10
+tags: [framework, agents, multi-agent, open-source, agentic-design-patterns]
+sources: [agentic-design-patterns-ch01-prompt-chaining, agentic-design-patterns-ch02-routing, agentic-design-patterns-ch04-reflection, agentic-design-patterns-ch05-tool-use, agentic-design-patterns-ch06-planning, agentic-design-patterns-ch07-multi-agent, agentic-design-patterns-ch08-memory-management, agentic-design-patterns-ch16-resource-aware, agentic-design-patterns-ch18-guardrails, agentic-design-patterns-appendices-bg]
+last_updated: 2026-06-07
 ---
 
-# crewai
+# CrewAI
 
-*Stub — referenced by other wiki pages but not yet ingested as a primary source.*
+**CrewAI** (written "Crew AI" in the book) is an open-source framework for the **structured orchestration of multiple agents, roles, and tasks** — i.e., collaborative multi-agent systems. It is one of the agentic frameworks used for hands-on examples in [[AgenticDesignPatterns|*Agentic Design Patterns*]] (Gulli).
+
+## In Agentic Design Patterns — Appendix C (frameworks overview)
+[[agentic-design-patterns-appendices-bg|Appendix C]] (Gulli) gives CrewAI its own framework profile: it provides an orchestration framework for multi-agent systems by focusing on **collaborative roles and structured processes**, operating at a **higher level of abstraction** than foundational toolkits with a conceptual model that **mirrors a human team**. Its core components are **Agents** (defined by a persona — role, goal, backstory), **Tasks** (a discrete unit of work with a clear description and expected output, assigned to an agent), and the **Crew** (the cohesive unit holding the agents and task list, executing a predefined **Process** that is typically *sequential* — one task's output feeds the next — or *hierarchical* — a manager-like agent delegates and coordinates). Positioned distinctly from [[langgraph|LangGraph]]'s low-level explicit state machine ("the developer designs a team charter" rather than wiring nodes/edges) and from [[GoogleADK|ADK]]'s full-lifecycle production platform: CrewAI concentrates on the **logic of agent collaboration / simulating a team of specialists**. Example shown: a `@crew` method returning `Crew(agents=..., tasks=..., process=Process.sequential, verbose=True)`.
+
+## In Agentic Design Patterns
+[[agentic-design-patterns-ch01-prompt-chaining|Chapter 1]] names Crew AI alongside [[LangChain]]/[[LangGraph]] and the [[GoogleADK|Google Agent Development Kit (ADK)]] as frameworks that *"offer structured environments for constructing and executing ... multi-step processes,"* useful for implementing patterns like [[PromptChaining|prompt chaining]]. [[agentic-design-patterns-ch02-routing|Chapter 2 (Routing)]] again names CrewAI among the *"computational frameworks ... [that] provide explicit constructs for defining and managing such conditional logic"* — i.e., [[Routing|routing]]. The [[AgenticDesignPatterns|book hub]] positions CrewAI specifically for **multi-agent collaboration** ([[MultiAgentCollaboration]]) — coordinating roles and tasks across a "crew" of agents.
+
+[[agentic-design-patterns-ch04-reflection|Chapter 4 (Reflection)]] names "Crew.AI" again among the frameworks in which a *single* reflection step (generate→critique→refine) can be implemented — alongside [[LangChain]]/[[LangGraph]] and [[GoogleADK|ADK]] — while noting that *true iterative* [[Reflection|reflection]] "typically involves more complex orchestration." (Ch 4's runnable examples themselves use LangChain and ADK; CrewAI is named as a viable alternative, not coded.)
+
+### Tool use (Chapter 5)
+[[agentic-design-patterns-ch05-tool-use|Chapter 5 (Tool Use)]] provides CrewAI's first *coded* example in the wiki's ADP coverage: a financial-analysis crew. A tool is declared with the `@tool("Stock Price Lookup Tool")` decorator over `get_stock_price(ticker) -> float` (imported from `crewai.tools`), an `Agent` (role "Senior Financial Analyst") receives it via `tools=[get_stock_price]`, a `Task` instructs the agent to use the tool, and a `Crew` orchestrates them, run via `crew.kickoff()`. The chapter's tool best practice is shown here: **return clean data (a `float`) or raise a `ValueError`** rather than returning an error string — *"Raising a specific error is better than returning a string. The agent is equipped to handle exceptions and can decide on the next action."* See [[ToolUse]] / [[FunctionCalling]].
+
+### Planning (Chapter 6)
+[[agentic-design-patterns-ch06-planning|Chapter 6 (Planning)]] uses CrewAI for its hands-on **plan-then-execute** example: a single `planner_writer_agent` (role "Article Planner and Writer", `allow_delegation=False`) is given a `Task` whose description explicitly asks it to *(1) create a bullet-point plan* on a topic, then *(2) write the summary based on that plan*, with an `expected_output` formatted as a `### Plan` section followed by a `### Summary` section. The `Crew` runs `Process.sequential` and is invoked with `crew.kickoff()`. This is the wiki's receipt of CrewAI used for the [[Planning]] pattern (vs. tool use in Ch 5 or multi-agent collaboration) — and illustrates that planning behavior is **explicitly prompted** via the task description and output format rather than being an automatic framework feature. See [[TaskDecomposition]].
+
+### Multi-agent collaboration (Chapter 7)
+[[agentic-design-patterns-ch07-multi-agent|Chapter 7 (Multi-Agent Collaboration)]] is CrewAI's home pattern, and the chapter's CrewAI example is a **sequential-handoff crew** for content creation: two `Agent`s — a `researcher` (`role='Senior Research Analyst'`) and a `writer` (`role='Technical Content Writer'`), each given `role`/`goal`/`backstory` and `allow_delegation=False` — plus two `Task`s where the `writing_task` consumes the researcher's output via `context=[research_task]`. They are assembled into a `Crew(agents=[...], tasks=[...], process=Process.sequential, llm=ChatGoogleGenerativeAI(model="gemini-2.0-flash"))` and executed with `kickoff()`. This shows CrewAI's `role`/`goal`/`backstory`/`Task`/`Crew` abstraction as the framework's native expression of [[MultiAgentCollaboration|multi-agent collaboration]] — agents as personas with defined responsibilities, coordinated by a process. See [[gemini|Gemini]].
+
+### Memory (Chapter 8)
+[[agentic-design-patterns-ch08-memory-management|Chapter 8 (Memory Management)]] names CrewAI among the frameworks that can consume Google's managed [[VertexAiMemoryBank|Vertex AI Memory Bank]] for agent [[LongTermMemory|long-term memory]] — but, unlike [[GoogleADK|ADK]]'s out-of-the-box integration, CrewAI (like [[LangGraph]]) connects to Memory Bank *"through direct API calls."* This places CrewAI as a memory-consuming client of the [[MemoryManagement|memory-management]] pattern rather than a provider of its own primitives in this chapter. See [[MemoryManagement]] / [[VertexAiMemoryBank]].
+
+### Resource-aware optimization (Chapter 16)
+[[agentic-design-patterns-ch16-resource-aware|Chapter 16 (Resource-Aware Optimization)]] names CrewAI among the multi-agent frameworks supporting the orchestration behind the [[ResourceAwareOptimization|resource-aware-optimization]] pattern — the [[ModelRouter|Router Agent]] / [[CritiqueAgent|Critique Agent]] / answering-agent topology that does [[DynamicModelSelection|cost-aware model selection]]. (Ch 16's runnable examples use [[GoogleADK|ADK]], the [[openai|OpenAI]] API, and [[OpenRouter]]; CrewAI is named as a viable orchestration framework, not coded here.)
+
+### Guardrails / safety patterns (Chapter 18)
+[[agentic-design-patterns-ch18-guardrails|Chapter 18 (Guardrails/Safety Patterns)]] gives CrewAI a worked **prompt-based safety guardrail**: an LLM-based **content-policy enforcer**. A `policy_enforcer_agent` (`role='AI Content Policy Enforcer'`, `goal='Rigorously screen user inputs against predefined safety and relevance policies.'`, `allow_delegation=False`, `llm=LLM(model="gemini/gemini-2.0-flash", temperature=0.0, provider="google")`) runs a long `SAFETY_GUARDRAIL_PROMPT` screening input for [[Jailbreak|jailbreaking]], prohibited/hateful/hazardous/explicit/abusive content, off-domain topics, and brand disparagement, emitting a JSON verdict. The `evaluate_input_task` attaches **`guardrail=validate_policy_evaluation`** and **`output_pydantic=PolicyEvaluation`** — CrewAI's native hooks for a **technical guardrail**: a [[Pydantic]] model ([[SchemaValidation]]) plus a validation function that strips markdown fences, parses JSON, and checks structure before `crew.kickoff()`'s result (`Process.sequential`) is acted on. `run_guardrail_crew(user_input)` returns `(is_compliant, summary, triggered_policies)`. This is CrewAI used as a [[Guardrail|guardrail]] layer (the constrain-and-validate pattern of the [[Guardrails|Guardrails AI]] library, expressed in CrewAI). See [[Guardrail]] / [[ContentModeration]].
+
+## Connections
+- [[ResourceAwareOptimization]] / [[DynamicModelSelection]] / [[CritiqueAgent]] — Ch 16: framework for cost-aware multi-agent routing.
+- [[MemoryManagement]] / [[VertexAiMemoryBank]] — Ch 8: consumes Vertex AI Memory Bank via direct API calls.
+- [[MultiAgentCollaboration]] / [[multiagentsystems]] — Ch 7 sequential-handoff crew (`Process.sequential`).
+- [[Planning]] / [[TaskDecomposition]] — Ch 6 plan-then-execute example (`Process.sequential`).
+- [[LangChain]] / [[LangGraph]] / [[GoogleADK]] — peer agent frameworks named in the book.
+- [[MultiAgentCollaboration]] — CrewAI's primary pattern.
+- [[PromptChaining]] / [[Routing]] / [[Reflection]] / [[ToolUse]] — patterns CrewAI can orchestrate.
+- [[FunctionCalling]] — implemented in CrewAI via the `@tool` decorator.
+- [[Guardrail]] / [[ContentModeration]] / [[Guardrails]] — Ch 18: CrewAI content-policy enforcer (`guardrail=` + `output_pydantic=` over a [[Pydantic]] `PolicyEvaluation`).
+- [[AgenticDesignPatterns]] — the book that uses CrewAI for examples.
+- [[agentic-design-patterns-ch01-prompt-chaining]] / [[agentic-design-patterns-ch02-routing]] / [[agentic-design-patterns-ch04-reflection]] / [[agentic-design-patterns-ch05-tool-use]] / [[agentic-design-patterns-ch06-planning]] / [[agentic-design-patterns-ch07-multi-agent]] / [[agentic-design-patterns-ch08-memory-management]] / [[agentic-design-patterns-ch16-resource-aware]] / [[agentic-design-patterns-ch18-guardrails]] — sources.

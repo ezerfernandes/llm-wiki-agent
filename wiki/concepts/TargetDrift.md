@@ -2,8 +2,8 @@
 title: "Target Drift"
 type: concept
 tags: [monitoring, drift]
-sources: [madewithml-monitoring]
-last_updated: 2026-05-15
+sources: [madewithml-monitoring, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 # Target Drift

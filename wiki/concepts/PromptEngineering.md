@@ -2,8 +2,8 @@
 title: "Prompt Engineering"
 type: concept
 tags: [prompt-engineering, adaptation, llm, ai-engineering]
-sources: [ai-engineering-ch01-intro, ai-engineering-ch05-prompt-engineering, hands-on-llm-ch06-prompt-engineering]
-last_updated: 2026-05-23
+sources: [ai-engineering-ch01-intro, ai-engineering-ch05-prompt-engineering, hands-on-llm-ch06-prompt-engineering, agentic-design-patterns-appendix-a-prompting]
+last_updated: 2026-06-07
 ---
 
 # Prompt Engineering
@@ -117,6 +117,18 @@ Ch 6's signature contribution to prompt-engineering vocabulary — a finer decom
 Plus creative cross-cutting components like **[[EmotionPrompt|emotional stimuli]]** (Li et al. 2023 — *"This is very important for my career."*).
 
 The seven components map cleanly onto subdivisions of Huyen Ch 5's three-part anatomy: persona + instruction + context + format + audience + tone all subdivide *"task description"*; examples remain examples; data is the task. **Both framings are complementary granularities**, not contradictions.
+
+## Agentic Design Patterns (Gulli) — Appendix A's technique survey
+
+[[agentic-design-patterns-appendix-a-prompting|Appendix A of *Agentic Design Patterns*]] reframes prompting as **a disciplined engineering practice rather than a simple act of asking questions**, and supplies the wiki's most comprehensive *single-source catalog* of named prompting techniques. Its five **core principles** echo the wiki's existing best-practices but add the explicit *"instructions over constraints"* maxim:
+
+1. **Clarity & specificity** — unambiguous, precise task/format/limit definitions.
+2. **Conciseness** — direct phrasing and **action verbs** (Act, Analyze, Classify, Extract, Summarize, Translate…).
+3. **Using verbs** — *"Summarize the following text"* beats *"Think about summarizing this"*.
+4. **Instructions over constraints** — tell the model **what to do**, not what to avoid; positive instructions reduce confusion (negative examples are an exception, used carefully).
+5. **Experimentation & iteration** — draft → test → analyze → refine, documenting attempts (the discipline the wiki tracks as [[PromptIteration]]).
+
+The appendix then organizes techniques into four buckets, each mapped to existing wiki pages: **basic/example-based** ([[ZeroShotLearning|zero]]/[[OneShotPrompting|one]]/[[FewShotLearning|few/many-shot]]), **structural** ([[SystemPrompt|system]]/[[RolePrompting|role]] prompting, delimiters, [[ContextEngineering|context engineering]], [[StructuredOutputs|structured output]] + [[Pydantic]]), **reasoning** ([[ChainOfThought|CoT]], [[SelfConsistency|self-consistency]], [[StepBackPrompting|step-back]], [[TreeOfThoughts|ToT]]), and **action/interaction** ([[ToolUse|tool use]]/[[FunctionCalling|function calling]], [[react|ReAct]]). Advanced/supplementary methods include [[AutomaticPromptEngineering|APE]]/DSPy, negative examples, analogies, factored cognition ([[PromptChaining|decomposition]]), [[rag|RAG]], the **Persona Pattern** (describe the *audience*), **Google Gems**, **meta-prompting** (use an LLM to critique your prompt), code prompting, and multimodal prompting. The appendix's thesis: *"Mastering this full spectrum of prompting is the definitive skill that elevates a generalist language model … into a truly sophisticated agent."* This appendix is the prompt-level companion to the [[ReasoningTechniques|Reasoning Techniques]] chapter (Ch 17) and is framed inside the broader discipline of [[ContextEngineering|Context Engineering]].
 
 ### The Lego-block iterative workflow
 

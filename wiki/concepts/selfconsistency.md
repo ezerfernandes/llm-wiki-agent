@@ -2,8 +2,8 @@
 title: "Self-Consistency"
 type: concept
 tags: [ml-method, reasoning, inference, test-time-scaling]
-sources: [2605.08083-autotts, 2025-bionlp-archehr-qa-neural, ai-engineering-ch02-foundation-models, hands-on-llm-ch06-prompt-engineering]
-last_updated: 2026-05-23
+sources: [2605.08083-autotts, 2025-bionlp-archehr-qa-neural, ai-engineering-ch02-foundation-models, hands-on-llm-ch06-prompt-engineering, agentic-design-patterns-ch17-reasoning, agentic-design-patterns-appendix-a-prompting]
+last_updated: 2026-06-07
 ---
 
 # Self-Consistency
@@ -56,3 +56,10 @@ The pattern: sample $N$ reasoning chains with stochastic decoding (varied [[Temp
 > *"It does require a single question to be asked multiple times. As a result, although the method can improve performance, it becomes n times slower where n is the number of output samples."* — Ch 6
 
 Ch 6's framing is **the practitioner cost axis** — Huyen Ch 2's framing is the **test-time-compute taxonomy axis**. Both are consistent extensions of [[selfconsistency]]; the cost framing is the one most directly visible to engineers integrating the technique.
+
+## In Agentic Design Patterns (Gulli, Ch 17)
+
+[[agentic-design-patterns-ch17-reasoning|Chapter 17 (Reasoning Techniques)]] names self-consistency as a canonical way to spend inference compute under the [[ScalingInferenceLaw|Scaling Inference Law]]: *"instructing the model to generate multiple potential answers — perhaps through techniques like diverse beam search or self-consistency methods — and then employing a selection mechanism to identify the most optimal output."* It is cited there as the mechanism by which a smaller model with a larger "thinking budget" can match or beat a larger model — the multi-candidate-generation half of the chapter's [[TestTimeCompute|test-time-compute]] argument.
+
+### Appendix A: the three-step recipe
+The book's [[agentic-design-patterns-appendix-a-prompting|Appendix A]] gives the technique as a crisp three-step procedure building on [[chainofthought|CoT]]: (1) **generate diverse reasoning paths** — send the same (often CoT) prompt to the LLM multiple times at a **higher [[Temperature|temperature]]** to encourage varied approaches; (2) **extract the answer** from each path; (3) **choose the most common answer** by majority vote. The benefit is a pseudo-probability likelihood that the answer is correct (higher accuracy on tasks with multiple valid reasoning paths); the cost is running the model multiple times per query. Appendix A's worked example ("Is 'All birds can fly' true or false?") shows three high-temperature runs voting **True** 2-of-3, while noting a more sophisticated approach would *weigh the reasoning quality*, not just count answers.

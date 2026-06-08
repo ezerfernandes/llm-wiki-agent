@@ -2,8 +2,8 @@
 title: "Model Ensemble"
 type: concept
 tags: [ml-engineering, inference, model-composition]
-sources: [ai-engineering-ch07-finetuning]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch07-finetuning, mlsysbook-ch03-ml-workflow]
+last_updated: 2026-06-05
 ---
 
 # Model Ensemble
@@ -46,4 +46,5 @@ Ch 7's observation: ensembles used to dominate ML competition leaderboards (Kagg
 - [[bestofn]] — a specific form of ensembling (best-of-N sampling).
 - [[MixtureOfExperts]] — sparse ensembling baked into one model.
 - [[MixtureOfAgents]] — a multi-model version somewhere between ensembling and merging.
-- [[ai-engineering-ch07-finetuning]] — primary source.
+- [[EnsembleLearning]] — the bagging/boosting/stacking framing; [[mlsysbook-ch03-ml-workflow|Ch 3]] foregrounds the accuracy-vs-deployment trade-off (competition winners ensemble 10–50 models; the Netflix Prize 800+-model ensemble was never deployed).
+- [[ai-engineering-ch07-finetuning]] / [[mlsysbook-ch03-ml-workflow]] — sources.

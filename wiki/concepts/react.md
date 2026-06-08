@@ -2,8 +2,8 @@
 title: "ReAct"
 type: concept
 tags: [ml-method, prompting, agent, tool-use]
-sources: [dspy-modules, dspy-programming-overview, dspy-tools, dspy-customer-service-agent, dspy-tutorial-rag-as-agent, dspy-yahoo-finance-react-tutorial, dspy-mem0-react-tutorial, ai-engineering-ch06-rag-agents, hands-on-llm-ch07-advanced-text-generation, dspy-tool-use-tutorial]
-last_updated: 2026-05-24
+sources: [dspy-modules, dspy-programming-overview, dspy-tools, dspy-customer-service-agent, dspy-tutorial-rag-as-agent, dspy-yahoo-finance-react-tutorial, dspy-mem0-react-tutorial, ai-engineering-ch06-rag-agents, hands-on-llm-ch07-advanced-text-generation, dspy-tool-use-tutorial, agentic-design-patterns-ch06-planning, agentic-design-patterns-ch17-reasoning, agentic-design-patterns-appendix-a-prompting]
+last_updated: 2026-06-07
 ---
 
 # ReAct
@@ -182,3 +182,16 @@ Tools: a [[DuckDuckGoSearchResults|DuckDuckGo search]] wrapper + [[LLMMathTool|l
 | **[[LangChain]]** | `create_react_agent(llm, tools, prompt) + AgentExecutor` | `verbose=True` prints inline | Free-form text |
 
 Same underlying Yao et al. 2022 scaffold; different ergonomics. The wiki now has both. See [[LangChainAgent]] for the LangChain-side receipt details and [[ShunyuYao]] for the paper author.
+
+## Planning vs ReAct (Agentic Design Patterns, Ch 6)
+
+[[agentic-design-patterns-ch06-planning|Chapter 6 of *Agentic Design Patterns*]] (Gulli) distinguishes the [[Planning]] pattern from the per-step think-act-observe loop ReAct embodies. ReAct decomposes *implicitly and step-by-step* (each Thought re-decides the next action given the last Observation); explicit Planning generates a coherent multi-step plan *up front* — decomposing the goal into sub-goals (see [[TaskDecomposition]]) — and may revise it via dynamic re-planning. The two compose: the chapter's [[DeepResearch|Deep Research]] exemplar is described in its Key Takeaways as a system that "reflects, plans, and executes," i.e. an explicit-planning layer wrapping a ReAct-style search-and-analyze loop, with [[Reflection]] driving knowledge-gap detection between iterations. The chapter's decision rule for when to add an explicit planner over a bare reactive ReAct agent: *"does the 'how' need to be discovered, or is it already known?"* — if known, a fixed workflow beats a planning agent.
+
+## ReAct in the Reasoning Techniques chapter (Gulli, Ch 17)
+
+[[agentic-design-patterns-ch17-reasoning|Chapter 17 of *Agentic Design Patterns*]] makes ReAct the **pivotal technique** of the [[ReasoningTechniques|Reasoning Techniques]] pattern — *"the pivotal leap to fully agentic systems… which empowers an agent to move beyond thinking and start acting by using external tools."* Gulli's framing of the loop is the canonical Thought → Action → Observation cycle (Fig. 3 shows ReAct querying a Public KB and Private KB), where the agent *"reasons about which actions to take… then acts by executing a tool or function call,"* and each observation feeds the next thought. Two chapter-specific points worth recording:
+
+- **The interleaving frequency is tunable per task.** *"For knowledge-intensive reasoning tasks like fact-checking, thoughts are typically interleaved with every action… for decision-making tasks that require many actions, such as navigating a simulated environment, thoughts may be used more sparingly, allowing the agent to decide when thinking is necessary."* — i.e. the thought/action ratio is a design dial, not a fixed structure.
+- **ReAct as the *core operational loop* of agents.** The chapter's Key Takeaways state ReAct *"provides agents with their core operational loop,"* establishing the thought-action-observation cycle as the foundation that the [[ScalingInferenceLaw|Scaling Inference Law]] (more thinking time) and multi-agent [[ChainOfDebates|debate]] frameworks build on top of. The chapter pairs ReAct with [[DeepResearch|Deep Research]] as the production-scale realization of this loop.
+
+The book's [[agentic-design-patterns-appendix-a-prompting|Appendix A]] reprises ReAct at the prompt level as an "Action and Interaction Technique" — *"combines Chain of Thought-style reasoning with the ability to perform actions using tools in an interleaved manner"* — with the canonical four-step loop (Thought → Action → Observation → repeat until Final Answer) and an illustrative trace (*"What is the capital of France and its current population?"* → two `Search(...)` actions → Final Answer).

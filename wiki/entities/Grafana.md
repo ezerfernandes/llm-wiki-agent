@@ -2,8 +2,8 @@
 title: "Grafana"
 type: entity
 tags: [tool, dashboarding, observability]
-sources: [madewithml-mlops-monitoring, madewithml-mlops-jobs-and-services]
-last_updated: 2026-05-15
+sources: [madewithml-mlops-monitoring, madewithml-mlops-jobs-and-services, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 # Grafana

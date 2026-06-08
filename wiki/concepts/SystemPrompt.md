@@ -2,8 +2,8 @@
 title: "System Prompt"
 type: concept
 tags: [prompt-engineering, llm, prompt-structure, safety]
-sources: [ai-engineering-ch05-prompt-engineering]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch05-prompt-engineering, agentic-design-patterns-appendix-a-prompting]
+last_updated: 2026-06-07
 ---
 
 # System Prompt
@@ -60,4 +60,13 @@ System prompts are a **prompt-attack target** (see [[PromptExtraction|prompt ext
 - [[InstructionHierarchy]] — the training scheme that makes system prompts mechanically privileged.
 - [[PromptEngineering]] — parent discipline.
 - [[PromptExtraction]] / [[ReversePromptEngineering]] — adversarial extraction.
-- [[Persona]] — what the system prompt most often encodes.
+- [[Persona]] / [[RolePrompting]] — what the system prompt most often encodes.
+- [[agentic-design-patterns-appendix-a-prompting]] — Gulli's Appendix A treatment of system prompting.
+
+## From [[agentic-design-patterns-appendix-a-prompting|Agentic Design Patterns Appendix A]]
+
+[[AntonioGulli|Gulli]]'s Appendix A frames system prompting as *"setting the overall context and purpose for a language model, defining its intended behavior for an interaction or session"* — establishing rules, a persona, or overall behavior that influences tone, style, and approach throughout the interaction, distinct from specific user queries. It highlights two roles the wiki's Ch-5 framing touches only briefly:
+- **Safety and toxicity control** — system prompts commonly carry guidelines such as maintaining respectful language (*"You are a helpful and harmless AI assistant … Do not generate content that is harmful, biased, or inappropriate"*).
+- **Automatic optimization** — system prompts can themselves be refined via LLM-based iterative optimization, e.g. the [[GoogleCloudVertexAI|Vertex AI Prompt Optimizer]], which improves prompts against user-defined metrics and target data (see [[AutomaticPromptEngineering]]).
+
+Appendix A pairs system prompting with [[RolePrompting|role prompting]] (assign a persona to the model), [[ContextEngineering|contextual prompting]] (dynamic background), and **delimiters** (triple backticks, XML tags like `<instruction>`/`<context>`, or `---` markers) to separate instructions, context, examples, and input so the model parses each part's role unambiguously.

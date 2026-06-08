@@ -2,8 +2,8 @@
 title: "Data Annotation"
 type: concept
 tags: [dataset-engineering, labeling, supervised-learning]
-sources: [ai-engineering-ch08-dataset-engineering]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch08-dataset-engineering, mlsysbook-ch04-data-engineering]
+last_updated: 2026-06-05
 ---
 
 # Data Annotation
@@ -61,8 +61,9 @@ InstructGPT's annotation:
 ## Connections
 
 - [[AnnotationGuidelines]] — the rubric that drives annotation quality.
+- [[DataLabeling]] — the systems-engineering treatment ([[mlsysbook-ch04-data-engineering|mlsysbook Ch 4]]: label types, consensus via [[CohensKappa|Cohen's]]/Fleiss' κ, tiered escalation, [[AIAssistedLabeling|AI-assisted labeling]]).
 - [[DemonstrationData]] — (prompt, response) pairs for SFT.
 - [[ComparisonData]] — (prompt, winner, loser) preference data.
 - [[LLMAsAJudge]] — AI-powered annotation.
 - [[DataAcquisition]] — annotation as one of four channels.
-- [[ai-engineering-ch08-dataset-engineering]] — primary source.
+- [[ai-engineering-ch08-dataset-engineering]] / [[mlsysbook-ch04-data-engineering]] — sources.

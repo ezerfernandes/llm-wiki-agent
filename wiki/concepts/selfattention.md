@@ -2,8 +2,8 @@
 title: "Self-Attention"
 type: concept
 tags: [attention, mechanism]
-sources: [1706.03762-attention-is-all-you-need, d2l-attention-and-transformers, hands-on-llm-ch01-introduction-to-llms, hands-on-llm-ch03-looking-inside-llms]
-last_updated: 2026-05-23
+sources: [1706.03762-attention-is-all-you-need, d2l-attention-and-transformers, hands-on-llm-ch01-introduction-to-llms, hands-on-llm-ch03-looking-inside-llms, mlsysbook-ch06-network-architectures]
+last_updated: 2026-06-05
 ---
 
 # Self-Attention
@@ -43,6 +43,7 @@ A side benefit emphasized by the appendix of [[1706.03762-attention-is-all-you-n
 - [[Transformer]]
 - [[MultiHeadAttention]]
 - [[ScaledDotProductAttention]]
+- [[mlsysbook-ch06-network-architectures]] — systems view: self-attention derives Q/K/V from the *same* input ($3 d_{\text{model}}^2$ params/layer), enabling full parallelism during training but creating the $\mathcal{O}(S^2)$ "quadratic wall" and, at inference, the [[KVCache|KV cache]] that stores prior K/V vectors to avoid recomputation.
 
 ## From [[hands-on-llm-ch01-introduction-to-llms|*Hands-On LLMs* Ch 1]]
 

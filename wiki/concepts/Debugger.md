@@ -2,8 +2,8 @@
 title: "Debugger"
 type: concept
 tags: [debugging, tooling, c-language, systems-programming, process-control]
-sources: [dis-3-1-gdb]
-last_updated: 2026-05-17
+sources: [dis-3-1-gdb, fuzzingbook-16-reducer]
+last_updated: 2026-06-06
 ---
 
 # Debugger
@@ -40,8 +40,12 @@ A debugger is not magic — it requires OS cooperation. The Unix mechanism (name
 - **GUI wrapper** — front-end on top of a CLI debugger; [[DataDisplayDebugger|DDD]] wraps GDB.
 - **Remote debugger** — debuggee runs on a different machine; debugger speaks a wire protocol. GDB's **Remote Serial Protocol** is the embedded-systems case ([[rust-embedded-book-intro-tooling|Embedded Rust I.4]] uses GDB + [[OpenOCD]] / [[ProbeRs]] to debug ARM Cortex-M targets).
 
+## From The Fuzzing Book — Reducing Failure-Inducing Inputs
+[[fuzzingbook-16-reducer|Ch 16]] addresses debugging from the *input* side rather than the *execution-control* side this page describes. Before a programmer ever opens a debugger, a large failure-inducing input (typically from a fuzzer) should be reduced to its essential core — [[InputReduction|input reduction]] via [[DeltaDebugging|delta debugging]] ([[DDMin|`ddmin`]]) or [[GrammarReducer|grammar-based reduction]]. A [[OneMinimality|1-minimal]] reproducer shrinks the search space, shortens executions, simplifies program state, and de-duplicates reports — making the subsequent debugger session (breakpoints, single-stepping, `backtrace`) far more tractable. Reduction is a complementary, *pre-debugger* technique to the interactive process control of [[GDB]].
+
 ## Connections
 
+- [[InputReduction]] / [[DeltaDebugging]] / [[GrammarReducer]] — automatic input minimization that precedes and eases interactive debugging.
 - [[dis-3-1-gdb]] — introducing source.
 - [[GDB]] — the canonical C debugger this concept abstracts.
 - [[Breakpoint]] / [[StepDebug]] / [[GdbBacktrace]] / [[GdbPrint]] — the operations a debugger provides.

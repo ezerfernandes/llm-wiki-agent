@@ -2,8 +2,8 @@
 title: "Tensor Core"
 type: concept
 tags: [hardware, gpu, nvidia, deep-learning]
-sources: [d2l-computational-performance]
-last_updated: 2026-05-16
+sources: [d2l-computational-performance, mlsysbook-ch08-model-training, mlsysbook-ch11-hardware-acceleration]
+last_updated: 2026-06-05
 ---
 
 # Tensor Core
@@ -34,8 +34,15 @@ Standard CUDA cores compute one FP scalar op per cycle. A vector unit (SIMD) doe
 
 Going from 8-bit to 16-bit data types **increases silicon by ~4×** (multiplier circuit area scales quadratically) — which is why NVIDIA exposed INT4 on Turing and FP4 on Blackwell: trade precision for throughput.
 
+## The alignment catch ([[mlsysbook-ch08-model-training|mlsysbook Ch 8]])
+
+Ch 8 stresses that the FP16/BF16 speedup is a *hardware upper bound, not an end-to-end promise*: each Tensor Core does a 4×4 FP16 multiply-accumulate per cycle **into an FP32 accumulator** (preventing catastrophic cancellation), at ~16× A100 FP32 peak — but **input matrices must align to multiples of 8/16** or most of the advantage is silently forfeited (compounding the [[WaveQuantization|wave-quantization]] tax). Realized training speedup is ~2–2.5× (V100) once data movement, non-Tensor-Core kernels, communication, and optimizer work are counted. [[FP8]] (Hopper) doubles throughput again.
+
 ## See also
 - [[GPU]] / [[NVIDIA]] / [[CUDA]] — the substrate.
 - [[Vectorization]] — the SIMD predecessor of matrix units.
 - [[HBM]] — feeds the tensor cores.
+- [[mlsysbook-ch08-model-training]] — FP32-accumulator MAC, the 8/16 alignment requirement, peak-vs-realized speedup.
+- [[MixedPrecisionTraining]] / [[WaveQuantization]] — what Tensor Cores enable and the alignment tax they share.
+- [[mlsysbook-ch11-hardware-acceleration]] — frames the Tensor Core as a "brittle contract" (FP32 fallback at 1/16th throughput if precision/tile-shape is wrong), the matrix [[ComputePrimitives|compute primitive]] (~256 MACs per 16×16-tile instruction, ~512× scalar on a 2048-token QK^T), the sparse 2:4 variant, and [[HardwareSoftwareCodesign|co-design]] (Tensor Cores were extended FP16 → TF32/INT8 → 2:4 as ML workloads demanded).
 - [[d2l-computational-performance]] §`hardware`.

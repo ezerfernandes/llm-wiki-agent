@@ -2,8 +2,8 @@
 title: "Momentum"
 type: concept
 tags: [optimization, deep-learning, foundational]
-sources: [mml-book, d2l-optimization]
-last_updated: 2026-05-16
+sources: [mml-ch07-continuous-optimization, mml-book, d2l-optimization]
+last_updated: 2026-06-05
 ---
 
 # Momentum
@@ -59,9 +59,18 @@ The wider stable range explains why **large $\beta$ is desirable**: it tolerates
 - **[[Adam]]**: $\mathbf{v}_t$ *is* the first-moment Adam state; $\beta_1 = 0.9$ is the standard momentum.
 - **[[RMSProp]] (no momentum) vs Adam (= RMSProp + momentum)**: Adam's first-moment term is essentially classical momentum on top of RMSProp's second-moment scaling.
 
+## From [[mml-ch07-continuous-optimization|MML Ch 7]]
+
+§7.1.2 (pp. 230–231) is the classical treatment. MML attributes momentum to **Rumelhart et al. (1986)** and motivates it precisely as a fix for the zigzag of Fig. 7.3 (poorly scaled curvature / [[ConditionNumber|ill-conditioning]]): the memory term "emulates the phenomenon of a heavy ball that is reluctant to change directions," implementing a moving average that dampens oscillation. MML's update form (note the row-vector-gradient transpose):
+
+$$\mathbf{x}_{i+1}=\mathbf{x}_i-\gamma_i\big((\nabla f)(\mathbf{x}_i)\big)^\top+\alpha\,\Delta\mathbf{x}_i,\qquad \Delta\mathbf{x}_i=\mathbf{x}_i-\mathbf{x}_{i-1}=\alpha\,\Delta\mathbf{x}_{i-1}-\gamma_{i-1}\big((\nabla f)(\mathbf{x}_{i-1})\big)^\top,$$
+
+with $\alpha\in[0,1]$ (Eqs. 7.11–7.12). Crucially MML also frames momentum as a **noise-averager**: "Sometimes we will only know the gradient approximately. In such cases, the momentum term is useful since it averages out different noisy estimates of the gradient" — the conceptual bridge into [[StochasticGradientDescent|SGD]] (§7.1.3). (Symbol map: MML's $\alpha$ = the D2L/PyTorch $\beta$; MML's $\gamma$ = the [[LearningRate]] $\eta$.)
+
 ## Connections
 
-- [[mml-book]] — §7.1.2 (classical treatment).
+- [[mml-ch07-continuous-optimization]] — §7.1.2 canonical deep dive.
+- [[mml-book]] — umbrella source.
 - [[d2l-optimization]] — §momentum (DL-pragmatic treatment with eigendecomposition analysis).
 - [[BorisPolyak]] / [[YuriiNesterov]] — foundational authors.
 - [[GradientDescent]] — parent algorithm.

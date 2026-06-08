@@ -2,8 +2,8 @@
 title: "EM Algorithm"
 type: concept
 tags: [optimization, density-estimation, foundational]
-sources: [mml-book]
-last_updated: 2026-05-16
+sources: [mml-ch11-density-estimation-gmm, mml-book]
+last_updated: 2026-06-05
 ---
 
 # Expectation-Maximization (EM) Algorithm
@@ -37,10 +37,18 @@ EM is general: it works for any latent-variable model where the *complete-data* 
 - **Factor analysis** / **PPCA**: EM derivation in [[mml-book]] §10.7.
 - **Mixture-of-experts** training in modern ML.
 
+## From [[mml-ch11-density-estimation-gmm|MML Ch 11]]
+
+[[mml-ch11-density-estimation-gmm|MML §11.3]] introduces EM (Dempster et al. 1977) as "a general iterative scheme for learning parameters (maximum likelihood or MAP) in mixture models and, more generally, latent-variable models." The concrete GMM instantiation (p. 361): **(1)** initialize $\boldsymbol\mu_k,\boldsymbol\Sigma_k,\pi_k$; **(2) E-step** — evaluate $r_{nk}$ (Eq. 11.53); **(3) M-step** — re-estimate $\boldsymbol\mu_k,\boldsymbol\Sigma_k,\pi_k$ (Eqs. 11.54–11.56), where the **newly updated means (11.54) feed the covariance update (11.55)** (margin note, p. 361). "Every step in the EM algorithm increases the log-likelihood function (Neal and Hinton, 1999)" (p. 361) — but only to a **local** maximum, so multiple random initializations are used to avoid bad optima (§11.4.5, p. 367). On the running example EM converges in **5 iterations** (Eq. 11.57); on the Fig. 11.1 2-D data, **62 iterations** (Figs. 11.8–11.10), the negative log-likelihood dropping monotonically.
+
+§11.4.5 gives the **principled, latent-variable derivation**: the E-step forms the **expected complete-data log-likelihood** $Q(\boldsymbol\theta\mid\boldsymbol\theta^{(t)})=\mathbb E_{\mathbf z\mid\mathbf x,\boldsymbol\theta^{(t)}}[\log p(\mathbf x,\mathbf z\mid\boldsymbol\theta)]$ (Eqs. 11.73a–b) — the expectation taken under the latent posterior at the current parameters — and the M-step maximizes $Q$ over $\boldsymbol\theta$ to get $\boldsymbol\theta^{(t+1)}$. (Note: the chapter proves the monotone-increase claim via the $Q$-function and cites Neal & Hinton 1999; it does **not** itself derive the ELBO/free-energy lower bound, though that is the standard general justification — Bishop 2006.)
+
 ## Connections
 
+- [[mml-ch11-density-estimation-gmm]] — §11.3 / §11.4.5 per-chapter deep dive.
 - [[mml-book]] — Ch 11 canonical reference.
 - [[GaussianMixtureModel]] — most-cited application.
-- [[Responsibility]] — soft assignment quantity.
+- [[Responsibility]] — soft assignment quantity (the E-step output).
+- [[LatentVariable]] — EM's general setting (§11.4.5).
 - [[MaximumLikelihoodEstimation]] — what EM approximates.
 - [[VariationalInference]] — generalizes the EM lower-bound argument.

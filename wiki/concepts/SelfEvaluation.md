@@ -1,9 +1,9 @@
 ---
 title: "Self-Evaluation"
 type: concept
-tags: [evaluation, llm, self-critique]
-sources: [ai-engineering-ch03-evaluation-methodology]
-last_updated: 2024-12-04
+tags: [evaluation, llm, self-critique, reflection, agentic-design-patterns]
+sources: [ai-engineering-ch03-evaluation-methodology, agentic-design-patterns-ch04-reflection]
+last_updated: 2026-06-07
 ---
 
 # Self-Evaluation
@@ -47,3 +47,8 @@ Self-evaluation is a form of [[TestTimeCompute|test-time compute]]: spend additi
 - [[LLMAsAJudge]] — broader paradigm.
 - [[TestTimeCompute]] / [[bestofn]] / [[selfconsistency]] — sibling inference-time strategies.
 - [[Verifier]] — external-grader alternative.
+- [[Reflection]] — the agentic-pattern generalization (Gulli Ch 4) that wraps self-evaluation in a generate→critique→refine loop.
+
+## Agentic Design Patterns (Gulli) perspective
+
+In [[agentic-design-patterns-ch04-reflection|Ch 4 of *Agentic Design Patterns*]], self-evaluation is the **Evaluation/Critique** step of the [[Reflection]] loop. Gulli's recommended implementation answers the self-bias concern raised above structurally: instead of having the producing model evaluate itself, a separate **Critic** agent (an [[LLMAsAJudge|LLM-as-judge]] with a distinct evaluator persona, e.g. "a meticulous fact-checker") performs the evaluation against explicit criteria and returns **structured feedback** (e.g. ADK's `{status: "ACCURATE"|"INACCURATE", reasoning}` dict). This trades the cheap-but-biased single-model self-eval for a more robust two-role evaluation — at the cost of an extra LLM call per iteration.

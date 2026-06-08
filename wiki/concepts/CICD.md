@@ -2,8 +2,8 @@
 title: "CI/CD"
 type: concept
 tags: [devops, mlops, software-engineering]
-sources: []
-last_updated: 2026-05-15
+sources: [mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 # CI/CD

@@ -2,8 +2,8 @@
 title: "Yann LeCun"
 type: entity
 tags: [person, researcher, cnn, deep-learning]
-sources: [d2l-convolutional-neural-networks, ai-engineering-ch06-rag-agents]
-last_updated: 2024-12-04
+sources: [d2l-convolutional-neural-networks, ai-engineering-ch06-rag-agents, mlsysbook-ch05-neural-computation]
+last_updated: 2026-06-05
 ---
 
 # Yann LeCun
@@ -31,6 +31,7 @@ French-American computer scientist; chief AI scientist at Meta (formerly Faceboo
 - [[LeonBottou]] — long-running collaborator; co-author on the deployed LeNet code.
 - [[MNIST]] — the dataset LeCun curated and on which LeNet established CNN credibility.
 - [[madewithml-foundations-cnn]] — Mohandas' applied take; LeCun's foundational work is the historical anchor.
+- [[USPSDigitRecognition]] / [[mlsysbook-ch05-neural-computation]] — Reddi's Ch 5 case study credits LeCun et al. (1989, 1998) with the USPS ZIP-code recognizer (1% error, ~10K params, Sun-4/260), and names LeCun (with [[YoshuaBengio|Bengio]]/[[GeoffreyHinton|Hinton]]) as the 2018 Turing trio whose contributions shaped the three dominant accelerator workloads (convolution, attention, gradient computation).
 
 ## From [[ai-engineering-ch06-rag-agents|AI Engineering Ch 6]]
 

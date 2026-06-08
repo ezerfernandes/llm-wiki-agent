@@ -1,9 +1,9 @@
 ---
 title: "Exponential Backoff"
 type: concept
-tags: [api, retry, rate-limit, distributed-systems]
-sources: [hands-on-llm-ch04-text-classification]
-last_updated: 2026-05-23
+tags: [api, retry, rate-limit, distributed-systems, agentic-design-patterns]
+sources: [hands-on-llm-ch04-text-classification, agentic-design-patterns-ch12-exception-handling]
+last_updated: 2026-06-07
 ---
 
 # Exponential Backoff
@@ -36,8 +36,13 @@ def call_with_backoff(fn, max_retries=5, base=1.0, max_delay=60.0):
 
 The **random jitter** (the `+ random.random()`) prevents synchronized retries from a fleet of clients ("thundering herd").
 
+## Agentic Design Patterns (Gulli) perspective
+
+[[agentic-design-patterns-ch12-exception-handling|Ch 12 of *Agentic Design Patterns*]] makes **retries** one of the five error-handling strategies of the [[ExceptionHandlingAndRecovery|Exception Handling and Recovery]] pattern — *"retrying the action or request, sometimes with slightly adjusted parameters, especially for transient errors."* Exponential backoff (with jitter) is the standard robust implementation of that strategy for an agent's fallible [[ToolUse|tool]]/API calls. The chapter also warns of the anti-pattern: a trading agent must *not* blindly retry a non-transient failure (an "insufficient funds" / "market closed" error) — retries are for **transient** faults, paired with [[Idempotency]] so a retried side-effect can't double-apply.
+
 ## Connections
 
+- [[ExceptionHandlingAndRecovery]] — the agentic pattern whose "retries for transient errors" strategy this implements.
 - [[GenerativeClassification]] — the Ch 4 setting where this matters.
 - [[openai]] — the API provider whose rate limits Ch 4 addresses.
 - [[ChatGPT]] — the model behind the rate limits in Ch 4.

@@ -1,9 +1,9 @@
 ---
 title: "Dynamic Batching"
 type: concept
-tags: [inference, serving, batching, latency]
-sources: [ai-engineering-ch09-inference-optimization]
-last_updated: 2024-12-04
+tags: [inference, serving, batching, latency, mlsysbook]
+sources: [ai-engineering-ch09-inference-optimization, mlsysbook-ch13-model-serving]
+last_updated: 2026-06-05
 ---
 
 # Dynamic Batching
@@ -38,3 +38,7 @@ For LLM autoregressive workloads in 2024, [[ContinuousBatching|continuous batchi
 - [[Goodput]] — the optimization target.
 - [[InferenceOptimization]] — broader discipline.
 - [[ai-engineering-ch09-inference-optimization]] — primary source.
+
+## From [[mlsysbook-ch13-model-serving|mlsysbook Ch 13]]
+
+Ch 13 quantifies the **latency-throughput Pareto frontier** and the **"batching tax."** Total batched latency ≈ formation delay $(B-1)/(2\lambda)$ + inference $T_{\text{inf}}(B)$; average batching-window wait = window/2. ResNet-50/V100 sweep: batch-1 = 200 img/s @ 15% util; batch-32 = 1,280 img/s @ 95% util (**6.4× throughput**) but inference stretches 5 ms→25 ms — the "knee" past which throughput saturates while latency spikes. Batch sizes follow a Poisson distribution (mean λ·window), so p99 latency exceeds the mean. Counterintuitively, **as traffic rises the optimal window shrinks while batch size grows** (law of large numbers). Typical config: 5–50 ms windows, max batch 8–32; allocate ~30% of the SLO to batching wait. The scheduler is the [[InferenceServer|inference server]]'s "brain" tuning this. See also [[QueuingTheory]], [[LatencyBudget]], [[mlsysbook-ch13-model-serving]].

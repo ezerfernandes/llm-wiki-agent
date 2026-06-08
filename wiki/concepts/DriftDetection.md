@@ -2,8 +2,8 @@
 title: "Drift Detection"
 type: concept
 tags: [observability, monitoring, drift, llm-app]
-sources: [ai-engineering-ch10-architecture-feedback]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch10-architecture-feedback, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 # Drift Detection
@@ -50,3 +50,5 @@ A classical web app's behavior is fixed by its code. An AI app's behavior is a p
 - [[observability]] / [[Monitoring]] — parent disciplines.
 - [[MTTD]] — drift detection lowers MTTD on this class of failure.
 - [[Evaluation]] — held-out eval-on-prod-traffic is the defensive pattern.
+- [[mlsysbook-ch14-ml-operations]] — mlsysbook Vol 1 Ch 14 frames drift detection delay as physically bounded by traffic (≈17 min at 1 QPS vs ≈10 days at 100 req/day for a 5pp drop) and PSI/KL as earlier-than-accuracy signals.
+

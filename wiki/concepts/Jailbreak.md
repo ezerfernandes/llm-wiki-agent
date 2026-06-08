@@ -2,8 +2,8 @@
 title: "Jailbreak"
 type: concept
 tags: [llm-security, adversarial, safety, dspy, prompt-optimization]
-sources: [dspy-guardrails, 2603.19247-prompt-optimization-jailbreaking, ai-engineering-ch05-prompt-engineering]
-last_updated: 2024-12-04
+sources: [dspy-guardrails, 2603.19247-prompt-optimization-jailbreaking, ai-engineering-ch05-prompt-engineering, agentic-design-patterns-ch18-guardrails]
+last_updated: 2026-06-07
 ---
 
 # Jailbreak
@@ -71,3 +71,6 @@ This positions jailbreak research adjacent to (rather than orthogonal from) DSPy
 **The Ch 5-named load-bearing defense**: [[InstructionHierarchy|instruction-hierarchy]] post-training ([[WallaceEtAl2024]] at OpenAI). System prompt > user prompt > tool output in privilege.
 
 **The cat-and-mouse framing**: *"AI safety, like any area of cybersecurity, is an evolving cat-and-mouse game where developers continuously work to neutralize known threats while attackers devise new ones."*
+
+## From Agentic Design Patterns Ch 18 (Gulli)
+[[AntonioGulli|Gulli's]] [[AgenticDesignPatterns|*Agentic Design Patterns*]] [[agentic-design-patterns-ch18-guardrails|Ch 18 (Guardrails/Safety Patterns)]] defines a jailbreak as *"specialized prompts designed to bypass an LLM's safety features and ethical restrictions… an adversarial attack that exploits loopholes in the AI's programming to make it violate its own rules."* It treats **"Instruction Subversion (Jailbreaking)"** as the **first directive family** a [[Guardrail|guardrail]] must catch — commands like *"disregard previous rules" / "reset your memory" / "ignore previous instructions" / "forget what it knows"*, requests to divulge internal programming, and any deceptive tactic diverting the AI from its purpose. The chapter's recommended defense is a **prompt-based safety guardrail** powered by a fast/cheap LLM ([[gemini|Gemini]] Flash) acting as an "AI Content Policy Enforcer" / "AI Safety Guardrail" that pre-screens input (see [[crewai|CrewAI]] / [[GoogleADK|ADK]] worked examples on [[Guardrail]]). Consistent with Huyen Ch 5's instruction-hierarchy framing.

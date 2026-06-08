@@ -2,8 +2,8 @@
 title: "Memory Hierarchy"
 type: concept
 tags: [hardware, systems, performance, parallel-computing]
-sources: [d2l-computational-performance, parproc-appA-systems-issues, dis-11-1-memory-hierarchy]
-last_updated: 2026-05-17
+sources: [d2l-computational-performance, parproc-appA-systems-issues, dis-11-1-memory-hierarchy, mlsysbook-ch11-hardware-acceleration]
+last_updated: 2026-06-05
 ---
 
 # Memory Hierarchy

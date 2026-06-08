@@ -2,8 +2,8 @@
 title: "Sigmoid"
 type: concept
 tags: [activation-function, neural-networks]
-sources: [d2l-multilayer-perceptrons, d2l-convolutional-neural-networks]
-last_updated: 2026-05-16
+sources: [d2l-multilayer-perceptrons, d2l-convolutional-neural-networks, mlsysbook-ch05-neural-computation]
+last_updated: 2026-06-05
 ---
 
 # Sigmoid
@@ -42,3 +42,5 @@ $\tanh(x) + 1 = 2\sigma(2x)$ — tanh is a shifted/scaled sigmoid. Tanh is zero-
 - [[VanishingGradient]] — pathology sigmoid causes in deep stacks.
 - [[LogisticRegression]] — sigmoid applied to a linear model.
 - [[LSTM]] / [[GRU]] — gating still uses sigmoid.
+- [[TransistorTax]] — per [[mlsysbook-ch05-neural-computation|mlsysbook Ch 5]], sigmoid's $e^{-x}$ costs ~2,500 transistors / 20–40 cycles vs ReLU's ~50 transistors / 1 cycle (~50×); its replacement was a hardware-efficiency decision as much as a gradient one. A 20-layer sigmoid net shrinks gradients by ~0.25²⁰ ≈ 10⁻¹².
+- [[mlsysbook-ch05-neural-computation]] — systems framing of sigmoid's silicon cost.

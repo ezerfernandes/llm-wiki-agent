@@ -2,8 +2,8 @@
 title: "Apache TVM"
 type: concept
 tags: [compiler, ml, infrastructure, apache, open-source]
-sources: [ai-engineering-ch09-inference-optimization]
-last_updated: 2024-12-04
+sources: [ai-engineering-ch09-inference-optimization, mlsysbook-ch11-hardware-acceleration]
+last_updated: 2026-06-05
 ---
 
 # Apache TVM

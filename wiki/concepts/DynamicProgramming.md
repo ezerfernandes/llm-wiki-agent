@@ -2,8 +2,8 @@
 title: "Dynamic Programming"
 type: concept
 tags: [algorithm-design, optimization, reinforcement-learning]
-sources: [d2l-reinforcement-learning]
-last_updated: 2026-05-16
+sources: [d2l-reinforcement-learning, fuzzingbook-12-parser]
+last_updated: 2026-06-06
 ---
 
 # Dynamic Programming
@@ -30,10 +30,16 @@ When dynamics are unknown, **sample-based approximations** (Monte Carlo, [[Tempo
 
 Dynamic programming is also the basis of countless algorithms in CS: shortest paths (Bellman–Ford), edit distance (Levenshtein), sequence alignment (Needleman–Wunsch), HMM inference (forward–backward, Viterbi), and many more.
 
+## From The Fuzzing Book — Parsing Inputs
+[[fuzzingbook-12-parser|Ch 12]] uses dynamic programming as the engine of the [[EarleyParser|Earley parser]]: *"The parser uses dynamic programming to generate a table containing a forest of possible parses at each letter index."* This table-filling style is called [[ChartParsing|chart parsing]] — each input position gets a column of partial parses, and `predict`/`scan`/`complete` extend them without recomputing sub-parses, exactly the overlapping-subproblems principle of DP. The closely-related top-down form, [[Memoization|memoization]], makes the chapter's [[PackratParsing|packrat PEG parser]] linear-time, and a [[Fixpoint|fixpoint]] iteration computes the parser's `nullable` set.
+
 ## Connections
 
 - [[BellmanEquation]] — the recurrence that DP iterates.
 - [[ValueIteration]] / [[QLearning]] / [[TemporalDifferenceLearning]] — DP and its sample-based extensions in RL.
 - [[RichardBellman]] — formulated the principle (1950s).
 - [[MarkovDecisionProcess]] / [[reinforcementlearning]] — the formalism DP operates on.
+- [[EarleyParser]] / [[ChartParsing]] — DP-based parsing of arbitrary context-free grammars.
+- [[Memoization]] / [[Fixpoint]] — the top-down and closure-iteration cousins of tabulated DP.
 - [[d2l-reinforcement-learning]] — operationalizes DP via Value Iteration.
+- [[fuzzingbook-12-parser]] — *The Fuzzing Book* Ch 12, "Parsing Inputs" (Earley chart parsing as DP).

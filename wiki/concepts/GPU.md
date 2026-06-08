@@ -2,8 +2,8 @@
 title: "GPU"
 type: concept
 tags: [hardware, deep-learning, gpu, infrastructure]
-sources: [d2l-builders-guide, d2l-computational-performance]
-last_updated: 2026-05-16
+sources: [d2l-builders-guide, d2l-computational-performance, mlsysbook-ch11-hardware-acceleration]
+last_updated: 2026-06-05
 ---
 
 # GPU (Graphics Processing Unit)

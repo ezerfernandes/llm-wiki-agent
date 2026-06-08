@@ -2,8 +2,8 @@
 title: "Softmax"
 type: concept
 tags: [activation-function, classification, foundational]
-sources: [madewithml-baselines, d2l-linear-classification, ai-engineering-ch02-foundation-models]
-last_updated: 2024-12-04
+sources: [madewithml-baselines, d2l-linear-classification, ai-engineering-ch02-foundation-models, mlsysbook-ch05-neural-computation]
+last_updated: 2026-06-05
 ---
 
 # Softmax
@@ -40,6 +40,8 @@ Naive softmax overflows in FP32 when any logit exceeds ~90 and underflows when a
 - [[ExponentialFamily]] — softmax is the categorical-family log-partition gradient.
 - [[Attention]] / [[Transformer]] — attention weights are a softmax over scaled dot-product logits.
 - [[d2l-linear-classification]] — corpus anchor for the historical origin, derivation, and gradient.
+- [[Logits]] — softmax's input; argmax(logits) = argmax(softmax) lets inference skip softmax for top-1.
+- [[mlsysbook-ch05-neural-computation]] — frames softmax as the one *vector-level* (not element-wise) activation, with the >~88-logit FP32 overflow / NaN hazard as a common production failure.
 
 ## From [[ai-engineering-ch02-foundation-models|AI Engineering Ch 2]]
 

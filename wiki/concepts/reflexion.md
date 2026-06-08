@@ -1,9 +1,9 @@
 ---
 title: "Reflexion"
 type: concept
-tags: [concept, agents, reflection]
-sources: [2604.27707-agentic-memory-is-a-memo, ai-engineering-ch06-rag-agents]
-last_updated: 2024-12-04
+tags: [concept, agents, reflection, agentic-design-patterns]
+sources: [2604.27707-agentic-memory-is-a-memo, ai-engineering-ch06-rag-agents, agentic-design-patterns-ch04-reflection]
+last_updated: 2026-06-07
 ---
 
 # Reflexion
@@ -26,3 +26,7 @@ The structural innovation: **separating evaluation from analysis**. ReAct interl
 **Worked example from Ch 6**: For a coding task where the evaluator finds that the generated code fails 1/3 of test cases, *"the agent then reflects the reason it failed is because it didn't take into account arrays where all numbers are negative. The actor then generates new code, taking into account all-negative arrays."*
 
 **Position relative to [[ActorCriticAgent|actor-critic]]** (Ch 6 footnote): the evaluator + self-reflection split *"reminds [Huyen] of the actor-critic (AC) agent method (Konda and Tsitsiklis, 1999) in reinforcement learning."* Reflexion is the LLM-prompt-level realization of the actor-critic decomposition.
+
+## In Agentic Design Patterns (Gulli Ch 4)
+
+[[agentic-design-patterns-ch04-reflection|Ch 4 of *Agentic Design Patterns*]] presents the same evaluator/self-reflection split — separating a **Producer** from a **Critic** — as its recommended way to build the [[Reflection]] pattern, without naming "Reflexion" directly; its References list cites *Training Language Models to Self-Correct via Reinforcement Learning* (arXiv:2409.12917) as background on LLM self-correction. Reflexion's "verbal reinforcement learning" (storing verbal self-critiques in an episodic buffer with the weights unchanged) is the technique-level instance of what Gulli frames at the framework level: the Critic's natural-language feedback is appended to conversation [[MemoryManagement|memory]] and fed back to the Producer for the next refinement.

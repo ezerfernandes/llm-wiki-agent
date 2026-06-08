@@ -2,8 +2,8 @@
 title: "Symmetric Positive Definite Matrix"
 type: concept
 tags: [linear-algebra, foundational]
-sources: [mml-book]
-last_updated: 2026-05-16
+sources: [mml-ch03-analytic-geometry, mml-book]
+last_updated: 2026-06-04
 ---
 
 # Symmetric Positive Definite (SPD) Matrix
@@ -45,10 +45,18 @@ An SPD matrix defines an ellipsoid: $\{\mathbf{x}:\mathbf{x}^\top\mathbf{A}\math
 
 The Cholesky factorization $\mathbf{A}=\mathbf{L}\mathbf{L}^\top$ is the SPD analogue of "taking a square root" — only positive numbers have real square roots; only SPD matrices have real Cholesky factors. This is why we can sample multivariate Gaussians by $\boldsymbol\mu + \mathbf{L}\mathbf{z}$ where $\mathbf{z}\sim\mathcal{N}(\mathbf{0},\mathbf{I})$.
 
+## From [[mml-ch03-analytic-geometry|MML Ch 3]]
+
+§3.2.3 *defines* SPD matrices via the inner product. In coordinates w.r.t. an ordered basis $B$, every [[InnerProduct]] is $\langle\mathbf{x},\mathbf{y}\rangle=\hat{\mathbf{x}}^\top\mathbf{A}\hat{\mathbf{y}}$ with $A_{ij}=\langle\mathbf{b}_i,\mathbf{b}_j\rangle$ (Eq. 3.10); symmetry of the inner product ⇒ $\mathbf{A}=\mathbf{A}^\top$, positive definiteness ⇒ $\mathbf{x}^\top\mathbf{A}\mathbf{x}>0$ for $\mathbf{x}\neq\mathbf{0}$ (Eq. 3.11).
+
+**Definition 3.4**: a symmetric $\mathbf{A}$ with $\mathbf{x}^\top\mathbf{A}\mathbf{x}>0$ for all $\mathbf{x}\neq\mathbf{0}$ is *symmetric positive definite*; if only $\geq$, *symmetric positive semidefinite*. **Example 3.4**: $\begin{bmatrix}9&6\\6&5\end{bmatrix}$ is SPD ($\mathbf{x}^\top\mathbf{A}\mathbf{x}=(3x_1+2x_2)^2+x_2^2$), but $\begin{bmatrix}9&6\\6&3\end{bmatrix}$ is *not* ($=(3x_1+2x_2)^2-x_2^2$, e.g. negative at $[2,-3]^\top$).
+
+**Theorem 3.5** (the load-bearing result): on a real, finite-dimensional $V$ with ordered basis $B$, $\langle\cdot,\cdot\rangle$ is an inner product **iff** there exists an SPD $\mathbf{A}$ with $\langle\mathbf{x},\mathbf{y}\rangle=\hat{\mathbf{x}}^\top\mathbf{A}\hat{\mathbf{y}}$. Two corollaries the book notes (p. 74): the null space of an SPD matrix is only $\{\mathbf{0}\}$ (so $\mathbf{A}\mathbf{x}\neq\mathbf{0}$ for $\mathbf{x}\neq\mathbf{0}$), and the diagonal entries $a_{ii}=\mathbf{e}_i^\top\mathbf{A}\mathbf{e}_i>0$. SPD reappears in §4.3 (decompositions) and §12.4 (semidefinite version for kernels).
+
 ## Connections
 
-- [[mml-book]] — §3.2.3 canonical reference.
-- [[InnerProduct]] — SPD matrices encode all inner products.
+- [[mml-ch03-analytic-geometry]] / [[mml-book]] — §3.2.3 canonical reference (Def. 3.4, Thm 3.5).
+- [[InnerProduct]] / [[BilinearForm]] — SPD matrices encode all inner products (Thm 3.5).
 - [[CholeskyDecomposition]] — exists iff matrix is SPD.
 - [[DataCovarianceMatrix]] — PSD by construction.
 - [[GaussianDistribution]] — covariance must be SPD.

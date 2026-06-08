@@ -1,0 +1,1120 @@
+---
+quiz: conclusion_quizzes.json
+concepts: conclusion_concepts.yml
+engine: jupyter
+---
+
+# Conclusion {#sec-conclusion}
+
+::: {layout-narrow}
+::: {.column-margin}
+
+\chapterminitoc
+
+:::
+
+\noindent
+![](images/png/cover_conclusion.png){fig-alt="Open textbook on dark surface. Left page shows neural network diagrams and circuit patterns. Right page displays isometric hardware architecture with processor chip and connected peripherals."}
+
+:::
+
+## Purpose {.unnumbered}
+
+\begin{marginfigure}
+\mlsysstack{30}{30}{30}{30}{30}{30}{30}{30}
+\end{marginfigure}
+
+_What does mastering the full stack enable that expertise in any single layer cannot?_
+
+Data pipelines, architectures, training systems, compression techniques, accelerators, serving infrastructure, operational practices, responsible engineering: mastered individually, each is a valuable skill. Mastered together, they become something qualitatively different: the ability to reason across boundaries. An engineer who understands only compression can shrink a model, but cannot predict whether the accuracy loss matters for the deployment context. An engineer who understands only serving can optimize latency, but cannot trace a performance regression to a data pipeline change three stages upstream. The discipline of ML systems engineering is the discipline of seeing these connections: understanding that a model architecture choice determines memory requirements that constrain hardware selection, which influences quantization strategy, which affects accuracy, which feeds back to architecture design. Each layer of the stack interacts with every other, and the interactions are where the hardest problems live, not in any single component but in the spaces between them, where one team's optimization becomes another team's constraint. The principles governing these interactions, including constraint propagation, the memory wall, the training-serving inversion, and the iteration tax, are not tied to any specific framework, hardware generation, or model family. Technologies will change; the physics and the trade-offs will not. What endures is the ability to look at a system that does not yet exist and reason about how its pieces will interact, where its bottlenecks will emerge, and which design decisions will prove irreversible. That ability to think in systems rather than components is what separates an engineer who can build a part from one who can build the whole.
+
+::: {.content-visible when-format="pdf"}
+
+\newpage
+
+:::
+
+::: {.callout-learning-objectives}
+
+- Synthesize the quantitative invariants introduced across Parts I through IV into an integrated framework governed by the conservation of complexity
+- Analyze how these invariants manifest across technical foundations, performance at scale, and production reality
+- Trace how data pipelines, training, model architectures, hardware acceleration, and operations propagate constraints through integrated ML systems
+- Evaluate trade-offs between deployment contexts by applying multiple principles to assess scalability, efficiency, and reliability
+- Critique how technical choices in efficiency, security, and sustainability affect democratization, accessibility, and environmental impact
+- Formulate strategies for applying systems thinking to emerging challenges in robust AI, compound systems, and artificial general intelligence
+- Identify how single-node principles extend to fleet-scale systems where the data center becomes the computer
+
+:::
+
+## Synthesizing ML Systems {#sec--synthesizing-ml-systems-ee10}
+
+Imagine deploying a new image classification model to a fleet of mobile devices. The architecture team chose depthwise separable convolutions for efficiency. The compression team quantized to INT8 for speed. The serving team hit a P99 latency target of 50 ms. Every team succeeded by its own metric—yet within weeks, user complaints arrive: accuracy has dropped by 4 percentage points on certain device populations. The cause was a subtle interaction between the quantization scheme and a firmware-specific image preprocessing path that no single team could have predicted. The data pipeline, the architecture, the compression strategy, the hardware target, and the monitoring infrastructure all interacted in ways that only a systems-level perspective could diagnose.
+
+The mobile deployment failure illustrates the central lesson of every chapter in this book. The introduction (@sec-introduction) framed the problem: building machine learning systems requires engineering principles fundamentally different from those governing traditional software. Every subsequent chapter supplied part of the answer, and the full answer runs deeper than any single component could reveal.
+
+\index{Iron Law of ML Systems!synthesis}
+\index{Silicon Contract!constraint propagation}
+The book began with a mathematical formula: the iron law of ML systems (Principle \ref{pri-iron-law}) (@sec-introduction-iron-law-ml-systems-c32a). Its terms---data movement, compute, and overhead---once seemed abstract. Now they serve as primary engineering levers for quantitative analysis of systems that once seemed opaque. Building intelligence requires more than writing algorithms: it requires honoring the silicon contract (Principle \ref{pri-silicon-contract}), the physical and economic agreement between the model and the machine. @Sec-hardware-acceleration equipped us to calculate arithmetic intensity and identify whether workloads are memory bound or compute bound, converting vague performance intuitions into quantitative engineering decisions.
+
+\index{Transformer!systems integration}
+The quantitative foundation leads to a broader point: contemporary artificial intelligence[^fn-ai-systems-view] achievements are the product of careful integration across interacting components, not any single algorithmic insight. Machine learning belongs to the same engineering tradition that built reliable computers, where emergent capabilities arise from coordinating many parts together. The transformer architectures [@vaswani2017] enabling large language models exemplify this principle: their mathematical elegance alone does not explain their dominance. Their practical utility depends on integrating attention mechanisms with distributed training infrastructure, memory-efficient optimization techniques, and reliable operational frameworks.
+
+[^fn-ai-systems-view]: **Artificial Intelligence (Systems Perspective)**\index{Artificial Intelligence!systems perspective}: The capacity of an integrated system, rather than any single algorithm, to exhibit intelligent behavior. Throughout this book, we have seen that success depends on coordinating data pipelines, training infrastructure, inference serving, security, and governance: systems engineering excellence across all components.
+
+Integration has concrete consequences. We often speak of the "model" as the weights file, a 500 MB blob of floating-point numbers. In a production environment, however, the weights are only one component of the true model, and often not the most important one. A model that produces perfect predictions is useless if it receives corrupted inputs, and a model that trains flawlessly will fail if it cannot be deployed reliably. The *true model* is the sum of the data pipeline that defines what the model sees, the training infrastructure that determines what it learns, the serving system that decides how it interacts with the world, and the monitoring loop that keeps it tethered to reality. Optimize the system, and the model improves. Neglect the system, and the model degrades. Systems engineering is not a wrapper around ML; it is the implementation of ML. *The system is the model.*
+
+::: {#chk-conclusion-systems-thinking .callout-checkpoint title="Systems thinking"}
+
+An ML system is greater than the sum of its parts.
+
+**The Integration**
+
+- [ ] **Dependencies**: Do you understand how a change in the data pipeline affects the model's latency?
+- [ ] **Feedback Loops**: Have you mapped how the model's predictions influence its future training data?
+
+**The Holism**
+
+- [ ] **End-to-End**: Can you trace a user request from the UI, through the network, preprocessing, model, postprocessing, and back to the UI?
+
+:::
+
+Tracing a request end to end, as the checkpoint asks, makes the same point structurally: system boundaries define model capabilities. That insight has guided the exploration throughout this book. The journey from Part I's foundations through Part IV's production reality traced a deliberate arc, and each stage built on what came before.
+
+Part II established *what* ML systems compute and *how*. The mathematical primitives of neural computation (@sec-neural-computation) and the architectural families built from them (@sec-network-architectures) defined the computational substrate. Training systems (@sec-model-training) orchestrated billions of optimization steps on that substrate, while frameworks (@sec-ml-frameworks) compiled high-level model definitions into hardware-specific execution plans. Across the surrounding pipeline, data engineering (@sec-data-engineering) and data selection (@sec-data-selection) determined what the model learns from.
+
+Part III shifted from building to optimizing. Model compression (@sec-model-compression) renegotiated the silicon contract for deployment. Hardware acceleration (@sec-hardware-acceleration) maximized the throughput those compressed models could achieve. Benchmarking (@sec-benchmarking) provided the measurement discipline to verify that optimizations delivered real improvements rather than illusory gains.
+
+Finally, Part IV confronted production reality. Serving systems (@sec-model-serving) had to meet latency budgets under load. Operational practices (@sec-ml-operations) maintained model health over time as data distributions shifted. Responsible engineering (@sec-responsible-engineering) ensured that systems serve all users fairly, not just the populations best represented in training data.
+
+Each chapter contributed a piece. The real lesson, however, lies not in any individual piece but in *how* the pieces constrain each other. An architecture choice enabled a compression choice, which enabled an acceleration choice, which shaped a serving constraint, which defined an operational requirement. Depthwise separable convolutions in MobileNetV2 made INT8 quantization practical under deployment validation. That quantization in turn enabled mobile NPU deployment, which shaped a $\text{P99} < 50$ ms latency constraint and required drift monitoring across heterogeneous device populations. Every decision propagated forward, and the engineer who understands only one layer cannot predict how changes ripple through the rest.
+
+::: {.column-margin}
+![](images/svg/vol1_conclusion_margin_001.svg){width="100%" fig-alt="Causal chain from architecture choice to INT8 quantization, P99 serving latency, and drift or governance obligations."}
+
+*Architecture choices cascade into compression, serving, drift, and governance.*
+:::
+
+The remainder of this chapter distills that integrated perspective into a framework for reasoning about ML systems as wholes rather than as collections of parts. We begin by revisiting the Lighthouse Models that traced these constraint interactions across chapters, then formalize thirteen quantitative invariants, rooted in physics, information theory, and statistics, that govern ML system behavior regardless of framework, hardware generation, or model family. We then examine how these principles apply across three domains, explore future directions where systems thinking will matter most, and close with the engineering responsibility that accompanies building systems of this power.
+
+### Lighthouse models: Constraint propagation {.unnumbered}
+
+The five Lighthouse Models introduced in @sec-introduction-iron-law-ml-systems-c32a made this constraint propagation concrete, serving as systems detectives throughout the book. Each revealed how different workloads expose different bottlenecks.
+
+ResNet-50 taught compute-bound optimization, showing how batch size transforms memory-bound inference into compute-bound throughput and why the same pruning strategy achieves different speedups on different hardware. GPT-2\index{GPT-2!memory bandwidth}/Llama exposed a different wall entirely: memory bandwidth. Their autoregressive decoding is memory bound, KV-caches dominate serving costs, and model parallelism becomes necessary at scale. Where these two Lighthouses stressed throughput and bandwidth, MobileNetV2\index{MobileNetV2!efficiency under constraint} demonstrated efficiency under constraint: depthwise separable convolutions trading representational capacity for computational efficiency, quantization enabling deployment on mobile NPUs, and the Pareto frontier between accuracy and power consumption. Deep Learning Recommendation Model\index{Deep Learning Recommendation Model!capacity-bound workload} (DLRM) shifted the binding constraint yet again, from memory *bandwidth* to memory *capacity*, where terabyte-scale embedding tables force engineers to design the system architecture around where the data physically resides and where sparse operations behave fundamentally differently from the dense matrix multiplications that dominate the other Lighthouses. Finally, Keyword Spotting\index{Keyword Spotting!sub-megabyte models} (KWS) and Wake Vision brought us to the extreme edge: sub-megabyte models running on microcontrollers with always-on inference under microwatt power budgets, where every byte and every milliwatt matters.
+
+Together, these five workloads span the full deployment spectrum from data center to microcontroller, probing every bottleneck the invariants predict and testing every optimization strategy the book has taught. The systems thinking we developed by tracing these Lighthouses across chapters, from architecture design through training, optimization, and deployment, is the integrated perspective that distinguishes ML systems engineering from isolated algorithm development.
+
+```{python}
+#| echo: false
+from mlsysim import *
+from mlsysim.core.constants import *
+#| label: conclusion-mobilenet-journey-math
+#| output: false
+# ┌─────────────────────────────────────────────────────────────────────────────
+# │ MOBILENET JOURNEY MATH
+# ├─────────────────────────────────────────────────────────────────────────────
+# │ Context: @tbl-lighthouse-journey-mobilenet (Architecture and Compression rows)
+# │          in the Synthesizing ML Systems section.
+# │
+# │ Goal:    Compute the FLOP and byte ratios that quantify MobileNetV2's
+# │          efficiency wins across the architecture/compression journey.
+# │ Show:    Depthwise-separable FLOP reduction, ResNet-50 vs. MobileNetV2
+# │          operation ratio, and INT8 byte ratios versus FP32/FP16.
+# │ How:     Apply the depthwise-separable FLOP formula at a representative
+# │          3x3, 256-channel layer; divide ResNet-50/MobileNetV2 inference
+# │          FLOPs; divide FP32/FP16 byte widths by INT8 byte width.
+# │
+# │ Imports: mlsysim (Models), mlsysim.core.constants (BYTES_FP32, BYTES_FP16,
+# │          BYTES_INT8), mlsysim.fmt (fmt, check)
+# │ Exports: MobileNetJourneyMath.depthwise_reduction_mult_str,
+# │          MobileNetJourneyMath.resnet_ops_reduction_mult_str,
+# │          MobileNetJourneyMath.int8_fp32_reduction_mult_str,
+# │          MobileNetJourneyMath.int8_fp16_reduction_mult_str
+# └─────────────────────────────────────────────────────────────────────────────
+from mlsysim import Models
+from mlsysim.fmt import fmt, check
+
+class MobileNetJourneyMath:
+    # LOAD
+    resnet = Models.Vision.ResNet50
+    mobilenet = Models.Vision.MobileNetV2
+    kernel_size = 3
+    representative_output_channels = 256
+
+    # EXECUTE
+    standard_to_depthwise = (
+        (kernel_size**2 * representative_output_channels)
+        / (kernel_size**2 + representative_output_channels)
+    )
+    resnet_to_mobilenet = resnet.inference_flops / mobilenet.inference_flops
+    int8_vs_fp32 = BYTES_FP32 / BYTES_INT8
+    int8_vs_fp16 = BYTES_FP16 / BYTES_INT8
+
+    # GUARD
+    check(8 <= standard_to_depthwise <= 9, "Depthwise separable example should land near 8--9x.")
+    check(13 <= resnet_to_mobilenet.to("").magnitude <= 15, "ResNet-50/MobileNetV2 ratio drifted.")
+    check(int8_vs_fp32.to("").magnitude == 4 and int8_vs_fp16.to("").magnitude == 2, "INT8 byte ratios changed.")
+
+    # OUTPUT
+    depthwise_reduction_mult_str = fmt_multiple(standard_to_depthwise, precision=1, commas=False)
+    resnet_ops_reduction_mult_str = fmt_multiple(resnet_to_mobilenet.to("").magnitude, precision=1, commas=False)
+    int8_fp32_reduction_mult_str = fmt_multiple(int8_vs_fp32.to("").magnitude, precision=0, commas=False)
+    int8_fp16_reduction_mult_str = fmt_multiple(int8_vs_fp16.to("").magnitude, precision=0, commas=False)
+```
+
+@Tbl-lighthouse-journey-mobilenet traces this journey for a single model, MobileNetV2, demonstrating how every chapter's principles converge on a single engineering artifact. The table walks through seven phases (from foundational constraints through architecture, training, compression, acceleration, serving, and operations) showing how each phase's decisions propagate forward to shape what becomes possible in subsequent phases.
+
+| **Journey Phase**                             | **System Lens**                | **MobileNetV2 Implementation**                                                                                                                                                                                                                                                           |
+|:----------------------------------------------|:-------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Foundations (@sec-introduction)**           | The AI Triad                   | Bounded by *Machine* constraints (Battery/Thermal)                                                                                                                                                                                                                                       |
+| **Architecture (@sec-network-architectures)** | Algorithmic Efficiency         | **Depthwise Separable Convolutions**: `{python} MobileNetJourneyMath.depthwise_reduction_mult_str` fewer FLOPs for a representative 3-by-3, 256-output-channel layer and `{python} MobileNetJourneyMath.resnet_ops_reduction_mult_str` fewer operations than ResNet-50 at ImageNet scale |
+| **Training (@sec-model-training)**            | Throughput vs. Latency         | Optimized for single-request mobile latency; training requires data augmentation for robustness                                                                                                                                                                                          |
+| **Compression (@sec-model-compression)**      | Navigating the Pareto Frontier | **INT8 Quantization**: `{python} MobileNetJourneyMath.int8_fp32_reduction_mult_str` memory reduction versus FP32 (`{python} MobileNetJourneyMath.int8_fp16_reduction_mult_str` versus FP16), with accuracy revalidated per deployment                                                    |
+| **Acceleration (@sec-hardware-acceleration)** | Honoring the Silicon Contract  | Mapping kernels to **Mobile NPUs** (for example, Apple Neural Engine) to maximize hardware utilization                                                                                                                                                                                   |
+| **Serving (@sec-model-serving)**              | Respecting the Latency Budget  | **$\text{P99} < 50$ ms** constraint; optimizing preprocessing (resize/normalize) to avoid CPU bottlenecks                                                                                                                                                                                |
+| **Operations (@sec-ml-operations)**           | Managing System Entropy        | **Drift Monitoring**: Detecting accuracy decay across heterogeneous device populations and lighting conditions                                                                                                                                                                           |
+
+: **The Lighthouse Journey (MobileNetV2)**: Tracing one model through the entire systems stack reveals how decisions in one domain (for example, architecture) propagate constraints and opportunities to every other domain (for example, hardware acceleration and monitoring). {#tbl-lighthouse-journey-mobilenet tbl-colwidths="[17,20,61]"}
+
+The table reveals a pattern: every row's decisions constrain the next row's options. Architecture choices (depthwise separable convolutions) enabled compression choices (INT8 quantization), which in turn enabled acceleration choices (mobile NPU deployment). Constraint propagation governs every ML system, but the MobileNetV2 journey is one instance of a deeper structure. The question is which quantitative invariants transcend specific models and technologies. The answer lies in thirteen principles, each grounded in physics, information theory, or statistics, that recur across every Lighthouse model and every deployment context.
+
+## Thirteen Quantitative Invariants {#sec-thirteen-quantitative-invariants-0dd2}
+
+\index{Thirteen Invariants!quantitative framework}
+Throughout this book, each Part introduced quantitative principles that govern ML system behavior. The principles are not rules of thumb or best practices that evolve with fashion. They are invariants: constraints rooted in physics, information theory, and statistics. @Tbl-thirteen-principles collects all thirteen in one place, organized by the four Parts that revealed them. The first two columns identify each principle, the third locates where it was introduced, and the final two columns capture its mathematical essence and predictive power.
+
+```{python}
+#| echo: false
+#| label: conclusion-energy-movement-math
+#| output: false
+# ┌─────────────────────────────────────────────────────────────────────────────
+# │ ENERGY-MOVEMENT INVARIANT RATIOS
+# ├─────────────────────────────────────────────────────────────────────────────
+# │ Context: @tbl-thirteen-principles (energy-movement invariant row) and the
+# │          adjacent diagnostic-chain paragraph in the Thirteen Quantitative
+# │          Invariants section.
+# │
+# │ Goal:    Quantify the energy cost of a DRAM access relative to a single
+# │          FP32 or FP16 floating-point operation.
+# │ Show:    DRAM-vs-FP32 and DRAM-vs-FP16 energy ratios used to anchor the
+# │          "100--1,000x" energy-movement claim in prose.
+# │ How:     Divide the reference DRAM access energy by the per-FLOP energy
+# │          constants for FP32 and FP16 from mlsysim.core.constants.
+# │
+# │ Imports: mlsysim Hardware.Tech.Memory.DRAM.energy_per_access,
+# │          Hardware.Tech.Op.FlopFp32.energy, Hardware.Tech.Op.FlopFp16.energy,
+# │          mlsysim.core.units.flop;
+# │          mlsysim.fmt (fmt, check)
+# │ Exports: EnergyMovementMath.dram_vs_fp32_mult_str,
+# │          EnergyMovementMath.dram_vs_fp16_mult_str
+# └─────────────────────────────────────────────────────────────────────────────
+from mlsysim.core.units import flop
+from mlsysim.fmt import fmt_int, fmt, fmt_multiple, fmt_multiple_range, check
+
+class EnergyMovementMath:
+    # LOAD
+    ENERGY_DRAM_ACCESS_PJ = Hardware.Tech.Memory.DRAM.energy_per_access
+    ENERGY_FLOP_FP32_PJ   = Hardware.Tech.Op.FlopFp32.energy
+    ENERGY_FLOP_FP16_PJ   = Hardware.Tech.Op.FlopFp16.energy
+    dram_access = ENERGY_DRAM_ACCESS_PJ
+    fp32_flop_energy = ENERGY_FLOP_FP32_PJ * flop
+    fp16_flop_energy = ENERGY_FLOP_FP16_PJ * flop
+
+    # EXECUTE
+    dram_vs_fp32 = (dram_access / fp32_flop_energy).to("").magnitude
+    dram_vs_fp16 = (dram_access / fp16_flop_energy).to("").magnitude
+
+    # GUARD
+    check(100 <= dram_vs_fp32 <= 1000, "DRAM/FP32 energy ratio left expected range.")
+    check(100 <= dram_vs_fp16 <= 1000, "DRAM/FP16 energy ratio left expected range.")
+
+    # OUTPUT
+    dram_vs_fp32_display = round(dram_vs_fp32)
+    dram_vs_fp16_display = round(dram_vs_fp16)
+    dram_vs_fp32_mult_str = fmt_multiple(dram_vs_fp32_display, precision=0, commas=False)
+    dram_vs_fp16_mult_str = fmt_multiple(dram_vs_fp16_display, precision=0, commas=False)
+    dram_vs_range_mult_str = fmt_multiple_range(
+        dram_vs_fp32_display,
+        dram_vs_fp16_display,
+        precision=0,
+        commas=False,
+    )
+```
+
+| **#**                           | **Principle**               | **Part**       | **Core Equation/Statement**                                                                                                         | **What It Predicts**                                                           |
+|:--------------------------------|:----------------------------|:---------------|:------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
+| \ref{pri-data-as-code}          | Data as Code Invariant      | I: Foundations | System Behavior $\approx f(\text{Data})$                                                                                            | Changing data changes the program                                              |
+| \ref{pri-data-gravity}          | Data Gravity Invariant      | I: Foundations | $C_{\text{move}}(D_{\text{vol}}) \gg C_{\text{move}}(\text{Compute})$                                                               | Move compute to data, not data to compute                                      |
+| \ref{pri-iron-law}              | Iron Law of ML Systems      | II: Build      | $T = \frac{D_{\text{vol}}}{\text{BW}} + \frac{O}{R_{\text{peak}} \cdot \eta_{\text{hw}}} + L_{\text{lat}}$                          | Every optimization pulls one of three levers; reducing one may inflate another |
+| \ref{pri-silicon-contract}      | Silicon Contract            | II: Build      | $\eta_{\text{hw}} \to 1 \iff I_{\text{model}} \approx I_{\text{machine}}$                                                           | Mismatched hardware wastes money; matched hardware achieves peak throughput    |
+| \ref{pri-pareto-frontier}       | Pareto Frontier             | III: Optimize  | $\forall \theta', \exists k \text{ s.t. } M_k(\theta') < M_k(\theta_{\text{pareto}})$                                               | There is no universal optimum; every gain trades against another metric        |
+| \ref{pri-arithmetic-intensity}  | Arithmetic Intensity Law    | III: Optimize  | $R_{\text{attainable}} = \min(R_{\text{peak}},\; I \times \text{BW})$                                                               | Adding compute to a memory-bound model yields zero gain                        |
+| \ref{pri-energy-movement}       | Energy-Movement Invariant   | III: Optimize  | $E_{\text{move}} \gg E_{\text{compute}}$ (`{python} EnergyMovementMath.dram_vs_range_mult_str` for DRAM access vs. FP32/FP16 FLOPs) | Data locality, not raw FLOP/s, drives efficiency                               |
+| \ref{pri-amdahl}                | Amdahl's Law                | III: Optimize  | $\text{Speedup} = \frac{1}{(1-p) + \frac{p}{G_{\text{parallel}}}}$                                                                  | The serial fraction caps all parallelism gains                                 |
+| \ref{pri-verification-gap}      | Verification Invariant      | IV: Deploy     | $\Pr(f(x) \approx y) > 1 - \epsilon_{\text{test}}$                                                                                  | ML testing is statistical; it bounds error, not proves correctness             |
+| \ref{pri-statistical-drift}     | Statistical Drift Invariant | IV: Deploy     | $\text{Accuracy}(t) \approx \text{Accuracy}_0 - \lambda \cdot \mathcal{D}(P_t \lVert P_0)$                                          | Models decay without code changes; the world drifts away from training data    |
+| \ref{pri-training-serving-skew} | Training-Serving Skew Law   | IV: Deploy     | $\Delta\text{Accuracy} \approx \mathbb{E}[\lvert f_{\text{serve}}(x) - f_{\text{train}}(x)\rvert]$                                  | Even subtle preprocessing differences silently degrade accuracy                |
+| \ref{pri-latency-budget}        | Latency Budget Invariant    | IV: Deploy     | $T_{\text{p99}}(x) \le L_{\text{budget}}$                                                                                           | Throughput is optimized within the latency envelope, never at its expense      |
+| \ref{pri-bias-feedback}         | Bias Feedback Invariant     | IV: Deploy     | $\Delta_{\text{err},g}(n) \approx \Delta_{\text{err},g}(0) \cdot \alpha_{\text{fb}}^n$, $\alpha_{\text{fb}} > 1$                    | Errors against subgroups compound across cycles when outputs reshape inputs    |
+
+: **The Thirteen Quantitative Invariants of ML Systems Engineering**: Each invariant was introduced in the Part where its governing constraint first becomes visible. Together, they form the complete analytical framework for reasoning about ML system design, optimization, and deployment. The meta-principle that unifies them all is the conservation of complexity: complexity cannot be destroyed, only moved between data, algorithm, and machine. {#tbl-thirteen-principles tbl-colwidths="[3,18,12,30,37]"}
+
+The thirteen invariants are not independent axioms. They form an integrated framework unified by a single meta-principle: the conservation of complexity[^fn-conservation-complexity]\index{Conservation of Complexity!meta-principle}. Complexity in an ML system *cannot* be destroyed; it can only be moved between data, algorithm, and machine. Every invariant in @tbl-thirteen-principles quantifies a specific consequence of where complexity currently resides. The sections that follow trace how each Part's invariants connect to the Lighthouse models and to each other.
+
+[^fn-conservation-complexity]: **Conservation of Complexity**: Analogous to conservation laws in physics (conservation of energy, conservation of mass), this meta-principle asserts that system complexity cannot be eliminated, only redistributed. Quantization reduces model complexity but increases monitoring complexity. Abstraction layers simplify interfaces but push complexity to implementation. The term echoes Tesler's Law\index{Tesler's Law!conservation of complexity} of Conservation of Complexity in human-computer interaction, which holds that every application has an inherent amount of irreducible complexity that can only be shifted between the system and the user.
+
+### Foundations: Where complexity originates (invariants 1–2) { .unnumbered}
+
+The data as code invariant\index{Data as Code Invariant!logical program} (Principle \ref{pri-data-as-code}) and the data gravity invariant\index{Data Gravity Invariant!physical anchor} (Principle \ref{pri-data-gravity}), established in Part I and developed quantitatively in @sec-data-engineering where data pipelines determine model quality, establish that data is simultaneously the *logical program* and the *physical anchor* of every ML system.
+
+The Lighthouse models illustrate both invariants directly. ResNet-50 and GPT-2 are Data as Code embodied: their capabilities derive from what they were trained on, not from their architectures alone. DLRM is data gravity embodied: its terabyte-scale embedding tables force the system architecture to be designed around where the data physically resides. These two invariants explain why the "compute-to-data" pattern recurs in every deployment context from cloud to edge.
+
+### Build: How complexity becomes computation (invariants 3–4) { .unnumbered}
+
+The iron law (Principle \ref{pri-iron-law}) and the silicon contract (Principle \ref{pri-silicon-contract}) govern every decision in constructing an ML system. The iron law's three-term decomposition (introduced in @sec-introduction-iron-law-ml-systems-c32a) identifies which lever to pull; the silicon contract determines which term dominates for a given architecture-hardware pair. As the Lighthouse Journey showed, each model represents a different bet: ResNet-50 is compute bound, Llama is bandwidth bound, DLRM is capacity-bound, and MobileNetV2 reshapes its computation to fit mobile NPU constraints. @Sec-appdx-dam-taxonomy-bottleneck-diagnostic-3fc9 maps each of these regimes to the optimizations that pay off and the ones that waste effort, turning the diagnosis of compute-bound versus bandwidth-bound versus capacity-bound into an action plan. @Sec-model-training confirmed that training time reduces only when engineers optimize the dominant term rather than distributing effort uniformly.
+
+### Optimize: How constraints shape trade-offs (invariants 5–8) { .unnumbered}
+
+The four optimization invariants form a tightly coupled diagnostic chain. The Pareto frontier\index{Pareto Frontier!multi-objective optimization} (Principle \ref{pri-pareto-frontier}) establishes that no free improvements exist: quantization trades precision for memory traffic, pruning trades capacity for speed, and distillation trades training compute for inference efficiency. The arithmetic intensity law\index{Arithmetic Intensity!bottleneck diagnosis} (Principle \ref{pri-arithmetic-intensity}) diagnoses which resource is the bottleneck, revealing whether optimization should target compute or memory. The energy-movement invariant\index{Energy-Movement Invariant!data locality} (Principle \ref{pri-energy-movement}) explains why data locality dominates efficiency: in the book's reference constants, a DRAM access costs about `{python} EnergyMovementMath.dram_vs_range_mult_str` as much energy as an FP32/FP16 arithmetic operation. Amdahl's Law (Principle \ref{pri-amdahl}) sets the ceiling on any parallelism gain, explaining why data loading and preprocessing become the ultimate bottlenecks in highly optimized systems.
+
+MobileNetV2 (our Lighthouse from @sec-network-architectures) navigates all four simultaneously: depthwise separable convolutions reshape the Pareto frontier, quantization to INT8 exploits the arithmetic intensity law by increasing FLOP/byte through reduced memory traffic, and the resulting energy savings respect the energy-movement invariant while Amdahl's Law explains why the nonaccelerable preprocessing stage limits end-to-end speedup. The KWS Lighthouse pushes these trade-offs to their extreme, where sub-megabyte models on microcontrollers leave zero margin for waste on any axis.
+
+### Deploy: How reality defeats assumptions (invariants 9–13) { .unnumbered}
+
+\index{Verification Invariant!statistical testing}
+\index{Statistical Drift Invariant!accuracy erosion}
+The deployment invariants address a category of failure that the first eight invariants cannot prevent: the system works correctly on the bench but degrades silently in production. The verification invariant (Principle \ref{pri-verification-gap}) establishes that ML testing is fundamentally statistical; engineers *bound error* rather than *prove correctness*. The statistical drift invariant (Principle \ref{pri-statistical-drift}) quantifies how accuracy erodes as the world drifts from the training distribution, even when no code changes. The training-serving skew law\index{Training-Serving Skew Law!accuracy degradation} (Principle \ref{pri-training-serving-skew}) warns that even subtle differences between training and serving code paths (a different image resize library, an FP32 vs. FP64 normalization) silently degrade accuracy. The latency budget invariant\index{Latency Budget Invariant!tail latency constraint} (Principle \ref{pri-latency-budget}) constrains the entire serving architecture: P99 latency is the hard constraint, and throughput is optimized within that envelope, never at its expense. The bias feedback invariant\index{Bias Feedback Invariant!disparity amplification} (Principle \ref{pri-bias-feedback}) extends silent failure to fairness: when a model's outputs reshape the distribution of its future inputs, errors against subgroups compound across decision cycles, $\Delta_{\text{err},g}(n) \approx \Delta_{\text{err},g}(0) \cdot \alpha_{\text{fb}}^n$ with $\alpha_{\text{fb}} > 1$, producing accuracy disparities invisible to aggregate metrics.
+
+The five deployment invariants explain why @sec-ml-operations devoted extensive attention to monitoring, drift detection, feature stores, and disaggregated subgroup metrics: the operational infrastructure that catches silent failures before they reach users. A DLRM recommendation system that achieves excellent offline accuracy will lose revenue if training-serving skew corrupts feature values in production (Principle \ref{pri-training-serving-skew}) or if user behavior drifts seasonally without triggering retraining (Principle \ref{pri-statistical-drift}). GPT-2/Llama serving must respect the latency budget (Principle \ref{pri-latency-budget}) through techniques like continuous batching and speculative decoding, as detailed in @sec-model-serving, because a chatbot that responds in 10 seconds is a chatbot nobody uses. A loan approval system can satisfy every other invariant while still systematically denying credit to underserved communities, a feedback loop the bias feedback invariant (Principle \ref{pri-bias-feedback}) predicts will compound each cycle until disaggregated subgroup monitoring catches it.
+
+### The integrated framework { .unnumbered}
+
+The thirteen principles are not a checklist to apply sequentially. They form a web of mutual constraints. As the conservation of complexity dictates, a single engineering decision ripples through multiple invariants simultaneously.
+
+To see this concretely, trace what happens when an engineer quantizes a model from FP16 to INT8\index{INT8 Quantization!bandwidth trade-off}. This single decision navigates the Pareto frontier (Principle \ref{pri-pareto-frontier}), trading precision for memory traffic. The consequences do not stop there: quantization changes the model's silicon contract (Principle \ref{pri-silicon-contract}), shifting where it sits on the arithmetic intensity curve (Principle \ref{pri-arithmetic-intensity}) and altering its energy profile (Principle \ref{pri-energy-movement}). When that quantized model is deployed, the latency budget (Principle \ref{pri-latency-budget}) governs whether the speedup meets the SLO, while deployment validation must verify that the quantized serving path preserves the behavior accepted during compression testing. A single quantization decision ripples through the Pareto frontier, silicon contract, and latency budget simultaneously, where a win in one (memory traffic) must be validated against a risk in another (numerical error).
+
+Meanwhile, the data gravity invariant (Principle \ref{pri-data-gravity}) determines where the model runs, the data as code invariant (Principle \ref{pri-data-as-code}) determines what it learned, the iron law (Principle \ref{pri-iron-law}) determines how fast it runs, and Amdahl's Law (Principle \ref{pri-amdahl}) determines how much faster it can ever run. The verification invariant (Principle \ref{pri-verification-gap}) reminds us that statistical tests can only bound the resulting accuracy loss, and the statistical drift invariant (Principle \ref{pri-statistical-drift}) warns that even a validated deployment will degrade over time. Complexity is conserved; the engineer's task is to allocate it wisely.
+
+To see this cycle of mutual constraint in action, trace the flow in @fig-invariants-cycle. The four phases (Foundations, Build, Optimize, Deploy) surround a central hub representing the conservation of complexity, and the arrows map the perpetual flow of engineering decisions: each phase's choices constrain what becomes possible in the next, and the cycle eventually feeds back to the beginning. Decisions in the Build phase (governed by the iron law) constrain the Optimize phase (bounded by arithmetic intensity). Operational realities like drift and skew force feedback into the Foundations, requiring new data to stabilize the system. The engineer's role is to manage this flow, ensuring that complexity lands where it can be handled most efficiently.
+
+::: {#fig-invariants-cycle fig-env="figure" fig-pos="htb" fig-cap="**The Cycle of ML Systems (The 13 Invariants)**: The complete systems engineering lifecycle. The meta-principle of conservation of complexity (center) unifies the process: complexity is neither created nor destroyed, only shifted between data, model, hardware, and operations. Each transition is governed by specific quantitative invariants that constrain valid engineering decisions." fig-alt="Circular diagram with four phases: Foundations (data), build (model), optimize (hardware), and deploy (operations). Arrows connect each phase in a cycle, with the thirteen invariants labeled on each transition. Conservation of complexity is shown in the center as a dashed circle."}
+
+```{.tikz}
+\begin{tikzpicture}[line join=round,font=\usefont{T1}{phv}{m}{n}]
+
+\tikzset{
+Box/.style={align=flush center,
+    inner sep=4pt,
+    node distance=1.4,
+    draw=OrangeLine,
+    line width=0.75pt,
+    rounded corners,
+    fill=OrangeL!30,
+    text width=25mm,
+    minimum width=25mm, minimum height=10mm
+  },
+Box2/.style={Box, draw=VioletLine, fill=VioletL2!70,align=left,
+    text width=36mm, minimum width=36mm, minimum height=10mm
+  },
+  }
+
+\tikzset{%
+planet/.style = {circle, draw=yellow!50!red!90,semithick, fill=yellow!30,line width=1.5pt,
+                    font=\usefont{T1}{phv}{m}{n}\bfseries,
+                    minimum size=24mm, inner sep=1mm,align=flush center},
+satellite/.style = {circle, draw=none, semithick, fill=#1!10,
+                    text width=26mm, inner sep=1pt, align=flush center,minimum size=20mm,minimum height=12mm},
+TxtC/.style = {font=\small\usefont{T1}{phv}{m}{n},text width=44mm,align=flush center},
+arr/.style = {-{Triangle[length=3mm,width=6mm]}, color=#1!60,
+                    line width=3mm, shorten <=1mm, shorten >=1mm},
+LineA/.style = {violet!60,{Circle[line width=1.5pt,fill=white,length=7.5pt]}-,line width=2.0pt,shorten <=-4pt},
+LineAA/.style={violet!30,dashed, line width=1.0pt,{-{Triangle[width=1.0*6pt,length=1.6*6pt]}},shorten <=3pt,shorten >=2pt}
+}
+
+\tikzset{pics/brain/.style = {
+        code = {
+        \pgfkeys{/channel/.cd, #1}
+\begin{scope}[local bounding box=BRAIN,scale=\scalefac, every node/.append style={transform shape}]
+\draw[fill=\filllcolor,line width=\Linewidth](-0.3,-0.10)to(0.08,0.60)
+to[out=60,in=50,distance=3](-0.1,0.69)to[out=160,in=80](-0.26,0.59)to[out=170,in=90](-0.46,0.42)
+to[out=170,in=110](-0.54,0.25)to[out=210,in=150](-0.54,0.04)
+to[out=240,in=130](-0.52,-0.1)to[out=300,in=240]cycle;
+\draw[fill=\filllcolor,line width=\Linewidth]
+(-0.04,0.64)to[out=120,in=0](-0.1,0.69)(-0.19,0.52)to[out=120,in=330](-0.26,0.59)
+(-0.4,0.33)to[out=150,in=280](-0.46,0.42)
+%
+(-0.44,-0.03)to[bend left=30](-0.34,-0.04)
+(-0.33,0.08)to[bend left=40](-0.37,0.2) (-0.37,0.12)to[bend left=40](-0.45,0.14)
+(-0.26,0.2)to[bend left=30](-0.24,0.13)
+(-0.16,0.32)to[bend right=30](-0.27,0.3)to[bend right=30](-0.29,0.38)
+(-0.13,0.49)to[bend left=30](-0.04,0.51);
+\draw[rounded corners=0.8pt,line width=1.5*\Linewidth,\drawcircle,-{Circle[fill=\filllcolor,length=4.15pt]}](-0.23,0.03)--(-0.15,-0.03)--(-0.19,-0.18)--(-0.04,-0.28);
+\draw[rounded corners=0.8pt,line width=1.5*\Linewidth,\drawcircle,-{Circle[fill=\filllcolor,length=4.15pt]}](-0.17,0.13)--(-0.04,0.05)--(-0.06,-0.06)--(0.14,-0.11);
+\draw[rounded corners=0.8pt,line width=1.5*\Linewidth,\drawcircle,-{Circle[fill=\filllcolor,length=4.15pt]}](-0.12,0.23)--(0.31,0.0);
+\draw[rounded corners=0.8pt,line width=1.5*\Linewidth,\drawcircle,-{Circle[fill=\filllcolor,length=4.15pt]}](-0.07,0.32)--(0.06,0.26)--(0.16,0.33)--(0.34,0.2);
+\draw[rounded corners=0.8pt,line width=1.5*\Linewidth,\drawcircle,-{Circle[fill=\filllcolor,length=4.15pt]}](-0.01,0.43)--(0.06,0.39)--(0.18,0.51)--(0.31,0.4);
+\end{scope}
+     }
+  }
+}
+
+%brick
+\tikzset{
+  cigla/.style={ inner sep=0pt,anchor=west,
+    node distance=1.4pt,
+    draw=none,
+    line width=0.1pt,
+    rounded corners=1pt,
+    fill=\filllcolor,
+    minimum width=4mm, minimum height=2mm
+  },
+    cigla1/.style={cigla,fill=\filllcirclecolor},
+pics/brick/.style = {
+        code = {
+        \pgfkeys{/channel/.cd, #1}
+\begin{scope}[shift={($(0,0)+(0,0)$)},scale=\scalefac,every node/.append style={transform shape}]
+\path[clip] (-1.05,-0.52)rectangle (0.71,0.45);
+\node[cigla](C1) at (-1.03,-0.4){};
+\node[cigla1,right= of C1](C2){};
+\node[cigla,right= of C2](C3){};
+\node[cigla1,right= of C3](C4){};
+%
+\node[cigla,above right= of C1,anchor=south](C11){};
+\node[cigla1,right= of C11](C12){};
+\node[cigla,right= of C12](C13){};
+\node[cigla1,right= of C13](C14){};
+%
+\node[cigla,above right= of C11,anchor=south](C21){};
+\node[cigla1,right= of C21](C22){};
+\node[cigla,right= of C22](C23){};
+%
+\node[cigla,above right= of C21,anchor=south](C31){};
+\node[cigla1,right= of C31](C32){};
+\node[cigla,right= of C32](C33){};
+\end{scope}
+    }
+  }
+}
+%vaga
+\tikzset{
+pics/vaga/.style = {
+        code = {
+        \pgfkeys{/channel/.cd, #1}
+\begin{scope}[shift={($(0,0)+(0,0)$)},scale=\scalefac,every node/.append style={transform shape}]
+\node[rectangle,minimum width=2mm,minimum height=22mm,
+draw=none, fill=\filllcolor,line width=\Linewidth](1R) at (0,-0.95){};
+\fill[fill=\filllcolor!60!black](230:2.8)arc(230:310:2.8)--cycle;%circle(2.9);
+%LT
+\node [semicircle, shape border rotate=180,  anchor=chord center,
+      minimum size=11mm, draw=none, fill=\filllcirclecolor](LT) at (-2,-0.5) {};
+\node [circle,  minimum size=4mm, draw=none, fill=\filllcirclecolor](T1) at (-2,1.25) {};
+\draw[draw=\drawcolor,,line width=1.2*\Linewidth,shorten <=3pt,shorten >=3pt](T1)--(LT);
+\draw[draw=\drawcolor,,line width=1.2*\Linewidth,shorten <=3pt,shorten >=3pt](T1)--(LT.30);
+\draw[draw=\drawcolor,,line width=1.2*\Linewidth,shorten <=3pt,shorten >=3pt](T1)--(LT.150);
+%DT
+\node [semicircle, shape border rotate=180,  anchor=chord center,
+      minimum size=11mm, draw=none, fill=\filllcirclecolor!70!black](DT) at (2,-0.5) {};
+\node [circle,  minimum size=4mm, draw=none, fill=\filllcirclecolor!70!black](T2) at (2,1.25) {};
+\draw[draw=\drawcolor,line width=1.2*\Linewidth,shorten <=3pt,shorten >=3pt](T2)--(DT);
+\draw[draw=\drawcolor,,line width=1.2*\Linewidth,shorten <=3pt,shorten >=3pt](T2)--(DT.30);
+\draw[draw=\drawcolor,,line width=1.2*\Linewidth,shorten <=3pt,shorten >=3pt](T2)--(DT.150);
+%
+\node[draw=none,rectangle,minimum width=32mm,minimum height=1.5mm,inner sep=0pt,
+fill=\filllcolor!60!black]at(0,1.25){};
+\node[draw=white,fill=\filllcolor,line width=2*\Linewidth,ellipse,minimum width=9mm,  minimum height=15mm](EL)at(0,0.85){};
+\node[draw=white,fill=\filllcolor!60!black,line width=2*\Linewidth,,circle,minimum size=10mm](2C)at(0,2.05){};
+\end{scope}
+    }
+  }
+}
+%llm
+\tikzset{
+pics/llm/.style = {
+        code = {
+        \pgfkeys{/channel/.cd, #1}
+\begin{scope}[shift={($(0,0)+(0,0)$)},scale=\scalefac,every node/.append style={transform shape}]
+\node[circle,minimum size=12mm,draw=\drawcolor, fill=\filllcolor!70,line width=0.5*\Linewidth](C\picname) at (0,0){};
+\def\startangle{90}
+\def\radius{1.15}
+\def\radiusI{1.1}
+\foreach \i [evaluate=\i as \j using \i+1] [count =\k] in {0,2,4,6,8} {
+\pgfmathsetmacro{\angle}{\startangle - \i * (360/8)}
+\draw[draw=black,-{Circle[black ,fill=\filllcirclecolor,length=5.5pt,line width=0.5*\Linewidth]},line width=1.5*\Linewidth](C\picname)--++(\startangle - \i*45:\radius) ;
+\node[circle,draw=black,fill=\filllcirclecolor!80!red!50,inner sep=3pt,line width=0.5*\Linewidth](2C\k)at(\startangle - \j*45:\radiusI) {};
+}
+\draw[line width=1.5*\Linewidth](2C1)--++(-0.5,0)|-(2C2);
+\draw[line width=1.5*\Linewidth](2C3)--++(0.5,0)|-(2C4);
+\node[circle,,minimum size=12mm,draw=\drawcolor, fill=\filllcolor!70,line width=0.5*\Linewidth]at (0,0){};
+\end{scope}
+    }
+  }
+}
+%battery
+\tikzset{
+pics/battery/.style = {
+        code = {
+        \pgfkeys{/channel/.cd, #1}
+\begin{scope}[shift={($(0,0)+(0,0)$)},scale=\scalefac,every node/.append style={transform shape}]
+\node[rectangle,minimum width=35mm,minimum height=8mm,draw=\drawcolor,
+rounded corners=4pt,fill=\filllcirclecolor,line width=\Linewidth](2R\picname) at (1,0){};
+\node[rectangle,minimum width=45mm,minimum height=22mm,draw=\drawcolor,
+rounded corners=4pt,fill=\filllcolor,line width=\Linewidth](R\picname) at (0,0){};
+\node[rectangle,minimum width=5mm,minimum height=18mm,draw=none,
+fill=green,line width=\Linewidth](3R\picname) at ($(R\picname.west)!0.5!(R\picname.east)$){};
+\node[rectangle,minimum width=5mm,minimum height=18mm,draw=none,
+fill=green,line width=\Linewidth](3R\picname) at ($(R\picname.west)!0.33!(R\picname.east)$){};
+\node[rectangle,minimum width=5mm,minimum height=18mm,draw=none,
+fill=green,line width=\Linewidth](3R\picname) at ($(R\picname.west)!0.16!(R\picname.east)$){};
+
+\end{scope}
+    }
+  }
+}
+%rocket
+\tikzset{
+pics/rocket/.style = {
+        code = {
+        \pgfkeys{/channel/.cd, #1}
+\begin{scope}[shift={($(0,0)+(0,0)$)},scale=\scalefac,every node/.append style={transform shape},line cap = round]
+%vrh
+\draw[fill=\filllcolor,draw=\drawcolor,line width=\Linewidth](-0.26,0.5)to[bend right=12](0.26,0.5)to[bend right=7] (0,0.85)to[bend right=7] cycle;
+%krila
+\draw[fill=\filllcolor!70!red,,draw=\drawcolor,line width=\Linewidth,rounded corners=1pt](-0.2,-0.7)--(-0.45,-0.9)--(-0.567,-0.4)--(-0.3,-0.17)--cycle;
+\draw[fill=\filllcolor!70!red,draw=\drawcolor,line width=\Linewidth,rounded corners=1pt](0.2,-0.7)--(0.45,-0.9)--(0.567,-0.4)--(0.3,-0.17)--cycle;
+%rep
+\draw[fill=\filllcolor!70!green,draw=\drawcolor,line width=\Linewidth](0.16,-0.76)--(0.22,-0.9)--(-0.2,-0.9)--(-0.15,-0.76)--cycle;
+%body
+\draw[fill=\filllcolor,draw=\drawcolor,line width=\Linewidth](-0.2,-0.7)--(0.2,-0.7)to[out=75,in=320](0,0.85)to[out=220,in=105] cycle;
+%krug
+\node[circle,draw=\drawcolor,minimum size=4mm,fill=\filllcirclecolor,line width=\Linewidth]{};
+\draw[draw=\drawcolor,line width=1.5*\Linewidth](0,-0.99)--(0,-1.3);
+\draw[draw=\drawcolor,line width=1.5*\Linewidth](-0.11,-0.99)--(-0.11,-1.2);
+\draw[draw=\drawcolor,line width=1.5*\Linewidth](0.11,-0.99)--(0.11,-1.2);
+\end{scope}
+    }
+  }
+}
+\pgfkeys{
+  /channel/.cd,
+   Depth/.store in=\Depth,
+  Height/.store in=\Height,
+  Width/.store in=\Width,
+  filllcirclecolor/.store in=\filllcirclecolor,
+  filllcolor/.store in=\filllcolor,
+  drawcolor/.store in=\drawcolor,
+  drawcircle/.store in=\drawcircle,
+  scalefac/.store in=\scalefac,
+  Linewidth/.store in=\Linewidth,
+  picname/.store in=\picname,
+  filllcolor=BrownLine,
+  filllcirclecolor=violet!20,
+  drawcolor=black,
+  drawcircle=violet,
+  scalefac=1,
+  Linewidth=0.5pt,
+  Depth=1.3,
+  Height=0.8,
+  Width=1.1,
+  picname=C
+}
+
+\def\radius{3.9}
+\def\startangle{90}
+
+\foreach \i/\j/\sho [count=\k from 0] in {
+%green!79!black
+white/{\textbf{}\\ }/15pt,
+%magenta!60!
+white/{\textbf{}\\ }/15pt,
+%gray
+white/{\textbf{}\\}/15pt,
+%cyan
+white/{\textbf{}\\ }/15pt
+}
+{
+%Satelit
+\pgfmathsetmacro{\angle}{\startangle - \k * (360/4)}
+\node (s\k) [satellite=\i, font=\footnotesize\usefont{T1}{phv}{m}{n}] at (\angle:\radius) {};
+ \node[TxtC,below=0pt of s\k]{\j};
+}
+%logos
+%brick
+\pic[shift={(0.15,0.15)}] at  (s3) {brick={scalefac=1.1,picname=1,filllcolor=red!70!black!80,Linewidth=1.0pt,filllcirclecolor=red!90!black!50}};
+%llm
+\pic[shift={(0,0)}] at  (s0){llm={scalefac=0.9,drawcolor=BlueLine,filllcolor=BlueLine!10!, Linewidth=1.25pt,filllcirclecolor=red}};
+%brain
+\pic[shift={(0.1,-0.16)}] at  (s0){brain={scalefac=0.8,picname=1,filllcolor=orange!30!, filllcirclecolor=cyan!55!black!60, Linewidth=0.5pt}};
+%battery
+\pic[shift={(0,0)}] at  (s1){battery={scalefac=0.38,picname=1, drawcolor=BrownLine,filllcolor=BrownLine!10!, Linewidth=1.5pt,filllcirclecolor=BrownLine}};
+%rocket
+\pic[shift={(0,0.2)}] at  (s2){rocket={scalefac=1.1,picname=1, drawcolor=black,filllcolor=cyan!10!, Linewidth=1.0pt,filllcirclecolor=red}};
+%center
+\node[circle, draw=BrownLine, dashed,thick, fill=none,,minimum size=26mm](CE)at(0,0){};
+ \node[TxtC,below=0pt of CE]{Conservation\\ of Complexity};
+ \pic[shift={(0,0)}] at  (0,0){vaga={scalefac=0.35,picname=1,filllcolor=BlueLine,  Linewidth=1.0pt,filllcirclecolor=orange}};
+\def\ra{26mm}
+\foreach \i [count=\k from 0] in{360,320,140,135}{
+\pgfmathtruncatemacro{\newX}{\i + 90} %
+\draw[line width=2.6pt,violet]
+   (s\k)+(\i:0.5*\ra) arc[start angle=\i, end angle=\newX, radius=0.5*\ra];
+}
+ \draw[LineA](s0.35)--++(0:1)coordinate(MA);
+ \node[Box,anchor=west](FO)at(MA){\textbf{Build}\\ (Model)};
+ \draw[LineA](s1.355)--++(315:1)coordinate(ST);
+ \node[Box,anchor=west](PR)at(ST){\textbf{Optimize}\\ (Hardware)};
+ \draw[LineA](s2.185)--++(200:3.25)coordinate(DE);
+ \node[Box,anchor=west](DEP)at(DE){\textbf{Deploy}\\(Operations)};
+ \draw[LineA](s3.180)--++(180:3.25)coordinate(FO);
+ \node[Box,anchor=west](FND)at(FO){\textbf{Foundations}\\(Data)};
+%
+\draw[-{Triangle[width=18pt,length=8pt]}, line width=10pt,cyan!40] (60:\radius)
+arc[radius=\radius, start angle=60, end angle= 16];
+\coordinate (AR1) at (38:\radius);
+\draw[-{Triangle[width=18pt,length=8pt]}, line width=10pt,cyan!40] (340:\radius)
+arc[radius=\radius, start angle=340, end angle= 290];
+\coordinate (AR2) at (315:\radius);
+\draw[-{Triangle[width=18pt,length=8pt]}, line width=10pt,cyan!40] (240:\radius)
+arc[radius=\radius, start angle=240, end angle= 200];
+\coordinate (AR3) at (225:\radius);
+\draw[-{Triangle[width=18pt,length=8pt]}, line width=10pt,cyan!40] (160:\radius)
+arc[radius=\radius, start angle=160, end angle= 114];
+\coordinate (AR4) at (137:\radius);
+%
+ \draw[LineA](AR1)--++(0:1.3)coordinate(MA);
+ \node[Box2,anchor=west]at(MA){3. Iron Law\\
+4. Silicon Contract};
+ \draw[LineA](AR2)--++(340:1.6)coordinate(MA1);
+ \node[Box2,anchor=west]at(MA1){5. Pareto Frontier\\
+6. Arith. Intensity\\
+7. Energy-Movement\\
+8. Amdahl’s Law};
+ \draw[LineA](AR3)--++(180:6)coordinate(MA2);
+ \node[Box2,anchor=west]at(MA2){9. Verification Invariant\\
+10. Stat. Drift\\
+11. Skew Law\\
+12. Latency Budget\\
+13. Bias Feedback};
+ \draw[LineA](AR4)--++(180:6)coordinate(MA3);
+ \node[Box2,anchor=west]at(MA3){1. Data as Code\\
+2. Data Gravity};
+ \end{tikzpicture}
+```
+
+:::
+
+The critical insight the figure reveals is the Deploy-to-Foundations feedback arrow. Invariants nine through thirteen expose the signals and constraints that force the system to evolve: verification failures, statistical drift, training-serving skew, tail-latency violations, and bias amplification. When any of these appears, the system must return to its foundations: new data, retrained models, fresh optimization passes through the entire stack. The cycle operates within a single node today, but the same physics governs fleet-scale systems, a transition we return to at the chapter's close.
+
+A small deployment proposal makes this web of constraints concrete.
+
+::: {#chk-conclusion-applying-invariants .callout-checkpoint title="Applying the invariants"}
+
+A colleague proposes quantizing your model from FP32 to INT8 to reduce serving costs.
+
+**Trace the Invariants**
+
+- [ ] **Pareto Frontier** (Principle \ref{pri-pareto-frontier}): What accuracy are you trading for the bandwidth gain?
+- [ ] **Silicon Contract** (Principle \ref{pri-silicon-contract}): Does your hardware have INT8 Tensor Cores to realize the speedup?
+- [ ] **Serving-Path Validation**: Does the quantized serving artifact preserve the behavior accepted during compression testing?
+- [ ] **Latency Budget** (Principle \ref{pri-latency-budget}): Does the speedup bring you within SLO, or create headroom for batching?
+
+:::
+
+The same diagnostic habit applies when the bottleneck is not an optimization proposal but the cost of serving a single generated token.
+
+```{python}
+#| echo: false
+#| label: conclusion-roofline-setup
+#| output: false
+# ┌─────────────────────────────────────────────────────────────────────────────
+# │ CONCLUSION CHAPTER ROOFLINE ANALYSIS
+# ├─────────────────────────────────────────────────────────────────────────────
+# │ Context: Cost-of-a-token callout demonstrating Iron Law in practice
+# │
+# │ Goal: Illustrate the memory-compute trade-off for LLM inference.
+# │ Show: That 70-billion-parameter Llama 2 is about 295× memory-bound on H100 hardware.
+# │ How: Contrast H100 memory bandwidth with 70-billion-parameter Llama 2 arithmetic intensity.
+# │
+# │ Imports: mlsysim (Hardware, Models), mlsysim.core.constants (BYTES_FP16, flop),
+# │          mlsysim.fmt (fmt, fmt_math, MarkdownStr, check)
+# │ Exports: llama_params_count_str, llama_params_prose_str, llama_dvol_gb_str,
+# │          llama_compute_gflop_str,
+# │          h100_bw_tb_per_s_str, h100_peak_tflop_per_s_str, t_mem_ms_str, t_comp_ms_str,
+# │          ratio_mult_str, t_mem_eq, t_comp_eq
+# └─────────────────────────────────────────────────────────────────────────────
+from mlsysim import Hardware, Models
+from mlsysim.physics import calc_transformer_decode_flops
+from mlsysim.fmt import fmt, fmt_math, MarkdownStr, check, fmt_params, fmt_qty
+
+# ┌── LEGO ───────────────────────────────────────────────
+class ConclusionRoofline:
+    """
+    Namespace for Conclusion Roofline Analysis.
+    Scenario: 70-billion-parameter Llama 2 inference on H100 (Memory Bound).
+    """
+
+    # ┌── 1. LOAD (Constants) ───────────────────────────────────────────────
+    gpu = Hardware.Cloud.H100
+    model = Models.Language.Llama2_70B
+    precision_bytes = BYTES_FP16
+
+    # ┌── 2. EXECUTE (The Compute) ─────────────────────────────────────────
+    d_vol = model.size_in_bytes(precision_bytes)
+    compute_req = calc_transformer_decode_flops(model.parameters)
+
+    t_mem = d_vol/gpu.memory.bandwidth
+    t_comp = compute_req/gpu.compute.peak_flops
+
+    ratio = t_mem/t_comp
+
+    # ┌── 3. GUARD (Invariants) ───────────────────────────────────────────
+    check(ratio >= 10, f"LLM Inference should be heavily memory bound. Ratio is only {ratio:.1f}x")
+
+    # ┌── 4. OUTPUT (Formatting) ──────────────────────────────────────────────
+    llama_params_count_str = fmt_params(model.parameters, scale_style="word", precision=0)
+    llama_params_prose_str = MarkdownStr(
+        f"{fmt_params(model.parameters, scale_style='word', precision=0, attributive=True)}-parameter"
+    )
+    llama_dvol_gb_str = fmt_qty(d_vol, GB, precision=0, commas=False)
+    llama_compute_gflop_str = fmt_qty(compute_req, GFLOPs, precision=0, commas=False)
+
+    h100_bw_tb_per_s_str = fmt_qty(gpu.memory.bandwidth, TB/second, precision=2, commas=False)
+    h100_peak_tflop_per_s_str = fmt_qty(gpu.compute.peak_flops, TFLOP/second, precision=0, commas=False)
+
+    t_mem_ms_str = fmt_qty(t_mem, ms, precision=1, commas=False)
+    t_comp_ms_str = fmt_qty(t_comp, ms, precision=2, commas=False)
+    ratio_mult_str = fmt_multiple(ratio.to("").magnitude, precision=1, commas=False)
+
+    # LaTeX equations — use raw magnitudes, not suffixed _str exports
+    dvol_gb_val = d_vol.to(GB).magnitude
+    h100_bw_gb_val = gpu.memory.bandwidth.to(GB / second).magnitude
+    compute_gflops_val = compute_req.to(GFLOPs).magnitude
+    h100_peak_tflops_val = gpu.compute.peak_flops.to(TFLOP / second).magnitude
+    t_mem_ms_val = t_mem.to(ms).magnitude
+    t_comp_ms_val = t_comp.to(ms).magnitude
+
+    t_mem_eq = fmt_math(f"T_{{\\text{{mem}}}} = \\frac{{{dvol_gb_val:.0f} \\text{{ GB}}}}{{{h100_bw_gb_val:.0f} \\text{{ GB/s}}}} \\approx {t_mem_ms_val:.1f} \\text{{ ms}}")
+    t_comp_eq = fmt_math(f"T_{{\\text{{comp}}}} = \\frac{{{compute_gflops_val:.0f} \\times 10^9}}{{{h100_peak_tflops_val:.0f} \\times 10^{{12}}}} = {t_comp_ms_val:.2f} \\text{{ ms}}")
+```
+
+::: {#psp-conclusion-cost-token .callout-perspective title="The cost of a token"}
+
+We can apply the iron law (Principle \ref{pri-iron-law}) and Arithmetic Intensity (Principle \ref{pri-arithmetic-intensity}) to a real-world problem: serving one token from a `{python} ConclusionRoofline.llama_params_prose_str` model (like a 70-billion-parameter Llama 2 model\index{Llama 2!70-billion-parameter memory-bound workload}) on an NVIDIA H100. @Sec-appdx-machine-foundations-ai-hardware-cheat-sheet-modern-reference-4dc1 supplies the H100 memory bandwidth and peak FLOP specifications that anchor this calculation.
+
+**Physics**:
+
+- **Model-weight byte volume moved** $(D_{\text{vol}})$: `{python} ConclusionRoofline.llama_params_count_str` parameters $\times$ 2 bytes (FP16) = `{python} ConclusionRoofline.llama_dvol_gb_str`.
+- **Compute** $(O)$: $\approx 2 \times P$ per token, where $P$ is the parameter count, = `{python} ConclusionRoofline.llama_compute_gflop_str`.
+- **Hardware**: H100 with $\text{BW}$ = `{python} ConclusionRoofline.h100_bw_tb_per_s_str`, $R_{\text{peak}} \approx$ `{python} ConclusionRoofline.h100_peak_tflop_per_s_str` FP16.
+
+**Math**:
+
+- **Time to move data**: `{python} ConclusionRoofline.t_mem_eq`
+- **Time to compute**: `{python} ConclusionRoofline.t_comp_eq`
+
+**Systems insight**:
+
+The memory time $T_{\text{mem}}$ is `{python} ConclusionRoofline.ratio_mult_str` larger than compute time $T_{\text{comp}}$. The system is heavily memory-bound (arithmetic intensity $\approx$ 1). To honor the silicon contract, we must either increase arithmetic intensity (via batching users to reuse $D_{\text{vol}}$) or reduce data volume (via quantization to INT4). A systems engineer who optimizes compute kernels $(T_{\text{comp}})$ without addressing memory $(T_{\text{mem}})$ can improve only the `{python} ConclusionRoofline.t_comp_ms_str` compute term while leaving the `{python} ConclusionRoofline.t_mem_ms_str` memory term untouched.
+
+::: {.column-margin}
+![](images/svg/vol1_conclusion_margin_002.svg){width="100%" fig-alt="Llama decode dot on H100 memory-bound slope."}
+
+*Decode stays memory-bound, left of the roofline ridge.*
+:::
+
+:::
+
+This calculation illustrates a broader truth: the invariant framework is not an abstract taxonomy but a diagnostic instrument. Every chapter in this book applied these invariants to specific engineering decisions, often without naming them explicitly. Tracing those applications across three domains---building foundations, engineering for scale, and navigating production reality---reveals how the framework we have just formalized has already been guiding our thinking throughout this book.
+
+## Principles in Practice {#sec--principles-practice-1005}
+
+A team that memorizes all thirteen invariants but cannot apply them to a real deployment decision has learned nothing. Throughout this book, these quantitative constraints have shaped engineering decisions across three domains spanning the full ML lifecycle: building technical foundations, engineering for scale, and navigating production reality. Each domain foregrounds different invariants, but all three demonstrate the same underlying lesson: systems thinking connects what isolated component analysis cannot.
+
+### Building technical foundations { .unnumbered}
+
+The data as code invariant (Principle \ref{pri-data-as-code}) shaped @sec-data-engineering in its entirety, explaining why "data is the new code" [@karpathy2017software] became a rallying cry for production ML teams, and why ResNet-50's and GPT-2's capabilities trace to their training data, not their architectures. Mathematical foundations (@sec-neural-computation) established the computational patterns that drive the silicon contract: the matrix multiplications at the heart of neural computation determine arithmetic intensity, which in turn determines whether a workload is memory bound or compute bound on any given hardware. Framework selection (@sec-ml-frameworks) illustrated the silicon contract's practical consequence: the chosen framework constrains which deployment paths remain open, because each framework makes different bets on graph optimization, memory management, and hardware backend support. An engineer who selects a framework without considering its silicon contract implications may discover, too late, that the chosen path forecloses the most efficient deployment option.
+
+Foundational choices (what data to curate, which computational primitives to rely on, which framework to adopt) propagate forward into every subsequent engineering decision. Nowhere is that propagation more visible than when a system must scale beyond a single machine, where the iron law's three terms expand from chip-level quantities to cluster-level constraints.
+
+### Engineering for scale { .unnumbered}
+
+Training systems (@sec-model-training) demonstrated the iron law in action: data parallelism reduces the compute term by distributing work across GPUs, mixed precision halves the data movement term by using FP16 instead of FP32, and gradient checkpointing trades recomputation for memory capacity, each technique pulling a different lever of the same three-term equation. Model compression (@sec-model-compression) navigated the Pareto frontier directly: MobileNetV2's INT8 quantization and DLRM's embedding pruning each traded one metric for another, while the arithmetic intensity law diagnosed which trade-off would yield the greatest return for a given hardware target.
+
+::: {.column-margin}
+![](images/svg/vol1_conclusion_margin_003.svg){width="100%" fig-alt="Margin illustration showing Mean latency versus P99 latency."}
+
+*Mean latency hides the tail; P99 governs user experience.*
+:::
+
+Building and optimizing a model, however, is only half the engineering challenge. The other half begins the moment the model leaves the training cluster and enters production, where a new set of invariants governs behavior and where the optimizations that worked on the bench must survive the unpredictability of real-world traffic.
+
+```{python}
+#| echo: false
+#| label: conclusion-tail-latency-ratio
+#| output: false
+# ┌─────────────────────────────────────────────────────────────────────────────
+# │ TAIL LATENCY RATIO CALCULATION
+# ├─────────────────────────────────────────────────────────────────────────────
+# │ Context: "Navigating Production Reality" section on P99 latency
+# │
+# │ Goal: Demonstrate why mean latency is a misleading metric for user experience.
+# │ Show: That p99 latency is 40× higher than the mean, defining the true production constraint.
+# │ How: Calculate the gap between mean and p99 latency for a standard request distribution.
+# │
+# │ Imports: mlsysim.fmt (fmt, check)
+# │ Exports: conclusion_tail_ratio_mult_str
+# └─────────────────────────────────────────────────────────────────────────────
+from mlsysim.fmt import fmt, check
+
+# ┌── LEGO ───────────────────────────────────────────────
+class TailLatencyRatio:
+    """
+    Namespace for Tail Latency Ratio Calculation.
+    Scenario: Comparing mean latency vs P99 tail latency.
+    """
+
+    # ┌── 1. LOAD (Constants) ───────────────────────────────────────────────
+    mean_latency_ms = 50.0
+    p99_latency_ms = 2000.0
+
+    # ┌── 2. EXECUTE (The Compute) ─────────────────────────────────────────
+    ratio = p99_latency_ms/mean_latency_ms
+
+    # ┌── 3. GUARD (Invariants) ───────────────────────────────────────────
+    check(ratio >= 10, f"P99 tail latency ({ratio:.1f}x) is not significant enough.")
+
+    # ┌── 4. OUTPUT (Formatting) ──────────────────────────────────────────────
+    conclusion_tail_ratio_mult_str = fmt_multiple(ratio, precision=0, commas=False)
+```
+
+### Navigating production reality { .unnumbered}
+
+The transition from *training* to *inference* inverts optimization objectives: where training maximizes throughput over days, inference optimizes latency per request in milliseconds. The latency budget invariant makes P99 the governing constraint, and tracking tail latencies reveals that mean latency tells little about user experience when the 99th-percentile request can be `{python} TailLatencyRatio.conclusion_tail_ratio_mult_str` the mean latency. MLOps (@sec-ml-operations) orchestrates the full system lifecycle, transforming the statistical drift invariant and the training-serving skew law from abstract equations into monitoring alerts and automated retraining triggers.
+
+Beyond technical performance, @sec-responsible-engineering broadened the framework to include societal impact. The verification invariant demands monitoring for fairness violations alongside performance: tracking prediction distributions across demographic groups, detecting bias amplification over time (Principle \ref{pri-bias-feedback}), and alerting on unexplained accuracy disparities. The statistical drift invariant applies equally to demographic subgroup performance, where accuracy may degrade for underrepresented populations even as aggregate metrics remain stable. Responsible AI is therefore an integral dimension of systems engineering, a first-class design constraint governed by the same invariants that govern performance.
+
+The three domains demonstrate that the thirteen invariants are not theoretical constructs but working tools. The question now is *where* these tools will be tested next, as ML systems expand into new deployment contexts, confront new failure modes, and pursue increasingly ambitious goals.
+
+## Future Directions {#sec--future-directions-01df}
+
+The invariants formalized in this volume are most useful when they forecast where constraints will bind next. Four frontiers put the same physics under increasing pressure: deployment across diverse contexts, robustness under adversarial conditions, societal applications whose failures carry public consequences, and the path toward artificial general intelligence through compound AI systems.
+
+### Applying principles to emerging deployment contexts { .unnumbered}
+
+Deployment diversity tests whether one invariant framework can explain systems with contrasting resource regimes. The cloud offers abundant power and centralized hardware, edge and mobile devices operate under latency and battery budgets, and TinyML and embedded systems compress the same design problem into kilobytes and milliwatts. Generative AI is not a fourth deployment environment; it is a workload class that stresses all three.
+
+In the cloud regime, the binding decision is how to turn abundant hardware into useful throughput without letting data movement, capacity, or cost dominate. Dense workloads such as ResNet-50 chase GPU utilization through kernel fusion, mixed precision training, and gradient compression, while DLRM-style recommendation systems must also manage embedding-table capacity, placement, and sparse access patterns. @Sec-model-compression and @sec-model-training explored these techniques, demonstrating how they combine to balance performance optimization with cost efficiency at scale.
+
+```{python}
+#| echo: false
+#| label: conclusion-edge-reference-ratios
+#| output: false
+# ┌─────────────────────────────────────────────────────────────────────────────
+# │ EDGE-VS-H100 REFERENCE RATIOS
+# ├─────────────────────────────────────────────────────────────────────────────
+# │ Context: Cross-domain applications section, mobile/edge paragraph
+# │          contrasting reference mobile NPU specs against an H100 accelerator.
+# │
+# │ Goal:    Quantify how much less throughput, memory, and power a reference
+# │          mobile NPU has compared to a datacenter H100.
+# │ Show:    INT8 peak throughput ratio, memory-capacity ratio, and TDP ratio
+# │          between H100 and the book's reference mobile platform.
+# │ How:     Divide H100 INT8 TOPS, TDP, and memory capacity by the
+# │          corresponding mobile constants (TOPS, mobile TDP, smartphone RAM).
+# │
+# │ Imports: mlsysim (Hardware), mlsysim.core.constants (Hardware.Cloud.H100.compute.precision_flops["int8"],
+# │          Hardware.Mobile.iPhone15Pro.compute.peak_flops, ReferenceStats.MobilePower.MobileNpuTypical, Platforms.Mobile.ram),
+# │          mlsysim.fmt (fmt, check)
+# │ Exports: EdgeReferenceRatios.int8_peak_ratio_mult_str,
+# │          EdgeReferenceRatios.power_ratio_mult_str,
+# │          EdgeReferenceRatios.memory_ratio_mult_str
+# └─────────────────────────────────────────────────────────────────────────────
+from mlsysim import Hardware, ReferenceStats
+from mlsysim.fmt import fmt, check
+
+class EdgeReferenceRatios:
+    # LOAD
+    h_h100 = Hardware.Cloud.H100
+    mobile_int8_peak = Hardware.Mobile.iPhone15Pro.compute.peak_flops
+    mobile_power = ReferenceStats.MobilePower.MobileNpuTypical
+    phone_ram = Platforms.Mobile.ram
+
+    # EXECUTE
+    int8_peak_ratio = Hardware.Cloud.H100.compute.precision_flops["int8"] / mobile_int8_peak
+    power_ratio = h_h100.tdp / mobile_power
+    memory_ratio = h_h100.memory.capacity / phone_ram
+
+    # GUARD
+    check(int8_peak_ratio.to("").magnitude > 10, "Mobile edge example should be far below H100 throughput.")
+    check(memory_ratio.to("").magnitude > 5, "Mobile edge example should have meaningfully less memory headroom.")
+    check(power_ratio.to("").magnitude > 100, "Mobile edge example should have a much smaller power envelope.")
+
+    # OUTPUT
+    int8_peak_ratio_mult_str = fmt_multiple(int8_peak_ratio.to("").magnitude, precision=1, commas=False)
+    power_ratio_mult_str = fmt_multiple(power_ratio.to("").magnitude, precision=1, commas=False)
+    memory_ratio_mult_str = fmt_multiple(memory_ratio.to("").magnitude, precision=1, commas=False)
+```
+
+\index{AI Democratization!edge deployment}
+In contrast, mobile and edge systems face stringent power, memory, and latency constraints that demand sophisticated hardware-software co-design\index{Hardware-Software Co-design!edge deployment}. Efficient architectures introduced in @sec-network-architectures (such as depthwise separable convolutions and neural architecture search) combined with compression techniques from @sec-model-compression (such as quantization and pruning) enable deployment on devices where the book's reference mobile NPU has about `{python} EdgeReferenceRatios.int8_peak_ratio_mult_str` lower INT8 peak throughput, about `{python} EdgeReferenceRatios.memory_ratio_mult_str` less memory headroom, and about `{python} EdgeReferenceRatios.power_ratio_mult_str` smaller power envelope than an H100-class accelerator. Systems that cannot run on billions of edge devices cannot achieve global impact, making edge deployment essential for AI democratization[^fn-ai-democratization].
+
+[^fn-ai-democratization]: **AI Democratization**: Making AI accessible beyond a small number of well-resourced organizations through efficient systems engineering. Mobile-optimized models and cloud APIs can widen access, but doing so sustainably requires systematic optimization across hardware, algorithms, and infrastructure to maintain quality at scale.
+
+Generative AI, the frontier that GPT-2/Llama exposed, stresses the same constraints at token-serving scale. Autoregressive generation is inherently memory-bound (each token requires loading the full model weights), making the arithmetic intensity law the governing constraint. Techniques such as dynamic model partitioning and speculative decoding[^fn-speculative-decoding-conclusion] reshape the silicon contract by trading compute for latency, demonstrating how the principles adapt even as technologies push infrastructure boundaries.
+
+[^fn-speculative-decoding-conclusion]: **Speculative Decoding**\index{Speculative Decoding!inference optimization}: Inference optimization where a smaller draft model generates candidate tokens that a larger target model verifies in parallel. Since autoregressive generation is memory bound (each token requires loading the full model), speculative decoding trades compute for latency: the draft model proposes several candidate tokens, and the target model verifies them in a single forward pass. When acceptance rates are high, this can deliver multi-token speedups for interactive large language model (LLM) applications.
+
+At the opposite extreme, TinyML and embedded systems, the domain of our KWS/Wake Vision Lighthouse, face kilobyte memory budgets, milliwatt power envelopes, and decade-long deployment lifecycles. Success in these contexts validates the full systems engineering approach: careful measurement reveals actual bottlenecks, hardware co-design maximizes efficiency, and planning for failure ensures reliability despite severe resource limitations. Mobile deployment constraints have driven breakthrough techniques like MobileNets and EfficientNets that benefit all AI deployment contexts, demonstrating how systems constraints catalyze algorithmic innovation.
+
+The same physics unites these four paradigms: the invariants govern all of them, even as each foregrounds a different term. Success depends on applying these principles together rather than pursuing isolated optimizations. The more deployment contexts a system spans, the more ways it can fail silently in each one. Robustness, not coverage, therefore becomes the binding constraint at the next frontier.
+
+### Building robust AI systems { .unnumbered}
+
+ML systems face unique failure modes that traditional software never encounters. A traditional web server either responds or crashes; a machine learning system can respond confidently *and* incorrectly, and no one may notice for weeks. Distribution shifts degrade accuracy without any code changes. Adversarial inputs exploit vulnerabilities invisible to standard testing. Edge cases reveal training data limitations that no amount of debugging can fix. The deployment invariants predict these failures as statistical certainties, not hypothetical risks.
+
+The verification invariant (Principle \ref{pri-verification-gap}) guarantees that ML testing can only bound error, never prove correctness. The statistical drift invariant (Principle \ref{pri-statistical-drift}) guarantees that systems will degrade over time as the world drifts from the training distribution. Together, these two invariants establish that some failures will reach production and that system quality will erode. Continuous monitoring is therefore a design requirement, not an operational afterthought. The question is not whether the system will fail, but whether the failure will be detected before users do.
+
+Robustness demands designing for failure from the ground up. Redundant hardware provides fault tolerance when individual components fail. Ensemble methods reduce single-point failures by distributing prediction responsibility across multiple models. Uncertainty quantification enables graceful degradation: a system that knows when it does not know can defer to a human or a fallback policy rather than producing a confident wrong answer. As AI systems assume increasingly autonomous roles in healthcare, transportation, and finance, the gap between "works in the lab" and "works in the world" becomes the critical engineering challenge. Robustness techniques become even more essential at distributed scale, where failure planning must account for coordination across hundreds or thousands of machines and where mean time between failures drops from years to hours.
+
+### AI for societal benefit { .unnumbered}
+
+Robust systems are the prerequisite for deploying AI in domains where technical failures carry public consequences. A medical AI that fails unpredictably cannot be trusted with patient care. An educational system that degrades under load cannot serve the students who need it most. A climate model that produces confident but uncalibrated predictions may misdirect policy decisions affecting millions of lives. In each domain, the thirteen invariants converge, and robustness becomes an ethical imperative as much as an engineering virtue.
+
+Each domain stresses a different governing constraint before it can deliver social value. Scientific discovery (protein folding, drug interaction modeling, materials science) requires throughput at distributed-training scale governed by the iron law (Principle \ref{pri-iron-law}) and silicon contract (Principle \ref{pri-silicon-contract}), where distributed training across thousands of GPUs must coordinate to explore vast parameter spaces. Healthcare AI demands explainable decisions and continuous monitoring, where the statistical drift invariant takes on life-or-death significance: a diagnostic model trained on one hospital's population may silently degrade when deployed to another with different demographics, disease prevalence, or imaging equipment. Personalized education needs privacy-preserving inference at global scale, stressing the latency budget (responsiveness matters for learning engagement) and the data as code invariant (Principle \ref{pri-data-as-code}), because the model must learn from student interactions without compromising student privacy.
+
+All three applications demonstrate that technical excellence alone is insufficient. Success requires interdisciplinary collaboration among technologists, domain experts, policymakers, and affected communities. The principles developed throughout this book (the D·A·M taxonomy, the thirteen invariants, and the quantitative reasoning framework) provide the systems engineering *foundation*, but the *application* of that foundation requires domain knowledge that no single discipline can supply.
+
+Societal applications, however, all operate within defined boundaries: a medical AI diagnoses diseases within a known taxonomy, a climate model predicts weather within physical constraints. The next frontier removes those boundaries entirely.
+
+### The path to AGI { .unnumbered}
+
+The most ambitious stress test for these invariants lies ahead: engineering the path toward artificial general intelligence[^fn-agi-def]. Where societal benefit applications require robustness within defined domains, AGI demands systems that generalize across all cognitive tasks while maintaining the reliability, efficiency, and safety that these invariants ensure. The governing challenge is systems engineering as much as algorithm design.
+
+[^fn-agi-def]: **Artificial General Intelligence (AGI)**\index{Artificial General Intelligence!universal generalization}: A system capable of universal cognitive generalization at or above human levels. Unlike narrow AI, which is optimized for specific domains, AGI requires transfer learning to novel situations and reasoning about unfamiliar problems without specific retraining. The term gained currency in the early 2000s to distinguish human-level AI from the task-specific systems that had dominated the field since the 1980s.
+
+Universal generalization imposes extraordinary systems demands. Every invariant becomes simultaneously active: the iron law (Principle \ref{pri-iron-law}) governs computation at a scale where models may contain trillions of parameters. The silicon contract (Principle \ref{pri-silicon-contract}) must be honored across heterogeneous hardware spanning GPUs, Tensor Processing Units (TPUs), and custom accelerators. The Pareto frontier expands from two or three metrics (accuracy, latency, memory) to dozens (safety, fairness, reasoning quality, factuality, multilinguality). The statistical drift invariant applies not to a single domain but to the entire distribution of human knowledge and interaction. No monolithic model can navigate this complexity alone.
+
+That realization has driven the emergence of **compound AI systems**[^fn-compound-ai]\index{Compound AI Systems!reliability through composition}: architectures that chain multiple models and deterministic tools to achieve reliability exceeding their individual components. Rather than building a single model that does everything, compound systems decompose tasks into specialized steps. A retrieval component finds relevant information, a reasoning component processes it, and a verification component checks the output. Each step can be independently updated, monitored, and debugged. The decomposition trades latency and architectural complexity for control and correctness, a trade-off that the Pareto frontier predicts and the conservation of complexity demands.
+
+[^fn-compound-ai]: **Compound AI Systems**\index{Compound AI Systems!etymology}: Coined by researchers at Berkeley AI Research (BAIR) in 2024 to describe systems that compose multiple AI components (models, retrievers, tools, and verifiers) into pipelines, rather than relying on a single monolithic model. Examples include retrieval-augmented generation (RAG) and tool-augmented agents. From a systems perspective, compound AI systems trade single-model simplicity for orchestration complexity, but gain independently updatable components, debuggable intermediate outputs, and the ability to enforce deterministic constraints alongside probabilistic generation.
+
+The compound AI systems framework aligns naturally with the systems engineering principles we have studied. Modular components can be independently compressed and accelerated using the techniques from @sec-model-compression and @sec-hardware-acceleration. Each component has its own silicon contract (Principle \ref{pri-silicon-contract}) and arithmetic intensity profile, allowing hardware-specific optimization. The interfaces between components create natural monitoring points for detecting drift, skew, and degradation. The engineering challenges ahead require mastery across the full stack we have explored: reliable orchestration of multiple models, efficient routing of requests across specialized components, and maintaining consistency across distributed state all demand integration from data engineering through model optimization to operational infrastructure. In this framing, quantitative invariants define the path toward increasingly capable AI systems alongside algorithmic advances, an endeavor shaped by the same computer-architecture forces Hennessy\index{Hennessy, John!quantitative framework} and Patterson\index{Patterson, David!quantitative framework} identified.
+
+::: {#psp-conclusion-new-golden-age .callout-perspective title="A new golden age"}
+
+@hennessy2019 declared a "New Golden Age for Computer Architecture," driven by the end of Dennard scaling, the slowdown of Moore's Law, and new opportunities from domain-specific architectures, open instruction sets, and agile chip development. Frontier AI is one domain where those pressures are visible. Reaching more capable AI will not be a matter of writing a better loss function alone; it will be a systems engineering challenge involving large gains in energy efficiency, high-bandwidth interconnects, and software stacks that can manage trillion-parameter-scale models reliably. The thirteen invariants developed in this book, from the iron law (Principle \ref{pri-iron-law}) and silicon contract (Principle \ref{pri-silicon-contract}) to the statistical drift invariant and latency budget, are the blueprints for this new era.
+
+:::
+
+::: {.column-margin}
+```{=latex}
+\vspace{-15mm}
+```
+![](images/svg/vol1_conclusion_fleet_mtbf_ladder.svg){width="100%" fig-alt="Margin ladder showing one GPU with about 5.7 years mean time to failure versus a 1024 GPU pool with about 48.8 hours mean time between failures."}
+
+*Fleet scale turns rare component failures into routine system events.*
+:::
+
+That era demands concrete engineering advances. Achieving exascale sustained throughput $(\geq 10^{18} \text{ FLOP/s})$ and beyond requires entirely new approaches to power delivery, cooling, interconnects, and software coordination, not merely faster chips. The analytical tools developed in this volume, applied to those challenges, are what equip engineers to navigate the regime ahead.
+
+Whether or not AGI emerges in its fullest form, the systems principles established throughout this book will remain essential. The principles do not expire; they evolve. Their most immediate evolution is the transition from a single machine to the fleet-scale infrastructure that frontier AI already demands, a transition that brings with it both engineering opportunity and engineering responsibility. Reliability is where that shift becomes visible first: as independent components accumulate, rare individual failures become routine fleet events.
+
+## Journey Forward {#sec--journey-forward-6453}
+
+Every frontier explored in the previous section (diverse deployment contexts, robust systems, societal applications, and the path to AGI through compound AI systems) rests on a common foundation: the engineering skills this book has developed. Managing the stochastic nature of data through the data as code invariant (Principle \ref{pri-data-as-code}) and the statistical drift invariant, while enforcing deterministic reliability through the iron law (Principle \ref{pri-iron-law}), silicon contract (Principle \ref{pri-silicon-contract}), and latency budget, requires bridging the gap between Software 1.0's explicit logic and Software 2.0's learned behaviors. That bridge is the engineering rigor required to make probabilistic systems dependable.
+
+*Intelligence is a systems property.* It emerges from integrating components rather than from any single breakthrough. GPT-4\index{GPT-4!systems integration} [@openai2023gpt4] illustrates this directly at a high level: OpenAI reports a Transformer-style multimodal model trained with public and licensed data, posttrained with reinforcement learning from human feedback, evaluated with safety mitigations, and deployed through infrastructure designed to behave predictably across scales. The GPT-4 technical report does not disclose the model architecture, hardware count, training compute, or dataset construction in enough detail to audit those internals. The systems lesson is therefore about integration rather than a specific recipe: no single component makes a frontier model possible; the integration makes it possible.
+
+### The engineering responsibility { .unnumbered}
+
+Before looking to the horizon of scale, we must ground ourselves in responsibility. The systems integration perspective explains why ethical considerations cannot be separated from technical ones. The same iron law (Principle \ref{pri-iron-law}) that enables efficient systems determines who can access them: a model requiring four H100 GPUs for inference excludes organizations that cannot afford that infrastructure. The same data as code invariant (Principle \ref{pri-data-as-code}) that gives models their capabilities also encodes the biases present in training data. The same energy-movement invariant that governs chip-level efficiency scales to data-center-level carbon footprints that affect the planet. Technical decisions are ethical decisions, viewed through a wider lens.
+
+The question confronting our generation is not whether increasingly capable AI will arrive, but whether it will be built well. It must be efficient enough to democratize access beyond wealthy institutions, secure enough to resist exploitation, sustainable enough to preserve our planet, and responsible enough to serve all humanity equitably. The intelligent systems that will define the coming decades, from planetary-scale climate monitors to personalized medical assistants, require the engineering expertise this book has developed, guided by the responsibility that @sec-responsible-engineering established as a first-class design constraint.
+
+Exercising that responsibility at the scale these applications demand, however, requires moving beyond the single machine. The principles we have established govern individual systems; the next frontier applies them to thousands of machines working as one.
+
+```{python}
+#| echo: false
+#| label: conclusion-fleet-failure-math
+#| output: false
+# ┌─────────────────────────────────────────────────────────────────────────────
+# │ FLEET FAILURE MATH (NODE-TO-FLEET TRANSITION)
+# ├─────────────────────────────────────────────────────────────────────────────
+# │ Context: "Node to fleet" subsection paragraph that motivates the
+# │          warehouse-scale-computer frontier by contrasting component MTTF
+# │          with cluster-level MTBF.
+# │
+# │ Goal:    Show that independent failures across a thousand-GPU pool collapse
+# │          a multi-year component MTTF into a sub-day cluster MTBF.
+# │ Show:    Reference GPU MTTF in years, GPU count, and cluster MTBF in hours.
+# │ How:     Convert Systems.Reliability.Gpu.mttf_hours to years via HOURS_PER_DAY * DAYS_PER_YEAR;
+# │          call calc_mtbf_cluster for the independent-failure cluster MTBF.
+# │
+# │ Imports: mlsysim.core.constants (DAYS_PER_YEAR, HOURS_PER_DAY, ureg),
+# │          Systems.Reliability.Gpu.mttf_hours,
+# │          mlsysim.physics (calc_mtbf_cluster),
+# │          mlsysim.fmt (fmt, check)
+# │ Exports: FleetFailureMath.gpu_count_str,
+# │          FleetFailureMath.gpu_mtbf_years_str,
+# │          FleetFailureMath.cluster_mtbf_hours_str
+# └─────────────────────────────────────────────────────────────────────────────
+from mlsysim.physics import calc_mtbf_cluster
+from mlsysim.fmt import fmt, check, fmt_time
+
+class FleetFailureMath:
+    # LOAD
+    gpu_count = Systems.Clusters.Training_1K.total_accelerators
+    gpu_mtbf = float(Systems.Reliability.Gpu.mttf_hours) * ureg.hour
+
+    # EXECUTE
+    gpu_mtbf_years = gpu_mtbf.to(hour).magnitude / (HOURS_PER_DAY * DAYS_PER_YEAR)
+    cluster_mtbf = calc_mtbf_cluster(gpu_mtbf, gpu_count)
+
+    # GUARD
+    check(gpu_mtbf_years > 1, "Component MTTF should read as years.")
+    check(cluster_mtbf.to(hour).magnitude < 100, "Thousand-GPU MTBF should read as hours.")
+
+    # OUTPUT
+    gpu_count_str = fmt(gpu_count, precision=0)
+    gpu_mtbf_years_str = fmt_time(gpu_mtbf_years, 'year', precision=1, commas=False, style='word')
+    cluster_mtbf_hours_str = fmt_time(cluster_mtbf.to(hour).magnitude, 'hour', precision=1, commas=False, style='word')
+```
+
+### Node to fleet { .unnumbered}
+
+Every principle we have established, from measuring bottlenecks to co-designing for hardware, was developed within the scope of a single system. Training a frontier model, however, requires thousands of GPUs running for months, petabytes of data flowing through distributed pipelines, and failure rates measured in failures per day rather than per year. With the book's reference datacenter GPU MTTF of `{python} FleetFailureMath.gpu_mtbf_years_str`, a `{python} FleetFailureMath.gpu_count_str`-GPU independent-failure pool has an MTBF of about `{python} FleetFailureMath.cluster_mtbf_hours_str` before accounting for correlated failures. The systems that will define the next decade of AI operate at a scale where individual machines become components of something far larger. That transition is not merely an increase in quantity; it is a qualitative shift in the engineering challenges involved.
+
+This book has deliberately focused on mastering the ML node. We established principles that can be directly observed and experimented with on a single system. Understanding bottlenecks on one machine (whether memory bandwidth limitations, CPU-GPU data transfer overhead, or preprocessing inefficiencies) enables recognition of when and why scaling becomes necessary. We learned to calculate arithmetic intensity, optimize data pipelines, and prune models to fit within strict constraints.
+
+As we saw in @sec-model-training, however, even a perfectly optimized node has a physical ceiling. To train the next generation of foundation models or serve billions of users, we must leave the single node behind. We must transition from *optimizing the individual unit* to *orchestrating the ML fleet*.
+
+The **Warehouse-Scale Computer**[^fn-warehouse-scale]\index{Warehouse-Scale Computer!ML fleet orchestration} defines this frontier. In this regime, the data center is no longer a building that houses computers; *the data center is the computer*. The memory bandwidth constraints we studied in @sec-hardware-acceleration expand to become network topology challenges, where the interconnects between racks become the new system bus. Failure planning shifts from *if* to *when*: in a cluster of thousands of GPUs, fleet-level mean time between failures drops from component lifetimes measured in years to system lifetimes measured in hours or days, and the system must heal itself while computation continues. Training shifts from a local optimization loop to a distributed consensus problem, where gradient updates must be synchronized across a fleet without stalling the math.
+
+[^fn-warehouse-scale]: **Warehouse-Scale Computer (WSC)**\index{Warehouse-Scale Computer!etymology}: Coined by @barroso2019. The term reframes a data center from a *building that houses computers* to a *single computer* distributed across thousands of racks. The "system bus" becomes the network fabric, "memory" spans petabytes of distributed storage, and component failures occur continuously rather than exceptionally. For ML training, the WSC perspective explains why frontier model training is fundamentally an infrastructure challenge requiring the entire fleet to function as a single programmable system.
+
+The transition from Node to Fleet is a fundamental shift in which physical constraints dominate, yet the foundation remains the same. The iron law still governs performance, but the variables now span racks and zones. The AI Triad still applies, but the "Machine" is now a global infrastructure. The unit is mastered; the collective awaits.
+
+Mastery, however, carries a recurring temptation: the belief that understanding a system means understanding it completely. Before we close, we confront the misconceptions that even experienced engineers carry, the fallacies and pitfalls that arise when confidence outpaces humility.
+
+## Fallacies and Pitfalls {#sec--fallacies-pitfalls-12ef}
+
+These errors arise from a common source: treating ML systems as decomposable into independent parts. Each fallacy assumes that optimizing one dimension, one metric, or one stage suffices; each pitfall shows the consequence when that assumption meets production reality.
+
+**Fallacy**: *Systems engineering complexity disappears with better tools and abstractions.*
+
+Tools abstract complexity; they do not eliminate it. A high-level framework that hides memory management still consumes memory. An AutoML system that tunes hyperparameters still faces the Pareto frontier. The conservation of complexity guarantees that simplifying one interface pushes complexity to another. The engineer who believes tools eliminate fundamental constraints will be surprised when those constraints resurface at scale, often in forms harder to diagnose than the original problem.
+
+**Pitfall**: *Optimizing a single invariant while ignoring the conservation of complexity.*
+
+When an optimization reduces latency by 50 percent, ask where the cost went. Quantization may have shifted load to the accuracy monitoring pipeline. Caching may have traded memory capacity for serving speed. Engineers who celebrate gains in one metric without tracing the compensating costs elsewhere build systems that fail in unexpected ways. Every invariant connects to others; optimizing one in isolation creates technical debt that compounds over time.
+
+**Fallacy**: *Mastering individual components equals mastering the system.*
+
+Component expertise is necessary but insufficient. An engineer who understands data pipelines, training, serving, and operations as isolated domains will still struggle with systems where a data schema change cascades through training, breaks quantization assumptions, and triggers silent accuracy degradation in production. The integration complexity exceeds the sum of component complexities because interfaces multiply failure modes. Systems thinking means understanding how components interact, not just how they work individually.
+
+**Fallacy**: *More data always improves model quality.*
+
+The intuition that more data yields better models is seductive because it holds true early in model development. @Sec-data-selection demonstrated the diminishing returns that set in once a dataset achieves sufficient coverage: beyond that threshold, doubling dataset size yields marginal accuracy gains while doubling storage, preprocessing, and labeling costs. The data gravity invariant (Principle \ref{pri-data-gravity}) ensures that data scale decisions cascade through every downstream system, because larger datasets demand proportionally more I/O bandwidth, longer preprocessing pipelines, and costlier feature stores. The engineer who scales data without measuring the incremental return per additional sample optimizes the wrong variable.
+
+**Fallacy**: *A single accuracy metric captures model quality.*
+
+A model evaluated solely on accuracy inhabits a one-dimensional world. The Pareto frontier (Principle \ref{pri-pareto-frontier}) establishes that accuracy is one dimension of a multi-dimensional trade-off space encompassing latency, throughput, memory, energy, fairness, and cost. A model achieving 95 percent accuracy with 500 ms latency may be strictly worse for production serving than one achieving 93 percent accuracy at 50 ms latency, because the latency budget invariant (Principle \ref{pri-latency-budget}) enforces P99 as the hard constraint. @Sec-responsible-engineering showed that even the accuracy dimension itself is misleading when aggregate metrics conceal 40$\times$ error rate disparities across demographic groups. Evaluation must span the full Pareto surface, not a single axis.
+
+**Pitfall**: *Deploying models without automated rollback mechanisms.*
+
+The statistical drift invariant (Principle \ref{pri-statistical-drift}) guarantees that accuracy degrades over time as the serving distribution drifts from the training distribution, even when no code changes. Without automated rollback, a silently degrading model continues serving bad predictions until a human notices, a delay that can extend for weeks when the degradation is gradual. @Sec-ml-operations analyzed how drift detection pipelines must be coupled with automated response: monitoring without action is surveillance, not engineering. Rollback mechanisms close the loop between detection and correction, converting the statistical drift invariant from a threat into a manageable constraint.
+
+**Pitfall**: *Optimizing a single pipeline stage without profiling the full system.*
+
+```{python}
+#| echo: false
+#| label: conclusion-amdahl-pitfall
+#| output: false
+# ┌─────────────────────────────────────────────────────────────────────────────
+# │ AMDAHL'S LAW PITFALL CALCULATION
+# ├─────────────────────────────────────────────────────────────────────────────
+# │ Context: Fallacies and Pitfalls paragraph immediately following the
+# │          "Optimizing a single pipeline stage" pitfall in the conclusion.
+# │
+# │ Goal:    Quantify how Amdahl's Law caps end-to-end speedup when only a
+# │          small fraction of the pipeline is being optimized.
+# │ Show:    Local speedup factor, serial-fraction percent, and resulting
+# │          system-level speedup for the worked pitfall example.
+# │ How:     Apply calc_amdahls_speedup with optimized_fraction=0.10 and a
+# │          10x local speedup, then format each value for prose inlining.
+# │
+# │ Imports: mlsysim.physics (calc_amdahls_speedup),
+# │          mlsysim.fmt (fmt, check)
+# │ Exports: AmdahlPitfallMath.local_speedup_mult_str,
+# │          AmdahlPitfallMath.serial_pct_str,
+# │          AmdahlPitfallMath.system_speedup_mult_str
+# └─────────────────────────────────────────────────────────────────────────────
+from mlsysim.physics import calc_amdahls_speedup
+from mlsysim.fmt import fmt, check
+
+class AmdahlPitfallMath:
+    # LOAD
+    optimized_fraction = 0.10
+    serial_fraction = 1 - optimized_fraction
+    local_speedup = 10.0
+
+    # EXECUTE
+    system_speedup = calc_amdahls_speedup(optimized_fraction, local_speedup)
+
+    # GUARD
+    check(system_speedup < 1.2, "Amdahl example should remain bottlenecked by preprocessing.")
+
+    # OUTPUT
+    local_speedup_mult_str = fmt_multiple(local_speedup, precision=0, commas=False)
+    serial_pct_str = fmt_percent(serial_fraction, precision=0, commas=False, style='prose')
+    system_speedup_mult_str = fmt_multiple(system_speedup, precision=1, commas=False)
+```
+
+Amdahl's Law (Principle \ref{pri-amdahl}) applies directly to end-to-end ML pipelines. Optimizing inference latency by `{python} AmdahlPitfallMath.local_speedup_mult_str` yields only `{python} AmdahlPitfallMath.system_speedup_mult_str` system speedup if data loading accounts for `{python} AmdahlPitfallMath.serial_pct_str` of end-to-end latency. The iron law of ML systems (Principle \ref{pri-iron-law}) decomposes execution time into data movement, computation, and latency terms precisely so that engineers can identify the dominant term before investing optimization effort. @Sec-benchmarking formalized this diagnostic process through profiling methodologies that measure where time actually goes. Engineers who optimize without profiling are guessing, and Amdahl's Law is unforgiving of guesses that target the wrong term.
+
+All seven fallacies and pitfalls share a common root: the temptation to reduce a system to its parts, whether by optimizing a single metric, a single stage, or a single moment in time. The key takeaways that follow capture the integrated perspective that resists that reduction.
+
+## Summary {#sec--summary-2ef7}
+
+The conclusion distilled the integrated perspective that distinguishes ML systems engineering from isolated component optimization. The thirteen invariants, unified by the conservation of complexity, and the Lighthouse Journey framework provide the analytical tools for reasoning about systems as wholes, tools that remain valid regardless of which frameworks, hardware generations, or model families come to dominate in the years ahead.
+
+::: {.callout-takeaways title="Reasoning across boundaries"}
+
+* **Thirteen quantitative invariants define ML systems engineering**: From the data as code invariant through the bias feedback invariant, these principles quantify the constraints that govern every design decision, organized across Foundations (data physics), Build (computation physics), Optimize (efficiency physics), and Deploy (reliability physics).
+* **The conservation of complexity unifies all thirteen**: Complexity in an ML system cannot be destroyed; it can only be moved between data, algorithm, and machine. Every invariant quantifies a specific consequence of where complexity currently resides.
+* **The system is the model**: The true model is data pipeline + training infrastructure + serving system + monitoring loop. Optimize the system to improve the model.
+* **Production ML demands continuous operation and designed-in robustness**: The verification invariant, statistical drift invariant, and training-serving skew law guarantee that models degrade without code changes and that some failures reach production. Redundancy, uncertainty quantification, and continuous monitoring are first-class design requirements, not optional add-ons.
+* **Every deployment context stresses different invariants, but no context escapes them**: Cloud, edge, generative AI, and TinyML each foreground different terms of the iron law, but the Pareto frontier and energy-movement invariant govern all of them; success requires applying multiple principles simultaneously rather than optimizing any single metric.
+* **Technical excellence must combine with ethical commitment**: The verification invariant and drift invariants apply equally to fairness metrics. Build systems that are efficient, accessible, sustainable, and beneficial.
+* **Mastering the node prepares engineers for the fleet**: The principles developed for single systems, from bottleneck diagnosis to hardware co-design and drift monitoring, scale to the Warehouse-Scale Computer, where the data center becomes the computer and the iron law spans racks and zones.
+
+:::
+
+In 1990, Hennessy and Patterson gave computer architecture a shared analytical language, a quantitative framework that transformed a craft practiced by intuition into a discipline governed by measurable principles. Before their work, architects debated reduced instruction set computer (RISC) vs. CISC with rhetoric; after it, they compared CPI, clock rates, and instruction counts with arithmetic. The thirteen invariants developed across this volume aspire to the same role for ML systems engineering. They are a beginning, not an endpoint. Future work will refine their constants, extend their scope, and discover invariants we have not yet named. What will endure is the intellectual posture they embody: reasoning from physics rather than reacting to symptoms, quantifying trade-offs rather than following trends, and treating every design decision as a constrained optimization problem with measurable terms. Specific frameworks will rise and fall, hardware generations will turn over, and today's model architectures will be superseded. The discipline of reasoning from first principles about data, computation, and physical constraints will not.
+
+*The future of intelligence is not a destiny we will merely witness. It is a system we must engineer.*
+
+```{=latex}
+\vspace{5mm}
+\begingroup
+\raggedleft
+```
+
+*Prof. Vijay Janapa Reddi, Harvard University*
+
+```{=latex}
+\vspace{10mm}
+\endgroup
+```
+
+::: {.callout-chapter-connection title="From node to fleet"}
+
+This book established the principles for mastering the *ML node*, the single system where data, algorithms, and hardware converge. Every invariant, every Lighthouse analysis, and every optimization strategy was developed within the scope of one machine. The companion book extends these principles to the *fleet*: the Warehouse-Scale Computer where thousands of nodes must function as a single programmable system. The iron law expands from chip-level analysis to rack-level and zone-level decomposition. The silicon contract generalizes from CPU-GPU co-design to heterogeneous fleet orchestration. The statistical drift invariant scales from monitoring one model to governing thousands of models serving billions of users. The physics does not change; the scale does. With the unit mastered, the next discipline is the orchestration of the collective.
+
+:::
+
+::: { .quiz-end }
+:::
+
+```{=latex}
+\part{key:backmatter}
+```

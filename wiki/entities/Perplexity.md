@@ -2,8 +2,8 @@
 title: "Perplexity"
 type: entity
 tags: [product, conversational-search, startup, foundation-model-app]
-sources: [ai-engineering-ch01-intro, ai-engineering-ch06-rag-agents, hands-on-llm-ch08-semantic-search-and-rag, hands-on-llm-ch12-fine-tuning-generation-models]
-last_updated: 2026-05-24
+sources: [ai-engineering-ch01-intro, ai-engineering-ch06-rag-agents, hands-on-llm-ch08-semantic-search-and-rag, hands-on-llm-ch12-fine-tuning-generation-models, agentic-design-patterns-ch17-reasoning]
+last_updated: 2026-06-07
 ---
 
 # Perplexity
@@ -38,3 +38,7 @@ This positions Perplexity as **the standalone-startup representative** of the th
 ## Note on Hands-On LLMs Ch 12 disambiguation
 
 [[hands-on-llm-ch12-fine-tuning-generation-models|Ch 12]] of *Hands-On LLMs* references `[[Perplexity]]` in the context of **the language-modeling evaluation metric** (Jelinek et al. 1977), **not** the company. The metric coverage lives on the [[Perplexity|concepts/Perplexity.md]] page, which records the Ch 12 use. This entity page (the company / product) is preserved unchanged for that purpose; Ch 12 does not add new content about the company.
+
+## From [[agentic-design-patterns-ch17-reasoning|Agentic Design Patterns Ch 17]]
+
+[[AntonioGulli|Gulli]]'s Reasoning Techniques chapter names **Perplexity AI** as one of the major platforms in the [[DeepResearch|Deep Research]] space — *"AI Agentic tools designed to act as tireless, methodical research assistants"* — alongside [[gemini|Google Gemini]]'s research capabilities and [[openai|OpenAI]]'s advanced ChatGPT functions. This extends Perplexity's earlier wiki framing (conversational/generative search) to the **agentic deep-research** category: given a complex query and a few-minute "time budget," the tool autonomously explores, reasons, refines, and synthesizes a detailed report. See [[DeepResearch]] and [[ReasoningTechniques]].

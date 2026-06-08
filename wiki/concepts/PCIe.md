@@ -2,8 +2,8 @@
 title: "PCIe"
 type: concept
 tags: [hardware, interconnect, infrastructure]
-sources: [d2l-computational-performance]
-last_updated: 2026-05-16
+sources: [d2l-computational-performance, mlsysbook-ch11-hardware-acceleration]
+last_updated: 2026-06-05
 ---
 
 # PCIe (PCI Express)

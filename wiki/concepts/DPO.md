@@ -1,9 +1,9 @@
 ---
 title: "DPO (Direct Preference Optimization)"
 type: concept
-tags: [preference-alignment, fine-tuning, rlhf]
-sources: [leh-ch06-preference-alignment, leh-ch11-mlops-and-llmops, ai-engineering-ch02-foundation-models, hands-on-llm-ch12-fine-tuning-generation-models]
-last_updated: 2026-05-23
+tags: [preference-alignment, fine-tuning, rlhf, agentic-design-patterns]
+sources: [leh-ch06-preference-alignment, leh-ch11-mlops-and-llmops, ai-engineering-ch02-foundation-models, hands-on-llm-ch12-fine-tuning-generation-models, agentic-design-patterns-ch09-learning-adaptation]
+last_updated: 2026-06-07
 ---
 
 ## Definition
@@ -58,3 +58,13 @@ Ch 12 closes by forward-referencing [[ORPO]] (Hong, Lee & Thorne 2024) — *"a p
 > *"A disadvantage of PPO is that it is a complex method that needs to train at least two models, the reward model and the LLM, which can be more costly than perhaps necessary."* — Ch 12
 
 DPO removes both the second model (the reward model) and the RL training loop, in exchange for needing to keep the frozen reference model in memory at training time.
+
+## Agentic Design Patterns (Gulli) perspective
+
+[[agentic-design-patterns-ch09-learning-adaptation|Chapter 9 (Learning and Adaptation)]] of [[AgenticDesignPatterns|*Agentic Design Patterns*]] frames DPO as "a more recent method designed specifically for aligning Large Language Models with human preferences… a simpler, more direct alternative to using [[PPO]]." Its account of the mechanism (no math):
+
+> "DPO skips the reward model entirely. Instead of translating human preferences into a reward score and then optimizing for that score, DPO uses the preference data directly to update the LLM's policy."
+
+> "It essentially teaches the model: 'Increase the probability of generating responses like the *preferred* one and decrease the probability of generating ones like the *disfavored* one.'"
+
+The chapter motivates DPO by the instability of the [[PPO]] route — the LLM "might find a loophole and learn to 'hack' the [[RewardModel|reward model]] to get high scores for bad responses" — concluding that DPO "simplifies alignment by directly optimizing the language model on human preference data… making the alignment process more efficient and robust." See [[LearningAndAdaptation]].

@@ -2,8 +2,8 @@
 title: "Universal Approximation Theorem"
 type: concept
 tags: [theory, neural-networks, foundational]
-sources: [d2l-multilayer-perceptrons]
-last_updated: 2026-05-16
+sources: [d2l-multilayer-perceptrons, mlsysbook-ch05-neural-computation]
+last_updated: 2026-06-05
 ---
 
 # Universal Approximation Theorem
@@ -37,3 +37,4 @@ Deeper networks can represent some function classes *exponentially more compactl
 - [[KernelMethods]] / [[RBFNetwork]] — alternative universal-approximator family (Micchelli).
 - [[NeuralTangentKernel]] — infinite-width limit makes the kernel analogy precise.
 - [[GeorgeCybenko]] — the 1989 author (entity / stub).
+- [[Compositionality]] / [[mlsysbook-ch05-neural-computation]] — Ch 5 stresses the theorem is *non-constructive* and that the single-hidden-layer width can grow exponentially; depth trades this exponential width for polynomial depth, achieving the same approximation with exponentially fewer parameters — *why* deep beats wide.

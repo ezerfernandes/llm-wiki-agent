@@ -2,8 +2,8 @@
 title: "PyTorch"
 type: entity
 tags: [tool, deep-learning, framework]
-sources: [madewithml-mlops-training, madewithml-foundations-pytorch, d2l-preliminaries, d2l-builders-guide, ai-engineering-ch09-inference-optimization]
-last_updated: 2024-12-04
+sources: [madewithml-mlops-training, madewithml-foundations-pytorch, d2l-preliminaries, d2l-builders-guide, ai-engineering-ch09-inference-optimization, mlsysbook-ch07-ml-frameworks, mlsysbook-ch14-ml-operations]
+last_updated: 2026-06-05
 ---
 
 # PyTorch
@@ -40,3 +40,7 @@ Each step multiplies throughput; the chapter doesn't quantify quality impact.
 > *"Popular frameworks such as PyTorch and TensorFlow don't yet allow fine-grained control of memory access. This has led many AI researchers and engineers to become interested in GPU programming languages such as CUDA, OpenAI's Triton, and ROCm."* — Ch 9
 
 PyTorch is positioned as the high-level framework; kernel-level work happens below it in [[CUDA]] / [[Triton]] / [[ROCm]].
+
+## From [[mlsysbook-ch07-ml-frameworks|mlsysbook Vol 1 Ch 7]]
+
+Ch 7 frames PyTorch as the **eager-first research standard** — Facebook AI Research's answer to the *execution problem* via dynamic "define-by-run" graphs that treat deep learning as standard Python (loops, `pdb`). Its [[AutomaticDifferentiation|autodiff]] is **[[Autograd|tape-based]]** (each tensor stores a `grad_fn` chain — `PowBackward0`→`MulBackward0`→`AccumulateGrad`), flexible but harder to optimize globally than [[JAX]]'s transform-based approach. The research-to-production gap is bridged by graph capture: [[TorchScript]] historically, now [[TorchCompile|torch.compile]]'s three-stage pipeline ([[TorchDynamo]]→[[FXGraph]]→[[TorchInductor]]). Ch 7 also details the [[CachingAllocator|caching allocator]], [[nnModule|nn.Module]] internals (parameter discovery, buffers, hooks, `state_dict`), and the [[EagerExecution|dispatch tax]] that makes small models overhead-bound.

@@ -2,8 +2,8 @@
 title: "Neural Network Module (Block)"
 type: concept
 tags: [deep-learning, framework, d2l, abstraction]
-sources: [d2l-builders-guide]
-last_updated: 2026-05-16
+sources: [d2l-builders-guide, mlsysbook-ch07-ml-frameworks]
+last_updated: 2026-06-05
 ---
 
 # Neural Network Module / Block
@@ -54,8 +54,13 @@ chimera = nn.Sequential(NestMLP(), nn.LazyLinear(20), FixedHiddenMLP())
 
 [[d2l-builders-guide]]: "Individual layers can be modules. Many layers can comprise a module. Many modules can comprise a module."
 
+## Three universal principles ([[mlsysbook-ch07-ml-frameworks|mlsysbook Vol 1 Ch 7]])
+
+Ch 7 distills the module abstraction (see [[nnModule]]) to three problems every framework solves: (1) **automatic parameter discovery** (metaclass-intercepted assignment + recursive DFS, so `optimizer.step()` updates millions of params in one vectorized call); (2) **mode-dependent behavior** (a single `.eval()` flag propagates `training=False` to switch dropout/batchnorm); (3) **hierarchical composition + serialization** (`state_dict()` flattens to dotted keys for sequential-byte-stream checkpointing). It also stresses the **parameter vs buffer** split: buffers (`register_buffer`) move with the model but get no gradients.
+
 ## Connections
 
+- [[mlsysbook-ch07-ml-frameworks]] / [[nnModule]] — the three-principle framing of the module abstraction.
 - [[d2l-builders-guide]] — canonical reference for the abstraction.
 - [[Module]] — D2L's *training-loop* base class (orthogonal layer above `nn.Module`).
 - [[PyTorch]] / [[MXNet]] / [[TensorFlow]] / [[JAX]] — the four frameworks compared.

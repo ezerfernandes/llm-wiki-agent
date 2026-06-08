@@ -2,8 +2,8 @@
 title: "Calculus"
 type: concept
 tags: [math, vector-calculus, foundational]
-sources: [d2l-preliminaries, mml-book]
-last_updated: 2026-05-16
+sources: [mml-ch05-vector-calculus, d2l-preliminaries, mml-book]
+last_updated: 2026-06-04
 ---
 
 # Calculus
@@ -29,7 +29,7 @@ Every parameter update in a neural network is a step taken using the [[Gradient|
 | **Jacobian** $\partial \mathbf{f}/\partial \mathbf{x}$ | Matrix of partials for vector-output $\mathbf{f}$ | [[Jacobian]] |
 | **Hessian** $\partial^2 f/\partial x_i\partial x_j$ | Matrix of second partials; curvature; convexity test | [[Hessian]] |
 | **Chain rule** $(g\circ f)' = g'(f)\,f'$ | Composition; basis of [[Backpropagation|backprop]] | [[ChainRule]] |
-| **Taylor expansion** $f(\mathbf{x}+\boldsymbol\delta) \approx f(\mathbf{x}) + \nabla f(\mathbf{x})^\top\boldsymbol\delta$ | Local linearization | — |
+| **Taylor expansion** $f(\mathbf{x}+\boldsymbol\delta) \approx f(\mathbf{x}) + \nabla f(\mathbf{x})\boldsymbol\delta$ | Local linearization | [[TaylorSeries]] / [[Linearization]] |
 
 ## ML uses
 
@@ -39,10 +39,15 @@ Every parameter update in a neural network is a step taken using the [[Gradient|
 - **Differentiable surrogate losses**: accuracy / AUC aren't differentiable, so we optimize a smooth surrogate (cross-entropy, hinge) and pray correlations hold.
 - **Normalizing flows**: log-determinant of the Jacobian for change-of-variables in densities.
 
+## From [[mml-ch05-vector-calculus|MML Ch 5]]
+
+[[mml-ch05-vector-calculus|MML Ch 5 — Vector Calculus]] is the wiki's canonical deep dive for ML-flavored differential calculus: [[DifferenceQuotient|difference quotient]] → [[derivatives|derivative]] → [[DifferentiationRules|differentiation rules]] → [[TaylorSeries|Taylor series]] → [[PartialDerivative|partials]] → [[Gradient|gradient (row vector)]] → [[Jacobian]] → [[Backpropagation|backprop]] / [[AutomaticDifferentiation|autodiff]] → [[Hessian]] → [[Linearization]] / multivariate Taylor. The chapter's explicit thesis (§5.0): vector calculus exists to *compute gradients for optimization*.
+
 ## Connections
 
+- [[mml-ch05-vector-calculus|MML Ch 5]] — canonical ML vector-calculus deep dive.
 - [[d2l-preliminaries]] — minimum viable calculus for deep learning.
-- [[mml-book]] — Ch 5 canonical reference for ML-flavored vector calculus.
+- [[mml-book]] — umbrella source.
 - [[derivatives]] / [[PartialDerivative]] / [[Gradient]] / [[Jacobian]] / [[Hessian]] / [[ChainRule]] — the operators.
 - [[VectorCalculus]] — multivariate extension.
 - [[Autograd]] / [[Backpropagation]] — algorithmic consumers.

@@ -2,8 +2,8 @@
 title: "scikit-learn"
 type: entity
 tags: [library, python, classical-ml]
-sources: [hands-on-llm-ch04-text-classification, hands-on-llm-ch05-text-clustering-topic-modeling]
-last_updated: 2026-05-23
+sources: [hands-on-llm-ch04-text-classification, hands-on-llm-ch05-text-clustering-topic-modeling, mechanics-of-ml]
+last_updated: 2026-06-04
 ---
 
 # scikit-learn
@@ -46,8 +46,14 @@ topic_model.update_topics(abstracts, vectorizer_model=vectorizer_model)
 
 This makes scikit-learn the consistent thread across both Ch 4 (logistic-regression head + classification_report + cosine_similarity) and Ch 5 (CountVectorizer for c-TF-IDF) — establishing the **second wiki appearance of sklearn as an LLM-stack dependency**.
 
+## From [[mechanics-of-ml|*The Mechanics of Machine Learning*]]
+
+This is the wiki's **classical-ML, tabular-data** use of scikit-learn — the library is the book's modeling engine throughout. The workhorses are `sklearn.ensemble.RandomForestRegressor` / `RandomForestClassifier` (with `oob_score=True` for the built-in [[OutOfBagScore|OOB]] estimate, `n_jobs=-1` for parallelism), benchmarked against `LogisticRegression`, `Lasso`, and `GradientBoostingRegressor`. The book leans on sklearn's RF hyperparameters (`n_estimators`, `max_features`, `min_samples_leaf`) for its sequential-tuning recipe and on `feature_importances_` for iterative feature pruning. Pairs with the `category_encoders` library for [[TargetEncoding|target encoding]]. Establishes sklearn's role beyond the LLM stack — as the substrate for the wiki's Random-Forest-first applied-ML source.
+
 ## Connections
 
+- [[mechanics-of-ml]] — RandomForest{Regressor,Classifier} as the book's default model.
+- [[RandomForests]] / [[OutOfBagScore]] — the RF estimator and its OOB metric.
 - [[LogisticRegression]] — the chapter's chosen classifier.
 - [[F1Score]] / [[ConfusionMatrix]] / [[Precision]] / [[Recall]] — the metrics sklearn computes via `classification_report`.
 - [[CosineSimilarity]] — used for zero-shot label assignment.

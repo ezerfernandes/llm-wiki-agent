@@ -2,8 +2,8 @@
 title: "Persona (Prompting Technique)"
 type: concept
 tags: [prompt-engineering, llm, roleplaying]
-sources: [ai-engineering-ch05-prompt-engineering, hands-on-llm-ch06-prompt-engineering]
-last_updated: 2026-05-23
+sources: [ai-engineering-ch05-prompt-engineering, hands-on-llm-ch06-prompt-engineering, agentic-design-patterns-appendix-a-prompting]
+last_updated: 2026-06-07
 ---
 
 # Persona (Prompting Technique)
@@ -79,3 +79,14 @@ persona = "You are an expert in Large Language models. You excel at breaking dow
 ```
 
 The seven-component framework is **a finer decomposition** of Huyen Ch 5's three-part [[PromptStructure|prompt anatomy]] — persona + instruction + context + format + audience + tone all subdivide the *task description* half. Both framings are complementary, not contradictions.
+
+## Agentic Design Patterns (Gulli) — Role Prompting vs. the Persona Pattern
+
+[[agentic-design-patterns-appendix-a-prompting|Appendix A of *Agentic Design Patterns*]] makes a distinction the wiki should keep crisp. What this page calls "persona" — assigning a character/identity to the **model** — Gulli calls **[[RolePrompting|Role Prompting]]** (*"Act as a travel guide"*, *"You are an expert data analyst"*). Gulli reserves the term **Persona Pattern** for the *inverse*: describing the **user / target audience** for the output rather than the model.
+
+| Gulli term | Whose identity is described | Effect |
+|---|---|---|
+| **[[RolePrompting|Role Prompting]]** | the **model** (this page's "persona") | shapes the model's expertise, tone, perspective |
+| **Persona Pattern** | the **user / audience** | shapes language complexity, depth, kind of information |
+
+Appendix A's Persona-Pattern example: *"You are explaining quantum physics. The target audience is a high school student with no prior knowledge of the subject. Explain it simply and use analogies they might understand."* This is the same axis the wiki's [[AudiencePrompt|audience]] prompt component captures (Hands-On LLMs Ch 6). The mechanism is identical to model-persona prompting — conditioning the response distribution — but the lever is the *listener*, not the *speaker*.

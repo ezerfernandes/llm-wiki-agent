@@ -2,8 +2,8 @@
 title: "Markov Chain"
 type: concept
 tags: [probability, stochastic-process, linear-algebra, information-retrieval]
-sources: [iir-ch21-link-analysis]
-last_updated: 2026-05-23
+sources: [iir-ch21-link-analysis, fuzzingbook-06-greybox-fuzzer]
+last_updated: 2026-06-06
 ---
 
 Discrete-time stochastic process on a finite (or countably infinite) state space with the **Markov property**: the probability of the next state depends only on the current state, not on the history. Specified by:
@@ -18,3 +18,6 @@ Discrete-time stochastic process on a finite (or countably infinite) state space
 **Application to IR — [[PageRank]]**: model a random surfer on the web graph as a Markov chain with transition matrix $P = (1-\alpha) A + \alpha E / N$ where $A$ is row-normalized link adjacency and $E$ is uniform teleportation (adding teleportation forces ergodicity even when the link graph has dangling nodes or disconnected components). PageRank is then the stationary distribution $\pi$.
 
 **Disambiguation note**: this wiki also has a [[MarkovModel]] page covering the broader family of Markov-based models (Markov chains, hidden Markov models, MRFs); this concept page covers specifically the discrete-time finite-state chain construction used in [[iir-ch21-link-analysis]].
+
+## From The Fuzzing Book — Greybox Fuzzing
+[[fuzzingbook-06-greybox-fuzzer|Ch 6]] of *The Fuzzing Book* applies the Markov-chain model to **[[GreyboxFuzzing|greybox fuzzing]]**, following [[MarcelBohme|Marcel Böhme]] et al.'s *"Coverage-based Greybox Fuzzing as Markov Chain"* (CCS 2016). The states are program [[PathCoverage|paths]]; mutating a seed on path *p* induces a transition to some path *q* with some probability. Because the fuzzer spends most transitions re-discovering a few high-probability "hot" paths, the [[AFLFast]] schedule reweights effort toward seeds on **low-frequency** paths — assigning each seed [[SeedEnergy|energy]] `1 / f(p)^a` (inversely proportional to how often its path has been visited). This is a concrete use of stationary-distribution reasoning: redistribute visiting probability away from already-saturated states to explore the chain faster. See [[BoostedGreyboxFuzzing]] and [[fuzzingbook-06-greybox-fuzzer]].

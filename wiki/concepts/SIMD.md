@@ -2,8 +2,8 @@
 title: "SIMD (Single Instruction Multiple Data)"
 type: concept
 tags: [parallel-computing, hardware, architecture, gpu, vectorization]
-sources: [parproc-ch01-intro-parallel-processing]
-last_updated: 2026-05-17
+sources: [parproc-ch01-intro-parallel-processing, mlsysbook-ch11-hardware-acceleration]
+last_updated: 2026-06-05
 ---
 
 # SIMD

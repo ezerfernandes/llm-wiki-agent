@@ -2,8 +2,8 @@
 title: "Vanishing Gradient"
 type: concept
 tags: [optimization, neural-networks, foundational]
-sources: [madewithml-baselines, d2l-multilayer-perceptrons, d2l-optimization]
-last_updated: 2026-05-16
+sources: [madewithml-baselines, d2l-multilayer-perceptrons, d2l-optimization, mlsysbook-ch05-neural-computation]
+last_updated: 2026-06-05
 ---
 
 # Vanishing Gradient
@@ -41,3 +41,4 @@ If the Jacobians have spectral radius $< 1$ on average, the product *shrinks exp
 - [[WeightInitialization]] — parent concept.
 - [[LSTM]] / [[RNN]] — sequence-model setting where it dominated history.
 - [[BatchNormalization]] — orthogonal mitigation.
+- [[mlsysbook-ch05-neural-computation]] — quantifies it as a *systems constraint*: 0.25^10 ≈ 10⁻⁶ (10-layer sigmoid), 0.25^20 ≈ 10⁻¹² (20-layer) — "a mathematical impossibility" invisible in logs (loss plateaus or goes NaN); ReLU + residual connections were the two architectural breakthroughs.

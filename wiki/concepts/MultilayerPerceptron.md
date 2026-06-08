@@ -2,8 +2,8 @@
 title: "Multilayer Perceptron"
 type: concept
 tags: [neural-networks, architecture, foundational]
-sources: [madewithml-baselines, d2l-multilayer-perceptrons]
-last_updated: 2026-05-16
+sources: [madewithml-baselines, d2l-multilayer-perceptrons, mlsysbook-ch05-neural-computation, mlsysbook-ch06-network-architectures]
+last_updated: 2026-06-05
 ---
 
 # Multilayer Perceptron (MLP)
@@ -54,3 +54,6 @@ $$
 - [[DoubleDescent]] / [[InterpolationRegime]] / [[NeuralTangentKernel]] — modern generalization story.
 - [[NeuralNetwork]] — superclass.
 - [[Transformer]] / [[CNN]] / [[RNN]] — architectural descendants for sequence / image / sequence data.
+- [[mlsysbook-ch05-neural-computation]] — the 784→128→64→10 MNIST MLP is the chapter's running cost example (~109K params, 109,184 MACs, ~438 KB FP32); it also notes the FC layer's weakness — a fully connected first layer learns 100,352 weights treating all pixels independently, wasting compute on irrelevant long-range pixel relationships that convolutions avoid by design.
+- [[WeightMatrix]] / [[ModelSize]] / [[Compositionality]] — the parameter/memory/depth framing.
+- [[mlsysbook-ch06-network-architectures]] — systems view: the MLP is the *universal baseline* (every other architecture is an MLP plus structural constraints) with the weakest [[InductiveBias|inductive bias]]; it "moves maximum data for minimum compute" (batch-1 dense layers ≈ 0.5 FLOP/byte → memory-bandwidth-bound), and its $\mathcal{O}(d^2)$ scaling motivates the [[LearnabilityGap|learnability gap]] and specialized architectures.
